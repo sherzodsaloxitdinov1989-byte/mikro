@@ -41,7 +41,7 @@ export function normalizeSubmission(topicId, raw = {}) {
     });
     return { id: task.id, title: task.title, text: task.text, formula: task.formula, solution: task.solution, work: clip(given.work, 1500), fields, attempted: fields.some((f) => f.given !== ""), ok: fields.every((f) => f.ok) };
   });
-  const open = (topic.practice.open || []).map((q, i) => ({ q, answer: clip(raw.open?.[i], 3000) }));
+  const open = (topic.practice.open || []).map((q, i) => ({ q, ref: topic.practice.refs?.[i] || "", answer: clip(raw.open?.[i], 3000) }));
   return { topic, tasks, open, conclusion: clip(raw.conclusion, 3000) };
 }
 
@@ -53,7 +53,7 @@ export function reviewPrompt(sub) {
       return `[${t.id}] ${t.title}\nShart: ${t.text}${t.formula ? `\nFormula: ${t.formula}` : ""}\nNamunaviy yechim: ${t.solution}\nTalabaning yechim yo'li: ${t.work || "(yozilmagan)"}\n${fields}`;
     })
     .join("\n\n");
-  const openText = sub.open.map((o, i) => `${i + 1}) Topshiriq: ${o.q}\n   Talaba javobi: ${o.answer || "(bo'sh)"}`).join("\n");
+  const openText = sub.open.map((o, i) => `${i + 1}) Topshiriq: ${o.q}${o.ref ? `\n   Namunaviy yechim (darslikdan): ${o.ref}` : ""}\n   Talaba javobi: ${o.answer || "(bo'sh)"}`).join("\n");
   return `Sen "${COURSE.title}" fanidan (${COURSE.domain}) amaliy mashg'ulotlarni tekshiruvchi tajribali OTM o'qituvchisisan (${COURSE.audience}). Talabaning ${topic.num}-mavzu bo'yicha amaliy ishini tekshir va unga foydali, aniq feedback ber.
 
 Mavzu: ${topic.num}. ${topic.title}

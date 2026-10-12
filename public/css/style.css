@@ -597,3 +597,14 @@ a.chip { text-decoration: none; }
   .nav a { padding: 8px 9px; font-size: 0.9rem; }
   .nav-user-name { display: none; }
 }
+
+/* Darslik matni: jadvallar, rasmlar, qutilar */
+.book-text .tbl-wrap { overflow-x: auto; margin: 12px 0; }
+.book-text table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+.book-text th, .book-text td { border: 1px solid var(--border, #d9dde3); padding: 6px 10px; text-align: left; vertical-align: top; }
+.book-text th { background: var(--surface-2); }
+.book-text p.figure { text-align: center; margin: 14px 0; }
+.book-text img { max-width: 100%; height: auto; border-radius: 8px; background: #fff; }
+.book-text .callout p { text-align: left; margin-bottom: 0.5em; }
+.book-text .callout-calc { border-left-color: #2f9e6b; background: color-mix(in srgb, #2f9e6b 10%, transparent); }
+.book-text sup, .book-text sub { font-size: 0.75em; line-height: 0; }

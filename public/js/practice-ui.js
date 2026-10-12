@@ -16,6 +16,7 @@ export function practicePanel(topic) {
   const draft = (st.practiceDraft ||= { open: [], conclusion: "" });
   const summary = h("div", { class: "practice-summary" });
   const drawSummary = () => {
+    if (!pr.tasks.length) return;
     const ok = pr.tasks.filter((t) => st.practice[t.id]?.ok).length;
     summary.replaceChildren(
       h("div", { class: "ps-ring", style: { "--p": Math.round((ok / pr.tasks.length) * 100) } }, h("b", {}, `${ok}/${pr.tasks.length}`)),
@@ -78,10 +79,10 @@ export function practicePanel(topic) {
       h("h3", {}, "🎯 Mashg'ulot maqsadi"),
       h("p", {}, pr.goal),
       h("div", { class: "chips" }, pr.concepts.map((c) => h("span", { class: "chip chip-soft" }, c))),
-      h("p", { class: "muted small" }, `Asosiy manba: ${COURSE.source}${pr.source ? `, ${pr.source}` : ""}. Shartli raqamlar dars mashqi uchun tuzilgan.`)),
+      h("p", { class: "muted small" }, `Asosiy manba: ${COURSE.source}${pr.source ? `, ${pr.source}` : ""}.`)),
     summary,
     taskCards,
-    openBoxes.length > 0 && h("h3", { class: "practice-sub" }, "📁 Keys va tahliliy topshiriqlar"),
+    openBoxes.length > 0 && h("h3", { class: "practice-sub" }, (pr.tasks.length ? "📁 Keys va tahliliy topshiriqlar" : "📁 Masalalar va topshiriqlar")),
     openBoxes,
     h("div", { class: "card" }, h("h4", {}, "📝 Umumiy xulosa"), conclusion),
     h("div", { class: "card ai-card" },

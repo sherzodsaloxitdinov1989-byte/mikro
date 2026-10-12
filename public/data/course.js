@@ -6,30 +6,32 @@
 
 export const COURSE = {
   // Platforma nomi (sarlavha, menyu, sertifikat). Qisqa va esda qoladigan bo'lsin.
-  brand: "Fan akademiya",
+  brand: "MikroAkademiya",
   // Texnik nom (faqat kichik lotin harflar, raqam va "-"): Cloudflare'dagi Worker nomi va sayt manzili
   // (https://<slug>.<akkaunt>.workers.dev), baza nomi. O'zgartirgandan keyin: npm run configure
-  slug: "fan-platforma",
+  slug: "mikroiqtisodiyot",
   // Sertifikat raqami prefiksi (2–3 lotin harf): #/cert/FA-XXXXXXXX
-  certPrefix: "FA",
+  certPrefix: "MI",
 
   // Logotip belgisi (emoji)
-  logo: "🎓",
+  logo: "📈",
 
   // Fan to'liq nomi
-  title: "Fan nomi",
+  title: "Mikroiqtisodiyot",
   // Bosh sahifadagi katta sarlavha: 2 qatorga bo'linadi (1-qism rangli)
-  heroTitle: ["Fan nomining", "davomi"],
-  audience: "Ta'lim yo'nalishi (shifr – nomi) bakalavriat talabalari uchun",
-  source: "Muallif. “Darslik nomi”. Darslik / o'quv qo'llanma. Shahar: Nashriyot, Yil.",
-  program: "Universitet nomi, kafedra. Fan kodi ..., ... semestr, ... kredit: ma'ruza ... soat, amaliy ... soat, mustaqil ta'lim ... soat.",
+  heroTitle: ["Mikroiqtisodiyot", "interaktiv platformasi"],
+  audience: "60410100 – Iqtisodiyot ta’lim yo‘nalishi bakalavriat talabalari uchun",
+  source: "Saloxitdinov Sh.F. Mikroiqtisodiyot: darslik. – Jizzax: O‘zMU Jizzax filiali, 2026.",
+  program: "Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universitetining Jizzax filiali, «Iqtisodiyot va turizm» kafedrasi. 3–4-semestrlarda o‘qitiladigan 21 ta mavzu (2026–2027 o‘quv yili sillabusi).",
   description:
-    "Fanning qisqacha mazmuni (2–3 gap): fan nimani o'rgatadi, talaba qanday bilim va ko'nikmalarni egallaydi.",
+    "Fan iste’molchilar, uy xo‘jaliklari, firmalar va tarmoqlarning xatti-harakatini hamda ular o‘rtasidagi bozor munosabatlarini o‘rganadi: talab va taklif, elastiklik, iste’molchi tanlovi, ishlab chiqarish va xarajatlar, bozor tuzilmalari, omillar bozori, tashqi samaralar va davlatning roli. Talaba nazariyani O‘zbekiston misollari bilan bog‘lab, hisob-kitob va grafik tahlil ko‘nikmalarini egallaydi.",
   // Fan dasturidagi ta'lim natijalari
   outcomes: [
-    "Ta'lim natijasi 1 (fan dasturidan).",
-    "Ta'lim natijasi 2.",
-    "Ta'lim natijasi 3.",
+    "Mikroiqtisodiyotning predmeti, usullari va N.G. Mankiw'ning iqtisodiyot tamoyillarini tushuntira oladi.",
+    "Talab, taklif va elastiklikni tahlil qilib, bozor muvozanati va davlat tartibga solishining oqibatlarini baholaydi.",
+    "Iste'molchi tanlovi va firma xatti-harakatini (ishlab chiqarish, xarajatlar, foyda) model va hisob-kitob yordamida tahlil qiladi.",
+    "Mukammal raqobat, monopoliya va oligopoliya sharoitida narx va ishlab chiqarish hajmini aniqlaydi.",
+    "Mehnat, kapital va yer bozorlari, tashqi samaralar va jamoat tovarlari bo'yicha davlat siyosatini baholaydi.",
   ],
   // Baholash: [nazorat turi, maksimal ball, o'tish balli]
   grading: [
@@ -41,18 +43,18 @@ export const COURSE = {
   // Talaba darajalari (8 ta, eng pastdan yuqoriga) — fanga mos kasbiy unvonlar tanlang.
   levels: [
     ["Boshlovchi", "🎒"],
-    ["Izlanuvchi", "🔎"],
-    ["Bilimdon", "📗"],
-    ["Mutaxassis", "🎓"],
-    ["Tajribali mutaxassis", "💼"],
-    ["Ekspert", "🏅"],
-    ["Yetakchi ekspert", "🏛️"],
-    ["Fan ustasi", "👑"],
+    ["Iqtisodiyot havaskori", "🔎"],
+    ["Bozor kuzatuvchisi", "📗"],
+    ["Talab va taklif bilimdoni", "⚖️"],
+    ["Mikroiqtisodchi", "🎓"],
+    ["Bozor tahlilchisi", "📊"],
+    ["Iqtisodiy ekspert", "🏛️"],
+    ["Mikroiqtisodiyot ustasi", "👑"],
   ],
   // Talaba shaxsiy sahifasining nomi
-  passportName: "Talaba pasporti",
+  passportName: "Iqtisodchi pasporti",
   // AI tekshiruvchi uchun: fan sohasi (masalan, "marketing", "pedagogika", "buxgalteriya hisobi")
-  domain: "fan sohasi",
+  domain: "mikroiqtisodiyot",
 
   // Bo'limlarni yoqish/o'chirish
   features: {

@@ -1,7 +1,7 @@
 {
-  "name": "Fan akademiya — Fan nomi",
-  "short_name": "Fan",
-  "description": "“Fan nomi” fani bo'yicha interaktiv ta'lim platformasi: darslik, testlar, amaliy mashg'ulotlar va sun'iy intellekt asosidagi tekshiruv.",
+  "name": "MikroAkademiya — Mikroiqtisodiyot",
+  "short_name": "MikroAkademiya",
+  "description": "“Mikroiqtisodiyot” fani bo'yicha interaktiv ta'lim platformasi: darslik, testlar, amaliy mashg'ulotlar va sun'iy intellekt asosidagi tekshiruv.",
   "lang": "uz",
   "start_url": "/#/",
   "scope": "/",

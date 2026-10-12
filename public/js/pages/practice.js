@@ -29,7 +29,7 @@ export async function renderList(el) {
           h("div", { class: "topic-num" }, t.icon, h("span", {}, `${t.num}-amaliy mashg'ulot`)),
           h("h3", {}, t.title),
           h("p", { class: "muted small clamp" }, t.practice.goal),
-          h("div", { class: "row between small muted" }, h("span", {}, `🧮 ${t.practice.tasks.length} masala · 📁 ${t.practice.open?.length || 0} keys`), h("span", {}, st.aiReview ? `🤖 ${st.aiReview.total}/10` : "AI tekshiruvi yo'q")),
+          h("div", { class: "row between small muted" }, h("span", {}, (t.practice.tasks.length ? `🧮 ${t.practice.tasks.length} masala · 📁 ${t.practice.open?.length || 0} keys` : `📁 ${t.practice.open?.length || 0} masala va topshiriq`)), h("span", {}, st.aiReview ? `🤖 ${st.aiReview.total}/10` : "AI tekshiruvi yo'q")),
           progressBar(Math.round((ok / t.practice.tasks.length) * 100)));
       })),
     history?.reviews?.length > 0 && h("details", { class: "card" }, h("summary", {}, h("b", {}, `📜 AI tekshiruvlari tarixi (${history.reviews.length})`)),

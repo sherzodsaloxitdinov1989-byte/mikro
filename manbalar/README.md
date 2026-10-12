@@ -9,3 +9,11 @@ Platformani yangi fanga moslash uchun boshlang'ich materiallar shu papkaga yukla
 - Ixtiyoriy: testlar, keyslar, qo'shimcha materiallar.
 
 Yuklash: GitHub'da shu papkani oching → **Add file → Upload files** → fayllarni sudrab tashlang → **Commit changes**.
+
+## Joriy manba
+`darslik.docx` — Sh.F. Saloxitdinov, «Mikroiqtisodiyot» darsligi (21 bob). Platforma ma'lumotlarini qayta yaratish:
+
+```bash
+python3 scripts/import-mikro.py manbalar/darslik.docx
+```
+Skript `public/data/book.js`, `layers-auto.js`, `practice-auto.js` va `public/img/book/` ni yangilaydi.

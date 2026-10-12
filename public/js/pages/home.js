@@ -69,7 +69,7 @@ export async function render(el) {
   const tests = TOPICS.reduce((s, t) => s + t.quiz.length, 0);
   const questions = TOPICS.reduce((s, t) => s + t.questions.length, 0);
 
-  const tasks = TOPICS.reduce((s, t) => s + (t.practice?.tasks.length || 0), 0);
+  const tasks = TOPICS.reduce((s, t) => s + ((t.practice?.tasks.length || 0) + (t.practice?.open?.length || 0)), 0);
   const features = [
     ["📚", "Interaktiv mavzular", `${TOPICS.length} ta mavzu: o'quv qo'llanma matni (lotin yozuvida), dars taqdimotlari, tushunchalar, nazorat savollari, testlar va interaktiv metodlar.`, "#/topics"],
     ["🧮", "Amaliy mashg'ulotlar + AI tekshiruv", `${tasks} ta masala darhol tekshiriladi; keys va xulosalaringizni sun'iy intellekt 10 ballik mezon bo'yicha baholab, batafsil feedback beradi.`, "#/practice"],
@@ -103,7 +103,7 @@ export async function render(el) {
         h(
           "div",
           { class: "counter-row" },
-          [[TOPICS.length, "mavzu"], [tests, "test savoli"], [tasks, "amaliy masala"], [questions, "nazorat savoli"]].map(([n, l]) => h("div", { class: "counter" }, h("b", { "data-count": n }, "0"), h("span", {}, l)))
+          [[TOPICS.length, "mavzu"], [tests, "test savoli"], [tasks, "amaliy topshiriq"], [questions, "nazorat savoli"]].map(([n, l]) => h("div", { class: "counter" }, h("b", { "data-count": n }, "0"), h("span", {}, l)))
         )
       ),
       heroScene()

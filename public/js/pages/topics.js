@@ -31,7 +31,7 @@ export async function renderList(el) {
           h("h3", {}, t.title),
           h("p", { class: "muted small clamp" }, t.goal),
           h("div", { class: "chips" }, [...new Set(t.methods.map((m) => m.type))].map((type) => h("span", { class: "chip chip-soft" }, METHOD_INFO[type].icon, " ", METHOD_INFO[type].name))),
-          h("div", { class: "row between small muted" }, h("span", {}, `📖 ${t.sections.length} bo'lim · ✅ ${t.quiz.length} test · 🧮 ${t.practice?.tasks.length || 0} masala${t.updates.length ? ` · 🔄 ${t.updates.length}` : ""}`), h("span", {}, pct ? `${pct}% bajarildi` : "Boshlanmagan")),
+          h("div", { class: "row between small muted" }, h("span", {}, `📖 ${t.sections.length} bo'lim · ✅ ${t.quiz.length} test · 🧮 ${(t.practice?.tasks.length || 0) + (t.practice?.open?.length || 0)} masala${t.updates.length ? ` · 🔄 ${t.updates.length}` : ""}`), h("span", {}, pct ? `${pct}% bajarildi` : "Boshlanmagan")),
           progressBar(pct)
         );
       })
@@ -88,7 +88,7 @@ export async function renderTopic(el, id) {
   const videos = videoList.filter((v) => v.topicId === topic.id);
   const player = lessonPlayer(topic, { onComplete: () => updateTopic(topic.id, (s) => (s.watched = true)) });
   const viewer = slides && slideViewer(slides);
-  const counts = { updates: topic.updates.length, video: "▶", videos: videos.length, slides: slides?.pages || (slides ? "▶" : 0), theory: topic.sections.length, glossary: topic.glossary.length, methods: topic.methods.length, questions: topic.questions.length, quiz: topic.quiz.length, practice: topic.practice?.tasks.length || 0, self: topic.selfStudy.length };
+  const counts = { updates: topic.updates.length, video: "▶", videos: videos.length, slides: slides?.pages || (slides ? "▶" : 0), theory: topic.sections.length, glossary: topic.glossary.length, methods: topic.methods.length, questions: topic.questions.length, quiz: topic.quiz.length, practice: (topic.practice?.tasks.length || 0) + (topic.practice?.open?.length || 0), self: topic.selfStudy.length };
 
   // Progress halqasi
   const ring = h("div", { class: "hero-ring", style: { "--p": 0 } }, h("b", {}, "0%"), h("span", {}, "bajarildi"));
@@ -112,7 +112,7 @@ export async function renderTopic(el, id) {
     chapter("methods", "🧠", "Interaktiv metodlar", `${topic.methods.length} ta topshiriq`, methodsTab(topic)),
     chapter("questions", "❓", "Nazorat savollari", `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", `${topic.quiz.length} ta test (mavzu matni asosida)`, quizTab(topic)),
-    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys · 🤖 AI tekshiruv va feedback`, practicePanel(topic)),
+    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", practicePanel(topic)),
     chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
   );
 
@@ -151,7 +151,7 @@ export async function renderTopic(el, id) {
         h("h1", { class: "lesson-title" }, topic.title),
         h("p", { class: "lesson-goal" }, topic.goal),
         h("div", { class: "lesson-stats" },
-          [...(slides ? [["🖥️", slides.pages ? `${slides.pages} slayd` : "taqdimot"]] : []), ["📖", `${topic.sections.length} bo'lim`], ["⏱", `~${minutes} daq`], ["🃏", `${topic.glossary.length} tushuncha`], ["✅", `${topic.quiz.length} test`], ["🧮", `${topic.practice?.tasks.length || 0} masala`], ...(topic.updates.length ? [["🔄", `${topic.updates.length} yangilanish`]] : [])].map(([i, t]) => h("span", { class: "stat-pill" }, i, " ", t))),
+          [...(slides ? [["🖥️", slides.pages ? `${slides.pages} slayd` : "taqdimot"]] : []), ["📖", `${topic.sections.length} bo'lim`], ["⏱", `~${minutes} daq`], ["🃏", `${topic.glossary.length} tushuncha`], ["✅", `${topic.quiz.length} test`], ["🧮", `${(topic.practice?.tasks.length || 0) + (topic.practice?.open?.length || 0)} masala`], ...(topic.updates.length ? [["🔄", `${topic.updates.length} yangilanish`]] : [])].map(([i, t]) => h("span", { class: "stat-pill" }, i, " ", t))),
         h("p", { class: "small lesson-book-title" }, `📘 Darslikda: ${topic.chapter ? `${topic.chapter} bob. ` : ""}${topic.bookTitle === topic.bookTitle.toUpperCase() ? topic.bookTitle.charAt(0) + topic.bookTitle.slice(1).toLowerCase() : topic.bookTitle}`)
       ),
       ring
