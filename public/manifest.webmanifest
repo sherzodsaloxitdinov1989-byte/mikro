@@ -1,0 +1,48 @@
+{
+  "name": "Fan akademiya — Fan nomi",
+  "short_name": "Fan",
+  "description": "“Fan nomi” fani bo'yicha interaktiv ta'lim platformasi: darslik, testlar, amaliy mashg'ulotlar va sun'iy intellekt asosidagi tekshiruv.",
+  "lang": "uz",
+  "start_url": "/#/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1220",
+  "theme_color": "#1d4ed8",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mavzular",
+      "url": "/#/topics"
+    },
+    {
+      "name": "Amaliy mashg'ulotlar",
+      "url": "/#/practice"
+    }
+  ]
+}

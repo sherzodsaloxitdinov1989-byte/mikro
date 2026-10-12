@@ -1,0 +1,20 @@
+{
+  "name": "fan-platforma",
+  "version": "1.0.0",
+  "private": true,
+  "description": "“Fan nomi” fani bo'yicha interaktiv ta'lim platformasi: darslik, testlar, amaliy mashg'ulotlar va sun'iy intellekt asosidagi tekshiruv.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "configure": "node scripts/configure.mjs",
+    "check": "node scripts/check-content.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@breezystack/lamejs": "^1.2.7",
+    "@netlify/blobs": "^11.1.2"
+  }
+}
