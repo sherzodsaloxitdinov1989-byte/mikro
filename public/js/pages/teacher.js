@@ -28,6 +28,7 @@ const SECTIONS = [
   COURSE.features.lab && { key: "labs", icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
   { key: "assignment", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
+  { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "items", icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
   { key: "slides", icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF, PowerPoint yoki havola) joylang." },
@@ -52,7 +53,7 @@ const sectionHref = (key) => `#/teacher/${key}`;
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView };
   const view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   const sec = SECTIONS.find((x) => x.key === tab);
@@ -652,7 +653,17 @@ async function students(el) {
             } catch (ex) {
               toast(ex.message, "error");
             }
-          } }, "🔑"))
+          } }, "🔑"), " ", h("button", { class: "btn small ghost", title: "O'qituvchi qilish", onclick: async () => {
+            if (!confirm(`${u.name} o'qituvchi qilinsinmi? U o'qituvchi panelini ko'ra oladi va talabalarni baholay oladi.`)) return;
+            try {
+              await api.post(`admin/teachers/${u.id}/promote`, {});
+              list.splice(list.indexOf(u), 1);
+              toast(`${u.name} endi o'qituvchi`, "ok");
+              draw();
+            } catch (ex) {
+              toast(ex.message, "error");
+            }
+          } }, "👩‍🏫"))
         )
       )
     );
@@ -747,6 +758,42 @@ function gradeForm(it, redraw) {
 
 
 
+
+
+// ---------------- O'qituvchilar: kirish huquqini boshqarish ----------------
+
+async function teachersView(el) {
+  const draw = async () => {
+    const d = await api.get("admin/teachers");
+    const email = h("input", { type: "email", placeholder: "yangi o'qituvchi emaili", required: true, style: { minWidth: "260px" } });
+    const form = h("form", { class: "row wrap", onsubmit: async (e) => {
+      e.preventDefault();
+      try {
+        const res = await api.post("admin/teachers/invite", { email: email.value });
+        toast(res.promoted ? `${res.name} o'qituvchi qilindi` : "Email qo'shildi. U ro'yxatdan o'tishda «O'qituvchi» ni tanlab, emailiga kelgan kod bilan kiradi.", "ok");
+        draw();
+      } catch (ex) {
+        toast(ex.message, "error");
+      }
+    } }, email, h("button", { class: "btn", type: "submit" }, "➕ Qo'shish"));
+    mount(el,
+      h("div", { class: "card stack" },
+        h("h3", {}, "Yangi o'qituvchi qo'shish"),
+        h("p", { class: "muted small" }, "Emailni kiriting. Shu email egasi saytda «Ro'yxatdan o'tish → O'qituvchi» ni tanlab, emailiga kelgan 6 xonali kod bilan o'qituvchi profilini yaratadi. Agar bu email bilan talaba profili bo'lsa, u darhol o'qituvchiga aylantiriladi."),
+        !d.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta ulanmagan (BREVO_API_KEY va MAIL_FROM), shuning uchun kod yuborilmaydi. Hozircha talabani «Talabalar» bo'limida 👩‍🏫 tugmasi bilan o'qituvchi qiling" + (d.codeEnabled ? " yoki umumiy o'qituvchi kodidan foydalaning." : ".")),
+        form,
+        d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, h("span", { class: "muted small" }, `(${i.by}, ${fmtDate(i.at)}) `), h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
+        d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS): ", d.envEmails.join(", "))),
+      h("div", { class: "card table-wrap" }, h("h3", {}, `Hozirgi o'qituvchilar (${d.teachers.length})`),
+        h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "F.I.Sh."), h("th", {}, "Email"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, ""))),
+          h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, fmtDate(t.createdAt)),
+            h("td", {}, !t.me && h("button", { class: "btn small ghost", onclick: async () => {
+              if (!confirm(`${t.name} o'qituvchilikdan chiqarilib, talabaga aylantirilsinmi?`)) return;
+              try { await api.post(`admin/teachers/${t.id}/demote`, {}); toast("Talaba qilindi", "ok"); draw(); } catch (ex) { toast(ex.message, "error"); }
+            } }, "Talaba qilish"))))))));
+  };
+  await draw();
+}
 
 // ---------------- Tadqiqot arxivi (dissertatsiya III bobi) ----------------
 

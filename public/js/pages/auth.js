@@ -246,6 +246,43 @@ export function cohortPicker(name = "cohort") {
   return wrap;
 }
 
+/** O'qituvchi ro'yxatdan o'tishi: ruxsat etilgan email + emailga kelgan kod (zaxira: umumiy o'qituvchi kodi). */
+function teacherBlock(config, getEmail) {
+  const box = h("div", { class: "hidden stack" });
+  if (config.teacherByEmail) {
+    const code = h("input", { name: "emailCode", inputmode: "numeric", autocomplete: "one-time-code", maxlength: 6, placeholder: "______", style: { letterSpacing: "6px", textAlign: "center" } });
+    const status = h("p", { class: "muted small" }, "Emailingiz o'qituvchi sifatida ruxsat etilgan bo'lishi kerak (mavjud o'qituvchi sizni panelda qo'shadi). Yuqorida emailingizni yozib, «Kod yuborish» ni bosing.");
+    const send = h("button", { type: "button", class: "btn ghost small" }, "📧 Tasdiqlash kodini yuborish");
+    let timer = null;
+    send.addEventListener("click", async () => {
+      const email = getEmail();
+      if (!email) return status.replaceChildren("Avval emailingizni kiriting.");
+      send.disabled = true;
+      try {
+        const res = await api.post("auth/teacher-code", { email });
+        status.replaceChildren(`📧 ${email} manziliga 6 xonali kod yuborildi (${res.expiresInMin} daqiqa amal qiladi). Kelmasa, «Spam» papkasini tekshiring.`);
+        let left = res.resendAfterSec || 60;
+        clearInterval(timer);
+        timer = setInterval(() => {
+          left--;
+          send.textContent = left > 0 ? `Qayta yuborish (${left} s)` : "📧 Kodni qayta yuborish";
+          if (left <= 0) (clearInterval(timer), (send.disabled = false));
+        }, 1000);
+        code.focus();
+      } catch (ex) {
+        status.replaceChildren(h("span", { class: "alert alert-error small" }, ex.message));
+        send.disabled = false;
+      }
+    });
+    box.append(status, send, h("label", { class: "field" }, h("span", {}, "Emailga kelgan kod"), code));
+  }
+  if (config.teacherByCode) {
+    const codeField = field("O'qituvchi kodi", { name: "teacherCode", type: "password", autocomplete: "off" });
+    box.append(config.teacherByEmail ? h("details", {}, h("summary", { class: "small" }, "Menda o'qituvchi kodi bor"), codeField) : h("div", {}, codeField, h("p", { class: "muted small" }, "Kodni platforma administratoridan oling.")));
+  }
+  return box;
+}
+
 export async function renderRegister(el) {
   if (session.user) return afterLogin();
   let config = { teacherSignup: false };
@@ -253,7 +290,7 @@ export async function renderRegister(el) {
     config = await api.get("config");
   } catch {}
   const err = h("div");
-  const teacherFields = h("div", { class: "hidden" }, field("O'qituvchi kodi", { name: "teacherCode", type: "password", autocomplete: "off" }), h("p", { class: "muted small" }, "Kodni platforma administratoridan oling."));
+  const teacherFields = teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase());
   const studentFields = h("div", {}, (config.groups?.length ? h("label", { class: "field" }, h("span", {}, `Guruh${config.studyForm ? ` (${config.studyForm.toLowerCase()} ta'lim)` : ""}`), h("select", { name: "group" }, h("option", { value: "" }, "Guruhingizni tanlang"), config.groups.map((g) => h("option", { value: g }, g)))) : field("Guruh", { name: "group", placeholder: "Masalan: TUR-401", maxlength: 60 })));
   const form = h(
     "form",

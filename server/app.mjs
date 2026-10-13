@@ -80,9 +80,19 @@ async function register(req) {
   if (password.length < 6) throw new HttpError(400, "Parol kamida 6 belgidan iborat bo'lishi kerak");
   if (!name) throw new HttpError(400, "Ism-familiyani kiriting");
   if (role === "teacher") {
-    const code = process.env.TEACHER_CODE;
-    if (!code) throw new HttpError(403, "O'qituvchi ro'yxatdan o'tishi hali sozlanmagan (TEACHER_CODE)");
-    if (str(b.teacherCode) !== code) throw new HttpError(403, "O'qituvchi kodi noto'g'ri");
+    const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 15);
+    if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
+    const secret = process.env.TEACHER_CODE;
+    if (str(b.emailCode)) {
+      // Asosiy yo'l: ruxsat etilgan email + emailga kelgan kod
+      if (!(await isTeacherAllowed(email))) throw new HttpError(403, "Bu email o'qituvchi sifatida ruxsat etilmagan");
+      await checkEmailCode(email, "teacher", str(b.emailCode, 12).replace(/\s/g, ""));
+    } else if (secret) {
+      // Zaxira yo'l: umumiy o'qituvchi kodi
+      if (str(b.teacherCode) !== secret) throw new HttpError(403, "O'qituvchi kodi noto'g'ri");
+    } else {
+      throw new HttpError(403, "O'qituvchi sifatida ro'yxatdan o'tish uchun emailingizga kelgan tasdiqlash kodini kiriting");
+    }
   }
   const store = db();
   if (await store.get(emailKey(email))) throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
@@ -102,6 +112,7 @@ async function register(req) {
   if (role === "student") user.code = await nextCode();
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
+  if (role === "teacher") await store.del(inviteKey(email));
   return json({ token: createToken(user), user: publicUser(user) }, 201);
 }
 
@@ -126,8 +137,8 @@ const CODE_MAX_ATTEMPTS = 5;
 const FORGOT_PER_HOUR = 4;
 const FORGOT_IP_PER_HOUR = 12;
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
-const resetCodeKey = (email) => `resetcode/${sha(email).slice(0, 32)}`;
-const codeHash = (email, code) => sha(`${code}:${email}:${process.env.JWT_SECRET || ""}`);
+const resetCodeKey = (email, purpose = "reset") => `${purpose === "reset" ? "resetcode" : purpose + "code"}/${sha(email).slice(0, 32)}`;
+const codeHash = (email, code, purpose = "reset") => sha(`${code}:${email}:${purpose}:${process.env.JWT_SECRET || ""}`);
 const clientIp = (req) => (req.headers.get("cf-connecting-ip") || req.headers.get("x-nf-client-connection-ip") || (req.headers.get("x-forwarded-for") || "").split(",")[0] || "unknown").trim();
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
@@ -174,23 +185,18 @@ async function forgotPassword(req) {
   return json({ ok: true, expiresInMin: CODE_TTL_MS / 60000, resendAfterSec: CODE_RESEND_MS / 1000 });
 }
 
-async function resetWithCode(req) {
-  const b = await body(req);
-  const email = str(b.email, 120).toLowerCase();
-  const code = str(b.code, 12).replace(/\s/g, "");
-  const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
-  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
-  if (!/^\d{6}$/.test(code)) throw new HttpError(400, "Tasdiqlash kodi 6 ta raqamdan iborat bo'lishi kerak");
-  if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
+/** Emailga yuborilgan kodni tekshiradi; to'g'ri bo'lsa kodni o'chiradi (bir martalik). Aks holda xato tashlaydi. */
+async function checkEmailCode(email, purpose, code) {
   const store = db();
-  const key = resetCodeKey(email);
+  const key = resetCodeKey(email, purpose);
   const rec = await store.get(key);
   const fail = "Kod noto'g'ri yoki muddati o'tgan. Yangi kod so'rang.";
+  if (!/^\d{6}$/.test(code)) throw new HttpError(400, "Tasdiqlash kodi 6 ta raqamdan iborat bo'lishi kerak");
   if (!rec || Date.now() > rec.exp) {
     if (rec) await store.del(key);
     throw new HttpError(400, fail);
   }
-  const given = Buffer.from(codeHash(email, code), "hex");
+  const given = Buffer.from(codeHash(email, code, purpose), "hex");
   const want = Buffer.from(rec.hash, "hex");
   if (given.length !== want.length || !crypto.timingSafeEqual(given, want)) {
     rec.attempts++;
@@ -202,13 +208,58 @@ async function resetWithCode(req) {
     await new Promise((r) => setTimeout(r, 500));
     throw new HttpError(400, `Kod noto'g'ri (qolgan urinishlar: ${CODE_MAX_ATTEMPTS - rec.attempts})`);
   }
+  await store.del(key);
+}
+
+async function resetWithCode(req) {
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  const code = str(b.code, 12).replace(/\s/g, "");
+  const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
+  const store = db();
+  await checkEmailCode(email, "reset", code);
   const ref = await store.get(emailKey(email));
   const user = ref && (await store.get(userKey(ref.id)));
-  if (!user) throw new HttpError(400, fail);
+  if (!user) throw new HttpError(400, "Kod noto'g'ri yoki muddati o'tgan. Yangi kod so'rang.");
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
-  await store.del(key); // kod bir marta ishlatiladi
   return json({ token: createToken(user), user: publicUser(user) });
+}
+
+// ---------- O'qituvchi bo'lish: ruxsat etilgan email + emailga kelgan kod ----------
+// Umumiy maxfiy kod (TEACHER_CODE) o'rniga: o'qituvchi emaili ruxsat ro'yxatida bo'lishi kerak
+// (TEACHER_EMAILS muhit o'zgaruvchisi yoki mavjud o'qituvchi panelda qo'shgan taklif) va email tasdiqlash kodi bilan tasdiqlanadi.
+// TEACHER_CODE ixtiyoriy zaxira sifatida qoladi (pochta ulanmagan bo'lsa).
+const inviteKey = (email) => `teacherinvite/${sha(email).slice(0, 32)}`;
+const envTeacherEmails = () => (process.env.TEACHER_EMAILS || "").split(/[,;\s]+/).map((x) => x.trim().toLowerCase()).filter(Boolean);
+const isTeacherAllowed = async (email) => envTeacherEmails().includes(email) || Boolean(await db().get(inviteKey(email)));
+
+async function teacherSignupCode(req) {
+  if (!mailEnabled()) throw new HttpError(503, "Elektron pochta xizmati sozlanmagan. O'qituvchi kodidan foydalaning.");
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  const store = db();
+  const ip = await bump(`ratelimit/tcode-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, FORGOT_IP_PER_HOUR);
+  if (!ip.ok) throw new HttpError(429, "Juda ko'p so'rov yuborildi. Birozdan keyin qayta urinib ko'ring.");
+  if (!(await isTeacherAllowed(email))) throw new HttpError(403, "Bu email o'qituvchi sifatida ruxsat etilmagan. Mavjud o'qituvchi sizni panelning «O'qituvchilar» bo'limida qo'shishi kerak.");
+  if (await store.get(emailKey(email))) throw new HttpError(409, "Bu email bilan profil allaqachon mavjud. Kirish sahifasidan kiring yoki «Parolni unutdingizmi?» dan foydalaning.");
+  const key = resetCodeKey(email, "teacher");
+  const prev = await store.get(key);
+  if (prev && Date.now() - prev.sentAt < CODE_RESEND_MS) throw new HttpError(429, `Kod yaqinda yuborilgan. ${Math.ceil((CODE_RESEND_MS - (Date.now() - prev.sentAt)) / 1000)} soniyadan keyin qayta so'rang.`);
+  const per = await bump(`ratelimit/tcode/${sha(email).slice(0, 32)}`, 3600_000, FORGOT_PER_HOUR);
+  if (!per.ok) throw new HttpError(429, `Bir soatda ko'pi bilan ${FORGOT_PER_HOUR} marta kod so'rash mumkin.`);
+  const code = String(crypto.randomInt(100000, 1000000));
+  try {
+    await sendResetCode(email, code, CODE_TTL_MS / 60000, "teacher");
+  } catch (e) {
+    console.error("O'qituvchi kodi yuborilmadi:", e);
+    throw new HttpError(502, "Xatni yuborib bo'lmadi. Birozdan keyin qayta urinib ko'ring.");
+  }
+  await store.set(key, { hash: codeHash(email, code, "teacher"), exp: Date.now() + CODE_TTL_MS, attempts: 0, sentAt: Date.now() });
+  return json({ ok: true, expiresInMin: CODE_TTL_MS / 60000, resendAfterSec: CODE_RESEND_MS / 1000 });
 }
 
 // ---------- Parolni tiklash ----------
@@ -623,6 +674,68 @@ async function gradeAssignment(req, uid, no) {
   rec.resubmitted = false;
   await db().set(key, rec);
   return json(rec);
+}
+
+// ---------- O'qituvchilarni boshqarish (faqat o'qituvchi) ----------
+
+async function listTeachers(req) {
+  const me = await requireTeacher(req);
+  const users = await getMany("user/");
+  const teachers = users.filter((u) => u.role === "teacher").map((u) => ({ id: u.id, name: u.name, email: u.email, createdAt: u.createdAt, me: u.id === me.id })).sort((a, b) => a.name.localeCompare(b.name));
+  const invites = (await getMany("teacherinvite/")).map((i) => ({ email: i.email, by: i.by, at: i.at })).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+  return json({ teachers, invites, envEmails: envTeacherEmails(), mailEnabled: mailEnabled(), codeEnabled: Boolean(process.env.TEACHER_CODE) });
+}
+
+async function promoteUser(user) {
+  user.role = "teacher";
+  user.promotedAt = new Date().toISOString();
+  delete user.cohort;
+  delete user.cohortSource;
+  await db().set(userKey(user.id), user);
+}
+
+async function inviteTeacher(req) {
+  const me = await requireTeacher(req);
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  const ref = await db().get(emailKey(email));
+  const user = ref && (await db().get(userKey(ref.id)));
+  if (user) {
+    if (user.role === "teacher") throw new HttpError(409, "Bu foydalanuvchi allaqachon o'qituvchi");
+    await promoteUser(user);
+    return json({ promoted: true, name: user.name });
+  }
+  await db().set(inviteKey(email), { email, by: me.name, at: new Date().toISOString() });
+  return json({ invited: true, mailEnabled: mailEnabled() });
+}
+
+async function uninviteTeacher(req) {
+  await requireTeacher(req);
+  const b = await body(req);
+  await db().del(inviteKey(str(b.email, 120).toLowerCase()));
+  return json({ ok: true });
+}
+
+async function promoteStudent(req, id) {
+  await requireTeacher(req);
+  const user = await db().get(userKey(id));
+  if (!user) throw new HttpError(404, "Foydalanuvchi topilmadi");
+  if (user.role === "teacher") throw new HttpError(409, "Bu foydalanuvchi allaqachon o'qituvchi");
+  await promoteUser(user);
+  return json({ ok: true });
+}
+
+async function demoteTeacher(req, id) {
+  const me = await requireTeacher(req);
+  if (id === me.id) throw new HttpError(400, "O'zingizni o'qituvchilikdan chiqara olmaysiz");
+  const user = await db().get(userKey(id));
+  if (!user || user.role !== "teacher") throw new HttpError(404, "O'qituvchi topilmadi");
+  user.role = "student";
+  user.cohort = "unassigned";
+  if (!user.code) user.code = await nextCode();
+  await db().set(userKey(id), user);
+  return json({ ok: true });
 }
 
 // ---------- Suhbat tarixi (AI Ustoz) ----------
@@ -1673,11 +1786,12 @@ const routes = [
   ["POST", /^auth\/login$/, login],
   ["POST", /^auth\/forgot$/, forgotPassword],
   ["POST", /^auth\/reset-code$/, resetWithCode],
+  ["POST", /^auth\/teacher-code$/, teacherSignupCode],
   ["POST", /^auth\/reset$/, resetPassword],
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
+  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],
@@ -1747,6 +1861,11 @@ const routes = [
   ["GET", /^certificate\/([A-Za-z]{1,4}-[0-9A-Fa-f]{8})$/, getCertificate],
   ["GET", /^admin\/evidence$/, allEvidence],
   ["GET", /^admin\/overview$/, overview],
+  ["GET", /^admin\/teachers$/, listTeachers],
+  ["POST", /^admin\/teachers\/invite$/, inviteTeacher],
+  ["POST", /^admin\/teachers\/uninvite$/, uninviteTeacher],
+  ["POST", /^admin\/teachers\/([\w-]+)\/promote$/, promoteStudent],
+  ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
   ["GET", /^admin\/students$/, listStudents],
   ["PUT", /^admin\/students\/([\w-]+)$/, updateStudent],
   ["POST", /^admin\/students\/([\w-]+)\/password$/, adminResetPassword],

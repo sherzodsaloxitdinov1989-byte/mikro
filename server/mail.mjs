@@ -17,17 +17,18 @@ export const mailEnabled = () => mailProvider() !== null;
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
-/** Parolni tiklash kodi xati. */
-export async function sendResetCode(to, code, minutes) {
+/** Tasdiqlash kodi xati. purpose: "reset" (parolni tiklash) yoki "teacher" (o'qituvchi sifatida ro'yxatdan o'tish). */
+export async function sendResetCode(to, code, minutes, purpose = "reset") {
   const brand = COURSE.brand;
-  const subject = `${brand}: parolni tiklash kodi ${code}`;
-  const text = `Assalomu alaykum!\n\n${brand} platformasida parolni tiklash uchun tasdiqlash kodi:\n\n${code}\n\nKod ${minutes} daqiqa amal qiladi. Uni hech kimga bermang.\nAgar parolni tiklashni siz so'ramagan bo'lsangiz, bu xatga e'tibor bermang — parolingiz o'zgarmaydi.`;
-  const html = `<div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;color:#14213d"><h2 style="margin:0 0 12px">${esc(brand)}</h2><p>Parolni tiklash uchun tasdiqlash kodi:</p><p style="font-size:34px;letter-spacing:8px;font-weight:700;background:#eef4ff;padding:14px 18px;border-radius:10px;text-align:center">${esc(code)}</p><p>Kod <b>${minutes} daqiqa</b> amal qiladi. Uni hech kimga bermang.</p><p style="color:#6b7280;font-size:13px">Agar parolni tiklashni siz so'ramagan bo'lsangiz, bu xatga e'tibor bermang — parolingiz o'zgarmaydi.</p></div>`;
+  const what = purpose === "teacher" ? "o'qituvchi sifatida ro'yxatdan o'tish" : "parolni tiklash";
+  const subject = `${brand}: ${what} kodi ${code}`;
+  const text = `Assalomu alaykum!\n\n${brand} platformasida ${what} uchun tasdiqlash kodi:\n\n${code}\n\nKod ${minutes} daqiqa amal qiladi. Uni hech kimga bermang.\nAgar bu so'rovni siz yubormagan bo'lsangiz, bu xatga e'tibor bermang.`;
+  const html = `<div style="font-family:Arial,sans-serif;max-width:480px;margin:auto;color:#14213d"><h2 style="margin:0 0 12px">${esc(brand)}</h2><p>${esc(what[0].toUpperCase() + what.slice(1))} uchun tasdiqlash kodi:</p><p style="font-size:34px;letter-spacing:8px;font-weight:700;background:#eef4ff;padding:14px 18px;border-radius:10px;text-align:center">${esc(code)}</p><p>Kod <b>${minutes} daqiqa</b> amal qiladi. Uni hech kimga bermang.</p><p style="color:#6b7280;font-size:13px">Agar bu so'rovni siz yubormagan bo'lsangiz, bu xatga e'tibor bermang.</p></div>`;
   const from = process.env.MAIL_FROM;
   const name = process.env.MAIL_FROM_NAME || brand;
   const provider = mailProvider();
   if (provider === "log") {
-    console.log(`[MAIL_DEBUG] ${to} uchun tiklash kodi: ${code}`);
+    console.log(`[MAIL_DEBUG] ${to} uchun ${purpose === "teacher" ? "o'qituvchi" : "tiklash"} kodi: ${code}`);
     return;
   }
   let res;

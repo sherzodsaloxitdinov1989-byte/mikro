@@ -62,13 +62,13 @@ Claude barcha ishni o'zi bajaradi: darslikni mavzularga ajratadi, testlarni yoza
 1. [dash.cloudflare.com](https://dash.cloudflare.com) ga kiring (bepul ro'yxatdan o'ting).
 2. **Workers & Pages** → **Create** → **Import a repository** → GitHub'ni ulang va repozitoriyingizni tanlang.
 3. **Build command** ni bo'sh qoldiring, **Deploy command**: `npx wrangler deploy`. **Deploy** ni bosing.
-4. Deploy tugagach: Worker → **Settings → Variables and Secrets → Add**. Uchta kalit qo'shing, har birining turi **Secret** bo'lsin:
+4. Deploy tugagach: Worker → **Settings → Variables and Secrets → Add**. Kalitlarni qo'shing, har birining turi **Secret** bo'lsin:
    - `JWT_SECRET` — istalgan uzun tasodifiy matn (40+ belgi);
-   - `TEACHER_CODE` — o'qituvchi ro'yxatdan o'tishi uchun maxfiy kod (o'zingiz o'ylab toping);
+   - `TEACHER_EMAILS` — sizning emailingiz (o'qituvchi sifatida emailga kelgan kod bilan kirasiz; boshqa o'qituvchilarni keyin panelda qo'shasiz). Pochta ulanmagan bo'lsa, o'rniga `TEACHER_CODE` — o'zingiz o'ylab topgan maxfiy kod;
    - `GEMINI_API_KEY` — [aistudio.google.com](https://aistudio.google.com) → **Get API key** (bepul). AI tekshiruv, AI Ustoz va AI ovozni yoqadi.
 5. **Deployments** → oxirgi deploy → **Retry**.
 6. Sayt manzili: `https://<slug>.<akkaunt>.workers.dev`. Tekshirish uchun `.../api/health` ni oching: u yerda `"platform":"Cloudflare"` va `"ai":"gemini (...)"` chiqishi kerak.
-7. Saytda **Ro'yxatdan o'tish → O'qituvchi** ni tanlang va `TEACHER_CODE` bilan profil yarating.
+7. Saytda **Ro'yxatdan o'tish → O'qituvchi** ni tanlang: emailingizga kelgan kod (yoki `TEACHER_CODE`) bilan profil yarating.
 
 Shundan keyin GitHub'dagi har bir o'zgarish saytga avtomatik chiqadi. Batafsil: [CLOUDFLARE.md](CLOUDFLARE.md).
 
