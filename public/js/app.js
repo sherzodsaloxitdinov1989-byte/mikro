@@ -9,6 +9,7 @@ import * as home from "./pages/home.js";
 import * as auth from "./pages/auth.js";
 import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
+import * as assignment from "./pages/assignment.js";
 import * as teacher from "./pages/teacher.js";
 import * as profile from "./pages/profile.js";
 import * as passport from "./pages/passport.js";
@@ -36,6 +37,8 @@ const routes = [
   [/^\/lab\/([\w-]+)$/, lab.renderProject, { auth: true }],
   [/^\/updates$/, updates.render],
   [/^\/self-study$/, selfStudy.render, { auth: true }],
+  [/^\/assignment$/, assignment.render, { auth: true }],
+  [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true }],
   [/^\/teacher(?:\/([\w-]+))?(?:\/([\w-]+))?$/, teacher.render, { teacher: true }],
   [/^\/profile$/, profile.render, { auth: true }],
   [/^\/passport$/, passport.render, { auth: true }],
@@ -53,6 +56,7 @@ const NAV = [
   ["#/practice", "Amaliyot", "🧮"],
   COURSE.features.lab && ["#/lab", "Laboratoriya", "🔬"],
   ["#/media", "Mediateka", "🎬"],
+  ["#/assignment", "Topshiriq", "📝"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
   UPDATES.length > 0 && ["#/updates", "Dolzarb", "🔄"],
 ].filter(Boolean);
