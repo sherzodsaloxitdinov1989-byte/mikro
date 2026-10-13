@@ -63,7 +63,115 @@ export function renderLogin(el) {
   mount(el, h("div", { class: "auth-wrap" }, form));
 }
 
-export function renderForgot(el) {
+/** Parolni tiklash: email → pochtaga kelgan 6 xonali kod → yangi parol. Talaba ham, o'qituvchi ham shu yo'ldan foydalanadi. */
+export async function renderForgot(el) {
+  if (session.user) return afterLogin();
+  let config = {};
+  try {
+    config = await api.get("config");
+  } catch {}
+  if (!config.mailEnabled) return renderForgotLegacy(el);
+
+  const err = h("div");
+  const card = h("div", { class: "card auth-card" });
+  let email = "";
+  let timer = null;
+
+  const alertErr = (msg) => err.replaceChildren(h("div", { class: "alert alert-error" }, msg));
+
+  function stepEmail() {
+    clearInterval(timer);
+    const input = h("input", { name: "email", type: "email", required: true, autocomplete: "email", value: email, placeholder: "ro'yxatdan o'tgan email" });
+    const form = h("form", { class: "stack", onsubmit: async (e) => {
+      e.preventDefault();
+      email = input.value.trim().toLowerCase();
+      const btn = form.querySelector("button");
+      btn.disabled = true;
+      err.replaceChildren();
+      try {
+        const res = await api.post("auth/forgot", { email });
+        stepCode(res.resendAfterSec || 60, res.expiresInMin || 10);
+      } catch (ex) {
+        alertErr(ex.message);
+        btn.disabled = false;
+      }
+    } },
+      h("label", { class: "field" }, h("span", {}, "Email"), input),
+      err,
+      h("button", { class: "btn block lg", type: "submit" }, "Tasdiqlash kodini yuborish"));
+    card.replaceChildren(
+      h("h1", {}, "Parolni tiklash"),
+      h("p", { class: "muted" }, "Talaba va o'qituvchi uchun bir xil: ro'yxatdan o'tgan emailingizni kiriting, pochtangizga 6 xonali tasdiqlash kodi yuboramiz. Eski parol kerak emas."),
+      form,
+      h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish")));
+  }
+
+  function stepCode(resendAfter, minutes) {
+    let left = resendAfter;
+    const code = h("input", { name: "code", inputmode: "numeric", autocomplete: "one-time-code", maxlength: 6, required: true, placeholder: "______", style: { letterSpacing: "8px", fontSize: "1.4rem", textAlign: "center" } });
+    const p1 = h("input", { type: "password", name: "newPassword", required: true, minlength: 6, autocomplete: "new-password" });
+    const p2 = h("input", { type: "password", name: "newPassword2", required: true, minlength: 6, autocomplete: "new-password" });
+    const resend = h("button", { type: "button", class: "btn ghost small", disabled: true }, "");
+    const paint = () => {
+      resend.disabled = left > 0;
+      resend.textContent = left > 0 ? `Kodni qayta yuborish (${left} s)` : "Kodni qayta yuborish";
+    };
+    paint();
+    clearInterval(timer);
+    timer = setInterval(() => {
+      if (!document.body.contains(card)) return clearInterval(timer);
+      left = Math.max(0, left - 1);
+      paint();
+      if (!left) clearInterval(timer);
+    }, 1000);
+    resend.addEventListener("click", async () => {
+      resend.disabled = true;
+      err.replaceChildren();
+      try {
+        const res = await api.post("auth/forgot", { email });
+        left = res.resendAfterSec || 60;
+        toast("Yangi kod yuborildi", "ok");
+        clearInterval(timer);
+        timer = setInterval(() => ((left = Math.max(0, left - 1)), paint(), !left && clearInterval(timer)), 1000);
+      } catch (ex) {
+        alertErr(ex.message);
+        left = 0;
+      }
+      paint();
+    });
+    const form = h("form", { class: "stack", onsubmit: async (e) => {
+      e.preventDefault();
+      err.replaceChildren();
+      if (p1.value !== p2.value) return alertErr("Parollar mos kelmadi");
+      const btn = form.querySelector("button[type=submit]");
+      btn.disabled = true;
+      try {
+        const res = await api.post("auth/reset-code", { email, code: code.value, newPassword: p1.value });
+        session.set(res.token, res.user);
+        toast("Parol yangilandi. Xush kelibsiz!", "ok");
+        afterLogin();
+      } catch (ex) {
+        alertErr(ex.message);
+        btn.disabled = false;
+      }
+    } },
+      h("div", { class: "alert alert-info small" }, `📧 ${email} manziliga 6 xonali kod yuborildi (${minutes} daqiqa amal qiladi). Kelmasa, “Spam” papkasini tekshiring. Bu email ro'yxatdan o'tmagan bo'lsa, kod kelmaydi.`),
+      h("label", { class: "field" }, h("span", {}, "Tasdiqlash kodi"), code),
+      h("div", { class: "grid cols-2" },
+        h("label", { class: "field" }, h("span", {}, "Yangi parol"), p1),
+        h("label", { class: "field" }, h("span", {}, "Yangi parolni takrorlang"), p2)),
+      err,
+      h("button", { class: "btn block lg", type: "submit" }, "Parolni yangilash va kirish"),
+      h("div", { class: "row between wrap" }, resend, h("button", { type: "button", class: "btn ghost small", onclick: () => (err.replaceChildren(), stepEmail()) }, "Emailni o'zgartirish")));
+    card.replaceChildren(h("h1", {}, "Kodni kiriting"), form);
+    code.focus();
+  }
+
+  stepEmail();
+  mount(el, h("div", { class: "auth-wrap" }, card));
+}
+
+function renderForgotLegacy(el) {
   const err = h("div");
   const form = h(
     "form",
@@ -109,6 +217,7 @@ export function renderForgot(el) {
       h("div", { class: "card auth-card" },
         h("h1", {}, "Parolni tiklash"),
         h("div", { class: "alert alert-info" }, h("b", {}, "🎓 Talabamisiz? "), "O'qituvchingizga murojaat qiling — u panelning “Talabalar” bo'limida 🔑 tugmasi orqali sizga vaqtinchalik parol beradi. Kirgach, uni Profil sahifasida o'zgartiring."),
+        h("div", { class: "alert alert-warn small" }, "Elektron pochta orqali tiklash hali ulanmagan (administrator BREVO_API_KEY va MAIL_FROM ni sozlashi kerak). Hozircha quyidagi usul ishlaydi."),
         h("h3", {}, "👩‍🏫 O'qituvchi uchun"),
         form,
         h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish"))))

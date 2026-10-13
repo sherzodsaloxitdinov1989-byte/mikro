@@ -10,6 +10,7 @@ import { TOPICS, COURSE } from "../public/data/topics.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
+import { mailEnabled, sendResetCode } from "./mail.mjs";
 import { ASSIGNMENT, stageOf, groupOf, stageMax, deadlineOf, contextStages, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import { normalizeSubmission, reviewPrompt, REVIEW_SCHEMA, REVIEW_CRITERIA, parseReview, demoReview as demoPracticeReview, totalOf } from "./practice-review.mjs";
 const MAX_TURNS = 40;
@@ -112,6 +113,101 @@ async function login(req) {
   if (!user || !(await verifyPassword(String(b.password || ""), user.salt, user.hash))) {
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
+  return json({ token: createToken(user), user: publicUser(user) });
+}
+
+// ---------- Parolni tiklash: elektron pochtaga kelgan tasdiqlash kodi ----------
+// 1) POST auth/forgot { email } — 6 xonali kod pochtaga yuboriladi (10 daqiqa amal qiladi, bir marta ishlatiladi).
+// 2) POST auth/reset-code { email, code, newPassword } — kod to'g'ri bo'lsa parol yangilanadi va foydalanuvchi tizimga kiradi.
+// Talaba ham, o'qituvchi ham shu yo'ldan foydalanadi; eski parol yoki o'qituvchi kodi kerak emas.
+const CODE_TTL_MS = 10 * 60_000;
+const CODE_RESEND_MS = 60_000;
+const CODE_MAX_ATTEMPTS = 5;
+const FORGOT_PER_HOUR = 4;
+const FORGOT_IP_PER_HOUR = 12;
+const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
+const resetCodeKey = (email) => `resetcode/${sha(email).slice(0, 32)}`;
+const codeHash = (email, code) => sha(`${code}:${email}:${process.env.JWT_SECRET || ""}`);
+const clientIp = (req) => (req.headers.get("cf-connecting-ip") || req.headers.get("x-nf-client-connection-ip") || (req.headers.get("x-forwarded-for") || "").split(",")[0] || "unknown").trim();
+const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+
+async function bump(key, windowMs, limit) {
+  const store = db();
+  const rec = (await store.get(key)) || { hits: [] };
+  const now = Date.now();
+  rec.hits = rec.hits.filter((t) => now - t < windowMs);
+  if (rec.hits.length >= limit) return { ok: false, wait: Math.ceil((rec.hits[0] + windowMs - now) / 1000), rec };
+  rec.hits.push(now);
+  await store.set(key, rec);
+  return { ok: true, rec };
+}
+
+async function forgotPassword(req) {
+  if (!mailEnabled()) throw new HttpError(503, "Elektron pochta xizmati sozlanmagan. O'qituvchi kodi orqali tiklashdan foydalaning yoki administratorga murojaat qiling.");
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  const store = db();
+  const ip = await bump(`ratelimit/forgot-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, FORGOT_IP_PER_HOUR);
+  if (!ip.ok) throw new HttpError(429, "Juda ko'p so'rov yuborildi. Birozdan keyin qayta urinib ko'ring.");
+  const prev = await store.get(resetCodeKey(email));
+  if (prev && Date.now() - prev.sentAt < CODE_RESEND_MS) {
+    throw new HttpError(429, `Kod yaqinda yuborilgan. ${Math.ceil((CODE_RESEND_MS - (Date.now() - prev.sentAt)) / 1000)} soniyadan keyin qayta so'rang.`);
+  }
+  const per = await bump(`ratelimit/forgot/${sha(email).slice(0, 32)}`, 3600_000, FORGOT_PER_HOUR);
+  if (!per.ok) throw new HttpError(429, `Bir soatda ko'pi bilan ${FORGOT_PER_HOUR} marta kod so'rash mumkin. ${Math.ceil(per.wait / 60)} daqiqadan keyin urinib ko'ring.`);
+  const ref = await store.get(emailKey(email));
+  const user = ref && (await store.get(userKey(ref.id)));
+  if (user) {
+    const code = String(crypto.randomInt(100000, 1000000));
+    try {
+      await sendResetCode(email, code, CODE_TTL_MS / 60000);
+    } catch (e) {
+      console.error("Kod yuborilmadi:", e);
+      throw new HttpError(502, "Xatni yuborib bo'lmadi. Birozdan keyin qayta urinib ko'ring.");
+    }
+    await store.set(resetCodeKey(email), { hash: codeHash(email, code), exp: Date.now() + CODE_TTL_MS, attempts: 0, sentAt: Date.now() });
+  } else {
+    await new Promise((r) => setTimeout(r, 400)); // email mavjudligini vaqt bo'yicha ham bildirmaslik uchun
+  }
+  // Email mavjud yoki mavjud emasligidan qat'i nazar bir xil javob
+  return json({ ok: true, expiresInMin: CODE_TTL_MS / 60000, resendAfterSec: CODE_RESEND_MS / 1000 });
+}
+
+async function resetWithCode(req) {
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  const code = str(b.code, 12).replace(/\s/g, "");
+  const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  if (!/^\d{6}$/.test(code)) throw new HttpError(400, "Tasdiqlash kodi 6 ta raqamdan iborat bo'lishi kerak");
+  if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
+  const store = db();
+  const key = resetCodeKey(email);
+  const rec = await store.get(key);
+  const fail = "Kod noto'g'ri yoki muddati o'tgan. Yangi kod so'rang.";
+  if (!rec || Date.now() > rec.exp) {
+    if (rec) await store.del(key);
+    throw new HttpError(400, fail);
+  }
+  const given = Buffer.from(codeHash(email, code), "hex");
+  const want = Buffer.from(rec.hash, "hex");
+  if (given.length !== want.length || !crypto.timingSafeEqual(given, want)) {
+    rec.attempts++;
+    if (rec.attempts >= CODE_MAX_ATTEMPTS) {
+      await store.del(key);
+      throw new HttpError(400, "Urinishlar ko'p bo'ldi, kod bekor qilindi. Yangi kod so'rang.");
+    }
+    await store.set(key, rec);
+    await new Promise((r) => setTimeout(r, 500));
+    throw new HttpError(400, `Kod noto'g'ri (qolgan urinishlar: ${CODE_MAX_ATTEMPTS - rec.attempts})`);
+  }
+  const ref = await store.get(emailKey(email));
+  const user = ref && (await store.get(userKey(ref.id)));
+  if (!user) throw new HttpError(400, fail);
+  Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
+  await store.set(userKey(user.id), user);
+  await store.del(key); // kod bir marta ishlatiladi
   return json({ token: createToken(user), user: publicUser(user) });
 }
 
@@ -1575,11 +1671,13 @@ async function knownColleges() {
 const routes = [
   ["POST", /^auth\/register$/, register],
   ["POST", /^auth\/login$/, login],
+  ["POST", /^auth\/forgot$/, forgotPassword],
+  ["POST", /^auth\/reset-code$/, resetWithCode],
   ["POST", /^auth\/reset$/, resetPassword],
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
+  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],

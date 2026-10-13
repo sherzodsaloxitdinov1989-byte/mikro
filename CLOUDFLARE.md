@@ -29,6 +29,27 @@ Worker → **Settings** → **Variables and Secrets** → **Add**. Har birining 
 | `GEMINI_API_KEY` | tavsiya | [aistudio.google.com](https://aistudio.google.com) → Get API key (bepul). AI tekshiruv, AI Ustoz va AI ovozni yoqadi |
 | `ANTHROPIC_API_KEY` | yo'q | Claude kaliti (pullik) |
 
+### Parolni tiklash uchun elektron pochta (tavsiya etiladi)
+
+Talaba ham, o'qituvchi ham parolini unutsa, emailiga 6 xonali tasdiqlash kodi yuboriladi. Buning uchun bepul pochta xizmatini ulang (o'z domeningiz shart emas):
+
+1. [brevo.com](https://www.brevo.com) da bepul ro'yxatdan o'ting (kuniga 300 ta xat).
+2. **Senders, Domains & Dedicated IPs → Senders → Add a sender**: o'zingizning email manzilingizni kiriting va unga kelgan xatdagi havola orqali **tasdiqlang**.
+3. **SMTP & API → API Keys → Generate a new API key**: kalitni nusxalang.
+4. Cloudflare → Worker → **Settings → Variables and Secrets** da qo'shing:
+
+| Nomi | Turi | Qiymati |
+|---|---|---|
+| `BREVO_API_KEY` | Secret | Brevo API kaliti |
+| `MAIL_FROM` | Text | 2-qadamda tasdiqlangan email |
+| `MAIL_FROM_NAME` | Text (ixtiyoriy) | Masalan: MikroAkademiya |
+
+5. **Deployments** → oxirgi deploy → **Retry**.
+
+Resend (`RESEND_API_KEY` + `MAIL_FROM`) ham ishlaydi, lekin u o'z domeningizni tasdiqlashni talab qiladi. Pochta ulanmagan bo'lsa, "Parolni unutdingizmi?" sahifasida eski usul (o'qituvchi kodi) ko'rinadi.
+
+Xavfsizlik: kod 10 daqiqa amal qiladi, bir marta ishlatiladi, 5 ta noto'g'ri urinishdan keyin bekor bo'ladi; bir email uchun soatiga 4 ta, bir manzildan soatiga 12 ta kod so'rash mumkin. Email ro'yxatda bor-yo'qligi ko'rsatilmaydi.
+
 Kalitlarni qo'shgandan keyin **Deployments** → oxirgi deploy → **Retry**. Kalitlar keyingi deploy'larda ham saqlanib qoladi (`keep_vars`).
 
 Tekshirish uchun `https://<worker-nomi>.<akkaunt>.workers.dev/api/health` manzilini oching. U yerda `"platform":"Cloudflare"` ko'rinishi kerak.
