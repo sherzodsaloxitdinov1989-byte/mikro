@@ -36,7 +36,7 @@ export async function render(el) {
   );
   mount(
     el,
-    h("div", { class: "page-head" }, h("h1", {}, "Profil"), h("button", { class: "btn ghost", onclick: () => { session.clear(); location.hash = "#/"; } }, "Chiqish")),
+    h("div", { class: "page-head" }, h("h1", {}, "Profil ", h("span", { class: `role-chip ${user.role === "teacher" ? "teacher" : "student"}`, style: { fontSize: "0.8rem" } }, user.role === "teacher" ? "👩‍🏫 O'qituvchi" : "🎓 Talaba")), h("button", { class: "btn ghost", onclick: () => { session.clear(); location.hash = "#/"; } }, "Chiqish")),
     h(
       "div",
       { class: "grid cols-2-1" },

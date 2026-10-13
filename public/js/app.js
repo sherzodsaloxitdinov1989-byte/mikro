@@ -36,9 +36,9 @@ const routes = [
   [/^\/lab$/, lab.renderList, { auth: true }],
   [/^\/lab\/([\w-]+)$/, lab.renderProject, { auth: true }],
   [/^\/updates$/, updates.render],
-  [/^\/self-study$/, selfStudy.render, { auth: true }],
-  [/^\/assignment$/, assignment.render, { auth: true }],
-  [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true }],
+  [/^\/self-study$/, selfStudy.render, { auth: true, student: "#/teacher/self-study" }],
+  [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
+  [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true, student: "#/teacher/assignment" }],
   [/^\/teacher(?:\/([\w-]+))?(?:\/([\w-]+))?$/, teacher.render, { teacher: true }],
   [/^\/profile$/, profile.render, { auth: true }],
   [/^\/passport$/, passport.render, { auth: true }],
@@ -69,15 +69,19 @@ let cleanup = null;
 function renderNav() {
   const path = location.hash || "#/";
   const user = session.user;
-  const items = [...NAV];
-  if (user?.role === "teacher") items.push(["#/teacher", "Panel", "📊"]);
-  else if (user) items.push(["#/passport", "Pasport", "🛂"]);
+  const isTeacher = user?.role === "teacher";
+  document.documentElement.dataset.role = user ? user.role : "guest";
+  // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
+  const STUDENT_ONLY = ["#/assignment", "#/self-study"];
+  const items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
+  if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
+  else if (user) items.push(["#/passport", "Talaba pasporti", "🛂"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
   mount(
     nav,
     items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label)),
     user
-      ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]))
+      ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]), h("span", { class: `role-chip ${isTeacher ? "teacher" : "student"}` }, isTeacher ? "O'qituvchi" : "Talaba"))
       : h("a", { href: "#/login", class: "btn small" }, "Kirish")
   );
 }
@@ -102,6 +106,10 @@ async function route() {
     if ((opts.auth || opts.teacher) && !session.user) {
       sessionStorage.setItem("tt.after-login", location.hash);
       location.hash = "#/login";
+      return;
+    }
+    if (opts.student && session.user.role === "teacher") {
+      location.hash = opts.student;
       return;
     }
     if (opts.teacher && session.user.role !== "teacher") {

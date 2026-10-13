@@ -14,6 +14,17 @@ function field(label, attrs) {
 export function renderLogin(el) {
   if (session.user) return afterLogin();
   const err = h("div");
+  let role = "student";
+  const ROLES = { student: ["🎓", "Talaba", "Talaba sifatida kirish", "Mavzular, topshiriq, testlar va natijalaringiz."], teacher: ["👩‍🏫", "O'qituvchi", "O'qituvchi sifatida kirish", "Baholash, talabalar va o'qituvchi paneli."] };
+  const title = h("h1", {});
+  const hint = h("p", { class: "muted" });
+  const tabs = h("div", { class: "segmented role-switch" }, Object.entries(ROLES).map(([r, [icon, label]]) => h("label", { class: `seg ${r === role ? "active" : ""}` }, h("input", { type: "radio", name: "loginRole", value: r, checked: r === role, onchange: () => { role = r; paint(); } }), `${icon} ${label}`)));
+  const paint = () => {
+    tabs.querySelectorAll(".seg").forEach((s) => s.classList.toggle("active", s.querySelector("input").value === role));
+    title.textContent = ROLES[role][2];
+    hint.textContent = ROLES[role][3] + " Email va parolingizni kiriting.";
+    err.replaceChildren();
+  };
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {
@@ -24,6 +35,11 @@ export function renderLogin(el) {
       err.replaceChildren();
       try {
         const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password") });
+        if (res.user.role !== role) {
+          const actual = ROLES[res.user.role][1];
+          err.replaceChildren(h("div", { class: "alert alert-error" }, `Bu profil «${actual}» profili. Yuqoridagi «${ROLES[res.user.role][0]} ${actual}» tugmasini tanlab, qayta kiring.`));
+          return;
+        }
         session.set(res.token, res.user);
         toast("Xush kelibsiz!", "ok");
         afterLogin();
@@ -33,8 +49,9 @@ export function renderLogin(el) {
         btn.disabled = false;
       }
     } },
-    h("h1", {}, "Tizimga kirish"),
-    h("p", { class: "muted" }, "Email va parolingizni kiriting."),
+    tabs,
+    title,
+    hint,
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("Parol", { name: "password", type: "password", required: true, autocomplete: "current-password" }),
     h("p", { class: "small", style: { margin: "-6px 0 0", textAlign: "right" } }, h("a", { href: "#/forgot" }, "Parolni unutdingizmi?")),
@@ -42,6 +59,7 @@ export function renderLogin(el) {
     h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
     h("p", { class: "center muted" }, "Profilingiz yo'qmi? ", h("a", { href: "#/register" }, "Ro'yxatdan o'ting"))
   );
+  paint();
   mount(el, h("div", { class: "auth-wrap" }, form));
 }
 

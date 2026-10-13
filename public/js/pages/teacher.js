@@ -130,6 +130,7 @@ async function overview(el) {
   const card = (icon, value, label, href) => h(href ? "a" : "div", { class: "card stat-card", href }, h("div", { class: "stat-icon" }, icon), h("b", {}, value), h("span", { class: "muted small" }, label));
   mount(
     el,
+    h("div", { class: "role-banner teacher" }, h("b", {}, "👩‍🏫 O'qituvchi paneli"), h("span", {}, " — bu bo'lim faqat o'qituvchi uchun: baholash, talabalar va kontent boshqaruvi. Talabalar bu panelni ko'rmaydi.")),
     gallery(o),
     h("h2", { class: "tp-group-title", style: { "--hue": 220 } }, "📊 Umumiy ko'rsatkichlar"),
     !o.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: amaliy mashg'ulotlar avtomatik qoidalar asosida taxminiy baholanadi, AI Ustoz demo-rejimda. Cloudflare (yoki Netlify) sozlamalarida GEMINI_API_KEY (bepul) yoki ANTHROPIC_API_KEY maxfiy kalitini qo'shing."),
