@@ -65,5 +65,5 @@ export const COURSE = {
 
   // Dars taqdimotlari: public/slides/NN.pdf (01.pdf, 02.pdf, ...). Kalit — mavzu raqami, qiymat — sahifalar soni.
   // Taqdimot bo'lmagan mavzuni ko'rsatmang. O'qituvchi panelidan ham yuklash mumkin.
-  decks: {},
+  decks: { 1: 54, 2: 52, 3: 41, 4: 40, 5: 39, 6: 44, 7: 44, 8: 40, 9: 33, 10: 36, 11: 55, 12: 69, 13: 54, 14: 62, 15: 57, 16: 44, 17: 51, 18: 45, 19: 54, 20: 45, 21: 51 },
 };
