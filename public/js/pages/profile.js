@@ -1,5 +1,6 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
+import { COURSE } from "../../data/course.js";
 
 
 export async function render(el) {
@@ -25,7 +26,7 @@ export async function render(el) {
     h("h2", {}, "Shaxsiy ma'lumotlar"),
     h("label", { class: "field" }, h("span", {}, "Ism-familiya"), h("input", { name: "name", value: user.name, required: true })),
     h("label", { class: "field" }, h("span", {}, "Ta'lim muassasasi"), h("input", { name: "college", value: user.college || "" })),
-    user.role === "student" && h("label", { class: "field" }, h("span", {}, "Guruh"), h("input", { name: "group", value: user.group || "" })),
+    user.role === "student" && h("label", { class: "field" }, h("span", {}, "Guruh"), (COURSE.groups?.length ? h("select", { name: "group" }, [...new Set(["", ...COURSE.groups, user.group || ""])].map((g) => h("option", { value: g, selected: g === (user.group || "") }, g || "— tanlang —"))) : h("input", { name: "group", value: user.group || "" }))),
     user.role === "student" && h("label", { class: "check-row" }, h("input", { type: "checkbox", name: "showInRating", checked: !user.hideFromRating }), " Reytingda ismim ko'rinsin (ism va familiyaning bosh harfi)"),
     h("h3", {}, "Parolni o'zgartirish"),
     h("div", { class: "grid cols-2" },

@@ -90,7 +90,7 @@ async function register(req) {
     email,
     name,
     role,
-    group: str(b.group, 60),
+    group: role === "student" ? checkGroup(str(b.group, 60)) : str(b.group, 60),
     college: str(b.college, 160),
     cohort: role === "student" ? (["experimental", "control"].includes(b.cohort) ? b.cohort : "unassigned") : undefined,
     cohortSource: role === "student" && ["experimental", "control"].includes(b.cohort) ? "self" : undefined,
@@ -174,11 +174,19 @@ async function adminResetPassword(req, id) {
   return json({ password });
 }
 
+/** Fan guruhlari belgilangan bo'lsa, talaba faqat shulardan birini tanlay oladi. */
+function checkGroup(value, current = null) {
+  const list = COURSE.groups || [];
+  if (!list.length || value === current) return value;
+  if (!list.includes(value)) throw new HttpError(400, `Guruhni ro'yxatdan tanlang: ${list.join(", ")}`);
+  return value;
+}
+
 async function updateMe(req) {
   const user = await requireUser(req);
   const b = await body(req);
   if (b.name !== undefined) user.name = str(b.name, 120) || user.name;
-  if (b.group !== undefined) user.group = str(b.group, 60);
+  if (b.group !== undefined) user.group = user.role === "student" ? checkGroup(str(b.group, 60), user.group) : str(b.group, 60);
   if (b.college !== undefined) user.college = str(b.college, 160);
   if (b.hideFromRating !== undefined) user.hideFromRating = Boolean(b.hideFromRating);
   // Talaba guruhini faqat hali belgilanmagan bo'lsa o'zi tanlaydi; keyin uni o'qituvchi o'zgartiradi.
@@ -1382,7 +1390,7 @@ const routes = [
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges() })],
+  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],

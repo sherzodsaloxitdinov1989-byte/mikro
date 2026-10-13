@@ -127,7 +127,7 @@ export async function renderRegister(el) {
   } catch {}
   const err = h("div");
   const teacherFields = h("div", { class: "hidden" }, field("O'qituvchi kodi", { name: "teacherCode", type: "password", autocomplete: "off" }), h("p", { class: "muted small" }, "Kodni platforma administratoridan oling."));
-  const studentFields = h("div", {}, field("Guruh", { name: "group", placeholder: "Masalan: TUR-401", maxlength: 60 }));
+  const studentFields = h("div", {}, (config.groups?.length ? h("label", { class: "field" }, h("span", {}, `Guruh${config.studyForm ? ` (${config.studyForm.toLowerCase()} ta'lim)` : ""}`), h("select", { name: "group" }, h("option", { value: "" }, "Guruhingizni tanlang"), config.groups.map((g) => h("option", { value: g }, g)))) : field("Guruh", { name: "group", placeholder: "Masalan: TUR-401", maxlength: 60 })));
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {

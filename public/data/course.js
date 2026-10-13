@@ -56,6 +56,11 @@ export const COURSE = {
   // AI tekshiruvchi uchun: fan sohasi (masalan, "marketing", "pedagogika", "buxgalteriya hisobi")
   domain: "mikroiqtisodiyot",
 
+  // Fan bo'yicha shakllantirilgan guruhlar (talaba ro'yxatdan o'tganda shulardan birini tanlaydi).
+  // Bo'sh qoldirilsa, guruh nomi erkin yoziladi.
+  studyForm: "Kunduzgi",
+  groups: ["331-25", "332-25", "333-25", "334-25"],
+
   // Bo'limlarni yoqish/o'chirish
   features: {
     // Tahlil laboratoriyasi — ikki yillik balans va moliyaviy natijalar asosida kompleks moliyaviy tahlil.
