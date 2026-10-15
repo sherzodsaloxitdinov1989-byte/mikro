@@ -38,6 +38,11 @@ export const session = {
   clear() {
     safeSet(TOKEN_KEY, null);
     safeSet(USER_KEY, null);
+    // Himoyalangan materiallar uchun sessiya cookie'si ham o'chiriladi
+    try {
+      sessionStorage.removeItem("tt.cookie-try");
+      fetch("/api/auth/logout", { method: "POST", keepalive: true }).catch(() => {});
+    } catch {}
     window.dispatchEvent(new Event("tt:auth"));
   },
   get isTeacher() {

@@ -72,6 +72,8 @@ Claude barcha ishni o'zi bajaradi: darslikni mavzularga ajratadi, testlarni yoza
 
 Shundan keyin GitHub'dagi har bir o'zgarish saytga avtomatik chiqadi. Batafsil: [CLOUDFLARE.md](CLOUDFLARE.md).
 
+> **Mualliflik himoyasi:** repozitoriyni **Private** (yopiq) qiling — aks holda darslik fayllari GitHub'dan hamma uchun ochiq bo'ladi. Batafsil: [CLOUDFLARE.md](CLOUDFLARE.md#darslik-mualliflik-himoyasi).
+
 > **Muhim:** API kalit va parollarni hech kimga, jumladan Claude'ga ham chatda yozmang. Ular faqat Cloudflare panelida kiritiladi.
 
 ---

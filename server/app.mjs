@@ -66,6 +66,37 @@ async function requireTeacher(req) {
   return user;
 }
 
+// ---------- Kontent himoyasi: darslik, rasm, taqdimot va audio faqat tizimga kirgan foydalanuvchiga ----------
+// Kirishda token brauzerga HttpOnly cookie sifatida ham beriladi: <img> va modul importlari sarlavha yubora olmaydi.
+const COOKIE = "tt_auth";
+const COOKIE_MAX_AGE = 14 * 24 * 3600;
+const readCookie = (req, name) => {
+  const m = (req.headers.get("cookie") || "").match(new RegExp(`(?:^|;\\s*)${name}=([^;]+)`));
+  return m ? m[1] : "";
+};
+const sessionToken = (req) => (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "") || readCookie(req, COOKIE);
+/** Token imzosi va muddatini tekshiradi (ma'lumotlar bazasiga murojaat qilmaydi — statik fayllar uchun tez). */
+export async function hasSession(req) {
+  await ensureSecret();
+  return Boolean(readToken(sessionToken(req)));
+}
+async function requireSession(req) {
+  if (!(await hasSession(req))) throw new HttpError(401, "Darslik materiallarini ko'rish uchun tizimga kiring");
+}
+const withCookie = (res, token) => {
+  res.headers.append("set-cookie", `${COOKIE}=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`);
+  return res;
+};
+async function startSession(req) {
+  const user = await requireUser(req);
+  return withCookie(json({ ok: true }), sessionToken(req) || createToken(user));
+}
+async function endSession() {
+  const res = json({ ok: true });
+  res.headers.append("set-cookie", `${COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`);
+  return res;
+}
+
 const str = (v, max = 200) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
 // ---------- Auth ----------
@@ -113,7 +144,7 @@ async function register(req) {
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
   if (role === "teacher") await store.del(inviteKey(email));
-  return json({ token: createToken(user), user: publicUser(user) }, 201);
+  return withCookie(json({ token: createToken(user), user: publicUser(user) }, 201), createToken(user));
 }
 
 async function login(req) {
@@ -124,7 +155,8 @@ async function login(req) {
   if (!user || !(await verifyPassword(String(b.password || ""), user.salt, user.hash))) {
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
-  return json({ token: createToken(user), user: publicUser(user) });
+  const token = createToken(user);
+  return withCookie(json({ token, user: publicUser(user) }), token);
 }
 
 // ---------- Parolni tiklash: elektron pochtaga kelgan tasdiqlash kodi ----------
@@ -225,7 +257,8 @@ async function resetWithCode(req) {
   if (!user) throw new HttpError(400, "Kod noto'g'ri yoki muddati o'tgan. Yangi kod so'rang.");
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
-  return json({ token: createToken(user), user: publicUser(user) });
+  const token = createToken(user);
+  return withCookie(json({ token, user: publicUser(user) }), token);
 }
 
 // ---------- O'qituvchi bo'lish: ruxsat etilgan email + emailga kelgan kod ----------
@@ -306,7 +339,8 @@ async function resetPassword(req) {
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
   await store.del(rlKey);
-  return json({ token: createToken(user), user: publicUser(user) });
+  const token = createToken(user);
+  return withCookie(json({ token, user: publicUser(user) }), token);
 }
 
 async function adminResetPassword(req, id) {
@@ -1055,9 +1089,10 @@ async function ttsSpeak(req) {
 }
 
 async function ttsAudio(req, key, ext = "mp3") {
+  await requireSession(req);
   const data = await db().getBinary(ttsBinKey(key));
   if (!data) throw new HttpError(404, "Audio topilmadi");
-  return new Response(data, { headers: { "content-type": ext === "wav" ? "audio/wav" : "audio/mpeg", "cache-control": "public, max-age=31536000, immutable" } });
+  return new Response(data, { headers: { "content-type": ext === "wav" ? "audio/wav" : "audio/mpeg", "cache-control": "private, max-age=31536000, immutable" } });
 }
 
 async function ttsSettings() {
@@ -1543,15 +1578,17 @@ async function getSlides(req, topicId) {
 }
 
 async function slideChunk(req, topicId, uploadId, i) {
+  await requireSession(req);
   const meta = await db().get(slideKey(topicId));
   if (!meta || meta.uploadId !== uploadId || Number(i) >= meta.chunks) throw new HttpError(404, "Fayl topilmadi");
   const data = await db().getBinary(slideBin(topicId, uploadId, i));
   if (!data) throw new HttpError(404, "Fayl bo'lagi topilmadi");
-  return new Response(data, { headers: { "content-type": "application/octet-stream", "cache-control": "public, max-age=31536000, immutable" } });
+  return new Response(data, { headers: { "content-type": "application/octet-stream", "cache-control": "private, max-age=31536000, immutable" } });
 }
 
 /** To'liq fayl (PowerPoint Online ko'ruvchisi va yuklab olish uchun) — oqim bilan uzatiladi. */
 async function slideFile(req, topicId) {
+  await requireSession(req);
   const meta = await db().get(slideKey(topicId));
   if (!meta || meta.kind === "link") throw new HttpError(404, "Fayl topilmadi");
   const store = db();
@@ -1570,8 +1607,8 @@ async function slideFile(req, topicId) {
     headers: {
       "content-type": type,
       "content-length": String(meta.size),
-      "content-disposition": `${new URL(req.url).searchParams.has("download") ? "attachment" : "inline"}; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(meta.name)}`,
-      "cache-control": "public, max-age=300",
+      "content-disposition": "inline",
+      "cache-control": "private, max-age=300",
     },
   });
 }
@@ -1583,7 +1620,7 @@ async function slidesInit(req, topicId) {
   const name = str(b.name, 200);
   const size = Number(b.size);
   const kind = slideKind(name, b.mime);
-  if (!kind) throw new HttpError(400, "Faqat PDF (.pdf) yoki PowerPoint (.pptx) fayl yuklash mumkin");
+  if (kind !== "pdf") throw new HttpError(400, "Himoya uchun faqat PDF (.pdf) yuklash mumkin. PowerPoint faylini avval PDF ga saqlang.");
   if (!Number.isFinite(size) || size <= 0) throw new HttpError(400, "Fayl bo'sh");
   if (size > SLIDE_LIMITS[kind]) throw new HttpError(413, `Fayl juda katta: ${kind.toUpperCase()} uchun eng ko'pi ${SLIDE_LIMITS[kind] / 1024 / 1024} MB`);
   return json({ uploadId: newId(), chunkSize: SLIDE_CHUNK, chunks: Math.ceil(size / SLIDE_CHUNK), kind });
@@ -1679,11 +1716,12 @@ async function listVideos() {
 }
 
 async function videoChunk(req, topicId, id, uploadId, i) {
+  await requireSession(req);
   const meta = await db().get(videoKey(topicId, id));
   if (!meta || meta.uploadId !== uploadId || Number(i) >= meta.chunks) throw new HttpError(404, "Video topilmadi");
   const data = await db().getBinary(videoBin(topicId, uploadId, i));
   if (!data) throw new HttpError(404, "Video bo'lagi topilmadi");
-  return new Response(data, { headers: { "content-type": "application/octet-stream", "cache-control": "public, max-age=31536000, immutable" } });
+  return new Response(data, { headers: { "content-type": "application/octet-stream", "cache-control": "private, max-age=31536000, immutable" } });
 }
 
 async function videoAddLink(req, topicId) {
@@ -1784,6 +1822,8 @@ async function knownColleges() {
 const routes = [
   ["POST", /^auth\/register$/, register],
   ["POST", /^auth\/login$/, login],
+  ["POST", /^auth\/session$/, startSession],
+  ["POST", /^auth\/logout$/, endSession],
   ["POST", /^auth\/forgot$/, forgotPassword],
   ["POST", /^auth\/reset-code$/, resetWithCode],
   ["POST", /^auth\/teacher-code$/, teacherSignupCode],

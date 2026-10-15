@@ -1,10 +1,13 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
+import { TOPICS } from "../../data/topics.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
   sessionStorage.removeItem("tt.after-login");
   location.hash = next || (session.isTeacher ? "#/teacher" : "#/");
+  // Darslik materiallari kirishdan oldin yuklanmagan: kirgach sahifa qayta yuklanib, to'liq ma'lumot olinadi
+  if (!TOPICS.length) setTimeout(() => location.reload(), 100);
 }
 
 function field(label, attrs) {

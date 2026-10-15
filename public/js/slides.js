@@ -57,7 +57,7 @@ function fetchStatic(meta, onProgress) {
   return p;
 }
 
-export const fileUrl = (meta, download = false) => meta.src || `/api/slides/${meta.topicId}/file?v=${meta.uploadId}${download ? "&download" : ""}`;
+export const fileUrl = (meta) => meta.src || `/api/slides/${meta.topicId}/file?v=${meta.uploadId}`;
 export const fmtSize = (n) => (n > 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1).replace(".", ",")} MB` : `${Math.max(1, Math.round(n / 1024))} KB`);
 
 /** Mavzu uchun taqdimot ko'ruvchisi. meta — /api/slides/:id javobi. */
@@ -81,12 +81,8 @@ function linkViewer(meta) {
 }
 
 function pptxViewer(meta) {
-  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  const absolute = new URL(fileUrl(meta), location.origin).href;
-  const download = h("a", { class: "btn small ghost", href: fileUrl(meta, true) }, "⬇ Yuklab olish (.pptx)");
-  if (local)
-    return h("div", { class: "slide-viewer" }, h("div", { class: "alert alert-info" }, "PowerPoint fayli Microsoft PowerPoint Online orqali ko'rsatiladi — bu faqat Internetdagi (Netlify) saytda ishlaydi."), h("div", { class: "sv-bar" }, h("span", { class: "sv-title" }, "🖥️ ", meta.title), h("span", { class: "sv-spacer" }), download));
-  return frameViewer(`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absolute)}`, meta.title, download);
+  // Himoya: PowerPoint fayllar tashqi xizmat orqali ochilar edi va yuklab olinardi — endi faqat PDF ko'rsatiladi.
+  return h("div", { class: "slide-viewer" }, h("div", { class: "alert alert-warn" }, "Bu taqdimot PowerPoint formatida. Himoya sababli faqat PDF ko'rsatiladi: o'qituvchi uni PDF qilib qayta yuklashi kerak."));
 }
 
 function pdfViewer(meta) {
@@ -123,7 +119,6 @@ function pdfViewer(meta) {
       h("span", { class: "sv-spacer" }),
       autoBtn,
       h("button", { class: "sv-btn", title: "Slaydlar ro'yxati", onclick: () => viewer.classList.toggle("show-thumbs") }, "▦"),
-      h("a", { class: "sv-btn", href: fileUrl(meta, true), title: "Yuklab olish" }, "⬇"),
       h("button", { class: "sv-btn", title: "To'liq ekran (F)", onclick: () => fullscreen() }, "⛶")
     ),
     thumbs

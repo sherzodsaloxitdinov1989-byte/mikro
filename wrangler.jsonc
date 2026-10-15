@@ -13,7 +13,7 @@
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": ["/api/*", "/slides/*", "/img/book/*", "/data/book.js", "/data/layers-auto.js", "/data/practice-auto.js", "/data/assignment.js"]
   },
   "d1_databases": [{ "binding": "DB", "database_name": "mikroiqtisodiyot-db" }],
   "keep_vars": true,

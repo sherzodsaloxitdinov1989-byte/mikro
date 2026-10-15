@@ -1,5 +1,12 @@
 // Topshiriq hisob-kitoblari (frontend va server uchun umumiy): guruh, bosqich balli, muddat.
-import { ASSIGNMENT as A } from "../data/assignment.js";
+// Topshiriq matni himoyalangan: kirmagan foydalanuvchida bo'sh ro'yxat.
+const A = await (async () => {
+  try {
+    return (await import("../data/assignment.js")).ASSIGNMENT;
+  } catch {
+    return { id: "", title: "", intro: [], total: 0, semester: 0, groups: [], stages: [] };
+  }
+})();
 
 export const ASSIGNMENT = A;
 export const stageOf = (no) => A.stages.find((s) => s.no === Number(no)) || null;

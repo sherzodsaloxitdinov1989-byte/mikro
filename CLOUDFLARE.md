@@ -41,6 +41,16 @@ Tekshirish uchun `https://<worker-nomi>.<akkaunt>.workers.dev/api/health` manzil
 
 So'ng saytda **Ro'yxatdan o'tish → O'qituvchi** ni tanlab, profil yarating (yuqoridagi «O'qituvchi bo'lish» ga qarang).
 
+## Darslik mualliflik himoyasi
+
+Darslik muallifning ishlanmasi, shuning uchun platforma uni yuklab olishga imkon bermaydi:
+- Saytda yuklab olish tugmalari yo'q. Taqdimotlar faqat PDF va faqat ko'rish uchun; o'qituvchi faqat PDF yuklay oladi.
+- Darslik matni, test kalitlari, masala yechimlari, rasmlar va taqdimotlar **faqat tizimga kirgan** foydalanuvchiga beriladi (Worker sessiya cookie'sini tekshiradi). Kirmagan odam bu fayllarni to'g'ridan-to'g'ri havola orqali ham ocha olmaydi.
+- Talaba ekranida nusxalash, belgilash, o'ng tugma, sudrab olish, saqlash/bosib chiqarish o'chirilgan va ismi bilan xira belgi (watermark) ko'rinadi. O'qituvchi uchun cheklov yo'q.
+- Cheklov: ekran suratini yoki brauzer vositalarini to'liq to'sib bo'lmaydi; bu choralar tasodifiy nusxalashni qiyinlashtiradi, kim tarqatganini watermark orqali aniqlash mumkin.
+
+**Muhim — GitHub repozitoriyni yopiq (Private) qiling.** Darslik fayllari repozitoriyda turadi; repozitoriy ochiq bo'lsa, ularni hamma GitHub'dan yuklab oladi. GitHub → repozitoriy → **Settings → General → Danger Zone → Change visibility → Make private**. Cloudflare yopiq repozitoriydan ham deploy qiladi (GitHub ulanishi o'zgarmaydi). Muallifning manba hujjatlari (`manbalar/*.docx, *.pdf, *.pptx`) endi repozitoriyga yuklanmaydi (`.gitignore`). Himoya faqat Cloudflare Worker variantida ishlaydi (Netlify va Pages zaxira variantlarida emas).
+
 ## 3. R2 fayl ombori (ixtiyoriy)
 
 R2 shart emas: AI ovozlari va o'qituvchi yuklagan fayllar R2 bo'lmasa D1 bazasida saqlanadi (5 GB gacha bepul). R2 faqat ko'p hajmli videolar yuklanadigan bo'lsa kerak bo'ladi.

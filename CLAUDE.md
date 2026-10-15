@@ -157,6 +157,7 @@ npx wrangler dev --port 8788 --var TEACHER_CODE:ustoz-local --var JWT_SECRET:loc
 
 ## Qoidalar
 
+- **Mualliflik himoyasi:** darslik muallifning ishlanmasi. Yuklab olish funksiyasini (tugma, havola, eksport) darslik, taqdimot, rasm yoki audio uchun qo'shma. Darslik ma'lumotlari `worker/index.js` dagi `GATED` ro'yxati orqali faqat tizimga kirganlarga beriladi — yangi himoyalanadigan fayl qo'shsang, shu ro'yxat, `wrangler.jsonc → run_worker_first` va `public/sw.js` ni yangila. Muallifning manba hujjatlarini (`manbalar/*.docx|pdf|pptx`) git'ga qo'shma.
 - Platformadagi barcha matnlar o'zbek tilida (lotin yozuvida) bo'lsin. Kirill darslik avtomatik o'giriladi (`scripts/translit.py`).
 - Darslik mazmunini o'zgartirma. Eskirgan joylar faqat `updates.js` orqali belgilanadi.
 - Kod (`public/js`, `server/`) odatda o'zgarmaydi. Fanga xos narsa faqat `public/data/` va `public/slides/` da bo'ladi.

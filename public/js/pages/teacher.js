@@ -31,7 +31,7 @@ const SECTIONS = [
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "items", icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
-  { key: "slides", icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF, PowerPoint yoki havola) joylang." },
+  { key: "slides", icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
   { key: "videos", icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
@@ -170,7 +170,7 @@ async function slidesManager(el) {
   const row = (t) => {
     const status = h("div", { class: "sm-status" });
     const bar = h("div", { class: "sm-upload hidden" }, h("div", { class: "sm-upload-fill" }), h("span", {}, "0%"));
-    const fileInput = h("input", { type: "file", accept: ".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation", class: "hidden", onchange: () => fileInput.files[0] && upload(fileInput.files[0]) });
+    const fileInput = h("input", { type: "file", accept: ".pdf,application/pdf", class: "hidden", onchange: () => fileInput.files[0] && upload(fileInput.files[0]) });
 
     const drawStatus = () => {
       const m = byTopic[t.id];
@@ -184,7 +184,7 @@ async function slidesManager(el) {
     };
 
     async function upload(file) {
-      if (!/\.(pdf|pptx)$/i.test(file.name)) return toast("Faqat .pdf yoki .pptx fayl yuklang", "error");
+      if (!/\.pdf$/i.test(file.name)) return toast("Himoya uchun faqat .pdf fayl yuklang (PowerPoint'ni avval PDF ga saqlang)", "error");
       bar.classList.remove("hidden");
       card.classList.add("uploading");
       const setP = (f) => {
@@ -285,9 +285,7 @@ async function slidesManager(el) {
       h("br"),
       "Eng yaxshi natija uchun ",
       h("b", {}, "PDF"),
-      " yuklang (PowerPoint'da: Fayl → Eksport → PDF), eng ko'pi 60 MB. ",
-      h("b", {}, ".pptx"),
-      " fayllar (20 MB gacha) PowerPoint Online orqali ko'rsatiladi. Faylni kartaga sudrab tashlash ham mumkin."
+      " yuklang (PowerPoint'da: Fayl → Eksport → PDF), eng ko'pi 60 MB. Himoya sababli faqat PDF qabul qilinadi: talabalar uni faqat ko'ra oladi, yuklab ola olmaydi. Faylni kartaga sudrab tashlash ham mumkin."
     ),
     h("div", { class: "stack sm-list" }, TOPICS.map(row))
   );

@@ -4,3 +4,9 @@ node_modules/
 .env
 *.log
 .wrangler/
+# Muallifning manba hujjatlari (darslik, topshiriq, taqdimotlar) repozitoriyga yuklanmaydi
+manbalar/*.doc
+manbalar/*.docx
+manbalar/*.ppt
+manbalar/*.pptx
+manbalar/*.pdf

@@ -2,11 +2,19 @@
 // Nazariy matn, reja, savollar va tayanch iboralar — book.js (darslikdan avtomatik import),
 // pedagogik qatlam — layers.js (glossariy, metodlar, testlar, mustaqil ishlar),
 // amaliy mashg'ulotlar — practice.js, dolzarb ma'lumotlar — updates.js, fan sozlamalari — course.js.
-import { BOOK } from "./book.js";
 import { LAYERS } from "./layers.js";
 import { PRACTICE } from "./practice.js";
 import { updatesFor } from "./updates.js";
 import { COURSE } from "./course.js";
+
+// Darslik matni himoyalangan: tizimga kirmagan foydalanuvchida bo'sh bo'ladi (kirgach sahifa qayta yuklanadi).
+const BOOK = await (async () => {
+  try {
+    return (await import("./book.js")).BOOK;
+  } catch {
+    return { intro: "", topics: [], literature: [] };
+  }
+})();
 
 export { COURSE };
 export const BOOK_INTRO = BOOK.intro;

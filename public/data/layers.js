@@ -2,7 +2,14 @@
 // Hammasi darslikdan avtomatik ajratiladi (scripts/import-mikro.py → layers-auto.js): glossariy, 30 tadan test
 // (darslik kalitlari bilan), mustaqil ta'lim topshiriqlari; metodlar darslik glossariysi, bo'limlari,
 // masalalari va xulosalaridan tuziladi. Bu yerda faqat belgilar (icon) va resurslar qo'shiladi.
-import { AUTO } from "./layers-auto.js";
+// Himoyalangan ma'lumot (glossariy, test kalitlari): kirmagan foydalanuvchida bo'sh bo'ladi.
+const AUTO = await (async () => {
+  try {
+    return (await import("./layers-auto.js")).AUTO;
+  } catch {
+    return {};
+  }
+})();
 
 const ICONS = ["🧭", "⚖️", "📈", "🛒", "🔄", "🎲", "🏭", "💰", "🏪", "⏳", "🏛️", "💹", "⚔️", "👷", "🏗️", "🌾", "📊", "🌐", "🤝", "🌫️", "🏥"];
 const RESOURCES = {

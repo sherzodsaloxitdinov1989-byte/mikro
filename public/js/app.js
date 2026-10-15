@@ -23,6 +23,8 @@ import * as updates from "./pages/updates.js";
 import * as qr from "./pages/qr.js";
 import { COURSE } from "../data/course.js";
 import { UPDATES } from "../data/updates.js";
+import { TOPICS } from "../data/topics.js";
+import { initContentGuard } from "./guard.js";
 
 const routes = [
   [/^\/?$/, home.render],
@@ -97,9 +99,17 @@ async function route() {
   document.body.classList.toggle("live-mode", /^\/live(\/|$)/.test(path));
   // Katta ekrandagi QR-kod — menyusiz, butun ekranni egallaydi
   document.body.classList.toggle("qr-mode", path === "/qr");
+  document.body.classList.toggle("cert-mode", /^\/cert\//.test(path));
   document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
   toggle.setAttribute("aria-expanded", "false");
   renderNav();
+  // Darslik materiallari faqat tizimga kirgan foydalanuvchiga ko'rsatiladi
+  const PUBLIC = /^\/(login|register|forgot|qr)?$|^\/cert\/|^\/live(\/|$)/;
+  if (!session.user && !PUBLIC.test(path)) {
+    sessionStorage.setItem("tt.after-login", location.hash);
+    location.hash = "#/login";
+    return;
+  }
   for (const [pattern, fn, opts = {}] of routes) {
     const m = path.match(pattern);
     if (!m) continue;
@@ -144,7 +154,14 @@ initTools();
 initCelebrations();
 initLightbox();
 watch(main);
-route();
+initContentGuard();
+// Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz
+if (session.token && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
+  sessionStorage.setItem("tt.cookie-try", "1");
+  fetch("/api/auth/session", { method: "POST", headers: { authorization: `Bearer ${session.token}` } }).finally(() => location.reload());
+} else {
+  route();
+}
 
 // ---------- Ilova (PWA): o'rnatish va internetsiz rejim ----------
 if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {

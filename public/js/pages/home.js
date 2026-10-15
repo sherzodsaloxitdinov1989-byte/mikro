@@ -71,7 +71,7 @@ export async function render(el) {
 
   const tasks = TOPICS.reduce((s, t) => s + ((t.practice?.tasks.length || 0) + (t.practice?.open?.length || 0)), 0);
   const features = [
-    ["📚", "Interaktiv mavzular", `${TOPICS.length} ta mavzu: o'quv qo'llanma matni (lotin yozuvida), dars taqdimotlari, tushunchalar, nazorat savollari, testlar va interaktiv metodlar.`, "#/topics"],
+    ["📚", "Interaktiv mavzular", `${TOPICS.length ? `${TOPICS.length} ta mavzu: ` : ""}o'quv qo'llanma matni (lotin yozuvida), dars taqdimotlari, tushunchalar, nazorat savollari, testlar va interaktiv metodlar.`, "#/topics"],
     ["🧮", "Amaliy mashg'ulotlar + AI tekshiruv", `${tasks} ta masala darhol tekshiriladi; keys va xulosalaringizni sun'iy intellekt 10 ballik mezon bo'yicha baholab, batafsil feedback beradi.`, "#/practice"],
     LAB && ["🔬", "Tahlil laboratoriyasi", "Turistik korxona balansi va moliyaviy natijalarini kiriting — 30+ koeffitsiyent, DuPont, zararsizlik nuqtasi va grafiklar avtomatik hisoblanadi; hisobotingizni AI va o'qituvchi baholaydi.", "#/lab"],
     UPDATES.length > 0 && ["🔄", "Dolzarb ma'lumotlar", `Darslikdagi eskirgan statistika va me'yoriy hujjatlar tekshirildi: ${UPDATES.length} ta yangilanish, rasmiy manbalar bilan (${CHECKED.split("-").reverse().join(".")} holatiga).`, "#/updates"],
@@ -100,7 +100,7 @@ export async function render(el) {
           LAB && h("a", { href: "#/lab", class: "btn ghost lg" }, "🔬 Tahlil laboratoriyasi"),
           h("a", { href: "#/live", class: "btn ghost lg" }, "🎮 Live o'yin")
         ),
-        h(
+        !TOPICS.length ? h("div", { class: "alert alert-info" }, "Darslik materiallarini ko'rish uchun tizimga kiring yoki ro'yxatdan o'ting.") : h(
           "div",
           { class: "counter-row" },
           [[TOPICS.length, "mavzu"], [tests, "test savoli"], [tasks, "amaliy topshiriq"], [questions, "nazorat savoli"]].map(([n, l]) => h("div", { class: "counter" }, h("b", { "data-count": n }, "0"), h("span", {}, l)))
