@@ -104,6 +104,8 @@ def main():
         assert s["goal"] and s["tasks"] and s["result"], s["no"]
     data = {
         "id": SETTINGS["id"],
+        "form": "kunduzgi",
+        "sampleName": "“Jizzax Coffee House” MCHJ",
         "title": "Tanlangan tadbirkorlik sub’ekti misolida mikroiqtisodiy tahlil",
         "docTitle": title.title() if title.isupper() else title,
         "subtitle": subtitle,

@@ -3,7 +3,7 @@
 import { handleApi, serveGated } from "./cloudflare.js";
 
 // Darslik mazmuni (matn, test kalitlari, masala yechimlari), rasmlar va taqdimotlar ochiq berilmaydi.
-const GATED = /^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment)\.js$)/;
+const GATED = /^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment(-masofaviy)?)\.js$)/;
 
 export default {
   async fetch(request, env) {

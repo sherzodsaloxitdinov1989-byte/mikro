@@ -2,6 +2,8 @@
 // Muddat va ballarni o'zgartirish: scripts/import-assignment.py dagi SETTINGS, so'ng skriptni qayta ishga tushiring.
 export const ASSIGNMENT = {
  "id": "mikro-1",
+ "form": "kunduzgi",
+ "sampleName": "“Jizzax Coffee House” MCHJ",
  "title": "Tanlangan tadbirkorlik sub’ekti misolida mikroiqtisodiy tahlil",
  "docTitle": "Tanlangan Tadbirkorlik Sub’Ekti Misolida",
  "subtitle": "Mikroiqtisodiyot nazariyasini amaliyotga tatbiq etish bo‘yicha 11 ta mavzuli topshiriqlar majmuasi",

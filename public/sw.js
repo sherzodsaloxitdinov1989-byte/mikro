@@ -42,7 +42,7 @@ self.addEventListener("fetch", (e) => {
   }
 
   // Himoyalangan darslik fayllari (rasm, taqdimot, matn): sessiyaga bog'liq — service worker keshlamaydi.
-  if (/^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment)\.js$)/.test(url.pathname)) return;
+  if (/^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment(-masofaviy)?)\.js$)/.test(url.pathname)) return;
 
   // Rasmlar, ikonkalar va kutubxonalar: keshdan darhol, fonda yangilash.
   if (/^\/(img|icons|vendor|slides)\//.test(url.pathname)) {

@@ -12,7 +12,7 @@ import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode } from "./mail.mjs";
-import { ASSIGNMENT, stageOf, groupOf, stageMax, deadlineOf, contextStages, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
+import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import { normalizeSubmission, reviewPrompt, REVIEW_SCHEMA, REVIEW_CRITERIA, parseReview, demoReview as demoPracticeReview, totalOf } from "./practice-review.mjs";
 const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
@@ -550,8 +550,11 @@ const ASSIGN_MAX_FILE = 12 * 1024 * 1024;
 const ASSIGN_EXT = /\.(pdf|docx?|xlsx?|png|jpe?g|webp)$/i;
 const ASSIGN_DAILY_AI = 20;
 
-function stageParam(no) {
-  const stage = stageOf(no);
+/** Talabaning ta'lim shakli (kunduzgi / masofaviy): har bir shakl o'z topshirig'iga ega. Aniqlanmasa — kunduzgi. */
+const formKeyOf = (user) => user?.studyForm || formOfGroup(user?.group)?.key || "kunduzgi";
+
+function stageParam(no, form) {
+  const stage = stageOf(no, form);
   if (!stage) throw new HttpError(404, "Bunday bosqich yo'q");
   return stage;
 }
@@ -561,12 +564,12 @@ const assignView = (rec) => rec;
 async function myAssignment(req) {
   const user = await requireUser(req);
   const items = await getMany(`assign/${user.id}/`);
-  return json({ items, now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
+  return json({ form: formKeyOf(user), items, now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
 }
 
 async function assignUploadInit(req, no) {
-  await requireUser(req);
-  stageParam(no);
+  const user = await requireUser(req);
+  stageParam(no, formKeyOf(user));
   const b = await body(req);
   const name = str(b.name, 200);
   const size = Number(b.size);
@@ -578,7 +581,7 @@ async function assignUploadInit(req, no) {
 
 async function assignUploadChunk(req, no, uploadId, i) {
   const user = await requireUser(req);
-  stageParam(no);
+  stageParam(no, formKeyOf(user));
   if (!/^[\w-]{6,64}$/.test(uploadId) || !/^\d{1,3}$/.test(i)) throw new HttpError(400, "So'rov noto'g'ri");
   const data = await req.arrayBuffer();
   if (!data.byteLength || data.byteLength > ASSIGN_CHUNK) throw new HttpError(400, "Fayl bo'lagi hajmi noto'g'ri");
@@ -595,7 +598,8 @@ async function deleteAssignFile(uid, no, file) {
 async function assignSubmit(req, no) {
   const user = await requireUser(req);
   if (user.role !== "student") throw new HttpError(403, "Topshiriqni faqat talaba yuboradi");
-  const stage = stageParam(no);
+  const form = formKeyOf(user);
+  const stage = stageParam(no, form);
   const b = await body(req);
   const text = str(b.text, 30000);
   const key = assignKey(user.id, stage.no);
@@ -615,9 +619,10 @@ async function assignSubmit(req, no) {
   }
   if (!file && text.length < 30) throw new HttpError(400, "Hisobot faylini yuklang yoki hisobot matnini kiriting");
   const now = new Date();
-  const due = deadlineOf(stage.no);
+  const due = deadlineOf(stage.no, form);
   const rec = {
     no: stage.no,
+    form,
     userId: user.id,
     user: { name: user.name, group: user.group, email: user.email },
     text,
@@ -635,7 +640,8 @@ async function assignSubmit(req, no) {
 
 async function assignReview(req, no) {
   const user = await requireUser(req);
-  const stage = stageParam(no);
+  const form = formKeyOf(user);
+  const stage = stageParam(no, form);
   const key = assignKey(user.id, stage.no);
   const rec = await db().get(key);
   if (!rec) throw new HttpError(400, "Avval shu bosqich hisobotini yuboring");
@@ -646,8 +652,8 @@ async function assignReview(req, no) {
   if (quota.n >= ASSIGN_DAILY_AI) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${ASSIGN_DAILY_AI} ta) tugadi — ertaga qayta urinib ko'ring`);
 
   const prior = [];
-  for (const n of contextStages(stage.no)) prior.push({ no: n, sub: await db().get(assignKey(user.id, n)) });
-  const input = { stage, text: rec.text, prior, user };
+  for (const n of contextStages(stage.no, form)) prior.push({ no: n, sub: await db().get(assignKey(user.id, n)) });
+  const input = { stage, text: rec.text, prior, user, form };
   let review = null;
   if (aiEnabled()) {
     for (let attempt = 0; attempt < 2 && !review; attempt++) {
@@ -667,7 +673,7 @@ async function assignReview(req, no) {
   }
   if (!review) review = demoAssignReview(input);
   const percent = percentOf(review.scores);
-  rec.ai = { ...review, percent, suggested: suggestedScore(stage.no, percent), max: stageMax(stage.no), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
+  rec.ai = { ...review, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
@@ -696,7 +702,7 @@ async function sendAssignFile(req, uid, no) {
 
 async function myAssignFile(req, no) {
   const user = await requireUser(req);
-  stageParam(no);
+  stageParam(no, formKeyOf(user));
   return sendAssignFile(req, user.id, no);
 }
 
@@ -708,19 +714,20 @@ async function adminAssignment(req) {
 
 async function adminAssignFile(req, uid, no) {
   await requireTeacher(req);
-  stageParam(no);
   if (!/^[\w-]{6,64}$/.test(uid)) throw new HttpError(400, "So'rov noto'g'ri");
   return sendAssignFile(req, uid, no);
 }
 
 async function gradeAssignment(req, uid, no) {
   const teacher = await requireTeacher(req);
-  const stage = stageParam(no);
-  const key = assignKey(uid, stage.no);
+  const key = assignKey(uid, Number(no));
   const rec = await db().get(key);
   if (!rec) throw new HttpError(404, "Topshiriq topilmadi");
+  const owner = await db().get(userKey(uid));
+  const form = rec.form || formKeyOf(owner);
+  const stage = stageParam(no, form);
   const b = await body(req);
-  const max = stageMax(stage.no);
+  const max = stageMax(stage.no, form);
   const score = b.score === null || b.score === "" ? null : Number(b.score);
   if (score !== null && (!Number.isFinite(score) || score < 0 || score > max)) throw new HttpError(400, `Ball 0 dan ${max} gacha bo'lishi kerak`);
   rec.teacher = score === null && !str(b.comment, 3000) ? null : { score: score === null ? null : Math.round(score * 100) / 100, comment: str(b.comment, 3000), by: teacher.name, at: new Date().toISOString() };

@@ -805,11 +805,11 @@ async function formsView(el) {
   const students = users.filter((u) => u.role === "student");
   const subsBy = new Map();
   for (const it of data.items) (subsBy.get(it.userId) || subsBy.set(it.userId, []).get(it.userId)).push(it);
-  const stat = (list) => {
+  const stat = (list, form) => {
     const subs = list.flatMap((u) => subsBy.get(u.id) || []);
     const submitters = list.filter((u) => (subsBy.get(u.id) || []).length).length;
     const graded = subs.filter((i) => i.teacher?.score != null && !i.resubmitted).length;
-    const avg = list.length ? list.reduce((n, u) => n + totalScore(subsBy.get(u.id) || []), 0) / list.length : 0;
+    const avg = list.length ? list.reduce((n, u) => n + totalScore(subsBy.get(u.id) || [], u.studyForm || "kunduzgi"), 0) / list.length : 0;
     return { n: list.length, submitters, stages: subs.length, graded, avg: Math.round(avg * 100) / 100 };
   };
   const row = (label, list) => {

@@ -3,7 +3,7 @@ import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } fr
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey } from "../../data/course.js";
-import { ASSIGNMENT as A, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
+import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
 import { extractText } from "../doctext.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
@@ -11,7 +11,6 @@ const fmtDue = (iso) => {
   const [y, m, d] = iso.split("-").map(Number);
   return `${d}-${MONTHS[m - 1]} ${y}`;
 };
-const daysLeft = (no, now = new Date()) => Math.ceil((deadlineOf(no) - now) / 86400000);
 
 function deadlineChip(group, now) {
   const left = Math.ceil((new Date(`${group.due}T23:59:59+05:00`) - now) / 86400000);
@@ -20,9 +19,9 @@ function deadlineChip(group, now) {
   return h("span", { class: `badge ${left <= 5 ? "badge-warn" : ""}` }, `${left} kun qoldi`);
 }
 
-function statusBadge(sub) {
+function statusBadge(sub, form) {
   if (!sub) return h("span", { class: "badge" }, "Topshirilmagan");
-  if (sub.teacher?.score != null && !sub.resubmitted) return h("span", { class: "badge badge-ok" }, `${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(sub.no))} ball`);
+  if (sub.teacher?.score != null && !sub.resubmitted) return h("span", { class: "badge badge-ok" }, `${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(sub.no, form))} ball`);
   return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
 }
 
@@ -31,14 +30,16 @@ function statusBadge(sub) {
 export async function render(el) {
   mount(el, loading());
   const res = await api.get("assignment");
+  const form = res.form;
+  const A = assignmentFor(form);
   const now = new Date(res.now);
   const subs = Object.fromEntries(res.items.map((s) => [s.no, s]));
-  const total = totalScore(res.items);
+  const total = totalScore(res.items, form);
   const done = res.items.length;
   mount(
     el,
     h("div", { class: "page-head" },
-      h("div", {}, h("h1", {}, "Topshiriq"), h("p", { class: "muted" }, `${A.semester}-semestr · Mikroiqtisodiyot · ${A.stages.length} bosqich, jami ${A.total} ball`))),
+      h("div", {}, h("h1", {}, "Topshiriq"), h("p", { class: "muted" }, `${A.semester}-semestr · Mikroiqtisodiyot · ${formByKey(form)?.title || "Bakalavriat"} · ${A.stages.length} bosqich, jami ${A.total} ball`))),
     h("div", { class: "card accent" },
       h("div", { class: "row between wrap" },
         h("div", {}, h("h3", {}, A.title), A.intro.map((p) => h("p", { class: "small" }, p))),
@@ -51,11 +52,11 @@ export async function render(el) {
           h("div", { class: "row wrap" }, h("span", { class: "chip chip-soft" }, `Muddat: ${fmtDue(g.due)}`), h("span", { class: "chip chip-soft" }, `Maksimal: ${g.max} ball`), deadlineChip(g, now))),
         h("div", { class: "task-list" },
           g.stages.map((no) => {
-            const st = stageOf(no);
+            const st = stageOf(no, form);
             const sub = subs[no];
             return h("div", { class: "task" },
               h("div", { class: "grow" },
-                h("div", { class: "row wrap" }, h("b", {}, `${no}-bosqich. ${st.title}`), statusBadge(sub)),
+                h("div", { class: "row wrap" }, h("b", {}, `${no}-bosqich. ${st.title}`), statusBadge(sub, form)),
                 h("p", { class: "small muted" }, `Natija: ${st.result}`),
                 st.dependsOn.length > 0 && h("p", { class: "small muted" }, `🔗 Tayanadi: ${st.dependsOn.map((d) => `${d}-bosqich${subs[d] ? "" : " (hali topshirilmagan)"}`).join(", ")}`),
                 sub?.teacher?.comment && h("div", { class: "alert alert-info small" }, "👩‍🏫 ", sub.teacher.comment)),
@@ -102,16 +103,17 @@ const sizeLabel = (n) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Ma
 
 export async function renderStage(el, noParam) {
   const no = Number(noParam);
-  const st = stageOf(no);
-  if (!st) return mount(el, emptyState("🧭", "Bunday bosqich yo'q", "", h("a", { class: "btn", href: "#/assignment" }, "Topshiriqqa qaytish")));
   mount(el, loading());
   const res = await api.get("assignment");
+  const form = res.form;
+  const st = stageOf(no, form);
+  if (!st) return mount(el, emptyState("🧭", "Bunday bosqich yo'q", "", h("a", { class: "btn", href: "#/assignment" }, "Topshiriqqa qaytish")));
   const now = new Date(res.now);
   const subs = Object.fromEntries(res.items.map((s) => [s.no, s]));
   const sub = subs[no];
-  const g = groupOf(no);
-  const max = stageMax(no);
-  const late = now > deadlineOf(no);
+  const g = groupOf(no, form);
+  const max = stageMax(no, form);
+  const late = now > deadlineOf(no, form);
 
   let picked = null;
   const text = h("textarea", { rows: 14, placeholder: "Hisobot matni: sub'ekt tavsifi, jadvallar (| bilan ajratib), hisob-kitoblar, grafik izohi va xulosa. Fayl yuklasangiz, matn avtomatik to'ldiriladi.", maxlength: 30000 }, sub?.text || "");
@@ -195,7 +197,7 @@ export async function renderStage(el, noParam) {
 
   const sample = st.sampleTable
     ? h("details", { class: "card" },
-        h("summary", {}, h("b", {}, "📎 Namuna — “Jizzax Coffee House” MCHJ misolida (shartli raqamlar)")),
+        h("summary", {}, h("b", {}, `📎 Namuna — ${assignmentFor(form).sampleName} misolida (shartli raqamlar)`)),
         h("p", {}, st.sampleIntro),
         h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("thead", {}, h("tr", {}, st.sampleTable.head.map((c) => h("th", {}, c)))), h("tbody", {}, st.sampleTable.rows.map((r) => h("tr", {}, r.map((c) => h("td", {}, c))))))),
         h("p", {}, h("b", {}, "Tahlil: "), st.sampleAnalysis),
@@ -238,7 +240,11 @@ export async function renderStage(el, noParam) {
 
 export async function teacherView(el) {
   const [data, students] = await Promise.all([api.get("admin/assignment"), api.get("admin/students")]);
-  const rows = students.filter((u) => u.role === "student");
+  const allRows = students.filter((u) => u.role === "student");
+  const formOf = (u) => u.studyForm || "kunduzgi";
+  let curForm = "kunduzgi";
+  let A = assignmentFor(curForm);
+  let rows = allRows.filter((u) => formOf(u) === curForm);
   const by = new Map();
   for (const it of data.items) by.set(`${it.userId}/${it.no}`, it);
   let groupFilter = "";
@@ -267,33 +273,51 @@ export async function teacherView(el) {
               }
               return h("td", { class: "center" }, it ? h("a", { href: "#", class: cls, title: `${s.title}${it.late ? " · kech" : ""}`, onclick: (e) => (e.preventDefault(), openModal(u, it, draw)) }, label) : h("span", { class: "muted" }, "·"));
             }),
-            h("td", { class: "center" }, h("b", {}, fmtScore(totalScore(subsOf(u))))))))));
+            h("td", { class: "center" }, h("b", {}, fmtScore(totalScore(subsOf(u), curForm)))))))));
     if (!list.length) table.append(emptyState("👥", "Talabalar topilmadi"));
   };
 
-  const sel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), (COURSE.studyForms || []).map((f) => h("optgroup", { label: f.title }, f.groups.map((x) => h("option", { value: x }, x)))));
+  const sel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) });
+  const fillGroups = () => {
+    groupFilter = "";
+    sel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...(formByKey(curForm)?.groups || []).map((x) => h("option", { value: x }, x)));
+  };
+  fillGroups();
+  // Ta'lim shakli bo'yicha alohida topshiriq: kunduzgi va masofaviy topshiriqlar bosqichlari va matnlari farq qiladi
+  const formTabs = h("div", { class: "segmented role-switch" }, (COURSE.studyForms || []).map((f) => h("label", { class: `seg ${f.key === curForm ? "active" : ""}` }, h("input", { type: "radio", name: "assignForm", value: f.key, checked: f.key === curForm, onchange: () => {
+    curForm = f.key;
+    A = assignmentFor(curForm);
+    rows = allRows.filter((u) => formOf(u) === curForm);
+    formTabs.querySelectorAll(".seg").forEach((x) => x.classList.toggle("active", x.querySelector("input").value === curForm));
+    fillGroups();
+    draw();
+    note.textContent = noteText();
+  } }), `${f.icon || ""} ${f.name}`)));
   const search = h("input", { type: "search", placeholder: "Qidirish: ism yoki email", oninput: (e) => ((q = e.target.value), draw()) });
   const csv = () =>
-    downloadFile("topshiriq-ballari.csv", toCSV([
-      ["Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
-        ...rows.map((u) => {
+    downloadFile(`topshiriq-ballari-${curForm}.csv`, toCSV([
+      ["Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no, curForm))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
+        ...allRows.filter((u) => formOf(u) === curForm).map((u) => {
           const its = subsOf(u);
           const m = new Map(its.map((i) => [i.no, i]));
-          return [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its)];
+          return [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its, curForm)];
         })]));
 
   const pending = data.items.filter((i) => i.teacher?.score == null || i.resubmitted).length;
+  const noteText = () => `${assignmentFor(curForm).title}. ● — topshirilgan, baholanmagan · ⏰ — muddatdan keyin topshirilgan · raqam — qo'yilgan ball · · — topshirilmagan. Katakni bosib hisobotni ko'ring va ball qo'ying. Bosqich balli: guruh balli guruhdagi bosqichlar soniga teng bo'linadi (${assignmentFor(curForm).groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} → ${fmtScore(Math.round((g.max / g.stages.length) * 100) / 100)}`).join("; ")}).`;
+  const note = h("p", { class: "small muted" }, noteText());
   mount(el,
+    formTabs,
     h("div", { class: "row between wrap" },
       h("div", { class: "row wrap" }, sel, search),
       h("div", { class: "row wrap" }, h("span", { class: "badge badge-warn" }, `${pending} ta baholanmagan`), h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"))),
-    h("p", { class: "small muted" }, "● — topshirilgan, baholanmagan · ⏰ — muddatdan keyin topshirilgan · raqam — qo'yilgan ball · · — topshirilmagan. Katakni bosib hisobotni ko'ring va ball qo'ying. Bosqich balli: 1–4 → 1,75; 5–7 → 2; 8–11 → 1,75 (guruh balli teng bo'linadi)."),
+    note,
     table);
   draw();
 
   function openModal(u, it, redraw) {
-    const st = stageOf(it.no);
-    const max = stageMax(it.no);
+    const st = stageOf(it.no, curForm);
+    const max = stageMax(it.no, curForm);
     const score = h("input", { type: "number", min: 0, max, step: 0.05, value: it.teacher?.score ?? "", style: { maxWidth: "120px" } });
     const comment = h("textarea", { rows: 3, placeholder: "Talabaga izoh va tavsiyalar" }, it.teacher?.comment || "");
     const prior = (st.dependsOn.length ? [1, ...st.dependsOn.filter((d) => d !== 1)] : [])
