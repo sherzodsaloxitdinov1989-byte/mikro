@@ -49,6 +49,8 @@ Darslik muallifning ishlanmasi, shuning uchun platforma uni yuklab olishga imkon
 - Talaba ekranida nusxalash, belgilash, o'ng tugma, sudrab olish, saqlash/bosib chiqarish o'chirilgan va ismi bilan xira belgi (watermark) ko'rinadi. O'qituvchi uchun cheklov yo'q.
 - Cheklov: ekran suratini yoki brauzer vositalarini to'liq to'sib bo'lmaydi; bu choralar tasodifiy nusxalashni qiyinlashtiradi, kim tarqatganini watermark orqali aniqlash mumkin.
 
+**Test va topshiriqlarni ekran suratidan himoyalash.** Veb-sahifa ekran suratini to'liq to'sa olmaydi (surat operatsion tizim darajasida olinadi, telefonda esa aniqlab ham bo'lmaydi). Platforma quyidagicha himoyalaydi: test, amaliyot va topshiriq sahifalarida PrintScreen, Win+Shift+S, Cmd+Shift+3/4/5 bosilsa yoki oyna fokusini yo'qotsa (suratga olish dasturi, boshqa ilova), sahifa darhol xiralashib yashiriladi; hodisa o'qituvchi panelidagi «Himoya hodisalari» bo'limida qayd etiladi; ekranda talaba ismi bilan watermark turadi.
+
 **Muhim — GitHub repozitoriyni yopiq (Private) qiling.** Darslik fayllari repozitoriyda turadi; repozitoriy ochiq bo'lsa, ularni hamma GitHub'dan yuklab oladi. GitHub → repozitoriy → **Settings → General → Danger Zone → Change visibility → Make private**. Cloudflare yopiq repozitoriydan ham deploy qiladi (GitHub ulanishi o'zgarmaydi). Muallifning manba hujjatlari (`manbalar/*.docx, *.pdf, *.pptx`) endi repozitoriyga yuklanmaydi (`.gitignore`). Himoya faqat Cloudflare Worker variantida ishlaydi (Netlify va Pages zaxira variantlarida emas).
 
 ## 3. R2 fayl ombori (ixtiyoriy)

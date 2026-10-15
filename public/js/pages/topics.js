@@ -11,17 +11,17 @@ import { renderMethod } from "../methods.js";
 import { practicePanel } from "../practice-ui.js";
 import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
+import { groupedBySemester } from "../semester.js";
 
 export async function renderList(el) {
   const [, slideList] = await Promise.all([loadProgress(), api.get("slides").catch(() => ({ slides: [] }))]);
   const withSlides = new Set([...slideList.slides.map((x) => x.topicId), ...TOPICS.filter((t) => t.deck).map((t) => t.id)]);
   const search = h("input", { type: "search", placeholder: "Mavzu yoki tushuncha bo'yicha qidirish...", class: "search" });
-  const grid = h("div", { class: "grid cols-2" });
+  const grid = h("div", { class: "stack" });
   const draw = () => {
     const q = search.value.trim().toLowerCase();
     const list = TOPICS.filter((t) => !q || [t.title, t.goal, ...t.glossary.map((g) => g.term)].join(" ").toLowerCase().includes(q));
-    grid.replaceChildren(
-      ...list.map((t) => {
+    const cards = (items) => h("div", { class: "grid cols-2" }, items.map((t) => {
         const pct = topicCompletion(t);
         return h(
           "a",
@@ -36,6 +36,7 @@ export async function renderList(el) {
         );
       })
     );
+    grid.replaceChildren(...groupedBySemester(list, cards));
     if (!list.length) grid.append(h("p", { class: "muted" }, "Hech narsa topilmadi."));
   };
   search.addEventListener("input", draw);

@@ -10,6 +10,7 @@ import * as auth from "./pages/auth.js";
 import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
 import * as assignment from "./pages/assignment.js";
+import * as rating from "./pages/rating.js";
 import * as teacher from "./pages/teacher.js";
 import * as profile from "./pages/profile.js";
 import * as passport from "./pages/passport.js";
@@ -25,6 +26,7 @@ import { COURSE } from "../data/course.js";
 import { UPDATES } from "../data/updates.js";
 import { TOPICS } from "../data/topics.js";
 import { initContentGuard } from "./guard.js";
+import { initSecureMode, setRouteSecure } from "./secure.js";
 
 const routes = [
   [/^\/?$/, home.render],
@@ -39,6 +41,7 @@ const routes = [
   [/^\/lab\/([\w-]+)$/, lab.renderProject, { auth: true }],
   [/^\/updates$/, updates.render],
   [/^\/self-study$/, selfStudy.render, { auth: true, student: "#/teacher/self-study" }],
+  [/^\/rating$/, rating.render, { auth: true, student: "#/teacher/rating" }],
   [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
   [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true, student: "#/teacher/assignment" }],
   [/^\/teacher(?:\/([\w-]+))?(?:\/([\w-]+))?$/, teacher.render, { teacher: true }],
@@ -59,6 +62,7 @@ const NAV = [
   COURSE.features.lab && ["#/lab", "Laboratoriya", "🔬"],
   ["#/media", "Mediateka", "🎬"],
   ["#/assignment", "Topshiriq", "📝"],
+  ["#/rating", "Reyting", "🏆"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
   UPDATES.length > 0 && ["#/updates", "Dolzarb", "🔄"],
 ].filter(Boolean);
@@ -74,7 +78,7 @@ function renderNav() {
   const isTeacher = user?.role === "teacher";
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
-  const STUDENT_ONLY = ["#/assignment", "#/self-study"];
+  const STUDENT_ONLY = ["#/assignment", "#/self-study", "#/rating"];
   const items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
   else if (user) items.push(["#/passport", "Talaba pasporti", "🛂"]);
@@ -103,6 +107,8 @@ async function route() {
   document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
   toggle.setAttribute("aria-expanded", "false");
   renderNav();
+  // Test va topshiriq sahifalarida ekran surati himoyasi
+  setRouteSecure(/^\/(assignment|practice\/|live\/play\/)/.test(path));
   // Darslik materiallari faqat tizimga kirgan foydalanuvchiga ko'rsatiladi
   const PUBLIC = /^\/(login|register|forgot|qr)?$|^\/cert\/|^\/live(\/|$)/;
   if (!session.user && !PUBLIC.test(path)) {
@@ -155,6 +161,7 @@ initCelebrations();
 initLightbox();
 watch(main);
 initContentGuard();
+initSecureMode();
 // Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz
 if (session.token && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
   sessionStorage.setItem("tt.cookie-try", "1");

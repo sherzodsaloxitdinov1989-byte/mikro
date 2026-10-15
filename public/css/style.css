@@ -626,3 +626,10 @@ html:not([data-role="teacher"]) main { -webkit-user-select: none; user-select: n
 html:not([data-role="teacher"]) main input, html:not([data-role="teacher"]) main textarea, html:not([data-role="teacher"]) main select, html:not([data-role="teacher"]) main .allow-copy { -webkit-user-select: text; user-select: text; }
 html:not([data-role="teacher"]) img { -webkit-user-drag: none; user-drag: none; }
 @media print { html:not([data-role="teacher"]) body:not(.cert-mode) { display: none !important; } }
+
+/* Himoyalangan rejim (test va topshiriqlar): ekran suratiga urinish yoki oynadan chiqishda kontent yashiriladi */
+.secure-shield { position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; background: color-mix(in srgb, var(--bg, #fff) 55%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+.secure-shield.on { display: flex; }
+.secure-shield-box { max-width: 420px; margin: 20px; padding: 28px; text-align: center; background: var(--surface, #fff); border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); }
+body.secure-blur main { filter: blur(26px); pointer-events: none; }
+.semester-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 8px; }

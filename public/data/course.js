@@ -63,6 +63,13 @@ export const COURSE = {
     { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25"] },
   ],
 
+  // Semestrlar (2-bosqich, 2026–2027 o'quv yili): darslik mavzulari semestrlarga bo'lingan.
+  // startsAt / endsAt — o'qish muddati (reyting shu muddatda yig'iladi; muddat tugagach natija qotiriladi). null — cheklov yo'q.
+  semesters: [
+    { no: 3, course: 2, name: "3-semestr", term: "Kuzgi semestr, 2026–2027 o'quv yili", topics: [1, 11], startsAt: "2026-09-01", endsAt: "2026-12-26" },
+    { no: 4, course: 2, name: "4-semestr", term: "Bahorgi semestr, 2026–2027 o'quv yili", topics: [12, 21], startsAt: null, endsAt: null },
+  ],
+
   // Bo'limlarni yoqish/o'chirish
   features: {
     // Tahlil laboratoriyasi — ikki yillik balans va moliyaviy natijalar asosida kompleks moliyaviy tahlil.
@@ -79,3 +86,17 @@ export const COURSE = {
 COURSE.groups = COURSE.studyForms.flatMap((f) => f.groups);
 export const formOfGroup = (group) => COURSE.studyForms.find((f) => f.groups.includes(group)) || null;
 export const formByKey = (key) => COURSE.studyForms.find((f) => f.key === key) || null;
+
+// Semestrlar: mavzu raqami bo'yicha semestr, sana bo'yicha joriy semestr
+export const semesterOf = (num) => COURSE.semesters.find((s) => num >= s.topics[0] && num <= s.topics[1]) || null;
+export const semesterByNo = (no) => COURSE.semesters.find((s) => s.no === Number(no)) || null;
+/** Joriy semestr: sana muddat oralig'iga tushgani; bo'lmasa — oxirgi tugagan semestrdan keyingisi (yoki oxirgisi); aks holda birinchisi. */
+export function currentSemester(today = new Date()) {
+  const iso = today.toISOString().slice(0, 10);
+  const list = COURSE.semesters;
+  const inside = list.find((s) => (!s.startsAt || iso >= s.startsAt) && (!s.endsAt || iso <= s.endsAt));
+  if (inside) return inside;
+  const finished = list.filter((s) => s.endsAt && iso > s.endsAt);
+  if (finished.length) return list[Math.min(list.indexOf(finished[finished.length - 1]) + 1, list.length - 1)];
+  return list[0];
+}

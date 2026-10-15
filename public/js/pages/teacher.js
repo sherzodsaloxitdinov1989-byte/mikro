@@ -13,6 +13,8 @@ import { buildScenes } from "../lesson-player.js";
 import { bookParagraphs } from "../audiobook.js";
 import { createForm } from "./live.js";
 import { teacherView as assignmentView } from "./assignment.js";
+import { teacherView as ratingView } from "./rating.js";
+import { teacherView as securityView } from "./security.js";
 import { formByKey } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
 
@@ -30,6 +32,8 @@ const SECTIONS = [
   COURSE.features.lab && { key: "labs", icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
   { key: "assignment", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
+  { key: "rating", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
+  { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
@@ -56,7 +60,7 @@ const sectionHref = (key) => `#/teacher/${key}`;
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView };
   const view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   const sec = SECTIONS.find((x) => x.key === tab);

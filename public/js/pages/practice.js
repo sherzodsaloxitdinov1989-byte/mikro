@@ -4,6 +4,7 @@ import { api, session } from "../api.js";
 import { TOPICS } from "../../data/topics.js";
 import { loadProgress, topicState } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
+import { groupedBySemester } from "../semester.js";
 
 export async function renderList(el) {
   await loadProgress();
@@ -21,8 +22,8 @@ export async function renderList(el) {
       stat("🤖", `${reviewed} / ${items.length}`, "AI tekshiruvidan o'tgan mashg'ulot"),
       stat("🏅", history?.reviews?.length ? `${(history.reviews.reduce((s, r) => s + r.total, 0) / history.reviews.length).toFixed(1)} / 10` : "—", "AI bahosining o'rtachasi")),
     h("div", { class: "alert alert-info" }, "Qanday ishlaydi: 1) masalani yechib, javobni kiriting — u darhol tekshiriladi; 2) keys va xulosani yozing; 3) “🤖 AI bilan tekshirish” tugmasini bosing — sun'iy intellekt 10 ballik mezon bo'yicha baho, xatolaringiz va tavsiyalarni beradi. Natijalar o'qituvchi panelida ham ko'rinadi."),
-    h("div", { class: "grid cols-2" },
-      items.map((t) => {
+    ...groupedBySemester(items, (list) => h("div", { class: "grid cols-2" },
+      list.map((t) => {
         const st = topicState(t.id);
         const ok = t.practice.tasks.filter((k) => st.practice?.[k.id]?.ok).length;
         return h("a", { href: `#/practice/${t.id}`, class: "card topic-card tilt" },
@@ -31,7 +32,7 @@ export async function renderList(el) {
           h("p", { class: "muted small clamp" }, t.practice.goal),
           h("div", { class: "row between small muted" }, h("span", {}, (t.practice.tasks.length ? `🧮 ${t.practice.tasks.length} masala · 📁 ${t.practice.open?.length || 0} keys` : `📁 ${t.practice.open?.length || 0} masala va topshiriq`)), h("span", {}, st.aiReview ? `🤖 ${st.aiReview.total}/10` : "AI tekshiruvi yo'q")),
           progressBar(Math.round((ok / t.practice.tasks.length) * 100)));
-      })),
+      }))),
     history?.reviews?.length > 0 && h("details", { class: "card" }, h("summary", {}, h("b", {}, `📜 AI tekshiruvlari tarixi (${history.reviews.length})`)),
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Sana"), h("th", {}, "Mavzu"), h("th", {}, "Hisob-kitob"), h("th", {}, "Baho"), h("th", {}, "O'qituvchi"))),
         h("tbody", {}, history.reviews.slice(0, 50).map((r) => {

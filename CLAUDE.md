@@ -41,6 +41,7 @@ Ixtiyoriy bo'lim: **tahlil laboratoriyasi** (`features.lab`). U faqat moliyaviy 
 | `public/data/layers.js` | Har mavzu: belgi, qisqa nom, glossariy, metodlar, testlar, mustaqil ishlar, resurslar | Darslik asosida o'zing yozasan |
 | `public/data/practice.js` | Amaliy mashg'ulotlar (masalalar + ochiq topshiriqlar) | Amaliy to'plamdan yoki darslik asosida |
 | `public/data/updates.js` | Darslikdagi eskirgan ma'lumotlarning yangi qiymatlari | Faktcheking (internet qidiruvi) |
+| `public/data/course.js → semesters` | Semestrlar: mavzular oralig'i, o'qish muddati (reyting shu muddatda yig'iladi, tugagach qotiriladi). Reyting qoidalari va darajalari: `public/js/rating.js` | Qo'lda |
 | `public/data/assignment.js`, `assignment-masofaviy.js` | 3-semestr topshirig'i: kunduzgi (`scripts/import-assignment.py`, fayldan) va masofaviy (`scripts/build-assignment-masofaviy.py`) ta'lim shakllari uchun alohida; muddat va ballar shu skriptlardagi sozlamalarda |
 | `public/slides/NN.pdf` | Dars taqdimotlari | `python3 scripts/convert-slides.py manbalar/` |
 

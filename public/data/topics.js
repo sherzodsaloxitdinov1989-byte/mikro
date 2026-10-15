@@ -5,7 +5,7 @@
 import { LAYERS } from "./layers.js";
 import { PRACTICE } from "./practice.js";
 import { updatesFor } from "./updates.js";
-import { COURSE } from "./course.js";
+import { COURSE, semesterOf } from "./course.js";
 
 // Darslik matni himoyalangan: tizimga kirmagan foydalanuvchida bo'sh bo'ladi (kirgach sahifa qayta yuklanadi).
 const BOOK = await (async () => {
@@ -33,6 +33,7 @@ export const TOPICS = BOOK.topics.map((b) => {
     id: `t${b.num}`,
     num: b.num,
     chapter: b.chapter,
+    semester: semesterOf(b.num)?.no || null,
     icon: layer.icon || "📘",
     title: layer.title || b.title,
     bookTitle: b.title,

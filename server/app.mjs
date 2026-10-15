@@ -7,7 +7,8 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus } from "../public/js/gamification.js";
 import { findTopic, tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, COURSE } from "../public/data/topics.js";
-import { formOfGroup, formByKey } from "../public/data/course.js";
+import { formOfGroup, formByKey, semesterByNo, currentSemester } from "../public/data/course.js";
+import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
@@ -1528,6 +1529,193 @@ async function myCertificate(req) {
   return json(ref ? await db().get(`cert/${ref.code}`) : null);
 }
 
+// ---------- Semestr reytingi: guruhlar bo'yicha ball yig'ish va rag'batlantirish ----------
+// Ballar o'qish muddatida (semestr boshlanishidan tugashigacha) yig'iladi. Muddat tugagach natija qotiriladi (ratingfinal/<semestr>).
+
+const bonusKey = (uid, id) => `ratingbonus/${uid}/${id}`;
+const finalKey = (no) => `ratingfinal/${no}`;
+const semEnded = (sem) => Boolean(sem?.endsAt) && Date.now() > new Date(`${sem.endsAt}T23:59:59+05:00`).getTime();
+const semInfo = (sem) => ({
+  no: sem.no, name: sem.name, term: sem.term, course: sem.course, startsAt: sem.startsAt, endsAt: sem.endsAt, topics: sem.topics, ended: semEnded(sem),
+  daysLeft: sem.endsAt ? Math.ceil((new Date(`${sem.endsAt}T23:59:59+05:00`).getTime() - Date.now()) / 86400000) : null,
+});
+let semRatingCache = new Map();
+
+async function computeSemesterRows(sem) {
+  const users = (await getMany("user/")).filter((u) => u.role === "student");
+  const [progress, reviews, selfStudy, assigns, bonuses] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries("selfstudy/"), getEntries("assign/"), getEntries("ratingbonus/")]);
+  const uidOf = (key) => key.split("/")[1];
+  const group = (entries) => {
+    const m = new Map();
+    for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v);
+    return m;
+  };
+  const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
+  const rv = group(reviews);
+  const ss = group(selfStudy);
+  const as = group(assigns);
+  const bn = group(bonuses);
+  const now = new Date();
+  return users.map((u) => {
+    const form = formKeyOf(u);
+    const progressU = prog.get(u.id) || { topics: {} };
+    const r = computeRating({
+      progress: progressU,
+      reviews: (rv.get(u.id) || []).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })),
+      selfStudy: (ss.get(u.id) || []).map((x) => ({ taskId: x.taskId, grade: x.grade, resubmitted: x.resubmitted })),
+      assign: (as.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })),
+      form,
+      bonuses: (bn.get(u.id) || []).map((x) => ({ sem: x.sem, points: x.points })),
+    }, sem.no);
+    return {
+      id: u.id, fullName: u.name, email: u.email, group: u.group || "", form, hidden: Boolean(u.hideFromRating),
+      points: r.points, breakdown: r.breakdown, tier: { index: r.tier.index, name: r.tier.name, icon: r.tier.icon },
+      weekly: weeklyActivity(progressU.activity, now),
+    };
+  });
+}
+
+/** Semestr qatorlari: muddat tugagan bo'lsa — qotirilgan natija (bir marta hisoblanib saqlanadi), aks holda 60 soniya keshlanadi. */
+async function semesterRows(sem) {
+  if (semEnded(sem)) {
+    const snap = await db().get(finalKey(sem.no));
+    if (snap?.rows) return { rows: snap.rows, frozen: true, at: snap.at };
+    const rows = await computeSemesterRows(sem);
+    const at = new Date().toISOString();
+    await db().set(finalKey(sem.no), { at, rows });
+    return { rows, frozen: true, at };
+  }
+  const c = semRatingCache.get(sem.no);
+  if (c && Date.now() - c.at < 60_000) return { rows: c.rows, frozen: false, at: new Date(c.at).toISOString() };
+  const rows = await computeSemesterRows(sem);
+  semRatingCache.set(sem.no, { at: Date.now(), rows });
+  return { rows, frozen: false, at: new Date().toISOString() };
+}
+
+/** Tenglik bo'lsa bir xil o'rin (1, 2, 2, 4 ...). */
+function rankRows(list) {
+  const sorted = [...list].sort((a, b) => b.points - a.points || a.fullName.localeCompare(b.fullName));
+  let last = null;
+  let rank = 0;
+  return sorted.map((r, i) => {
+    if (last === null || r.points !== last) rank = i + 1;
+    last = r.points;
+    return { ...r, rank };
+  });
+}
+
+function semFromReq(req) {
+  const q = new URL(req.url).searchParams.get("sem");
+  const sem = q ? semesterByNo(q) : currentSemester();
+  if (!sem) throw new HttpError(404, "Semestr topilmadi");
+  return sem;
+}
+
+async function myRating(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Reyting talabalar uchun. O'qituvchi paneldagi «Reyting» bo'limidan foydalaning");
+  const sem = semFromReq(req);
+  const { rows, frozen, at } = await semesterRows(sem);
+  const form = formKeyOf(user);
+  const mine = rows.find((r) => r.id === user.id);
+  const view = (r, me) => ({ rank: r.rank, me, name: r.hidden && !me ? "Yashirin ishtirokchi" : shortName(r.fullName), group: r.group, points: r.points, tier: r.tier, weekly: r.weekly });
+  const inGroup = user.group ? rankRows(rows.filter((r) => r.group === user.group)) : [];
+  const inForm = rankRows(rows.filter((r) => r.form === form));
+  const meGroup = inGroup.find((r) => r.id === user.id);
+  const meForm = inForm.find((r) => r.id === user.id);
+  const weeklyTop = [...inGroup].sort((a, b) => b.weekly - a.weekly)[0];
+  return json({
+    sem: semInfo(sem), frozen, updatedAt: at, group: user.group || "", form,
+    me: mine ? { points: mine.points, breakdown: mine.breakdown, tier: mine.tier, groupRank: meGroup?.rank || null, groupSize: inGroup.length, formRank: meForm?.rank || null, formSize: inForm.length, weekly: mine.weekly } : null,
+    groupList: inGroup.slice(0, 60).map((r) => view(r, r.id === user.id)),
+    formTop: inForm.slice(0, 10).map((r) => view(r, r.id === user.id)),
+    weeklyLeader: weeklyTop && weeklyTop.weekly > 0 && !(weeklyTop.hidden && weeklyTop.id !== user.id) ? { name: shortName(weeklyTop.fullName), count: weeklyTop.weekly, me: weeklyTop.id === user.id } : null,
+    tiers: TIERS,
+  });
+}
+
+async function adminRating(req) {
+  await requireTeacher(req);
+  const sem = semFromReq(req);
+  const { rows, frozen, at } = await semesterRows(sem);
+  // O'rin har bir guruh ichida
+  const byGroup = new Map();
+  for (const r of rows) (byGroup.get(r.group) || byGroup.set(r.group, []).get(r.group)).push(r);
+  const ranked = [...byGroup.values()].flatMap((g) => rankRows(g));
+  const bonuses = (await getEntries("ratingbonus/")).map(([, v]) => v).filter((b) => b.sem === sem.no).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+  return json({ sem: semInfo(sem), frozen, updatedAt: at, rows: ranked, bonuses, semesters: COURSE.semesters.map(semInfo) });
+}
+
+async function addBonus(req) {
+  const teacher = await requireTeacher(req);
+  const b = await body(req);
+  const sem = semesterByNo(b.sem);
+  const user = await db().get(userKey(str(b.userId, 64)));
+  const points = Number(b.points);
+  const reason = str(b.reason, 200);
+  if (!sem) throw new HttpError(400, "Semestrni tanlang");
+  if (!user || user.role !== "student") throw new HttpError(404, "Talaba topilmadi");
+  if (!Number.isFinite(points) || points === 0 || Math.abs(points) > 50) throw new HttpError(400, "Rag'bat balli 0 dan farqli va −50…+50 oralig'ida bo'lishi kerak");
+  if (reason.length < 3) throw new HttpError(400, "Sababini yozing (masalan: «darsdagi faol ishtirok»)");
+  const id = newId();
+  await db().set(bonusKey(user.id, id), { id, userId: user.id, name: user.name, group: user.group || "", sem: sem.no, points: Math.round(points * 10) / 10, reason, by: teacher.name, at: new Date().toISOString() });
+  await db().del(finalKey(sem.no)); // qotirilgan natija qayta hisoblanadi
+  semRatingCache.delete(sem.no);
+  return json({ ok: true, id });
+}
+
+async function removeBonus(req) {
+  await requireTeacher(req);
+  const b = await body(req);
+  const key = bonusKey(str(b.userId, 64), str(b.id, 64));
+  const rec = await db().get(key);
+  if (!rec) throw new HttpError(404, "Rag'bat topilmadi");
+  await db().del(key);
+  await db().del(finalKey(rec.sem));
+  semRatingCache.delete(rec.sem);
+  return json({ ok: true });
+}
+
+async function recalcRating(req) {
+  await requireTeacher(req);
+  const b = await body(req);
+  const sem = semesterByNo(b.sem);
+  if (!sem) throw new HttpError(400, "Semestrni tanlang");
+  await db().del(finalKey(sem.no));
+  semRatingCache.delete(sem.no);
+  return json({ ok: true });
+}
+
+// ---------- Himoya hodisalari: test/topshiriq paytida ekran surati yoki oynadan chiqish ----------
+
+const SEC_TYPES = { screenshot: "Ekran surati urinishi", leave: "Oynadan chiqish" };
+
+async function securityEvent(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") return json({ ok: true });
+  const b = await body(req);
+  const type = str(b.type, 20);
+  if (!SEC_TYPES[type]) throw new HttpError(400, "Hodisa turi noto'g'ri");
+  const day = new Date().toISOString().slice(0, 10);
+  const lim = await bump(`ratelimit/sec/${user.id}/${day}`, 86_400_000, 300);
+  if (!lim.ok) return json({ ok: true });
+  const at = new Date().toISOString();
+  await db().set(`secevent/${user.id}/${at}-${newId().slice(0, 6)}`, { userId: user.id, name: user.name, group: user.group || "", form: formKeyOf(user), type, page: str(b.page, 80), at });
+  return json({ ok: true });
+}
+
+async function adminSecurity(req) {
+  await requireTeacher(req);
+  const events = (await getEntries("secevent/")).map(([, v]) => v).sort((a, b) => b.at.localeCompare(a.at));
+  const by = new Map();
+  for (const e of events) {
+    const r = by.get(e.userId) || { userId: e.userId, name: e.name, group: e.group, form: e.form, screenshot: 0, leave: 0, last: e.at };
+    r[e.type]++;
+    by.set(e.userId, r);
+  }
+  return json({ types: SEC_TYPES, students: [...by.values()].sort((a, b) => b.screenshot * 5 + b.leave - (a.screenshot * 5 + a.leave)), recent: events.slice(0, 200) });
+}
+
 // ---------- Sozlamalar va diagnostika ----------
 
 let secretReady = false;
@@ -1909,6 +2097,13 @@ const routes = [
   ["PUT", /^admin\/labs\/([\w-]+)\/([\w-]+)\/grade$/, gradeLab],
   ["GET", /^evidence$/, myEvidence],
   ["GET", /^leaderboard$/, leaderboard],
+  ["POST", /^security\/event$/, securityEvent],
+  ["GET", /^admin\/security$/, adminSecurity],
+  ["GET", /^rating$/, myRating],
+  ["GET", /^admin\/rating$/, adminRating],
+  ["POST", /^admin\/rating\/bonus$/, addBonus],
+  ["POST", /^admin\/rating\/bonus\/remove$/, removeBonus],
+  ["POST", /^admin\/rating\/recalc$/, recalcRating],
   ["GET", /^admin\/items$/, adminItems],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
