@@ -286,6 +286,26 @@ function teacherBlock(config, getEmail) {
   return box;
 }
 
+/** Talaba ro'yxatdan o'tishi: avval ta'lim shakli (kunduzgi / masofaviy), keyin shu shakldagi guruh. */
+function studentBlock(config) {
+  const forms = config.studyForms || [];
+  if (!forms.length) return h("div", {}, field("Guruh", { name: "group", placeholder: "Masalan: TUR-401", maxlength: 60 }));
+  const want = new URLSearchParams(location.hash.split("?")[1] || "").get("form");
+  let cur = forms.find((f) => f.key === want)?.key || "";
+  const select = h("select", { name: "group" });
+  const tabs = h("div", { class: "segmented role-switch" }, forms.map((f) => h("label", { class: `seg ${f.key === cur ? "active" : ""}` }, h("input", { type: "radio", name: "studyForm", value: f.key, checked: f.key === cur, onchange: () => { cur = f.key; paint(); } }), `${f.icon || ""} ${f.name}`)));
+  const note = h("p", { class: "muted small" });
+  const paint = () => {
+    tabs.querySelectorAll(".seg").forEach((el) => el.classList.toggle("active", el.querySelector("input").value === cur));
+    const f = forms.find((x) => x.key === cur);
+    select.replaceChildren(h("option", { value: "" }, f ? "Guruhingizni tanlang" : "Avval ta'lim shaklini tanlang"), ...(f ? f.groups : []).map((g) => h("option", { value: g }, g)));
+    select.disabled = !f;
+    note.textContent = f ? f.title : "";
+  };
+  paint();
+  return h("div", { class: "stack" }, h("div", {}, h("span", { class: "small" }, h("b", {}, "Ta'lim shakli")), tabs, note), h("label", { class: "field" }, h("span", {}, "Guruh"), select));
+}
+
 export async function renderRegister(el) {
   if (session.user) return afterLogin();
   let config = { teacherSignup: false };
@@ -294,7 +314,7 @@ export async function renderRegister(el) {
   } catch {}
   const err = h("div");
   const teacherFields = teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase());
-  const studentFields = h("div", {}, (config.groups?.length ? h("label", { class: "field" }, h("span", {}, `Guruh${config.studyForm ? ` (${config.studyForm.toLowerCase()} ta'lim)` : ""}`), h("select", { name: "group" }, h("option", { value: "" }, "Guruhingizni tanlang"), config.groups.map((g) => h("option", { value: g }, g)))) : field("Guruh", { name: "group", placeholder: "Masalan: TUR-401", maxlength: 60 })));
+  const studentFields = studentBlock(config);
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {

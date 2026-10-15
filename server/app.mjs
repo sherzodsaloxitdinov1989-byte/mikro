@@ -7,6 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus } from "../public/js/gamification.js";
 import { findTopic, tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, COURSE } from "../public/data/topics.js";
+import { formOfGroup, formByKey } from "../public/data/course.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
@@ -34,6 +35,8 @@ const userKey = (id) => `user/${id}`;
 
 function publicUser(u) {
   const { salt, hash, ...rest } = u;
+  // Ta'lim shakli: saqlangan qiymat yoki guruh bo'yicha aniqlanadi (eski profillar uchun)
+  if (u.role === "student") rest.studyForm = u.studyForm || formOfGroup(u.group)?.key || "";
   return rest;
 }
 
@@ -101,6 +104,14 @@ const str = (v, max = 200) => (typeof v === "string" ? v.trim().slice(0, max) : 
 
 // ---------- Auth ----------
 
+/** Ro'yxatdan o'tishda tanlangan ta'lim shakli (guruhlar sozlangan bo'lsa majburiy). */
+function studyFormOf(b) {
+  if (!(COURSE.studyForms || []).length) return "";
+  const key = str(b.studyForm, 30);
+  if (!formByKey(key)) throw new HttpError(400, "Ta'lim shaklini tanlang (kunduzgi yoki masofaviy)");
+  return key;
+}
+
 async function register(req) {
   const b = await body(req);
   const email = str(b.email, 120).toLowerCase();
@@ -133,7 +144,8 @@ async function register(req) {
     email,
     name,
     role,
-    group: role === "student" ? checkGroup(str(b.group, 60)) : str(b.group, 60),
+    group: role === "student" ? checkGroup(str(b.group, 60), null, studyFormOf(b)) : str(b.group, 60),
+    studyForm: role === "student" ? studyFormOf(b) || undefined : undefined,
     college: str(b.college, 160),
     cohort: role === "student" ? (["experimental", "control"].includes(b.cohort) ? b.cohort : "unassigned") : undefined,
     cohortSource: role === "student" && ["experimental", "control"].includes(b.cohort) ? "self" : undefined,
@@ -357,10 +369,13 @@ async function adminResetPassword(req, id) {
 }
 
 /** Fan guruhlari belgilangan bo'lsa, talaba faqat shulardan birini tanlay oladi. */
-function checkGroup(value, current = null) {
+function checkGroup(value, current = null, formKey = "") {
   const list = COURSE.groups || [];
   if (!list.length || value === current) return value;
-  if (!list.includes(value)) throw new HttpError(400, `Guruhni ro'yxatdan tanlang: ${list.join(", ")}`);
+  const form = formKey ? formByKey(formKey) : null;
+  if (formKey && !form) throw new HttpError(400, "Ta'lim shaklini tanlang");
+  const allowed = form ? form.groups : list;
+  if (!allowed.includes(value)) throw new HttpError(400, `Guruhni ro'yxatdan tanlang${form ? ` (${form.name.toLowerCase()} ta'lim)` : ""}: ${allowed.join(", ")}`);
   return value;
 }
 
@@ -368,7 +383,7 @@ async function updateMe(req) {
   const user = await requireUser(req);
   const b = await body(req);
   if (b.name !== undefined) user.name = str(b.name, 120) || user.name;
-  if (b.group !== undefined) user.group = user.role === "student" ? checkGroup(str(b.group, 60), user.group) : str(b.group, 60);
+  if (b.group !== undefined) user.group = user.role === "student" ? checkGroup(str(b.group, 60), user.group, user.studyForm || formOfGroup(user.group)?.key || "") : str(b.group, 60);
   if (b.college !== undefined) user.college = str(b.college, 160);
   if (b.hideFromRating !== undefined) user.hideFromRating = Boolean(b.hideFromRating);
   // Talaba guruhini faqat hali belgilanmagan bo'lsa o'zi tanlaydi; keyin uni o'qituvchi o'zgartiradi.
@@ -406,7 +421,11 @@ async function updateStudent(req, id) {
     user.cohort = b.cohort;
     user.cohortSource = "teacher";
   }
-  if (b.group !== undefined) user.group = str(b.group, 60);
+  if (b.group !== undefined) {
+    user.group = str(b.group, 60);
+    const f = formOfGroup(user.group);
+    if (f) user.studyForm = f.key; // o'qituvchi guruhni o'zgartirsa, ta'lim shakli ham mos ravishda o'zgaradi
+  }
   await db().set(userKey(id), user);
   return json(publicUser(user));
 }
@@ -1831,7 +1850,7 @@ const routes = [
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForm: COURSE.studyForm || "" })],
+  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })) })],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],

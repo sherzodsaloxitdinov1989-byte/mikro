@@ -36,7 +36,7 @@ Ixtiyoriy bo'lim: **tahlil laboratoriyasi** (`features.lab`). U faqat moliyaviy 
 
 | Fayl | Mazmuni | Qanday to'ldiriladi |
 |---|---|---|
-| `public/data/course.js` | Fan nomi, platforma nomi, slug, ta'lim natijalari, baholash, darajalar, bo'limlar | Fan dasturidan, qo'lda. Keyin `npm run configure` |
+| `public/data/course.js` | Fan nomi, platforma nomi, slug, ta'lim natijalari, baholash, darajalar, bo'limlar, ta'lim shakllari va guruhlar (`studyForms`) | Fan dasturidan, qo'lda. Keyin `npm run configure` |
 | `public/data/book.js` | Darslik matni | `python3 scripts/import-book.py manbalar/<darslik>` (avtomatik) |
 | `public/data/layers.js` | Har mavzu: belgi, qisqa nom, glossariy, metodlar, testlar, mustaqil ishlar, resurslar | Darslik asosida o'zing yozasan |
 | `public/data/practice.js` | Amaliy mashg'ulotlar (masalalar + ochiq topshiriqlar) | Amaliy to'plamdan yoki darslik asosida |

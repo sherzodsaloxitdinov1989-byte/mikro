@@ -13,6 +13,8 @@ import { buildScenes } from "../lesson-player.js";
 import { bookParagraphs } from "../audiobook.js";
 import { createForm } from "./live.js";
 import { teacherView as assignmentView } from "./assignment.js";
+import { formByKey } from "../../data/course.js";
+import { totalScore } from "../assignment-util.js";
 
 const COHORTS = { experimental: "Tajriba (TG)", control: "Nazorat (NG)", unassigned: "Belgilanmagan" };
 
@@ -28,6 +30,7 @@ const SECTIONS = [
   COURSE.features.lab && { key: "labs", icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
   { key: "assignment", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
+  { key: "forms", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "items", icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
@@ -53,7 +56,7 @@ const sectionHref = (key) => `#/teacher/${key}`;
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView };
   const view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   const sec = SECTIONS.find((x) => x.key === tab);
@@ -614,7 +617,7 @@ async function students(el) {
   const list = users.filter((u) => u.role === "student");
   const teachers = users.filter((u) => u.role === "teacher");
   const groups = [...new Set(list.map((u) => u.group).filter(Boolean))].sort();
-  const q = { text: "", group: "" };
+  const q = { text: "", group: "", form: "" };
   const tbody = h("tbody");
 
   const setCohort = async (u, cohort) => {
@@ -623,7 +626,7 @@ async function students(el) {
   };
 
   const draw = () => {
-    const rows = list.filter((u) => (!q.group || u.group === q.group) && (!q.text || `${u.name} ${u.email}`.toLowerCase().includes(q.text)));
+    const rows = list.filter((u) => (!q.group || u.group === q.group) && (!q.form || u.studyForm === q.form) && (!q.text || `${u.name} ${u.email}`.toLowerCase().includes(q.text)));
     tbody.replaceChildren(
       ...rows.map((u) =>
         h(
@@ -631,7 +634,7 @@ async function students(el) {
           {},
           h("td", {}, u.name),
           h("td", {}, u.email),
-          h("td", {}, u.group || "—"),
+          h("td", {}, u.group || "—", u.studyForm && h("div", { class: "muted small" }, formByKey(u.studyForm)?.name || "")),
           h("td", {}, u.college || "—"),
           h("td", {}, fmtDate(u.createdAt)),
           h("td", {}, h("select", { class: `cohort-${u.cohort || "unassigned"}`, onchange: async (e) => {
@@ -694,10 +697,11 @@ async function students(el) {
         "div",
         { class: "row wrap" },
         h("input", { type: "search", placeholder: "Ism yoki email bo'yicha qidirish", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
+        h("select", { onchange: (e) => ((q.form = e.target.value), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), (COURSE.studyForms || []).map((f) => h("option", { value: f.key }, f.name))),
         h("select", { onchange: (e) => ((q.group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
         h("div", { class: "grow" }),
         h("span", { class: "muted small" }, `Jami: ${list.length} talaba`),
-        h("button", { class: "btn ghost", onclick: () => downloadFile("oquvchilar.csv", toCSV([["F.I.Sh.", "Email", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...list.map((u) => [u.name, u.email, u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
+        h("button", { class: "btn ghost", onclick: () => downloadFile("oquvchilar.csv", toCSV([["F.I.Sh.", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...list.map((u) => [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
       ),
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "F.I.Sh."), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
     ),
@@ -791,6 +795,46 @@ async function teachersView(el) {
             } }, "Talaba qilish"))))))));
   };
   await draw();
+}
+
+
+// ---------------- Ta'lim shakllari: kunduzgi va masofaviy bo'limlar ----------------
+
+async function formsView(el) {
+  const [users, data] = await Promise.all([api.get("admin/students"), api.get("admin/assignment")]);
+  const students = users.filter((u) => u.role === "student");
+  const subsBy = new Map();
+  for (const it of data.items) (subsBy.get(it.userId) || subsBy.set(it.userId, []).get(it.userId)).push(it);
+  const stat = (list) => {
+    const subs = list.flatMap((u) => subsBy.get(u.id) || []);
+    const submitters = list.filter((u) => (subsBy.get(u.id) || []).length).length;
+    const graded = subs.filter((i) => i.teacher?.score != null && !i.resubmitted).length;
+    const avg = list.length ? list.reduce((n, u) => n + totalScore(subsBy.get(u.id) || []), 0) / list.length : 0;
+    return { n: list.length, submitters, stages: subs.length, graded, avg: Math.round(avg * 100) / 100 };
+  };
+  const row = (label, list) => {
+    const s = stat(list);
+    return h("tr", {}, h("td", {}, h("b", {}, label)), h("td", { class: "center" }, s.n), h("td", { class: "center" }, `${s.submitters}`), h("td", { class: "center" }, s.stages), h("td", { class: "center" }, s.graded), h("td", { class: "center" }, String(s.avg).replace(".", ",")));
+  };
+  const known = new Set((COURSE.studyForms || []).flatMap((f) => f.groups));
+  const others = students.filter((u) => !known.has(u.group));
+  mount(el,
+    h("div", { class: "grid cols-2" }, (COURSE.studyForms || []).map((f) => {
+      const list = students.filter((u) => (u.studyForm || "") === f.key);
+      const s = stat(list);
+      return h("div", { class: "card stat-card" }, h("div", { class: "stat-icon" }, f.icon || "🎓"), h("b", {}, `${s.n} talaba`), h("span", { class: "muted small" }, `${f.title} · ${f.groups.length} guruh · o'rtacha topshiriq balli ${String(s.avg).replace(".", ",")} / 20`));
+    })),
+    (COURSE.studyForms || []).map((f) =>
+      h("section", { class: "card table-wrap" },
+        h("h3", {}, `${f.icon || "🎓"} ${f.title}`),
+        h("table", { class: "table" },
+          h("thead", {}, h("tr", {}, h("th", {}, "Guruh"), h("th", { class: "center" }, "Talabalar"), h("th", { class: "center" }, "Topshiriq topshirgan"), h("th", { class: "center" }, "Topshirilgan bosqichlar"), h("th", { class: "center" }, "Baholangan"), h("th", { class: "center" }, "O'rtacha ball / 20"))),
+          h("tbody", {}, f.groups.map((g) => row(g, students.filter((u) => u.group === g))), row("Jami", students.filter((u) => (u.studyForm || "") === f.key)))),
+        h("div", { class: "row wrap" },
+          h("a", { class: "btn small ghost", href: "#/teacher/students" }, "👥 Talabalar"),
+          h("a", { class: "btn small ghost", href: "#/teacher/assignment" }, "📝 Topshiriq ballari")))),
+    others.length > 0 && h("div", { class: "alert alert-warn small" }, `${others.length} nafar talabaning guruhi ro'yxatda yo'q yoki bo'sh: ${others.slice(0, 8).map((u) => u.name).join(", ")}${others.length > 8 ? "…" : ""}. «Talabalar» bo'limida ularning guruhini belgilang.`)
+  );
 }
 
 // ---------------- Tadqiqot arxivi (dissertatsiya III bobi) ----------------

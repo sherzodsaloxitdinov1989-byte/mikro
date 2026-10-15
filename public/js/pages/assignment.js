@@ -2,7 +2,7 @@
 import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } from "../ui.js";
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE } from "../../data/course.js";
+import { COURSE, formByKey } from "../../data/course.js";
 import { ASSIGNMENT as A, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
 import { extractText } from "../doctext.js";
 
@@ -257,7 +257,7 @@ export async function teacherView(el) {
         h("tbody", {}, list.map((u) =>
           h("tr", {},
             h("td", {}, u.name),
-            h("td", {}, u.group || "—"),
+            h("td", {}, u.group || "—", u.studyForm && h("div", { class: "muted small" }, formByKey(u.studyForm)?.name || "")),
             A.stages.map((s) => {
               const it = by.get(`${u.id}/${s.no}`);
               let label = "·", cls = "muted";
@@ -271,15 +271,15 @@ export async function teacherView(el) {
     if (!list.length) table.append(emptyState("👥", "Talabalar topilmadi"));
   };
 
-  const sel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), (COURSE.groups || []).map((x) => h("option", { value: x }, x)));
+  const sel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), (COURSE.studyForms || []).map((f) => h("optgroup", { label: f.title }, f.groups.map((x) => h("option", { value: x }, x)))));
   const search = h("input", { type: "search", placeholder: "Qidirish: ism yoki email", oninput: (e) => ((q = e.target.value), draw()) });
   const csv = () =>
     downloadFile("topshiriq-ballari.csv", toCSV([
-      ["Talaba", "Email", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
+      ["Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
         ...rows.map((u) => {
           const its = subsOf(u);
           const m = new Map(its.map((i) => [i.no, i]));
-          return [u.name, u.email, u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its)];
+          return [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its)];
         })]));
 
   const pending = data.items.filter((i) => i.teacher?.score == null || i.resubmitted).length;

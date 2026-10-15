@@ -1,6 +1,6 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
-import { COURSE } from "../../data/course.js";
+import { COURSE, formOfGroup, formByKey } from "../../data/course.js";
 
 
 export async function render(el) {
@@ -26,7 +26,7 @@ export async function render(el) {
     h("h2", {}, "Shaxsiy ma'lumotlar"),
     h("label", { class: "field" }, h("span", {}, "Ism-familiya"), h("input", { name: "name", value: user.name, required: true })),
     h("label", { class: "field" }, h("span", {}, "Ta'lim muassasasi"), h("input", { name: "college", value: user.college || "" })),
-    user.role === "student" && h("label", { class: "field" }, h("span", {}, "Guruh"), (COURSE.groups?.length ? h("select", { name: "group" }, [...new Set(["", ...COURSE.groups, user.group || ""])].map((g) => h("option", { value: g, selected: g === (user.group || "") }, g || "— tanlang —"))) : h("input", { name: "group", value: user.group || "" }))),
+    user.role === "student" && groupField(user),
     user.role === "student" && h("label", { class: "check-row" }, h("input", { type: "checkbox", name: "showInRating", checked: !user.hideFromRating }), " Reytingda ismim ko'rinsin (ism va familiyaning bosh harfi)"),
     h("h3", {}, "Parolni o'zgartirish"),
     h("div", { class: "grid cols-2" },
@@ -53,4 +53,15 @@ export async function render(el) {
       )
     )
   );
+}
+
+/** Talaba profilida ta'lim shakli ko'rsatiladi; guruhni faqat o'z ta'lim shakli ichida o'zgartira oladi (shaklni o'qituvchi o'zgartiradi). */
+function groupField(user) {
+  const form = formByKey(user.studyForm) || formOfGroup(user.group);
+  const groups = form ? form.groups : COURSE.groups || [];
+  if (!groups.length) return h("label", { class: "field" }, h("span", {}, "Guruh"), h("input", { name: "group", value: user.group || "" }));
+  return h("div", { class: "stack" },
+    form && h("p", { class: "small" }, h("b", {}, "Ta'lim shakli: "), `${form.icon || ""} ${form.title}`),
+    h("label", { class: "field" }, h("span", {}, "Guruh"), h("select", { name: "group" }, [...new Set(["", ...groups, user.group || ""])].map((g) => h("option", { value: g, selected: g === (user.group || "") }, g || "— tanlang —")))),
+    form && h("p", { class: "muted small" }, "Ta'lim shaklini o'zgartirish uchun o'qituvchiga murojaat qiling."));
 }

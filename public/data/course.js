@@ -56,10 +56,12 @@ export const COURSE = {
   // AI tekshiruvchi uchun: fan sohasi (masalan, "marketing", "pedagogika", "buxgalteriya hisobi")
   domain: "mikroiqtisodiyot",
 
-  // Fan bo'yicha shakllantirilgan guruhlar (talaba ro'yxatdan o'tganda shulardan birini tanlaydi).
-  // Bo'sh qoldirilsa, guruh nomi erkin yoziladi.
-  studyForm: "Kunduzgi",
-  groups: ["331-25", "332-25", "333-25", "334-25"],
+  // Bakalavriat ta'lim shakllari va ularga biriktirilgan guruhlar. Talaba ro'yxatdan o'tganda avval ta'lim shaklini,
+  // so'ng shu shakldagi guruhini tanlaydi. Bo'sh ro'yxat bo'lsa, guruh nomi erkin yoziladi.
+  studyForms: [
+    { key: "kunduzgi", name: "Kunduzgi", title: "Bakalavriat — kunduzgi ta'lim", icon: "🏫", groups: ["331-25", "332-25", "333-25", "334-25"] },
+    { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25"] },
+  ],
 
   // Bo'limlarni yoqish/o'chirish
   features: {
@@ -72,3 +74,8 @@ export const COURSE = {
   // Taqdimot bo'lmagan mavzuni ko'rsatmang. O'qituvchi panelidan ham yuklash mumkin.
   decks: { 1: 54, 2: 52, 3: 41, 4: 40, 5: 39, 6: 44, 7: 44, 8: 40, 9: 33, 10: 36, 11: 55, 12: 69, 13: 54, 14: 62, 15: 57, 16: 44, 17: 51, 18: 45, 19: 54, 20: 45, 21: 51 },
 };
+
+// Barcha guruhlar (ta'lim shakllaridan yig'iladi) va guruh bo'yicha ta'lim shaklini topish
+COURSE.groups = COURSE.studyForms.flatMap((f) => f.groups);
+export const formOfGroup = (group) => COURSE.studyForms.find((f) => f.groups.includes(group)) || null;
+export const formByKey = (key) => COURSE.studyForms.find((f) => f.key === key) || null;
