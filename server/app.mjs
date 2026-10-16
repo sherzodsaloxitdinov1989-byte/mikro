@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus } from "../public/js/gamification.js";
 import { findTopic, tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, COURSE } from "../public/data/topics.js";
-import { formOfGroup, formByKey, semesterByNo, currentSemester } from "../public/data/course.js";
+import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent } from "../public/data/course.js";
 import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -29,6 +29,7 @@ for (const t of TOPICS) {
     q.explain = keys[i].e || "";
   });
 }
+const MAIN_SUBJECT_ONLY = /^(quiz|assignment|self-study|practice|rating|labs)(\/|$)/;
 const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
 
@@ -109,7 +110,8 @@ export async function hasSession(req) {
   // Foydalanuvchi bazasi har bir rasm uchun emas, qisqa muddat (60 soniya) keshlab tekshiriladi: parol almashgan yoki chiqib ketgan sessiya tez bekor bo'ladi.
   const hitC = sessionCache.get(token);
   if (hitC && hitC.until > Date.now()) return hitC.ok;
-  const ok = Boolean(await userFromToken(token));
+  // Asosiy fan kontenti (darslik, rasm, taqdimot) faqat shu fan talabalari va o'qituvchilarga beriladi
+  const ok = Boolean(await userFromToken(token).then((u) => u && userHasContent(u)));
   if (sessionCache.size > 500) sessionCache.clear();
   sessionCache.set(token, { ok, until: Date.now() + 60_000 });
   return ok;
@@ -1145,6 +1147,41 @@ async function gradeTask(req, id, uid) {
   return json(rec);
 }
 
+// ---------- Fan bo'limi (kontent yuklanmagan fanlar uchun): guruh reytingi o'qituvchi yaratgan topshiriqlar ballaridan ----------
+
+/** Guruh reytingi: o'qituvchi qo'ygan topshiriq ballari yig'indisi. Talaba o'z guruhini, o'qituvchi istalgan guruhni ko'radi. */
+async function subjectRating(req) {
+  const user = await requireUser(req);
+  const url = new URL(req.url);
+  const group = user.role === "teacher" ? str(url.searchParams.get("group") || "", 60) : user.group;
+  if (!group) throw new HttpError(400, "Guruh ko'rsatilmagan");
+  const [users, tasks, subs] = await Promise.all([getMany("user/"), getMany("task/"), getMany("tasksub/")]);
+  const mates = users.filter((u) => u.role === "student" && u.group === group);
+  const formKey = formOfGroup(group)?.key;
+  const myTasks = new Map(tasks.filter((t) => t.published && (!t.groups?.length || t.groups.includes(group)) && (!t.forms?.length || t.forms.includes(formKey))).map((t) => [t.id, t]));
+  const maxTotal = [...myTasks.values()].reduce((n, t) => n + t.max, 0);
+  const totals = new Map();
+  for (const sb of subs) {
+    if (!myTasks.has(sb.taskId) || sb.teacher?.score == null || sb.resubmitted) continue;
+    const c = totals.get(sb.userId) || { total: 0, done: 0 };
+    c.total += sb.teacher.score;
+    c.done++;
+    totals.set(sb.userId, c);
+  }
+  const rows = mates
+    .filter((u) => u.id === user.id || user.role === "teacher" || !u.hideFromRating)
+    .map((u) => ({ id: u.id, name: u.name, total: Math.round((totals.get(u.id)?.total || 0) * 100) / 100, done: totals.get(u.id)?.done || 0, me: u.id === user.id }))
+    .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+  let rank = 0;
+  let prev = null;
+  rows.forEach((r, i) => {
+    if (r.total !== prev) rank = i + 1;
+    r.rank = rank;
+    prev = r.total;
+  });
+  return json({ group, tasks: myTasks.size, maxTotal: Math.round(maxTotal * 100) / 100, rows, now: new Date().toISOString() });
+}
+
 // ---------- O'qituvchilarni boshqarish (faqat o'qituvchi) ----------
 
 async function listTeachers(req) {
@@ -1466,7 +1503,7 @@ async function myEvidence(req) {
 
 async function allEvidence(req) {
   await requireTeacher(req);
-  const users = (await getMany("user/")).filter((u) => u.role === "student");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && userHasContent(u));
   const ev = await evidenceMap();
   const items = users.map((u) => ({ user: publicUser(u), evidence: ev(u.id) }));
   return json(items);
@@ -1571,7 +1608,7 @@ async function adminItems(req) {
   const url = new URL(req.url);
   const cohort = url.searchParams.get("cohort") || "all";
   const topicId = url.searchParams.get("topic");
-  const users = (await getMany("user/")).filter((u) => u.role === "student" && (cohort === "all" || (u.cohort || "unassigned") === cohort));
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && userHasContent(u) && (cohort === "all" || (u.cohort || "unassigned") === cohort));
   const progress = await Promise.all(users.map((u) => db().get(`progress/${u.id}`)));
   const responsesOf = (t) => progress.map((p) => p?.topics?.[t.id]?.quizFirst).filter((r) => Array.isArray(r) && r.length === t.quiz.length && r.every((x) => Number.isInteger(x)));
   if (topicId) {
@@ -1873,7 +1910,7 @@ let ratingCache = { at: 0, rows: null };
 
 async function ratingRows() {
   if (ratingCache.rows && Date.now() - ratingCache.at < 5 * 60_000) return ratingCache.rows;
-  const users = (await getMany("user/")).filter((u) => u.role === "student");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && userHasContent(u));
   const ev = await evidenceMap();
   const rows = await Promise.all(
     users.map(async (u) => {
@@ -1953,7 +1990,7 @@ const semInfo = (sem) => ({
 let semRatingCache = new Map();
 
 async function computeSemesterRows(sem) {
-  const users = (await getMany("user/")).filter((u) => u.role === "student");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && userHasContent(u));
   const [progress, reviews, selfStudy, assigns, bonuses] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries("selfstudy/"), getEntries("assign/"), getEntries("ratingbonus/")]);
   const uidOf = (key) => key.split("/")[1];
   const group = (entries) => {
@@ -2481,6 +2518,7 @@ const routes = [
   ["DELETE", /^admin\/videos\/([\w-]+)\/([\w-]+)$/, videoDelete],
 
 
+  ["GET", /^subject\/rating$/, subjectRating],
   ["POST", /^quiz\/([\w-]+)$/, quizSubmit],
   ["GET", /^admin\/quiz-keys$/, adminQuizKeys],
   ["GET", /^progress$/, getProgress],
@@ -2567,6 +2605,11 @@ export async function handle(req) {
   const path = new URL(req.url).pathname.replace(/^\/(\.netlify\/functions\/api|api)\/?/, "").replace(/\/$/, "");
   try {
     if (path !== "health") await ensureSecret();
+    // Asosiy fan bo'limlari (test, topshiriq, mustaqil ta'lim, amaliyot, reyting) boshqa fan talabalariga yopiq
+    if (MAIN_SUBJECT_ONLY.test(path)) {
+      const u = await currentUser(req).catch(() => null);
+      if (u && !userHasContent(u)) throw new HttpError(403, "Bu bo'lim sizning faningizga tegishli emas");
+    }
     for (const [method, pattern, fn] of routes) {
       const m = path.match(pattern);
       if (m && req.method === method) return await fn(req, ...m.slice(1).map(decodeURIComponent));

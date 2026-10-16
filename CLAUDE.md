@@ -21,6 +21,7 @@ Imkoniyatlar:
 - interaktiv metodlar va testlar;
 - amaliy mashg'ulotlar va **AI tekshiruv** (10 ballik feedback);
 - **o'qituvchi yaratadigan topshiriqlar** (`#/teacher/tasks`, talabada `#/tasks`): shart, auditoriya (ta'lim shakli/guruh), muddat, ball, AI mezonlari; kod: `server/tasks.mjs`, `public/js/pages/tasks.js`;
+- **bir nechta fan (bo'lim):** `public/data/course.js → SUBJECTS`. Har fan o'z guruhlariga biriktiriladi; talaba faqat o'z guruhi fanini ko'radi. `hasContent: false` fan (darsligi hali yo'q) uchun talabaga fan sahifasi (`#/fan`), o'qituvchi topshiriqlari (`#/tasks`) va guruh reytingi ko'rinadi; asosiy fan bo'limlari (mavzular, test, amaliyot, topshiriq, reyting) va darslik fayllari unga yopiq (server tomonida ham: `MAIN_SUBJECT_ONLY`, `userHasContent`). Fan darsligi yuklanganda `hasContent: true` qilib, kontent fayllarini fanga bog'lash kerak (hozircha kontent fayllari bitta — asosiy fanniki);
 - dolzarb ma'lumotlar;
 - mustaqil ta'lim;
 - mediateka;

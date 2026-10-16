@@ -2,7 +2,7 @@
 import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE, formByKey } from "../../data/course.js";
+import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
 import { extractText } from "../doctext.js";
 import { reviewView, saveBlob } from "./assignment.js";
 
@@ -273,7 +273,7 @@ function openBuilder(task, data, reload) {
       h("b", {}, "Kimga beriladi"),
       h("p", { class: "small muted" }, "Hech biri tanlanmasa — hamma talabaga."),
       checks(formBoxes.map(({ f, box }) => chk(box, `${f.icon || ""} ${f.name}`))),
-      h("details", {}, h("summary", { class: "small" }, "Alohida guruhlar"), checks(groupBoxes.map(({ g, box }) => chk(box, g))))),
+      h("details", {}, h("summary", { class: "small" }, "Alohida guruhlar"), checks(groupBoxes.map(({ g, box }) => chk(box, subjectOfGroup(g).key === "mikro" ? g : `${g} · ${subjectOfGroup(g).direction}`))))),
     h("div", { class: "row wrap" },
       h("label", { class: "field" }, h("span", {}, "Maksimal ball"), max),
       h("label", { class: "field" }, h("span", {}, "Topshirish muddati"), due),

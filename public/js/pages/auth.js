@@ -1,13 +1,16 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS } from "../../data/topics.js";
+import { userHasContent, subjectOfGroup } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
   sessionStorage.removeItem("tt.after-login");
-  location.hash = next || (session.isTeacher ? "#/teacher" : "#/");
+  const hasContent = userHasContent(session.user);
+  location.hash = next || (session.isTeacher ? "#/teacher" : hasContent ? "#/" : "#/fan");
   // Darslik materiallari kirishdan oldin yuklanmagan: kirgach sahifa qayta yuklanib, to'liq ma'lumot olinadi
-  if (!TOPICS.length) setTimeout(() => location.reload(), 100);
+  // (darsligi yo'q fan talabasida yuklanadigan narsa yo'q — qayta yuklash kerak emas)
+  if (!TOPICS.length && hasContent) setTimeout(() => location.reload(), 100);
 }
 
 function field(label, attrs) {
@@ -319,7 +322,7 @@ function studentBlock(config) {
   const paint = () => {
     tabs.querySelectorAll(".seg").forEach((el) => el.classList.toggle("active", el.querySelector("input").value === cur));
     const f = forms.find((x) => x.key === cur);
-    select.replaceChildren(h("option", { value: "" }, f ? "Guruhingizni tanlang" : "Avval ta'lim shaklini tanlang"), ...(f ? f.groups : []).map((g) => h("option", { value: g }, g)));
+    select.replaceChildren(h("option", { value: "" }, f ? "Guruhingizni tanlang" : "Avval ta'lim shaklini tanlang"), ...(f ? f.groups : []).map((g) => h("option", { value: g }, subjectOfGroup(g).key === "mikro" ? g : `${g} — ${subjectOfGroup(g).direction}`)));
     select.disabled = !f;
     note.textContent = f ? f.title : "";
   };

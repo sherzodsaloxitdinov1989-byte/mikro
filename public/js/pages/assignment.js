@@ -2,7 +2,7 @@
 import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } from "../ui.js";
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE, formByKey } from "../../data/course.js";
+import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
 import { extractText } from "../doctext.js";
 
@@ -240,7 +240,7 @@ export async function renderStage(el, noParam) {
 
 export async function teacherView(el) {
   const [data, students] = await Promise.all([api.get("admin/assignment"), api.get("admin/students")]);
-  const allRows = students.filter((u) => u.role === "student");
+  const allRows = students.filter((u) => u.role === "student" && subjectOfGroup(u.group).hasContent);
   const formOf = (u) => u.studyForm || "kunduzgi";
   let curForm = "kunduzgi";
   let A = assignmentFor(curForm);

@@ -60,7 +60,7 @@ export const COURSE = {
   // Bakalavriat ta'lim shakllari va ularga biriktirilgan guruhlar. Talaba ro'yxatdan o'tganda avval ta'lim shaklini,
   // so'ng shu shakldagi guruhini tanlaydi. Bo'sh ro'yxat bo'lsa, guruh nomi erkin yoziladi.
   studyForms: [
-    { key: "kunduzgi", name: "Kunduzgi", title: "Bakalavriat — kunduzgi ta'lim", icon: "🏫", groups: ["331-25", "332-25", "333-25", "334-25"] },
+    { key: "kunduzgi", name: "Kunduzgi", title: "Bakalavriat — kunduzgi ta'lim", icon: "🏫", groups: ["331-25", "332-25", "333-25", "334-25", "141-23", "142-23"] },
     { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25"] },
   ],
 
@@ -87,6 +87,37 @@ export const COURSE = {
 COURSE.groups = COURSE.studyForms.flatMap((f) => f.groups);
 export const formOfGroup = (group) => COURSE.studyForms.find((f) => f.groups.includes(group)) || null;
 export const formByKey = (key) => COURSE.studyForms.find((f) => f.key === key) || null;
+
+// ---------- Fanlar (bo'limlar) ----------
+// Platformada bir nechta fan bo'lishi mumkin. Har bir fan o'z guruhlariga biriktiriladi: talaba faqat o'z guruhi fanini ko'radi.
+// Asosiy fan (darslik, testlar, topshiriq, reyting — yuqoridagi COURSE) — "mikro". Guruhi hech bir fanga biriktirilmagan talaba shu fanga tushadi.
+// hasContent: false — fanning darsligi/testlari hali yuklanmagan: talabaga fan sahifasi, o'qituvchi yaratgan topshiriqlar (Vazifalar) va guruh reytingi ko'rinadi.
+export const SUBJECTS = [
+  {
+    key: "mikro",
+    title: "Mikroiqtisodiyot",
+    icon: "📈",
+    direction: "Iqtisodiyot",
+    hasContent: true,
+    groups: [],
+  },
+  {
+    key: "tadbirkorlik",
+    title: "Tadbirkorlik asoslari",
+    icon: "🏨",
+    direction: "Turizm va mehmondo'stlik",
+    form: "kunduzgi",
+    groups: ["141-23", "142-23"],
+    hasContent: false,
+    semester: { no: 7, course: 4, term: "Kuzgi semestr, 2026–2027 o'quv yili", startsAt: "2026-09-01", endsAt: "2026-12-26" },
+    description: "Tadbirkorlik faoliyatining asoslari: g'oya, biznes-reja, ro'yxatdan o'tish, moliyalash, marketing va boshqaruv — turizm va mehmondo'stlik sohasi misolida.",
+  },
+];
+/** Guruhga biriktirilgan fan; biriktirilmagan guruh — asosiy fan. */
+export const subjectOfGroup = (group) => SUBJECTS.find((s) => s.groups.includes(group)) || SUBJECTS[0];
+export const subjectByKey = (key) => SUBJECTS.find((s) => s.key === key) || null;
+/** Talaba (yoki o'qituvchi) uchun asosiy fan kontenti (darslik, test, topshiriq, reyting) ochiqmi. O'qituvchi — doim. */
+export const userHasContent = (user) => !user || user.role !== "student" || subjectOfGroup(user.group).hasContent;
 
 // Semestrlar: mavzu raqami bo'yicha semestr, sana bo'yicha joriy semestr
 export const semesterOf = (num) => COURSE.semesters.find((s) => num >= s.topics[0] && num <= s.topics[1]) || null;

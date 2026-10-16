@@ -1,6 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session } from "./api.js";
+import { userHasContent, subjectOfGroup } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initCelebrations } from "./celebrate.js";
 import { initTools } from "./search.js";
@@ -11,6 +12,7 @@ import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
 import * as assignment from "./pages/assignment.js";
 import * as tasks from "./pages/tasks.js";
+import * as subject from "./pages/subject.js";
 import * as rating from "./pages/rating.js";
 import * as teacher from "./pages/teacher.js";
 import * as profile from "./pages/profile.js";
@@ -46,6 +48,7 @@ const routes = [
   [/^\/updates$/, updates.render],
   [/^\/self-study$/, selfStudy.render, { auth: true, student: "#/teacher/self-study" }],
   [/^\/rating$/, rating.render, { auth: true, student: "#/teacher/rating" }],
+  [/^\/fan(?:\/([\w-]+))?$/, subject.render, { auth: true }],
   [/^\/tasks$/, tasks.render, { auth: true, student: "#/teacher/tasks" }],
   [/^\/tasks\/([\w-]+)$/, tasks.renderTask, { auth: true, student: "#/teacher/tasks" }],
   [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
@@ -86,9 +89,22 @@ function renderNav() {
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
   const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/self-study", "#/rating"];
-  const items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
+  let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
+  // Darsligi yuklanmagan fan talabasiga faqat o'z fani, vazifalar ko'rinadi (asosiy fan bo'limlari yopiq)
+  const ownSubject = user && !isTeacher && !userHasContent(user) ? subjectOfGroup(user.group) : null;
+  if (ownSubject) items = [["#/fan", ownSubject.title, ownSubject.icon], ["#/tasks", "Vazifalar", "🗂️"]];
+  else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
+  // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
+  const foot = document.querySelector(".footer-inner");
+  if (foot) {
+    foot.dataset.orig ||= foot.innerHTML;
+    foot.innerHTML = foot.dataset.orig;
+    if (ownSubject) {
+      foot.replaceChildren(h("span", {}, `© 2026 MikroAkademiya — ${ownSubject.title}`), h("span", { class: "muted" }, `${ownSubject.direction} yo'nalishi · ${ownSubject.groups.join(", ")} guruhlari`));
+    }
+  }
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
-  else if (user) items.push(["#/passport", "Talaba pasporti", "🛂"]);
+  else if (user && !ownSubject) items.push(["#/passport", "Talaba pasporti", "🛂"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
   mount(
     nav,
@@ -121,6 +137,11 @@ async function route() {
   if (!session.user && !PUBLIC.test(path)) {
     sessionStorage.setItem("tt.after-login", location.hash);
     location.hash = /^\/(teacher|live\/host)/.test(path) ? "#/ustoz" : "#/login";
+    return;
+  }
+  // Boshqa fan talabasi asosiy fan bo'limlariga kirmaydi: o'z fani sahifasiga yo'naltiriladi
+  if (session.user && session.user.role === "student" && !userHasContent(session.user) && (path === "/" || path === "" || /^\/(topics|practice|lab|media|assignment|rating|self-study|updates|passport)(\/|$)/.test(path))) {
+    location.hash = "#/fan";
     return;
   }
   for (const [pattern, fn, opts = {}] of routes) {
@@ -170,7 +191,7 @@ watch(main);
 initContentGuard();
 initSecureMode();
 // Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz
-if (session.token && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
+if (session.token && userHasContent(session.user) && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
   sessionStorage.setItem("tt.cookie-try", "1");
   fetch("/api/auth/session", { method: "POST", headers: { authorization: `Bearer ${session.token}` } }).finally(() => location.reload());
 } else {
