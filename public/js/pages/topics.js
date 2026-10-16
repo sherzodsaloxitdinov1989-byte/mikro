@@ -349,7 +349,7 @@ function quizTab(topic) {
       if (!ok) setTimeout(() => shake(qs[i]), i * 60);
       const ex = qs[i].querySelector(".quiz-explain");
       ex.classList.remove("hidden");
-      ex.textContent = ok ? "✓ To'g'ri." : `✗ To'g'ri javob: ${q.options[q.correct]}`;
+      ex.textContent = (ok ? "✓ To'g'ri." : `✗ To'g'ri javob: ${q.options[q.correct]}.`) + (q.explain ? ` ${q.explain}` : "");
       qs[i].querySelectorAll("input").forEach((inp) => (inp.disabled = true));
     });
     const score = Math.round((correct / topic.quiz.length) * 100);

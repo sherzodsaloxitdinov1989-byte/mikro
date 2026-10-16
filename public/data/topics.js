@@ -44,7 +44,7 @@ export const TOPICS = BOOK.topics.map((b) => {
     questions: b.questions,
     keywords: b.keywords,
     glossary: layer.glossary || [],
-    quiz: (layer.tests || []).map((t) => ({ q: t.q, options: t.options, correct: t.c, letters: OPTION_LETTERS })),
+    quiz: (layer.tests || []).map((t) => ({ q: t.q, options: t.options, correct: t.c, explain: t.e || "", letters: OPTION_LETTERS })),
     methods: layer.methods || [],
     selfStudy: layer.selfStudy || [],
     resources: layer.resources || [],

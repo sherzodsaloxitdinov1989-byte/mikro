@@ -15,6 +15,7 @@ import { createForm } from "./live.js";
 import { teacherView as assignmentView } from "./assignment.js";
 import { teacherView as ratingView } from "./rating.js";
 import { teacherView as securityView } from "./security.js";
+import { view as testbankView } from "./testbank.js";
 import { formByKey } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
 
@@ -37,6 +38,7 @@ const SECTIONS = [
   { key: "forms", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
+  { key: "testbank", icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
   { key: "items", icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
   { key: "slides", icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
   { key: "videos", icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
@@ -60,7 +62,7 @@ const sectionHref = (key) => `#/teacher/${key}`;
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, testbank: testbankView };
   const view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   const sec = SECTIONS.find((x) => x.key === tab);
