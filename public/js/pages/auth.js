@@ -1,6 +1,6 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
-import { TOPICS } from "../../data/topics.js";
+import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
 import { userHasContent, subjectOfGroup } from "../../data/course.js";
 
 function afterLogin() {
@@ -10,7 +10,8 @@ function afterLogin() {
   location.hash = next || (session.isTeacher ? "#/teacher" : hasContent ? "#/" : "#/fan");
   // Darslik materiallari kirishdan oldin yuklanmagan: kirgach sahifa qayta yuklanib, to'liq ma'lumot olinadi
   // (darsligi yo'q fan talabasida yuklanadigan narsa yo'q — qayta yuklash kerak emas)
-  if (!TOPICS.length && hasContent) setTimeout(() => location.reload(), 100);
+  // Boshqa fan foydalanuvchisi kirgan bo'lsa ham (masalan, o'qituvchi chiqib, talaba kirdi) ma'lumot to'g'ri fan bo'yicha qayta yuklanadi
+  if (hasContent && (!TOPICS.length || SUBJECT_KEY !== currentSubjectKey())) setTimeout(() => location.reload(), 100);
 }
 
 function field(label, attrs) {

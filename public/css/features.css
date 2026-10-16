@@ -389,3 +389,6 @@
   .pp-step { min-width: 0; text-align: center; }
   .pp-step b, .pp-step small { overflow-wrap: anywhere; font-size: 0.66rem; }
 }
+
+/* O'qituvchi fan almashtirgichi (menyuda) */
+.subject-switch { font: inherit; font-size: 0.85rem; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); max-width: 190px; }

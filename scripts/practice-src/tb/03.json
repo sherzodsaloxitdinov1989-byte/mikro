@@ -1,0 +1,111 @@
+{
+ "goal": "O‘z g‘oyasi uchun kredit maqsadi, taxminiy summa, qaytarish manbayi va davlat dasturidan foydalanish rejasini tuzish.",
+ "concepts": [
+  "Kredit",
+  "annuitet to‘lovi",
+  "differensial to‘lov",
+  "DSCR",
+  "moliyaviy richag",
+  "garov va kafillik"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 3-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb3-p1",
+   "title": "Annuitet to‘lovi",
+   "text": "Tadbirkor uskuna sotib olish uchun 60 million so‘m kredit oladi: yillik stavka 24%, muddat 24 oy. Kredit annuitet usulida qaytariladi (oylik stavka = yillik / 12). Oylik to‘lovni va jami foizni hisoblang.",
+   "fields": [
+    {
+     "label": "Oylik annuitet to‘lovi",
+     "value": 3.172,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Jami foiz",
+     "value": 16.13,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "r = 24%/12 = 0,02; n = 24. PMT = 60 × 0,02 / (1 − 1,02^(−24)) = 1,2 / 0,3783 ≈ 3,172 mln. Jami to‘lov 3,172 × 24 ≈ 76,13 mln; foiz = 76,13 − 60 ≈ 16,13 mln.",
+   "formula": "PMT = P × r / (1 − (1 + r)^(−n))",
+   "note": "Darslikda jami foiz “taxminan 16,1” deb yaxlitlangan."
+  },
+  {
+   "id": "tb3-p2",
+   "title": "Differensial to‘lov",
+   "text": "Xuddi shu kredit (60 million so‘m, yillik 24%, 24 oy) differensial usulda qaytariladi: asosiy qarz teng bo‘laklarda, foiz qoldiq qarzdan oylik stavka bilan hisoblanadi. 1-oydagi va 24-oydagi to‘lovni hamda jami foizni toping.",
+   "fields": [
+    {
+     "label": "1-oy to‘lovi",
+     "value": 3.7,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "24-oy to‘lovi",
+     "value": 2.55,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Jami foiz",
+     "value": 15,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Asosiy qarz to‘lovi 60/24 = 2,5 mln. 1-oy: 2,5 + 60 × 0,02 = 3,7. 24-oy: qoldiq 2,5, shuning uchun 2,5 + 2,5 × 0,02 = 2,55. Jami foiz = 60 × 0,02 × (24 + 1)/2 = 15,0 mln.",
+   "formula": "To‘lov(k) = P/n + Qoldiq(k) × r",
+   "note": "Differensialda jami foiz annuitetdagidan (16,13) taxminan 1,13 mln kam, lekin birinchi oylardagi yuk katta."
+  },
+  {
+   "id": "tb3-p3",
+   "title": "DSCR va pessimistik stsenariy",
+   "text": "Yuqoridagi kredit uchun annuitet to‘lovi oyiga 3,172 million so‘m. Biznesning oylik sof operatsion pul oqimi 5 million so‘m. DSCRni toping. Sotuv 30% kamaysa, pul oqimi 3,5 million so‘mga tushadi: bu holda DSCR qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "DSCR (asosiy holat)",
+     "value": 1.576,
+     "unit": "marta"
+    },
+    {
+     "label": "DSCR (pessimistik)",
+     "value": 1.103,
+     "unit": "marta"
+    }
+   ],
+   "solution": "DSCR = 5 / 3,172 ≈ 1,58 (bank talabi odatda ≥ 1,25, shuning uchun qoplanadi). Pessimistik: 3,5 / 3,172 ≈ 1,10 — 1,25 dan past, xavfli hudud.",
+   "formula": "DSCR = sof operatsion pul oqimi / kredit xizmati (to‘lov)",
+   "note": "Darslikda 1,58 va 1,10 deb yaxlitlangan; aniq qiymatlar 1,576 va 1,103."
+  },
+  {
+   "id": "tb3-p4",
+   "title": "Moliyaviy richag",
+   "text": "Loyiha uchun 100 million so‘m kerak. Variant A: hammasi o‘z mablag‘i. Variant B: 40 million o‘z mablag‘i, 60 million yillik 20% li kredit. Loyihaning foizgacha yillik daromadliligi 30% bo‘lsa, B variantda o‘z kapitalining daromadliligini (ROE) toping. Daromadlilik 15% ga tushsa, B variantda ROE qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "ROE, B variant (30% da)",
+     "value": 45,
+     "unit": "%"
+    },
+    {
+     "label": "ROE, B variant (15% da)",
+     "value": 7.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "30% da: foyda 30 mln, foiz 60 × 20% = 12 mln, sof foyda 18 mln, ROE = 18/40 = 45% (A variantda 30%). 15% da: foyda 15 mln, 15 − 12 = 3 mln, ROE = 3/40 = 7,5% (A variantda 15%).",
+   "formula": "ROE = (Loyiha daromadi − Foiz) / O‘z kapitali",
+   "note": "Daromadlilik kredit stavkasidan (20%) past bo‘lsa, richag ROE ni kamaytiradi."
+  }
+ ],
+ "open": [
+  "Amaliy 3. Kredit va “Kelajakka qadam” dasturi bo‘yicha moliyaviy yo‘l xaritasi. o‘z g‘oyasi uchun kredit maqsadi, taxminiy summa, qaytarish manbayi va davlat dasturidan foydalanish rejasini tuzish. Bajarish tartibi: 1) Boshlang‘ich xarajatlar smetasini tuzing va kerakli summani aniqlang; 2) O‘z hissangiz va kredit ulushini belgilang; 3) Annuitet to‘lovini hisoblang (formula yoki elektron jadval bilan); 4) Oylik kutilayotgan pul oqimi asosida DSCR ni hisoblang; 5) Pessimistik stsenariyda (sotuv −30%) to‘lovni qoplash imkoniyatini tekshiring; 6) “Kelajakka qadam” yoki boshqa dastur bo‘yicha 30 kunlik harakat rejasini yozing.",
+  "Amaliy mashg'ulotga tayyorgarlik: O‘z biznes g‘oyangiz uchun kredit maqsadi, taxminiy summa, qaytarish manbayi va davlat dasturidan foydalanish bo‘yicha 3.5-jadval shaklida moliyaviy yo‘l xaritasini tuzing. Kredit summasi va muddati bo‘yicha annuitet to‘lovini hisoblang va pessimistik stsenariyda DSCR ni tekshiring.",
+  "Ikki xil bankning veb-saytidan (yoki bank xodimi bilan suhbatdan) kichik biznes krediti shartlarini yig‘ib, 3.3-jadval namunasida solishtiring.",
+  "3.2-rasmdagi annuitet va differensial grafikni o‘z kreditingiz uchun qaytadan hisoblab chiqing. Mashq uchun: 100 million so‘m kredit, yillik 22%, 36 oy. Annuitet to‘lovini va jami foizni toping, differensial bilan solishtiring."
+ ],
+ "refs": [
+  "Natija: 3.5-jadval shaklidagi moliyaviy yo‘l xaritasi. Baholash mezoni: hisob-kitoblar to‘g‘riligi, qaytarish manbayining asosliligi, xavflar hisobga olinishi. Ko'p uchraydigan xatolar: Annuitet va differensial to‘lovni chalkashtirib, noto‘g‘ri formula qo‘llash; DSCR hisoblashda operatsion xarajatlarni unutib, faqat tushumni olish; Pessimistik stsenariyni tekshirmasdan, faqat optimistik holatda kredit qaytarilishini hisoblash.",
+  "Namunaviy javob: 3.5-jadval shaklida maqsad, summa, o‘z hissa va kredit ulushi, annuitet to‘lovi (formula bilan), DSCR (≥ 1,25 bo‘lishi kerak), sotuv −30% stsenariysi va dastur bo‘yicha qadamlar. Mezon: hisob to‘g‘riligi, qaytarish manbayi asosliligi, xavf hisobga olinishi. Xato: DSCRda faqat tushumni olish.",
+  "Namunaviy javob: ikki bank uchun 3.3-jadval ustunlari (stavka, muddat, imtiyozli davr, garov/kafillik, komissiya, talab qilinadigan hujjatlar) to‘ldirilgan, manba va sana ko‘rsatilgan, o‘z loyihasi uchun qaysi biri mosligi asoslangan. Mezon: shartlar to‘liq va solishtirma, xulosa asosli. Xato: faqat stavkani solishtirish.",
+  "Namunaviy javob: r = 22%/12 ≈ 0,018333; n = 36. Annuitet PMT ≈ 3,82 mln so‘m, jami to‘lov ≈ 137,5 mln, jami foiz ≈ 37,5 mln. Differensial: asosiy qarz 100/36 ≈ 2,78 mln; 1-oy ≈ 2,78 + 1,83 = 4,61 mln; jami foiz = 100 × 0,018333 × 37/2 ≈ 33,9 mln. Xulosa: differensialda jami foiz kam, lekin dastlabki to‘lov katta; annuitetda yuk bir xil."
+ ]
+}

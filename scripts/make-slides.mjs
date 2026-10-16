@@ -6,12 +6,24 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { BOOK } from "../public/data/book.js";
-import { LAYERS } from "../public/data/layers.js";
-import { COURSE } from "../public/data/course.js";
+import { COURSE as BASE_COURSE, SUBJECTS } from "../public/data/course.js";
+import { buildLayers } from "../public/data/layers-lib.js";
+
+// Fan tanlash: standart — asosiy fan; "--subject tb" — Tadbirkorlik asoslari (public/slides/tb, public/data/tb/meta.js → DECKS)
+const argv = process.argv.slice(2);
+const si = argv.indexOf("--subject");
+const SUBJ = si >= 0 ? SUBJECTS.find((s) => s.dir === argv[si + 1] || s.key === argv[si + 1]) : SUBJECTS[0];
+if (!SUBJ) throw new Error("Noma'lum fan");
+if (si >= 0) argv.splice(si, 2);
+const dataPath = (f) => "../public/data/" + (SUBJ.dir ? SUBJ.dir + "/" : "") + f;
+const { BOOK } = await import(dataPath("book.js"));
+const AUTO = (await import(dataPath("layers-auto.js"))).AUTO;
+const META = SUBJ.dir ? await import(dataPath("meta.js")) : await import("../public/data/mikro-meta.js");
+const LAYERS = buildLayers(AUTO, { icons: META.ICONS, resources: META.RESOURCES });
+const COURSE = SUBJ.dir ? { ...BASE_COURSE, ...SUBJ.course } : BASE_COURSE;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT = path.join(ROOT, "public", "slides");
+const OUT = path.join(ROOT, "public", SUBJ.slides);
 fs.mkdirSync(OUT, { recursive: true });
 
 let chromium;
@@ -20,7 +32,7 @@ for (const base of [ROOT + "/", "/usr/local/lib/node_modules/", "/node-tools/nod
 }
 if (!chromium) throw new Error("Playwright topilmadi");
 
-const only = process.argv.slice(2).map(Number).filter(Boolean);
+const only = argv.map(Number).filter(Boolean);
 const topics = BOOK.topics.filter((t) => !only.length || only.includes(t.num));
 
 const CSS = `
@@ -47,6 +59,14 @@ th, td { border: 1px solid #cbd5e1; padding: 9px 14px; text-align: left } th { b
 .g div { font-size: 21px; line-height: 1.3; background: #f1f5f9; border-left: 5px solid #1d4ed8; padding: 10px 14px; border-radius: 6px }
 .g b { color: #1d4ed8 }
 .q li { font-size: 26px }
+.steps { margin: 0; padding-left: 40px } .steps li { font-size: 28px; line-height: 1.35; margin-bottom: 14px } .steps li::marker { color: #1d4ed8; font-weight: 700 }
+.g1 { display: grid; grid-template-columns: 1fr; gap: 16px } .g1 div { background: #f1f5f9; border-left: 6px solid #1d4ed8; border-radius: 8px; padding: 9px 20px }
+.g1 b { display: block; font-size: 22px; color: #1d4ed8; margin-bottom: 2px } .g1 code { display: block; font-size: 26px; font-family: "Cambria Math","Times New Roman",serif; color: #14213d } .g1 small { display: block; font-size: 18px; color: #475569; margin-top: 3px }
+.g1 { gap: 12px }
+table.tc { font-size: 21px } table.tc th, table.tc td { padding: 5px 12px }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px } .cols > div { background: #f8fafc; border-top: 6px solid #1d4ed8; border-radius: 8px; padding: 14px 22px } .cols h3 { margin: 0 0 8px; font-size: 27px; color: #1d4ed8 } .cols li { font-size: 24px }
+.body .fig { height: 430px; padding: 0 } .body .fig img { max-height: 420px }
+.note { margin-top: 18px; font-size: 22px; color: #334155; background: #eef2ff; border-radius: 8px; padding: 10px 16px }
 `;
 
 // Brauzer ichida ishlaydigan quruvchi: bob HTML → slaydlar HTML
@@ -156,6 +176,23 @@ function build(data) {
   const qs = [];
   for (const c of chunks(topic.questions.slice(0, 10).map((q) => esc(short(q, 200))), 620)) qs.push(frame("Nazorat savollari", `<div class="q">${bullets(c)}</div>`));
 
+  // Qo'lda/agent tuzgan slayd rejasi (scripts/slides-src/<fan>/NN.json): bo'lsa, avtomatik bo'lim slaydlari o'rniga shu ishlatiladi
+  if (data.outline && data.outline.length) {
+    n = 1 + plan.length; // slayd raqamlari: sarlavha + reja, so'ng mazmun
+    const out = [];
+    for (const sl of data.outline) {
+      const sub = sl.sub || "";
+      const li = (a) => a.map((x) => `<li>${esc(x)}</li>`).join("");
+      if (sl.type === "steps") out.push(frame(sl.title, `<ol class="steps">${li(sl.steps || [])}</ol>`, sub));
+      else if (sl.type === "table") out.push(frame(sl.title, `<table class="tc"><tr>${(sl.head || []).map((c) => `<th>${esc(c)}</th>`).join("")}</tr>${(sl.rows || []).map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</table>${sl.note ? `<div class="note">${esc(sl.note)}</div>` : ""}`, sub));
+      else if (sl.type === "formula") out.push(frame(sl.title, `<div class="g1">${(sl.items || []).map((i) => `<div><b>${esc(i.name)}</b><code>${esc(i.formula)}</code>${i.note ? `<small>${esc(i.note)}</small>` : ""}</div>`).join("")}</div>`, sub));
+      else if (sl.type === "compare") out.push(frame(sl.title, `<div class="cols">${[sl.left, sl.right].map((c) => `<div><h3>${esc(c.head)}</h3><ul>${li(c.items || [])}</ul></div>`).join("")}</div>`, sub));
+      else if (sl.type === "figure") out.push(frame(sl.title, `<div class="fig"><img src="/img/book/${data.imgDir || ""}${sl.img}"></div><div class="cap">${esc(sl.caption || "")}</div>`, sub));
+      else out.push(frame(sl.title, bullets((sl.bullets || []).map(esc)) + (sl.note ? `<div class="note">${esc(sl.note)}</div>` : ""), sub));
+    }
+    const all2 = [title, ...plan, ...out, ...gl, ...qs];
+    return { html: all2.join(""), count: all2.length };
+  }
   const all = [title, ...plan, ...body, ...gl, ...conc, ...qs];
   return { html: all.join(""), count: all.length };
 }
@@ -168,7 +205,9 @@ for (const t of topics) {
   fs.writeFileSync(tmp, `<!doctype html><meta charset="utf-8"><style>${CSS}</style><body></body>`);
   await page.goto(pathToFileURL(tmp).href);
   const layer = LAYERS[t.num];
-  const { html, count } = await page.evaluate(build, { topic: t, layer, brand: COURSE.brand, course: COURSE.title, author: "Sh.F. Saloxitdinov" });
+  const outlineFile = path.join(ROOT, "scripts", "slides-src", SUBJ.dir || "", `${String(t.num).padStart(2, "0")}.json`);
+  const outline = fs.existsSync(outlineFile) ? JSON.parse(fs.readFileSync(outlineFile, "utf8")).slides : null;
+  const { html, count } = await page.evaluate(build, { topic: t, layer, brand: COURSE.brand, course: COURSE.title, author: "Sh.F. Saloxitdinov", outline, imgDir: SUBJ.dir ? SUBJ.dir + "/" : "" });
   const base = pathToFileURL(path.join(ROOT, "public")).href;
   await page.setContent(`<!doctype html><meta charset="utf-8"><base href="${base}/"><style>${CSS}</style><body>${html.replace(/src="\/img\//g, `src="${base}/img/`)}</body>`, { waitUntil: "load" });
   await page.waitForFunction(() => [...document.images].every((i) => i.complete));
@@ -181,9 +220,18 @@ for (const t of topics) {
 await browser.close();
 fs.rmSync(tmp, { force: true });
 
-// course.js → decks
-const cp = path.join(ROOT, "public", "data", "course.js");
-const all = { ...COURSE.decks, ...decks };
-const body = Object.entries(all).sort((a, b) => a[0] - b[0]).map(([k, v]) => `${k}: ${v}`).join(", ");
-fs.writeFileSync(cp, fs.readFileSync(cp, "utf8").replace(/decks:\s*\{[^}]*\}/, `decks: { ${body} }`));
-console.log(`✅ course.js → decks yangilandi (${Object.keys(decks).length} ta).`);
+// decks yozish: asosiy fan — course.js; boshqa fan — <dir>/meta.js
+if (SUBJ.dir) {
+  const mp = path.join(ROOT, "public", "data", SUBJ.dir, "meta.js");
+  const old = META.DECKS || {};
+  const all = { ...old, ...decks };
+  const body = Object.entries(all).sort((a, b) => a[0] - b[0]).map(([k, v]) => `${k}: ${v}`).join(", ");
+  fs.writeFileSync(mp, fs.readFileSync(mp, "utf8").replace(/export const DECKS = \{[^}]*\};/, `export const DECKS = { ${body} };`));
+  console.log(`✅ ${path.relative(ROOT, mp)} → DECKS yangilandi (${Object.keys(decks).length} ta).`);
+} else {
+  const cp = path.join(ROOT, "public", "data", "course.js");
+  const all = { ...COURSE.decks, ...decks };
+  const body = Object.entries(all).sort((a, b) => a[0] - b[0]).map(([k, v]) => `${k}: ${v}`).join(", ");
+  fs.writeFileSync(cp, fs.readFileSync(cp, "utf8").replace(/decks:\s*\{[^}]*\}/, `decks: { ${body} }`));
+  console.log(`✅ course.js → decks yangilandi (${Object.keys(decks).length} ta).`);
+}

@@ -28,7 +28,7 @@ export async function handleApi(request, env) {
 /** Himoyalangan statik fayllar (darslik matni, rasmlar, taqdimotlar): faqat tizimga kirgan foydalanuvchiga beriladi. */
 export async function serveGated(request, env) {
   if (!prepare(env)) return new Response("Ma'lumotlar bazasi ulanmagan", { status: 503 });
-  if (!(await hasSession(request))) return new Response("Darslik materiallarini ko'rish uchun tizimga kiring", { status: 401, headers: { "cache-control": "no-store", "content-type": "text/plain; charset=utf-8" } });
+  if (!(await hasSession(request, new URL(request.url).pathname))) return new Response("Darslik materiallarini ko'rish uchun tizimga kiring", { status: 401, headers: { "cache-control": "no-store", "content-type": "text/plain; charset=utf-8" } });
   const res = await env.ASSETS.fetch(request);
   const headers = new Headers(res.headers);
   // Ma'lumot fayllari (matn, test kalitlari) har safar qayta tekshiriladi (chiqqandan keyin ochilmasligi uchun); rasm va taqdimotlar qisqa muddat keshlanadi.

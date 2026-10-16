@@ -1,0 +1,27 @@
+{
+ "goal": "Ekspertlar oldida 5–7 daqiqalik biznes-reja taqdimotini o‘tkazish, savollarga javob berish va keyingi qadamlarni belgilash.",
+ "concepts": [
+  "Pitch",
+  "Elevator pitch",
+  "12 slaydli pitch deck",
+  "Traction (dastlabki natija)",
+  "Ask (taklif)",
+  "Savol-javob"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 15-bob; Ilova E",
+ "tasks": [],
+ "open": [
+  "Amaliy 15. Biznes g‘oyani taqdim etish. Tartib: 1) 8–12 slaydli taqdimotni yakunlang va vaqtni sinang; 2) nutq matnini tezislar shaklida tayyorlang; 3) guruhda 5–7 daqiqalik taqdimot o‘tkazing; 4) ekspertlar va guruh a’zolari savollariga javob bering; 5) 15.6-jadval rubrikasi bo‘yicha o‘zaro baholash o‘tkazing; 6) keyingi 90 kunlik harakat rejasini yozing.",
+  "Amaliy mashg‘ulotga tayyorgarlik: 5–7 daqiqalik yakuniy taqdimot slaydlarini (8–12 slayd) va nutq matnini tayyorlang; 15.6-jadvaldagi rubrika bo‘yicha o‘zingizni baholang; taqdimotda kutilayotgan kamida 8 ta savolga javob yozing; keyingi 90 kun uchun harakat rejasini tuzing.",
+  "15.2-rasmdagi “Inson – Muammo – Raqam – Yechim – Natija – Taklif” formulasi bo‘yicha o‘zingizning 30 soniyalik elevator pitch matningizni yozing va vaqtini o‘lchab ko‘ring.",
+  "15.1-rasmdagi vaqt taqsimotiga rioya qilib, to‘liq 12 slaydli taqdimotingizni tayyorlang, kamida ikki kishi oldida sinab ko‘ring va ularning fikrini yozib oling. 12-slayd (taklif) uchun mablag‘ni sarflash jadvalini (15.4-jadval shaklida) tuzing.",
+  "Investor sizdan so‘raydi: “Pulni aniq nimaga sarflaysiz?” va “Eng katta xavf nima?”. O‘z loyihangiz uchun har biriga 30–60 soniyalik javob matnini yozing."
+ ],
+ "refs": [
+  "Natija: taqdimot, nutq matni va harakat rejasi. Baholash mezoni: mazmun, asoslilik, amaliylik, taqdimot (100 ball). Ko‘p uchraydigan xatolar: taqdimotni tayyorgarliksiz, vaqtni o‘lchamasdan o‘qib chiqish; faqat mahsulot haqida gapirib, aniq taklif (ask) va mablag‘ sarflash rejasini aytmaslik; savol-javobda tayyor bo‘lmagan savolga uydirma raqam bilan javob berish.",
+  "Mezonlar: 8–12 slayd, mantiq muammo → yechim → bozor → biznes-model → moliya → taklif; nutq 5–7 daqiqaga (taxminan 700–900 so‘z) mos, tezislar shaklida, 10% vaqt zaxirasi bilan; rubrika bo‘yicha o‘zini baholash halol; kamida 8 savolga qisqa, raqam yoki dalilli javoblar; 90 kunlik reja bosqichli: 30 kun — qo‘shimcha mijoz suhbatlari, MVPni takomillashtirish, oddiy rasmiylashtirish; 30–60 kun — birinchi to‘lovchi mijozlar, daromad-xarajat daftari, mentor; 60–90 kun — rejani yangilash, moliyalashtirishga ariza, jamoa yoki hamkor.",
+  "Mezonlar: matn 30–60 soniyaga sig‘adi (taxminan 70–130 so‘z), olti element bor: inson (kim uchun), muammo, raqam (muammo o‘lchami), yechim, natija (dalil, masalan, sinov), taklif (nima kutilyapti); bitta aniq jumla va natija; texnik atamalarsiz tushunarli; vaqt haqiqatan o‘lchangan.",
+  "Mezonlar: 12 slayd tartibi (muammo, yechim, mahsulot, mijoz, bozor, raqobat, model, marketing, jamoa, moliya, natijalar, taklif) va vaqt taxminan: 45, 40, 30, 25, 30, 30, 35, 30, 25, 40, 30, 30 soniya (jami ~6 daqiqa); fikr bildirgan kamida 2 kishining izohi yozilgan; taklif slaydida aniq summa va sarflash jadvali bor (masalan, 100 mln: uskuna va mahsulot 40, marketing 25, ish haqi 20, huquqiy 5, zaxira 10), foizlar yig‘indisi 100% va har moddaning natijasi ko‘rsatilgan. Xato: “taklif”siz yoki sarflash rejasisiz tugatish.",
+  "Namunaviy yo‘nalish (15.5-jadval): sarf bo‘yicha — sarflash jadvali (15.4-jadval), har bir modda natijasi bilan bog‘langan (masalan, marketing — kutilgan mijoz soni va CAC). Xavf bo‘yicha — halol xavf va uni boshqarish rejasi (14-bob), “xavf yo‘q” demaslik. Javob 30–60 soniya, raqam yoki dalil bilan; bilmasa tan oladi va aniqlashni va’da qiladi; uydirma raqam aytmaydi; xotirjam turadi."
+ ]
+}

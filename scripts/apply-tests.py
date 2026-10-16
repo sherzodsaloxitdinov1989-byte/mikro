@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """scripts/tests-src/NN.json dagi testlarni tekshiradi va public/data/layers-auto.js dagi `tests` o'rniga yozadi.
 
-    python3 scripts/apply-tests.py
+    python3 scripts/apply-tests.py              # asosiy fan
+    python3 scripts/apply-tests.py --subject tb # Tadbirkorlik asoslari (scripts/tests-src/tb/NN.json)
 """
 import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-AUTO = ROOT / "public" / "data" / "layers-auto.js"
-SRC = ROOT / "scripts" / "tests-src"
+# Fan: standart — asosiy fan (Mikroiqtisodiyot); "--subject tb" — Tadbirkorlik asoslari
+TB = "--subject" in sys.argv and sys.argv[sys.argv.index("--subject") + 1] == "tb"
+AUTO = ROOT / "public" / "data" / ("tb/layers-auto.js" if TB else "layers-auto.js")
+SRC = ROOT / "scripts" / "tests-src" / ("tb" if TB else "")
+KEYS_OUT = ROOT / "server" / ("quiz-keys-tb.mjs" if TB else "quiz-keys.mjs")
 BAD = re.compile(r"hammasi to.g.ri|hech biri|barcha javoblar|yuqoridagilarning|a va b ", re.I)
 
 text = AUTO.read_text(encoding="utf-8")
@@ -45,8 +49,8 @@ for num in sorted(d, key=int):
 if errs:
     print("\n".join(errs)); sys.exit(1)
 AUTO.write_text(head + json.dumps(d, ensure_ascii=False, indent=1) + tail, encoding="utf-8")
-(ROOT / "server" / "quiz-keys.mjs").write_text(
-    "// Avtomatik yaratilgan (scripts/apply-tests.py): test javob kalitlari — FAQAT server. Brauzerga yuborilmaydi.\n"
+KEYS_OUT.write_text(
+    "// Avtomatik yaratilgan (scripts/apply-tests.py" + (" --subject tb" if TB else "") + "): test javob kalitlari — FAQAT server. Brauzerga yuborilmaydi.\n"
     "export const KEYS = " + json.dumps(keys, ensure_ascii=False, indent=1) + ";\n",
     encoding="utf-8",
 )

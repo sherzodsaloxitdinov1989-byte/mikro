@@ -1,0 +1,27 @@
+{
+ "goal": "Mos tashkiliy-huquqiy shaklni tanlash, hujjatlar ro‘yxatini tuzish va my.gov.uz orqali ro‘yxatdan o‘tish jarayonini modellashtirish.",
+ "concepts": [
+  "Davlat ro‘yxati",
+  "tashkiliy-huquqiy shakl",
+  "o‘zini o‘zi band qilgan shaxs",
+  "yakka tartibdagi tadbirkor (YaTT)",
+  "mas’uliyati cheklangan jamiyat (MChJ)",
+  "aksiyadorlik jamiyati (AJ)"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 4-bob; Ilova E, Z",
+ "tasks": [],
+ "open": [
+  "Amaliy 4. Biznesni qonuniy rasmiylashtirish. mos tashkiliy-huquqiy shaklni tanlash, hujjatlar ro‘yxatini tuzish va my.gov.uz orqali ro‘yxatdan o‘tish jarayonini modellashtirish. Bajarish tartibi: 1) 4.1-jadvaldan foydalanib, uch savol (javobgarlik, hamkor, soliq) asosida shaklni tanlang; 2) Firma nomining 3 variantini tayyorlab, taqiqlangan so‘zlarga tekshiring; 3) Kerakli hujjatlar ro‘yxatini yozing (ustav yoki YaTT uchun ariza ma’lumotlari); 4) my.gov.uz orqali ro‘yxatdan o‘tish stsenariysini qadamlab yozing (ekran nomlari bilan); 5) Faoliyat uchun litsenziya yoki ruxsatnoma kerak-kerak emasligini aniqlang; 6) Oddiy xizmat ko‘rsatish shartnomasi bo‘limlarini to‘ldiring.",
+  "O‘z biznes g‘oyangiz uchun eng mos huquqiy shaklni tanlang va uchta savol (javobgarlik, hamkor, soliq) bo‘yicha asoslang; kerakli hujjatlar ro‘yxatini yozing; oddiy xizmat ko‘rsatish shartnomasining bo‘limlarini 4.3-jadval asosida to‘ldiring.",
+  "my.gov.uz saytiga kirib (yoki uning bosqichlarini tasvirlab), o‘z g‘oyangiz uchun kerakli hujjatlar ro‘yxatini va vaqt jadvalini tuzing.",
+  "Ikki xil tashkiliy-huquqiy shakl (masalan, YaTT va MChJ) uchun 4.1-rasmdagi ikkita mezon (murakkablik, javobgarlik) bo‘yicha o‘z biznesingizga mosini tanlab, sababini yozing.",
+  "Talaba Madina 3D-bosma esdalik buyumlari ishlab chiqarmoqchi. Dastlab u yolg‘iz, minimal xarajat bilan sinamoqchi. Ikki oydan keyin kafe tarmog‘idan yirik buyurtma va hamkor (dizayner) paydo bo‘ldi. Madina uchun qaysi shakl dastlab, qaysi biri keyin mos? Tanlovni uch savol bo‘yicha asoslang."
+ ],
+ "refs": [
+  "Namuna: 1) Uch savol: javobgarlik (YaTTda cheklanmagan, MChJda ustav fondi doirasida cheklangan), hamkor (hamkor bo‘lsa MChJ), soliq (2026-yildan YaTT yillik aylanma 1 mlrd so‘mgacha 1%). 2) Firma nomining 3 varianti taqiqlangan so‘zlar va band nomlarga tekshirilgan. 3) Hujjatlar: ariza, pasport/ID va JShShIR, yuridik shaxs uchun Ustav va ta’sischilar qarori yoki ta’sis shartnomasi, yuridik manzil hujjati. 4) Stsenariy my.gov.uz da ERI bilan kirish, ariza to‘ldirish, ERI bilan imzolash, elektron guvohnoma va STIR olish, keyin litsenziya/xabarnoma, NKM va bank hisobi. 5) Litsenziya kerak-kerak emasligi faoliyat turi bo‘yicha asoslangan. 6) Shartnomada predmet, narx, muddat, javobgarlik, nizolarni hal etish, yakuniy qoidalar va rekvizitlar bor. Mezon: tanlov asoslangan, qadamlar ketma-ket, shartnoma to‘liq. Xato: shaklni tasodifiy tanlash, nomni tekshirmaslik, nizo va javobgarlik bo‘limlarini tushirib qoldirish.",
+  "Mezon: tanlangan shakl uch savol (javobgarlik, hamkor, soliq) bo‘yicha asoslangan; yolg‘iz boshlovchi uchun YaTT yoki o‘zini o‘zi band qilgan shaxs yengil, ammo javobgarlik cheklanmagan; hamkor yoki yirik shartnoma bo‘lsa MChJ. Hujjatlar ro‘yxati (ariza, pasport/ID, JShShIR, Ustav, yuridik manzil) to‘liq. Shartnoma 4.3-jadvaldagi bo‘limlarni (predmet, narx, muddat, javobgarlik, nizolar, yakuniy qoidalar, rekvizitlar) qamrab olgan. Noaniq ta’riflar (“qulay xizmat”, “kelishilgan muddatda”) kamchilik hisoblanadi.",
+  "Mezon: bosqichlar ketma-ketligi to‘g‘ri: ERI olish, my.gov.uz ga kirish, ariza, hujjatlarni yuklash, ERI bilan imzolash, elektron guvohnoma va STIR olish, keyin litsenziya/ruxsatnoma/xabarnoma (kerak bo‘lsa), NKM, ijara, mehnat shartnomalari va soliq hisobi. Vaqt jadvalida onlayn ro‘yxatdan o‘tish tez (darslikka ko‘ra bir ish kuni ichida) deb ko‘rsatilgan, ammo aniq summa va muddatni my.gov.uz sahifasida tekshirish zarurligi eslatilgan.",
+  "Mezon: ikkala shakl javobgarlik (YaTT cheklanmagan, MChJ cheklangan), murakkablik (YaTT oddiy, MChJ Ustav, ustav fondi va hisobot talab qiladi) bo‘yicha taqqoslangan. Xulosa o‘z biznesiga bog‘langan: xavf va hamkor bo‘lsa MChJ, kichik sinov uchun YaTT. Sabab aniq yozilgan, “shunchaki qulay” kabi asoslar qabul qilinmaydi.",
+  "Namuna: dastlab o‘zini o‘zi band qilgan shaxs yoki YaTT mos, chunki yolg‘iz, ro‘yxatdan o‘tish tez, xarajat minimal, 2026-yildan aylanma 1 mlrd so‘mgacha 1% soliq. Hamkor (dizayner) va yirik kafe buyurtmasi paydo bo‘lgach, MChJ tuziladi: javobgarlik ustav fondi doirasida cheklanadi, ulushlar ta’sis hujjatlarida va shartnomada belgilanadi. Uch savol: javobgarlik (YaTTda cheklanmagan, katta buyurtmada xavfli), hamkor (ulush faqat MChJda rasmiylashadi), soliq (1% yengil, biroq xavf va hamkor ustun keladi)."
+ ]
+}

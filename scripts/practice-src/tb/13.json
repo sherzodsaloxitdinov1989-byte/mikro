@@ -1,0 +1,79 @@
+{
+ "goal": "Semestr davomida bajarilgan ishlarni yagona biznes-rejaga jamlash va mahsulotni tashqi bozorga chiqarish narxini hisoblash.",
+ "concepts": [
+  "Biznes-reja",
+  "Ijroiya xulosa",
+  "TAM/SAM/SOM",
+  "Zararsizlik nuqtasi",
+  "Incoterms (EXW, FOB, CIF, DAP)",
+  "Xavflar bo‘limi"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 13-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb13-p1",
+   "title": "Eksport narxini Incoterms bo‘yicha hisoblash",
+   "text": "Quritilgan meva eksport qiluvchi korxona bir qadoq mahsulotni ombordan (EXW) 6,5 dollarga sotadi. Ichki tashish va eksport bojxona rasmiylashtiruvi — 0,3 dollar; xalqaro dengiz tashuvi — 1,1 dollar; yuk sug‘urtasi — 0,2 dollar; import mamlakatidagi bojxona va soliqlar (DAP shartida sotuvchi to‘laydi) — 0,4 dollar. Bir qadoq uchun FOB, CIF va DAP narxlarini hisoblang.",
+   "fields": [
+    {
+     "label": "FOB narxi",
+     "value": 6.8,
+     "unit": "dollar"
+    },
+    {
+     "label": "CIF narxi",
+     "value": 8.1,
+     "unit": "dollar"
+    },
+    {
+     "label": "DAP narxi",
+     "value": 8.5,
+     "unit": "dollar"
+    }
+   ],
+   "solution": "FOB = EXW + ichki tashish va eksport bojxonasi = 6,5 + 0,3 = 6,8. CIF = FOB + dengiz tashuvi + sug‘urta = 6,8 + 1,1 + 0,2 = 8,1. DAP = CIF + import bojxonasi va soliqlari = 8,1 + 0,4 = 8,5 dollar. Shart sotuvchi zimmasidagi xarajat va xavfni oshirgani sari narx ham o‘sadi: EXW eng past, DAP eng yuqori.",
+   "formula": "FOB = EXW + ichki xarajat; CIF = FOB + tashuv + sug‘urta; DAP = CIF + import bojxonasi"
+  },
+  {
+   "id": "tb13-p2",
+   "title": "Reja ichki mantiqini tekshirish: GreenEat zararsizligi",
+   "text": "GreenEat sog‘lom taom tarmog‘i (3 filial): oylik doimiy xarajat 8 500 dollar, o‘rtacha chek 3,5 dollar, yalpi marja 68%. Bir buyurtmaning qoplash marjasini, oylik zararsizlik buyurtmalar sonini va bir filial uchun kunlik zararsizlik buyurtmalarini toping (oy — 30 kun).",
+   "fields": [
+    {
+     "label": "Bir buyurtmaning qoplash marjasi",
+     "value": 2.38,
+     "unit": "dollar"
+    },
+    {
+     "label": "Zararsizlik hajmi (3 filial)",
+     "value": 3571.43,
+     "unit": "buyurtma/oy",
+     "tol": 1
+    },
+    {
+     "label": "Bir filial uchun kuniga",
+     "value": 39.68,
+     "unit": "buyurtma/kun",
+     "tol": 0.5
+    }
+   ],
+   "solution": "Qoplash marjasi = 3,5 × 0,68 = 2,38 dollar. Zararsizlik = 8 500 / 2,38 ≈ 3 571 buyurtma/oy. Bir filialga 3 571 / 3 ≈ 1 190 buyurtma/oy, ya’ni 1 190 / 30 ≈ 39,7 ≈ 40 buyurtma/kun.",
+   "formula": "BEP = doimiy xarajat / (chek × marja)",
+   "note": "Darslikdagi namunada “kuniga 85+ buyurtma” keltirilgan, u bu hisobga mos kelmaydi: manba filialning alohida doimiy xarajatlarini (ijara, ish haqi) ham hisobga olgan bo‘lishi mumkin. Biznes-rejada bunday farq ochiq ko‘rsatilishi kerak. Raqamlar shartli."
+  }
+ ],
+ "open": [
+  "Amaliy 13. Biznes-reja tuzish va tashqi bozorga chiqish. Semestr davomida bajarilgan ishlarni yagona biznes-rejaga jamlang. Tartib: 1) sakkiz bo‘limli reja skeletini (13.2-jadval) tayyorlang; 2) oldingi mashg‘ulotlar natijalarini tegishli bo‘limlarga joylashtiring; 3) raqamlarning o‘zaro moslashuvini tekshiring; 4) ijroiya xulosani yozing; 5) xavflar bo‘limini to‘ldiring; 6) mahsulotni ichki yoki tashqi bozorga chiqarish uchun uchta qadamni belgilang.",
+  "Amaliy mashg‘ulotga tayyorgarlik: semestr davomida bajargan ishlaringizni (g‘oya, mijoz, bozor, reklama, xarajat, daromad, xavf, moliyalashtirish) yagona 20–25 sahifali biznes-rejaga jamlang, ijroiya xulosani yozing va mahsulotingizni ichki yoki tashqi bozorga chiqarish uchun dastlabki uchta amaliy qadamni belgilang.",
+  "13.2-rasmdagi SWOT kvadrantini o‘z g‘oyangiz uchun to‘ldiring; har bir katakka kamida ikkitadan haqiqiy dalil yozing.",
+  "13.1-rasmdagi tuzilma asosida o‘z biznes-rejangizning har bir bo‘limi uchun “tayyor” yoki “tayyor emas” deb belgi qo‘ying va “tayyor emas” qismlar uchun harakat rejasi tuzing.",
+  "Mahsulotingiz uchun ichki bozorda qolish yoki tashqi bozorga chiqish qarorini asoslang: 13.11-bo‘limdagi uchta savolga (ichki bozor yetarlimi; tashqi bozorda marja yuqorimi; sifat standartlari, 2–3 oylik aylanma mablag‘ zaxirasi va hujjatlar tayyormi) javob bering va mos to‘lov usulini tanlang."
+ ],
+ "refs": [
+  "Natija: biznes-reja qoralamasi (kamida 15 sahifa). Baholash mezoni: to‘liqlik, moslik, dalilga asoslanish, ijroiya xulosa sifati. Ko‘p uchraydigan xatolar: turli bo‘limlardagi raqamlarni (masalan, pul oqimi va foyda-zarar hisobotidagi tushum) bir-biriga mos qilmaslik; ijroiya xulosani reja bilan bir vaqtda, oldindan yozib qo‘yish (oxirida yangilamaslik); xavflar bo‘limini “bizda xavf yo‘q” tarzida yozib, ishonchsizlik uyg‘otish.",
+  "Namunaviy javob yo‘q, mezonlar: reja sakkiz bo‘limdan iborat va mantiqan bog‘langan (g‘oya, mijoz va bozor, marketing va sotuv, narx, pul oqimi, foyda-zarar, jamoa, xavflar); hajmi 20–25 sahifa, o‘qilmaydigan 50–100 sahifa emas; ijroiya xulosa 1 sahifadan oshmaydi va rejadan keyin, oxirida yoziladi; muammo, yechim, bozor, model, asosiy raqamlar va taklif bor; uchta qadam aniq va muddatli. Xatolar: bo‘limlardagi raqamlar mos emas, da’volar dalilsiz.",
+  "Mezonlar: to‘rt katak (kuchli tomon, zaif tomon, imkoniyat, tahdid) to‘ldirilgan; har katakda kamida 2 ta dalil (raqam, mijoz suhbati, bozor ma’lumoti), “yaxshi mahsulot” kabi umumiy gaplar emas; kuchli/zaif tomonlar ichki omillar, imkoniyat/tahdidlar tashqi omillar sifatida to‘g‘ri ajratilgan; SWOT dan xulosa (qaysi kuchli tomon qaysi imkoniyatdan foydalanadi, qaysi tahdidga qarshi chora) yozilgan.",
+  "Mezonlar: reja bo‘limlarining har biri uchun holat belgilangan; “tayyor emas” qismlar uchun aniq harakat (nima qilinadi, kim, qachongacha) yozilgan; avvalgi mashg‘ulotlar natijalari (mijoz, bozor, narx, pul oqimi, xavflar) mos bo‘limlarga bog‘langan; raqamlar bir-biriga mosligi tekshirilgan.",
+  "Mezonlar: ichki bozor hajmi va o‘sishi raqam bilan baholangan; tashqi bozorda narx va marja xarajat (tashuv, sug‘urta, bojxona) va xavflarni hisobga olib hisoblangan (Incoterms bo‘yicha FOB/CIF/DAP); sifat standartlari va sertifikatlar, moliyaviy zaxira (2–3 oylik aylanma mablag‘) va hujjatlar tayyorgarligi tekshirilgan. To‘lov usuli xavfga mos: yangi va noma’lum xaridorga 100% avans yoki akkreditiv, ishonchli hamkorga inkasso yoki sug‘urtalangan ochiq hisob (Net-30). Uchala javob “ha” bo‘lsagina eksport asosli; boshlash uchun bitta mamlakat, bitta mahsulot, bitta xaridor bilan kichik sinov partiya tavsiya etiladi."
+ ]
+}

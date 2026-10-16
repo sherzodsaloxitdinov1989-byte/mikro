@@ -2,8 +2,8 @@
 // Mezonlar amaliy mashg'ulotlar to'plamidagi tavsiya etilgan baholash mezoni asosida (jami 10 ball).
 // AI kaliti bo'lmasa — hisob-kitoblar avtomatik tekshiriladi, ochiq javoblar uchun qoidaga asoslangan
 // (kalit so'zlar, hajm, raqamlardan foydalanish) taxminiy baho va tavsiyalar beriladi.
-import { TOPICS, COURSE } from "../public/data/topics.js";
-import { checkField, parseNum } from "../public/data/practice.js";
+import { findTopic, courseOf } from "../public/data/topics.js";
+import { checkField, parseNum } from "../public/data/practice-lib.js";
 
 export const REVIEW_CRITERIA = [
   { key: "formulas", name: "Tushuncha, qoida va formulalarni to'g'ri qo'llash", max: 3 },
@@ -31,7 +31,7 @@ const clip = (s, n) => String(s ?? "").slice(0, n);
 
 /** Talaba yuborgan ma'lumotlarni tozalash va hisob-kitoblarni serverda qayta tekshirish. */
 export function normalizeSubmission(topicId, raw = {}) {
-  const topic = TOPICS.find((t) => t.id === topicId);
+  const topic = findTopic(topicId);
   if (!topic?.practice) return null;
   const tasks = topic.practice.tasks.map((task) => {
     const given = raw.tasks?.[task.id] || {};
@@ -46,6 +46,7 @@ export function normalizeSubmission(topicId, raw = {}) {
 }
 
 export function reviewPrompt(sub) {
+  const COURSE = courseOf(sub.topic?.subject);
   const { topic } = sub;
   const taskText = sub.tasks
     .map((t) => {

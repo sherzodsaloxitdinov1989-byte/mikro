@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Jamoa nima?",
+  "options": [
+   "Bir kompaniyada ishlaydigan, lekin umumiy maqsadi va vazifa taqsimoti bo‘lmagan xodimlar to‘plami",
+   "Tadbirkor tomonidan shartnoma asosida jalb qilingan barcha pudratchilarning rasmiy ro‘yxati",
+   "Kompaniya ustavida nomlari ko‘rsatilgan ta’sischilar va ularning ulushlari yig‘indisi",
+   "Umumiy maqsadga erishish uchun hamkorlik qiladigan, vazifa va mas’uliyati taqsimlangan shaxslar guruhi"
+  ],
+  "c": 3,
+  "e": "Jamoa umumiy maqsad, hamkorlik va vazifalar hamda mas’uliyatning taqsimlanishi bilan ta’riflanadi."
+ },
+ {
+  "q": "Xodim bilan pudratchi munosabatlarining huquqiy asosi qanday farqlanadi?",
+  "options": [
+   "Xodim mehnat shartnomasi, pudratchi esa fuqarolik-huquqiy (xizmat, pudrat) shartnoma asosida ishlaydi",
+   "Xodim fuqarolik-huquqiy (xizmat, pudrat) shartnoma, pudratchi esa ish beruvchi bilan mehnat shartnomasi asosida ishlaydi",
+   "Ikkalasi ham ta’sis shartnomasi asosida ishlab, foydadan ulush oladi",
+   "Xodim ta’sis shartnomasi, pudratchi esa mehnat shartnomasi asosida ishlaydi"
+  ],
+  "c": 0,
+  "e": "Xodim mehnat shartnomasi bilan ish beruvchi ko‘rsatmasida, pudratchi esa fuqarolik-huquqiy shartnoma bilan natija uchun ishlaydi."
+ },
+ {
+  "q": "“Yashirin mehnat munosabati” nimani bildiradi?",
+  "options": [
+   "Xodimning ish haqini bank orqali emas, naqd shaklda, ish beruvchi bilan og‘zaki kelishuv asosida to‘lashni",
+   "Sherikning ulushini ta’sis shartnomasida ko‘rsatmay qoldirishni",
+   "Aslida xodim sifatida ishlayotgan odamni pudratchi deb rasmiylashtirishni",
+   "Pudratchiga bir martalik vazifani shartnomasiz topshirishni"
+  ],
+  "c": 2,
+  "e": "Bunday rasmiylashtirish mehnat va soliq qonunchiligi bo‘yicha javobgarlikka olib kelishi mumkin."
+ },
+ {
+  "q": "Hamasoschilar o‘rtasida vesting nima uchun qo‘llaniladi?",
+  "options": [
+   "Barcha ta’sischilarga ulushni teng bo‘lib, ular o‘rtasidagi farqni yo‘qotish uchun",
+   "Ulush darhol emas, muayyan vaqt davomida bosqichma-bosqich “ishlab olinishi” uchun",
+   "Ta’sischilarning ulushini soliq to‘lamaslik uchun rasman kichraytirish uchun",
+   "Jamoadan ketgan ta’sischiga ulushini avvalgi narxda sotish huquqini kafolatlash uchun"
+  ],
+  "c": 1,
+  "e": "Vesting ketib qolgan shaxsning biznesni “ushlab” turishining oldini oladi va qolganlarga adolatli bo‘ladi."
+ },
+ {
+  "q": "Ta’sischi B 4 yillik vestingda 1 yillik cliff bilan ishlayapti va 8 oydan keyin ketdi. Uning ulushi nima bo‘ladi?",
+  "options": [
+   "Sakkiz oyga to‘g‘ri keladigan qismini oladi",
+   "Ulushning 25 foizini darhol oladi",
+   "Butun ulushini saqlab qoladi",
+   "Ulushning hech qismini olmaydi, chunki cliff muddati tugamagan"
+  ],
+  "c": 3,
+  "e": "Cliff davrida (1 yil) ketgan ta’sischi ulushdan hech narsa olmaydi."
+ },
+ {
+  "q": "Hamasoschini tanlashda nima uchun bir-birini to‘ldiruvchi kompetensiya muhim?",
+  "options": [
+   "Turli kompetensiyali kishilar ulushni teng taqsimlash majburiyatidan ozod bo‘ladi",
+   "Bir xil ko‘nikmali ikki kishi ko‘pincha bir-birini takrorlaydi, boshqa sohalarda esa bo‘shliq qoladi",
+   "Bir xil ko‘nikmali kishilar qonunga ko‘ra birgalikda ta’sis shartnomasi tuza olmaydi, shu sabab alohida kompaniya ochishi shart bo‘ladi",
+   "To‘ldiruvchi kompetensiya jamoaning qaror qabul qilish tezligini sekinlashtiradi"
+  ],
+  "c": 1,
+  "e": "Kompetensiyalar to‘ldirilmasa, vazifalar takrorlanadi va muhim sohalar e’tiborsiz qoladi."
+ },
+ {
+  "q": "Takman modeliga ko‘ra, rahbar jamoaning to‘qnashuv bosqichiga qanday qarashi kerak?",
+  "options": [
+   "Tabiiy jarayon deb qabul qilib, uni qoidalar va muloqot bilan boshqarishi kerak",
+   "Jamoa parchalanayotgani belgisi deb, ziddiyatdagi a’zolarni darhol almashtirib, yangi jamoa yig‘ishi kerak",
+   "E’tibor bermay, nizo o‘z-o‘zidan yo‘qolishini kutishi kerak",
+   "Barcha qarorlarni o‘zi qabul qilib, muhokamani to‘xtatishi kerak"
+  ],
+  "c": 0,
+  "e": "To‘qnashuv — shakllanishdan keyingi tabiiy bosqich bo‘lib, qoidalar va muloqot bilan boshqariladi."
+ },
+ {
+  "q": "Belbin rollari nazariyasiga ko‘ra, jamoada faqat g‘oya generatorlari bo‘lsa, qanday holat yuzaga keladi?",
+  "options": [
+   "Yangilik bo‘lmaydi, chunki jamoadagi hamma bajarishga o‘rganib, yangi g‘oya taklif qilishga ehtiyoj qolmaydi",
+   "Xarajatlar kamayadi, chunki ijrochilarga ish haqi to‘lash kerak bo‘lmaydi",
+   "Ish tugallanmaydi, chunki g‘oyalarni oxirigacha yetkazadigan ijrochilar yetishmaydi",
+   "Jamoa to‘qnashuv bosqichidan o‘tmasdan darhol samarali ishlay boshlaydi"
+  ],
+  "c": 2,
+  "e": "Samarali jamoa uchun turli rollar kerak: faqat g‘oya generatorlari bo‘lsa, ish tugallanmaydi."
+ },
+ {
+  "q": "Suhbatda STAR usuli nimaga yordam beradi?",
+  "options": [
+   "Nomzodning yoshi va oilaviy holati bo‘yicha dastlabki saralashga",
+   "Nomzodning ish haqi talabini bozor o‘rtachasiga solishtirishga",
+   "Nomzodga lavozim tavsifini og‘zaki tushuntirib berishga",
+   "Nomzod javobini vaziyat, vazifa, harakat va natija bo‘yicha baholashga"
+  ],
+  "c": 3,
+  "e": "STAR — Situation, Task, Action, Result: xulq-atvor savollariga javobni tuzilmali baholash usuli."
+ },
+ {
+  "q": "Ish o‘rni tavsifi qachon yoziladi?",
+  "options": [
+   "Odam qidirishdan oldin, nomzodga nima kutilayotganini aniqlashtirish uchun",
+   "Nomzod ishga qabul qilingandan keyin, birinchi ish haqi to‘langach va sinov muddati boshlanganda",
+   "Mehnat shartnomasi bekor qilinayotganda, hisob-kitob uchun",
+   "Sinov muddati tugagach, lavozimni oshirish uchun"
+  ],
+  "c": 0,
+  "e": "Tavsif nomzodga nima kutilayotganini va rahbarga kimni qidirayotganini aniqlashtiradi."
+ },
+ {
+  "q": "To‘g‘ri delegatsiyada rahbar nimani nazorat qiladi?",
+  "options": [
+   "Har bir harakat qanday bajarilayotganini qadam-baqadam",
+   "“Nima” natijaga erishilganini, “qanday” bajarilganini emas",
+   "Xodimning ish vaqtini daqiqama-daqiqa",
+   "Vazifada ishlatiladigan usullarni o‘zi tanlab berishni"
+  ],
+  "c": 1,
+  "e": "Delegatsiyada vazifa va natija aniq aytiladi, nazorat esa “qanday” emas, “nima”ga qaratiladi."
+ },
+ {
+  "q": "Yagona dasturchi ketib qoldi va mahsulotni davom ettiradigan odam yo‘q. Bu qaysi xavf turiga kiradi?",
+  "options": [
+   "Reputatsion xavfga",
+   "Kiberxavfga",
+   "Kadrlar xavfiga",
+   "Tashqi va makroiqtisodiy xavfga"
+  ],
+  "c": 2,
+  "e": "Malakali xodim yetishmasligi yoki kalit xodim ketishi kadrlar xavfi hisoblanadi."
+ },
+ {
+  "q": "Gersberg ikki omilli nazariyasiga ko‘ra, ish haqi oshirilganda nima yuz berishi mumkin?",
+  "options": [
+   "Norozilik kamayishi mumkin, ammo ishga ishtiyoq mazmunli ish va e’tirofdan tug‘iladi",
+   "Ishga ishtiyoq ham o‘z-o‘zidan kuchayib, motivatsiya doimiy va uzoq muddatli bo‘lib qoladi",
+   "Yutuq va e’tirof xodim uchun ahamiyatini yo‘qotadi",
+   "Gigiena omillari motivatorga aylanib, norozilik butunlay yo‘qoladi"
+  ],
+  "c": 0,
+  "e": "Ish haqi — gigiena omili: yetishmasa norozilik keltiradi, ammo haqiqiy rag‘bat yutuq, e’tirof va mas’uliyatdan keladi."
+ },
+ {
+  "q": "Menejerga oylik 2 mln so‘m va reja ustidagi sotuvdan 5% bonus belgilangan. Reja 50 mln, haqiqiy sotuv 70 mln so‘m. Bonus qancha?",
+  "options": [
+   "3 500 000 so‘m",
+   "2 500 000 so‘m",
+   "3 000 000 so‘m",
+   "1 000 000 so‘m"
+  ],
+  "c": 3,
+  "e": "Bonus = (70 − 50) × 5% = 1 000 000 so‘m."
+ },
+ {
+  "q": "Avtoritar rahbarlik uslubining asosiy xususiyati qaysi?",
+  "options": [
+   "Qaror jamoa bilan maslahatlashib qabul qilinadi: ishonch ko‘p, lekin jarayon sekinroq",
+   "Qaror rahbarda: tez qabul qilinadi, lekin xodimlar tashabbusini bo‘g‘adi",
+   "Mutaxassis jamoaga to‘liq mustaqillik beriladi, boshqarilmasa u tarqoqlashadi",
+   "Uslub har safar xodimning tajribasiga qarab o‘zgarib turadi"
+  ],
+  "c": 1,
+  "e": "Avtoritar uslubda qaror rahbarda bo‘ladi; bu tezlik beradi, lekin tashabbusni so‘ndiradi."
+ },
+ {
+  "q": "Tomas–Kilmann modeliga ko‘ra, uzoq muddatli munosabat va muhim masalada nizoni hal qilishning qaysi uslubi afzal?",
+  "options": [
+   "Qochish",
+   "Raqobat",
+   "Hamkorlik",
+   "Muvofiqlashish"
+  ],
+  "c": 2,
+  "e": "Hamkorlikda ikki tomon manfaati birga qondiriladi; bu uzoq muddatli munosabatda afzal."
+ },
+ {
+  "q": "Xavfning ehtimoli 4 ball, ta’siri 4 ball. Xavf darajasi va toifasi qanday?",
+  "options": [
+   "16 ball — yuqori daraja",
+   "8 ball — o‘rta daraja",
+   "16 ball — o‘rta daraja",
+   "20 ball — yuqori daraja"
+  ],
+  "c": 0,
+  "e": "Daraja = ehtimol × ta’sir = 4 × 4 = 16, bu 15–25 oralig‘ida, ya’ni yuqori."
+ },
+ {
+  "q": "Mulk yoki mahsulotni sug‘urtalash xavflarni boshqarishning qaysi strategiyasiga misol bo‘ladi?",
+  "options": [
+   "Xavfdan qochishga",
+   "Xavfni kamaytirishga",
+   "Xavfni qabul qilishga",
+   "Xavfni o‘tkazishga"
+  ],
+  "c": 3,
+  "e": "Sug‘urta xavfning bir qismini boshqa tomonga o‘tkazadi."
+ },
+ {
+  "q": "Xavflar reyestrida “mas’ul shaxs” ustuni nima uchun kerak?",
+  "options": [
+   "Xavf yuz berganda aybdorni topib, jazolash uchun asos bo‘lishi uchun",
+   "Mas’ulsiz xavfni hech kim kuzatmaydi va unga qarshi choralar ko‘rilmay qoladi",
+   "Xavfning ehtimoli va ta’sir ballini mas’ul shaxs o‘zi belgilashi uchun",
+   "Xavf darajasi mas’ul shaxsning lavozimiga qarab hisoblanishi uchun"
+  ],
+  "c": 1,
+  "e": "Har bir yuqori xavfga mas’ul biriktirilsa, xavf kuzatiladi va boshqariladi."
+ },
+ {
+  "q": "Madaniy xilma-xillik va inklyuzivlik o‘rtasida qanday farq bor?",
+  "options": [
+   "Xilma-xillik har bir a’zoning ovozi eshitilishi, inklyuzivlik esa turli fondagi odamlar mavjudligi",
+   "Xilma-xillik jamoani bir xil mintaqadan yollashni, inklyuzivlik esa turli mintaqalardan yollashni bildiradi",
+   "Xilma-xillik turli fondagi odamlar mavjudligi, inklyuzivlik esa har bir a’zoning ovozi eshitilishi",
+   "Ikkalasi bir xil tushuncha bo‘lib, faqat nomi bilan farqlanadi"
+  ],
+  "c": 2,
+  "e": "Xilma-xillik yetarli emas: inklyuzivlik har bir a’zoning fikri tinglanishi va hurmat qilinishini ta’minlaydi."
+ }
+]

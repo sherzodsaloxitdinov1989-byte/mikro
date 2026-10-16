@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Iqtisodchi Kantilon tadbirkorni qanday shaxs sifatida ta’riflagan?",
+  "options": [
+   "Yer, mehnat va kapitalni yanada samaraliroq birlashtirib, ishlab chiqarish jarayonini tashkil etuvchi shaxs",
+   "Yangi mahsulot yaratib, eski bozor muvozanatini innovatsiya orqali buzuvchi shaxs",
+   "Ertangi noaniq narxlarga qarab, bugun aniq narxda xarid qilib, tavakkalni zimmasiga oluvchi shaxs",
+   "O‘zgarishni imkoniyat sifatida izlab, unga javob beruvchi va undan foydalanuvchi shaxs"
+  ],
+  "c": 2,
+  "e": "Kantilon tadbirkorni noaniq kelajak narxlari sharoitida aniq narxda xarid qilib, tavakkalni o‘z zimmasiga oluvchi shaxs deb ta’riflagan."
+ },
+ {
+  "q": "Shumpeterning “ijodiy vayronkorlik” tushunchasi nimani anglatadi?",
+  "options": [
+   "Har bir muvaffaqiyatli yangilik eskirgan yechimlarni bozordan siqib chiqarishini",
+   "Tadbirkor raqobatchilarning mahsulotini ataylab buzib, bozordan chiqarib yuborishini",
+   "Bozor muvozanati davlat tomonidan majburan o‘zgartirilib turilishini",
+   "Yangi biznes ochish uchun avval mavjud biznesni yopish zarurligini"
+  ],
+  "c": 0,
+  "e": "Shumpeter bo‘yicha innovatsiya eski muvozanatni buzadi va eskirgan yechimlarni siqib chiqaradi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri qonunchilikdagi tadbirkorlik faoliyatining belgisi hisoblanadi?",
+  "options": [
+   "Faoliyatni boshlash uchun davlat organi yoki boshqa kishining buyrug‘i bo‘lishi",
+   "Foyda olish emas, balki ijtimoiy xizmat ko‘rsatishga yo‘nalganlik, daromadni maqsad qilmaslik",
+   "Natija uchun cheklangan javobgarlik va kelishilgan ish haqi",
+   "Yo‘qotishni tadbirkorning o‘zi ko‘taradigan tavakkalchilik va mulkiy javobgarlik"
+  ],
+  "c": 3,
+  "e": "Ta’rifdagi uch belgi: tashabbuskorlik, tavakkalchilik va mulkiy javobgarlik, daromadga yo‘nalganlik."
+ },
+ {
+  "q": "Tadbirkor menejerdan qaysi jihati bilan farq qiladi?",
+  "options": [
+   "Resurslar tayyor yetkazib berilgan sharoitda mavjud tizimni boshqarib, maqsadga intiladi",
+   "Mavjud bo‘lmagan tizimni yaratadi, resursni o‘zi izlaydi va natijaga o‘zi javob beradi",
+   "Kelishilgan ish haqi evaziga topshiriqni bajarib, cheklangan javobgar bo‘ladi",
+   "Choraklik va yillik rejalar asosida maosh hamda bonus oladi"
+  ],
+  "c": 1,
+  "e": "Menejer mavjud tizimni berilgan resurslar bilan boshqaradi, tadbirkor esa tizimni yaratib, resurs izlaydi va natijaga javob beradi."
+ },
+ {
+  "q": "Tadbirkorlik tafakkuri deganda nima tushuniladi?",
+  "options": [
+   "Muayyan tayyor mahsulotni sotish yoki xizmat ko‘rsatish sohasida faoliyat yuritishning o‘zi",
+   "To‘siqlarni imkoniyat sifatida ko‘rib, cheklangan resurslarni samarali birlashtirish san’ati",
+   "Noqulaylikka duch kelganda uning sabablari haqida shikoyat qilish odati",
+   "Xavf-xatarni butunlay yo‘qotib, kafolatlangan foyda olishga qaratilgan puxta rejalashtirish tizimi"
+  ],
+  "c": 1,
+  "e": "Tadbirkorlik tafakkuri — mahsulot sotishdan avval fikrlash tarzi: to‘siqni imkoniyat deb ko‘rish va resursni samarali birlashtirish."
+ },
+ {
+  "q": "Tadbirkorlik tafakkuridagi oqilona tavakkalchilik nimani anglatadi?",
+  "options": [
+   "Natijani o‘ylamasdan, barcha jamg‘arma va qarz mablag‘ini bitta g‘oyaga ko‘r-ko‘rona tikishni",
+   "Har qanday xavfdan qochib, kafolatlangan variantni tanlashni",
+   "Xavfni to‘liq boshqalarning zimmasiga yuklab, o‘zi javob bermaslikni",
+   "Oldindan belgilangan yo‘qotish chegarasi doirasidagi, hisob-kitob qilingan xavfni zimmaga olishni"
+  ],
+  "c": 3,
+  "e": "Oqilona tavakkal ko‘r-ko‘rona qimor emas: yo‘qotish chegarasi oldindan belgilanadi."
+ },
+ {
+  "q": "Effectuation yondashuviga ko‘ra tajribali tadbirkor ish boshlashda nimadan boshlaydi?",
+  "options": [
+   "Qo‘lidagi narsalardan — kimligi, nimani bilishi, kimlarni tanishidan — boshlab, nima yaratish mumkinligini o‘ylaydi",
+   "Aniq maqsad qo‘yib, unga kerak bo‘lgan barcha resursni topishdan boshlaydi va shundan keyin harakat qiladi",
+   "Yirik kapital to‘planmaguncha biznesni boshlashni kechiktiradi",
+   "Raqobatchining mahsulotini nusxalab, narxini pastroq belgilaydi"
+  ],
+  "c": 0,
+  "e": "Effectuation: maqsaddan emas, mavjud resurslardan (bilim, ko‘nikma, tanishlar) boshlanadi."
+ },
+ {
+  "q": "Tasdiqlash yanglishuvi (confirmation bias) nima?",
+  "options": [
+   "Mijozlarning g‘oyani maqtashiga ishonib, mahsulot narxini asossiz oshirib yuborish holati",
+   "Muvaffaqiyatsizlikdan keyin qayta turib, xatoni takrorlamaslik qobiliyati",
+   "O‘z g‘oyasini quvvatlovchi ma’lumotlarni ko‘rib, qarama-qarshi dalillarni e’tiborsiz qoldirish holati",
+   "Ko‘p sonli yangi variantlar yaratishga xizmat qiladigan divergent fikrlash"
+  ],
+  "c": 2,
+  "e": "Tasdiqlash yanglishuvi — faqat o‘z g‘oyasini quvvatlovchi ma’lumotni ko‘rish; tanqidiy fikrlash uning oldini oladi."
+ },
+ {
+  "q": "Ijodiy va tanqidiy fikrlash o‘rtasidagi nisbat qaysi javobda to‘g‘ri ifodalangan?",
+  "options": [
+   "Ijodiy fikrlash variantlarni saralaydi, tanqidiy fikrlash esa ko‘p yangi variant yaratadi",
+   "Ikkalasi ham yagona to‘g‘ri yechimni topishga xizmat qiladi, ular o‘rtasida hech qanday farq yo‘q",
+   "Ijodiy fikrlash ko‘p variant yaratadi, tanqidiy fikrlash ulardan asoslangan tanlov qiladi",
+   "Ular bir-biriga zid, shuning uchun tadbirkor bittasini tanlab, ikkinchisidan voz kechadi"
+  ],
+  "c": 2,
+  "e": "Ijodiy fikrlash divergent (ko‘p variant), tanqidiy fikrlash konvergent (asoslangan tanlov) bo‘lib, ular bir-birini to‘ldiradi."
+ },
+ {
+  "q": "Startapni oddiy kichik biznesdan nima ajratib turadi?",
+  "options": [
+   "Kengaytiriladigan biznes-model izlashi hamda tez o‘sishga yo‘nalganligi",
+   "Mahalliy bozorga xizmat qilib, barqaror daromad olishni asosiy maqsad qilib qo‘yishi",
+   "Xodimlari soni egasi bilan birga 1–5 nafardan oshmasligi",
+   "Oila a’zolarining mehnati va mulkiga tayanishi"
+  ],
+  "c": 0,
+  "e": "Startapning asosiy belgisi — kengaytiriladigan model va tez o‘sishga (scalability) yo‘nalganlik."
+ },
+ {
+  "q": "Talaba uyda tayyorlagan qandolat mahsulotlarini mahalladagi mijozlarga sotib, barqaror daromad olmoqchi. Bu qaysi yondashuvga eng yaqin?",
+  "options": [
+   "Startap",
+   "Mikrobiznes",
+   "Franshiza",
+   "Ijtimoiy tadbirkorlik"
+  ],
+  "c": 1,
+  "e": "Uydan tayyorlab sotiladigan qandolat, kichik hajm va barqaror daromad maqsadi — mikrobiznesga xos."
+ },
+ {
+  "q": "Ijtimoiy tadbirkorlikda foydaning o‘rni qanday?",
+  "options": [
+   "Foyda asosiy maqsad, ijtimoiy ta’sir esa ikkinchi darajali natija hisoblanadi",
+   "Foyda olish taqiqlanadi, loyiha butunlay xayriya va homiylar hisobiga yashaydi",
+   "Foyda egasining shaxsiy iste’moliga yo‘naltiriladi",
+   "Foyda maqsad emas, vosita: loyiha barqarorligi va ta’sirini kengaytirish uchun ishlatiladi"
+  ],
+  "c": 3,
+  "e": "Ijtimoiy tadbirkorlikda asosiy maqsad jamiyat muammosini hal qilish, foyda esa shu maqsadga xizmat qiluvchi vosita."
+ },
+ {
+  "q": "Franshiza asosidagi tadbirkorlikning kamchiligi qaysi?",
+  "options": [
+   "Cheklangan mustaqillik va doimiy to‘lovlar (royalti)",
+   "Mijozlar brendga ishonmagani sababli tadbirkorning noldan tanilishi zarurligi",
+   "Jarayonlar va o‘qitish tayyor bo‘lmagani uchun xavfning yuqoriligi",
+   "Boshlang‘ich to‘lov talab qilinmagani sababli brend sifati pastligi"
+  ],
+  "c": 0,
+  "e": "Franshizada xavf past va jarayon tayyor, biroq mustaqillik cheklangan va doimiy to‘lovlar bor."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri og‘riqli nuqtaning “pul yo‘qotish” turiga kiradi?",
+  "options": [
+   "Xizmatdan foydalanish uchun uzoq navbatda kutib qolish",
+   "Mahsulot sifatiga ishonchsizlik va murakkab xavotir",
+   "Xizmatning haddan tashqari qimmatligi, yashirin to‘lovlar",
+   "Xizmat joyiga yetib borish uchun uzoq vaqt yo‘lda bo‘lish"
+  ],
+  "c": 2,
+  "e": "Og‘riqli nuqta uch xil: vaqt yo‘qotish, pul yo‘qotish (qimmat xizmat, yashirin to‘lovlar), noqulaylik yoki xavotir."
+ },
+ {
+  "q": "Bozor bo‘shlig‘ini (nishni) topishning amaliy yo‘li qaysi?",
+  "options": [
+   "Eng yirik brendning mahsulotini ommaviy xaridorga aynan takrorlab, narxini pasaytirib sotish",
+   "Barcha mijozlar guruhiga bir xil taklif tayyorlab, narxni pasaytirish",
+   "Yaqin tanishlardan g‘oyani qanchalik yoqtirishini so‘rab, maqtovlarni yig‘ish",
+   "Mavjud takliflarni “kim uchun, qaysi narxda, qaysi sifatda, qayerda” bo‘yicha solishtirib, bo‘sh kataklarni izlash"
+  ],
+  "c": 3,
+  "e": "Bo‘shliq mavjud takliflarni mezonlar bo‘yicha solishtirib, bo‘sh kataklarni topish orqali aniqlanadi."
+ },
+ {
+  "q": "Nima uchun trendning o‘zi biznes hisoblanmaydi?",
+  "options": [
+   "Trendlar tez o‘tib ketgani sababli ularni kuzatishning amaliy foydasi yo‘q",
+   "Trend mijozning muammosi bilan uchrashgandagina imkoniyatga aylanadi",
+   "Trend texnologiya sohasidagi bizneslarga taalluqli bo‘ladi",
+   "Trend raqobatchilarga ham ma’lum bo‘lgani uchun daromad keltirmaydi"
+  ],
+  "c": 1,
+  "e": "Muhim qoida: trend mijozning real muammosi bilan uchrashgandagina biznes imkoniyatiga aylanadi."
+ },
+ {
+  "q": "To‘y uchun zal, taom, ovoz-yorug‘lik va suratga olishni bitta buyurtma bilan taklif qilish imkoniyatni topishning qaysi usuliga misol?",
+  "options": [
+   "Tarqoq xizmatlarni bitta paketga birlashtirish (bundling)",
+   "Yirik xizmatning bir qismini alohida, yaxshiroq shaklda taklif qilish (unbundling)",
+   "Boshqa bozorda sinalgan yechimni mahalliy sharoitga moslashtirish",
+   "Raqamli izlar orqali odamlar nimani qidirayotganini kuzatish"
+  ],
+  "c": 0,
+  "e": "Bir nechta tarqoq xizmatni bitta paketga yig‘ish bundling bo‘lib, mijoz vaqtini tejaydi."
+ },
+ {
+  "q": "Imkoniyat besh mezon bo‘yicha 1–5 ballik shkalada baholandi: muammo o‘tkirligi 4, to‘lovga tayyorlik 3, bozor hajmi 5, kompetensiya va resurs 2, sinash osonligi 4. Jami ball (25 dan) qancha?",
+  "options": [
+   "16 ball",
+   "18 ball",
+   "19 ball",
+   "20 ball"
+  ],
+  "c": 1,
+  "e": "4 + 3 + 5 + 2 + 4 = 18."
+ },
+ {
+  "q": "“Muammo – yechim – mijoz – daromad manbayi” zanjirida “mijoz” bo‘g‘ini qaysi javobda yaxshi yozilgan?",
+  "options": [
+   "Hamma uchun qulay va arzon xizmatdan foydalanishni istagan har qanday odamlar",
+   "Sog‘lom ovqatlanishga qiziqadigan aholining keng qatlami",
+   "Haftalik obuna yoki kunlik sotuv orqali tushadigan pul",
+   "Universitetdan 500 metr narida o‘qiydigan, dars jadvali zich talabalar"
+  ],
+  "c": 3,
+  "e": "Mijoz bitta jumlada aniq tavsiflanishi kerak; “hamma uchun” mijoz emas, aniq guruh mijozdir."
+ },
+ {
+  "q": "Takroriy (replikativ) tadbirkorlik uchun odatda qaysi moliyalashtirish manbayi mos keladi?",
+  "options": [
+   "Venchur kapital va yirik xorijiy investorlar",
+   "Grant yoki angel investor",
+   "Bank krediti yoki o‘z mablag‘i bilan",
+   "Davlat subsidiyasi va xalqaro grantlar"
+  ],
+  "c": 2,
+  "e": "Takroriy biznes xavfi past, o‘sishi barqaror bo‘lgani uchun bank krediti yoki o‘z mablag‘i bilan boshlanadi."
+ }
+]

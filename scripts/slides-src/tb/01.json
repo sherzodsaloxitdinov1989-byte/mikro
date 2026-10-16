@@ -1,0 +1,511 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Tadbirkorlik tushunchasi: nazariy qarashlar",
+   "sub": "1.1. Tadbirkorlik tushunchasi",
+   "bullets": [
+    "Entrepreneur (fr.) — ‘ishni zimmasiga oluvchi’; atamani XVIII asr boshida Kantilon kiritgan: noaniq narxda tavakkal qiluvchi",
+    "J.-B. Sey: yer, mehnat va kapitalni samaraliroq birlashtiruvchi shaxs",
+    "Shumpeter: innovatsiya orqali eski muvozanatni buzish — ‘ijodiy vayronkorlik’",
+    "Draker: o‘zgarishni imkoniyat sifatida izlash; Kirtsner: ‘sezilmay qolgan foyda’ni payqash"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Tadbirkorlik nazariyalari rivojlanishi",
+   "img": "image1.png",
+   "caption": "1.1-rasm. Tadbirkorlik nazariyalari rivojlanish yo‘nalishi"
+  },
+  {
+   "type": "bullets",
+   "title": "Qonunchilikda tadbirkorlik faoliyati",
+   "sub": "1.1. Tadbirkorlik tushunchasi",
+   "bullets": [
+    "Jismoniy va yuridik shaxslarning o‘z tavakkalchiligi va mulkiy javobgarligi ostidagi faoliyat",
+    "Maqsad — foyda (daromad) olish; qonunda taqiqlanmagan tashabbuskor faoliyat",
+    "Uch belgi: tashabbuskorlik",
+    "Tavakkalchilik va mulkiy javobgarlik; daromadga yo‘nalganlik"
+   ],
+   "note": "Yo‘qotishni tadbirkorning o‘zi ko‘taradi"
+  },
+  {
+   "type": "table",
+   "title": "Tadbirkor, menejer va xodim (1.1-jadval)",
+   "head": [
+    "Mezon",
+    "Tadbirkor",
+    "Menejer",
+    "Xodim"
+   ],
+   "rows": [
+    [
+     "Asosiy savol",
+     "Qanday yangi qiymat yarata olaman?",
+     "Bor resurs bilan natijaga qanday erishaman?",
+     "Vazifamni sifatli bajardimmi?"
+    ],
+    [
+     "Tavakkalchilik",
+     "Yuqori, o‘z mablag‘i va nomi bilan",
+     "O‘rtacha, lavozim va mukofot bilan bog‘liq",
+     "Past, ish o‘rnini yo‘qotish xavfi"
+    ],
+    [
+     "Daromad manbayi",
+     "Foyda: noaniq va cheksiz",
+     "Maosh va bonus",
+     "Kelishilgan ish haqi"
+    ],
+    [
+     "Vaqt gorizonti",
+     "O‘rta va uzoq muddatli",
+     "Choraklik va yillik rejalar",
+     "Kunlik va oylik vazifalar"
+    ],
+    [
+     "Xato bilan munosabat",
+     "Tajriba va o‘rganish manbayi",
+     "Nazorat qilinadigan og‘ish",
+     "Oldini olish kerak bo‘lgan holat"
+    ]
+   ],
+   "note": "Rollar aralashadi. Iqtisodiy ahamiyat: ish o‘rinlari, innovatsiya, raqobat muhiti; yoshlar tadbirkorligi — davlat siyosati ustuvorligi"
+  },
+  {
+   "type": "compare",
+   "title": "Oddiy fikrlash va tadbirkorlik tafakkuri",
+   "sub": "1.2. Tadbirkorlik tafakkuri",
+   "left": {
+    "head": "Oddiy fikrlash",
+    "items": [
+     "Noqulaylikka shikoyat qiladi",
+     "‘Yo‘l qatnovi yomon’",
+     "Muammoni to‘siq deb ko‘radi"
+    ]
+   },
+   "right": {
+    "head": "Tadbirkorlik tafakkuri",
+    "items": [
+     "Yashirin ehtiyojni ilg‘aydi",
+     "Qancha talaba aziyat chekadi? Hozir qanday yechim bor?",
+     "Qaysi yechimga pul to‘laydilar?",
+     "Muammoni imkoniyat deb ko‘radi"
+    ]
+   },
+   "note": "Misol: avtobus kutib kechikayotgan talaba"
+  },
+  {
+   "type": "steps",
+   "title": "Tadbirkorlik tafakkurining poydevorlari",
+   "steps": [
+    "a) Oqilona tavakkalchilik va noaniqlikni boshqarish",
+    "b) Xatolardan saboq chiqarish va chidamlilik",
+    "c) Doimiy izlanish va moslashuvchanlik",
+    "d) Resurs cheklanganligida harakat qilish (effectuation)",
+    "e) Tarmoq tafakkuri va hamkorlik madaniyati"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Oqilona tavakkal va xatodan o‘rganish",
+   "sub": "1.2. Tadbirkorlik tafakkuri",
+   "bullets": [
+    "Tavakkal — qimor emas: hisob-kitob qilingan, yo‘qotish chegarasi oldindan belgilangan xavf",
+    "Qoida: ‘qancha yo‘qotishim mumkin va ko‘tara olamanmi?’ — javobsiz katta mablag‘ sarflanmaydi",
+    "Tamoyil: kichik qadamlar bilan sinash, katta qadamlar bilan kengaytirish",
+    "Xato — teskari aloqa; Dvekning ‘o‘sish tafakkuri’: qobiliyat mashq bilan rivojlanadi",
+    "Chidamlilik — qayta turish, lekin bir xil xatoni takrorlamaslik"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Moslashuvchanlik, effectuation, tarmoq",
+   "sub": "1.2. Tadbirkorlik tafakkuri",
+   "bullets": [
+    "Moslashuvchanlik: pandemiyada do‘konlar yetkazib berish va ijtimoiy tarmoqda sotuvga o‘tdi",
+    "Effectuation (Sarasvati): maqsaddan emas, qo‘ldagidan boshlash — kim ekanligim, nimani bilishim, kimni tanishim",
+    "Bilim, ko‘nikma va tanishlar doirasi — talaba uchun real boshlang‘ich resurs",
+    "Tarmoq: 2–3 daqiqada g‘oyani tushuntirish, o‘zaro foyda, mentor va mijoz bilan uzoq muddatli ishonch"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ijodiy va tanqidiy fikrlash",
+   "sub": "1.2. Tadbirkorlik tafakkuri",
+   "left": {
+    "head": "Ijodiy fikrlash (divergent)",
+    "items": [
+     "Ko‘p sonli yangi variant yaratadi",
+     "G‘oyalar sonini oshiradi"
+    ]
+   },
+   "right": {
+    "head": "Tanqidiy fikrlash (konvergent)",
+    "items": [
+     "Variantlar orasidan asoslangan tanlov",
+     "Bu fikr qaysi dalilga tayanadi?",
+     "Qaysi faraz tekshirilmagan?",
+     "Qarama-qarshi ma’lumot bormi?"
+    ]
+   },
+   "note": "Tanqidiy savollar tasdiqlash yanglishuvi (confirmation bias)ning oldini oladi"
+  },
+  {
+   "type": "bullets",
+   "title": "Tadbirkorlik turlari: mikro, kichik, startap",
+   "sub": "1.3. Turlari va yondashuvlari",
+   "bullets": [
+    "Mikrobiznes: eng kichik shakl, egasi va 1–5 xodim; maqsad — barqaror daromad va mustaqillik",
+    "Kichik biznes: xodim va tushum qonuniy chegaradan oshmaydi, mahalliy bozorga xizmat qiladi",
+    "Startap: takrorlanuvchi, kengayadigan model izlayotgan vaqtinchalik tashkilot",
+    "Startap belgisi: tez o‘sish (scalability), texnologiya, yuqori xavf",
+    "Har yangi biznes startap emas: kichik do‘kon — odatiy biznes, mobil ilova — startap"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Oilaviy, ijtimoiy, franshiza, o‘zini band qilish",
+   "sub": "1.3. Turlari va yondashuvlari",
+   "bullets": [
+    "Oilaviy: oila mehnati va mulkiga tayanadi; kuchi — ishonch, xavfi — oilaviy munosabatlar aralashuvi",
+    "Ijtimoiy: maqsad — jamiyat muammosi; foyda vosita, maqsad emas",
+    "O‘zini o‘zi band qilish: yuridik shaxs tashkil etmay, shaxsiy mehnat; eng past to‘siqli kirish",
+    "Franshiza: sinalgan brend va modelni haq (boshlang‘ich to‘lov, royalti) evaziga ishlatish",
+    "Franshiza: xavf past, tayyor jarayon; kamchilik — mustaqillik cheklangan"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Tadbirkorlik yondashuvlari solishtirmasi (1.2-jadval)",
+   "head": [
+    "Yondashuv",
+    "Asosiy maqsad",
+    "Kapital",
+    "O‘sish sur’ati"
+   ],
+   "rows": [
+    [
+     "Mikrobiznes",
+     "Barqaror daromad",
+     "Past",
+     "Sekin, ehtiyotkor"
+    ],
+    [
+     "Kichik biznes",
+     "Daromad va mustaqillik",
+     "O‘rta",
+     "O‘rtacha"
+    ],
+    [
+     "Startap",
+     "Tez o‘sish, katta bozor",
+     "Investorlar hisobiga",
+     "Juda tez, xavfi yuqori"
+    ],
+    [
+     "Oilaviy",
+     "Oila farovonligi",
+     "Past–o‘rta",
+     "Sekin"
+    ],
+    [
+     "Ijtimoiy",
+     "Ijtimoiy ta’sir",
+     "Grant va daromad aralash",
+     "O‘rtacha"
+    ],
+    [
+     "Franshiza",
+     "Tez, kam xavfli boshlanish",
+     "O‘rta–yuqori",
+     "O‘rtacha, brendga bog‘liq"
+    ]
+   ],
+   "note": "Yondashuvni bir marta va butunlay tanlash shart emas: ko‘p startap kichik biznesdan boshlangan"
+  },
+  {
+   "type": "figure",
+   "title": "Biznes imkoniyatlarini aniqlash usullari",
+   "img": "image2.png",
+   "caption": "1.2-rasm. Biznes imkoniyatlarini aniqlashning oltita amaliy usuli"
+  },
+  {
+   "type": "bullets",
+   "title": "Og‘riqli nuqtalar va bozor bo‘shliqlari",
+   "sub": "1.4. Imkoniyatlarni aniqlash usullari",
+   "bullets": [
+    "Imkoniyat tasodifiy ilhom emas, tizimli kuzatuv va tahlil samarasi",
+    "Og‘riqli nuqta: vaqt yo‘qotish, pul yo‘qotish, noqulaylik yoki xavotir",
+    "Misol: mahalla do‘konlari uchun Telegram orqali buyurtma yig‘ish va yetkazish",
+    "Bozor bo‘shlig‘i (niche): tor mijozlar guruhi uchun moslashtirilgan taklif",
+    "Usul: takliflarni jadvalga yozib (kim, narx, sifat, joy) bo‘sh kataklarni topish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Trend, moslashtirish, bo‘lish va birlashtirish",
+   "sub": "1.4. Imkoniyatlarni aniqlash usullari",
+   "bullets": [
+    "Trend: sun’iy intellekt, onlayn to‘lov, sog‘lom turmush, ekologik mahsulot, turizm",
+    "Qoida: trendning o‘zi biznes emas — mijoz muammosi bilan uchrashgandagina imkoniyat",
+    "Moslashtirish: boshqa bozorda sinalgan yechimni til, to‘lov va madaniyatga moslash — xavf kam",
+    "Unbundling — yirik xizmatning bir qismini alohida taklif etish",
+    "Bundling — tarqoq xizmatlarni bitta paketga birlashtirish (to‘y: zal, taom, yorug‘lik, suratga olish)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Muammolar kundaligi va raqamli vositalar",
+   "sub": "1.4. Imkoniyatlarni aniqlash usullari",
+   "bullets": [
+    "Kundalik: bir hafta noqulayliklarni yozish; kimda takrorlanadi, qanchalik tez-tez, hozir qanday hal etilmoqda, to‘lovga tayyormi?",
+    "Raqamli iz: qidiruv avtomatik to‘ldirishi, sharhlar, Telegram/Facebook guruh savollari, stat.uz",
+    "Afzallik: uyda, xarajatsiz boshlanadi",
+    "Kamchilik: raqamli ma’lumot xatti-harakatni to‘liq aks ettirmaydi — suhbat va kuzatuv bilan tekshiring"
+   ],
+   "note": "Mashq: uy, universitet, mahalla, transport, oziq-ovqat, onlayn xizmat, sog‘liq/bo‘sh vaqt — har birida bittadan noqulaylik"
+  },
+  {
+   "type": "figure",
+   "title": "Ikki g‘oyani solishtirish: radar diagramma",
+   "img": "image3.png",
+   "caption": "1.3-rasm. Ikki g‘oyani 1.3-jadval mezonlari bo‘yicha solishtirish"
+  },
+  {
+   "type": "table",
+   "title": "Imkoniyatni dastlabki baholash matritsasi (1.3-jadval)",
+   "head": [
+    "Mezon",
+    "Ovqat yetkazish",
+    "Uy qandolati",
+    "3D esdalik",
+    "Konspekt platforma",
+    "Buyurtma boti"
+   ],
+   "rows": [
+    [
+     "Muammo o‘tkirligi",
+     "4",
+     "3",
+     "2",
+     "4",
+     "4"
+    ],
+    [
+     "To‘lashga tayyorlik",
+     "4",
+     "4",
+     "3",
+     "2",
+     "3"
+    ],
+    [
+     "Bozor hajmi",
+     "5",
+     "3",
+     "2",
+     "4",
+     "3"
+    ],
+    [
+     "Kompetensiya va resurs",
+     "3",
+     "5",
+     "3",
+     "3",
+     "4"
+    ],
+    [
+     "Sinash oson va arzon",
+     "3",
+     "5",
+     "4",
+     "4",
+     "4"
+    ],
+    [
+     "Jami (25 dan)",
+     "19",
+     "20",
+     "14",
+     "17",
+     "18"
+    ]
+   ],
+   "note": "Namuna. Ball — fikrni tartiblash vositasi; xulosa mijoz suhbatidan (2-bob). Tekshiring: real muammo, aniq mijoz, to‘lov, raqobat, daromad, shaxsiy moslik"
+  },
+  {
+   "type": "steps",
+   "title": "Zanjir: muammo – yechim – mijoz – daromad",
+   "sub": "1.6. Zanjir",
+   "steps": [
+    "MUAMMO: talabalar dars oralig‘ida sog‘lom, arzon ovqat topa olmaydi",
+    "YECHIM: universitet yaqinida oldindan buyurtmali sog‘lom tushlik to‘plami",
+    "MIJOZ: dars jadvali zich bo‘lgan bakalavr talabalar (500 m ichida)",
+    "DAROMAD MANBAYI: haftalik obuna yoki kunlik sotuv"
+   ],
+   "note": "SMART: Specific, Measurable, Achievable, Relevant, Time-bound. Misol: 2 haftada 30 talaba bilan suhbat, 10 nafari obunaga rozi"
+  },
+  {
+   "type": "table",
+   "title": "Yoshlar tadbirkorligini qo‘llab-quvvatlash (1.4-jadval)",
+   "sub": "1.7. Ekotizim",
+   "head": [
+    "Yo‘nalish",
+    "Mazmuni",
+    "Kimlar uchun"
+   ],
+   "rows": [
+    [
+     "Imtiyozli kreditlar",
+     "‘Yoshlar biznesi’ kabi dasturlar, banklar orqali",
+     "Yoshlar, bitiruvchilar"
+    ],
+    [
+     "Bitiruvchilarni qo‘llab-quvvatlash",
+     "‘Kelajakka qadam’ markazlari",
+     "Bitiruvchi talabalar"
+    ],
+    [
+     "Inkubator va akseleratorlar",
+     "Mentorlik, o‘quv, ish joyi, tanishuv",
+     "G‘oya va startap bosqichi"
+    ],
+    [
+     "Grant va venchur mablag‘",
+     "Qaytarilmaydigan yoki ulush evaziga",
+     "Innovatsion loyihalar"
+    ],
+    [
+     "Ta’lim va treninglar",
+     "Biznes-reja, moliyaviy savodxonlik",
+     "Barcha qiziquvchilar"
+    ],
+    [
+     "Startap musobaqalari",
+     "Tanlovlar, demo-kunlar",
+     "Startap jamoalari"
+    ]
+   ],
+   "note": "Shartlar tez yangilanadi: murojaatdan oldin lex.uz va bank xabarini tekshiring"
+  },
+  {
+   "type": "steps",
+   "title": "Keys: Yoshbek va 3D-bosma san’at asarlari",
+   "sub": "1.8. Amaliy keys",
+   "steps": [
+    "Vaziyat: san’at talabasi Yoshbekda 3D-printer texnologiyasi bor, ammo muammo aniq emas",
+    "Mijoz-muammo juftliklari: yangi juftliklar, kafe/mehmonxona, korxonalar, turistlar",
+    "Savol: 3D-asarlar kimning qaysi muammosini hal qiladi?",
+    "Ishlab chiqarish, marketing va savdo tajribasi yo‘q"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Keys yechimi: besh qadam",
+   "sub": "1.8. Amaliy keys",
+   "steps": [
+    "1. Muammo va mijozni aniqlash — ‘yechim izlayotgan g‘oya’dan chiqish",
+    "2. Bozorni tanlash: bitta segment (korporativ yoki shaxsiy sovg‘a), 5–10 mijoz bilan suhbat",
+    "3. Marketing: 3 namuna, ijtimoiy tarmoq, oldindan buyurtma",
+    "4. Moliya: xarajatlar va zararsizlik nuqtasi; printer bo‘lsa — effectuation",
+    "5. Masshtab: yangi segment, marketpleys, dizaynni litsenziyalash"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ekotizimning olti ustuni va xalqaro tajriba",
+   "sub": "1.9. Chuqurlashtirilgan tahlil",
+   "bullets": [
+    "Isenberg modeli: siyosat, moliya, madaniyat, qo‘llab-quvvatlash, inson kapitali, bozorlar",
+    "Isroil: harbiy texnologik kadrlar, venchur fondlar dasturi (Yozma), muvaffaqiyatsizlikka bag‘rikenglik",
+    "Estoniya: raqamli xizmatlar (e-Residency), kompaniyani bir kunda ro‘yxatdan o‘tkazish",
+    "Janubiy Koreya: inqirozdan so‘ng IT va startapga maqsadli investitsiya, Techno-Venture",
+    "Saboq: ekotizim tasodifan emas, aniq va uzoq muddatli siyosat bilan quriladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Ekotizim ustunlari va O‘zbekiston holati (1.5-jadval)",
+   "head": [
+    "Ustun",
+    "O‘zbekistondagi umumiy tendensiya"
+   ],
+   "rows": [
+    [
+     "Siyosat va yetakchilik",
+     "Faol isloh qilinmoqda (PF-214, PQ-60/61/62)"
+    ],
+    [
+     "Moliyaviy resurslar",
+     "Kengaymoqda, venchur bozori hali yosh"
+    ],
+    [
+     "Madaniyat",
+     "Sekin o‘zgarmoqda, yoshlar orasida faollashmoqda"
+    ],
+    [
+     "Qo‘llab-quvvatlash tuzilmalari",
+     "IT Park va universitet markazlari orqali kengaymoqda"
+    ],
+    [
+     "Inson kapitali",
+     "Tadbirkorlik kurslari orqali mustahkamlanmoqda"
+    ],
+    [
+     "Bozorlar",
+     "Ichki bozor barqaror, eksport salohiyati o‘smoqda"
+    ]
+   ],
+   "note": "Umumlashtirilgan baho. Ko‘pincha madaniyat va mentorlik ustunlari orqada qoladi"
+  },
+  {
+   "type": "table",
+   "title": "Innovatsiya turlari va moliyaviy xususiyatlari (1.6-jadval)",
+   "head": [
+    "Xususiyat",
+    "Takroriy",
+    "Innovatsion",
+    "Kengaytiriladigan"
+   ],
+   "rows": [
+    [
+     "Xavf darajasi",
+     "Past–o‘rta",
+     "O‘rta–yuqori",
+     "Yuqori"
+    ],
+    [
+     "Mos moliyalashtirish",
+     "Bank krediti, o‘z mablag‘",
+     "Grant, angel investor",
+     "Venchur kapital"
+    ],
+    [
+     "O‘sish sur’ati",
+     "Chiziqli, barqaror",
+     "O‘rtacha",
+     "Eksponensial (tez)"
+    ],
+    [
+     "Misol",
+     "Yangi filial, kichik do‘kon",
+     "Yangi xizmat modeli",
+     "Texnologik platforma"
+    ]
+   ],
+   "note": "G‘oya turini bilish mos moliyalashtirish strategiyasini tanlashga yordam beradi"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa",
+   "bullets": [
+    "Tadbirkorlik — avvalo fikrlash tarzi: muammoni imkoniyat deb ko‘rish, oqilona tavakkal, xatodan o‘rganish",
+    "Turlar (mikro, startap, oilaviy, ijtimoiy, franshiza) turli maqsad va resursga mos",
+    "Imkoniyat kuzatuv bilan topiladi, mezonlar bilan baholanadi, zanjir ko‘rinishida ifodalanadi",
+    "Har qanday moliyalashtirishdan oldin real talab dalili kerak"
+   ]
+  }
+ ]
+}

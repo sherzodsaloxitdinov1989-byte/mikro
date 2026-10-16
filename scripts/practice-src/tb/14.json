@@ -1,0 +1,114 @@
+{
+ "goal": "Xodim, sherik va pudratchi rollarini ajratish, ish suhbati simulyatsiyasini o‘tkazish, ulush va soliq hisobini bajarish hamda xavflar matritsasini tuzish.",
+ "concepts": [
+  "Jamoa",
+  "Hamasoschi, xodim, pudratchi",
+  "Ish o‘rni tavsifi va STAR usuli",
+  "Ulush va vesting",
+  "Xavf darajasi (ehtimol × ta’sir)",
+  "Kutilayotgan qiymat"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 14-bob; Ilova E, Z, K",
+ "tasks": [
+  {
+   "id": "tb14-p1",
+   "title": "Soliq rejimini tanlash",
+   "text": "MChJning yillik tushumi 900 million, xarajati 700 million so‘m. Aylanma solig‘i (4%) va foyda solig‘i (15%, QQS hisobga olinmaydi) bo‘yicha yillik soliq summalarini toping.",
+   "fields": [
+    {
+     "label": "Aylanma solig‘i",
+     "value": 36,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Foyda solig‘i",
+     "value": 30,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Aylanma solig‘i = 900 × 4% = 36 mln. Foyda solig‘i = (900 − 700) × 15% = 30 mln. Bu misolda foyda solig‘i arzonroq: foyda tushumning 200 / 900 = 22,2% ini tashkil etadi, demak foyda solig‘i tushumning 15% × 22,2% = 3,3% i, bu 4% dan past. Umumiy qoida: foyda marjasi 4 / 15 = 26,7% dan yuqori bo‘lsa aylanma solig‘i, past bo‘lsa foyda solig‘i arzon. QQS va hisobot murakkabligi tanlovni o‘zgartirishi mumkin.",
+   "formula": "Aylanma solig‘i = tushum × 4%; Foyda solig‘i = (tushum − xarajat) × 15%"
+  },
+  {
+   "id": "tb14-p2",
+   "title": "Xodimning umumiy xarajati",
+   "text": "Sotuv menejerining oylik maoshi 4,5 million so‘m, bonus — 150 million so‘mlik sotuvning 2% i. Hisoblangan ish haqidan JShDS 12% ushlanadi, ish beruvchi esa ijtimoiy soliqni 12% stavkada to‘laydi. Hisoblangan ish haqini, xodim qo‘liga tegadigan summani va ish beruvchi uchun jami xarajatni toping.",
+   "fields": [
+    {
+     "label": "Hisoblangan ish haqi",
+     "value": 7.5,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Xodim qo‘liga tegadigan summa",
+     "value": 6.6,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Ish beruvchining jami xarajati",
+     "value": 8.4,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Bonus = 150 × 2% = 3 mln. Hisoblangan ish haqi = 4,5 + 3 = 7,5 mln. JShDS = 7,5 × 12% = 0,9 mln, qo‘lga = 7,5 − 0,9 = 6,6 mln. Ijtimoiy soliq = 7,5 × 12% = 0,9 mln. Ish beruvchi xarajati = 7,5 + 0,9 = 8,4 mln so‘m (maoshning 112% i).",
+   "formula": "Jami xarajat = ish haqi × (1 + ijtimoiy soliq stavkasi)"
+  },
+  {
+   "id": "tb14-p3",
+   "title": "Ulush va vesting",
+   "text": "Ikki ta’sischi: Aziza (60% ulush) va Bekzod (40% ulush); vesting 4 yil, cliff 1 yil. 12 oy to‘lganda ulushning 25% i ishlab olinadi, qolgani har oy teng bo‘laklarda (oyiga 1/48) ishlab olinadi. Bekzod 18 oy ishlagach ketadi. Uning ulushining qancha foizi ishlab olingan (vested), kompaniyadagi ulushi necha foiz bo‘lib qoladi va qancha qismi qaytariladi?",
+   "fields": [
+    {
+     "label": "Ishlab olingan qism (Bekzod ulushining)",
+     "value": 37.5,
+     "unit": "%"
+    },
+    {
+     "label": "Bekzodda qoladigan ulush (kompaniyaning)",
+     "value": 15,
+     "unit": "%"
+    },
+    {
+     "label": "Kompaniyaga qaytariladigan ulush",
+     "value": 25,
+     "unit": "%"
+    }
+   ],
+   "solution": "18 oy ishlangan: 12 oylik cliffda 25% ishlab olinadi, yana 6 oy × 1/48 = 12,5%. Jami 18/48 = 37,5%. Bekzodda qoladi: 40% × 37,5% = 15%. Qaytariladi: 40% − 15% = 25% (kompaniyaga yoki ulush hovuzi/qolgan ta’sischilarga).",
+   "formula": "Ishlab olingan qism = ishlangan oy / 48; qoladigan ulush = ulush × ishlab olingan qism"
+  },
+  {
+   "id": "tb14-p4",
+   "title": "Xavfni kutilayotgan qiymat orqali baholash",
+   "text": "Qo‘shni viloyat bozoriga kirish uchun ikki variant: (A) katta marketing kampaniyasi — muvaffaqiyat ehtimoli 40%, muvaffaqiyatda 200 mln so‘m foyda, muvaffaqiyatsizlikda 60 mln so‘m zarar; (B) kichik pilot — muvaffaqiyat ehtimoli 70%, muvaffaqiyatda 50 mln so‘m foyda, muvaffaqiyatsizlikda 10 mln so‘m zarar. Har bir variantning kutilayotgan qiymatini toping.",
+   "fields": [
+    {
+     "label": "A variantning kutilayotgan qiymati",
+     "value": 44,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "B variantning kutilayotgan qiymati",
+     "value": 32,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "A: 0,4 × 200 + 0,6 × (−60) = 80 − 36 = 44 mln. B: 0,7 × 50 + 0,3 × (−10) = 35 − 3 = 32 mln. Sof kutilayotgan qiymat bo‘yicha A yuqori, lekin muvaffaqiyatsizlikda 60 mln zarar (B da 10 mln). Zaxirasi cheklangan tadbirkor uchun B oqilona bo‘lishi mumkin: qaror kutilayotgan qiymat bilan birga xavfga chidamlilikka ham bog‘liq.",
+   "formula": "KQ = p × foyda + (1 − p) × (−zarar)"
+  }
+ ],
+ "open": [
+  "Amaliy 14. Jamoa va xavflar. Tartib: 1) jamoa tarkibini va kompetensiyalarni belgilang; 2) har bir rolni xodim, sherik yoki pudratchi sifatida tasniflang; 3) bitta lavozim uchun ish o‘rni tavsifini yozing; 4) juftlikda ish suhbati simulyatsiyasini (STAR savollari) o‘tkazing; 5) kamida 8 ta xavfni ehtimol va ta’sir bo‘yicha baholang; 6) har bir yuqori xavf uchun boshqaruv chorasi va mas’ul shaxsni belgilang.",
+  "Amaliy mashg‘ulotga tayyorgarlik: o‘z g‘oyangiz uchun jamoa tarkibini, xodim/sherik/pudratchi taqsimotini va asosiy vazifalarni belgilang; bitta lavozim uchun ish o‘rni tavsifi (14.3-jadval) yozing; kamida 8 ta xavfni ehtimol va ta’sir bo‘yicha baholab, xavflar matritsasi va boshqaruv choralarini (14.9-jadval shaklida) tayyorlang.",
+  "14.1-rasm asosida o‘z jamoangiz uchun tashkiliy tuzilma chizing va har bir lavozimga kim (ism yoki “vakant”) mos kelishini belgilang.",
+  "14.3-rasmdagi xavflar matritsasiga o‘xshab, o‘z g‘oyangiz uchun kamida 6 ta xavfni ehtimol va ta’sir bo‘yicha joylashtiring (daraja = ehtimol × ta’sir), eng yuqori xavflarini belgilang va ulardan biri uchun strategiya (kamaytirish, o‘tkazish, qochish yoki qabul qilish), erta ogohlantirish ko‘rsatkichi va mas’ul shaxsni yozing.",
+  "“TezTa’mir” keysi (K.1): Aziz (elektrotexnika muhandisi), Nodira (marketing) va Sardor (60 mln so‘m kapitali bor, kunlik ishda qatnashmaydi) uy-ro‘zg‘or texnikasini ta’mirlash xizmatini boshlamoqchi. Qaysi tashkiliy shaklni tanlash, ulushni qanday taqsimlash va kimning ulushiga vesting qo‘llash kerakligini asoslang."
+ ],
+ "refs": [
+  "Natija: jamoa jadvali, ish o‘rni tavsifi, xavflar matritsasi. Baholash mezoni: rollar aniqligi, xavflarni baholash to‘g‘riligi, choralar reallik. Ko‘p uchraydigan xatolar: barcha jamoa a’zosini “xodim” deb belgilab, sherik va pudratchi farqini hisobga olmaslik; ish o‘rni tavsifida noaniq talablar yozish (“yaxshi odam kerak” kabi); xavflarni faqat ro‘yxat qilib, ehtimol/ta’sir bahosi va mas’ul shaxssiz qoldirish.",
+  "Mezonlar: har bir rol to‘g‘ri tasniflangan (doimiy takrorlanuvchi ish — xodim; kompetensiya va kapital qo‘shuvchi kalit shaxs — sherik; bir martalik yoki mavsumiy vazifa — pudratchi); ish o‘rni tavsifida aniq vazifalar, o‘lchanadigan talablar va KPI bor; xavflar soni kamida 8, har biri uchun ehtimol (1–5), ta’sir (1–5), daraja = ehtimol × ta’sir hisoblangan; yuqori xavflar (15–25) uchun chora va mas’ul shaxs yozilgan.",
+  "Mezonlar: tashkiliy tuzilmada hamma lavozim va bo‘ysunish aloqalari aniq; rollar ta’sischi, xodim va pudratchi bo‘yicha ajratilgan; lavozimga mos shaxs yoki “vakant” belgisi qo‘yilgan; yetishmayotgan kompetensiyalar aniqlanib, ularni to‘ldirish yo‘li (yollash, hamkor, pudratchi) ko‘rsatilgan.",
+  "Mezonlar: kamida 6 xavf 5×5 matritsaga to‘g‘ri joylashgan; daraja to‘g‘ri hisoblangan va rangli zonaga (1–6 past, 8–12 o‘rta, 15–25 yuqori) mos; strategiya xavfga mos tanlangan; erta ogohlantirish ko‘rsatkichi o‘lchanadigan (masalan, “kurs 3% dan ko‘p o‘zgarsa narx qayta ko‘riladi”); mas’ul shaxs aniq. Xato: xavfni ro‘yxat qilib, bahosiz va mas’ulsiz qoldirish.",
+  "Namunaviy javob (K.1): MChJ, uch ta’sischi. Ulush hissaga qarab: Sardor (kapital 60 mln) — 40%, Aziz (texnik ish va tajriba) — 35%, Nodira (marketing va boshqaruv) — 25%. Aziz va Nodira ulushiga 2 yillik vesting (1 yil cliff) qo‘llanadi, chunki ular kundalik ishni yuritadi va erta ketib qolish xavfi bor; Sardorning kapital ulushi vestingsiz, chunki to‘liq to‘langan. MChJda barcha ishtirokchilar rasman ta’sischi, ammo faoliyatda shaxsan qatnashish shart emas. Ulush foizlari ekspert tavsiyasi, boshqa asosli taqsimot ham qabul qilinadi."
+ ]
+}

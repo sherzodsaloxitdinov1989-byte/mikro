@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Biznes-reja eng avvalo nima vazifani bajaradi?",
+  "options": [
+   "Bank kreditini rasmiylashtirish uchun talab qilinadigan majburiy rasmiy hujjat vazifasini o‘taydi",
+   "Tadbirkorning o‘zi uchun yo‘l xaritasi bo‘lib, g‘oya hayotiyligini sarf-xarajatdan oldin sinab ko‘rishga imkon beradi",
+   "Davlat organlariga har yili topshiriladigan majburiy statistik hisobot vazifasini bajaradi",
+   "Mijozlarga tarqatiladigan reklama buklet vazifasini bajaradi va kompaniya obro‘sini oshiradi"
+  ],
+  "c": 1,
+  "e": "Reja eng avvalo tadbirkorning o‘zi uchun yo‘l xaritasi bo‘lib, zaif nuqtalarni oldindan topishga yordam beradi."
+ },
+ {
+  "q": "Biznes-rejani tirik hujjatga aylantirishning eng oddiy usuli qaysi?",
+  "options": [
+   "Rejani yiliga bir marta butunlay qayta yozib, eskisini esa arxivga topshirib, jamoaga yangisini tarqatish",
+   "Haqiqiy natijaga moslab, rejadagi dastlabki raqamlarni o‘chirib tashlash va yangisini yozish",
+   "Rejani yangi investor paydo bo‘lgandagina qayta ko‘rib chiqish",
+   "Har oy oxirida rejalashtirilgan va haqiqiy natijalarni solishtirib, farq sabablarini tahlil qilish"
+  ],
+  "c": 3,
+  "e": "“Reja–fakt” jadvali farq sabablarini ko‘rsatadi va keyingi oy rejasini qayta ko‘rish signalini beradi."
+ },
+ {
+  "q": "Bank uchun tayyorlanayotgan biznes-rejada qaysi jihatlarga urg‘u beriladi?",
+  "options": [
+   "Pul oqimi, DSCR, ta’minot, zararsizlik va xavflarga",
+   "Bozor hajmi, masshtab, jamoa va chiqish yo‘li kabi o‘sish ko‘rsatkichlariga",
+   "Ijtimoiy ta’sir, yangilik va yaratiladigan ish o‘rinlari kabi jihatlarga",
+   "Harakatlar rejasi, muddatlar va jamoa uchun KPI kabi ichki jihatlarga"
+  ],
+  "c": 0,
+  "e": "Bankning asosiy savoli “kreditni qaytara oladimi?” bo‘lgani uchun pul oqimi, DSCR va ta’minot muhim."
+ },
+ {
+  "q": "Grant beruvchi uchun mo‘ljallangan reja nimaga ko‘proq urg‘u beradi?",
+  "options": [
+   "Birlik iqtisodiyoti (LTV:CAC), masshtablash salohiyati, jamoa tajribasi va investor uchun chiqish yo‘liga",
+   "Kreditni qaytarish qobiliyatiga, DSCR ko‘rsatkichiga va garov ta’minotiga",
+   "Ijtimoiy yoki innovatsion ta’sirga, ish o‘rinlariga va mablag‘ni samarali sarflashga",
+   "Jamoa a’zolarining haftalik vazifalariga va muddatlariga"
+  ],
+  "c": 2,
+  "e": "Grant beruvchi ijtimoiy yoki innovatsion ahamiyat va mablag‘ning samarali sarflanishini baholaydi."
+ },
+ {
+  "q": "Ijroiya xulosa nima uchun biznes-rejaning hal qiluvchi bo‘limi hisoblanadi?",
+  "options": [
+   "Unda barcha moliyaviy jadvallar to‘liq hajmda keltirilgani sababli boshqa bo‘limlarni o‘qish shart emas",
+   "Investor va bank komissiyasi avval shu 1–2 sahifani o‘qiydi, qiziqmasa batafsil hisoblarni ko‘rmaydi",
+   "U rejaning eng hajmli bo‘limi bo‘lib, odatda o‘n besh sahifadan ortiq joyni egallaydi",
+   "Uni tadbirkorning o‘zi o‘qiydi va tashqi o‘quvchilarga umuman berilmaydi"
+  ],
+  "c": 1,
+  "e": "Vaqt cheklangani uchun komissiya avval ijroiya xulosani o‘qiydi; u qiziqish uyg‘otmasa, rejaning qolgan qismi ko‘rilmaydi."
+ },
+ {
+  "q": "Biznes-rejaning maqbul umumiy hajmi qancha?",
+  "options": [
+   "20–30 bet atrofida",
+   "50–100 bet atrofida",
+   "5–8 bet atrofida",
+   "35–45 bet atrofida"
+  ],
+  "c": 0,
+  "e": "20–30 bet maqbul, 50–100 sahifali o‘qilmaydigan hujjat esa xato hisoblanadi."
+ },
+ {
+  "q": "TAM/SAM/SOM modelida SOM nimani bildiradi?",
+  "options": [
+   "Butun mintaqadagi barcha korxonalarning umumiy bozor hajmini",
+   "Kompaniya xizmat ko‘rsata oladigan, masalan, yirik shaharlardagi zamonaviy restoranlar segmentining umumiy hajmini",
+   "Birinchi yilda real egallash mumkin bo‘lgan, SAMning kichik qismiga teng bozor ulushini",
+   "Mijoz bitta xarid uchun to‘laydigan o‘rtacha summani"
+  ],
+  "c": 2,
+  "e": "SOM — dastlabki davrda realistik egallash mumkin bo‘lgan ulush bo‘lib, investorlar aynan shunday SOMni qadrlaydi."
+ },
+ {
+  "q": "PEST tahlili qaysi muhitni baholaydi?",
+  "options": [
+   "Ichki muhitni: kompaniyaning kuchli va zaif tomonlarini hamda resurs va jamoa salohiyatini",
+   "Mavjud raqobatchilar o‘rtasidagi raqobat shiddatini",
+   "Mijoz sotib olishgacha o‘tadigan savdo voronkasi bosqichlarini",
+   "Makromuhitni: siyosiy-huquqiy, iqtisodiy, ijtimoiy va texnologik omillarni"
+  ],
+  "c": 3,
+  "e": "PEST — Political, Economic, Social va Technological omillar orqali makromuhitni baholaydi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri Porterning besh kuchidan biri hisoblanadi?",
+  "options": [
+   "Xaridorlarning savdolashish kuchi",
+   "Davlat soliq siyosatining qattiqligi",
+   "Kompaniya xodimlarining malaka darajasi",
+   "Mahsulotning moliyaviy zararsizlik nuqtasi"
+  ],
+  "c": 0,
+  "e": "Porter modeli kirish xavfi, o‘rinbosarlar, yetkazib beruvchilar, xaridorlar va mavjud raqobatni o‘z ichiga oladi."
+ },
+ {
+  "q": "SWOT tahlilida ichki omillarga nimalar kiradi?",
+  "options": [
+   "Imkoniyatlar va xavflar",
+   "Kuchli va zaif tomonlar",
+   "Kuchli tomonlar va imkoniyatlar",
+   "Zaif tomonlar va xavflar"
+  ],
+  "c": 1,
+  "e": "Strengths va Weaknesses ichki, Opportunities va Threats esa tashqi omillardir."
+ },
+ {
+  "q": "Restoranlar uchun dasturiy platforma yaratilmoqda: bu sohada kirish to‘sig‘i past, o‘rinbosar sifatida esa Excel mavjud. Porter modeliga ko‘ra qaysi xulosa to‘g‘ri?",
+  "options": [
+   "Raqobat xavfi past, shuning uchun narxni yuqori qo‘yib, marketingdan butunlay voz kechish mumkin",
+   "Excel o‘rinbosar emas, shu sababli uni raqobat tahliliga kiritishning hojati yo‘q",
+   "Kirish to‘sig‘i past bo‘lgani uchun bu bozor yangi kompaniyalar uchun yopiq hisoblanadi",
+   "Yangi raqiblar oson kirishi mumkin, shuning uchun farqlanish va mijozni ushlab qolishga e’tibor berish kerak"
+  ],
+  "c": 3,
+  "e": "Kirish to‘sig‘i past va o‘rinbosar mavjud bo‘lsa, farqlanish va mijozni ushlab qolish muhim bo‘ladi."
+ },
+ {
+  "q": "Strategik biznes-reja va ijro rejasi (execution plan) o‘rtasidagi asosiy farq qaysi?",
+  "options": [
+   "Strategik reja haftalik yangilanib turadi, ijro rejasi esa yiliga bir-ikki marta, investor talabiga ko‘ra qayta ko‘riladi",
+   "Strategik reja qisqa Kanban jadvali, ijro rejasi esa 20–30 sahifali hujjat ko‘rinishida bo‘ladi",
+   "Strategik reja tashqi o‘quvchini ishontiradi, ijro rejasi esa jamoaning kundalik ishini yo‘naltiradi",
+   "Strategik reja jamoaning vazifalar ro‘yxati, ijro rejasi esa grant arizasining shakli hisoblanadi"
+  ],
+  "c": 2,
+  "e": "Strategik reja asoslash uchun, ijro rejasi (OKR, Kanban) esa kundalik vazifalarni kuzatish uchun yuritiladi."
+ },
+ {
+  "q": "Yangi eksportchi tashqi bozorga chiqishni qanday boshlashi tavsiya etiladi?",
+  "options": [
+   "Bitta mamlakat, bitta mahsulot va bitta xaridor bilan kichik sinov partiyadan",
+   "Bir vaqtning o‘zida bir nechta mamlakatga yirik partiyalar jo‘natishdan",
+   "Barcha mahsulot turlarini eng uzoq bozorga birdaniga chiqarishdan",
+   "Ichki bozorni butunlay tark etib, barcha resursni eksportga yo‘naltirishdan"
+  ],
+  "c": 0,
+  "e": "Kichik sinov partiya narx, sifat, to‘lov va logistika bo‘yicha natijalarni tahlil qilib, keyin kengayishga imkon beradi."
+ },
+ {
+  "q": "Roadmapdagi mijozlar soni pul oqimi jadvalidagi tushumga mos kelmasa, nima qilish kerak?",
+  "options": [
+   "Ikki hujjatdagi eng optimistik raqamni qoldirib, ikkinchisini rejadan olib tashlash va investorga aytmaslik",
+   "Nomuvofiqlikni aniqlab, roadmap va moliyaviy rejani bir-biriga moslab tuzatish",
+   "Farqni e’tiborsiz qoldirish, chunki bu ikki hujjat bir-biriga bog‘liq emas",
+   "Roadmapni o‘chirib, pul oqimi jadvalining o‘zini taqdim etish"
+  ],
+  "c": 1,
+  "e": "Roadmap moliyaviy reja bilan mos bo‘lishi kerak; nomuvofiqlikni topib tuzatish reja sifatining belgisidir."
+ },
+ {
+  "q": "Pessimistik stsenariy biznes-rejada nimani ko‘rsatish uchun kerak?",
+  "options": [
+   "Eng qulay sharoitda erishish mumkin bo‘lgan maksimal daromadni",
+   "Barcha raqiblar bozordan chiqib ketgandagi foyda hajmini",
+   "Og‘ir sharoitda ham kompaniya majburiyatlarini qoplay olish yoki olmasligini",
+   "Investor kutayotgan o‘rtacha daromadlilik darajasini"
+  ],
+  "c": 2,
+  "e": "Pessimistik stsenariy og‘ir sharoitda majburiyatlarni qoplash imkoniyatini va zaxira rejasi zarurligini ko‘rsatadi."
+ },
+ {
+  "q": "Investor biznes-rejada “bizda hech qanday xavf yo‘q” deb yozilganini ko‘rsa, buni qanday baholaydi?",
+  "options": [
+   "Loyihaning ishonchliligi va yuqori sifatining dalili sifatida",
+   "Tadbirkorning o‘ziga ishonchi va kuchli jamoasi belgisi sifatida",
+   "Rejaning qisqa va aniq yozilganining belgisi sifatida",
+   "Tadbirkorning xavfni ko‘ra olmasligi, ya’ni tajribasizlik belgisi sifatida"
+  ],
+  "c": 3,
+  "e": "Xavfni yashirish yoki ko‘rmaslik investor nazarida tajribasizlikni bildiradi."
+ },
+ {
+  "q": "Incoterms bo‘yicha EXW shartida sotuvchi nima uchun javob beradi?",
+  "options": [
+   "Mahsulotni xaridor manziliga yetkazib berish va importgacha bo‘lgan xarajatlar uchun",
+   "Mahsulotni o‘z omborida tayyor holatda xaridorga topshirish uchun",
+   "Mahsulotni jo‘natish portida kemaga yuklab, dengiz tashuvini to‘lash uchun",
+   "Belgilangan portgacha tashish va sug‘urta xarajatlarini ko‘tarish uchun"
+  ],
+  "c": 1,
+  "e": "EXW da sotuvchi mahsulotni o‘z omborida tayyorlab beradi, qolgan tashish, bojxona va xavf xaridorga o‘tadi."
+ },
+ {
+  "q": "Mahsulotning EXW narxi 50 dollar, ichki tashish va eksport bojxonasi 3 dollar, xalqaro tashish va sug‘urta 7 dollar. CIF narxi qancha?",
+  "options": [
+   "60 dollar",
+   "57 dollar",
+   "53 dollar",
+   "70 dollar"
+  ],
+  "c": 0,
+  "e": "FOB = 50 + 3 = 53 dollar; CIF = 53 + 7 = 60 dollar."
+ },
+ {
+  "q": "Yangi va noma’lum xaridorga kichik partiya sotilmoqda. Sotuvchi uchun eng xavfsiz to‘lov usuli qaysi?",
+  "options": [
+   "Ochiq hisob (Net-60)",
+   "Inkasso (hujjatlar evaziga)",
+   "Oldindan to‘lov (avans)",
+   "Kechiktirilgan to‘lov (Net-30)"
+  ],
+  "c": 2,
+  "e": "Oldindan to‘lov sotuvchi uchun eng xavfsiz bo‘lib, yangi va noma’lum xaridor hamda kichik partiyada qo‘llanadi."
+ },
+ {
+  "q": "Oylik doimiy xarajat 6 000 dollar, o‘rtacha chek 5 dollar, yalpi marja 60 foiz. Zararsizlik uchun oyiga nechta buyurtma kerak?",
+  "options": [
+   "1 200 ta",
+   "3 000 ta",
+   "10 000 ta",
+   "2 000 ta"
+  ],
+  "c": 3,
+  "e": "Bir buyurtma marjasi 5 × 0,6 = 3 dollar; 6 000 / 3 = 2 000 buyurtma."
+ }
+]

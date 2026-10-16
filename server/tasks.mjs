@@ -1,6 +1,7 @@
 // O'qituvchi platformaning o'zida yaratadigan topshiriqlar: tekshirish, AI mezonlari va so'rovi (prompt).
 // Qat'iy 11 bosqichli 3-semestr topshirig'idan (assignment.mjs) mustaqil: bu yerda ixtiyoriy topshiriq yaratiladi.
-import { COURSE } from "../public/data/course.js";
+import { subjectOfGroup, SUBJECTS } from "../public/data/course.js";
+import { courseOf } from "../public/data/topics.js";
 
 export const DEFAULT_CRITERIA = [
   { name: "Mazmunning to'liqligi", max: 30 },
@@ -45,8 +46,11 @@ export function normalizeTask(b, { formKeys, groups }) {
   const semester = [0, 1, 2, 3, 4, 5, 6, 7, 8].includes(Number(b.semester)) ? Number(b.semester) : 0;
   const crit = normalizeCriteria(b.criteria);
   if (crit.error) return { error: crit.error };
+  // Fan: ko'rsatilgan bo'lsa shu, aks holda birinchi guruhning fani (AI shu fan sohasi bo'yicha tekshiradi)
+  const subject = SUBJECTS.some((x) => x.key === b.subject) ? b.subject : gr.length ? subjectOfGroup(gr[0]).key : SUBJECTS[0].key;
   return {
     task: {
+      subject,
       title,
       description,
       forms,
@@ -94,6 +98,7 @@ export const reviewSchema = (criteria) => ({
 
 export function reviewPrompt({ task, text, user }) {
   const crit = task.criteria;
+  const COURSE = courseOf(task.subject);
   return `Sen "${COURSE.title}" fanidan (${COURSE.domain}) OTM o'qituvchisisan. Talabaning quyidagi topshiriq bo'yicha yuborgan ishini tekshir.
 
 TOPSHIRIQ: ${task.title}

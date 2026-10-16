@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Kredit nima?",
+  "options": [
+   "Qaytarish va to‘lovlilik shartlari asosida muayyan muddatga beriladigan pul mablag‘i",
+   "Qaytarilishi shart bo‘lmagan, davlat tomonidan beriladigan bepul yordam",
+   "Tadbirkorga ulush evaziga beriladigan, foiz to‘lanmaydigan sarmoya",
+   "Bankdagi omonat uchun hisoblanadigan yillik foiz daromadi"
+  ],
+  "c": 0,
+  "e": "Kredit — qaytarish, to‘lovlilik va odatda ta’minlanganlik shartlari bilan beriladigan pul; u “tekin pul” emas."
+ },
+ {
+  "q": "Kreditdagi imtiyozli davr nima?",
+  "options": [
+   "Foiz stavkasi nolga tenglashtiriladigan oxirgi davr, bunda asosiy qarz to‘lanmaydi",
+   "To‘lovni kechiktirganda jarima hisoblanmaydigan qo‘shimcha muddat",
+   "Asosiy qarz to‘lovi boshlanmaydigan (ba’zan faqat foiz to‘lanadigan) dastlabki davr",
+   "Bank kredit qarorini chiqarishi uchun ajratilgan ko‘rib chiqish muddati"
+  ],
+  "c": 2,
+  "e": "Imtiyozli davr biznesga daromadga chiqish uchun vaqt beradi: asosiy qarz to‘lanmaydi, ba’zan faqat foiz to‘lanadi."
+ },
+ {
+  "q": "Annuitet to‘lovning qaysi xususiyati to‘g‘ri?",
+  "options": [
+   "Asosiy qarz teng qismlarga bo‘linadi, shu sababli to‘lov dastlab katta bo‘ladi",
+   "Oylik to‘lov summasi butun muddat davomida bir xil bo‘ladi",
+   "To‘lov oxirgi oylarda eng katta, boshida eng kichik bo‘ladi",
+   "Foiz doim boshlang‘ich summadan olinadi, asosiy qarz esa oxirida to‘lanadi"
+  ],
+  "c": 1,
+  "e": "Annuitetda oylik to‘lov doimiy; dastlab ko‘p qismi foizga, keyin asosiy qarzga ketadi."
+ },
+ {
+  "q": "Tadbirkor jami foiz xarajatini kamaytirmoqchi. Qaysi javob to‘g‘ri tanlov va sababni ko‘rsatadi?",
+  "options": [
+   "Annuitet to‘lov, chunki dastlabki oylarda asosiy qarz tezroq kamayadi",
+   "Annuitet to‘lov, chunki foiz butun muddatda boshlang‘ich summadan olinadi",
+   "Differensial to‘lov, chunki oylik summa har oy bir xil bo‘lib qoladi",
+   "Differensial to‘lov, chunki asosiy qarz teng qismlarga bo‘linib, qoldiq tezroq kamayadi"
+  ],
+  "c": 3,
+  "e": "Differensialda asosiy qarz teng qismlarga bo‘linadi va qoldiq tezroq kamayadi, shuning uchun jami foiz kam bo‘ladi (15,63 va 16,37 mln so‘m misolida)."
+ },
+ {
+  "q": "Effektiv foiz stavkasi nominal stavkadan nimasi bilan farq qiladi?",
+  "options": [
+   "Birinchi yilgi foizni hisobga olib, keyingi yillarni inobatga olmaydi",
+   "Asosiy qarzdan davlat subsidiyasini ayirib tashlab hisoblanadi",
+   "Foizni yillik emas, kunlik hisoblab, garov qiymatiga bog‘laydi",
+   "Komissiya, sug‘urta va boshqa majburiy to‘lovlarni ham hisobga oladi"
+  ],
+  "c": 3,
+  "e": "Effektiv stavka nominal foizga qo‘shimcha komissiya, sug‘urta va majburiy to‘lovlarni qo‘shib, haqiqiy qarz narxini ko‘rsatadi."
+ },
+ {
+  "q": "Differensial to‘lovda 120 mln so‘m kredit 12 oyga yillik 24 foiz bilan olindi. Birinchi oy to‘lovi qancha?",
+  "options": [
+   "10,2 mln so‘m",
+   "12,4 mln so‘m",
+   "38,8 mln so‘m",
+   "12,0 mln so‘m"
+  ],
+  "c": 1,
+  "e": "Asosiy qarz 120 / 12 = 10 mln; foiz 120 × 2% = 2,4 mln; jami 12,4 mln. (10,2 — oxirgi oy to‘lovi.)"
+ },
+ {
+  "q": "Loyiha uchun 120 mln so‘m kerak: 80 mln o‘z mablag‘i va 40 mln yillik 15 foizli kredit. Loyihaning foizgacha daromadliligi 25 foiz. O‘z kapitalining daromadliligi qancha?",
+  "options": [
+   "25%",
+   "37,5%",
+   "30%",
+   "20%"
+  ],
+  "c": 2,
+  "e": "Daromad 120 × 25% = 30 mln, foiz 40 × 15% = 6 mln, sof 24 mln; 24 / 80 = 30%."
+ },
+ {
+  "q": "Moliyaviy richag qachon tadbirkorning o‘z kapitali daromadliligini oshiradi?",
+  "options": [
+   "Loyiha daromadliligi kredit foizidan yuqori bo‘lganda",
+   "Kredit foizi loyiha daromadliligidan yuqori bo‘lganda",
+   "Kredit muddati loyihaning umri bilan teng bo‘lganda",
+   "Kredit summasi o‘z mablag‘idan kam bo‘lganda"
+  ],
+  "c": 0,
+  "e": "Loyiha daromadliligi kredit foizidan yuqori bo‘lsagina tashqi mablag‘ o‘z kapital daromadliligini oshiradi."
+ },
+ {
+  "q": "Foizgacha daromadlilik 5 foizga tushsa, 15 foizli kredit bilan ishlayotgan tadbirkor uchun nima yuz beradi?",
+  "options": [
+   "Foiz to‘lovi daromaddan oshib, zarar paydo bo‘ladi va kapitalning bir qismi yo‘qoladi",
+   "Richag zararni kamaytiradi, chunki kredit tashqi mablag‘ bo‘lib, xavfni bank o‘z zimmasiga oladi",
+   "Daromadlilik o‘zgarmaydi, chunki foiz stavkasi oldindan belgilangan",
+   "Kredit avtomatik kechiriladi va foiz to‘lovlari to‘xtatiladi"
+  ],
+  "c": 0,
+  "e": "Richag ikki tomonlama: daromad foizdan past bo‘lsa, zararni kuchaytiradi."
+ },
+ {
+  "q": "Biznes yiliga 210 mln so‘m sof operatsion pul oqimi keltiradi, yillik kredit xizmati (asosiy qarz + foiz) 168 mln so‘m. DSCR qancha?",
+  "options": [
+   "0,80",
+   "0,25",
+   "1,25",
+   "1,50"
+  ],
+  "c": 2,
+  "e": "DSCR = 210 / 168 = 1,25 (0,80 — teskari nisbat)."
+ },
+ {
+  "q": "DSCR 1 dan past bo‘lsa, bu nimani anglatadi?",
+  "options": [
+   "Kredit to‘lovi pul oqimidan ancha kam bo‘lib, bank uchun juda qulay va ideal holat",
+   "Kredit foizsiz berilgan, shu sababli to‘lov hisoblanmaydi",
+   "Tadbirkorning o‘z hissasi bank talab qilgan miqdordan ancha yuqori ekani",
+   "Pul oqimi kredit to‘lovini qoplashga yetmaydi, qaytarish manbayi yetishmaydi"
+  ],
+  "c": 3,
+  "e": "DSCR 1 dan past bo‘lsa, yillik pul oqimi kredit xizmatidan kam — xavfli kredit belgisi."
+ },
+ {
+  "q": "Nima uchun biznes ehtiyoji uchun olingan iste’mol krediti xatarli?",
+  "options": [
+   "Iste’mol kreditida imtiyozli davr 6 oydan 2 yilgacha bo‘lgani uchun qarz oshib ketadi",
+   "To‘lov birinchi oydan boshlanadi, biznes esa hali daromad keltirmagan bo‘lishi mumkin",
+   "Iste’mol kreditida davlat dasturi imtiyozlari bor, shu sababli bank qo‘shimcha ta’minot so‘raydi",
+   "Iste’mol krediti bankka qaytarilmaydi, chunki u shaxsiy qarz hisoblanmaydi"
+  ],
+  "c": 1,
+  "e": "Iste’mol kreditida imtiyozli davr yo‘q, to‘lov darhol boshlanadi, stavka yuqori va imtiyozlar berilmaydi."
+ },
+ {
+  "q": "Biznes kreditining asosiy qaytarish manbayi nima?",
+  "options": [
+   "Tadbirkorning shaxsiy ish haqi va boshqa qat’iy daromadlari",
+   "Bank tomonidan keyinchalik ajratiladigan yangi kredit",
+   "Biznesdan olinadigan pul oqimi (cash flow)",
+   "Garov sifatida topshirilgan mol-mulkni sotishdan tushgan pul"
+  ],
+  "c": 2,
+  "e": "Biznes krediti biznes pul oqimidan qaytariladi, iste’mol krediti esa shaxsiy ish haqidan."
+ },
+ {
+  "q": "“5 C” modelidagi Capital (kapital) mezoni nimani baholaydi?",
+  "options": [
+   "Tadbirkor loyihaga qancha o‘z mablag‘ini kiritganini",
+   "Kredit qaytmasa, bank sotib pulga aylantirishi mumkin bo‘lgan mulkni",
+   "Tadbirkorning kredit tarixi, obro‘si va tajribasini",
+   "Kredit maqsadi, bozor va soha holatini"
+  ],
+  "c": 0,
+  "e": "Capital — tadbirkorning loyihaga kiritgan o‘z hissasi."
+ },
+ {
+  "q": "Tadbirkorning pul oqimi kuchli, ammo kredit tarixida uzoq muddatli kechikishlar bor. 5C modelida qaysi mezon zaif hisoblanadi?",
+  "options": [
+   "Capacity (qaytarish qobiliyati, pul oqimi)",
+   "Character (kredit tarixi)",
+   "Collateral (garov va uning likvidligi)",
+   "Conditions (kredit maqsadi, sharoit)"
+  ],
+  "c": 1,
+  "e": "Kechikishlar kredit tarixiga, ya’ni Character mezoniga tegishli; kuchli pul oqimi Capacity ni mustahkamlaydi."
+ },
+ {
+  "q": "Bank uchun qaysi garov yuqori likvidli hisoblanadi?",
+  "options": [
+   "Maxsus mo‘ljallangan uskuna, chunki uni istalgan xaridor darhol sotib oladi",
+   "Hali sotib olinmagan, rejadagi daromad, chunki u biznes-rejada hisoblangan",
+   "Uchinchi shaxsning og‘zaki va’dasi, chunki u hujjat talab qilmaydi",
+   "Ko‘chmas mulk, chunki uni tez va yo‘qotishsiz sotish mumkin"
+  ],
+  "c": 3,
+  "e": "Ko‘chmas mulk yuqori likvidli; maxsus uskunani esa faqat shu sohadagi korxona sotib olishi mumkin."
+ },
+ {
+  "q": "“Kelajakka qadam” dasturi qaysi toifadagi talabalarga g‘oyani tayyor loyihagacha olib borishda hamrohlik qiladi?",
+  "options": [
+   "Tadbirkorlik faoliyatini allaqachon yuritayotgan YaTT egalari va korxonalarga",
+   "Maktab o‘quvchilari va kollej o‘qituvchilari, ularning ota-onalariga",
+   "O‘z biznes g‘oyasini amalga oshirmoqchi bo‘lgan bitiruvchi talabalarga",
+   "Chet ellik investorlar va xalqaro tashkilotlar xodimlariga"
+  ],
+  "c": 2,
+  "e": "Dasturning birinchi yo‘nalishi o‘z g‘oyasini amalga oshirmoqchi bo‘lgan bitiruvchi bosqich talabalariga hamrohlik qilishdir."
+ },
+ {
+  "q": "Universitetdagi “Kelajakka qadam” markazi tayyor loyihalar bilan nima qiladi?",
+  "options": [
+   "Talabaga kreditni o‘z hisobidan to‘g‘ridan-to‘g‘ri ajratib beradi",
+   "Loyihani tekshirmasdan, uni soliq organida ro‘yxatdan o‘tkazadi",
+   "G‘oyani sotib olib, mualliflik huquqini o‘ziga oladi",
+   "Treninglar o‘tkazadi, g‘oyani qo‘llab-quvvatlaydi va tayyor loyihani bank filialiga yo‘naltiradi"
+  ],
+  "c": 3,
+  "e": "Markaz trening va mentor yordamini beradi, tayyor loyihani esa moliyalashtirish uchun bank filialiga yo‘naltiradi."
+ },
+ {
+  "q": "Sut qayta ishlash sexi yangi uskuna sotib olmoqchi. Lizingning kreditga nisbatan afzalligi qaysi?",
+  "options": [
+   "Umumiy xarajat odatda oddiy kreditdan ancha past bo‘ladi va tezroq qaytadi",
+   "Uskuna o‘zi ta’minot bo‘lgani uchun qo‘shimcha garov talab qilinmaydi",
+   "Uskuna egasi shartnoma tuzilishi bilanoq tadbirkorga o‘tadi va u uni sotishi mumkin",
+   "Uskunaning ishlashini kutmasdan, to‘lov birinchi kundan to‘liq summada boshlanadi"
+  ],
+  "c": 1,
+  "e": "Lizingda uskuna ta’minot vazifasini bajaradi va egalik to‘lov tugaguncha lizing kompaniyasida qoladi."
+ },
+ {
+  "q": "Mikromoliya tashkilotlari bank kreditiga nisbatan qanday xususiyatga ega?",
+  "options": [
+   "Kichik summani yengil hujjatlar bilan beradi, ammo stavkasi odatda yuqoriroq",
+   "Yirik summalarni beradi, stavkasi odatda bankdagidan ancha past bo‘ladi",
+   "Garov talabi bankdagidan qattiqroq, hujjatlar soni ko‘proq",
+   "Mablag‘ni davlat grantlari hisobidan beradi va foiz olmaydi"
+  ],
+  "c": 0,
+  "e": "Mikromoliya — tezroq, ammo qimmatroq yo‘l: kichik summa, yengil hujjatlar, yuqoriroq stavka."
+ }
+]

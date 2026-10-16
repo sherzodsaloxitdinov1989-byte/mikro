@@ -1,6 +1,6 @@
 // "AI Ustoz": o'quv qo'llanma mavzusi matniga tayangan savol-javob yordamchisi.
 // AI kaliti bo'lmasa, savolga eng mos qo'llanma parchalari topilib ko'rsatiladi (qidiruv rejimi).
-import { TOPICS, COURSE } from "../public/data/topics.js";
+import { findTopic as findAnyTopic, courseOf } from "../public/data/topics.js";
 
 const strip = (html) =>
   String(html || "")
@@ -16,10 +16,11 @@ const strip = (html) =>
     .trim();
 
 export function findTopic(id) {
-  return TOPICS.find((t) => t.id === id);
+  return findAnyTopic(id) || undefined;
 }
 
 export function tutorSystem(topic) {
+  const COURSE = courseOf(topic.subject);
   let text = "";
   for (const s of topic.sections) {
     const chunk = `\n## ${s.title || "Kirish"}\n${strip(s.html)}`;

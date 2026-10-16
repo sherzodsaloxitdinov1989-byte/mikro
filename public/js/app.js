@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session } from "./api.js";
-import { userHasContent, subjectOfGroup } from "../data/course.js";
+import { userHasContent, subjectOfGroup, SUBJECTS } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initCelebrations } from "./celebrate.js";
 import { initTools } from "./search.js";
@@ -25,9 +25,8 @@ import * as practice from "./pages/practice.js";
 import * as lab from "./pages/lab.js";
 import * as updates from "./pages/updates.js";
 import * as qr from "./pages/qr.js";
-import { COURSE } from "../data/course.js";
 import { UPDATES } from "../data/updates.js";
-import { TOPICS } from "../data/topics.js";
+import { TOPICS, COURSE, SUBJECT_KEY } from "../data/topics.js";
 import { initContentGuard } from "./guard.js";
 import { initSecureMode, setRouteSecure } from "./secure.js";
 
@@ -90,25 +89,37 @@ function renderNav() {
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
   const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/self-study", "#/rating"];
   let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
-  // Darsligi yuklanmagan fan talabasiga faqat o'z fani, vazifalar ko'rinadi (asosiy fan bo'limlari yopiq)
-  const ownSubject = user && !isTeacher && !userHasContent(user) ? subjectOfGroup(user.group) : null;
-  if (ownSubject) items = [["#/fan", ownSubject.title, ownSubject.icon], ["#/tasks", "Vazifalar", "🗂️"]];
-  else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
+  const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
+  const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi
+  if (ownSubject) {
+    // Asosiy fanning 3-semestr topshirig'i, reytingi va dolzarb ma'lumotlari unga ko'rinmaydi; fan sahifasi (semestr, guruh reytingi) qo'shiladi
+    items = items.filter(([href]) => !["#/assignment", "#/rating", "#/updates"].includes(href));
+    items.unshift(["#/fan", ownSubject.title, ownSubject.icon]);
+    if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"]];
+  } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
   // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
   const foot = document.querySelector(".footer-inner");
   if (foot) {
     foot.dataset.orig ||= foot.innerHTML;
     foot.innerHTML = foot.dataset.orig;
     if (ownSubject) {
-      foot.replaceChildren(h("span", {}, `© 2026 MikroAkademiya — ${ownSubject.title}`), h("span", { class: "muted" }, `${ownSubject.direction} yo'nalishi · ${ownSubject.groups.join(", ")} guruhlari`));
+      foot.replaceChildren(h("span", {}, `© 2026 MikroAkademiya — ${ownSubject.title}`), h("span", { class: "muted" }, ownSubject.hasContent && COURSE.source ? `${ownSubject.direction} yo'nalishi · Manba: ${COURSE.source}` : `${ownSubject.direction} yo'nalishi · ${ownSubject.groups.join(", ")} guruhlari`));
     }
   }
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
   else if (user && !ownSubject) items.push(["#/passport", "Talaba pasporti", "🛂"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
+  // O'qituvchi uchun fan almashtirgich: tanlangan fan mavzulari, testlari va materiallari bilan ishlaydi (sahifa qayta yuklanadi)
+  const switcher = isTeacher && SUBJECTS.filter((s) => s.hasContent).length > 1
+    ? h("select", { class: "subject-switch", title: "Fan", "aria-label": "Fan", onchange: (e) => {
+        try { localStorage.setItem("tt.subject", e.target.value); } catch {}
+        location.reload();
+      } }, SUBJECTS.filter((s) => s.hasContent).map((s) => h("option", { value: s.key, selected: s.key === SUBJECT_KEY }, `${s.icon} ${s.title}`)))
+    : null;
   mount(
     nav,
     items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label)),
+    switcher,
     user
       ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]), h("span", { class: `role-chip ${isTeacher ? "teacher" : "student"}` }, isTeacher ? "O'qituvchi" : "Talaba"))
       : h("a", { href: "#/login", class: "btn small" }, "Kirish")
@@ -140,9 +151,14 @@ async function route() {
     return;
   }
   // Boshqa fan talabasi asosiy fan bo'limlariga kirmaydi: o'z fani sahifasiga yo'naltiriladi
-  if (session.user && session.user.role === "student" && !userHasContent(session.user) && (path === "/" || path === "" || /^\/(topics|practice|lab|media|assignment|rating|self-study|updates|passport)(\/|$)/.test(path))) {
-    location.hash = "#/fan";
-    return;
+  if (session.user && session.user.role === "student") {
+    const su = subjectOfGroup(session.user.group);
+    const other = su.key !== SUBJECTS[0].key;
+    const closed = !su.hasContent && (path === "/" || path === "" || /^\/(topics|practice|lab|media|self-study|updates)(\/|$)/.test(path));
+    if (closed || (other && /^\/(assignment|rating|lab|updates|passport)(\/|$)/.test(path))) {
+      location.hash = "#/fan";
+      return;
+    }
   }
   for (const [pattern, fn, opts = {}] of routes) {
     const m = path.match(pattern);

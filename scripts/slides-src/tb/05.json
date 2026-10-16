@@ -1,0 +1,576 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Soliq tushunchasi va iqtisodiy mohiyati",
+   "bullets": [
+    "Soliq — byudjet uchun majburiy, qaytarilmaydigan, bepul to‘lov",
+    "Hisobiga ta’lim, sog‘liqni saqlash, yo‘l, xavfsizlik moliyalashtiriladi",
+    "Tadbirkor uchun: xarajat, qonuniy majburiyat, davlat bilan raqamli munosabat",
+    "Soliqlar: umumdavlat (foyda, QQS, JShDS…) va mahalliy (yer, mol-mulk)"
+   ],
+   "sub": "5.1. Soliq mohiyati"
+  },
+  {
+   "type": "bullets",
+   "title": "Soliq funksiyalari va elementlari",
+   "bullets": [
+    "Fiskal funksiya — byudjet daromadlarini shakllantirish",
+    "Tartibga soluvchi — imtiyoz va stavkalar orqali rag‘batlantirish yoki cheklash",
+    "Ijtimoiy — daromadlarni qayta taqsimlash",
+    "Elementlar: soliq to‘lovchi, obyekt va baza, stavka"
+   ],
+   "sub": "5.1. Soliq mohiyati"
+  },
+  {
+   "type": "bullets",
+   "title": "Huquqiy asos va ehtiyotkorlik",
+   "bullets": [
+    "Soliq kodeksi: O‘RQ-599 (2019-yil 30-dekabr), 2020-yil 1-yanvardan amalda",
+    "2026-yil uchun: O‘RQ-1108-son Qonun (2025-yil 25-dekabr)",
+    "Kichik biznes soddalashtirishlari: PF-100-son Farmon (2026-yil 26-may)",
+    "Stavkalar 2026-yil sentabr holatiga keltirilgan"
+   ],
+   "sub": "5.1. Soliq mohiyati",
+   "note": "Hisob-kitobdan oldin lex.uz va my.soliq.uz da amaldagi tahrirni tekshiring"
+  },
+  {
+   "type": "figure",
+   "title": "Kichik MChJ soliq to‘lovlari tarkibi",
+   "img": "image13.png",
+   "caption": "5.1-rasm. Kichik MChJ uchun soliq to‘lovlari tarkibi (namuna)",
+   "sub": "5.2. Asosiy soliqlar"
+  },
+  {
+   "type": "table",
+   "title": "Kichik biznes uchun asosiy soliqlar (2026)",
+   "sub": "5.2. Asosiy soliqlar",
+   "head": [
+    "Soliq",
+    "Stavka",
+    "Kim va qanday to‘laydi"
+   ],
+   "rows": [
+    [
+     "Aylanmadan olinadigan soliq",
+     "4%; YaTT va o‘zini band qilgan — 1% (≤1 mlrd)",
+     "Kichik biznes; baza — tushum"
+    ],
+    [
+     "Foyda solig‘i",
+     "15% (bazaviy)",
+     "Umumbelgilangan tartib; baza — foyda"
+    ],
+    [
+     "QQS",
+     "12%; soddalashtirilgan 6%",
+     "QQS to‘lovchilar; baza — qo‘shilgan qiymat"
+    ],
+    [
+     "JShDS",
+     "12%",
+     "Xodim maoshidan ish beruvchi ushlaydi"
+    ],
+    [
+     "Ijtimoiy soliq",
+     "12% (byudjet tashkilotlari 25%)",
+     "Ish beruvchi; baza — ish haqi"
+    ],
+    [
+     "Mol-mulk solig‘i (yuridik shaxs)",
+     "1,5%",
+     "Mol-mulkning soliqqa tortiladigan qiymati"
+    ],
+    [
+     "Yer solig‘i",
+     "Yer turi va hududga qarab",
+     "Yer uchastkasidan foydalanuvchilar"
+    ]
+   ],
+   "note": "5.1-jadval. Birinchi soliq qarori — to‘g‘ri rejimni tanlash"
+  },
+  {
+   "type": "figure",
+   "title": "Soliq hisobot va to‘lov kalendari",
+   "img": "image14.png",
+   "caption": "5.2-rasm. Soliq hisobot va to‘lov kalendari (shartli)",
+   "sub": "5.3. Soliq rejimlari"
+  },
+  {
+   "type": "compare",
+   "title": "YaTT / o‘zini band qilgan va kichik biznes",
+   "sub": "5.3. Soliq rejimlari",
+   "left": {
+    "head": "YaTT va o‘zini o‘zi band qilgan",
+    "items": [
+     "2026-yil 1-yanvardan 1% (yillik aylanma ≤1 mlrd)",
+     "YaTT uchun qat’iy JShDS bekor qilingan",
+     "Band qilganlarning 100 mln so‘mgacha imtiyozi bekor",
+     "Ixtiyoriy ravishda QQS va foyda solig‘iga o‘tish mumkin",
+     "Yengil, lekin 1 mlrd dan oshsa — umumiy qoidalar"
+    ]
+   },
+   "right": {
+    "head": "Kichik biznes (asosan MChJ)",
+    "items": [
+     "Aylanmadan olinadigan soliq — 4%",
+     "Tushumdan hisoblanadi, xarajatga bog‘liq emas",
+     "Foyda solig‘i va QQS to‘lanmaydi",
+     "Hisobot soddalashadi",
+     "Chegaradan oshsa — umumbelgilangan tartib"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Umumbelgilangan tartibga o‘tish chegarasi",
+   "bullets": [
+    "2026-yil 1-iyundan chegara 1 mlrd so‘mdan 12 000 BHM ga oshirildi",
+    "BHM 2026-yil 1-sentyabrdan 440 000 so‘m",
+    "Chegara hozir ≈ 5,28 mlrd so‘m (12 000 × 440 000)",
+    "BHM oshsa, chegara ham oshadi"
+   ],
+   "sub": "5.3. Soliq rejimlari"
+  },
+  {
+   "type": "compare",
+   "title": "Umumbelgilangan tartib va 6% QQS",
+   "sub": "5.3. Soliq rejimlari",
+   "left": {
+    "head": "Umumbelgilangan (foyda + QQS)",
+    "items": [
+     "Foyda solig‘i 15% — daromad minus xarajat",
+     "QQS 12% — sotuvdagi QQS minus xaridda to‘langan",
+     "Ko‘p hujjat va aniq hisob talab qilinadi",
+     "QQS to‘lovchi hamkorlar bilan ishlash oson",
+     "Birinchi o‘tganlarga 1 yil foyda solig‘idan ozod (2026)"
+    ]
+   },
+   "right": {
+    "head": "Soddalashtirilgan QQS 6%",
+    "items": [
+     "2026-yil 1-iyundan: ovqatlanish, savdo, xizmat",
+     "Stavka — sotuv aylanmasining 6%",
+     "Hisobot oyiga bir marta",
+     "Soliq organiga ariza bilan; keyingi oyning 1-kunidan",
+     "Vositachilar 12% da qoladi"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Soliqlarni hisoblash formulalari",
+   "sub": "5.4. Rejim tanlash",
+   "items": [
+    {
+     "name": "Aylanma solig‘i",
+     "formula": "Soliq = Tushum × 4%",
+     "note": "YaTT va o‘zini band qilganlar uchun stavka 1%"
+    },
+    {
+     "name": "QQS (umumbelgilangan)",
+     "formula": "QQS = 12% × (Sotuv − Xarid)",
+     "note": "Hisobga olinadigan QQS ayriladi"
+    },
+    {
+     "name": "Foyda solig‘i",
+     "formula": "Soliq = (Daromad − Xarajat) × 15%",
+     "note": "Xarajatlar hujjat bilan tasdiqlanishi shart"
+    },
+    {
+     "name": "Soddalashtirilgan QQS",
+     "formula": "QQS = Sotuv aylanmasi × 6%",
+     "note": "Savdo, ovqatlanish, xizmat sohalarida"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Uch rejimda soliq yuki",
+   "img": "image15.png",
+   "caption": "5.3-rasm. Bir xil biznes uchun uch xil soliq rejimida hisoblangan yuk (5.2-jadval asosida)",
+   "sub": "5.4. Rejim tanlash"
+  },
+  {
+   "type": "bullets",
+   "title": "Hisob-kitob misoli: vaziyat (shartli)",
+   "bullets": [
+    "Yillik tushum — 800 mln so‘m (QQSsiz)",
+    "Xomashyo va tovar xaridi — 450 mln (ta’minotchilar QQS to‘lovchi)",
+    "Ish haqi 96 mln; ijtimoiy soliq (12%) 11,52 mln",
+    "Boshqa xarajatlar (ijara, reklama, transport) — 100 mln"
+   ],
+   "sub": "5.4. Rejim tanlash",
+   "note": "O‘quv maqsadidagi shartli misol; summalar million so‘mda"
+  },
+  {
+   "type": "table",
+   "title": "Bir xil biznes, uch rejim (mln so‘m, shartli)",
+   "sub": "5.4. Rejim tanlash",
+   "head": [
+    "Ko‘rsatkich",
+    "YaTT (1%)",
+    "MChJ, 4%",
+    "MChJ, umumbelgilangan"
+   ],
+   "rows": [
+    [
+     "Soliq bazasi",
+     "Tushum 800",
+     "Tushum 800",
+     "Foyda va qo‘shilgan qiymat"
+    ],
+    [
+     "Hisoblangan soliq",
+     "800 × 1% = 8,0",
+     "800 × 4% = 32,0",
+     "QQS 42,0; foyda solig‘i 21,4"
+    ],
+    [
+     "Jami soliq",
+     "8,0",
+     "32,0",
+     "63,4"
+    ],
+    [
+     "Tushumga nisbatan",
+     "1,0%",
+     "4,0%",
+     "7,9%"
+    ],
+    [
+     "Huquqiy javobgarlik",
+     "Cheklanmagan",
+     "Cheklangan",
+     "Cheklangan"
+    ],
+    [
+     "Hisobot yuki",
+     "Eng yengil",
+     "Yengil",
+     "Eng og‘ir"
+    ]
+   ],
+   "note": "5.2-jadval. QQS = 12% × (800 − 450); foyda = (800−450−96−11,52−100) × 15%"
+  },
+  {
+   "type": "bullets",
+   "title": "Jadvaldan xulosalar",
+   "bullets": [
+    "Aylanma soliqli rejimlar oddiy va ko‘pincha arzon",
+    "Foyda marjasi past bo‘lsa, tushumdan 4% og‘irlik qilishi mumkin",
+    "Umumbelgilangan rejim qimmat ko‘rinsa ham, katta xarajat va QQS to‘lovchi hamkorda qulay",
+    "Ish haqi solig‘i barcha rejimda bir xil — jadvalga kiritilmagan"
+   ],
+   "sub": "5.4. Rejim tanlash"
+  },
+  {
+   "type": "bullets",
+   "title": "Rejim tanlash qoidalari",
+   "bullets": [
+    "Yakka, tushumi ≤1 mlrd yangi boshlovchi — YaTT yoki o‘zini band qilish (1%)",
+    "Xodim va hamkor bor, javobgarlikni cheklash kerak — MChJ va aylanma solig‘i",
+    "Mijozlar QQS to‘lovchi va hisob-faktura talab qilsa — umumbelgilangan yoki 6% QQS",
+    "Foyda marjasi 4–5% dan kam, xarajat katta — hisob-kitobni solishtiring",
+    "Tanlovni chegaraga yaqinlashganda va biznes o‘zgarganda qayta baholang"
+   ],
+   "sub": "5.4. Rejim tanlash"
+  },
+  {
+   "type": "formula",
+   "title": "Xodim maoshidan soliqlar",
+   "sub": "5.4. Rejim tanlash",
+   "items": [
+    {
+     "name": "JShDS",
+     "formula": "JShDS = Oylik × 12%",
+     "note": "Xodim daromadidan ushlanadi: 5 000 000 → 600 000"
+    },
+    {
+     "name": "Qo‘lga beriladigan",
+     "formula": "Qo‘lga = Oylik − JShDS",
+     "note": "5 000 000 − 600 000 = 4 400 000 so‘m"
+    },
+    {
+     "name": "Ijtimoiy soliq",
+     "formula": "IS = Oylik × 12%",
+     "note": "Ish beruvchi hisobidan: 600 000 so‘m"
+    },
+    {
+     "name": "Ish beruvchi uchun narx",
+     "formula": "Narx = Oylik + IS",
+     "note": "5 600 000 so‘m; eng kam ish haqi 1 360 000 (2026-yil 1-sentyabrdan)"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Raqamli vositalar: my.soliq.uz",
+   "bullets": [
+    "Hisobotlarni elektron topshirish",
+    "Soliq majburiyatlari, to‘lov, qarzdorlik yoki ortiqcha to‘lovni ko‘rish",
+    "Soliq rejimini tanlash va o‘zgartirish uchun ariza",
+    "Elektron hisob-faktura va NKM ma’lumotlari; har amal ERI bilan tasdiqlanadi",
+    "Telefon kalendariga eslatma; ERI muddatini kuzating; oxirgi kunga qoldirmang"
+   ],
+   "sub": "5.5. Raqamli vositalar"
+  },
+  {
+   "type": "table",
+   "title": "Asosiy birlamchi hujjatlar",
+   "sub": "5.6. Hujjat yuritish",
+   "head": [
+    "Hujjat",
+    "Nima uchun kerak",
+    "Kim tuzadi"
+   ],
+   "rows": [
+    [
+     "Shartnoma",
+     "Tomonlar munosabati va shartlarini belgilaydi",
+     "Ikki tomon"
+    ],
+    [
+     "Hisob-faktura (elektron)",
+     "Sotilgan tovar/xizmat va QQS",
+     "Sotuvchi"
+    ],
+    [
+     "Tovar-transport yuk xati",
+     "Tovar yuborilgan va qabul qilinganini tasdiqlaydi",
+     "Sotuvchi, tashuvchi"
+    ],
+    [
+     "Akt (bajarilgan ishlar)",
+     "Xizmat bajarilganini tasdiqlaydi",
+     "Bajaruvchi, buyurtmachi"
+    ],
+    [
+     "Fiskal chek, kassa hujjatlari",
+     "Chakana to‘lov, naqd kirim va chiqim",
+     "Sotuvchi, kassir"
+    ],
+    [
+     "To‘lov topshiriqnomasi, ko‘chirma",
+     "Naqdsiz to‘lovlarni tasdiqlaydi",
+     "Bank"
+    ],
+    [
+     "Avans hisoboti",
+     "Xodimning o‘z hisobidan xarajati",
+     "Xodim"
+    ],
+    [
+     "Mehnat shartnomasi, qaydnoma",
+     "Xodim bilan munosabat va maosh hisobi",
+     "Ish beruvchi"
+    ]
+   ],
+   "note": "5.3-jadval. Hujjatsiz operatsiya tekshiruvda tan olinmaydi"
+  },
+  {
+   "type": "table",
+   "title": "Daromad-xarajat daftari: «Nazokat» (sentyabr)",
+   "sub": "5.6. Hujjat yuritish",
+   "head": [
+    "Operatsiya",
+    "Kirim (so‘m)",
+    "Chiqim (so‘m)"
+   ],
+   "rows": [
+    [
+     "Tort va pishiriq sotuvi (fiskal cheklar)",
+     "4 100 000",
+     ""
+    ],
+    [
+     "Korporativ buyurtma (shartnoma/akt)",
+     "6 500 000",
+     ""
+    ],
+    [
+     "Kafedan avans va qolgan to‘lov",
+     "6 000 000",
+     ""
+    ],
+    [
+     "Xomashyo (hisob-faktura)",
+     "",
+     "2 100 000"
+    ],
+    [
+     "Ijara (to‘lov topshiriqnomasi)",
+     "",
+     "1 800 000"
+    ],
+    [
+     "Instagram reklama",
+     "",
+     "500 000"
+    ],
+    [
+     "Jami",
+     "16 600 000",
+     "4 400 000"
+    ]
+   ],
+   "note": "5.4-jadval (jamlangan). Sof daromad 12,2 mln; 1% — 166 000, 4% — 664 000 so‘m"
+  },
+  {
+   "type": "formula",
+   "title": "Mashq: «TezTarjima» xizmati",
+   "sub": "5.9. Hisob-kitob mashqi",
+   "items": [
+    {
+     "name": "(a) Oylik soliq (YaTT, 1%)",
+     "formula": "25 000 000 × 1% = 250 000",
+     "note": "Oylik tushum 25 mln, xarajat 5 mln, xodim yo‘q"
+    },
+    {
+     "name": "Yillik tushum va soliq",
+     "formula": "25 mln × 12 = 300 mln; soliq 3 mln",
+     "note": "Yillik soliq 3 000 000 so‘m"
+    },
+    {
+     "name": "(b) Chegara",
+     "formula": "1 mlrd / 12 ≈ 83,3 mln oyiga",
+     "note": "Shundan oshsa 1% stavka qo‘llanmaydi"
+    },
+    {
+     "name": "(c) Xulosa",
+     "formula": "MChJ ni ko‘rib chiqish",
+     "note": "QQS to‘lovchi mijoz yoki xodim va hamkor ko‘paysa"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Buxgalteriya hisobi va soliq javobgarligi",
+   "bullets": [
+    "Buxgalteriya hisobi to‘g‘risidagi Qonun (2016-yil 13-aprel, O‘RQ-404); kichik biznesga soddalashtirilgan tartib",
+    "YaTT va band qilganlar odatda oddiy daromad-xarajat hisobini yuritadi",
+    "Yuridik shaxs — buxgalter yoki autsorsing; birinchi yarim yilda autsorsing arzonroq",
+    "Xatolar oqibati: penya, jarima, hisob cheklovi, ma’muriy va jinoiy javobgarlik",
+    "NKM, hisob-faktura va bank ma’lumotlari avtomatik solishtiriladi"
+   ],
+   "sub": "5.7–5.8. Hisob va javobgarlik"
+  },
+  {
+   "type": "table",
+   "title": "Tipik soliq xatolari va ularni oldini olish",
+   "sub": "5.7–5.8. Hisob va javobgarlik",
+   "head": [
+    "Xato",
+    "Oqibat",
+    "Oldini olish"
+   ],
+   "rows": [
+    [
+     "Muddati o‘tgan hisobot",
+     "Jarima, penya, hisob cheklovi",
+     "Kalendar eslatmalari"
+    ],
+    [
+     "Noto‘g‘ri rejim tanlash",
+     "Ortiqcha yuk yoki majburiy o‘zgarish",
+     "Rejimlarni hisob bilan solishtirish"
+    ],
+    [
+     "Tushum bank orqali o‘tmaydi",
+     "Baza bo‘yicha nizo, shubha",
+     "Alohida hisob, onlayn kassa"
+    ],
+    [
+     "Xarajat hujjatsiz",
+     "Soliq hisobiga qabul qilinmaydi",
+     "Har to‘lov uchun hujjat"
+    ],
+    [
+     "Chegaradan oshganini payqamaslik",
+     "Majburiy o‘tish, jarima",
+     "Oylik tushumni chegara bilan solishtirish"
+    ],
+    [
+     "ERI kalitini boshqaga berish",
+     "Firibgarlik xavfi",
+     "Kalitni o‘zi saqlash"
+    ]
+   ],
+   "note": "5.5-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Soliq tekshiruvlari va xavf belgilari",
+   "bullets": [
+    "Kameral tahlil: hisobotlar o‘xshash bizneslar bilan masofadan solishtiriladi",
+    "Tashrif orqali tekshiruv: jiddiy shubha yoki tasodifiy tanlov",
+    "Xavf belgilari: yillar davomida zarar, naqd aylanma hisobotga mos emas, soha o‘rtachasidan keskin farq",
+    "Himoya: har operatsiya hujjat bilan, kassa va bank mos kelishi",
+    "Xarajatni asossiz oshirib ko‘rsatmang, to‘lovni kechiktirmang"
+   ],
+   "sub": "5.10. Chuqurlashtirilgan tahlil"
+  },
+  {
+   "type": "table",
+   "title": "Rasmiy va norasmiy ishlash oqibatlari",
+   "sub": "5.10. Chuqurlashtirilgan tahlil",
+   "head": [
+    "Jihat",
+    "Rasmiy",
+    "Norasmiy («soyada»)"
+   ],
+   "rows": [
+    [
+     "Bank krediti",
+     "Imkoniyat bor, daromad tasdiqlangan",
+     "Deyarli imkonsiz"
+    ],
+    [
+     "Yirik mijozlar (B2B, davlat)",
+     "Xizmat ko‘rsatish mumkin",
+     "Ko‘pincha mumkin emas"
+    ],
+    [
+     "Xodimlar",
+     "To‘liq huquqiy himoya bilan",
+     "Xavfli, ishonchsiz"
+    ],
+    [
+     "Aniqlanish xavfi",
+     "Yo‘q",
+     "Jarima, qaytarib undirish, obro‘ zarari"
+    ],
+    [
+     "Uzoq muddatli o‘sish",
+     "Investitsiya va kengayish imkoni",
+     "Cheklangan"
+    ]
+   ],
+   "note": "5.6-jadval. Rasmiy daromad tarixi — kredit, grant va yirik shartnoma uchun eshik"
+  },
+  {
+   "type": "bullets",
+   "title": "Elektron tijorat va xorijiy platformalarda soliq",
+   "bullets": [
+    "2026-yil 1-yanvardan elektron tijorat uchun pasaytirilgan stavkalar bekor: umumiy stavkalar",
+    "Soliq komissiyagacha bo‘lgan to‘liq savdo summasidan hisoblanadi",
+    "Komissiya umumbelgilangan rejimda xarajat; aylanma rejimida baza tushumning o‘zi",
+    "Komissiya va soliq birgalikda narxning 15–25% gacha yeyishi mumkin",
+    "Xorijiy platformadan tushum ham O‘zbekistonda soliqqa tortiladi; buxgalter bilan maslahatlashing"
+   ],
+   "sub": "5.10. Chuqurlashtirilgan tahlil"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa: soliq va hujjatlar",
+   "bullets": [
+    "2026: foyda solig‘i 15%, QQS 12%, JShDS 12%, ijtimoiy soliq 12%, aylanma solig‘i 4%",
+    "YaTT va band qilganlar: aylanma ≤1 mlrd bo‘lsa 1%",
+    "Majburiy o‘tish chegarasi — 12 000 BHM; ixtiyoriy 6% QQS joriy etildi",
+    "Rejim javobgarlik, hamkor va xarajat tuzilmasi bilan hisob-kitob asosida tanlanadi",
+    "Birlamchi hujjatlar, daromad-xarajat daftari, my.soliq.uz kalendari — himoya"
+   ],
+   "sub": "Xulosa"
+  }
+ ]
+}

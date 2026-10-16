@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Doimiy xarajat (FC) qaysi xususiyati bilan ajralib turadi?",
+  "options": [
+   "Sotilgan mahsulot soniga to‘g‘ridan-to‘g‘ri mutanosib ravishda o‘sib boradi",
+   "Faqat mahsulot sotilgandan keyingina hisobga olinadi va to‘lanadi",
+   "Sotuv hajmiga bog‘liq bo‘lmay, har oy taxminan bir xil miqdorda to‘lanadi",
+   "Bir martalik yirik sarf bo‘lib, keyingi oylarda umuman takrorlanmaydi"
+  ],
+  "c": 2,
+  "e": "Doimiy xarajat (ijara, o‘zgarmas ish haqi) sotuv bo‘lmasa ham taxminan bir xil to‘lanadi."
+ },
+ {
+  "q": "Bir birlik mahsulotning qoplash marjasi qanday topiladi?",
+  "options": [
+   "Narxdan birlikka to‘g‘ri keladigan o‘zgaruvchan xarajatni ayirib",
+   "Narxdan to‘liq tannarxni ayirib, natijani narxga bo‘lib, foizda ifodalab",
+   "Doimiy xarajatni sotuv hajmiga bo‘lib, tannarxga qo‘shib",
+   "Tannarxga ustamani qo‘shib, natijani yuzga ko‘paytirib"
+  ],
+  "c": 0,
+  "e": "Qoplash marjasi = narx − o‘zgaruvchan xarajat; u doimiy xarajatni qoplashga va foydaga hissa qo‘shadi."
+ },
+ {
+  "q": "Zararsizlik nuqtasi (BEP) qaysi holatni bildiradi?",
+  "options": [
+   "Sotuv hajmi ishlab chiqarish quvvatining yarmiga yetgan holat",
+   "Faqat o‘zgaruvchan xarajatlar qoplanib, doimiy xarajat qoplanmay qolgan holat",
+   "Mahsulot narxi raqiblar narxiga to‘liq tenglashgan holat",
+   "Daromad barcha xarajatlarga teng bo‘lib, foyda ham, zarar ham bo‘lmaydi"
+  ],
+  "c": 3,
+  "e": "BEP — daromad doimiy va o‘zgaruvchan xarajatlar yig‘indisiga teng bo‘lgan sotuv hajmi."
+ },
+ {
+  "q": "Ustama (markup) foydaning nimaga nisbati sifatida hisoblanadi?",
+  "options": [
+   "Mahsulotning sotuv narxi (tushum)ga nisbati sifatida",
+   "Mahsulot birligi tannarxiga nisbati sifatida",
+   "Oylik doimiy xarajatlar yig‘indisiga nisbati sifatida",
+   "Birlikning qoplash marjasiga nisbati sifatida"
+  ],
+  "c": 1,
+  "e": "Ustama = (narx − tannarx) / tannarx; marja esa foydani narxga nisbatlaydi."
+ },
+ {
+  "q": "Xavfsizlik zaxirasi nimani ko‘rsatadi?",
+  "options": [
+   "Omborda doim saqlanishi lozim bo‘lgan tayyor mahsulot ulushini",
+   "Sotuv qancha foizga tushsa ham zarar ko‘rilmasligini",
+   "Foyda uchun tannarxga qo‘shiladigan eng kichik ustamani",
+   "Kutilmagan xarajatlar uchun ajratilgan pul miqdorini"
+  ],
+  "c": 1,
+  "e": "Xavfsizlik zaxirasi = (reja hajmi − BEP hajmi) / reja hajmi, ya’ni sotuv qancha pasayishi mumkinligini bildiradi."
+ },
+ {
+  "q": "Qiymatga asoslangan narx nimadan kelib chiqib belgilanadi?",
+  "options": [
+   "Tannarxga qo‘shiladigan belgilangan foizli ustamadan",
+   "Raqiblar belgilagan narxlarning bozordagi o‘rtacha darajasidan",
+   "Ishlab chiqarish quvvatining to‘ldirilish darajasidan",
+   "Mijozga keltiriladigan iqtisodiy naf va tejalgan qiymatdan"
+  ],
+  "c": 3,
+  "e": "Bu usulda narx mijoz oladigan naf va qiymatga tayanadi, shuning uchun u eng yuqori marjani berishi mumkin."
+ },
+ {
+  "q": "Kirish (penetratsiya) narxi strategiyasida narx qanday belgilanadi?",
+  "options": [
+   "Yangi bozorga kirishda boshida past narx qo‘yib, mijoz bazasi tez yig‘iladi",
+   "Boshida yuqori narx qo‘yilib, keyin bosqichma-bosqich tushiriladi",
+   "Bir necha mahsulot bitta umumiy narxda to‘plam qilib sotiladi",
+   "Mijoz o‘zi tanlashi uchun Standart, Premium va VIP tariflari taklif etiladi"
+  ],
+  "c": 0,
+  "e": "Penetratsiya — boshida past narx; yuqoridan boshlab tushirish skimming, to‘plam esa bundling deyiladi."
+ },
+ {
+  "q": "Langar effekti (anchoring) narx qarorida qanday namoyon bo‘ladi?",
+  "options": [
+   "Mijoz uchinchi, jozibasiz variant tufayli boshqa variantlardan birini tanlaydi",
+   "Mijoz yutuqdan ko‘ra yo‘qotishdan ko‘proq qo‘rqib qaror qiladi",
+   "Mijoz birinchi ko‘rgan narxni tayanch qilib, keyingisini u bilan solishtiradi",
+   "Mijoz narxning birinchi raqamiga qarab uni arzonroq deb baholaydi"
+  ],
+  "c": 2,
+  "e": "Langar effektida birinchi ko‘rilgan narx keyingi baholarga ta’sir qiladi, shuning uchun qimmatroq variant avval ko‘rsatiladi."
+ },
+ {
+  "q": "Sotuv hajmi oshganda to‘liq tannarx nega pasayadi?",
+  "options": [
+   "Birlikka to‘g‘ri keladigan o‘zgaruvchan xarajat hajmga qarab o‘z-o‘zidan kamayadi",
+   "Doimiy xarajatning umumiy summasi sotuv oshgani sari kichrayib boradi",
+   "Soliq va komissiya sotuv oshganda tannarxdan butunlay chiqarib tashlanadi",
+   "Doimiy xarajat ko‘proq mahsulotga taqsimlanib, birlikdagi ulushi kamayadi"
+  ],
+  "c": 3,
+  "e": "To‘liq tannarx = VC + FC / Q: Q oshsa, FC / Q kamayadi (masshtab effekti)."
+ },
+ {
+  "q": "Foyda bir xil bo‘lganda ustama va marja o‘rtasidagi munosabat qanday?",
+  "options": [
+   "Marja kichikroq, chunki foyda tannarxdan katta bo‘lgan narxga nisbatlanadi",
+   "Marja ustamadan katta bo‘ladi, chunki narx tannarxdan yuqori turadi",
+   "Ikkalasi doim teng bo‘ladi, chunki ikkalasi ham bir xil foydadan hisoblanadi",
+   "Marja ustamaga teng bo‘ladi, agar doimiy xarajat hisobga olinmasa"
+  ],
+  "c": 0,
+  "e": "Maxraj farqli: ustama tannarxga, marja narxga nisbatlanadi; narx tannarxdan katta, shuning uchun marja kichikroq."
+ },
+ {
+  "q": "Xarajat + ustama usulining asosiy kamchiligi nima?",
+  "options": [
+   "Narx tannarxdan past chiqib, zarar keltirish ehtimoli yuqori bo‘ladi",
+   "Mijoz to‘lashga tayyor summani va raqobat narxini hisobga olmaydi",
+   "Hisoblash murakkab bo‘lib, maxsus dastur va ko‘p vaqt talab qiladi",
+   "Uni faqat dasturiy ta’minot va konsalting xizmatlariga qo‘llash mumkin"
+  ],
+  "c": 1,
+  "e": "Cost-plus oddiy va zararsizlikni ta’minlaydi, biroq bozor va mijoz qiymatini e’tiborga olmaydi."
+ },
+ {
+  "q": "Maqbul narxning yuqori chegarasi nima bilan belgilanadi?",
+  "options": [
+   "Raqiblarning eng yuqori narxi, undan oshirish mumkin emas",
+   "Ishlab chiqarish tannarxi va unga qo‘shilgan foydali ustama miqdori",
+   "Mijoz uchun qiymat, ya’ni to‘lashga tayyor bo‘lgan maksimum summa",
+   "Davlat tomonidan belgilangan chakana narxning eng yuqori darajasi"
+  ],
+  "c": 2,
+  "e": "Narx quyidan xarajat, yuqoridan mijoz uchun qiymat bilan cheklanadi; raqobat esa bozor darajasini beradi."
+ },
+ {
+  "q": "Marja past bo‘lgan mahsulotga chegirma e’lon qilinsa, foydani saqlash uchun nima talab etiladi?",
+  "options": [
+   "Sotuv hajmi aynan chegirma foizicha oshishi yetarli bo‘ladi",
+   "Doimiy xarajatni chegirma miqdoriga teng kamaytirish",
+   "Sotuv hajmi chegirma foizidan ancha ko‘proq oshishi",
+   "Reklama byudjetini chegirma foizicha ko‘paytirish lozim bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Zarur o‘sish = d / (m − d); m kichik bo‘lsa, hatto kichik chegirma ham katta hajm o‘sishini talab qiladi."
+ },
+ {
+  "q": "Uskuna kabi bir martalik yirik xarajat mahsulot narxiga qanday kiritiladi?",
+  "options": [
+   "Xizmat muddati bo‘yicha ulushlarga bo‘linib, amortizatsiya orqali",
+   "Sotib olingan oyning o‘zida to‘liq summasi bilan birdaniga qo‘shiladi",
+   "Faqat dastlabki yuz mahsulotning tannarxiga teng taqsimlab",
+   "Umuman kiritilmaydi, chunki u narxga ta’sir ko‘rsatmaydi"
+  ],
+  "c": 0,
+  "e": "CAPEX darhol to‘liq qo‘shilmaydi, balki xizmat muddatiga bo‘lib amortizatsiya sifatida kiritiladi."
+ },
+ {
+  "q": "Kafe kam talabli kechki soatlarda chegirma qilsa, bu nega mantiqli bo‘lishi mumkin?",
+  "options": [
+   "Kechki mijozlar doimiy xarajatning katta qismini darrov va to‘liq qoplab beradi",
+   "Chegirma qilinsa, o‘zgaruvchan xarajatlar ham shu foizga kamayadi",
+   "Past narx tushlik vaqtidagi mijozlarni kechki soatlarga ko‘chiradi",
+   "Ijara to‘langan, qo‘shimcha mijoz faqat o‘zgaruvchan xarajatni talab qiladi"
+  ],
+  "c": 3,
+  "e": "Doimiy xarajat to‘langan bo‘lgani uchun qo‘shimcha mijoz qoplash marjasi hisobiga foyda qo‘shadi."
+ },
+ {
+  "q": "Tadbirkor “raqib qancha olsa, shuncha olaman” deb narx qo‘ydi. Bu yondashuvning asosiy xavfi nima?",
+  "options": [
+   "Narx raqibnikidan doim yuqori chiqib, mijozlarning hammasi ketib qoladi",
+   "Xarajatini bilmay, narx tannarxdan past bo‘lib, zarar ko‘rishi mumkin",
+   "Raqiblar narxi qonun bilan taqiqlanib, jarima to‘lashga to‘g‘ri keladi",
+   "Mijoz mahsulot sifatini baholay olmay, sotib olishdan voz kechadi"
+  ],
+  "c": 1,
+  "e": "Raqobatga qarab narx qo‘yish o‘z xarajatini hisobga olmasa, ko‘p sotib ham zarar ko‘rish mumkin."
+ },
+ {
+  "q": "Onlayn to‘lov tizimi har sotuvdan foiz komissiya olsa, bu xarajat qaysi guruhga kiradi?",
+  "options": [
+   "O‘zgaruvchan, chunki u sotuv hajmiga mutanosib ravishda o‘sadi",
+   "Doimiy, chunki to‘lov tizimi bilan shartnoma bir marta tuziladi",
+   "Kapital, chunki u bir martalik yirik xarajat hisoblanadi",
+   "Bilvosita doimiy, chunki butun biznesga taqsimlab yuklanadi"
+  ],
+  "c": 0,
+  "e": "To‘lov tizimi komissiyasi sotuv hajmiga bog‘liq bo‘lgani uchun o‘zgaruvchan xarajatdir."
+ },
+ {
+  "q": "Oylik doimiy xarajat 6 000 000 so‘m, narx 150 000 so‘m, birlikka o‘zgaruvchan xarajat 90 000 so‘m. Zararsizlik nuqtasi necha dona?",
+  "options": [
+   "40 dona",
+   "66,7 dona",
+   "25 dona",
+   "100 dona"
+  ],
+  "c": 3,
+  "e": "BEP = FC / (narx − VC) = 6 000 000 / 60 000 = 100 dona."
+ },
+ {
+  "q": "Tannarx 80 000 so‘m. 20 foiz marja olish uchun narx qancha bo‘lishi kerak?",
+  "options": [
+   "96 000 so‘m",
+   "100 000 so‘m",
+   "64 000 so‘m",
+   "400 000 so‘m"
+  ],
+  "c": 1,
+  "e": "Narx = tannarx / (1 − marja) = 80 000 / 0,8 = 100 000 so‘m."
+ },
+ {
+  "q": "Tadbirkor o‘z mehnati haqini xarajatga kiritmay narx hisoblasa, nima bo‘ladi?",
+  "options": [
+   "Tannarx haqiqatdagidan yuqori hisoblanib, narx keraksiz va asossiz oshib ketadi",
+   "Hisob soliq jihatidan noto‘g‘ri chiqib, albatta jarimaga olib keladi",
+   "Foyda aldamchi ko‘rinadi, haqiqatda esa kam yoki umuman bo‘lmasligi mumkin",
+   "Xavfsizlik zaxirasi avtomatik ravishda nolga tushib qoladi"
+  ],
+  "c": 2,
+  "e": "O‘z ish haqini hisobga olmasdan ko‘rilgan “foyda” aldamchi; hech bo‘lmaganda minimal oylik kiritilishi kerak."
+ }
+]

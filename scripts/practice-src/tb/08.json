@@ -1,0 +1,107 @@
+{
+ "goal": "maqsadli auditoriya uchun bir oylik kontent reja va byudjetni tuzish.",
+ "concepts": [
+  "Marketing aralashmasi (4P)",
+  "reklama",
+  "AIDA",
+  "kontent reja",
+  "konversiya",
+  "CTR"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 8-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb8-p1",
+   "title": "Reklama samaradorligi: CTR, CPC, CAC, ROAS",
+   "text": "Reklama byudjeti 4 million so‘m. Ko‘rsatishlar 200 000, bosishlar 6 000, ro‘yxatdan o‘tganlar (lead) 300, xaridorlar 45. O‘rtacha chek 120 000 so‘m, qoplash marjasi chekning 40%. CTR, CPC, CAC va ROASni toping.",
+   "fields": [
+    {
+     "label": "CTR",
+     "value": 3,
+     "unit": "%"
+    },
+    {
+     "label": "CPC",
+     "value": 666.67,
+     "unit": "so‘m"
+    },
+    {
+     "label": "CAC",
+     "value": 88888.89,
+     "unit": "so‘m"
+    },
+    {
+     "label": "ROAS",
+     "value": 1.35,
+     "unit": "marta"
+    }
+   ],
+   "solution": "CTR = 6 000 / 200 000 = 3%. CPC = 4 000 000 / 6 000 ≈ 667 so‘m. CAC = 4 000 000 / 45 ≈ 88 889 so‘m. Tushum = 45 × 120 000 = 5,4 mln so‘m; ROAS = 5,4 / 4 = 1,35. Birinchi buyurtmadan marja 120 000 × 40% = 48 000 so‘m < CAC, ya’ni birinchi xaridda zarar; mijoz 4 marta xarid qilsa marja 192 000 so‘m, LTV:CAC ≈ 2,2:1.",
+   "formula": "CTR = bosishlar / ko‘rsatishlar; CPC = byudjet / bosishlar; CAC = byudjet / yangi mijozlar; ROAS = tushum / byudjet",
+   "note": ""
+  },
+  {
+   "id": "tb8-p2",
+   "title": "Byudjetni ikki kanalga taqsimlash",
+   "text": "Marketing byudjeti 20 million so‘m. Instagram: CAC 80 000 so‘m, maksimal sig‘imi 150 mijoz. Google qidiruv: CAC 140 000 so‘m, maksimal sig‘imi 300 mijoz. Eng ko‘p mijoz olish uchun avval arzon kanalni to‘ldiring. Instagramga ketadigan mablag‘ni, Google’ga qoladigan mablag‘ni va jami mijoz sonini toping (butun songa qadar).",
+   "fields": [
+    {
+     "label": "Instagramga byudjet",
+     "value": 12,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Google’ga byudjet",
+     "value": 8,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Jami mijoz",
+     "value": 207,
+     "unit": "mijoz",
+     "tol": 1
+    }
+   ],
+   "solution": "Instagram: 150 × 80 000 = 12 mln so‘m (150 mijoz). Qoldiq 20 − 12 = 8 mln so‘m. Google: 8 000 000 / 140 000 ≈ 57 mijoz. Jami 150 + 57 = 207 mijoz. Teng bo‘lishda (10 + 10 mln) 125 + 71 = 196 mijoz bo‘lardi.",
+   "formula": "Mijoz soni = byudjet / CAC; avval past CACli kanal sig‘imi to‘ldiriladi",
+   "note": ""
+  },
+  {
+   "id": "tb8-p3",
+   "title": "Instagram reklamasi misoli",
+   "text": "Byudjet 3 000 000 so‘m, CPM 30 000 so‘m (1 000 ko‘rsatish narxi). CTR 1,5%. Bosganlarning 5% i buyurtma so‘radi (lead), leadlarning 40% i xarid qildi. O‘rtacha chek 250 000 so‘m, yalpi marja 40%. Mijozlar sonini, CAC va ROASni toping.",
+   "fields": [
+    {
+     "label": "Mijozlar soni",
+     "value": 30,
+     "unit": "mijoz"
+    },
+    {
+     "label": "CAC",
+     "value": 100000,
+     "unit": "so‘m"
+    },
+    {
+     "label": "ROAS",
+     "value": 2.5,
+     "unit": "marta"
+    }
+   ],
+   "solution": "Ko‘rsatish = 3 000 000 / 30 000 × 1 000 = 100 000. Bosish = 100 000 × 1,5% = 1 500. Lead = 1 500 × 5% = 75. Mijoz = 75 × 40% = 30. CAC = 3 000 000 / 30 = 100 000 so‘m. Tushum = 30 × 250 000 = 7,5 mln; ROAS = 7,5 / 3 = 2,5. Birinchi xariddan marja 250 000 × 40% = 100 000 so‘m, ya’ni CAC aynan qoplanadi.",
+   "formula": "Mijoz = ko‘rsatish × CTR × lead ulushi × xarid ulushi; CAC = byudjet / mijoz",
+   "note": "Raqamlar shartli."
+  }
+ ],
+ "open": [
+  "Amaliy 8. Mahsulotni reklama qilish va mijozga yetkazish. maqsadli auditoriya uchun bir oylik kontent reja va byudjetni tuzish. Bajarish tartibi: 1) Reklama modeli (muammo – yechim – afzallik – ishonch – harakatga chaqiriq) bo‘yicha bitta post yozing; 2) 8.3-jadval shaklida 4 haftalik kontent reja tuzing; 3) Byudjetni kanallar bo‘yicha taqsimlang; 4) CTR, CPC, CAC va ROAS bo‘yicha kutilayotgan natijani hisoblang; 5) Yetkazib berish kanali va logistikani tanlang.",
+  "Amaliy mashg'ulotga tayyorgarlik: O‘z mahsulotingiz uchun maqsadli auditoriyani belgilang; Telegram, Instagram, YouTube yoki TikTok uchun bir oylik kontent reja (8.3-jadval shaklida) tuzing; taxminiy reklama byudjetini hisoblang va natijani baholash ko‘rsatkichlarini belgilang.",
+  "8.2-rasmdagi besh kanaldan ikkitasini tanlab, ularda bir haftalik sinov posti (matn + vizual taklif) tayyorlang.",
+  "O‘z mahsulotingiz uchun AIDA modeli (8.1-rasm) bo‘yicha to‘liq bir reklama matnini yozing: Attention, Interest, Desire, Action bosqichlarini alohida ajratib ko‘rsating."
+ ],
+ "refs": [
+  "Natija: post, kontent reja, byudjet va ko‘rsatkichlar. Baholash mezoni: kanallarning auditoriyaga mosligi, rejaning izchilligi, hisob to‘g‘riligi. Ko'p uchraydigan xatolar: Kontent rejada faqat sotuvga chaqiruvchi postlar berish, foydali/qiziqarli kontentni unutish; Byudjetni kanallarga tasodifiy taqsimlash, auditoriya qayerda faolligini tekshirmasdan; CTR, CPC kabi ko‘rsatkichlarni hisoblamasdan, “ko‘p odam ko‘radi” deb umidvor bo‘lish.",
+  "Mezonlar: kanallar maqsadli auditoriya faol bo‘lgan joyga mos; reja 4 haftalik, foydali, ishontiruvchi, jonli va sotuvchi kontent aralash (taxminan 40–30–20–10); byudjet kanallar bo‘yicha asoslangan; kutilgan CTR, CPC, CAC hisoblangan; bosqichlar (ko‘rsatish, bosish, lead, xarid) aniq. Xato: faqat sotuv postlari, byudjetni tasodifiy bo‘lish.",
+  "Mezonlar: ikkita kanal tanlangan va sababi ko‘rsatilgan; har kanal uchun format (matn + vizual) kanal xususiyatiga mos; post muammo, yechim, afzallik, ishonch, harakatga chaqiriqdan iborat; natijani o‘lchash ko‘rsatkichi (CTR yoki bosish) belgilangan.",
+  "Mezonlar: to‘rt bosqich alohida ajratilgan. Attention: jozibali sarlavha yoki rasm; Interest: mijoz muammosi va foyda; Desire: dalil, sharh yoki natija; Action: aniq chaqiriq (buyurtma, qo‘ng‘iroq, ro‘yxatdan o‘tish). Matn aniq mahsulot va auditoriyaga mo‘ljallangan. Xato: faqat narx va chegirma yozish, chaqiriqsiz tugatish."
+ ]
+}

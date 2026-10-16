@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Savdo jarayonining yetti bosqichi qaysi bosqichdan boshlanadi?",
+  "options": [
+   "Taklif berish — narx va shartlar aytiladi",
+   "Ehtiyojni aniqlash — mijozga savollar beriladi",
+   "Mijozni izlash — potensial mijozlar aniqlanadi",
+   "Aloqa o‘rnatish — birinchi muloqot o‘tkaziladi"
+  ],
+  "c": 2,
+  "e": "Jarayon mijozni izlash, ya’ni potensial mijozlarni aniqlashdan boshlanadi."
+ },
+ {
+  "q": "Zamonaviy savdoda sotuvchining asosiy vazifasi nima?",
+  "options": [
+   "Mijoz ehtiyojini tushunib, unga mos yechimni taklif qilish",
+   "Mijozni imkon qadar tezroq xaridga ko‘ndirish",
+   "Mahsulotning barcha xususiyatlarini ketma-ket sanab chiqish",
+   "Eng arzon narxni birinchi bo‘lib taklif qilish"
+  ],
+  "c": 0,
+  "e": "Sotuvchi mijozni majburlamaydi, ehtiyojini tushunib, mos yechim taklif qiladi."
+ },
+ {
+  "q": "Ekologik qog‘ozdan yasalgan, suvga chidamli daftar haqida “yomg‘irda ham daftaringiz buzilmaydi” deyilsa, bu FAB bo‘yicha nima?",
+  "options": [
+   "Xususiyat (Feature)",
+   "Afzallik (Advantage)",
+   "E’tiroz (Objection)",
+   "Foyda (Benefit)"
+  ],
+  "c": 3,
+  "e": "Mijoz uchun natijani bildiruvchi gap — foyda; xususiyat — qog‘oz turi, afzallik — suvga chidamlilik."
+ },
+ {
+  "q": "Quyidagi savollardan qaysi biri ochiq savol hisoblanadi?",
+  "options": [
+   "Ko‘k rang sizga yoqadimi?",
+   "Qanday tadbir uchun tanlayapsiz?",
+   "Buyurtmani bugun rasmiylashtiramizmi?",
+   "Karta orqali to‘laysizmi?"
+  ],
+  "c": 1,
+  "e": "Ochiq savol “ha/yo‘q” emas, batafsil javob talab qiladi."
+ },
+ {
+  "q": "SPIN usulidagi Implication (oqibat) savollarining maqsadi nima?",
+  "options": [
+   "Mijozga muammoning oqibatlarini his qildirish",
+   "Mijozning hozirgi holatini tushunish",
+   "Mijozning qiyinchilik va noroziliklarini aniqlash",
+   "Yechimning qiymatini mijozning o‘ziga aytdirish"
+  ],
+  "c": 0,
+  "e": "Implication savollari muammo oqibatlarini, masalan, yo‘qotilgan daromadni his qildiradi."
+ },
+ {
+  "q": "Sotuvchi kafe egasidan “Agar buyurtmalar avtomatik qabul qilinsa, sizga nima foyda bo‘lardi?” deb so‘radi. Bu SPINning qaysi turi?",
+  "options": [
+   "Situation (vaziyat)",
+   "Problem (muammo)",
+   "Need-payoff (foyda)",
+   "Implication (oqibat)"
+  ],
+  "c": 2,
+  "e": "Yechimning qiymatini mijoz o‘zi ayttiradigan savol Need-payoff turiga kiradi."
+ },
+ {
+  "q": "Taklif berishda narx haqida qanday tartib tavsiya etiladi?",
+  "options": [
+   "Suhbat boshida narx aytilib, so‘ng mahsulot tavsiflanadi",
+   "Avval mijozga qiymat ko‘rsatiladi, so‘ng narx asoslanadi",
+   "Narx mijoz so‘ramaguncha umuman aytilmaydi",
+   "Narx raqibnikidan past ko‘rsatilib, qiymat gapirilmaydi"
+  ],
+  "c": 1,
+  "e": "Narxni birinchi aytmaslik, avval qiymatni ko‘rsatish tavsiya etiladi."
+ },
+ {
+  "q": "Savdoni yakunlashda “A yoki B variant qulay?” kabi tanlov beruvchi savol nega “sotib olasizmi?” savolidan yaxshiroq?",
+  "options": [
+   "U mijozga bosim o‘tkazib, rad etish imkonini bermaydi",
+   "U mijozning barcha e’tirozlarini butunlay yo‘qotadi",
+   "U narxni aytmasdan savdoni yopishga yordam beradi",
+   "Tanlov “ha”ni nazarda tutadi, qarorni osonlashtiradi"
+  ],
+  "c": 3,
+  "e": "Tanlov beruvchi savol “ha”ni nazarda tutadi; maqsad bosim emas, qaror qabul qilishni yengillashtirish."
+ },
+ {
+  "q": "Savdo jarayonida mijoz e’tirozi ko‘pincha nimani bildiradi?",
+  "options": [
+   "Qo‘shimcha ma’lumot yoki ishonch kerakligini",
+   "Xaridni qat’iy rad etganini",
+   "Sotuvchi bilan bahslashish istagini",
+   "Mahsulot sifati past ekanini"
+  ],
+  "c": 0,
+  "e": "E’tiroz rad javobi emas, ko‘pincha ma’lumot yoki ishonch so‘rovidir."
+ },
+ {
+  "q": "LAER algoritmidagi Explore (E) bosqichida sotuvchi nima qiladi?",
+  "options": [
+   "Mijozni to‘xtatmay diqqat bilan tinglaydi",
+   "Ochiq savol berib, e’tirozning haqiqiy sababini aniqlaydi",
+   "“Tushunaman, bu muhim savol” deb e’tirozni tan oladi",
+   "Sababga mos dalil va yechim taklif qiladi"
+  ],
+  "c": 1,
+  "e": "Explore — ochiq savol bilan e’tirozning haqiqiy sababini aniqlash."
+ },
+ {
+  "q": "Mijoz “Narxi juda qimmat” dedi. LAER bo‘yicha sotuvchining eng to‘g‘ri harakati qaysi?",
+  "options": [
+   "Darhol chegirma taklif qilib, e’tirozni yopishga urinish",
+   "Mijoz bilan narx bo‘yicha bahslashib, mahsulotni maqtash",
+   "Raqib narxi pastligini tan olib, suhbatni tugatish",
+   "Tan olib, sababni ochiq savol bilan so‘rab aniqlash"
+  ],
+  "c": 3,
+  "e": "Avval e’tirozning haqiqiy sababi aniqlanadi, so‘ng unga mos javob beriladi."
+ },
+ {
+  "q": "Savdo voronkasi nimani ko‘rsatadi?",
+  "options": [
+   "Reklama xarajatining kanallar bo‘yicha taqsimlanishi",
+   "Mijozlarning mahsulotni tavsiya qilish ehtimolini",
+   "Bosqichlarda qancha mijoz qolishi va qayerda yo‘qotilishi",
+   "Sotuvchilar oylik ish haqining tarkibini"
+  ],
+  "c": 2,
+  "e": "Voronka har bosqichda qancha odam qolishini va qayerda ko‘p yo‘qotilayotganini ko‘rsatadi."
+ },
+ {
+  "q": "Oyda 400 ta lead keldi. Ularning 50% i aloqaga chiqdi, aloqaga chiqqanlarning 60% iga taklif yuborildi, taklif olganlarning 40% i buyurtma berdi. Nechta buyurtma bo‘ldi?",
+  "options": [
+   "120 ta",
+   "48 ta",
+   "160 ta",
+   "80 ta"
+  ],
+  "c": 1,
+  "e": "400 × 0,5 × 0,6 × 0,4 = 48."
+ },
+ {
+  "q": "100 ta mijoz so‘ralganda 60 tasi 9–10 ball, 25 tasi 7–8 ball, 15 tasi 0–6 ball berdi. NPS qancha?",
+  "options": [
+   "60",
+   "75",
+   "85",
+   "45"
+  ],
+  "c": 3,
+  "e": "NPS = tarafdorlar % − tanqidchilar % = 60 − 15 = 45."
+ },
+ {
+  "q": "Mavjud mijozni saqlab qolish nega muhim hisoblanadi?",
+  "options": [
+   "Yangi mijoz jalb qilish qayta sotishdan odatda qimmatroq",
+   "Yangi mijozni jalb qilish qayta sotishdan arzonroq tushadi",
+   "Mavjud mijozlar narxga yangilariga qaraganda e’tibor bermaydi",
+   "Qayta sotish uchun marketing xarajati umuman kerak bo‘lmaydi"
+  ],
+  "c": 0,
+  "e": "Yangi mijoz jalb qilish ko‘pincha qayta sotishdan bir necha barobar qimmat."
+ },
+ {
+  "q": "Norozi mijozning shikoyatiga javob berishda birinchi qadam qaysi?",
+  "options": [
+   "Mijozga aybi yo‘qligini isbotlash",
+   "Darhol pulni qaytarib, suhbatni yopish",
+   "Tinglash va noqulaylik uchun uzr so‘rash",
+   "Sababni tahlil qilib, jarayonni o‘zgartirish"
+  ],
+  "c": 2,
+  "e": "Birinchi qadam — tinglash va aybdor bo‘lmasangiz ham noqulaylik uchun uzr so‘rash."
+ },
+ {
+  "q": "Tadbirkor mijozga “keyin bog‘lanaman” deb va’da berdi. Mijozlar bazasi jadvalida bu uchun nima qilish kerak?",
+  "options": [
+   "Mijozni jadvaldan o‘chirib, xotirada saqlash",
+   "Faqat “keyinroq” deb izoh yozib qo‘yish",
+   "Mijozga har kuni eslatma xabarini yuborish",
+   "Keyingi aloqa sanasini aniq yozib qo‘yish"
+  ],
+  "c": 3,
+  "e": "Sanasiz aytilgan va’da odatda bajarilmaydi, shuning uchun keyingi aloqa sanasi yoziladi."
+ },
+ {
+  "q": "BATNA nima?",
+  "options": [
+   "Muzokarada tomon talab qiladigan eng yuqori narx",
+   "Muzokara kelishuvsiz tugasa, tomonning eng yaxshi muqobil varianti",
+   "Ikki tomon uchun teng foydali yakuniy shartnoma",
+   "Muzokaradan oldin tayyorlanadigan savdo skripti"
+  ],
+  "c": 1,
+  "e": "BATNA — kelishuv bo‘lmasa, tomonning eng yaxshi muqobil varianti."
+ },
+ {
+  "q": "Manfaatga asoslangan muzokarada asosiy e’tibor nimaga qaratiladi?",
+  "options": [
+   "Tomon nimani so‘rayotganiga emas, nima uchun kerakligiga",
+   "Tomon talab qilayotgan pozitsiyani qat’iy himoya qilishga",
+   "Muzokarada g‘alaba qozonib, ko‘proq yutib olishga",
+   "Faqat bitta yechimni oxirigacha o‘tkazishga"
+  ],
+  "c": 0,
+  "e": "Garvard yondashuvida pozitsiya emas, manfaat va “nima uchun kerak”ligi muhim."
+ },
+ {
+  "q": "Konsultativ sotuvda muvaffaqiyat mezoni nima?",
+  "options": [
+   "Bitta savdoning imkon qadar tezroq yopilishi",
+   "Mahsulot xususiyatlarining to‘liq sanab o‘tilishi",
+   "Mijoz muammosining haqiqatan hal bo‘lishi va hamkorlikning davom etishi",
+   "Sotuvchining suhbatda ko‘proq gapirishi"
+  ],
+  "c": 2,
+  "e": "Konsultativ sotuvda mezon — mijoz muammosining haqiqatan hal bo‘lishi."
+ }
+]

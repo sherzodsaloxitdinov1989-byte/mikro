@@ -1,0 +1,539 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Biznes-model tushunchasi",
+   "bullets": [
+    "Biznes-model — qiymat yaratish, yetkazish va daromad olishning mantiqiy tizimi",
+    "Savol: «Biz qanday qilib qiymat yaratamiz va pul topamiz?»",
+    "Nima taklif qilamiz? Mijoz kim? Nega aynan bizni tanlaydi?",
+    "Qanday yetkaziladi, munosabat qanday, daromad qayerdan?",
+    "Qanday resurs, faoliyat, hamkor kerak; xarajatlar nimalardan iborat?"
+   ],
+   "sub": "6.1. Biznes-model"
+  },
+  {
+   "type": "compare",
+   "title": "Biznes g‘oya va biznes-model",
+   "sub": "6.1. Biznes-model",
+   "left": {
+    "head": "Biznes g‘oya",
+    "items": [
+     "«Nima qilmoqchiman?» degan fikr",
+     "Misol: talabalar uchun sog‘lom tushlik",
+     "Faqat mahsulot haqida"
+    ]
+   },
+   "right": {
+    "head": "Biznes-model",
+    "items": [
+     "G‘oya qanday pul topishini ko‘rsatadi",
+     "Hamkor oshxona, oldindan buyurtma, Telegram-bot",
+     "Haftalik obuna va kunlik sotuvdan daromad",
+     "Mahsulot, mijoz, kanal, daromad, xarajat zanjiri"
+    ]
+   },
+   "note": "Bir xil ovqat: restoran, yetkazish xizmati yoki obuna — uch xil model"
+  },
+  {
+   "type": "steps",
+   "title": "Biznes-modelning ishlash zanjiri",
+   "sub": "6.1. Biznes-model",
+   "steps": [
+    "Bozor ehtiyoji",
+    "Mahsulot yoki xizmat",
+    "Mijoz",
+    "Sotuv",
+    "Daromad",
+    "Qayta investitsiya",
+    "Biznesni rivojlantirish"
+   ],
+   "note": "Zanjirning istalgan bo‘g‘ini uzilsa, tizim ishlamaydi"
+  },
+  {
+   "type": "figure",
+   "title": "Business Model Canvas: to‘qqiz blok",
+   "img": "image16.png",
+   "caption": "6.1-rasm. Business Model Canvas — to‘qqiz blok",
+   "sub": "6.2. Canvas"
+  },
+  {
+   "type": "table",
+   "title": "BMC: mijoz va qiymat tomoni (talabalar tushligi)",
+   "sub": "6.2. Canvas",
+   "head": [
+    "Blok",
+    "Asosiy savol",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Mijoz segmentlari",
+     "Mahsulot aynan kim uchun?",
+     "Zich jadvalli bakalavr talabalar"
+    ],
+    [
+     "Qiymat taklifi",
+     "Nega bizni tanlaydi?",
+     "3 daqiqa, 25 ming so‘m, sog‘lom"
+    ],
+    [
+     "Kanallar",
+     "Qiymat qaysi yo‘l bilan yetadi?",
+     "Telegram-bot, olib ketish nuqtasi"
+    ],
+    [
+     "Mijozlar bilan munosabat",
+     "Qanday jalb qilamiz va saqlaymiz?",
+     "Bot, bonuslar, guruh chati"
+    ],
+    [
+     "Daromad oqimlari",
+     "Pul qayerdan olinadi?",
+     "Kunlik sotuv, haftalik obuna"
+    ]
+   ],
+   "note": "6.1-jadval, 1-qism. O‘ng tomon: mijoz va daromad"
+  },
+  {
+   "type": "table",
+   "title": "BMC: ichki faoliyat va xarajat tomoni",
+   "sub": "6.2. Canvas",
+   "head": [
+    "Blok",
+    "Asosiy savol",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Asosiy resurslar",
+     "Modelni yuritish uchun nima kerak?",
+     "Hamkor oshxona, bot, kuryer, brend"
+    ],
+    [
+     "Faoliyat turlari",
+     "Eng muhim ishlar qaysilar?",
+     "Menyu, tayyorlash nazorati, marketing"
+    ],
+    [
+     "Asosiy hamkorlar",
+     "Kim yordam beradi, xavfni bo‘lishadi?",
+     "Oshxona egasi, yetkazuvchi, universitet"
+    ],
+    [
+     "Xarajatlar tuzilmasi",
+     "Asosiy doimiy va o‘zgaruvchan xarajat?",
+     "Xomashyo, ish haqi, ijara, reklama, qadoq"
+    ]
+   ],
+   "note": "6.1-jadval, 2-qism. Markazda — qiymat taklifi"
+  },
+  {
+   "type": "steps",
+   "title": "Canvasni to‘ldirish tartibi",
+   "sub": "6.2. Canvas",
+   "steps": [
+    "1. Mijoz segmenti (har bir segment uchun alohida kanvas)",
+    "2. Qiymat taklifi",
+    "3. Kanallar va mijozlar bilan munosabat",
+    "4. Daromad oqimlari",
+    "5. Resurslar, faoliyat turlari, hamkorlar",
+    "6. Xarajatlar tuzilmasi",
+    "7. Har blok qisqa, gipoteza sifatida mijoz bilan tekshiriladi va yangilanadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "JTBD «vazifa» bayonoti",
+   "img": "image17.png",
+   "caption": "6.2-rasm. JTBD «vazifa» bayonotining tuzilishi",
+   "sub": "6.3. Qiymat taklifi va JTBD"
+  },
+  {
+   "type": "bullets",
+   "title": "«Jobs to be Done» nazariyasi",
+   "bullets": [
+    "Kristensen: odamlar mahsulotni ma’lum «ish»ni bajarish uchun «yollaydi»",
+    "Xaridorga parma emas, devordagi aniq teshik kerak",
+    "Ish uch qatlamli: funksional, emotsional, ijtimoiy",
+    "E’tibor — mahsulot xususiyatiga emas, mijoz vazifasiga",
+    "Raqib — shu ishni boshqacha hal qiluvchi har kim (masalan, uyda o‘zi pishirish)"
+   ],
+   "sub": "6.3. Qiymat taklifi va JTBD"
+  },
+  {
+   "type": "steps",
+   "title": "Qiymat taklifi: to‘rt savol",
+   "sub": "6.3. Qiymat taklifi va JTBD",
+   "steps": [
+    "Muammo: qanday og‘riqli nuqtani topdik?",
+    "Yechim: uni qanday hal qilamiz?",
+    "Foyda: hayot yaxshilanishini qanday o‘lchaymiz (vaqt, pul, qoniqish)?",
+    "Farq: nega aynan biz?",
+    "Bir jumla: [Segment] uchun, [muammo]ni [yechim] orqali [foyda] bilan hal qiladigan, [raqiblardan farqli]"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Qiymat taklifi kanvasi",
+   "sub": "6.3. Qiymat taklifi va JTBD",
+   "head": [
+    "Element",
+    "Mijoz profili",
+    "Qiymat xaritasi"
+   ],
+   "rows": [
+    [
+     "Ishlar / Mahsulotlar",
+     "Funksional, emotsional, ijtimoiy ishlar",
+     "Taklif qilinadigan mahsulot va xizmatlar"
+    ],
+    [
+     "Og‘riqlar / Yechimlar",
+     "Vaqt, pul, xavotir, noqulaylik",
+     "Har bir og‘riqni qanday kamaytiramiz"
+    ],
+    [
+     "Foydalar / Yaratuvchilar",
+     "Nimani xohlaydi, kutilmagan yaxshi natija",
+     "Qaysi foydani qanday yaratamiz"
+    ]
+   ],
+   "note": "6.2-jadval. Ikki qism bir-biriga mos (fit) bo‘lishi kerak; muhim og‘riq va foydaga tayaning"
+  },
+  {
+   "type": "figure",
+   "title": "Biznes-modellarning daromad barqarorligi",
+   "img": "image18.png",
+   "caption": "6.3-rasm. Keng tarqalgan biznes-modellarning daromad barqarorligi (shartli baholash)",
+   "sub": "6.4. Modellar turlari"
+  },
+  {
+   "type": "table",
+   "title": "Keng tarqalgan biznes-modellar",
+   "sub": "6.4. Modellar turlari",
+   "head": [
+    "Model",
+    "Mexanizm",
+    "Misol",
+    "Kuchli / xavfli tomoni"
+   ],
+   "rows": [
+    [
+     "Oddiy sotuv",
+     "Mahsulot bir marta sotiladi",
+     "Do‘kon, restoran",
+     "Sodda; takroriy daromad kafolatsiz"
+    ],
+    [
+     "Obuna",
+     "Davriy to‘lov",
+     "Netflix, Spotify",
+     "Barqaror; mijozni ushlab qolish qiyin"
+    ],
+    [
+     "Freemium",
+     "Asosiy funksiya bepul",
+     "Canva, Telegram",
+     "Auditoriya katta; pullikka o‘tish past"
+    ],
+    [
+     "Marketpleys",
+     "Uchrashtirib, komissiya olish",
+     "Uzum, Airbnb",
+     "Tarmoq effekti; ikki tomonni jalb qilish qiyin"
+    ],
+    [
+     "Razor & Blades",
+     "Vosita arzon, sarf qismi qimmat",
+     "Printer va kartrij",
+     "Doimiy daromad; mijoz norozi bo‘lishi mumkin"
+    ],
+    [
+     "Franshiza",
+     "Brend va tizimdan foydalanish haqi",
+     "McDonald’s, KFC",
+     "Tez kengayish; sifat nazorati murakkab"
+    ],
+    [
+     "Komissiya",
+     "Bitimdan foiz",
+     "Ko‘chmas mulk, to‘lov tizimlari",
+     "Bitim soniga bog‘liq"
+    ],
+    [
+     "B2B",
+     "Biznesga sotish",
+     "SaaS, ta’minot",
+     "Katta shartnoma; sotuv sikli uzun"
+    ]
+   ],
+   "note": "6.3-jadval. Reklama va litsenziyalash modellari ham mavjud"
+  },
+  {
+   "type": "compare",
+   "title": "Freemium va obuna",
+   "sub": "6.4. Modellar turlari",
+   "left": {
+    "head": "Obuna",
+    "items": [
+     "Boshidan pul to‘lanadi",
+     "Daromad bashorat qilinadi",
+     "Jalb qilish to‘sig‘i balandroq"
+    ]
+   },
+   "right": {
+    "head": "Freemium",
+    "items": [
+     "Asosiy funksiya bepul",
+     "Pullikka o‘tadigan ulush kichik (bir necha foiz)",
+     "Auditoriya tez o‘sadi",
+     "Bepul foydalanuvchiga xizmat — xarajat"
+    ]
+   },
+   "note": "Model tanlash: takroriy ehtiyoj — obuna; ikki tomonni bog‘lash — platforma; kuchli brend — franshiza"
+  },
+  {
+   "type": "bullets",
+   "title": "Marketpleys va franshiza xavflari",
+   "bullets": [
+    "Marketpleys: «tovuq va tuxum» muammosi — xaridorga sotuvchi, sotuvchiga xaridor kerak",
+    "Yechim: bir tomondan boshlash (masalan, sotuvchilarga bepul ro‘yxat)",
+    "Sotuvchi komissiya, qoida va algoritm o‘zgarishiga bog‘lanib qoladi",
+    "Franshiza: royalti, standartlar va muddat mustaqillikni cheklaydi",
+    "Beruvchi uchun: sifat nazorati va brendni himoya qilish"
+   ],
+   "sub": "6.4. Modellar turlari"
+  },
+  {
+   "type": "table",
+   "title": "Raqobatchilarni solishtirish (namuna)",
+   "sub": "6.5. Raqobat va farqlanish",
+   "head": [
+    "Mezon",
+    "Bizning taklif",
+    "Bufet",
+    "Kafe",
+    "Yetkazish ilovalari"
+   ],
+   "rows": [
+    [
+     "Narx",
+     "O‘rtacha (25 ming)",
+     "Arzon",
+     "O‘rtacha–yuqori",
+     "Yuqori"
+    ],
+    [
+     "Tezlik",
+     "3 daqiqa (oldindan)",
+     "Navbat 10–15 daq.",
+     "Kutish 10–20 daq.",
+     "30–60 daq."
+    ],
+    [
+     "Sog‘lomlik",
+     "Yuqori",
+     "Past",
+     "O‘rtacha",
+     "O‘zgaruvchan"
+    ],
+    [
+     "Qulaylik",
+     "Universitet ichida",
+     "Universitetda",
+     "Yo‘l masofasida",
+     "Uyga / joyga"
+    ],
+    [
+     "Kuchli tomon",
+     "Tezlik, sog‘lomlik",
+     "Arzon, yaqin",
+     "Tanish menyu",
+     "Qulay"
+    ],
+    [
+     "Zaif tomon",
+     "Yangi, ishonch yo‘q",
+     "Sifat past",
+     "Vaqt ko‘p ketadi",
+     "Qimmat, kechikadi"
+    ]
+   ],
+   "note": "6.4-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Farqlanish ustunligi",
+   "bullets": [
+    "«Raqibimiz yo‘q» deb o‘ylamang: raqib — o‘zi qilish, Excel, oilaviy yordam, hech narsa qilmaslik",
+    "Manbalar: narx, sifat, tezlik va qulaylik, ixtisoslashuv, brend va ishonch",
+    "Shaxsiylashtirish, xizmat va sotuvdan keyingi kafolat",
+    "Ustunlikni tez nusxalab bo‘lmasligi kerak: hamkorlik shartnomasi, ishonch, baza, noyob hunar"
+   ],
+   "sub": "6.5. Raqobat va farqlanish"
+  },
+  {
+   "type": "bullets",
+   "title": "Biznes-modelni sinash",
+   "bullets": [
+    "BMC — gipotezalar to‘plami; har blokda «eng xavfli faraz»ni toping",
+    "Tekshirish: suhbat, MVP, oldindan buyurtma (2-bob)",
+    "Natijaga qarab model yangilanadi (pivot)",
+    "Sog‘lomlik: mijoz to‘lashga tayyormi? Jalb qilish narxi daromaddan kammi?",
+    "Xarajat daromaddan past bo‘ladimi? Kengayganda sifat nazoratda qoladimi?"
+   ],
+   "sub": "6.6. Sinash"
+  },
+  {
+   "type": "bullets",
+   "title": "Keys «SilkCraft»: vaziyat",
+   "bullets": [
+    "Marg‘ilonlik yosh tadbirkor ipak va adrasdan zamonaviy kiyim, aksessuar ishlab chiqaradi",
+    "Sotuv: Uzum Market va ijtimoiy tarmoqlar — xorijiy va mahalliy xaridorlar",
+    "Topshiriq: BMC ning to‘qqiz blokini to‘ldiring"
+   ],
+   "sub": "6.7. Amaliy keys"
+  },
+  {
+   "type": "table",
+   "title": "«SilkCraft»: namunaviy BMC",
+   "sub": "6.7. Amaliy keys",
+   "head": [
+    "Blok",
+    "Mazmuni"
+   ],
+   "rows": [
+    [
+     "Mijoz segmentlari",
+     "Ayollar 20–40; korporativ sovg‘a; diaspora, turistlar"
+    ],
+    [
+     "Qiymat taklifi",
+     "Qo‘lda tayyorlangan zamonaviy milliy mahsulot"
+    ],
+    [
+     "Kanallar",
+     "Uzum Market, Instagram, Telegram, pochta, yarmarkalar"
+    ],
+    [
+     "Mijozlar bilan munosabat",
+     "Shaxsiy yozishma, buyurtma dizayni, sodiqlik chegirmasi"
+    ],
+    [
+     "Daromad oqimlari",
+     "Sotuv, maxsus va ulgurji buyurtma, master-klass"
+    ],
+    [
+     "Resurslar va faoliyat",
+     "Ipak, adras, hunarmandlar, dizayner; ishlab chiqarish, sotuv"
+    ],
+    [
+     "Asosiy hamkorlar",
+     "Xomashyo yetkazuvchilar, Uzum Market, logistika, blogerlar"
+    ],
+    [
+     "Xarajatlar tuzilmasi",
+     "Xomashyo, ish haqi, komissiya, reklama, logistika"
+    ]
+   ],
+   "note": "6.5-jadval (qisqartirilgan: resurslar va faoliyat birlashtirildi)"
+  },
+  {
+   "type": "bullets",
+   "title": "«SilkCraft»: tahlil savollari",
+   "bullets": [
+    "Segmentlar o‘zaro mos qiymat taklifini oladimi?",
+    "Bir kanal (marketpleys)ga bog‘lanish xavfi qanday kamayadi — o‘z sahifasi va mijoz bazasi",
+    "Marketpleys komissiyasi narxga qanday ta’sir qiladi?",
+    "Eksport talablari (sertifikat, qadoq, logistika) hisobga olinganmi?"
+   ],
+   "sub": "6.7. Amaliy keys"
+  },
+  {
+   "type": "bullets",
+   "title": "Pivot: qachon o‘zgartirish, qachon davom etish",
+   "bullets": [
+    "BMC «jonli» vosita: mashhur kompaniyalar ko‘pincha boshqa modeldan boshlagan",
+    "Boshlang‘ich model — yakuniy haqiqat emas, sinov gipotezasi",
+    "Pivot signali: sinov natijalari (Acid Test) muntazam salbiy, o‘zgargan taklif ham jalb qilmaydi",
+    "Sekin, ammo barqaror o‘sish (oyiga 10–15%) — sabr qilib, sifatni oshirish",
+    "Xato ikki tomonlama: yomon g‘oyada sabr yoki yaxshi g‘oyadan erta voz kechish"
+   ],
+   "sub": "6.8. Chuqurlashtirilgan tahlil"
+  },
+  {
+   "type": "table",
+   "title": "Pivot turlari va BMC bloklari",
+   "sub": "6.8. Chuqurlashtirilgan tahlil",
+   "head": [
+    "Pivot turi",
+    "O‘zgaradigan blok",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Mijoz segmenti",
+     "Segment, kanal, munosabat",
+     "B2C dan B2B ga"
+    ],
+    [
+     "Daromad modeli",
+     "Daromad oqimlari",
+     "Bir martalik sotuvdan obunaga"
+    ],
+    [
+     "Kanal",
+     "Kanallar, munosabat",
+     "Offlaindan onlaynga"
+    ],
+    [
+     "Qiymat taklifi",
+     "Qiymat taklifi, faoliyat",
+     "Asosiy funksiya o‘zgaradi"
+    ],
+    [
+     "Daromad manbai",
+     "Xarajat va daromad tuzilmasi",
+     "Reklamadan komissiyaga"
+    ]
+   ],
+   "note": "6.6-jadval. Har bir o‘zgarish real dalilga asoslansin (13-bob)"
+  },
+  {
+   "type": "bullets",
+   "title": "Platforma modellari va tarmoq effekti",
+   "bullets": [
+    "Platforma ikki yoki undan ko‘p tomonni bog‘laydi, o‘zi mahsulot ishlab chiqarmaydi",
+    "Tarmoq effekti: foydalanuvchi ko‘paysa, har biri uchun qiymat oshadi",
+    "«Tuxum-tovuq» muammosi: ikki tomonni bir vaqtda jalb qilish kerak",
+    "Yechim: taklif tomoniga subsidiya yoki bepul xizmat",
+    "Tor hudud yoki segment; auditoriyasi bor hamkor bilan integratsiya"
+   ],
+   "sub": "6.8. Chuqurlashtirilgan tahlil"
+  },
+  {
+   "type": "bullets",
+   "title": "Platformaning uch turi",
+   "bullets": [
+    "Savdo (marketpleys): Uzum, Amazon — ko‘proq sotuvchi, ko‘proq tanlov",
+    "Xizmat: Yandex Go, Airbnb — ko‘proq ijrochi, qisqaroq kutish",
+    "Kontent: YouTube, Telegram kanallari — ko‘proq kontent, tomoshabin uzoqroq qoladi; daromad ko‘pincha reklamadan",
+    "G‘oyangiz qaysi turga mosligini aniqlab, strategiya tanlang"
+   ],
+   "sub": "6.8. Chuqurlashtirilgan tahlil"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa: biznes-model",
+   "bullets": [
+    "Biznes-model g‘oyani pul topadigan tizimga aylantiradi",
+    "BMC: mijoz, qiymat taklifi, kanal, munosabat, daromad, resurs, faoliyat, hamkor, xarajat",
+    "Qiymat taklifi JTBD ga tayanadi: muammo, yechim, foyda, farq",
+    "Obuna, freemium, marketpleys, franshiza, Razor & Blades — har birining xavfi bor",
+    "Har qanday model gipoteza: mijoz bilan sinab, takomillashtiriladi"
+   ],
+   "sub": "Xulosa"
+  }
+ ]
+}

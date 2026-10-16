@@ -1,0 +1,25 @@
+{
+ "goal": "Fikrlar yog‘ini, kuzatuv va suhbat usullari orqali kamida 5 muammoni aniqlab, sinov mahsuloti kontseptsiyasini ishlab chiqish.",
+ "concepts": [
+  "Muammo bayonoti",
+  "ildiz sabab",
+  "mijozni o‘rganish (customer discovery)",
+  "gipoteza",
+  "brainstorming",
+  "SCAMPER"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 2-bob; Ilova E, Z",
+ "tasks": [],
+ "open": [
+  "Amaliy 2. Mijoz muammosini biznes g‘oyaga aylantirish va bozorda sinash. Fikrlar yog‘ini, kuzatuv va suhbat usullari orqali kamida 5 muammoni aniqlab, sinov mahsuloti kontseptsiyasini ishlab chiqish. Bajarish tartibi: 1) 10 daqiqalik brainstorming: kamida 10 muammo va yechim g‘oyasini yozing; 2) Ta’sir-osonlik matritsasi orqali eng yaxshi g‘oyani tanlang; 3) Muammo bayonotini (kim, vaziyat, oqibat) yozing; 4) Sinov gipotezasi va muvaffaqiyat mezonini (masalan, 100 kishidan 20 tasi buyurtma) belgilang; 5) MVP kontseptsiyasini (namuna, e’lon, katalog, buyurtma shakli yoki maket) tayyorlang; 6) Kimga va qanday ko‘rsatish rejasini tuzing; 5 ta suhbat savolini yozing.",
+  "Amaliy mashg'ulotga tayyorgarlik: Kamida 5 ta bozor muammosini aniqlab, eng istiqbollisini tanlang; uning muammo bayonotini yozing; sinov gipotezasi va muvaffaqiyat mezonini shakllantiring; sinov mahsuloti (namuna, e’lon, katalog yoki buyurtma shakli) kontseptsiyasini ishlab chiqing hamda uni kimga va qanday ko‘rsatish rejasini tuzing.",
+  "“5 marta nima uchun” usulini qo‘llab, o‘zingiz tanlagan muammoning ildiz sababini toping; natijani sabab-oqibat sxemasi ko‘rinishida chizing.",
+  "2.4-jadvaldagi MVP turlaridan ikkitasini tanlab, o‘z g‘oyangiz uchun har biri qancha vaqt va xarajat talab qilishini taqqoslang va qaysi birini tanlashingizni asoslang."
+ ],
+ "refs": [
+  "Natija: muammo bayoni, gipoteza, MVP kontseptsiyasi va sinov rejasi. Baholash mezoni: gipotezaning o‘lchanuvchanligi, MVPning arzon va amalga oshirilishi. Ko'p uchraydigan xatolar: Gipotezani o‘lchab bo‘lmaydigan tarzda yozish (“odamlarga yoqadi” — qancha, qanday o‘lchanadi?); MVP’ni haddan tashqari murakkab va qimmat qilib rejalashtirish; Sinovni faqat do‘st va qarindoshlarga ko‘rsatish, begona odamlarga chiqmaslik.",
+  "Namunaviy javob: kamida 5 muammo ro‘yxati; tanlangan muammo bayoni (kim, vaziyat, oqibat); o‘lchanadigan gipoteza va mezon (masalan, 100 kishidan 20 tasi buyurtma beradi); arzon MVP; kimga va qanday ko‘rsatish rejasi. Mezon: gipoteza o‘lchanuvchanligi, MVP soddaligi. Xato: “odamlarga yoqadi” kabi o‘lchanmaydigan gipoteza, faqat yaqinlarga ko‘rsatish.",
+  "Namunaviy javob: “nima uchun?” savoli ketma-ket 5 marta berilgan, har javob oldingisining sababi; oxirgi javob boshqarish mumkin bo‘lgan ildiz sabab; sabab-oqibat sxemasi chizilgan. Mezon: zanjir mantiqiyligi, alomatni sabab bilan aralashtirmaslik. Xato: 2–3 qadamda to‘xtab, alomatni sabab deb yozish.",
+  "Namunaviy javob: 2.4-jadvaldan ikki MVP turi (masalan, e’lon va buyurtma shakli) tanlangan; har biri uchun taxminiy vaqt va xarajat yozilgan; arzonroq va tezroq natija beradigan tur gipotezani tekshirish nuqtai nazaridan asoslangan. Mezon: taqqoslash aniqligi, real xarajat. Xato: murakkab va qimmat MVP tanlash. Raqamlar shartli bo‘lishi mumkin."
+ ]
+}

@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Foyda va zarar hisoboti (P&L) nimani ko‘rsatadi?",
+  "options": [
+   "Biznesning muayyan sanadagi mulki, qarzlari va o‘z kapitali o‘rtasidagi nisbatni",
+   "Har kuni kassaga kelgan va undan chiqqan pulning aniq harakatini",
+   "Kelgusi davr uchun rejalashtirilgan sarmoya miqdori va manbalarini",
+   "Davr uchun daromad va xarajatlar farqidan hosil bo‘lgan foyda yoki zararni"
+  ],
+  "c": 3,
+  "e": "P&L davr uchun daromad va xarajatlarni ko‘rsatib, sof natijani aniqlaydi."
+ },
+ {
+  "q": "Yalpi foyda qanday hisoblanadi?",
+  "options": [
+   "Daromaddan barcha operatsion xarajat va soliqni ayirib",
+   "Operatsion foydadan kredit foizini ayirib",
+   "Daromaddan sotilgan mahsulot tannarxini (COGS) ayirib",
+   "Sof foydaga amortizatsiya va foizni qo‘shib"
+  ],
+  "c": 2,
+  "e": "Yalpi foyda = daromad − tannarx."
+ },
+ {
+  "q": "Operatsion foyda (EBIT) qaysi to‘lovlardan oldingi foydani anglatadi?",
+  "options": [
+   "Tannarx va ish haqi to‘lovlaridan oldingi foydani",
+   "Foiz va soliq to‘lovlaridan oldingi foydani",
+   "Amortizatsiya va ijara to‘lovlaridan oldingi foydani",
+   "Dividend va ustav fondi to‘lovlaridan oldingi foydani"
+  ],
+  "c": 1,
+  "e": "EBIT = yalpi foyda − operatsion xarajatlar; foiz va soliq undan keyin ayiriladi."
+ },
+ {
+  "q": "Buxgalteriya balansining asosiy tenglamasi qaysi?",
+  "options": [
+   "Aktivlar = majburiyatlar + o‘z kapitali",
+   "Aktivlar = majburiyatlar − o‘z kapitali",
+   "O‘z kapitali = aktivlar + majburiyatlar",
+   "Majburiyatlar = aktivlar + o‘z kapitali"
+  ],
+  "c": 0,
+  "e": "Biznes mulki qarz va o‘z mablag‘i hisobidan shakllanadi."
+ },
+ {
+  "q": "Balansda “aktivlar” deb nimaga aytiladi?",
+  "options": [
+   "Biznes egalik qiladigan, kelajakda foyda keltiradigan resurslarga",
+   "Biznesning boshqalar oldida to‘lashi kerak bo‘lgan barcha qarzlariga",
+   "Egalarning hissasi va to‘planib qolgan foydasiga",
+   "Davr ichida sotilgan mahsulotdan tushgan jami summaga"
+  ],
+  "c": 0,
+  "e": "Aktivlarga pul, ombor, debitorlik qarzi, uskuna, transport kiradi."
+ },
+ {
+  "q": "ROE ko‘rsatkichi nimani bildiradi?",
+  "options": [
+   "Jami investitsiya necha oyda qoplanib bo‘lishini",
+   "Sof foydaning tushumdagi ulushini",
+   "O‘z kapitali qancha sof foyda keltirayotganini",
+   "Mijozni jalb qilish xarajati necha oyda qaytishini"
+  ],
+  "c": 2,
+  "e": "ROE = yillik sof foyda / o‘z kapitali × 100%."
+ },
+ {
+  "q": "CAC (mijozni jalb qilish xarajati) qanday topiladi?",
+  "options": [
+   "O‘rtacha oylik marjani mijoz hayoti oylariga ko‘paytirib",
+   "Marketing xarajatini yangi mijozlar soniga bo‘lib",
+   "Jami tushumni barcha mavjud mijozlar soniga bo‘lib",
+   "Yangi mijozlar sonini marketing xarajatiga bo‘lib"
+  ],
+  "c": 1,
+  "e": "CAC = marketing va savdo xarajati / yangi mijozlar soni."
+ },
+ {
+  "q": "LTV (Lifetime Value) nimani ifodalaydi?",
+  "options": [
+   "Bitta yangi mijozni jalb qilishga ketgan xarajatni",
+   "Mijoz bitta xaridda to‘laydigan o‘rtacha chekni",
+   "Biznesning bir yillik umumiy tushumini",
+   "Mijoz hamkorlik davomida keltiradigan jami foydani"
+  ],
+  "c": 3,
+  "e": "LTV = o‘rtacha oylik marja × mijoz hayoti (oylar)."
+ },
+ {
+  "q": "Nega foyda va zarar hisoboti pul oqimi hisobotining o‘rnini bosa olmaydi?",
+  "options": [
+   "U faqat naqd pulda amalga oshgan barcha operatsiyalarni hisobga oladi, xolos",
+   "U faqat balans sanasidagi mulk qiymatini ko‘rsatadi",
+   "U daromad va xarajatni yuzaga kelgan paytda hisoblaydi, pulni ko‘rsatmaydi",
+   "U faqat soliq organlari uchun tuziladi va tadbirkorga umuman kerak bo‘lmaydi"
+  ],
+  "c": 2,
+  "e": "P&L “biznes foydalimi?”, pul oqimi esa “puli yetadimi?” degan savolga javob beradi."
+ },
+ {
+  "q": "Xomashyo narxi 10 foiz oshganda sof foyda 10 foizdan ancha ko‘proq kamayadi. Sababi nima?",
+  "options": [
+   "Soliq stavkasi xomashyo narxi bilan birga avtomatik ravishda oshib ketadi",
+   "Doimiy xarajat o‘zgarmagani uchun kichik o‘zgarish foydaga kuchli ta’sir qiladi",
+   "Daromad xomashyo narxiga mutanosib ravishda kamayib, tushum tushib ketadi",
+   "Amortizatsiya xomashyo narxiga qarab ko‘payib, xarajatlar ortib boradi"
+  ],
+  "c": 1,
+  "e": "Bu operatsion richag: foydaning kichik qismi tushumdan qoladi, shuning uchun o‘zgarish kuchayib ta’sir qiladi."
+ },
+ {
+  "q": "Yalpi marjani nega aynan o‘z sohasidagi o‘rtacha ko‘rsatkichlar bilan solishtirish to‘g‘ri?",
+  "options": [
+   "Turli sohalarda yalpi marja darajasi sezilarli farq qiladi",
+   "Barcha sohalarda yalpi marja aniq bir xil bo‘lishi talab qilinadi",
+   "Soha o‘rtachasi qonunda qat’iy belgilab qo‘yilgan",
+   "Marja faqat tannarx bilan belgilanadi, soha ta’sir qilmaydi"
+  ],
+  "c": 0,
+  "e": "Chakana savdo, umumiy ovqatlanish va dasturiy ta’minotda marja darajalari turlicha."
+ },
+ {
+  "q": "Inflyatsiya yuqori bo‘lib, tadbirkor narxni mijozga o‘tkaza olmasa, biznes natijasi qanday o‘zgaradi?",
+  "options": [
+   "Xarajatlar kamayib, foyda marjasi oshadi",
+   "Daromad avtomatik inflyatsiya darajasida o‘sadi",
+   "Kredit foizi o‘z-o‘zidan nolga tushib qoladi",
+   "Xarajatlar oshib, foyda marjasi eriydi"
+  ],
+  "c": 3,
+  "e": "Narx o‘zgartirilmasa, xarajat oshishi hisobiga marja kamayadi."
+ },
+ {
+  "q": "Sof foyda musbat, ammo operatsion pul oqimi doimiy manfiy. Investor buni qanday baholaydi?",
+  "options": [
+   "Ijobiy signal: biznes soliqni kamaytirishga muvaffaq bo‘lgan",
+   "Qizil bayroq: qog‘ozdagi foyda real pulga aylanmayapti",
+   "Oddiy holat: pul oqimi foydaga hech qachon bog‘liq emas",
+   "Ijobiy signal: kassada ortiqcha pul to‘planib bormoqda"
+  ],
+  "c": 1,
+  "e": "Foyda va pul oqimi o‘rtasidagi katta farq (masalan, to‘lanmagan sotuvlar) jiddiy ogohlantirish belgisi."
+ },
+ {
+  "q": "LTV:CAC nisbati 5:1 dan ancha yuqori bo‘lsa, qanday xulosa mumkin?",
+  "options": [
+   "Har bir mijoz zarar keltirmoqda va biznes modeli ishlamayapti",
+   "Marja juda kichik, shu sababli ehtiyotkorlik zarur bo‘lmoqda",
+   "Marketingga kam sarflanmoqda, o‘sish imkoniyati bor",
+   "Biznes qarz xizmatini o‘z vaqtida uddalay olmayapti"
+  ],
+  "c": 2,
+  "e": "Juda yuqori nisbat model foydali, biroq o‘sish uchun yetarli sarmoya kiritilmayotganini ko‘rsatishi mumkin."
+ },
+ {
+  "q": "Egasi biznes pulidan shaxsiy xarajat qildi. Hisobot haqiqiy holatni buzmasligi uchun nima qilinadi?",
+  "options": [
+   "Buni dividend yoki qarz sifatida rasmiylashtirish",
+   "Uni operatsion xarajatga qo‘shib, tannarxni oshirish",
+   "Hisobga olmasdan qoldirish, chunki summa shaxsiy",
+   "Uni tushum sifatida ko‘rsatib, foydani oshirish"
+  ],
+  "c": 0,
+  "e": "Biznes va shaxsiy mablag‘ aralashmasligi, shaxsiy sarf esa dividend yoki qarz sifatida rasmiylashtirilishi kerak."
+ },
+ {
+  "q": "Yalpi marja uch davrda 60%, 55%, 48% bo‘ldi, sof foyda esa hali musbat. Qaysi xulosa to‘g‘ri?",
+  "options": [
+   "Raqobat kuchayayotgan bo‘lishi mumkin, sababini tekshirish kerak",
+   "Xavotirga o‘rin yo‘q, chunki sof foyda hali ham musbat bo‘lib turibdi",
+   "Marja pasayishi tasodif, tendensiyaga e’tibor bermaslik kerak",
+   "Sof foydani oshirish uchun tannarxni hisobotdan chiqarish kerak"
+  ],
+  "c": 0,
+  "e": "Izchil pasayayotgan marja sof foyda musbat bo‘lsa ham ogohlantiruvchi tendensiya hisoblanadi."
+ },
+ {
+  "q": "Tadbirkor xarajatni kamaytirmoqchi. Qaysi qaror noto‘g‘ri hisoblanadi?",
+  "options": [
+   "Ta’minotchi bilan hajm chegirmasi bo‘yicha qayta muzokara qilish",
+   "Brak va muddati o‘tgan mahsulot isrofini o‘lchab, kamaytirish",
+   "Eng katta uch xarajat moddasini birinchi navbatda tahlil qilish",
+   "Mijoz uchun qimmatli sifat va xizmatni kamaytirib yuborish"
+  ],
+  "c": 3,
+  "e": "Sifat, xizmat va marketingni haddan tashqari qisqartirish daromadni pasaytirib yuborishi mumkin."
+ },
+ {
+  "q": "Startap tushumining katta qismi bitta yirik mijozga bog‘liq. Moliyaviy barqarorlik nuqtai nazaridan bu nimani anglatadi?",
+  "options": [
+   "Barqarorlik belgisi: tushum ishonchli mijozga tayanadi",
+   "Xavfsiz holat: sof foyda avtomatik ravishda o‘sib boradi",
+   "Xavfli belgi: o‘sha mijoz ketsa, tushum keskin kamayadi",
+   "Ahamiyatsiz holat: tushum manbasi tahlilga ta’sir qilmaydi"
+  ],
+  "c": 2,
+  "e": "Mijozlar konsentratsiyasi yuqori bo‘lsa, bitta mijozni yo‘qotish biznesga katta zarba beradi."
+ },
+ {
+  "q": "Biznesga jami 80 million so‘m sarmoya kiritilgan, oylik sof foyda 2 million so‘m. Yillik ROI qancha?",
+  "options": [
+   "2,5 foiz",
+   "30 foiz",
+   "24 foiz",
+   "3,3 foiz"
+  ],
+  "c": 1,
+  "e": "ROI = (2 × 12) / 80 × 100% = 30 foiz."
+ },
+ {
+  "q": "Mijoz oyiga 60 dollar marja keltiradi va 12 oy xizmatdan foydalanadi. CAC 240 dollar. LTV:CAC nisbati qancha?",
+  "options": [
+   "2:1",
+   "4:1",
+   "12:1",
+   "3:1"
+  ],
+  "c": 3,
+  "e": "LTV = 60 × 12 = 720 dollar; 720 / 240 = 3, ya’ni 3:1."
+ }
+]

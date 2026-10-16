@@ -1,0 +1,511 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Nima uchun biznesni rasmiylashtirish kerak",
+   "bullets": [
+    "Rasmiylashtirish — subyektning huquqiy maqomini belgilovchi asosiy bosqich",
+    "Natija: STIR beriladi, soliq va statistika organlarida hisobga qo‘yiladi",
+    "Huquqiy himoya, bank xizmatlari, hamkorlar ishonchi",
+    "Imtiyoz, grant, subsidiya va kredit — faqat rasmiy subyektlarga",
+    "Xodimlarni rasmiy yollash va ijtimoiy kafolatlar"
+   ],
+   "sub": "4.1. Rasmiylashtirish zarurati"
+  },
+  {
+   "type": "compare",
+   "title": "Rasmiy biznes va ro‘yxatsiz faoliyat",
+   "left": {
+    "head": "Rasmiy ro‘yxatdan o‘tgan",
+    "items": [
+     "Mulk va shartnomalar qonun bilan himoyalanadi",
+     "Bank hisobi, naqdsiz to‘lov, kredit",
+     "Yirik mijoz va davlat tashkilotlari bilan shartnoma",
+     "Grant, subsidiya, imtiyozlar",
+     "Raqamli tizimlarda bir necha daqiqada"
+    ]
+   },
+   "right": {
+    "head": "Ro‘yxatdan o‘tmagan",
+    "items": [
+     "Ma’muriy, ayrim hollarda jinoiy javobgarlik",
+     "Mijoz nizosida huquqiy himoya yo‘q",
+     "Bank va moliyalashtirishdan mahrum",
+     "Xodimni rasmiy yollab bo‘lmaydi",
+     "Hatto kichik biznes ham imkon qadar tez rasmiylashtiriladi"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Faoliyatning huquqiy asosi",
+   "bullets": [
+    "Fuqarolik kodeksi; «Tadbirkorlik faoliyati erkinligining kafolatlari to‘g‘risida»gi Qonun",
+    "MChJ to‘g‘risidagi Qonun (2001-yil 6-dekabr, 310-II-son)",
+    "Soliq kodeksi; «Buxgalteriya hisobi to‘g‘risida»gi Qonun; Mehnat kodeksi",
+    "Litsenziyalash va ruxsat berish qonunchiligi, Prezident farmon va qarorlari",
+    "Amaldagi tahrir — lex.uz milliy bazasida"
+   ],
+   "sub": "4.1. Rasmiylashtirish zarurati"
+  },
+  {
+   "type": "figure",
+   "title": "Tashkiliy-huquqiy shakllar: murakkablik va javobgarlik",
+   "img": "image10.png",
+   "caption": "4.1-rasm. Tashkiliy-huquqiy shakllar: murakkablik va javobgarlik"
+  },
+  {
+   "type": "compare",
+   "title": "O‘zini o‘zi band qilgan shaxs va YaTT",
+   "left": {
+    "head": "O‘zini o‘zi band qilgan",
+    "items": [
+     "Yuridik shaxs emas, xodim yollamaydi",
+     "Onlayn, juda tez va sodda rasmiylashtirish",
+     "Talabalar uchun eng past to‘siqli start",
+     "Misol: repetitorlik, dizayn, tarjima, foto",
+     "Daromad chegarasidan oshsa — YaTT yoki yuridik shaxs"
+    ]
+   },
+   "right": {
+    "head": "Yakka tartibdagi tadbirkor (YaTT)",
+    "items": [
+     "Bir jismoniy shaxs, yuridik shaxs tashkil etilmaydi",
+     "Ustav fondi va murakkab ta’sis hujjatlari yo‘q",
+     "Cheklanmagan javobgarlik: barcha mol-mulk bilan",
+     "2026-yil 1-yanvardan firma nomi (PF-214)",
+     "Kichik savdo, xizmat, hunarmandchilik uchun"
+    ]
+   },
+   "sub": "4.2. Shakllar"
+  },
+  {
+   "type": "bullets",
+   "title": "Mas’uliyati cheklangan jamiyat (MChJ)",
+   "bullets": [
+    "O‘zbekistonda eng keng tarqalgan, moslashuvchan yuridik shakl",
+    "Ta’sischi faqat kiritgan hissasi doirasida tavakkal qiladi",
+    "Ishtirokchilar soni odatda 50 nafardan oshmaydi",
+    "Ustav fondi: eng kam miqdor talabi bekor (O‘RQ-531, 2019-yil 20-mart)",
+    "Hissa ro‘yxatdan o‘tgandan boshlab 1 yil ichida kiritiladi"
+   ],
+   "sub": "4.2. Shakllar",
+   "note": "Bank, mikrokredit, lombard va xorijiy investitsiyali korxonalarga alohida talab saqlangan"
+  },
+  {
+   "type": "bullets",
+   "title": "Aksiyadorlik jamiyati va boshqa shakllar",
+   "bullets": [
+    "AJ: ustav fondi aksiyalarga bo‘linadi; javobgarlik aksiya qiymati doirasida",
+    "AJ murakkab boshqaruv, oshkora hisobot, ko‘pincha audit talab qiladi — boshlovchiga mos emas",
+    "Oilaviy tadbirkorlik, fermer va dehqon xo‘jaligi, kooperativ",
+    "Qo‘shimcha mas’uliyatli jamiyat (QMChJ): subsidiar javobgarlik"
+   ],
+   "sub": "4.2. Shakllar",
+   "note": "AJ «ochiq/yopiq» bo‘linishi eski tasnif — lex.uz dan tekshiring"
+  },
+  {
+   "type": "table",
+   "title": "Shakllarning qiyosiy tahlili",
+   "sub": "4.2. Shakllar",
+   "head": [
+    "Mezon",
+    "O‘zini o‘zi band",
+    "YaTT",
+    "MChJ",
+    "AJ"
+   ],
+   "rows": [
+    [
+     "Ta’sischilar",
+     "Bir jismoniy shaxs",
+     "Bir jismoniy shaxs",
+     "Bir yoki bir necha shaxs",
+     "Ko‘p aksiyadorlar"
+    ],
+    [
+     "Javobgarlik",
+     "Shaxsiy mol-mulk",
+     "Cheklanmagan",
+     "Ulush doirasida",
+     "Aksiya doirasida"
+    ],
+    [
+     "Ustav fondi",
+     "Yo‘q",
+     "Yo‘q",
+     "1 yil ichida shakllanadi",
+     "Aksiyalarga bo‘linadi"
+    ],
+    [
+     "Ro‘yxatdan o‘tish",
+     "Eng sodda, onlayn",
+     "Sodda, onlayn",
+     "O‘rtacha, onlayn",
+     "Nisbatan murakkab"
+    ],
+    [
+     "Xodim yollash",
+     "Odatda mumkin emas",
+     "Shartlarda mumkin",
+     "Cheklovsiz",
+     "Cheklovsiz"
+    ],
+    [
+     "Investor jalb qilish",
+     "Juda cheklangan",
+     "Cheklangan",
+     "Qulay (ulush)",
+     "Eng qulay (aksiya)"
+    ],
+    [
+     "Mos biznes",
+     "Yakka mehnat",
+     "Kichik savdo, hunar",
+     "O‘rta va kichik, startap",
+     "Yirik loyihalar"
+    ]
+   ],
+   "note": "4.1-jadval"
+  },
+  {
+   "type": "steps",
+   "title": "Shaklni tanlash: uchta savol",
+   "sub": "4.2. Shakllar",
+   "steps": [
+    "1-savol: javobgarlikni qanday cheklash kerak? Xavf katta bo‘lsa — MChJ",
+    "2-savol: hamkor yoki investor bormi? Ulushni rasmiylashtirish uchun MChJ",
+    "3-savol: soliq va hisobot yuki? 2026-yildan YaTT — aylanma solig‘i 1% (5-bob)",
+    "Zanjir: o‘zini o‘zi band → YaTT → MChJ → o‘rta biznes",
+    "G‘oya sinovda — o‘zini o‘zi band yoki YaTT; barqaror mijoz va hamkor bo‘lsa — MChJ"
+   ],
+   "note": "Misol: Madina (3D-bosma) dastlab yolg‘iz — o‘zini o‘zi band; yirik buyurtma va hamkor chiqqach — MChJ"
+  },
+  {
+   "type": "figure",
+   "title": "Biznesni rasmiylashtirish bosqichlari",
+   "img": "image11.png",
+   "caption": "4.2-rasm. Biznesni rasmiylashtirish bosqichlari (PF-214 asosida)",
+   "sub": "4.3. 15 daqiqada boshlash"
+  },
+  {
+   "type": "bullets",
+   "title": "«Biznesni 15 daqiqada boshlash» tamoyili",
+   "bullets": [
+    "PF-214-son Farmon (2025-yil 14-noyabr), 15-noyabrdan kuchga kirgan",
+    "2026-yil 1-yanvardan: ro‘yxatdan o‘tishda bir necha davlat xizmati bir vaqtda",
+    "Xizmatlar to‘plami — 7 element, har biri ixtiyoriy",
+    "Tanlangan xizmatlar to‘lovi yagona QR-kod orqali bir vaqtda",
+    "Bitta elektron ariza asosida ma’lumotlar davlat bazalari o‘rtasida almashadi"
+   ],
+   "sub": "4.3. 15 daqiqada boshlash"
+  },
+  {
+   "type": "table",
+   "title": "15 daqiqa doirasidagi xizmatlar",
+   "sub": "4.3. 15 daqiqada boshlash",
+   "head": [
+    "№",
+    "Xizmat",
+    "Mazmuni"
+   ],
+   "rows": [
+    [
+     "1",
+     "ERI kaliti",
+     "Raqamli imzo kalitini berish va faollashtirish"
+    ],
+    [
+     "2",
+     "Bank hisobvarag‘i",
+     "Hisob ochish va faollashtirish uchun ariza"
+    ],
+    [
+     "3",
+     "Litsenziya, ruxsatnoma, xabarnoma",
+     "Faoliyat turiga qarab ariza yoki xabarnoma"
+    ],
+    [
+     "4",
+     "Ko‘chmas mulk ijarasi",
+     "Shartnomani rasmiylashtirish, soliq bazasida ro‘yxatga olish"
+    ],
+    [
+     "5",
+     "QQS to‘lovchisi guvohnomasi",
+     "Soliq xavfi darajasi bo‘yicha avtomatik beriladi"
+    ],
+    [
+     "6",
+     "Onlayn NKM",
+     "Onlayn xarid qilish va soliq organida ro‘yxatga olish"
+    ],
+    [
+     "7",
+     "Rahbarni tayinlash",
+     "«Yagona milliy mehnat tizimi»da hisobga qo‘yish"
+    ]
+   ],
+   "note": "4.2-jadval"
+  },
+  {
+   "type": "steps",
+   "title": "Davlat ro‘yxatidan o‘tkazish bosqichlari",
+   "sub": "4.4. Bosqichlar",
+   "steps": [
+    "1. Nom tanlash va tekshirish: reestrda takrorlanmasligi, cheklovlar",
+    "2. Ta’sis hujjatlari: Ustav, ta’sis shartnomasi, umumiy yig‘ilish qarori",
+    "3. Onlayn ro‘yxatdan o‘tish: my.gov.uz, ariza ERI bilan imzolanadi; elektron guvohnoma va STIR",
+    "4. Bank hisobvarag‘i: biznes va shaxsiy mablag‘ni aralashtirmaslik",
+    "5. Litsenziya, ruxsatnoma yoki xabarnoma (zarur bo‘lsa)",
+    "6. Faoliyatni tashkil etish: manzil, NKM, mehnat shartnomalari, hisob"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Nom, ta’sis hujjatlari va hujjatlar to‘plami",
+   "bullets": [
+    "Nomda «O‘zbekiston Respublikasi», «Davlat», «Prezident» kabi so‘zlar mumkin emas",
+    "Ustavda: nom, manzil, faoliyat turlari, ta’sischilar huquqi, ustav fondi, organlar",
+    "Hamkorlar bo‘lsa: ulush, foyda taqsimoti, biznesdan chiqish, nizo shartlari alohida yoziladi",
+    "Kerak: ariza, pasport/ID-karta va JShShIR, Ustav, ta’sischilar qarori, manzil hujjati",
+    "Onlayn davlat boji olinmasligi ta’kidlangan — my.gov.uz da tekshiring"
+   ],
+   "sub": "4.4. Bosqichlar"
+  },
+  {
+   "type": "figure",
+   "title": "Litsenziya, ruxsatnoma va xabarnoma",
+   "img": "image12.png",
+   "caption": "4.3-rasm. Litsenziya, ruxsatnoma va xabarnoma — nazorat darajasi",
+   "sub": "4.5. Ruxsat tartiblari"
+  },
+  {
+   "type": "bullets",
+   "title": "Litsenziya, ruxsatnoma va xabardor qilish",
+   "bullets": [
+    "Litsenziya: yuqori xavfli turlar (bank, tibbiyot, ta’lim, farmatsevtika)",
+    "Ruxsatnoma: ayrim faoliyat yoki harakatlar uchun",
+    "Xabardor qilish: faoliyat boshlanishi haqida xabar, ruxsat kutilmaydi",
+    "Ruxsatsiz faoliyat: jarima, to‘xtatish, jinoiy javobgarlik mumkin",
+    "PF-214: 2026-yil 1-martdan muvofiqlikni ixtiyoriy oldindan baholash (pullik)"
+   ],
+   "sub": "4.5. Ruxsat tartiblari",
+   "note": "Litsenziya kerak-kerakmasligini ish boshlashdan oldin aniqlang"
+  },
+  {
+   "type": "bullets",
+   "title": "Raqamli platformalar",
+   "bullets": [
+    "my.gov.uz — davlat xizmatlari: ro‘yxatdan o‘tish, litsenziya, ijara, ma’lumotnomalar",
+    "my.soliq.uz — soliq kabineti: hisobot, to‘lov, qarzdorlik, rejim tanlash, hisob-faktura",
+    "ERI — qo‘lyozma imzoning huquqiy ekvivalenti",
+    "ERIsiz onlayn ariza, elektron shartnoma va hisobot yo‘q",
+    "ERI kaliti va parolini boshqa shaxsga bermang"
+   ],
+   "sub": "4.6. Raqamli vositalar"
+  },
+  {
+   "type": "table",
+   "title": "Oddiy shartnomaning asosiy bo‘limlari",
+   "sub": "4.7. Shartnoma",
+   "head": [
+    "Bo‘lim",
+    "Nimani ko‘rsatish kerak",
+    "Odatiy xato"
+   ],
+   "rows": [
+    [
+     "Tomonlar",
+     "Nom/F.I.Sh., STIR, manzil, vakolat asosi",
+     "Vakolatsiz shaxs imzosi"
+    ],
+    [
+     "Predmet",
+     "Nima sotiladi/xizmat; miqdor, sifat, hajm",
+     "Noaniq ta’rif"
+    ],
+    [
+     "Narx va to‘lov",
+     "Summa, QQS, muddat, usul, avans",
+     "To‘lov muddati yo‘q"
+    ],
+    [
+     "Muddat",
+     "Bajarish va amal qilish muddati",
+     "«Kelishilgan muddatda»"
+    ],
+    [
+     "Javobgarlik",
+     "Neustoyka, zararni qoplash",
+     "Umuman yozilmaydi"
+    ],
+    [
+     "Nizolarni hal etish",
+     "Muzokara, da’vo, sud yoki arbitraj",
+     "«Qonunga muvofiq»"
+    ],
+    [
+     "Yakuniy qoidalar",
+     "O‘zgartirish, bekor qilish, force majeure",
+     "Rekvizit va imzo unutiladi"
+    ]
+   ],
+   "note": "4.3-jadval. Og‘zaki kelishuvga ishonmang, ERI bilan imzolash mumkin"
+  },
+  {
+   "type": "bullets",
+   "title": "Ro‘yxatdan keyingi majburiyatlar",
+   "bullets": [
+    "Soliq va statistik hisobotlarni tanlangan rejim bo‘yicha muddatida topshirish",
+    "Har bir xodim bilan mehnat shartnomasi, «Yagona milliy mehnat tizimi»da ro‘yxat",
+    "Daromad-xarajat hisobi va birlamchi hujjatlarni saqlash",
+    "Litsenziya va ruxsatnoma muddatini kuzatish",
+    "Manzil va rekvizit o‘zgarsa — rasmiy tartibda kiritish"
+   ],
+   "sub": "4.8. Majburiyatlar va xatolar"
+  },
+  {
+   "type": "table",
+   "title": "Yangi tadbirkorlarning tipik xatolari",
+   "sub": "4.8. Majburiyatlar va xatolar",
+   "head": [
+    "Xato",
+    "Oqibat"
+   ],
+   "rows": [
+    [
+     "Ta’sis hujjatlarini shoshilinch tayyorlash",
+     "Ulush, dividend, chiqish bo‘yicha nizolar"
+    ],
+    [
+     "Manzilni noto‘g‘ri ko‘rsatish",
+     "Soliq xavfi oshadi, QQS guvohnomasi muammosi"
+    ],
+    [
+     "Ruxsatsiz litsenziyali faoliyat",
+     "Katta jarima, faoliyat to‘xtatiladi"
+    ],
+    [
+     "Bank hisobi yo‘q, shaxsiy kartadan foydalanish",
+     "Qoidabuzarlik deb baholanish, hisob qiyinligi"
+    ],
+    [
+     "Hisobotni kechiktirish",
+     "Jarima, hisobvaraq cheklanishi"
+    ],
+    [
+     "Xodimni rasmiy ro‘yxatga olmaslik",
+     "Mehnat nizolari va javobgarlik"
+    ]
+   ],
+   "note": "4.4-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Intellektual mulk va tovar belgisi",
+   "bullets": [
+    "IM — nom, logotip, dizayn, texnologiya, ijodiy asar kabi nomoddiy aktivlar",
+    "Turlari: tovar belgisi, patent, sanoat namunasi, mualliflik huquqi",
+    "Ro‘yxatdan o‘tmagan nomni boshqa birov band qilib, taqiqlashi mumkin",
+    "Bosqichlar: qidiruv, ariza, ekspertiza (bir necha oy), guvohnoma",
+    "Nom va logotipni biznes bilan bir vaqtda rasmiylashtirishni boshlang"
+   ],
+   "sub": "4.9. IM va franshiza"
+  },
+  {
+   "type": "table",
+   "title": "IM turlari va himoya usullari",
+   "sub": "4.9. IM va franshiza",
+   "head": [
+    "IM turi",
+    "Nima himoyalanadi",
+    "Rasmiylashtirish"
+   ],
+   "rows": [
+    [
+     "Tovar belgisi",
+     "Nom, logotip, shior",
+     "Ariza, ekspertiza, guvohnoma"
+    ],
+    [
+     "Patent",
+     "Texnik ixtiro, yangi jarayon",
+     "Texnik tavsif, uzoqroq ekspertiza"
+    ],
+    [
+     "Sanoat namunasi",
+     "Mahsulot yoki qadoq dizayni",
+     "Rasmiy ro‘yxatga olish"
+    ],
+    [
+     "Mualliflik huquqi",
+     "Matn, kod, video, musiqa",
+     "Avtomatik; depozit tavsiya etiladi"
+    ],
+    [
+     "Savdo siri",
+     "Retsept, mijozlar bazasi, algoritm",
+     "Maxfiylik shartnomasi, ichki tartib"
+    ]
+   ],
+   "note": "4.5-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Maxfiylik shartnomasi (NDA) amaliyoti",
+   "bullets": [
+    "Tajribali investor va akseleratorlar dastlab ko‘pincha NDA imzolamaydi",
+    "Taqdimotda nozik texnik tafsilot (masalan, algoritm kodi) ochilmaydi",
+    "Umumiy g‘oya va bozor imkoniyati ko‘rsatiladi",
+    "Texnik amalga oshirish — jiddiy muzokaradan keyin"
+   ],
+   "sub": "4.9. IM va franshiza"
+  },
+  {
+   "type": "compare",
+   "title": "Franshiza orqali boshlash",
+   "sub": "4.9. IM va franshiza",
+   "left": {
+    "head": "Afzalliklari",
+    "items": [
+     "Sinovdan o‘tgan biznes-model, kamroq xavf",
+     "Tezroq boshlash",
+     "Brend tanilgan"
+    ]
+   },
+   "right": {
+    "head": "Kamchiliklari",
+    "items": [
+     "Kamroq mustaqillik",
+     "Boshlang‘ich haq",
+     "Doimiy royalti (odatda tushumning 3–8%)"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Franshiza shartnomasi va tekshiruv ro‘yxati",
+   "bullets": [
+    "Shartnomada: boshlang‘ich haq, royalti, hududiy eksklyuzivlik, qo‘llab-quvvatlash, muddat",
+    "Boshqa franshiza oluvchilar natijasi — ular bilan bevosita suhbatlashing",
+    "Yashirin xarajatlar: marketing fondiga badal, uskunani faqat beruvchidan olish",
+    "Muddatidan oldin bekor qilish shartlari",
+    "Mahalliy bozorga moslashtirish erkinligi (menyu, narx)"
+   ],
+   "sub": "4.9. IM va franshiza"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa: biznesni rasmiylashtirish",
+   "bullets": [
+    "Rasmiylashtirish — huquqiy himoya, bank, moliyalashtirish, hamkorlar ishonchi",
+    "Shakl tanlash: javobgarlik, hamkorlar, soliq va kengayish rejasi",
+    "O‘zini o‘zi band qilish va YaTT — boshlash uchun; MChJ — hamkor va xavf yuqori bo‘lsa",
+    "PF-214 va my.gov.uz, my.soliq.uz, ERI ro‘yxatdan o‘tishni tezlashtirdi",
+    "Litsenziya, shartnoma, hisob va soliq majburiyati tadbirkor zimmasida"
+   ],
+   "sub": "Xulosa"
+  }
+ ]
+}

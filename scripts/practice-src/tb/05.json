@@ -1,0 +1,121 @@
+{
+ "goal": "Mos soliq rejimini tanlash, daromad-xarajat daftarini to‘ldirish, birlamchi hujjatlarni to‘g‘ri rasmiylashtirishni mashq qilish.",
+ "concepts": [
+  "Soliq",
+  "soliq stavkasi",
+  "soliq bazasi",
+  "aylanmadan olinadigan soliq",
+  "qo‘shilgan qiymat solig‘i (QQS)",
+  "foyda solig‘i"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 5-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb5-p1",
+   "title": "Aylanma solig‘i va foyda solig‘ini solishtirish",
+   "text": "MChJning yillik tushumi 900 million, xarajati 700 million so‘m. Aylanma solig‘i (4%) va foyda solig‘i (15%, QQS hisobga olinmaydi) bo‘yicha yillik soliq yukini hisoblang.",
+   "fields": [
+    {
+     "label": "Aylanma solig‘i",
+     "value": 36,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Foyda solig‘i",
+     "value": 30,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Aylanma solig‘i = 900 × 4% = 36 mln. Foyda = 900 − 700 = 200 mln; foyda solig‘i = 200 × 15% = 30 mln. Bu misolda foyda solig‘i arzonroq.",
+   "formula": "Aylanma solig‘i = tushum × 4%; Foyda solig‘i = (tushum − xarajat) × 15%",
+   "note": "Foyda marjasi 4/15 = 26,7% dan yuqori bo‘lsa aylanma solig‘i, past bo‘lsa foyda solig‘i arzon. Bu yerda marja 22,2%. QQS, hisobot murakkabligi va chegaralar tanlovni o‘zgartirishi mumkin."
+  },
+  {
+   "id": "tb5-p2",
+   "title": "Menejerning maoshi va ish beruvchi xarajati",
+   "text": "Sotuv menejerining oylik maoshi 4,5 million so‘m, bonus — 150 million so‘mlik sotuvning 2% i. JShDS 12%, ijtimoiy soliq 12%. Xodim qo‘liga tegadigan summani, ijtimoiy soliqni va ish beruvchi uchun jami xarajatni toping.",
+   "fields": [
+    {
+     "label": "Xodim qo‘liga",
+     "value": 6.6,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Ijtimoiy soliq",
+     "value": 0.9,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Ish beruvchining jami xarajati",
+     "value": 8.4,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Bonus = 150 × 2% = 3 mln. Hisoblangan ish haqi = 4,5 + 3 = 7,5 mln. JShDS = 7,5 × 12% = 0,9 mln; qo‘lga = 7,5 − 0,9 = 6,6 mln. Ijtimoiy soliq = 7,5 × 12% = 0,9 mln. Jami xarajat = 7,5 + 0,9 = 8,4 mln (112%).",
+   "formula": "Qo‘lga = hisoblangan × (1 − 0,12); Jami xarajat = hisoblangan × 1,12",
+   "note": ""
+  },
+  {
+   "id": "tb5-p3",
+   "title": "Uch rejimda soliq yuki (5.2-jadval)",
+   "text": "Biznesning yillik tushumi 800 mln so‘m (QQSsiz). Xomashyo va tovar xaridi 450 mln (QQSsiz), ish haqi 96 mln, ijtimoiy soliq 11,52 mln, boshqa xarajatlar 100 mln so‘m. Soliq yukini hisoblang: (a) YaTT, 1%; (b) MChJ, aylanma solig‘i 4%; (c) MChJ umumbelgilangan tartibda: QQS 12% × (tushum − xarid) va foyda solig‘i 15% yig‘indisi.",
+   "fields": [
+    {
+     "label": "YaTT (1%)",
+     "value": 8,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "MChJ, aylanma solig‘i (4%)",
+     "value": 32,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "MChJ, umumbelgilangan (QQS + foyda)",
+     "value": 63.372,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "(a) 800 × 1% = 8,0. (b) 800 × 4% = 32,0. (c) QQS = 12% × (800 − 450) = 42,0. Foyda = 800 − 450 − 96 − 11,52 − 100 = 142,48; foyda solig‘i = 142,48 × 15% = 21,372. Jami = 42 + 21,372 = 63,372 mln (tushumning 7,9% i).",
+   "formula": "QQS = 12% × (tushum − xarid); Foyda solig‘i = 15% × (tushum − xarajatlar)",
+   "note": "Darslikda 63,4 (yaxlitlangan). Javobgarlik: YaTTda cheklanmagan, MChJda cheklangan; hisobot yuki umumbelgilanganda eng og‘ir."
+  },
+  {
+   "id": "tb5-p4",
+   "title": "YaTT soliqi va chegara (TezTarjima)",
+   "text": "YaTT sifatida ishlaydigan onlayn tarjima xizmatining oylik tushumi 25 million so‘m. 1% aylanma solig‘i bo‘yicha oylik va yillik soliqni hisoblang. 1% stavka yillik aylanma 1 milliard so‘mgacha qo‘llanadi: chegaraga yetish uchun oylik o‘rtacha tushum qancha bo‘lishi kerak?",
+   "fields": [
+    {
+     "label": "Oylik soliq",
+     "value": 0.25,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Yillik soliq",
+     "value": 3,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Chegaraga yetadigan oylik tushum",
+     "value": 83.333,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Oylik soliq = 25 × 1% = 0,25 mln (250 000 so‘m). Yillik soliq = 0,25 × 12 = 3 mln; yillik tushum 300 mln. Chegara: 1000 / 12 ≈ 83,33 mln so‘m oyiga.",
+   "formula": "Soliq = tushum × 1%; Oylik chegara = 1000 / 12",
+   "note": ""
+  }
+ ],
+ "open": [
+  "Amaliy 5. Soliqlar va hujjatlarni yuritish. mos soliq rejimini tanlash, daromad-xarajat daftarini to‘ldirish, birlamchi hujjatlarni to‘g‘ri rasmiylashtirishni mashq qilish. Bajarish tartibi: 1) O‘z biznesingiz uchun yillik taxminiy tushum va xarajatni belgilang; 2) Ikki-uch rejimda soliq yukini hisoblang (5.2-jadval); 3) Mos rejimni tanlab, asoslang va aylanma chegarasi bilan solishtiring; 4) Bir oylik daromad-xarajat daftarini to‘ldiring (kamida 12 operatsiya); 5) Bir savdo uchun hujjatlar to‘plamini (shartnoma, hisob-faktura, chek) ro‘yxatlang; 6) Xodim maoshi bo‘yicha JShDS va ijtimoiy soliqni hisoblang.",
+  "O‘z biznes g‘oyangiz uchun uch xil rejimda (mumkin bo‘lganlarida) soliq yukini shartli tushum va xarajat asosida 5.2-jadval shaklida hisoblab, mos rejimni asoslang; 5.4-jadval shaklida bir oylik daromad-xarajat daftarini (kamida 12 operatsiya) to‘ldiring.",
+  "my.soliq.uz shaxsiy kabineti interfeysini (skrinshot yoki tavsif orqali) o‘rganib, YaTT sifatida ro‘yxatdan o‘tish uchun kerakli qadamlarni ro‘yxatlang.",
+  "5.3-rasmdagi uch rejimni o‘z g‘oyangizning taxminiy tushum va xarajat raqamlari bilan qayta hisoblab, eng maqbul rejimni tanlang."
+ ],
+ "refs": [
+  "Namuna: yillik tushum va xarajat o‘z biznesidan olingan; 2–3 rejimda (YaTT 1%, MChJ aylanma 4%, umumbelgilangan: QQS 12% va foyda solig‘i 15%) yuk hisoblangan; rejim soliq miqdori, javobgarlik va hisobot murakkabligi bo‘yicha tanlangan, YaTT uchun 1 mlrd so‘m chegarasi bilan solishtirilgan. Daftar kamida 12 operatsiyadan iborat, har birida sana, hujjat, kirim/chiqim bor. Hujjatlar: shartnoma, hisob-faktura, chek (fiskal), akt, to‘lov topshiriqnomasi. Maosh: JShDS 12% xodimdan ushlanadi, ijtimoiy soliq 12% ish beruvchidan (masalan, 5 mln maoshda 0,6 + 0,6 mln, ish beruvchiga jami 5,6 mln). Xato: faqat “eng arzon” mezoni, o‘ylab topilgan raqamlar, foizni noto‘g‘ri qo‘llash.",
+  "Mezon: hisob-kitob 5.2-jadval tuzilmasida (soliq bazasi, hisoblangan soliq, jami, tushumga nisbati); stavkalar to‘g‘ri (1%, 4%, 12%, 15%); tanlov nafaqat summa, balki javobgarlik va hisobot yukiga ham asoslangan. Daftar tartibli: kirim va chiqim ustunlari, oy yakuni (tushum − xarajat = soliqqacha daromad). Marketpleysda sotilsa, 2026-yildan pasaytirilgan stavkalar bekor qilingani va komissiya hisobga olinishi kerak.",
+  "Mezon: ketma-ketlik: my.soliq.uz shaxsiy kabineti, ERI yoki OneID orqali kirish, YaTT sifatida ro‘yxatdan o‘tish (my.gov.uz), STIR, soliq rejimini belgilash, NKM/onlayn kassa, hisobotlar va to‘lovlar bo‘limi. Talaba kabinetda nimalar mumkinligini (hisobot topshirish, soliq to‘lash, hisob-fakturalar, muddatlarni kuzatish) aytishi kerak. Ekran nomlarini o‘ylab topish xato; aniq nomlar uchun portaldan tekshirish zarur.",
+  "Mezon: 5.2-jadvaldagi uchala rejim (YaTT 1%, aylanma 4%, umumbelgilangan) o‘z raqamlari bilan qayta hisoblangan; hisob-kitob to‘g‘ri (masalan, tushum 800, xarid 450 bo‘lganda 8,0 / 32,0 / 63,4 mln). Eng maqbul rejim arzonlik, javobgarlik va hisobot yukiga ko‘ra asoslangan. Xulosa: aylanma soliqli rejimlar sodda va ko‘pincha arzon, ammo foyda marjasi juda past bo‘lsa yoki xarajat katta bo‘lib hamkorlar QQS to‘lovchi bo‘lsa, umumbelgilangan rejim qulay bo‘lishi mumkin."
+ ]
+}

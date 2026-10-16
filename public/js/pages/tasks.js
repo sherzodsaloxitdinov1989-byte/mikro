@@ -2,7 +2,8 @@
 import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
+import { COURSE, formByKey, subjectOfGroup, subjectByKey } from "../../data/course.js";
+import { SUBJECT_KEY } from "../../data/topics.js";
 import { extractText } from "../doctext.js";
 import { reviewView, saveBlob } from "./assignment.js";
 
@@ -231,7 +232,8 @@ function drawList(body, data, reload) {
 }
 
 function openBuilder(task, data, reload) {
-  const t = task || { title: "", description: "", forms: [], groups: [], semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: false, aiEnabled: true, criteria: [], rubric: "", reference: "" };
+  // Yangi topshiriq tanlangan fan guruhlariga beriladi (asosiy fan — hammaga)
+  const t = task || { title: "", description: "", forms: [], groups: SUBJECT_KEY === "mikro" ? [] : [...(subjectByKey(SUBJECT_KEY)?.groups || [])], semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: false, aiEnabled: true, criteria: [], rubric: "", reference: "" };
   const forms = COURSE.studyForms || [];
   const title = h("input", { type: "text", maxlength: 150, value: t.title, placeholder: "Masalan: Talab elastikligini hisoblash" });
   const description = h("textarea", { rows: 8, maxlength: 8000, placeholder: "Topshiriq sharti: nima qilish kerak, qanday ma'lumotlar beriladi, natija qanday bo'lishi kerak." }, t.description);
@@ -293,7 +295,7 @@ function openBuilder(task, data, reload) {
       h("button", { class: "btn", onclick: async (e) => {
         e.target.disabled = true;
         const payload = {
-          title: title.value, description: description.value, max: Number(max.value), due: due.value, semester: Number(semester.value), mode: mode.value,
+          subject: task?.subject || SUBJECT_KEY, title: title.value, description: description.value, max: Number(max.value), due: due.value, semester: Number(semester.value), mode: mode.value,
           allowLate: allowLate.checked, aiEnabled: aiOn.checked, published: published.checked,
           forms: formBoxes.filter((x) => x.box.checked).map((x) => x.f.key), groups: groupBoxes.filter((x) => x.box.checked).map((x) => x.g),
           criteria: crit.map((c) => ({ name: c.name, max: Number(c.max) })), rubric: rubric.value, reference: reference.value,

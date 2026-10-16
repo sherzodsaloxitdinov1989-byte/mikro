@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Soliq qanday to‘lov hisoblanadi?",
+  "options": [
+   "Davlat xizmati ko‘rsatilgani uchun olinadigan va keyinchalik qaytariladigan to‘lov",
+   "Bank krediti uchun undiriladigan ixtiyoriy foiz to‘lovi",
+   "Byudjet uchun majburiy, qaytarilmaydigan va bepul undiriladigan to‘lov",
+   "Byudjetdan ajratilgan mablag‘ni qaytarish majburiyati"
+  ],
+  "c": 2,
+  "e": "Soliq davlat va mahalliy byudjet uchun majburiy, qaytarilmaydigan va bepul undiriladi."
+ },
+ {
+  "q": "Soliqning tartibga soluvchi funksiyasi nimani bildiradi?",
+  "options": [
+   "Imtiyoz va stavkalar orqali ayrim sohalarni rag‘batlantirish yoki cheklash",
+   "Daromadlarni aholining turli ijtimoiy qatlamlari o‘rtasida qayta taqsimlash va himoya qilish",
+   "Soliq hisobotlarini tahlil qilib, xavfli to‘lovchilarni aniqlash",
+   "Davlat va mahalliy byudjet daromadlarini shakllantirish"
+  ],
+  "c": 0,
+  "e": "Tartibga soluvchi funksiya imtiyoz va stavkalar yordamida sohalarni rag‘batlantiradi yoki cheklaydi."
+ },
+ {
+  "q": "Soliq bazasi nimani ko‘rsatadi?",
+  "options": [
+   "Soliq to‘lovchi sifatida kimlar hisobga qo‘yilishini",
+   "Soliq to‘lovchi hisobotni qaysi muddatda va qaysi shaklda topshirishini",
+   "Soliq necha foiz yoki qancha summada undirilishini",
+   "Soliq nimadan hisoblanishini: tushum, foyda yoki qo‘shilgan qiymatni"
+  ],
+  "c": 3,
+  "e": "Baza — soliq nimadan hisoblanishi; stavka esa qancha foiz yoki summa olinishini bildiradi."
+ },
+ {
+  "q": "Aylanmadan olinadigan soliqning bazasi qanday aniqlanadi?",
+  "options": [
+   "Tushumdan xarajat ayirilib, foydadan hisoblanadi",
+   "Tushumdan hisoblanadi, xarajatdan qat’i nazar to‘lanadi",
+   "Xaridda to‘langan QQS chegirilgan qo‘shilgan qiymatdan hisoblanadi",
+   "Xodimlarga har oy hisoblangan ish haqi fondi summasidan hisoblanadi, tushumdan emas"
+  ],
+  "c": 1,
+  "e": "Aylanma soliq bazasi tushumning o‘zi, shuning uchun xarajat hisobga olinmaydi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri mahalliy soliqlar qatoriga kiradi?",
+  "options": [
+   "Ijtimoiy soliq",
+   "Yer solig‘i",
+   "Foyda solig‘i",
+   "Qo‘shilgan qiymat solig‘i"
+  ],
+  "c": 1,
+  "e": "Yer va mol-mulk solig‘i mahalliy, foyda solig‘i, QQS va ijtimoiy soliq esa umumdavlat soliqlardir."
+ },
+ {
+  "q": "Xodim ish haqidan JShDS va ijtimoiy soliq qanday to‘lanadi?",
+  "options": [
+   "JShDS ish beruvchi hisobidan, ijtimoiy soliq xodimdan to‘lanadi",
+   "Ikkala soliq ham xodim daromadidan ushlab qolinadi",
+   "Ikkala soliqni ham ish beruvchi o‘z hisobidan to‘laydi, xodimdan ushlanmaydi",
+   "JShDS xodimdan ushlanadi, ijtimoiy soliqni ish beruvchi to‘laydi"
+  ],
+  "c": 3,
+  "e": "JShDS xodim daromadidan ushlanadi, ijtimoiy soliq esa ish beruvchi hisobidan qo‘shimcha to‘lanadi."
+ },
+ {
+  "q": "Fiskal chek (NKM) birlamchi hujjat sifatida nimani tasdiqlaydi?",
+  "options": [
+   "Chakana sotuvda naqd yoki karta to‘lovi amalga oshirilganini",
+   "Tovar yuborilganini va xaridor tomonidan qabul qilinganini",
+   "Xizmat bajarilganini bajaruvchi va buyurtmachi birgalikda",
+   "Xodim o‘z hisobidan qilgan xarajatni qaytarish talabini"
+  ],
+  "c": 0,
+  "e": "Fiskal chek chakana sotuvdagi naqd yoki karta to‘lovini tasdiqlaydi."
+ },
+ {
+  "q": "Kichik tadbirkorning daromad va xarajat daftari qanday vazifani bajaradi?",
+  "options": [
+   "Soliq hisobotini tadbirkor nomidan soliq organiga avtomatik topshirib beradi",
+   "Xodimlar bilan mehnat shartnomalarini tuzib, ularni rasmiylashtirib beradi",
+   "Tushum, xarajat va soliq bazasini ko‘rsatib, haqiqiy foydani ochib beradi",
+   "Davlat ro‘yxatidan o‘tganlik haqidagi guvohnomani to‘liq almashtirib qo‘yadi"
+  ],
+  "c": 2,
+  "e": "Daftar tushum, xarajat va soliq bazasini ko‘rsatadi, narx belgilash va bank uchun daromadni tasdiqlashga yordam beradi."
+ },
+ {
+  "q": "Nega foyda marjasi juda past bizneslarda aylanma solig‘i og‘ir bo‘lishi mumkin?",
+  "options": [
+   "Bu rejimda soliq xodimlar ish haqiga qo‘shimcha hisoblanadi",
+   "Bu rejimda barcha xarajatlar soliq bazasiga ikki marta qo‘shib hisoblanadi",
+   "Bu rejimda aylanma solig‘iga qo‘shimcha ravishda QQS va foyda solig‘i ham to‘lanadi",
+   "Soliq tushumdan hisoblanadi, shuning uchun foyda kichik bo‘lsa ham to‘lanadi"
+  ],
+  "c": 3,
+  "e": "Baza tushum bo‘lgani uchun xarajat qancha bo‘lsa ham soliq to‘lanadi; marja past bo‘lsa, bu yuk og‘irlashadi."
+ },
+ {
+  "q": "Qaysi holatda umumbelgilangan soliq tartibi ba’zan qulayroq bo‘ladi?",
+  "options": [
+   "Xarajat (xomashyo, uskuna) katta va asosiy hamkorlar QQS to‘lovchi bo‘lganda",
+   "Hisobot va hujjat yuki imkon qadar kamaytirilishi va jarayon soddalashtirilishi kerak bo‘lganda",
+   "Hamkorlar QQS to‘lamaydigan oddiy xaridorlar bo‘lganda",
+   "Yakka ishlaydigan, tushumi kichik yangi boshlovchida"
+  ],
+  "c": 0,
+  "e": "Katta xarajat va QQS to‘lovchi hamkorlar bo‘lsa, foyda va QQS asosidagi tartib ba’zan arzonroq tushadi."
+ },
+ {
+  "q": "Marketpleysda sotuvchi aylanma soliq rejimida bo‘lsa, platforma komissiyasi soliq bazasiga qanday ta’sir qiladi?",
+  "options": [
+   "Komissiya soliq bazasiga qo‘shilib, uni oshiradi",
+   "Komissiya hisobga olinib, soliq foydadan hisoblanadi",
+   "Ta’sir qilmaydi, chunki baza tushumning o‘zi",
+   "Komissiya tushumdan ayirilib, baza kamayadi"
+  ],
+  "c": 2,
+  "e": "Aylanma rejimda baza tushum bo‘lgani uchun komissiya uni o‘zgartirmaydi; umumbelgilangan rejimda esa alohida xarajat sifatida hisobga olinadi."
+ },
+ {
+  "q": "Xorijiy marketpleysda sotib, tushumni O‘zbekistonga olgan tadbirkor soliq jihatidan qanday holatda bo‘ladi?",
+  "options": [
+   "Soliq tushum bank orqali kelmaguncha hisoblanmaydi",
+   "Tushum O‘zbekiston soliq qonunchiligiga ko‘ra soliqqa tortiladi",
+   "Chet elda sotilgani uchun daromad soliqdan ozod bo‘ladi",
+   "Soliq platforma joylashgan mamlakatga to‘lanadi, bu yerda hisoblanmaydi"
+  ],
+  "c": 1,
+  "e": "Xorijiy platformadan kelgan tushum ham soliq rezidenti sifatida O‘zbekistonda soliqqa tortiladi."
+ },
+ {
+  "q": "Hujjatsiz qilingan xarajat soliq nuqtayi nazaridan qanday baholanadi?",
+  "options": [
+   "Xarajat summasi ikki baravar miqdorda chegirib, soliq hisobiga olinadi",
+   "Soliq tekshiruvida tan olinmasligi, hisobga qabul qilinmasligi mumkin",
+   "Bank orqali to‘langan bo‘lsa, hujjat talab etilmaydi",
+   "Xarajat summasi keyingi yil soliq bazasidan to‘liq chegirib tashlanadi"
+  ],
+  "c": 1,
+  "e": "Har bir operatsiya hujjat bilan tasdiqlanishi kerak, aks holda xarajat soliq hisobiga qabul qilinmaydi."
+ },
+ {
+  "q": "Nega rasmiylashtirilmagan (“soyadagi”) biznes uzoq muddatda o‘sishda qiyinchilikka duch keladi?",
+  "options": [
+   "Norasmiy xodimlar rasmiy xodimlarga qaraganda ko‘proq huquqiy himoyaga ega",
+   "Norasmiy faoliyat aniqlansa, ogohlantirish beriladi, soliq qaytarib undirilmaydi",
+   "Yirik mijozlar norasmiy sotuvchidan hisob-fakturasiz xarid qilishni afzal ko‘radi",
+   "Daromad tasdiqlanmagani uchun bank kreditini olish deyarli imkonsiz bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Rasmiy daromad tarixi bo‘lmasa, kredit olish va yirik mijozlarga xizmat ko‘rsatish qiyin."
+ },
+ {
+  "q": "Tadbirkor mijozlardan to‘lovni shaxsiy kartasiga olib, biznes xarajatlarini ham shu kartadan to‘lamoqda. Bu nimaga olib keladi?",
+  "options": [
+   "Soliq bazasini aniqlashda nizo chiqadi, operatsiyalar shubhali deb baholanishi mumkin",
+   "Xarajatlar ikki baravar miqdorda chegirib hisobga olinadi",
+   "Soliq rejimi avtomatik ravishda umumbelgilangan tartibga o‘tkaziladi",
+   "Hisobot topshirish majburiyati bekor qilinadi, chunki to‘lovlarni kuzatib bo‘lmaydi, demak soliq ham yo‘q"
+  ],
+  "c": 0,
+  "e": "Tushumni bank orqali o‘tkazmaslik va shaxsiy kartadan aralash foydalanish soliq bazasini aniqlashda nizo keltiradi."
+ },
+ {
+  "q": "Asosiy mijozlari QQS to‘lovchi yirik kompaniyalar bo‘lib, hisob-faktura talab qilmoqda. Qaysi rejim mos kelishi mumkin?",
+  "options": [
+   "O‘zini o‘zi band qilganlar uchun yagona soliq tartibi",
+   "Naqd pul bilan hisob-kitob qilishga o‘tish",
+   "Umumbelgilangan tartib yoki soddalashtirilgan QQS rejimi",
+   "Aylanmadan olinadigan soliq tartibida QQSsiz ishlashni davom ettirish"
+  ],
+  "c": 2,
+  "e": "QQS to‘lovchi yirik hamkorlar bilan ishlash uchun umumbelgilangan yoki soddalashtirilgan QQS rejimi qulay."
+ },
+ {
+  "q": "Kichik biznes tushumi umumbelgilangan tartibga majburiy o‘tish chegarasiga yaqinlashmoqda. Tadbirkor nima qilishi to‘g‘ri?",
+  "options": [
+   "Chegaradan oshgan tushumni keyingi yil hisobotiga qoldirishi",
+   "Tushumning bir qismini bank hisobvarag‘iga o‘tkazmay, shaxsiy kartaga olishi",
+   "Rejimni yil boshida bir marta tanlab, yil davomida uni qayta ko‘rib chiqib o‘tirmasligi",
+   "Oylik tushumni chegara bilan solishtirib, rejimni hisob-kitob bilan qayta baholashi"
+  ],
+  "c": 3,
+  "e": "Chegaradan oshib ketganini payqamaslik majburiy o‘tish va jarimaga olib keladi; shuning uchun tushum kuzatib boriladi."
+ },
+ {
+  "q": "Hamkor “hisobotni tezroq topshiray” deb ERI kalitingizni so‘radi. Qanday yo‘l tutish to‘g‘ri?",
+  "options": [
+   "Kalitni notarial ishonchnoma bilan hamkorga rasmiy ravishda o‘tkazish",
+   "Kalitni vaqtincha topshirib, hamkordan yozma tilxat olib qo‘yish",
+   "Kalitni boshqa shaxsga bermay, o‘zida saqlash va muddatini kuzatish",
+   "Kalitni berib, hisobot topshirilgach parolini o‘zgartirib qo‘yish"
+  ],
+  "c": 2,
+  "e": "ERI kaliti va parolini boshqaga bermaslik kerak, aks holda hisobot va shartnomalarda firibgarlik xavfi paydo bo‘ladi."
+ },
+ {
+  "q": "Xodimga 8 000 000 so‘m ish haqi hisoblandi. JShDS 12 foiz, ijtimoiy soliq 12 foiz (ish beruvchi hisobidan, ish haqi ustiga). Ish beruvchi uchun xodimning haqiqiy narxi qancha?",
+  "options": [
+   "8 960 000 so‘m",
+   "7 040 000 so‘m",
+   "9 920 000 so‘m",
+   "8 000 000 so‘m"
+  ],
+  "c": 0,
+  "e": "JShDS xodim haqidan ushlanadi, ish beruvchi ustiga faqat ijtimoiy soliq qo‘shiladi: 8 000 000 + 8 000 000 × 12 foiz = 8 960 000 so‘m."
+ },
+ {
+  "q": "QQS stavkasi 12 foiz. Tadbirkor QQSsiz 500 mln so‘mlik tovar sotdi va QQSsiz 300 mln so‘mlik tovar xarid qildi. Byudjetga to‘lanadigan QQS qancha?",
+  "options": [
+   "36 mln so‘m",
+   "24 mln so‘m",
+   "96 mln so‘m",
+   "60 mln so‘m"
+  ],
+  "c": 1,
+  "e": "QQS qo‘shilgan qiymatdan hisoblanadi: 12 foiz × (500 − 300) = 24 mln so‘m."
+ }
+]

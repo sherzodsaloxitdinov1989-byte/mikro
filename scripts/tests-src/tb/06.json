@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Biznes-model nimani tushuntiradi?",
+  "options": [
+   "Korxona qanday qiymat yaratishi, uni mijozga yetkazishi va daromad olishini",
+   "Korxona qaysi tashkiliy-huquqiy shaklda va qaysi tartibda ro‘yxatdan o‘tishini",
+   "Mahsulot texnik jihatdan qanday ishlab chiqarilishi tartibini",
+   "Korxona soliq va hisobot majburiyatlarini hisoblash usulini"
+  ],
+  "c": 0,
+  "e": "Biznes-model “Biz qanday qilib qiymat yaratamiz va pul topamiz?” degan savolga javob beruvchi mantiqiy tizim."
+ },
+ {
+  "q": "Biznes g‘oya va biznes-model o‘rtasidagi asosiy farq nimada?",
+  "options": [
+   "G‘oya yozma hujjat, model esa og‘zaki taklif shaklida bo‘ladi",
+   "Farq yo‘q, ikkalasi ham bir tushunchaning sinonimi hisoblanadi",
+   "G‘oya “nima qilmoqchiman” haqida, model esa g‘oya qanday pul topishi haqida",
+   "G‘oya mijoz, kanal va daromadning butun zanjirini, model esa mahsulotning o‘zini ifodalaydi"
+  ],
+  "c": 2,
+  "e": "G‘oya mahsulot haqida, model esa mahsulot, mijoz, kanal, daromad va xarajatning butun zanjiri haqida."
+ },
+ {
+  "q": "Business Model Canvasdagi “Kanallar” bloki qaysi savolga javob beradi?",
+  "options": [
+   "Mahsulot aynan qaysi mijoz guruhi uchun yaratilmoqda?",
+   "Qiymat mijozga qaysi yo‘l bilan yetkaziladi?",
+   "Pul qayerdan va qanday olinadi?",
+   "Modelni yuritish uchun nimalar kerak?"
+  ],
+  "c": 1,
+  "e": "Kanallar bloki qiymat taklifi mijozga qaysi aloqa va yetkazish yo‘llari orqali yetishini ko‘rsatadi."
+ },
+ {
+  "q": "Business Model Canvasda markazda qaysi blok turadi va u nimani ifodalaydi?",
+  "options": [
+   "Mijoz segmentlari — mahsulot yaratilayotgan guruh",
+   "Daromad oqimlari — pul olish yo‘llari",
+   "Xarajatlar tuzilmasi — doimiy va o‘zgaruvchan xarajatlar",
+   "Qiymat taklifi — mijozga beriladigan noyob foyda"
+  ],
+  "c": 3,
+  "e": "Kanvasning markazida qiymat taklifi turadi: mijoz nima uchun aynan sizni tanlashini bildiradi."
+ },
+ {
+  "q": "“Jobs to be Done” nazariyasining asosiy g‘oyasi qanday?",
+  "options": [
+   "Mijoz mahsulotning texnik xususiyatlari ko‘p va murakkab bo‘lgani uchun xarid qiladi",
+   "Mijozlar avval tanishlari ishlatgan mahsulotni sotib oladi",
+   "Odamlar mahsulotni eng arzon narxi uchun tanlaydi",
+   "Odamlar mahsulotning o‘zini emas, ma’lum ishni bajarish uchun uni “yollaydi”"
+  ],
+  "c": 3,
+  "e": "Xaridorga parma emas, devordagi silliq teshik kerak: mijoz bajarilishi kerak bo‘lgan ish uchun mahsulot tanlaydi."
+ },
+ {
+  "q": "JTBD bo‘yicha mijoz bajarishi kerak bo‘lgan “ish” qaysi uch qatlamdan iborat?",
+  "options": [
+   "Xabardor qilish, xarid qilish va yetkazish",
+   "Funksional, emotsional va ijtimoiy",
+   "Moddiy, nomoddiy va moliyaviy",
+   "Muammo, yechim va foyda"
+  ],
+  "c": 1,
+  "e": "Ish funksional (nima bajarish), emotsional (qanday his qilish) va ijtimoiy (qanday ko‘rinish) qatlamlardan iborat."
+ },
+ {
+  "q": "Freemium modelida daromad qanday shakllanadi?",
+  "options": [
+   "Mijoz boshidan davriy to‘lov qilib, mahsulotning barcha funksiyasidan foydalanadi",
+   "Platforma sotuvchi va xaridorni bog‘lab, har bir bitim summasidan komissiya foizini oladi",
+   "Asosiy funksiya bepul, kengaytirilgan versiyaga o‘tganlar to‘lov qiladi",
+   "Asosiy qurilma arzon sotilib, sarflanadigan qism qimmat narxda sotiladi"
+  ],
+  "c": 2,
+  "e": "Freemiumda asosiy funksiya bepul, daromad esa pullik versiyaga o‘tgan kichik ulushdan keladi."
+ },
+ {
+  "q": "Tarmoq effekti (network effect) nimani bildiradi?",
+  "options": [
+   "Foydalanuvchilar ko‘paygani sari platformaning har bir foydalanuvchi uchun qiymati oshadi",
+   "Platforma bir vaqtning o‘zida bir necha davlatda ro‘yxatdan o‘tadi",
+   "Mahsulot narxi foydalanuvchilar soniga qarab har kuni dinamik o‘zgarib boradi",
+   "Platformaning har bir yangi foydalanuvchiga xizmat ko‘rsatish xarajati sezilarli kamayib boradi"
+  ],
+  "c": 0,
+  "e": "Masalan, ko‘proq haydovchi bo‘lgan taksi ilovasi yo‘lovchi uchun ham qulayroq, chunki kutish qisqaradi."
+ },
+ {
+  "q": "Obuna va freemium modellari o‘rtasidagi asosiy farq nimada?",
+  "options": [
+   "Freemiumda bepul foydalanuvchilarga xizmat ko‘rsatish xarajat keltirmaydi",
+   "Obunada mijoz boshidan to‘laydi, freemiumda asosiy funksiya bepul, kichik ulush pullikka o‘tadi",
+   "Obunada asosiy funksiya bepul va kichik ulush to‘laydi, freemiumda hamma boshidan to‘laydi",
+   "Obunada daromadni bashorat qilib bo‘lmaydi, freemiumda daromad aniq bashorat qilinadi, chunki mijoz boshidan to‘laydi"
+  ],
+  "c": 1,
+  "e": "Obunada daromad bashorat qilinadi, lekin jalb qilish to‘sig‘i balandroq; freemiumda auditoriya tez o‘sadi, ammo bepul foydalanuvchilar xarajat keltiradi."
+ },
+ {
+  "q": "Marketpleysdagi “tovuq va tuxum” muammosi nimadan iborat?",
+  "options": [
+   "Platforma komissiyasi oshganda sotuvchilar ketib, narxlar ko‘tarilib, xaridorlar ham kamayadi",
+   "Mahsulot ishlab chiqarish uchun xomashyo va tayyor mahsulot ta’minoti muvofiqlashmaydi, bu ta’minot zanjirini uzadi",
+   "Franshiza beruvchi sifat nazoratini kuchaytirganda oluvchi mustaqilligini yo‘qotadi",
+   "Xaridor kelishi uchun sotuvchi, sotuvchi kelishi uchun xaridor kerak, ikki tomonni jalb qilish qiyin"
+  ],
+  "c": 3,
+  "e": "Platformada ikki tomon bir vaqtda kerak: biri bo‘lmasa, ikkinchisi ham kelmaydi."
+ },
+ {
+  "q": "Nega “bizning raqibimiz yo‘q” degan fikr xato hisoblanadi?",
+  "options": [
+   "Raqib mijoz muammosini boshqacha hal qiladigan har qanday variant, masalan o‘zi qilish",
+   "Raqiblar mavjud bo‘lmasa, tadbirkorlik subyektini davlat ro‘yxatidan o‘tkazish rad etiladi",
+   "Raqibsiz bozorda qiymat taklifini shakllantirish mumkin emas",
+   "Raqib deb hududdagi eng yirik va eng tanilgan kompaniyani hisoblash qabul qilingan"
+  ],
+  "c": 0,
+  "e": "Raqib nafaqat o‘xshash mahsulot sotuvchi, balki mijoz muammosini boshqacha yo‘l bilan hal qiluvchi har qanday variantdir."
+ },
+ {
+  "q": "Farqlanish ustunligi qanday xususiyatga ega bo‘lishi kerak?",
+  "options": [
+   "Reklama byudjeti raqiblardan ko‘p bo‘lishiga tayanishi",
+   "Eng arzon narxni har qanday xarajat va masshtab sharoitida ham doimiy ushlab turishi",
+   "Raqiblar tez nusxa ko‘chira olmasligi, masalan mijoz ishonchi yoki noyob hunar",
+   "Barcha mijoz segmentlariga bir xil darajada yoqishi"
+  ],
+  "c": 2,
+  "e": "Ustunlik hamkorlik shartnomalari, mijoz ishonchi, ma’lumotlar bazasi yoki noyob hunar kabi nusxalash qiyin omillarga tayanishi kerak."
+ },
+ {
+  "q": "Nega Business Model Canvasni bir marta yozib qo‘yish yetarli emas?",
+  "options": [
+   "Kanvas har yili tegishli davlat organiga qayta topshirilishi va tasdiqlanishi shart",
+   "Bloklar soni vaqt o‘tishi bilan to‘qqizdan oshib boradi",
+   "Bloklar gipoteza bo‘lib, mijoz bilan sinalib, yangi ma’lumot kelgach yangilanadi",
+   "Bir marta yozilgan kanvasni boshqa shaxs o‘zgartira olmaydi"
+  ],
+  "c": 2,
+  "e": "Kanvasdagi hamma narsa yozma taxmin (gipoteza); u mijoz bilan tekshirilib, yangilab boriladi."
+ },
+ {
+  "q": "Biznes-modelning sog‘lomligini tekshiruvchi savollardan biri qaysi?",
+  "options": [
+   "Biznes-modelning nomi qisqa, jarangdor va yodda qolarlimi?",
+   "Mijozni jalb qilish narxi uning keltiradigan daromaddan kam bo‘ladimi?",
+   "Kanvas bloklari rangli stikerlarda guruh bilan yozilganmi?",
+   "Raqiblarning barchasi o‘z narxlarini bizning narxdan yuqori belgilaydimi?"
+  ],
+  "c": 1,
+  "e": "Sog‘lomlik savollaridan biri: mijozni jalb qilish narxi uning keltiradigan daromaddan kam bo‘ladimi."
+ },
+ {
+  "q": "Mijozlar mahsulotni bir martalik xarid qiladi, takroriy ehtiyoj yo‘q. Qaysi yo‘l mantiqiy?",
+  "options": [
+   "Brend kuchsiz bo‘lsa ham franshiza sotishni boshlash",
+   "Oylik obunani asosiy va yagona daromad oqimi qilib belgilash",
+   "Sotuvchi va xaridorni bog‘lovchi ikki tomonlama platforma qurishga kirishish",
+   "Sotuvdan keyingi xizmat va tavsiya orqali qayta xaridni oshirish"
+  ],
+  "c": 3,
+  "e": "Bir martalik xaridda sotuvdan keyingi xizmat va tavsiya orqali qayta xarid asosiy yo‘l; obuna takroriy ehtiyojga mos."
+ },
+ {
+  "q": "Kompaniya mahsulotini B2C dan B2B ga yo‘naltirdi, mahsulotning o‘zi o‘zgarmadi. Bu qaysi pivot turi va qaysi bloklarga ta’sir qiladi?",
+  "options": [
+   "Mijoz segmenti pivoti: segmentlar, kanallar va munosabat bloklari o‘zgaradi",
+   "Daromad modeli pivoti: daromad oqimlari bloki o‘zgaradi, mijoz segmenti saqlanadi",
+   "Kanal pivoti: kanallar va xarajatlar tuzilmasi o‘zgaradi",
+   "Qiymat taklifi pivoti: qiymat taklifi va asosiy faoliyat turlari bloklari o‘zgaradi"
+  ],
+  "c": 0,
+  "e": "Mahsulot saqlanib, boshqa mijoz guruhiga yo‘naltirilsa, bu mijoz segmenti pivoti bo‘lib, mijoz, kanal va munosabat bloklariga ta’sir qiladi."
+ },
+ {
+  "q": "Yangi taksi ilovasida haydovchilar kam, shuning uchun yo‘lovchilar kelmayapti; yo‘lovchi yo‘qligi uchun haydovchilar ham kelmayapti. Qaysi yechim mos?",
+  "options": [
+   "Ilovani bir vaqtning o‘zida butun mamlakat bo‘yicha keng ishga tushirish",
+   "Taklif tomoniga subsidiya berib, tor hudud yoki segmentga jamlanish",
+   "Platforma modelidan butunlay voz kechib, bir martalik sotuvga o‘tish",
+   "Ikki tomon uchun ham komissiyani birdan va keskin oshirib yuborish"
+  ],
+  "c": 1,
+  "e": "Tuxum-tovuq muammosida odatda taklif tomoniga subsidiya beriladi va e’tibor tor hudud yoki segmentga jamlanadi."
+ },
+ {
+  "q": "Printer arzon sotiladi, daromadning asosiy qismi esa qimmat kartrijlar sotuvidan keladi. Bu qaysi biznes-model?",
+  "options": [
+   "“Razor & Blades” modeli",
+   "Litsenziyalash modeli",
+   "Freemium modeli",
+   "Komissiya (vositachilik) modeli"
+  ],
+  "c": 0,
+  "e": "Asosiy vosita arzon, sarflanadigan qism qimmat bo‘ladigan model “Razor & Blades” deyiladi."
+ },
+ {
+  "q": "Tadbirkor milliy ipak mahsulotlarini asosan bitta marketpleysda sotmoqda. Bu kanalga haddan tashqari bog‘lanish xavfini qanday kamaytirish mumkin?",
+  "options": [
+   "Marketpleys komissiyasini narxga qo‘shmay, sifatni pasaytirish",
+   "Mijoz segmentlarini bittaga qisqartirib, boshqalarini chiqarib tashlash",
+   "O‘z sahifasi va mijozlar bazasini yaratib, kanallarni ko‘paytirish",
+   "Hamkorlarni qisqartirib, barcha faoliyatni yolg‘iz bajarish"
+  ],
+  "c": 2,
+  "e": "Platforma komissiyasi va qoidalariga bog‘liqlikni kamaytirish uchun o‘z sahifasi va mijoz bazasi yaratiladi."
+ },
+ {
+  "q": "Biznes-model sinovlari bir necha marta o‘zgartirilgan taklifdan keyin ham muntazam salbiy chiqmoqda. Bu nimani bildiradi?",
+  "options": [
+   "Kanvasga o‘zgartirish kiritmay, uni asl holida saqlash lozimligini",
+   "Model mukammal ekanini, sinov usuli noto‘g‘ri tanlanganini",
+   "Sabr qilib, bajarish sifatini oshirishda davom etib, natijani kutish kerakligini",
+   "Pivot qilish, ya’ni modelning bir qismini o‘zgartirish kerakligi signalini"
+  ],
+  "c": 3,
+  "e": "Muntazam salbiy natija va o‘zgartirilgan taklifning ham jalb qilmasligi pivot signali hisoblanadi."
+ }
+]

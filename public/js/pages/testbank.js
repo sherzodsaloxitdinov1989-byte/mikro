@@ -1,6 +1,6 @@
 // O'qituvchi paneli: test jamlanmasini Word (.docx) fayliga yuklab olish.
 import { h, mount, downloadFile, toast } from "../ui.js";
-import { TOPICS, COURSE } from "../../data/topics.js";
+import { TOPICS, COURSE, SUBJECT_KEY } from "../../data/topics.js";
 import { buildDocx } from "../docx.js";
 import { api } from "../api.js";
 
@@ -9,7 +9,7 @@ const L = "ABCDEF";
 /** Javob kalitlari brauzerga oldindan yuborilmaydi: o'qituvchi uchun serverdan olinadi. */
 async function loadKeys() {
   if (TOPICS.every((t) => t.quiz.every((q) => Number.isInteger(q.correct)))) return;
-  const keys = await api.get("admin/quiz-keys");
+  const keys = await api.get(`admin/quiz-keys?subject=${SUBJECT_KEY}`);
   for (const t of TOPICS) t.quiz.forEach((q, i) => {
     const k = keys[t.num]?.[i];
     if (k) Object.assign(q, { correct: k.c, explain: k.e || "" });

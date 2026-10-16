@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Yaxshi biznes g‘oya qaysi uchta savolga javob beradi?",
+  "options": [
+   "Qancha investitsiya kerak, kim moliyalashtiradi va qachon qaytariladi",
+   "Qaysi texnologiyada, qaysi shaharda va qancha xodim bilan yaratiladi",
+   "Qanday muammoni, kim uchun hal qiladi va qanday qilib daromad keltiradi",
+   "Qaysi raqiblar bor, ularning narxi qancha va qaysi biri kuchliroq"
+  ],
+  "c": 2,
+  "e": "Biznes g‘oya muammo, mijoz va daromad manbasini aniq ko‘rsatishi kerak."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri innovatsion biznes g‘oya bo‘lishi mumkin?",
+  "options": [
+   "Raqobatchi mahsulotini hech narsasini o‘zgartirmasdan, xuddi o‘sha narxda nusxalab sotish",
+   "Mavjud yechimni mijoz uchun arzonroq, tezroq yoki qulayroq shaklda taklif qilish",
+   "Mijoz muammosi aniqlanmagan, faqat muallifga qiziq tuyulgan mahsulot yaratish",
+   "Mahsulot nomi va logotipini o‘zgartirib, uni qayta chiqarish"
+  ],
+  "c": 1,
+  "e": "Yangilik doim mutlaqo yangi mahsulot degani emas; mavjud yechimni yaxshilab taklif qilish ham innovatsiyadir."
+ },
+ {
+  "q": "Pitchning asosiy vazifasi nima?",
+  "options": [
+   "G‘oyani barcha tafsilotlari bilan to‘liq tushuntirib berish",
+   "Biznes-rejaning barcha bo‘limlarini qisqartirmasdan o‘qib chiqish",
+   "Tinglovchini shartnomaga darhol imzo chekishga ko‘ndirish",
+   "Tinglovchida qiziqish uyg‘otib, keyingi muzokaraga sabab yaratish"
+  ],
+  "c": 3,
+  "e": "Pitch g‘oyani to‘liq tushuntirmaydi, balki qiziqish uyg‘otib, keyingi uchrashuvga sabab yaratadi."
+ },
+ {
+  "q": "Pitchdagi “natijalar (traction)” slaydi nimani ko‘rsatadi?",
+  "options": [
+   "Mijoz haqiqatan kerak ekanining dalilini: mijozlar, buyurtmalar, o‘sish yoki kutish ro‘yxati",
+   "Jamoa a’zolarining diplomlari, ish tajribasi va oldingi loyihalaridagi lavozimlari hamda mas’uliyati ro‘yxatini",
+   "Investordan so‘ralayotgan mablag‘ miqdori va uni sarflash tartibini",
+   "Raqobatchilar va ularning narxlari taqqoslangan matritsani"
+  ],
+  "c": 0,
+  "e": "Real natija — pitchdagi eng kuchli dalil: mijozlar soni, buyurtmalar, oldindan buyurtmalar va o‘sish."
+ },
+ {
+  "q": "Pitchdagi “taklif (ask)” slaydida nima bo‘lishi kerak?",
+  "options": [
+   "Kompaniyaning missiyasi va qadriyatlari haqidagi umumiy bayonot",
+   "Mahsulotning asosiy funksiyalari va ekran namunalari",
+   "Investor yoki hamkordan aynan nima kutilayotgani va mablag‘ qanday sarflanishi",
+   "Mijozlarning fikrlari va minnatdorchilik so‘zlari"
+  ],
+  "c": 2,
+  "e": "Taklif slaydi kutilayotgan summa yoki yordamni aniq aytadi va uni qanday sarflash ko‘rsatiladi."
+ },
+ {
+  "q": "Pitch tuzilishining asosiy mantiqiy ketma-ketligi qaysi?",
+  "options": [
+   "Muammo → yechim → bozor → biznes-model → moliyaviy ko‘rsatkichlar → taklif",
+   "Yechim → jamoa → taklif → muammo → bozor → moliyaviy ko‘rsatkichlar",
+   "Jamoa → moliyaviy ko‘rsatkichlar → yechim → muammo → taklif → bozor",
+   "Taklif → bozor → yechim → muammo → biznes-model → moliyaviy ko‘rsatkichlar"
+  ],
+  "c": 0,
+  "e": "Taqdimot muammodan boshlanib, yechim, bozor, biznes-model va moliya orqali taklifga yetib boradi."
+ },
+ {
+  "q": "Taklif slaydida 200 mln so‘m investitsiya so‘ralmoqda, shundan 30 foizi marketingga ajratiladi. Marketing uchun summa qancha?",
+  "options": [
+   "30 mln so‘m",
+   "60 mln so‘m",
+   "6 mln so‘m",
+   "170 mln so‘m"
+  ],
+  "c": 1,
+  "e": "200 × 30% = 60 mln so‘m."
+ },
+ {
+  "q": "Pitchni mijoz hikoyasidan boshlash nima uchun samarali?",
+  "options": [
+   "Hikoya vaqtni uzaytirib, savol-javob qismini qisqartirishga va moliyaviy hisoblarni chetlab o‘tishga imkon beradi",
+   "Hikoya moliyaviy hisoblarni taqdimotdan chiqarib tashlashga imkon beradi",
+   "Hikoya tinglovchining mahsulot narxini oldindan bilishini ta’minlaydi",
+   "Odamlar raqamni emas, hikoyani eslab qoladi; keyin qo‘shilgan raqam muammoning ko‘lamini ko‘rsatadi"
+  ],
+  "c": 3,
+  "e": "Formula: inson → muammo → raqam → yechim → natija → taklif; hikoya e’tiborni yutadi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri samarali slayd dizayni tavsiyasiga mos keladi?",
+  "options": [
+   "Slaydga barcha matnni joylab, uni auditoriya oldida ovoz chiqarib to‘liq o‘qib chiqish",
+   "Har bir slaydda turli shrift va ko‘p rangli animatsiya ishlatish",
+   "Bir slaydda bitta fikr, katta bitta raqam va yuqori kontrastli fon",
+   "Oxirgi slaydni “E’tiboringiz uchun rahmat” yozuvi bilan yakunlash"
+  ],
+  "c": 2,
+  "e": "Slayd sodda, bitta fikrli va yaxshi o‘qiladigan bo‘lishi kerak; oxirida taklif va kontakt slaydi afzal."
+ },
+ {
+  "q": "Kavasakining 10-20-30 qoidasi nimani anglatadi?",
+  "options": [
+   "10 ta slayd, 30 daqiqa va kamida 20 pt shrift",
+   "10 ta slayd, 20 daqiqa va kamida 30 pt shrift",
+   "20 ta slayd, 10 daqiqa va kamida 30 pt shrift",
+   "30 ta slayd, 20 daqiqa va kamida 10 pt shrift"
+  ],
+  "c": 1,
+  "e": "10-20-30: 10 slayd, 20 daqiqa, 30 pt shrift."
+ },
+ {
+  "q": "Taqdimot uchun 10 daqiqa ajratilgan. Mashqda 10 foiz zaxira qoldirish tavsiyasiga amal qilinsa, nutq necha daqiqaga mo‘ljallanadi?",
+  "options": [
+   "9 daqiqaga",
+   "8 daqiqaga",
+   "10 daqiqaga",
+   "11 daqiqaga"
+  ],
+  "c": 0,
+  "e": "10 daqiqaning 10 foizi 1 daqiqa; 10 − 1 = 9 daqiqa."
+ },
+ {
+  "q": "Nutq matniga tayyorlanishda qaysi yondashuv to‘g‘ri?",
+  "options": [
+   "Matnni so‘zma-so‘z yod olib, bir marta ham ovoz chiqarib mashq qilmasdan chiqish",
+   "Tayyorlanmasdan, o‘sha lahzadagi ilhomga tayanib chiqish",
+   "Nutqni slayddagi matnning o‘zidan o‘qib berish",
+   "Matnni yozib, tezislarga qisqartirish va uni so‘zma-so‘z yod olmaslik"
+  ],
+  "c": 3,
+  "e": "So‘zma-so‘z yod olish emas, tezislarga tayanib ko‘p marta mashq qilish tavsiya etiladi."
+ },
+ {
+  "q": "Savol-javob paytida javobini bilmagan savolga qanday yo‘l tutish kerak?",
+  "options": [
+   "Taxminiy raqam aytib, ishonchli ko‘rinishga harakat qilish",
+   "Buni tan olib, aniqlab keyin javob yuborishni va’da qilish",
+   "Savolni o‘tkazib yuborib, boshqa mavzuga o‘tib ketish",
+   "Savol bergan kishining malakasini shubha ostiga qo‘yish"
+  ],
+  "c": 1,
+  "e": "Halollik ishonchni oshiradi: bilmasangiz, tan oling va aniqlashni va’da qiling."
+ },
+ {
+  "q": "Investor “Raqiblaringiz kim?” deb so‘radi. Qaysi javob to‘g‘ri?",
+  "options": [
+   "Bizning raqibimiz yo‘q, chunki g‘oyamiz mutlaqo yangi va hech kim bunday xizmatni taklif qilmaydi, solishtirish shart emas",
+   "Raqiblar juda zaif, shuning uchun ularni alohida tahlil qilish shart emas",
+   "2–3 aniq raqibni nomlab, o‘z ustunligingizni raqam va mijoz fikri bilan asoslash",
+   "Raqiblar haqida gapirmaslik, chunki bu mavzu taqdimotga aloqador emas"
+  ],
+  "c": 2,
+  "e": "“Raqib yo‘q” deyish xavfli belgi; aniq raqiblar va ustunlikning dalili ishonch beradi."
+ },
+ {
+  "q": "Investor odatda qaysi to‘rt jihatni baholaydi?",
+  "options": [
+   "Jamoa, muammo va bozor, natijalar (traction) hamda biznes-model iqtisodi",
+   "Ofis joylashuvi, logotip dizayni, slaydlar soni va nutq tezligi",
+   "Ta’sischilar yoshi, oilaviy holati va shaxsiy mol-mulki",
+   "Mahsulot nomi, reklama shiori, sayt dizayni va obunachilar soni"
+  ],
+  "c": 0,
+  "e": "Investor jamoa, muammo va bozor, traction hamda LTV:CAC va marja kabi iqtisodni baholaydi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri investor nazarida xavfli belgi hisoblanadi?",
+  "options": [
+   "Real mijozlar va to‘lovlarning mavjudligi",
+   "Halol xavf tahlilining keltirilishi",
+   "Aniq va asosli taklifning berilishi",
+   "TAMni ko‘rsatib, SOMni ko‘rsatmaslik"
+  ],
+  "c": 3,
+  "e": "Xavfli belgilar qatoriga raqib yo‘q deyish, asossiz o‘sish va SOMsiz TAM ko‘rsatish kiradi."
+ },
+ {
+  "q": "O‘zaro baholashda yaxshi fikr-mulohaza qanday tuzilishi kerak?",
+  "options": [
+   "Ishtirokchi ishidagi barcha kamchiliklarning batafsil ro‘yxati, umumiy ball va boshqalar bilan taqqoslash",
+   "Tanqidsiz maqtov so‘zlari va ishtirokchiga yaxshi tilaklar",
+   "Bitta kuchli tomon, bitta yaxshilash mumkin bo‘lgan jihat va bitta aniq tavsiya",
+   "Ishtirokchi shaxsiyati haqidagi umumiy taassurot"
+  ],
+  "c": 2,
+  "e": "Konstruktiv fikr kuchli tomon, yaxshilash jihati va aniq tavsiyadan iborat bo‘ladi."
+ },
+ {
+  "q": "Muzokarada BATNA nima?",
+  "options": [
+   "Kelisha olmasak, nima qilaman degan savolga tayyor muqobil variant",
+   "Ikkala tomon uchun teng foyda keltiradigan yakuniy kelishuv",
+   "Muzokarada birinchi aytiladigan eng yuqori narx",
+   "Kelishuvni yozma qayd etuvchi shartnoma shakli"
+  ],
+  "c": 0,
+  "e": "BATNA — kelishuvga erishilmasa, qo‘llanadigan eng yaxshi muqobil variant."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri tadbirkorlik etikasi tamoyiliga mos keladi?",
+  "options": [
+   "Soliq yukini kamaytirish uchun daromadning bir qismini rasmiy hisobotda ko‘rsatmay yashirish",
+   "Intellektual mulkka hurmat: boshqalarning dizayni va matnini ruxsatsiz ishlatmaslik",
+   "Mijoz sifat haqida so‘rasa, mahsulot kamchiliklarini aytmay turish",
+   "Raqib mijozlarini jalb qilish uchun u haqida taxminiy ma’lumot tarqatish"
+  ],
+  "c": 1,
+  "e": "Etika halollik, qonunga rioya va intellektual mulkka hurmatni talab qiladi."
+ },
+ {
+  "q": "Pitchdan keyingi follow-up xabari qachon va qanday yuborilishi kerak?",
+  "options": [
+   "Bir oy o‘tgach, butun taqdimotni to‘liq qaytadan bayon qilib, uzun xat shaklida",
+   "Darhol, har bir slaydning kengaytirilgan matnini biriktirib",
+   "Investor o‘zi so‘raganidagina, qisqa minnatdorchilik shaklida",
+   "24–48 soat ichida, qisqa va bitta aniq keyingi qadamni taklif qilib"
+  ],
+  "c": 3,
+  "e": "Tez, qisqa va aniq keyingi qadamni taklif qiladigan xabar tinglovchi xotirasida qolishga yordam beradi."
+ }
+]

@@ -91,7 +91,10 @@ export const formByKey = (key) => COURSE.studyForms.find((f) => f.key === key) |
 // ---------- Fanlar (bo'limlar) ----------
 // Platformada bir nechta fan bo'lishi mumkin. Har bir fan o'z guruhlariga biriktiriladi: talaba faqat o'z guruhi fanini ko'radi.
 // Asosiy fan (darslik, testlar, topshiriq, reyting — yuqoridagi COURSE) — "mikro". Guruhi hech bir fanga biriktirilmagan talaba shu fanga tushadi.
-// hasContent: false — fanning darsligi/testlari hali yuklanmagan: talabaga fan sahifasi, o'qituvchi yaratgan topshiriqlar (Vazifalar) va guruh reytingi ko'rinadi.
+// dir — fan ma'lumotlari papkasi (public/data/<dir>/book.js, layers-auto.js, practice-auto.js); bo'sh — public/data/ ning o'zi.
+// idPrefix — mavzu identifikatori (t1, tb1, ...); slides/img — taqdimot va rasm papkalari (himoyalangan).
+// hasContent: false — fanning darsligi hali yuklanmagan: talabaga fan sahifasi, o'qituvchi topshiriqlari (Vazifalar) va guruh reytingi ko'rinadi.
+// course — shu fan uchun COURSE ning o'zgargan qiymatlari (nom, manba, soha va h.k.).
 export const SUBJECTS = [
   {
     key: "mikro",
@@ -99,6 +102,9 @@ export const SUBJECTS = [
     icon: "📈",
     direction: "Iqtisodiyot",
     hasContent: true,
+    dir: "",
+    idPrefix: "t",
+    slides: "slides",
     groups: [],
   },
   {
@@ -108,15 +114,55 @@ export const SUBJECTS = [
     direction: "Turizm va mehmondo'stlik",
     form: "kunduzgi",
     groups: ["141-23", "142-23"],
-    hasContent: false,
+    hasContent: true,
+    dir: "tb",
+    idPrefix: "tb",
+    slides: "slides/tb",
     semester: { no: 7, course: 4, term: "Kuzgi semestr, 2026–2027 o'quv yili", startsAt: "2026-09-01", endsAt: "2026-12-26" },
     description: "Tadbirkorlik faoliyatining asoslari: g'oya, biznes-reja, ro'yxatdan o'tish, moliyalash, marketing va boshqaruv — turizm va mehmondo'stlik sohasi misolida.",
+    course: {
+      title: "Tadbirkorlik asoslari",
+      heroTitle: ["Tadbirkorlik asoslari", "interaktiv platformasi"],
+      logo: "🏨",
+      domain: "tadbirkorlik asoslari (biznes boshlash, biznes-reja, marketing, moliya, soliq va huquqiy rasmiylashtirish)",
+      audience: "Barcha bakalavriat ta'lim yo'nalishlari (Turizm va mehmondo'stlik)",
+      program: "Turizm va mehmondo'stlik",
+      description: "“Tadbirkorlik asoslari” fani bo'yicha interaktiv ta'lim platformasi: darslik, audio va animatsion darslar, taqdimotlar, testlar va amaliy topshiriqlar.",
+      source: "Saloxitdinov Sh.F. Tadbirkorlik asoslari: darslik. – Toshkent: O‘zMU Jizzax filiali, 2026.",
+      passportName: "Tadbirkor pasporti",
+      program: "O‘zMU Jizzax filiali, «Iqtisodiyot va turizm» kafedrasi. Fan 5 ECTS kredit (150 soat): auditoriya 60 soat (30 soat bob, 30 soat amaliy mashg‘ulot), mustaqil ta’lim 90 soat; 15 ta bob (7-semestr, 2026–2027 o‘quv yili). Fanning o‘ziga xosligi — vertikal loyiha: har bir talaba bitta biznes g‘oyani tanlab, semestr davomida uni biznes-rejaga aylantiradi.",
+      outcomes: [
+        "Tadbirkorlik tafakkurini namoyon etib, kundalik muammolardan biznes imkoniyat va g‘oya yaratadi, uni MVP va “Acid Test” orqali kam xarajat bilan bozorda sinaydi.",
+        "Biznesni qonuniy rasmiylashtirish, soliq rejimini tanlash va hujjatlarni yuritish tartibini tushuntiradi; kredit va davlat qo‘llab-quvvatlash dasturlaridan foydalanish yo‘l xaritasini tuzadi.",
+        "Biznes-modelni (Business Model Canvas), mijoz portretini va bozor hajmini (TAM/SAM/SOM) tahlil qiladi; marketing, savdo va narx qarorlarini asoslaydi.",
+        "Pul oqimi, foyda va zarar, zararsizlik nuqtasi va unit-iqtisod hisob-kitoblarini bajaradi.",
+        "Jamoa va xavflarni boshqaradi, yagona biznes-reja tuzadi va uni ekspertlar oldida taqdim etadi.",
+      ],
+      grading: [
+        ["Joriy nazorat (amaliy mashg‘ulotlardagi faollik, haftalik topshiriqlar)", 20, 12],
+        ["Mustaqil ishlar (bosqichma-bosqich topshiriqlar, yozma hisobotlar)", 20, 12],
+        ["Biznes-reja loyihasi (yakuniy hujjat)", 30, 18],
+        ["Biznes g‘oyani taqdim etish (ekspertlar hay’ati oldida)", 30, 18],
+      ],
+      levels: [
+        ["Boshlovchi", "🎒"],
+        ["G‘oya izlovchi", "💡"],
+        ["Bozor o‘rganuvchi", "🔍"],
+        ["Mikrobiznes egasi", "🏪"],
+        ["Biznes-rejachi", "📝"],
+        ["Startap asoschisi", "🚀"],
+        ["Tadbirkor", "💼"],
+        ["Biznes lider", "👑"],
+      ],
+    },
   },
 ];
 /** Guruhga biriktirilgan fan; biriktirilmagan guruh — asosiy fan. */
 export const subjectOfGroup = (group) => SUBJECTS.find((s) => s.groups.includes(group)) || SUBJECTS[0];
 export const subjectByKey = (key) => SUBJECTS.find((s) => s.key === key) || null;
 /** Talaba (yoki o'qituvchi) uchun asosiy fan kontenti (darslik, test, topshiriq, reyting) ochiqmi. O'qituvchi — doim. */
+/** Talaba asosiy fan (Mikroiqtisodiyot) guruhidami: reyting, 3-semestr topshirig'i va tahlillar faqat shu talabalar uchun. */
+export const isMainUser = (user) => Boolean(user) && user.role === "student" && subjectOfGroup(user.group).key === SUBJECTS[0].key;
 export const userHasContent = (user) => !user || user.role !== "student" || subjectOfGroup(user.group).hasContent;
 
 // Semestrlar: mavzu raqami bo'yicha semestr, sana bo'yicha joriy semestr

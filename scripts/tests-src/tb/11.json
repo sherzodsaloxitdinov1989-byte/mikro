@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Foyda va pul oqimi o‘rtasidagi asosiy farq nimada?",
+  "options": [
+   "Foyda faqat naqd pulda, pul oqimi esa faqat bank hisobidagi mablag‘da hisoblanadi",
+   "Foyda sotuv paytida hisoblanadi, pul oqimi esa pul kelishi va chiqishini ko‘rsatadi",
+   "Foyda faqat ikki yillik davr uchun, pul oqimi esa har kuni alohida hisoblanib boriladi",
+   "Foyda faqat xarajatlarni, pul oqimi esa faqat daromadlarni o‘z ichiga oladi"
+  ],
+  "c": 1,
+  "e": "Foyda hisoblangan daromad va xarajat farqi, pul oqimi esa real pul harakati."
+ },
+ {
+  "q": "Debitorlik qarzi nima?",
+  "options": [
+   "Biznes ta’minotchilarga to‘lashi lozim bo‘lgan summa",
+   "Bank oldidagi kredit bo‘yicha asosiy qarz miqdori",
+   "Egasi biznesga qarz sifatida kiritgan shaxsiy mablag‘ miqdori",
+   "Mijozlar mahsulotni olgan, lekin hali to‘lamagan summa"
+  ],
+  "c": 3,
+  "e": "Debitorlik qarzi — mijozlarning to‘lanmagan qarzi; ta’minotchilarga qarz esa kreditorlik qarzidir."
+ },
+ {
+  "q": "Yashash muddati (runway) nimani bildiradi?",
+  "options": [
+   "Mavjud pul oylik sof kuyishda necha oyga yetishini",
+   "Kredit to‘liq qaytarilguncha o‘tadigan oylar sonini",
+   "Biznes zararsizlik nuqtasiga chiqquncha o‘tadigan davrni",
+   "Investor sarmoyasi ulushga aylanishi uchun kerak muddatni"
+  ],
+  "c": 0,
+  "e": "Runway = mavjud pul / oylik sof kuyish."
+ },
+ {
+  "q": "CAPEX deganda qanday xarajatlar tushuniladi?",
+  "options": [
+   "Har oy to‘lanadigan ijara, ish haqi va reklama xarajatlari",
+   "Mijozlarga beriladigan chegirmalar va kechikish neustoykalari yig‘indisi",
+   "Uskuna, ta’mirlash, dasturiy ta’minot kabi bir martalik sarflar",
+   "Ta’minotchilarga xomashyo uchun to‘lanishi kerak bo‘lgan qarz"
+  ],
+  "c": 2,
+  "e": "CAPEX — bir martalik kapital xarajat; kundalik faoliyat xarajatlari OPEX deyiladi."
+ },
+ {
+  "q": "Pul aylanish davri qanday hisoblanadi?",
+  "options": [
+   "Ombor kunlari − debitorlik kunlari + kreditorlik kunlari",
+   "Ombor kunlari + debitorlik kunlari + kreditorlik kunlari",
+   "Ombor kunlari + debitorlik kunlari − kreditorlik kunlari",
+   "Debitorlik kunlari + kreditorlik kunlari − ombor kunlari"
+  ],
+  "c": 2,
+  "e": "Ta’minotchiga to‘lash muddati (kreditorlik) davrni qisqartiradi, ombor va debitorlik kunlari esa uzaytiradi."
+ },
+ {
+  "q": "Faktoring qanday ishlaydi?",
+  "options": [
+   "Hali to‘lanmagan hisob-fakturalar chegirma bilan sotilib, darhol naqd pul olinadi",
+   "Oldindan kelishilgan limitdan foydalanib, faqat ishlatilgan qismga foiz to‘lanadi",
+   "Uskuna sotib olinmay, bo‘lib-bo‘lib to‘lanadigan ijaraga olinadi",
+   "Xomashyo faqat kerak paytda va kerakli miqdorda buyurtma qilinadi"
+  ],
+  "c": 0,
+  "e": "Faktoringda debitorlik qarzi chegirma bilan topshirilib, pul mijoz to‘lashidan oldin olinadi."
+ },
+ {
+  "q": "Kredit liniyasi oddiy kreditdan nimasi bilan farq qiladi?",
+  "options": [
+   "Limitning butun summasi darhol beriladi va foiz to‘liq limitdan hisoblab olinadi",
+   "Limit doirasida kerak paytda olinadi, foiz faqat ishlatilgan summaga to‘lanadi",
+   "U faqat ulush evaziga beriladi va qaytarish majburiyati bo‘lmaydi",
+   "U faqat davlat grantlari doirasida beriladi va qaytarilmaydi"
+  ],
+  "c": 1,
+  "e": "Kredit liniyasi moslashuvchan: foydalanilgan qismga foiz to‘lanadi, ortiqcha pul qaytarilishi mumkin."
+ },
+ {
+  "q": "Ulushning suyulishi deganda nima tushuniladi?",
+  "options": [
+   "Kompaniyaning umumiy qiymati investor kirgach pasayib ketishi",
+   "Investor kiritgan pul miqdorining vaqt o‘tishi bilan qadrsizlanishi",
+   "Ta’sischilar daromadni investorlar bilan teng bo‘lib olishi",
+   "Yangi investorga ulush sotilgach, ta’sischilar foizi kamayishi"
+  ],
+  "c": 3,
+  "e": "Har yangi raundda ulush sotilgani sari ta’sischilarning foizi kamayadi."
+ },
+ {
+  "q": "Nega foydali biznes ham kassa uzilishiga duch kelishi mumkin?",
+  "options": [
+   "Foydali biznes doimo ta’minotchilarga oldindan to‘lashga majbur bo‘ladi",
+   "Foyda sotuvdan hisoblanadi, pul esa mijoz to‘lagandan keyingina keladi",
+   "Foyda hisobotida soliq va ish haqi umuman hisobga olinmaydi",
+   "Foydali biznesda pul boshqa hisob raqamlarga avtomatik o‘tkaziladi"
+  ],
+  "c": 1,
+  "e": "To‘lov kechiksa, foyda bo‘lsa ham maosh va ijara uchun pul yetmay qolishi mumkin."
+ },
+ {
+  "q": "Kredit va investor sarmoyasi o‘rtasidagi asosiy farq qaysi?",
+  "options": [
+   "Kredit foydadan qat’i nazar qaytariladi, investor esa ulush oladi",
+   "Kredit biznes ulushini beradi, investor sarmoyasi esa foiz bilan qaytariladi",
+   "Kredit faqat yirik firmalarga, investor sarmoyasi faqat yakka tadbirkorlarga beriladi",
+   "Ikkalasida ham qaytarish majburiyati va foiz bir xil bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Qarz qaytariladi va nazorat saqlanadi; ulush esa egalikning bir qismini berishni anglatadi."
+ },
+ {
+  "q": "Kreditning asosiy qismi qaytarilishi pul oqimi va xarajatlarda qanday aks etadi?",
+  "options": [
+   "Pul chiqimi ham, xarajat ham bo‘ladi va sof foydani kamaytiradi",
+   "Pul oqimiga ta’sir qilmaydi, faqat balansda o‘zgarish beradi",
+   "Pul kirimi bo‘ladi va operatsion daromadga qo‘shiladi",
+   "Pul chiqimi, lekin xarajat emas; xarajat faqat foiz hisoblanadi"
+  ],
+  "c": 3,
+  "e": "Kredit qaytarilishi — pul chiqimi, lekin xarajat emas; xarajat faqat foiz."
+ },
+ {
+  "q": "Operatsion pul oqimi doimiy manfiy bo‘lib, biznes faqat yangi kredit yoki investor hisobiga ishlasa, bu nimani anglatadi?",
+  "options": [
+   "Normal holat: bu har qanday yangi biznes uchun doimiy qoida bo‘ladi",
+   "Biznes juda foydali ekanini ko‘rsatuvchi ijobiy belgi",
+   "Xavfli belgi: asosiy faoliyat o‘zini moliyalashtirmayapti",
+   "Soliq hisobotida texnik nomuvofiqlik bor ekanini"
+  ],
+  "c": 2,
+  "e": "Sog‘lom biznesda operatsion oqim vaqt o‘tgan sari musbat bo‘lib, investitsiya va kredit to‘lovini qoplaydi."
+ },
+ {
+  "q": "Noldan boshlab byudjetlashtirish o‘sish asosidagi byudjetdan nimasi bilan farq qiladi?",
+  "options": [
+   "Barcha xarajatlar har davrda noldan asoslanadi, foiz qo‘shilmaydi",
+   "Oldingi davr byudjetiga foiz qo‘shib-ayirib yangi byudjet tuziladi",
+   "Faqat daromadlar rejalashtiriladi, xarajatlar esa umuman kuzatib borilmaydi",
+   "Byudjet bir marta tuzilib, bir necha yil davomida o‘zgarishsiz qoladi"
+  ],
+  "c": 0,
+  "e": "Zero-based usulda har bir xarajat, hatto avvalgisi ham, qayta asoslanadi."
+ },
+ {
+  "q": "Aynan vaqtida (JIT) tamoyili pul aylanish davrining qaysi qismini qisqartiradi?",
+  "options": [
+   "Mijoz to‘lagunga qadar o‘tadigan kunlarni",
+   "Xomashyo omborda turadigan kunlarni",
+   "Ta’minotchiga to‘lash uchun berilgan kunlarni",
+   "Soliq va yillik to‘lovlar muddatini"
+  ],
+  "c": 1,
+  "e": "JIT ortiqcha zaxirani kamaytiradi, ya’ni formuladagi ombor kunlarini qisqartiradi."
+ },
+ {
+  "q": "Mijozlar to‘lovni 60 kundan keyin to‘layotgani sabab kassa uzilishi xavfi bor. Kirimni tezlashtirishning qaysi usuli mos?",
+  "options": [
+   "Ta’minotchilar bilan to‘lov muddatini keskin qisqartirish",
+   "Reklama byudjetini oshirib, ko‘proq kredit sotuv qilish",
+   "Oldindan to‘lovga chegirma berish va kechikishga neustoyka",
+   "Zaxira fondini kamaytirib, pulni xomashyo omboriga sarflash"
+  ],
+  "c": 2,
+  "e": "Avans, chegirma va neustoyka debitorlik muddatini qisqartirib, kirimni tezlashtiradi."
+ },
+ {
+  "q": "Pul oqimi barqaror kutiladigan kichik ustaxona uskuna uchun ulush bermay mablag‘ olmoqchi. Qaysi manba odatda mos?",
+  "options": [
+   "Venchur kapital: katta ulush evaziga tez o‘sish uchun",
+   "Angel investor: ulush va boshqaruvga ta’sir evaziga",
+   "Sherik investitsiyasi: biznes egaligining bir qismi evaziga",
+   "Bank krediti: ulush berilmaydi, nazorat egasida qoladi"
+  ],
+  "c": 3,
+  "e": "Kichik barqaror biznes uchun odatda kredit mos; investor mablag‘i esa ulush berishni talab qiladi."
+ },
+ {
+  "q": "Reklama xarajati oshdi, ammo undan kelgan buyurtmalar soni o‘zgarmadi. Bu qaysi hodisa belgisi?",
+  "options": [
+   "Masshtab effekti: hajm oshgani sari birlik tannarxi pasayib borishi",
+   "Kassa uzilishi: mijozlar to‘lovni kechiktirishi",
+   "Ulushning suyulishi: egalik foizi kamayishi",
+   "Xarajat sirg‘alishi: reklama kanalini qayta ko‘rib chiqish kerak"
+  ],
+  "c": 3,
+  "e": "Natijasiz o‘sgan xarajat asta-sekin marjani yeydi; chorak sayin tekshiruv shuning oldini oladi."
+ },
+ {
+  "q": "Startap boshlang‘ich sarmoyani rejalashtirmoqda. Qaysi modda CAPEX emas, aylanma mablag‘ hisoblanadi?",
+  "options": [
+   "Dastlabki oylar uchun xodimlar maoshi zaxirasi",
+   "Elektr pech, mikser va sovutgich kabi uskunalar xaridi",
+   "Ustaxonani tayyorlash va ta’mirlash ishlariga sarflar",
+   "Ro‘yxatdan o‘tish, ERI va sertifikat olish xarajatlari"
+  ],
+  "c": 0,
+  "e": "Dastlabki 3–6 oylik maosh, ijara va xomashyo zaxirasi aylanma mablag‘; uskuna va ta’mir bir martalik CAPEX."
+ },
+ {
+  "q": "Hisobda 48 million so‘m bor, biznes oyiga 6 million so‘m sof yo‘qotmoqda. Runway necha oy?",
+  "options": [
+   "6 oy",
+   "12 oy",
+   "8 oy",
+   "42 oy"
+  ],
+  "c": 2,
+  "e": "Runway = 48 / 6 = 8 oy."
+ },
+ {
+  "q": "Ikki ta’sischi 100 foiz egalik qilgan. Birinchi raundda 20 foiz ulush sotildi, keyingi raundda yana 25 foiz sotildi. Ularning ulushi qancha bo‘ldi?",
+  "options": [
+   "55 foiz",
+   "60 foiz",
+   "64 foiz",
+   "75 foiz"
+  ],
+  "c": 1,
+  "e": "100 × 0,8 = 80 foiz, so‘ng 80 × 0,75 = 60 foiz (har raundda joriy ulush ko‘paytiriladi)."
+ }
+]

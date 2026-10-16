@@ -1,0 +1,82 @@
+{
+ "goal": "kamida ikki mijoz guruhini aniqlab, portretini tuzish va raqiblar taklifini solishtirish.",
+ "concepts": [
+  "Mijoz",
+  "iste’molchi",
+  "B2C",
+  "B2B",
+  "ehtiyoj",
+  "segmentlash"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 7-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb7-p1",
+   "title": "Buxgalteriya autsorsingi: TAM, SAM, SOM",
+   "text": "Kichik bizneslarga buxgalteriya autsorsingi xizmatini taklif qiluvchi startap. Shartli ma’lumot: shaharda 45 000 faol kichik biznes; ulardan 20% (2–10 xodimli) xizmatga muhtoj; xizmat oyiga 600 000 so‘m. Birinchi yilda 60 mijoz jalb qilinadi. Yillik hisobda TAM, SAM va SOMni hisoblang, so‘ng SOMning SAMdagi ulushini toping.",
+   "fields": [
+    {
+     "label": "TAM (yillik)",
+     "value": 324,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "SAM (yillik)",
+     "value": 64.8,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "SOM (1-yil)",
+     "value": 432,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "SOMning SAMdagi ulushi",
+     "value": 0.67,
+     "unit": "%",
+     "tol": 0.01
+    }
+   ],
+   "solution": "1) Bir mijozdan yillik daromad = 0,6 × 12 = 7,2 mln so‘m. 2) TAM = 45 000 × 7,2 mln = 324 mlrd so‘m. 3) SAM: muhtoj mijozlar = 45 000 × 20% = 9 000; 9 000 × 7,2 mln = 64,8 mlrd so‘m. 4) SOM = 60 × 7,2 mln = 432 mln so‘m. 5) Ulush = 0,432 / 64,8 ≈ 0,67%.",
+   "formula": "TAM = bozordagi barcha mijozlar × yillik narx; SAM = xizmatga muhtoj mijozlar × yillik narx; SOM = jalb qilinadigan mijozlar × yillik narx",
+   "note": "Raqamlar shartli."
+  },
+  {
+   "id": "tb7-p2",
+   "title": "Fitnes-ilova: segmentni tanlash",
+   "text": "Fitnes-ilova startapi uch segmentni aniqladi. A: talabalar, hajmi 40 000 kishi, oyiga 15 000 so‘m to‘laydi, konversiya 8%. B: ofis xodimlari, hajmi 18 000 kishi, oyiga 60 000 so‘m, konversiya 5%. V: sog‘liqni tiklovchilar, hajmi 7 000 kishi, oyiga 90 000 so‘m, konversiya 3%. Har bir segmentning potensial yillik daromadini (hajm × konversiya × oylik to‘lov × 12) hisoblang.",
+   "fields": [
+    {
+     "label": "A segmenti daromadi",
+     "value": 576,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "B segmenti daromadi",
+     "value": 648,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "V segmenti daromadi",
+     "value": 226.8,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "A: 40 000 × 8% = 3 200 kishi; 3 200 × 15 000 × 12 = 576 mln so‘m. B: 18 000 × 5% = 900; 900 × 60 000 × 12 = 648 mln. V: 7 000 × 3% = 210; 210 × 90 000 × 12 = 226,8 mln. Eng katta daromad B segmentida, shuning uchun birinchi navbatda B tanlanadi.",
+   "formula": "Daromad = segment hajmi × konversiya × oylik to‘lov × 12",
+   "note": "Darslikdagi kalitda A segmenti 460,8 mln deb xato berilgan; to‘g‘risi 576 mln so‘m. Xulosa o‘zgarmaydi: B eng yuqori (648 mln), A ikkinchi."
+  }
+ ],
+ "open": [
+  "Amaliy 7. Mijoz kim va unga nima kerak?. kamida ikki mijoz guruhini aniqlab, portretini tuzish va raqiblar taklifini solishtirish. Bajarish tartibi: 1) Bozorni demografik, geografik, psixografik va xulq-atvor mezonlari bilan segmentlang; 2) Ikkita maqsadli segmentni tanlab, sababini yozing; 3) Har biri uchun mijoz portretini tuzing (7.3-jadval); 4) Uchta raqibning taklifi va narxini yig‘ing; 5) TAM/SAM/SOMni pastdan-yuqoriga usuli bilan hisoblang; 6) Qaysi segmentga birinchi navbatda chiqishni asoslang.",
+  "Amaliy mashg'ulotga tayyorgarlik: Kamida ikkita mijoz guruhini aniqlang, 7.3-jadval shaklida portretlarini tuzing, TAM/SAM/SOMni pastdan-yuqoriga usuli bilan hisoblang va kamida uchta raqibning taklifi hamda narxini solishtirib, o‘z mahsulotingiz qaysi mijoz uchun eng foydali ekanini asoslang.",
+  "Kamida 15 kishilik so‘rovnoma (onlayn forma orqali) o‘tkazib, o‘z maqsadli mijozingizning real portretini (7.3-jadval shaklida) tuzing.",
+  "7.3-rasmdagi TAM/SAM/SOM misolini o‘z g‘oyangiz uchun pastdan-yuqoriga usulida qayta hisoblang."
+ ],
+ "refs": [
+  "Natija: ikki portret, raqiblar jadvali, TAM/SAM/SOM. Baholash mezoni: portretning real ma’lumotga asoslanishi, hisobning mantiqiyligi. Ko'p uchraydigan xatolar: Mijoz portretini xayoliy tasavvurga asoslab, real suhbatsiz yozish; TAM/SAM/SOMni faqat “yuqoridan-pastga” (umumiy statistikadan) hisoblab, pastdan-yuqoriga tekshirmaslik; Bitta segmentga emas, “hammaga” mo‘ljallangan noaniq portret tuzish.",
+  "Mezonlar: kamida ikki aniq segment; har biri uchun 7.3-jadval bo‘yicha portret (yosh, kasb, daromad, muammo, xarid kanali, to‘lovga tayyorlik); uch raqib taklifi va narxi jadvalda; TAM/SAM/SOM pastdan-yuqoriga (mijoz soni × narx) hisoblangan; SOM SAMning odatda 1–5% atrofida; tanlov asoslangan. Xato: ‘hammaga’ mo‘ljallangan portret, SOMni SAMning 40% deb olish.",
+  "Mezonlar: kamida 15 respondent; savollar mijozning muammosi, xarid odati va to‘lovga tayyorligi haqida; natijalar (yosh, kasb, xarajat, kanal) jadvalga yig‘ilgan; portret so‘rov javoblariga tayanadi, taxminga emas. Xato: respondentlar faqat tanishlar, javoblarni umumlashtirmaslik.",
+  "Mezonlar: o‘z g‘oyasi uchun mijoz soni, narx, muhtoj ulushi va jalb qilinadigan mijoz soni aniq berilgan; TAM = barcha mijoz × yillik narx, SAM = muhtoj mijozlar × narx, SOM = reja bo‘yicha mijozlar × narx; birliklar to‘g‘ri; SOM SAMdan kichik va real. Namuna (rasm): TAM 750 mlrd, SAM 37,5 mlrd, SOM 1,125 mlrd so‘m."
+ ]
+}

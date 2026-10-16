@@ -1,0 +1,118 @@
+{
+ "goal": "Xarajatlar jadvalini tuzib, tannarx va zararsizlik nuqtasini hisoblash, narx variantlarini solishtirish.",
+ "concepts": [
+  "Xarajat",
+  "doimiy xarajat (FC)",
+  "o‘zgaruvchan xarajat (VC)",
+  "tannarx",
+  "narx",
+  "ustama"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 10-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb10-p1",
+   "title": "Narx: ustamadan marjaga",
+   "text": "Mahsulot tannarxi 85 000 so‘m. (a) 35% marja uchun narxni toping; (b) shu narxdagi ustamani (tannarxga nisbatan, %) toping; (c) 40% ustama bilan narx va shu narxdagi marjani (narxga nisbatan, %) toping.",
+   "fields": [
+    {
+     "label": "(a) 35% marja uchun narx",
+     "value": 130769.2308,
+     "unit": "so‘m"
+    },
+    {
+     "label": "(b) shu narxdagi ustama",
+     "value": 53.8462,
+     "unit": "%"
+    },
+    {
+     "label": "(c) 40% ustama bilan narx",
+     "value": 119000.0,
+     "unit": "so‘m"
+    },
+    {
+     "label": "(c) shu narxdagi marja",
+     "value": 28.5714,
+     "unit": "%"
+    }
+   ],
+   "solution": "(a) Narx = 85 000 / (1 − 0,35) = 130 769 so‘m. (b) Foyda = 130 769 − 85 000 = 45 769; ustama = 45 769 / 85 000 = 53,8%. (c) Narx = 85 000 × 1,4 = 119 000; marja = 34 000 / 119 000 = 28,6%.",
+   "formula": "Narx = Tannarx / (1 − marja); Ustama = (Narx − Tannarx) / Tannarx; Marja = (Narx − Tannarx) / Narx",
+   "note": "“35% ustama” va “35% marja” turli narxlarga olib keladi: shartnomada qaysi biri nazarda tutilganini aniqlashtiring."
+  },
+  {
+   "id": "tb10-p2",
+   "title": "Sartaroshxona: zararsizlik va narx qarori",
+   "text": "Sartaroshxona: oylik doimiy xarajat 12 million so‘m, o‘rtacha chek 60 000 so‘m, bir tashrifga o‘zgaruvchan xarajat 15 000 so‘m, hozir oyiga 400 tashrif. (a) Zararsizlik nuqtasini (tashrif) toping; (b) kuniga (26 ish kuni) nechta tashrif kerak; (c) oyiga 9 million so‘m foyda uchun nechta tashrif kerak; (d) chek 70 000 so‘mga oshsa tashrif 10% kamayadi (360 ta): yangi oylik foyda qancha?",
+   "fields": [
+    {
+     "label": "(a) zararsizlik nuqtasi",
+     "value": 266.6667,
+     "unit": "tashrif",
+     "tol": 1
+    },
+    {
+     "label": "(b) kuniga tashrif (BEP bo‘yicha)",
+     "value": 10.2692,
+     "unit": "tashrif",
+     "tol": 0.1
+    },
+    {
+     "label": "(c) 9 mln foyda uchun tashrif",
+     "value": 466.6667,
+     "unit": "tashrif",
+     "tol": 1
+    },
+    {
+     "label": "(d) chek 70 000 bo‘lganda foyda",
+     "value": 7.8,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Qoplash marjasi = 60 000 − 15 000 = 45 000. (a) BEP = 12 000 000 / 45 000 = 266,7 ≈ 267. (b) 267 / 26 = 10,3, ya’ni kuniga kamida 11 mijoz. (c) (12 000 000 + 9 000 000) / 45 000 = 466,7 ≈ 467 (400 ta quvvatdan yuqori). (d) Marja 70 000 − 15 000 = 55 000; foyda = 360 × 55 000 − 12 000 000 = 7,8 mln (hozirgi: 400 × 45 000 − 12 000 000 = 6,0 mln).",
+   "formula": "BEP = FC / (Narx − VC); Foyda = Hajm × (Narx − VC) − FC",
+   "note": "Narxni oshirish foydaliroq (7,8 > 6,0 mln) va ish yuki ham kam."
+  },
+  {
+   "id": "tb10-p3",
+   "title": "Samarkand IT-Academy: narx va zararsizlik",
+   "text": "IT o‘quv markazi: doimiy xarajat oyiga 5 500 dollar (ijara 1 200, mentorlar 3 000, admin 800, kommunal 500), o‘zgaruvchan xarajat 15 dollar/talaba. (a) Oylik narx 90 dollar bo‘lsa zararsizlik nuqtasini toping; (b) narx 150 dollarga ko‘tarilsa zararsizlik nuqtasini toping; (c) 150 dollarlik narxda 70 talaba bo‘lsa oylik foydani toping.",
+   "fields": [
+    {
+     "label": "(a) 90 dollarda BEP",
+     "value": 73.3333,
+     "unit": "talaba",
+     "tol": 1
+    },
+    {
+     "label": "(b) 150 dollarda BEP",
+     "value": 40.7407,
+     "unit": "talaba",
+     "tol": 1
+    },
+    {
+     "label": "(c) 150 dollar, 70 talaba: foyda",
+     "value": 3950,
+     "unit": "dollar"
+    }
+   ],
+   "solution": "(a) Marja = 90 − 15 = 75; BEP = 5 500 / 75 = 73,3 ≈ 74 talaba. (b) Marja = 150 − 15 = 135; BEP = 5 500 / 135 = 40,7 ≈ 41. (c) Tushum 70 × 150 = 10 500; VC = 70 × 15 = 1 050; foyda = 10 500 − 1 050 − 5 500 = 3 950 dollar.",
+   "formula": "BEP = FC / (Narx − VC)",
+   "note": "Taqqoslash: 90 dollarda 70 talaba bilan foyda = 70 × 75 − 5 500 = −250 dollar (zarar)."
+  }
+ ],
+ "open": [
+  "Amaliy 10. Mahsulot narxini shakllantirish. Xarajatlar jadvalini tuzib, tannarx va zararsizlik nuqtasini hisoblang, narx variantlarini solishtiring. Bajarish tartibi: 1) Xarajatlarni doimiy va o‘zgaruvchan turlarga ajrating; 2) Bir birlik uchun VC va oylik FCni hisoblang; 3) Rejalashtirilgan hajmda to‘liq tannarxni toping; 4) Uch narx variantini (xarajat, raqobat, qiymat) hisoblang; 5) Har bir variant uchun BEP va foydani hisoblab, 10.3-jadvalga kiriting; 6) Maqbul narxni asoslang va xavfsizlik zaxirasini hisoblang.",
+  "Amaliy mashg‘ulotga tayyorgarlik: O‘z mahsulotingiz uchun xarajatlar jadvalini (doimiy va o‘zgaruvchan) tuzing; to‘liq tannarxni hisoblang; kamida uchta narx variantini raqobat va mijoz qiymati bilan taqqoslab, zararsizlik nuqtasi va foydasini 10.3-jadval shaklida hisoblang; maqbul narxni asoslang.",
+  "10.2-rasmdagi zararsizlik grafigini o‘z g‘oyangizning real xarajat va narx raqamlari bilan qaytadan chizing (Excel yoki qo‘lda) va grafikdagi zararsizlik nuqtasini izohlang.",
+  "Ikkita raqibning narxini o‘rganib, 10.1-rasmdagi uslubda o‘zingizning past, o‘rtacha va premium narx variantlaringiz uchun foyda va BEPni hisoblang.",
+  "“Samarkand IT-Academy” keysi: markaz narxni “xarajat + 40%” usulida 90 dollar deb belgilagan. Bu hisob to‘g‘rimi, tekshiring. Shuningdek, 40% talaba to‘lovni 2–3 oy kechiktirsa, bu qanday muammo va uni qanday hal qilish mumkin?"
+ ],
+ "refs": [
+  "Natija: xarajatlar jadvali, narx variantlari va asoslash. Baholash mezoni: hisob-kitob to‘g‘riligi, uch yondashuvni (xarajat, raqobat, qiymat) hisobga olish, asoslash. Ko‘p uchraydigan xatolar: doimiy va o‘zgaruvchan xarajatlarni noto‘g‘ri tasniflash (masalan, ijarani o‘zgaruvchan deb hisoblash); faqat bitta narx variantini hisoblab, taqqoslash imkoniyatini yo‘qotish; BEP hisoblashda barcha doimiy xarajatlarni (masalan, marketingni) hisobga olmaslik.",
+  "Mezon: FC va VC to‘g‘ri ajratilgan; to‘liq tannarx = VC + FC / hajm formulasi bilan hisoblangan; kamida 3 narx variantida BEP = FC / (narx − VC) va foyda hisoblangan; raqobat narxi va mijoz qiymati bilan solishtirilgan; maqbul narx asoslangan. Xato: marketingni FCga qo‘shmaslik, bitta variant bilan cheklanish.",
+  "Mezon: grafikda gorizontal o‘qda hajm, vertikal o‘qda so‘m; doimiy xarajat gorizontal chiziq, jami xarajat va tushum chiziqlari ko‘rsatilgan; kesishish nuqtasi BEP = FC / (narx − VC) formulasi bilan mos; nuqtadan chapda zarar, o‘ngda foyda zonasi izohlangan; xavfsizlik zaxirasi ko‘rsatilgan.",
+  "Mezon: kamida ikki raqib narxi manbasi ko‘rsatilgan; har bir variant (past, o‘rtacha, premium) uchun marja, BEP va foyda hisoblangan; past narx BEPni oshirishi, premium narx esa sifat va qiymat isbotini talab qilishi tahlil qilingan; tanlov asoslangan.",
+  "Namuna: 100 talabada to‘liq tannarx = 15 + 5 500 / 100 = 70 dollar; 70 × 1,4 = 98 dollar, 90 emas. 90 dollar 40% ustama bilan taxminan 64,3 dollarlik tannarxga mos keladi (taxminan 112 talabada). Demak, ustama qaysi hajmga hisoblangani aniq emas. Kechikish narx emas, pul oqimi muammosi (11-bob): 3 oylik oldindan to‘lovga chegirma, kechikishga neustoyka yoki darsga ruxsatni to‘xtatish, bo‘lib to‘lash uchun bank yoki mikromoliya hamkorligi, avans, muntazam eslatma."
+ ]
+}

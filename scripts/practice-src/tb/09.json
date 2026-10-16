@@ -1,0 +1,87 @@
+{
+ "goal": "sotuv muloqotini rol o‘yini orqali mashq qilish va e’tirozlarga javob ssenariysini tayyorlash.",
+ "concepts": [
+  "Savdo",
+  "lead",
+  "ehtiyojni aniqlash",
+  "taklif",
+  "e’tiroz",
+  "kelishuv"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 9-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb9-p1",
+   "title": "Savdo voronkasi hisobi",
+   "text": "Oylik 1 000 lead keladi. 40% bilan aloqa o‘rnatiladi; aloqa qilinganlarning 40% ga taklif yuboriladi; takliflarning 20% i xarid qiladi. Oylik sotuv sonini, umumiy konversiyani va 48 ta sotuv uchun kerak bo‘ladigan lead sonini toping.",
+   "fields": [
+    {
+     "label": "Oylik sotuv",
+     "value": 32,
+     "unit": "dona"
+    },
+    {
+     "label": "Umumiy konversiya",
+     "value": 3.2,
+     "unit": "%"
+    },
+    {
+     "label": "48 sotuv uchun lead",
+     "value": 1500,
+     "unit": "lead"
+    }
+   ],
+   "solution": "Aloqa: 1 000 × 40% = 400. Taklif: 400 × 40% = 160. Sotuv: 160 × 20% = 32. Umumiy konversiya = 32 / 1 000 = 3,2%. 48 sotuv uchun 48 / 0,032 = 1 500 lead.",
+   "formula": "Umumiy konversiya = sotuv / lead = c1 × c2 × c3",
+   "note": ""
+  },
+  {
+   "id": "tb9-p2",
+   "title": "Eng zaif bosqichni yaxshilash",
+   "text": "Oldingi masaladagi voronkada taklif → xarid konversiyasi 20% o‘rniga 30% bo‘ldi (qolgan bosqichlar o‘zgarmadi). Xuddi shu 1 000 leaddan oylik sotuv nechta bo‘ladi va u asl sotuvdan necha foiz ko‘p?",
+   "fields": [
+    {
+     "label": "Yangi sotuv",
+     "value": 48,
+     "unit": "dona"
+    },
+    {
+     "label": "Sotuv o‘sishi",
+     "value": 50,
+     "unit": "%"
+    }
+   ],
+   "solution": "Takliflar soni o‘zgarmaydi: 160. Sotuv = 160 × 30% = 48. O‘sish = (48 − 32) / 32 = 50%. Reklama byudjetini oshirmay, bitta bosqichni yaxshilash 1 500 lead kerakligini 1 000 ga tushirdi.",
+   "formula": "Sotuv = takliflar × yangi konversiya",
+   "note": ""
+  },
+  {
+   "id": "tb9-p3",
+   "title": "Voronkada aloqa bosqichini oshirish",
+   "text": "Voronka: 200 lead; aloqaga chiqish 50%; aloqadan taklifga 60%; taklifdan buyurtmaga 40%; buyurtmadan to‘lovga 83% (aniq 5/6, ya’ni 24 buyurtmadan 20). Aloqaga chiqish 65% ga oshirilsa, to‘lov qilganlar soni qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "To‘lov qilganlar",
+     "value": 26,
+     "unit": "kishi",
+     "tol": 0.5
+    }
+   ],
+   "solution": "Aloqa: 200 × 65% = 130. Taklif: 130 × 60% = 78. Buyurtma: 78 × 40% = 31,2. To‘lov: 31,2 × 5/6 = 26. Avval 20 edi; o‘sish 30%.",
+   "formula": "To‘lov = lead × c1 × c2 × c3 × c4",
+   "note": "Darslik misoli (9-bob voronka jadvali)."
+  }
+ ],
+ "open": [
+  "Amaliy 9. Savdo jarayoni va mijozlar bilan ishlash (rol o‘yini). sotuv muloqotini rol o‘yini orqali mashq qilish va e’tirozlarga javob ssenariysini tayyorlash. Bajarish tartibi: 1) Savdo ssenariysini yetti bosqich bo‘yicha yozing; 2) “Qimmat”, “keyin olaman”, “kerak emas”, “o‘ylab ko‘raman” e’tirozlariga LAER bo‘yicha javob yozing; 3) Uchtalik guruhda (sotuvchi, xaridor, kuzatuvchi) rol o‘yinini o‘tkazing; 4) Rollarni almashtirib, uch aylana bajaring; 5) Kuzatuvchi fikr-mulohazasini yozib oladi; 6) Oddiy mijozlar bazasi jadvalini tuzing.",
+  "Amaliy mashg'ulotga tayyorgarlik: O‘z mahsulotingiz yoki xizmatingiz uchun qisqa savdo ssenariysini yozing; kamida beshta e’tirozga javob tayyorlang; 9.6-jadval shaklida oddiy mijozlar bazasi jadvalini shakllantiring; guruhdagi sherigingiz bilan rol o‘yinida ssenariyni mashq qiling.",
+  "Do‘stingiz bilan 9.2-rasmdagi savdo voronkasi bosqichlarini rol o‘yini orqali sinab ko‘ring va har bosqichdagi konversiyani yozib boring.",
+  "Real yoki shartli 20 ta mijoz uchun mijozlar bazasi jadvalini (9.6-jadval) to‘ldirib, ulardan 9.3-rasm asosida NPS so‘rovini o‘tkazing."
+ ],
+ "refs": [
+  "Natija: ssenariy, e’tirozlar javobi, mijozlar bazasi. Baholash mezoni: ehtiyojni aniqlash, e’tirozga javob sifati, muloqot madaniyati. Ko'p uchraydigan xatolar: Rol o‘yinida faqat mahsulot xususiyatlarini sanab o‘tish, mijoz ehtiyojini so‘ramaslik; E’tirozga darhol chegirma bilan javob berish, sababini aniqlashtirmasdan; Savdo ssenariysida yakunlash (closing) bosqichini butunlay unutib qo‘yish.",
+  "Mezonlar: ssenariy yetti bosqichni qamrab oladi (salomlashish, ehtiyojni aniqlash, taklif, e’tiroz, yakunlash, sotuvdan keyingi xizmat va h.k.); kamida beshta e’tirozga LAER (tingla, tan ol, o‘rgan, javob ber) bo‘yicha javob; mijozlar bazasi 9.6-jadval ustunlari (ism, aloqa, manba, holat, keyingi qadam) bilan. Xato: darhol chegirma berish, yakunlash bosqichini tushirib qoldirish.",
+  "Mezonlar: voronka bosqichlari (lead, aloqa, taklif, buyurtma, to‘lov) bo‘yicha sonlar yozilgan; har bosqichdagi konversiya foizi hisoblangan; eng ko‘p yo‘qotilgan bosqich aniqlangan va yaxshilash taklifi berilgan; rol o‘yini sherik bilan o‘tkazilgan.",
+  "Mezonlar: 20 mijozli jadval to‘liq (ism, telefon, manba, xarid, sana, holat); NPS so‘rovi 0–10 shkalada; NPS = tarafdorlar (9–10) % − tanqidchilar (0–6) % to‘g‘ri hisoblangan; passivlar (7–8) hisobga kirmaydi; xulosa va keyingi qadam yozilgan."
+ ]
+}

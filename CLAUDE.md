@@ -45,9 +45,17 @@ Ixtiyoriy bo'lim: **tahlil laboratoriyasi** (`features.lab`). U faqat moliyaviy 
 | `public/data/updates.js` | Darslikdagi eskirgan ma'lumotlarning yangi qiymatlari | Faktcheking (internet qidiruvi) |
 | `public/data/course.js → semesters` | Semestrlar: mavzular oralig'i, o'qish muddati (reyting shu muddatda yig'iladi, tugagach qotiriladi). Reyting qoidalari va darajalari: `public/js/rating.js` | Qo'lda |
 | `public/data/assignment.js`, `assignment-masofaviy.js` | 3-semestr topshirig'i: kunduzgi (`scripts/import-assignment.py`, fayldan) va masofaviy (`scripts/build-assignment-masofaviy.py`) ta'lim shakllari uchun alohida; muddat va ballar shu skriptlardagi sozlamalarda |
-| `public/slides/NN.pdf` | Dars taqdimotlari | `python3 scripts/convert-slides.py manbalar/` |
+| `public/slides/NN.pdf` | Dars taqdimotlari | `python3 scripts/convert-slides.py manbalar/` yoki darslikdan `node scripts/make-slides.mjs` |
+| `public/data/tb/*`, `public/slides/tb/`, `public/img/book/tb/` | «Tadbirkorlik asoslari» fani (15 mavzu) | `scripts/import-tadbirkorlik.py`, `apply-tests.py --subject tb`, `apply-practice.py --subject tb`, `make-slides.mjs --subject tb` |
 
 Har bir fayl boshida format izohlangan. Namunadagi 2 ta mavzu formatga misol. Haqiqiy fan kiritilganda ular to'liq almashtiriladi.
+
+## Qo'shimcha fan (bo'lim) qo'shish — masalan, «Tadbirkorlik asoslari»
+
+Platformada bir nechta fan bo'ladi (`public/data/course.js → SUBJECTS`). Birinchi fan (Mikroiqtisodiyot) fayllari `public/data/` da, qolgan fanlar — `public/data/<dir>/` da (`tb/`). Talaba faqat o'z guruhi fanini ko'radi; o'qituvchi menyudagi tanlagich bilan fanlar orasida almashadi (`tt.subject`).
+
+Yangi fan uchun: (1) `SUBJECTS` ga yozuv (kalit, nom, guruhlar, `dir`, `idPrefix`, `slides`, `course` — nom/manba/natijalar/baholash/darajalar) va guruhlarni `studyForms` ga qo'shing; (2) `public/data/<dir>/meta.js` (belgilar, resurslar, `DECKS`); (3) darslik importeri (`scripts/import-tadbirkorlik.py` — namuna; yangi darslikka moslab nusxa oling) → `book.js`, `layers-auto.js`, `practice-auto.js`, `public/img/book/<dir>/`; (4) testlar: `scripts/tests-src/<dir>/NN.json` → `python3 scripts/apply-tests.py --subject tb` (kalitlar `server/quiz-keys-<dir>.mjs`, faqat server; yangi fan uchun `app.mjs` dagi `KEYS_BY_SUBJECT` ga ham qo'shing); (5) amaliyot: `scripts/practice-src/<dir>/NN.json` → `python3 scripts/apply-practice.py --subject tb`; (6) taqdimotlar: `scripts/slides-src/<dir>/NN.json` (slayd rejasi) → `node scripts/make-slides.mjs --subject tb`; (7) `worker/index.js`, `public/sw.js`, `wrangler.jsonc` dagi himoyalangan yo'llar ro'yxatiga `data/<dir>/...` qo'shing (`tb/` allaqachon bor); (8) `npm run check`.
+Mavzu identifikatori: asosiy fan — `t1`, `t2`...; boshqa fan — `<idPrefix><n>` (`tb1`...). Asosiy fanning 3-semestr topshirig'i va reytingi faqat asosiy fan talabalari uchun; boshqa fan talabalari uchun guruh reytingi o'qituvchi topshiriqlari ballidan (`#/fan`).
 
 ## Ish tartibi: yangi fan uchun platformani tayyorlash
 

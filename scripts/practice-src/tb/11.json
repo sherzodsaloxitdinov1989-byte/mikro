@@ -1,0 +1,118 @@
+{
+ "goal": "3 oylik pul oqimi jadvalini tuzib, mablag‘ yetishmasligi mumkin bo‘lgan oyni aniqlash va moliyalashtirish manbalarini tanlash.",
+ "concepts": [
+  "Pul oqimi (cash flow)",
+  "kirim",
+  "chiqim",
+  "kassa uzilishi",
+  "aylanma mablag‘",
+  "debitorlik va kreditorlik qarzi"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 11-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb11-p1",
+   "title": "Pul oqimi va kassa uzilishi",
+   "text": "Non-qandolat mahsulotlarini korxonalarga yetkazuvchi biznes. Sotuv: 1-oy 40, 2-oy 50, 3-oy 60 million so‘m; mijozlar sotuvdan bir oy keyin to‘laydi. Xomashyo sotuvning 50% i, o‘sha oyda to‘lanadi; doimiy xarajat har oy 12 million so‘m. Boshlang‘ich pul 30 million so‘m. Har oy oxiridagi qoldiqni va 3 oylik hisoblangan (sotuv bo‘yicha) foydani toping.",
+   "fields": [
+    {
+     "label": "1-oy oxiridagi qoldiq",
+     "value": -2,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "2-oy oxiridagi qoldiq",
+     "value": 1,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "3-oy oxiridagi qoldiq",
+     "value": 9,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "3 oylik jami foyda (hisoblangan)",
+     "value": 39,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "1-oy: kirim 0; chiqim = 20 + 12 = 32; qoldiq = 30 − 32 = −2 (kassa uzilishi). 2-oy: kirim 40; chiqim = 25 + 12 = 37; sof +3; qoldiq = +1. 3-oy: kirim 50; chiqim = 30 + 12 = 42; sof +8; qoldiq = +9. Foyda: 1-oy 40 − 32 = 8; 2-oy 50 − 37 = 13; 3-oy 60 − 42 = 18; jami 39.",
+   "formula": "Oxirgi qoldiq = Boshlang‘ich qoldiq + Kirim − Chiqim",
+   "note": "Foyda 39 mln, lekin 3-oy oxirida kassada 9 mln; 60 mln so‘m mijozlar qarzida. Chora: qisqa muddatli aylanma kredit, 10% avans, xomashyo to‘lovini kechiktirish."
+  },
+  {
+   "id": "tb11-p2",
+   "title": "Pul aylanish davri va aylanma mablag‘",
+   "text": "Mebel korxonasi: xomashyo omborda o‘rtacha 25 kun saqlanadi, mijozlar 40 kunda to‘laydi (debitorlik), ta’minotchilarga 20 kunda to‘lanadi (kreditorlik). Oylik xarajat 45 million so‘m (oy = 30 kun). (a) Pul aylanish davrini toping; (b) aylanma mablag‘ ehtiyojini toping; (c) mijoz to‘lov muddati 20 kunga qisqarsa, ehtiyoj qancha kamayadi?",
+   "fields": [
+    {
+     "label": "(a) pul aylanish davri",
+     "value": 45,
+     "unit": "kun"
+    },
+    {
+     "label": "(b) aylanma mablag‘ ehtiyoji",
+     "value": 67.5,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "(c) 20 kunga qisqarsa ehtiyoj",
+     "value": 37.5,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "(c) ehtiyojning kamayishi",
+     "value": 30.0,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "(a) 25 + 40 − 20 = 45 kun. (b) Kunlik xarajat = 45 / 30 = 1,5 mln; ehtiyoj = 45 × 1,5 = 67,5 mln. (c) Davr = 25 + 20 − 20 = 25 kun; ehtiyoj = 25 × 1,5 = 37,5 mln; kamayish 30 mln.",
+   "formula": "Pul aylanish davri = Ombor kunlari + Debitorlik kunlari − Kreditorlik kunlari; Ehtiyoj = Davr × Kunlik xarajat"
+  },
+  {
+   "id": "tb11-p3",
+   "title": "FoodBox: kuyish tezligi va qoldiq",
+   "text": "FoodBox (o‘quv maqsadidagi shartli loyiha) boshlang‘ich sarmoyasi 80 000 dollar. Dastlabki 6 oyda tushum: 200, 800, 1 800, 3 000, 4 500, 6 000; jami chiqim: 11 330, 11 330, 11 330, 8 850, 7 880, 7 400 dollar. Sarmoya kirimi hisobga olinmasin. Toping: 6 oylik jami sof pul oqimi; 6-oy oxiridagi kassa qoldig‘i (80 000 sarmoya bilan); dastlabki 3 oydagi o‘rtacha oylik kuyish (burn); tushum o‘smasa sarmoya necha oyga yetadi (runway).",
+   "fields": [
+    {
+     "label": "6 oylik jami sof oqim",
+     "value": -41820,
+     "unit": "dollar"
+    },
+    {
+     "label": "6-oy oxiridagi qoldiq",
+     "value": 38180,
+     "unit": "dollar"
+    },
+    {
+     "label": "dastlabki 3 oyda o‘rtacha kuyish",
+     "value": 10396.6667,
+     "unit": "dollar/oy",
+     "tol": 1
+    },
+    {
+     "label": "runway",
+     "value": 7.6948,
+     "unit": "oy",
+     "tol": 0.1
+    }
+   ],
+   "solution": "Sof oqim: −11 130, −10 530, −9 530, −5 850, −3 380, −1 400; jami −41 820. Qoldiq = 80 000 − 41 820 = 38 180. Kuyish = (11 130 + 10 530 + 9 530) / 3 ≈ 10 397. Runway = 80 000 / 10 397 ≈ 7,7 oy.",
+   "formula": "Runway = Zaxira / Oylik kuyish"
+  }
+ ],
+ "open": [
+  "Amaliy 11. Pul oqimini rejalashtirish. 3 oylik pul oqimi jadvalini tuzib, mablag‘ yetishmasligi mumkin bo‘lgan oyni aniqlang va moliyalashtirish manbalarini tanlang. Bajarish tartibi: 1) Boshlang‘ich qoldiq va kapitalni belgilang; 2) Oylik sotuv va to‘lov muddatini hisobga olib kirimlarni yozing; 3) Chiqimlarni to‘lov sanasi bo‘yicha yozing (soliq, kredit to‘lovi bilan); 4) Sof pul oqimi va oxirgi qoldiqni hisoblang; 5) To‘lov 30 kunga kechiksa nima bo‘lishini sinab ko‘ring; 6) Moliyalashtirish manbasini tanlab, asoslang.",
+  "Amaliy mashg‘ulotga tayyorgarlik: O‘z biznesingiz uchun 3 oylik (ideal 6 oylik) pul oqimi jadvalini tuzing; qaysi oyda mablag‘ yetishmasligi mumkinligini aniqlang; boshlang‘ich kapital smetasini 11.4-jadval shaklida tayyorlang va mos moliyalashtirish manbalarini asoslang.",
+  "11.1-rasmdagi kabi o‘zingizning 3 oylik pul oqimi va kumulyativ foyda grafigini chizing; qaysi oyda ular orasidagi farq eng katta ekanini toping.",
+  "11.3-rasmga o‘xshash tarzda o‘z boshlang‘ich kapitalingizning taqsimotini doiraviy diagrammada ko‘rsating va har bir ulushni asoslang.",
+  "“Toshkent Agro-Dry” keysi: quritilgan meva eksport qiladigan MChJ shartnomalarda Net-30 (mahsulot yetgach 30 kundan keyin to‘lov) sharti bor, ta’sischilar kapitali 100 000 dollar. Pul oqimi uzilishining oldini olish uchun rahbariyatga uchta amaliy taklif bering."
+ ],
+ "refs": [
+  "Natija: 3 oylik pul oqimi jadvali va manba tanlovi. Baholash mezoni: jadval to‘g‘riligi, kassa uzilishini aniqlash, tanlov asosliligi. Ko‘p uchraydigan xatolar: to‘lov muddatini unutib, sotuvni darhol kirim deb yozish; soliq va kredit to‘lovlarini jadvalga kiritmaslik; faqat bitta (optimistik) stsenariy tuzib, kassa uzilishi xavfini ko‘rmaslik.",
+  "Mezon: boshlang‘ich kapital smetasi 11.4-jadval shaklida (uskuna, ijara depoziti, xomashyo zaxirasi, reklama, qonuniy rasmiylashtirish, kamida 2–3 oylik zaxira); 3 oylik jadvalda kirim to‘lov muddati bilan yozilgan; kassa uzilishi oyi aniq ko‘rsatilgan; moliyalashtirish manbasi (o‘z mablag‘i, kredit, grant, avans) uzilish miqdori va muddatiga mos asoslangan.",
+  "Mezon: grafikda har oy uchun sof pul oqimi va kumulyativ foyda ustunlari/chiziqlari; foyda va pul oqimi farqi sababi (debitorlik, ombor zaxirasi, avans) izohlangan; eng katta farq oyi to‘g‘ri topilgan. Asosiy g‘oya: foydali biznesning ham puli yetmay qolishi mumkin.",
+  "Mezon: ulushlar yig‘indisi 100%; uskuna, aylanma mablag‘, reklama, huquqiy xarajat va zaxira ulushlari bor; zaxira (kamida 2–3 oylik doimiy xarajat) e’tiborga olingan; har bir ulush fan namunasi yoki hisob bilan asoslangan.",
+  "Namuna: 1) Oldindan to‘lov (20–30% avans) yoki bank akkreditivi (L/C); yangi xaridorga avval kichik partiya. 2) Debitorlik qarzini moliyalashtirish: faktoring, eksport sug‘urtasi, aylanma mablag‘ kreditli liniyasi (kamida ikki oylik xarajat, taxminan 28 000 dollar). 3) Ichki xarajatni sinxronlash: ta’minotchilar bilan 30–45 kunlik to‘lov muddati, qadoqlash va logistikani autsorsing, 2–3 oylik zaxira. Qo‘shimcha: xaridor to‘lov intizomini tekshirish, valyuta xavfi va kechikish neustoykasi."
+ ]
+}

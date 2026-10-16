@@ -1,0 +1,222 @@
+[
+ {
+  "q": "B2G (Business to Government) turidagi mijozlarga sotish qanday amalga oshadi?",
+  "options": [
+   "Davlat va budjet muassasalariga davlat xaridlari orqali",
+   "Biznesdan yakuniy iste’molchiga, ya’ni aholiga to‘g‘ridan-to‘g‘ri",
+   "Bir korxonadan boshqa korxonaga shartnoma asosida uskuna yetkazib",
+   "Davlatdan tadbirkorlarga subsidiya va imtiyoz ajratish orqali"
+  ],
+  "c": 0,
+  "e": "B2G — davlat tashkilotlari va budjet muassasalariga davlat xaridlari orqali sotishdir."
+ },
+ {
+  "q": "B2B xarid markazida axborot oqimini nazorat qiladigan, masalan, kotib yoki yordamchi qaysi rolni bajaradi?",
+  "options": [
+   "Ta’sir ko‘rsatuvchi (texnik ekspert)",
+   "Qaror qabul qiluvchi (yakuniy rahbar)",
+   "Eshik qo‘riqchisi",
+   "Xaridor (shartnomani rasmiylashtiruvchi)"
+  ],
+  "c": 2,
+  "e": "Axborot oqimini nazorat qiluvchi kotib yoki yordamchi xarid markazida eshik qo‘riqchisi rolini o‘ynaydi."
+ },
+ {
+  "q": "Bolalar to‘garagi xizmatida ota-ona pulni to‘laydi, bola esa mashg‘ulotlarga qatnashadi. Ota-ona qaysi rolni bajaradi?",
+  "options": [
+   "Foydalanuvchi",
+   "To‘lovchi",
+   "Qaror ta’sirchisi",
+   "Xaridning kuzatuvchisi"
+  ],
+  "c": 1,
+  "e": "Pulni to‘laydigan shaxs to‘lovchi, mahsulotdan foydalanuvchi esa bola hisoblanadi."
+ },
+ {
+  "q": "Bozor nuqtayi nazaridan “talab” nima?",
+  "options": [
+   "Inson uchun umumiy va tabiiy bo‘lgan zaruriyat, masalan, ovqatlanish ehtiyoji",
+   "Ehtiyojning muayyan shakli, masalan, sog‘lom va milliy taomga xohish",
+   "Mijozning mahsulot haqida axborot izlash bosqichi",
+   "Sotib olishga tayyorlik va to‘lov qobiliyati bilan mustahkamlangan ehtiyoj"
+  ],
+  "c": 3,
+  "e": "Talab — sotib olishga tayyorlik va qobiliyat bilan mustahkamlangan ehtiyoj bo‘lib, biznes imkoniyatini shu bildiradi."
+ },
+ {
+  "q": "Sug‘urta xizmati Maslou ehtiyojlar ierarxiyasining qaysi pog‘onasiga xizmat qiladi?",
+  "options": [
+   "Fiziologik",
+   "Ijtimoiy",
+   "Xavfsizlik",
+   "Hurmat va e’tirof"
+  ],
+  "c": 2,
+  "e": "Sug‘urta moliyaviy barqarorlik va xavfsizlik ehtiyojini qondiradi."
+ },
+ {
+  "q": "STP modelidagi Targeting bosqichida nima qilinadi?",
+  "options": [
+   "Segmentlar baholanib, maqsadli segment tanlanadi",
+   "Bozor mezonlar bo‘yicha segmentlarga bo‘linadi",
+   "Mahsulotning raqiblardan farqli o‘rni belgilanadi",
+   "Tanlangan segment uchun narx va kanal belgilanadi"
+  ],
+  "c": 0,
+  "e": "Targeting — segmentlar baholangach, maqsadli segmentni tanlash bosqichidir."
+ },
+ {
+  "q": "Har kuni tushlik sotib oladiganlar va aksiyalarni kuzatuvchilarga ajratish segmentlashning qaysi mezoniga kiradi?",
+  "options": [
+   "Demografik",
+   "Geografik",
+   "Psixografik",
+   "Xulq-atvor"
+  ],
+  "c": 3,
+  "e": "Xarid chastotasi va aksiyaga munosabat xulq-atvor mezoniga kiradi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri yaxshi segmentning xususiyati hisoblanadi?",
+  "options": [
+   "Segmentdagi mijozlarning barcha ehtiyojlari bir xil bo‘ladi",
+   "Segment ehtiyoji bilan boshqa segmentlardan farqlanadi",
+   "Segmentga reklama orqali yetib borishning iloji bo‘lmaydi",
+   "Segment hajmi qanchalik kichik bo‘lsa, shuncha yaxshi"
+  ],
+  "c": 1,
+  "e": "Yaxshi segment o‘lchanadigan, yetib boriladigan, yetarlicha katta, bir-biridan farqli va xizmat ko‘rsatish mumkin bo‘lishi kerak."
+ },
+ {
+  "q": "Resursi cheklangan yangi boshlovchi uchun odatda qaysi targeting strategiyasi resursni tejaydi?",
+  "options": [
+   "Ommaviy — butun bozorga bitta taklif berish",
+   "Differensiallashgan — har segmentga alohida taklif",
+   "Konsentrlangan — bitta tor segmentga chuqur kirish",
+   "Aralash — barcha segmentga bir vaqtda kirish"
+  ],
+  "c": 2,
+  "e": "Konsentrlangan strategiya bitta segmentga chuqur kirib, resursni tejaydi."
+ },
+ {
+  "q": "Yaxshi pozitsiyalash jumlasi qaysi uch savolga javob beradi?",
+  "options": [
+   "Kim uchun, qaysi toifada va nima bilan farqlanishi",
+   "Qancha narxda, qayerda sotiladi va kim yetkazib beradi",
+   "Kim ishlab chiqaradi, qachon boshlanadi va qancha foyda beradi",
+   "Qaysi segment katta, qaysi raqib kuchli va qancha sarflanadi"
+  ],
+  "c": 0,
+  "e": "Pozitsiyalash kim uchun, qaysi toifada va nima bilan farqlanishini ifodalaydi."
+ },
+ {
+  "q": "Tadbirkor Milliy statistika qo‘mitasi hisobotidan hudud aholisining daromad ma’lumotini oldi. Bu qanday ma’lumot?",
+  "options": [
+   "Birlamchi — tadbirkor o‘zi yig‘gan ma’lumot",
+   "Ikkilamchi — allaqachon mavjud ma’lumot",
+   "Kuzatuv natijasi — real xatti-harakat ma’lumoti",
+   "Fokus-guruh natijasi — muhokamadan olingan ma’lumot"
+  ],
+  "c": 1,
+  "e": "Statistika va hisobotlar kabi allaqachon mavjud ma’lumot ikkilamchi hisoblanadi."
+ },
+ {
+  "q": "Kuzatuv usuli so‘rovnomadan qanday ustunligi bilan farq qiladi?",
+  "options": [
+   "Kuzatuv orqali ko‘p odamdan tez miqdoriy javob olinadi",
+   "Kuzatishda mijozning motivlari so‘z bilan to‘liq aytib beriladi",
+   "Kuzatuvga tadqiqotchining subyektiv talqini umuman aralashmaydi",
+   "Mijoz nima deyishini emas, nima qilishini ko‘rish mumkin"
+  ],
+  "c": 3,
+  "e": "Kuzatuv mijozning “aytgani”ni emas, “qilgani”ni ko‘rsatadi."
+ },
+ {
+  "q": "Mijoz intervyusida qaysi savol yo‘naltiruvchi bo‘lmay, to‘g‘ri berilgan?",
+  "options": [
+   "Hozir bu vazifani qanday hal qilasiz?",
+   "Bizning ilovamiz sizga foydali bo‘ladimi?",
+   "Bunday xizmat sizga yoqadi, to‘g‘rimi?",
+   "Tayyor bo‘lsa, ilovamizni sotib olasizmi?"
+  ],
+  "c": 0,
+  "e": "Yo‘naltirmaydigan savol mijozning hozirgi xatti-harakatini so‘raydi, g‘oyaga baho berdirmaydi."
+ },
+ {
+  "q": "Taxminiy persona (assumption persona) nima?",
+  "options": [
+   "Real ma’lumotlarga asoslangan, tasdiqlangan yakuniy mijoz portreti",
+   "Raqiblar mijozlaridan nusxa ko‘chirilgan tayyor portret",
+   "Real intervyularda tasdiqlanishi yoki rad etilishi lozim bo‘lgan boshlang‘ich gipoteza",
+   "Faqat reklama matni uchun o‘ylab topilgan obraz"
+  ],
+  "c": 2,
+  "e": "Taxminiy persona — real ma’lumot yig‘ilgunga qadar qo‘llanadigan, keyin tekshiriladigan gipoteza."
+ },
+ {
+  "q": "Xarid qarori jarayonida mijoz axborot izlagandan keyin qaysi bosqichga o‘tadi?",
+  "options": [
+   "Xarid qilish",
+   "Xariddan keyingi baholash",
+   "Ehtiyojni anglash",
+   "Variantlarni taqqoslash"
+  ],
+  "c": 3,
+  "e": "Ketma-ketlik: ehtiyojni anglash, axborot izlash, variantlarni taqqoslash, xarid, xariddan keyingi baholash."
+ },
+ {
+  "q": "SAM (Serviceable Addressable Market) nimani anglatadi?",
+  "options": [
+   "Mahsulotga muhtoj barcha potensial mijozlarning umumiy bozor hajmi",
+   "TAMning geografiya, kanal va model bo‘yicha xizmat ko‘rsata oladigan qismi",
+   "Resurslar bilan 1–3 yilda realistik egallash mumkin bo‘lgan qism",
+   "Raqiblar allaqachon egallab bo‘lgan bozor hajmi"
+  ],
+  "c": 1,
+  "e": "SAM — TAMning biz xizmat ko‘rsata oladigan qismi."
+ },
+ {
+  "q": "Nega investor va banklar pastdan-yuqoriga hisobni ishonchliroq deb biladi?",
+  "options": [
+   "U real narx, mijoz soni va xarid chastotasidan kelib chiqadi",
+   "U umumiy bozor statistikasidan ulushni ajratib hisoblaydi",
+   "U odatda eng katta bozor hajmini ko‘rsatadi",
+   "U raqiblar narxlarini hisobga olmasdan tuziladi"
+  ],
+  "c": 0,
+  "e": "Pastdan-yuqoriga usul mijoz soni × narx × chastota kabi real ko‘rsatkichlarga tayanadi."
+ },
+ {
+  "q": "Taksi xizmati ochmoqchi tadbirkor uchun shahar metrosi qanday raqobatchi hisoblanadi?",
+  "options": [
+   "To‘g‘ridan-to‘g‘ri — o‘xshash mahsulot bilan o‘sha mijozga sotadi",
+   "Potensial — yaqin kelajakda bozorga kirishi mumkin",
+   "Raqobatchi emas — mijoz segmenti butunlay boshqa",
+   "Bilvosita — boshqa mahsulot bilan o‘sha ehtiyojni qondiradi"
+  ],
+  "c": 3,
+  "e": "Metro ham harakatlanish ehtiyojini qondiradi, lekin boshqa mahsulot bilan, shuning uchun bilvosita raqobatchi."
+ },
+ {
+  "q": "Pastdan-yuqoriga usulida bozor baholanmoqda: 4 000 ta potensial mijoz yiliga 12 marta, har gal 50 000 so‘mdan xarid qiladi. TAM qancha?",
+  "options": [
+   "200 mln so‘m",
+   "2,4 mlrd so‘m",
+   "480 mln so‘m",
+   "24,0 mlrd so‘m"
+  ],
+  "c": 1,
+  "e": "4 000 × 12 × 50 000 = 2 400 000 000 so‘m."
+ },
+ {
+  "q": "SAM 20 mlrd so‘m bo‘lib, birinchi yilda uning 3 foizini egallash rejalashtirilsa, SOM qancha bo‘ladi?",
+  "options": [
+   "6,0 mlrd so‘m",
+   "60,0 mln so‘m",
+   "600 mln so‘m",
+   "3,0 mlrd so‘m"
+  ],
+  "c": 2,
+  "e": "20 mlrd × 0,03 = 600 mln so‘m."
+ }
+]

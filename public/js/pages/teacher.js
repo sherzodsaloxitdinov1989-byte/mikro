@@ -3,7 +3,7 @@
 import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
 import { mean, sd, fmt, toCSV } from "../stats.js";
-import { TOPICS, COURSE } from "../../data/topics.js";
+import { TOPICS, COURSE, SUBJECT_KEY } from "../../data/topics.js";
 import { reviewView } from "../practice-ui.js";
 import { analyze, pct, fmt as fmtN, LAB_SECTIONS } from "../finance.js";
 import { slideViewer, uploadSlides, fmtSize } from "../slides.js";
@@ -330,7 +330,7 @@ async function itemsView(el, topicParam) {
     box.replaceChildren(loading());
     const topicId = topicParam;
     if (!topicId) {
-      const d = await api.get(`admin/items?cohort=${cohort}`);
+      const d = await api.get(`admin/items?cohort=${cohort}&subject=${SUBJECT_KEY}`);
       box.replaceChildren(h("div", { class: "card table-wrap" }, h("table", { class: "table" },
         h("thead", {}, h("tr", {}, h("th", {}, "Mavzu"), h("th", {}, "N"), h("th", {}, "O'rtacha"), h("th", {}, "KR-20"), h("th", {}, "Diqqat talab"), h("th", {}))),
         h("tbody", {}, d.topics.map((t) => h("tr", {},
@@ -342,7 +342,7 @@ async function itemsView(el, topicParam) {
           h("td", {}, h("a", { class: "btn small ghost", href: `#/teacher/items/${t.id}` }, "Batafsil →"))))))));
       return;
     }
-    const d = await api.get(`admin/items?topic=${topicId}&cohort=${cohort}`);
+    const d = await api.get(`admin/items?topic=${topicId}&cohort=${cohort}&subject=${SUBJECT_KEY}`);
     const maxDist = Math.max(1, ...d.distribution);
     box.replaceChildren(
       h("nav", { class: "crumbs" }, h("a", { href: "#/teacher/items" }, "Test tahlili"), " / ", `${d.topic.num}-mavzu`),

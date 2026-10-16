@@ -1,0 +1,222 @@
+[
+ {
+  "q": "AIDA modelida Desire (istak) bosqichida nima qilinadi?",
+  "options": [
+   "Jozibali sarlavha va rasm bilan diqqat jalb qilinadi",
+   "Dalil, sharh va natija keltirib, mijozda istak uyg‘otiladi",
+   "Muammo va foyda haqida gapirib, qiziqish uyg‘otiladi",
+   "Buyurtma yoki qo‘ng‘iroq orqali mijoz harakatga chaqiriladi"
+  ],
+  "c": 1,
+  "e": "Desire bosqichida dalil, sharh va natija orqali xarid istagi uyg‘otiladi."
+ },
+ {
+  "q": "7P modelida “People” (odamlar) elementi nimani bildiradi?",
+  "options": [
+   "Maqsadli segmentga kiruvchi potensial mijozlar guruhi",
+   "Brendni targ‘ib qiluvchi bloger va influenserlar",
+   "Buyurtma qabul qilishdan topshirishgacha bo‘lgan jarayon",
+   "Xizmat ko‘rsatuvchi odamlar, masalan, kuryer va operator"
+  ],
+  "c": 3,
+  "e": "People — xizmatni ko‘rsatadigan xodimlar: kuryer, operator va hokazo."
+ },
+ {
+  "q": "Marketing aralashmasidagi “Place” (sotish joyi) elementi qaysi savolga javob beradi?",
+  "options": [
+   "Mahsulot qayerda va qanday yetkaziladi?",
+   "Mahsulot qancha narxda sotiladi?",
+   "Mahsulotni qanday tanitamiz?",
+   "Mahsulot nimadan iborat va qanday sifatga ega?"
+  ],
+  "c": 0,
+  "e": "Place elementi sotish joyi va yetkazish usulini belgilaydi."
+ },
+ {
+  "q": "Raqamli marketingning an’anaviy reklamadan asosiy afzalligi nimada?",
+  "options": [
+   "Televideniyedan arzonroq turishi kafolatlanadi",
+   "Kontent tayyorlash umuman talab etilmaydi",
+   "Natijani xaridgacha aniq o‘lchash mumkin",
+   "Barcha yosh guruhlariga bir xil ta’sir qiladi"
+  ],
+  "c": 2,
+  "e": "Raqamli kanallarda ko‘rishlar, kirishlar va xaridlar sonini tahlil qilish mumkin."
+ },
+ {
+  "q": "Tadbirkor keksa yoshdagi mahalliy mijozlarni jalb qilmoqchi. Darslikka ko‘ra, qaysi kanal samaraliroq?",
+  "options": [
+   "TikTok’dagi trendli qisqa videolar",
+   "Instagramdagi reels va stories formatlari",
+   "Yoshlar blogerlari bilan hamkorlik",
+   "Do‘kon yonidagi varaqa va og‘zaki tavsiya"
+  ],
+  "c": 3,
+  "e": "Keksa mijozlarga do‘kon yonidagi varaqa va og‘zaki tavsiya mos keladi: auditoriya qayerda bo‘lsa, o‘sha yerda bo‘lish kerak."
+ },
+ {
+  "q": "PAS formulasi nimani anglatadi?",
+  "options": [
+   "Mahsulot – afzallik – narx – sotuv",
+   "Muammo – uni kuchaytirish – yechim",
+   "Diqqat – qiziqish – istak – harakat",
+   "Muammo – ishonch – narx – chaqiriq"
+  ],
+  "c": 1,
+  "e": "PAS — Problem, Agitate, Solve, ya’ni muammo, uni kuchaytirish va yechim."
+ },
+ {
+  "q": "Reklamada “500 dan ortiq mamnun mijoz” jumlasi muammo–yechim–afzallik–ishonch–harakat tuzilmasining qaysi qismiga kiradi?",
+  "options": [
+   "Ishonch",
+   "Afzallik",
+   "Yechim",
+   "Harakatga chaqiriq"
+  ],
+  "c": 0,
+  "e": "Mijozlar soni haqidagi dalil reklamada ishonch vazifasini bajaradi."
+ },
+ {
+  "q": "Kontent rejadagi “ishontiruvchi” kontentga qaysi misol mos keladi?",
+  "options": [
+   "Tanaffusda nima yeyish kerakligi haqidagi maslahatlar",
+   "Oshxonada taom tayyorlash jarayoni videosi",
+   "Birinchi mijozlarning sharhlari va fotolari",
+   "Birinchi mijozlarga chegirma e’loni"
+  ],
+  "c": 2,
+  "e": "Sharh, natija va keys ishontiruvchi kontent turiga kiradi."
+ },
+ {
+  "q": "Kontent rejada sotuvchi kontent haddan ko‘p bo‘lsa, nima yuz beradi?",
+  "options": [
+   "Sotuv o‘z-o‘zidan tez o‘sib boradi",
+   "Auditoriya charchab, sahifaga qiziqish kamayadi",
+   "Obunachilarning ishonchi mustahkamlanadi",
+   "Reklama xarajati sezilarli kamayadi"
+  ],
+  "c": 1,
+  "e": "Sotuv kontenti ko‘p bo‘lsa, auditoriya charchaydi."
+ },
+ {
+  "q": "Doimiy chegirmaning asosiy xavfi nimada?",
+  "options": [
+   "Mijozlar soni vaqt o‘tishi bilan doimiy kamayib boradi",
+   "Raqobatchilar ham shu zahoti chegirma boshlaydi",
+   "Mahsulotga talab bir zumda yo‘qoladi",
+   "Mijoz faqat aksiyada xarid qilib, marja kamayadi"
+  ],
+  "c": 3,
+  "e": "Doimiy chegirma mijozni “faqat aksiyada” xarid qilishga o‘rgatadi va marjani kamaytiradi."
+ },
+ {
+  "q": "Do‘kon egasi 20 foizlik chegirma aksiyasini e’lon qilmoqchi. Aksiyadan oldin nimani hisoblab qo‘yishi kerak?",
+  "options": [
+   "Raqiblarning ijtimoiy tarmoqlardagi obunachilar sonini",
+   "Aksiya e’lonining Telegram kanaldagi postlar sonini",
+   "Chegirmadan keyin ham foyda qolishini (marjani)",
+   "Mijozlarning tug‘ilgan kunlari ro‘yxatini"
+  ],
+  "c": 2,
+  "e": "Aksiyadan oldin chegirmadan keyin ham foyda qolishi marja orqali tekshiriladi."
+ },
+ {
+  "q": "Kichik biznes uchun mikro-blogerlar (5–50 ming obunachi) nega ko‘pincha samaraliroq?",
+  "options": [
+   "Auditoriyasi kichik, lekin ishonch yuqori va narxi arzonroq",
+   "Auditoriyasi juda katta bo‘lgani uchun qamrov yuqori bo‘ladi",
+   "Ular reklama ekanini ko‘rsatishga majbur emas",
+   "Hamkorlik shartlarini yozma kelishish talab etilmaydi"
+  ],
+  "c": 0,
+  "e": "Mikro-blogerlar auditoriyasi kichik, lekin ishonchi yuqori va ular arzonroq."
+ },
+ {
+  "q": "CTR ko‘rsatkichi nimani bildiradi?",
+  "options": [
+   "Bitta bosish uchun to‘langan o‘rtacha summani ko‘rsatadi",
+   "Bosganlarning qanchasi buyurtma so‘raganini ko‘rsatadi",
+   "Reklamaga sarflangan 1 so‘mga qancha tushum kelganini",
+   "Reklama ko‘rsatishlarining qanchasi bosishga aylanishini"
+  ],
+  "c": 3,
+  "e": "CTR = bosishlar / ko‘rsatishlar × 100%."
+ },
+ {
+  "q": "Tavsiya orqali sotish (referral) nega eng arzon jalb qilish usullaridan biri hisoblanadi?",
+  "options": [
+   "U faqat yirik blogerlar orqali amalga oshiriladi",
+   "U mavjud mijoz ishonchiga tayanadi va yuqori konversiya beradi",
+   "Unda mijozga hech qanday bonus berilmaydi",
+   "U katta reklama byudjetini talab qiladi"
+  ],
+  "c": 1,
+  "e": "Referral mijoz ishonchiga tayanadi, shu bois arzon va konversiyasi yuqori."
+ },
+ {
+  "q": "Instagram reklamasiga 2 400 000 so‘m sarflandi, 120 ta lead keldi va ulardan 20 tasi xarid qildi. CAC qancha?",
+  "options": [
+   "20 000 so‘m",
+   "12 000 so‘m",
+   "120 000 so‘m",
+   "240 000 so‘m"
+  ],
+  "c": 2,
+  "e": "CAC = marketing xarajati / yangi mijozlar = 2 400 000 / 20 = 120 000 so‘m."
+ },
+ {
+  "q": "Reklamaga 3 000 000 so‘m sarflanib, u orqali 9 000 000 so‘m tushum kelgan. ROAS qancha?",
+  "options": [
+   "3,0",
+   "6,0",
+   "0,33",
+   "12,0"
+  ],
+  "c": 0,
+  "e": "ROAS = reklamadan tushum / reklama xarajati = 9 / 3 = 3."
+ },
+ {
+  "q": "Oxirgi kilometr (last mile) nimani anglatadi?",
+  "options": [
+   "Ombordan marketpleys markaziga tovar olib borish masofasi",
+   "Mahsulotni ishlab chiqarishning yakuniy bosqichi",
+   "Mijozgacha oxirgi masofa — eng qimmat va muammoli qism",
+   "Reklamaning xaridga olib keluvchi oxirgi bosqichi"
+  ],
+  "c": 2,
+  "e": "Last mile — mijozgacha oxirgi masofa bo‘lib, kechikish yoki sifat buzilishi qoniqishga ta’sir qiladi."
+ },
+ {
+  "q": "To‘g‘ridan-to‘g‘ri tarqatish kanali (ishlab chiqaruvchi → iste’molchi) qanday afzallikka ega?",
+  "options": [
+   "To‘liq nazorat, yuqori marja va mijoz bilan bevosita aloqa",
+   "Do‘kon marjasi hisobiga narx ko‘tariladi",
+   "Katta auditoriya va tayyor logistika bepul beriladi",
+   "Sotuvni tashkil etish zimmadan tushadi"
+  ],
+  "c": 0,
+  "e": "To‘g‘ridan-to‘g‘ri kanalda nazorat va marja yuqori, lekin sotuv va yetkazishni o‘zi tashkil etadi."
+ },
+ {
+  "q": "Brend mukofoti (brand premium) nima?",
+  "options": [
+   "Brend ro‘yxatdan o‘tkazilgani uchun davlat beradigan haq",
+   "Ommaviy chegirma orqali sotuvni oshirish usuli",
+   "Logotip va nom yaratgan dizaynerga to‘lanadigan haq",
+   "Kuchli brend tufayli ko‘proq to‘lashga tayyorlik"
+  ],
+  "c": 3,
+  "e": "Brend mukofoti — kuchli brend tufayli yuqoriroq narxda ham mijozni saqlab qolish hodisasi."
+ },
+ {
+  "q": "Shaxsiylashtirilgan marketingda mijoz ma’lumotlari bilan ishlashning qaysi qoidasi to‘g‘ri?",
+  "options": [
+   "Ma’lumotni qo‘shimcha daromad olish uchun hamkorlarga sotish",
+   "Ma’lumotni rozilik bilan yig‘ib, chiqish imkonini berish",
+   "Ko‘proq sotuv uchun mijozga iloji boricha ko‘p xabar yuborish",
+   "Roziligisiz bo‘lsa ham ma’lumotlar bazasini saqlab qolish"
+  ],
+  "c": 1,
+  "e": "Axloqiy qoida: ma’lumot rozilik bilan yig‘iladi, uchinchi shaxsga berilmaydi, obunadan chiqish imkoni bor."
+ }
+]

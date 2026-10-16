@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Nima uchun “menga yoqadi” tasavvuriga tayangan g‘oyalar ko‘pincha bozorda tasdiqlanmaydi?",
+  "options": [
+   "Mijozlar yangi g‘oyani doim rad etadi, chunki o‘zgarishga o‘rganib qolmagan",
+   "Bozor tadqiqotini g‘oya paydo bo‘lgandan keyin o‘tkazish qonunan taqiqlangan",
+   "Bunday g‘oyalar odatda juda qimmatga tushadi va kreditsiz amalga oshmaydi, shuning uchun rad etiladi",
+   "Tanishlar odob uchun g‘oyani maqtaydi, “foydali” deyish esa pul to‘lash emas"
+  ],
+  "c": 3,
+  "e": "Tadbirkorning o‘zi mijoz emas, tanishlar odob yuzasidan maqtaydi, “foydali” deyish bilan “to‘layman” deyish orasida katta masofa bor."
+ },
+ {
+  "q": "Yaxshi muammo bayonoti qaysi elementlardan iborat?",
+  "options": [
+   "Taklif qilinayotgan yechim, uning narxi, mijozlar soni va kutilayotgan foyda",
+   "Kim aziyat chekadi, qanday vaziyatda, nima yuz beradi va buning oqibati nima",
+   "Biznes nomi, huquqiy shakli, manzili va ta’sis hujjatlari to‘plami",
+   "Raqobatchilar ro‘yxati, ularning narxlari va bozor ulushlari"
+  ],
+  "c": 1,
+  "e": "Muammo bayonoti to‘rt elementdan iborat: kim, qanday vaziyatda, nima yuz beradi va oqibati nima; yechim unda ko‘rsatilmaydi."
+ },
+ {
+  "q": "“Talabalar dars oralig‘ida ovqat topa olmaydi, shuning uchun mobil ilova kerak” jumlasi nega muammo bayonoti hisoblanmaydi?",
+  "options": [
+   "Unda muammo bilan birga allaqachon yechim (g‘oya) yozilgan",
+   "Unda muammoning oqibati ko‘rsatilgani sababli u tahliliy xulosaga aylangan",
+   "U kelajak zamonda yozilgan, bayonot esa o‘tgan zamonda bo‘lishi shart",
+   "Unda talabalar mijoz segmenti sifatida juda keng ko‘rsatilgan"
+  ],
+  "c": 0,
+  "e": "Agar bayonotda “mobil ilova kerak” kabi yechim bo‘lsa, demak muammo emas, g‘oya yozilgan."
+ },
+ {
+  "q": "“5 marta nima uchun” usulining maqsadi nima?",
+  "options": [
+   "Besh xil mijoz segmentini aniqlab, ularning to‘lov qobiliyatini narx bo‘yicha o‘zaro taqqoslash",
+   "Besh nafar raqobatchini tanlab, ularning kamchiliklarini ro‘yxatga olish",
+   "Ketma-ket “nima uchun?” deb so‘rab, asl sababga yetish",
+   "Besh marta so‘rov o‘tkazib, natijalarning o‘rtachasini hisoblash"
+  ],
+  "c": 2,
+  "e": "Muammoga ketma-ket “nima uchun?” savoli berilib, ustki ko‘rinish emas, ildiz sabab topiladi."
+ },
+ {
+  "q": "Baliq skeleti (Ishikawa) diagrammasi nima uchun ishlatiladi?",
+  "options": [
+   "G‘oyalarni ICE ballari bo‘yicha tartiblab, eng yaxshisini tanlash uchun",
+   "Mijoz yo‘lini bosqichlarga bo‘lib, har bir bosqich konversiyasini hisoblash uchun",
+   "Murakkab muammo sabablarini odamlar, jarayon, texnologiya kabi guruhlarga ajratib ko‘rsatish uchun",
+   "MVP ni tez sikl bilan yaratib, uni bozorda sinab ko‘rish uchun"
+  ],
+  "c": 2,
+  "e": "Baliq skeleti sabablarni odamlar, jarayon, texnologiya, narx va muhit guruhlariga bo‘lib ko‘rsatadi."
+ },
+ {
+  "q": "“The Mom Test” qoidalariga ko‘ra mijoz bilan suhbatda nimaga e’tibor qaratiladi?",
+  "options": [
+   "Va’dalarga emas, o‘tmishdagi haqiqiy xatti-harakatlar va faktlarga",
+   "Mijozning g‘oyaga bergan umumiy bahosi va kelajakdagi niyatlari, va’dalariga",
+   "Tadbirkor g‘oyasini batafsil tushuntirgach, mijoz bildirgan fikrga",
+   "Mijoz do‘stlariga tavsiya qilishga bergan og‘zaki va’dasiga"
+  ],
+  "c": 0,
+  "e": "Qoidalar: o‘tmishdagi xatti-harakatlarni so‘rang, mijoz hayotini so‘rang, fikr va va’dalarni emas, fakt va majburiyatlarni yig‘ing."
+ },
+ {
+  "q": "Mijoz suhbatida quyidagi savollardan qaysi biri haqiqatni ochishga yordam beradi?",
+  "options": [
+   "“Sog‘lom tushlik yetkazish xizmati sizga yoqarmidi, ishlatarmidingiz?”",
+   "“Bu muammo oxirgi marta qachon yuz berdi, shunda nima qildingiz?”",
+   "“Buning uchun 25 ming so‘m to‘lar edingizmi?”",
+   "“Bunday ilova sizga kerak deb o‘ylaysizmi?”"
+  ],
+  "c": 1,
+  "e": "Yaxshi savol o‘tmishdagi haqiqiy xatti-harakat haqida so‘raydi; gipotetik savollar esa g‘oyani maqtatadi."
+ },
+ {
+  "q": "Qisqa so‘rovnomaning qoidalaridan qaysi biri to‘g‘ri?",
+  "options": [
+   "Savollar iloji boricha ko‘p, yo‘naltiruvchi va murakkab, ochiq javobli bo‘lishi kerak",
+   "So‘rovnoma suhbatdan oldin, hali gipoteza yo‘q paytda o‘tkaziladi",
+   "Javob bergan odamlar butun bozorni to‘liq ifodalaydi deb qabul qilinadi",
+   "Savollar 7–10 dan oshmaydi, har bir savolda bitta narsa so‘raladi"
+  ],
+  "c": 3,
+  "e": "So‘rovnoma gipoteza shakllangach ishlatiladi: savollar 7–10 dan oshmasin, bitta savolda bitta narsa so‘ralsin, yo‘naltiruvchi savollardan qochilsin."
+ },
+ {
+  "q": "Fokus-guruhning asosiy kamchiligi nima?",
+  "options": [
+   "Ishtirokchilar bir-biriga reaksiya bildirmagani uchun yangi fikrlar paydo bo‘lmaydi",
+   "Har bir ishtirokchi bilan alohida kamida yigirma intervyu talab qilinadi",
+   "U mahsulot kontseptsiyasi va narxni dastlabki sinash uchun yaroqsiz",
+   "Ovozi baland ishtirokchi boshqalar fikriga ta’sir qilishi mumkin"
+  ],
+  "c": 3,
+  "e": "Guruhda ovozi baland odam boshqalarga ta’sir qilishi mumkin, shuning uchun moderator har kimdan alohida fikr so‘raydi."
+ },
+ {
+  "q": "Brainstorming (fikrlar yog‘ini) qoidalaridan qaysi biri to‘g‘ri?",
+  "options": [
+   "Har bir g‘oya aytilishi bilan darhol tanqid qilinib, zaiflari chiqarib tashlanadi",
+   "Miqdor sifatdan muhim, tanqid taqiqlanadi, g‘alati g‘oyalar rag‘batlantiriladi",
+   "Sifat miqdordan muhim, shuning uchun bitta puxta g‘oya o‘ylab topish yetarli",
+   "G‘alati g‘oyalar rad etiladi, boshqalar g‘oyasiga qo‘shimcha qilish mumkin emas"
+  ],
+  "c": 1,
+  "e": "Brainstorming qoidalari: miqdor sifatdan muhim, tanqid taqiqlanadi, g‘alati g‘oyalar rag‘batlantiriladi, qo‘shimcha qilish mumkin."
+ },
+ {
+  "q": "Avia kompaniyalardagi “oldindan buyurtma” tamoyilini ovqatga qo‘llash SCAMPER ning qaysi harfiga mos keladi?",
+  "options": [
+   "S — Substitute (almashtirish)",
+   "R — Reverse (teskari qilish)",
+   "A — Adapt (moslashtirish)",
+   "E — Eliminate (olib tashlash)"
+  ],
+  "c": 2,
+  "e": "Boshqa sohadagi yechimni o‘z holatiga moslashtirish SCAMPER dagi Adapt savoliga javob beradi."
+ },
+ {
+  "q": "SCAMPER usuli nima?",
+  "options": [
+   "Mavjud yechimga yetti xil savol berib, yangi variant hosil qilish usuli",
+   "Yetti bosqichda biznes-reja tuzib, uni bankka topshirish tartibi va qoidalari",
+   "Yetti xil ko‘rsatkich bilan g‘oyani baholovchi moliyaviy model",
+   "Yetti nafar mijoz bilan chuqur suhbat o‘tkazish usuli"
+  ],
+  "c": 0,
+  "e": "SCAMPER — almashtirish, birlashtirish, moslashtirish, o‘zgartirish va h.k. yetti savol orqali yangi variantlar topish usuli."
+ },
+ {
+  "q": "G‘oya ICE usulida baholandi: ta’sir (Impact) 8, ishonch (Confidence) 5, osonlik (Ease) 7 (1–10 ball). ICE bali, ya’ni o‘rtacha qancha?",
+  "options": [
+   "7,00",
+   "6,67",
+   "20,00",
+   "8,00"
+  ],
+  "c": 1,
+  "e": "(8 + 5 + 7) / 3 = 20 / 3 ≈ 6,67."
+ },
+ {
+  "q": "Lean Startup siklining asosiy maqsadi nima?",
+  "options": [
+   "Imkon qadar mukammal mahsulot yaratib, uni bir martada keng bozorga chiqarish",
+   "Uzoq muddatli biznes-reja yozib, uni o‘zgartirmay oxirigacha bajarish",
+   "Raqobatchilar narxini kuzatib, doim ulardan arzonroq sotishga erishish",
+   "Kam pul va vaqt sarflab tasdiqlangan bilim to‘plash, ya’ni mijoz xohlashini bilish"
+  ],
+  "c": 3,
+  "e": "Siklning maqsadi mukammal mahsulot emas, balki tasdiqlangan bilim (validated learning) to‘plash."
+ },
+ {
+  "q": "MVP (minimal hayotiy mahsulot) nima?",
+  "options": [
+   "Minimal funksiyali, ammo mijozning asosiy muammosini hal qila oladigan dastlabki model",
+   "Sifati past, mijozga ko‘rsatilmaydigan tugallanmagan mahsulot nusxasi yoki maketi",
+   "Barcha funksiyalari tayyor, yirik reklama bilan chiqariladigan mahsulot",
+   "Ishlab chiqarishni boshlash uchun zarur eng kichik kredit summasi"
+  ],
+  "c": 0,
+  "e": "MVP — yomon mahsulot emas, balki asosiy qiymatni sinash uchun zarur eng kichik shakl."
+ },
+ {
+  "q": "Telegram-bot mijozga avtomatik ishlayotgandek ko‘rinadi, ammo buyurtmalarni orqada tadbirkorning o‘zi qo‘lda bajaradi. Bu qaysi MVP turi?",
+  "options": [
+   "Mahsulot qanday ishlashini ko‘rsatuvchi video",
+   "Oldindan sotish (pre-order)",
+   "“Oz sehrgari” (Wizard of Oz)",
+   "Jamoaviy moliyalashtirish orqali yig‘ish"
+  ],
+  "c": 2,
+  "e": "Wizard of Oz — mijozga avtomatik ko‘rinadi, aslida orqada odam qo‘lda ishlaydi."
+ },
+ {
+  "q": "Dropbox asoschisi mahsulotni to‘liq yozmasdan turib talabni qanday sinab ko‘rdi?",
+  "options": [
+   "Tayyor dasturni bepul tarqatib, foydalanuvchilar sonini hisoblab bordi va ularni so‘radi",
+   "Ishlash tamoyilini ko‘rsatuvchi qisqa video joylab, kutish ro‘yxatini yig‘di",
+   "Yirik investordan oldindan mablag‘ olib, katta jamoani ishga oldi",
+   "Har bir mijozga qo‘lda xizmat ko‘rsatib, buyurtmalarni o‘zi bajardi"
+  ],
+  "c": 1,
+  "e": "Dryu Xyuston 3 daqiqalik tushuntiruvchi video joyladi va kutish ro‘yxati orqali talabni isbotladi."
+ },
+ {
+  "q": "“Acid Test”dagi uchta dalildan qaysi biri eng kuchli hisoblanadi?",
+  "options": [
+   "Mijozning g‘oyaga like bosishi yoki so‘rovda “qiziq” deb javob berishi",
+   "Mijozning kutish ro‘yxatiga elektron pochta orqali yozilishi",
+   "Mijozning real pul to‘lashi yoki oldindan buyurtma berishi",
+   "Mijozning mahsulotni sinab ko‘rib, keyin takroran qaytishi"
+  ],
+  "c": 2,
+  "e": "Qiziqish eng zaif, foydalanish o‘rtacha, to‘lov (real pul yoki oldindan buyurtma) eng kuchli dalil."
+ },
+ {
+  "q": "Reklamani 800 kishi ko‘rdi, 200 kishi havolani ochdi, 56 kishi oldindan to‘lov qildi. Jami konversiya qancha?",
+  "options": [
+   "7%",
+   "28%",
+   "25%",
+   "32%"
+  ],
+  "c": 0,
+  "e": "Konversiya = 56 / 800 × 100 = 7%; 28% — ochganlarga nisbat, 25% — ochish ulushi."
+ },
+ {
+  "q": "Sinov natijasi mezonga yetmadi, ammo talabalar o‘rniga ofis xodimlari xizmatga ko‘proq qiziqdi. Tadbirkor g‘oyaning asosini saqlab, mijoz segmentini o‘zgartirdi. Bu qaror qanday ataladi?",
+  "options": [
+   "Davom etish (persevere)",
+   "To‘xtatish",
+   "Konversiyani hisoblash",
+   "Burilish (pivot)"
+  ],
+  "c": 3,
+  "e": "Pivot — g‘oyaning asosiy qismi saqlanib, mijoz segmenti, yechim yoki narx o‘zgartirilishi."
+ }
+]

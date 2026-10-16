@@ -1,0 +1,116 @@
+{
+ "goal": "Berilgan ma’lumotlar asosida foyda va zarar hisobotini tuzib, xarajat va sof foydani tahlil qilish.",
+ "concepts": [
+  "Daromad (tushum)",
+  "tannarx",
+  "yalpi foyda",
+  "operatsion xarajat",
+  "operatsion foyda (EBIT)",
+  "sof foyda"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 12-bob; Ilova E, Z",
+ "tasks": [
+  {
+   "id": "tb12-p1",
+   "title": "Foyda va zarar hisoboti hamda sezgirlik",
+   "text": "Yillik tushum 200 million so‘m; tannarx tushumning 45% i; operatsion xarajat 60 million; foiz xarajati 5 million; soliq — tushumning 4% i. (a) Sof foydani toping; (b) raqobat tufayli narx 5% tushib, hajm va tannarx o‘zgarmasa sof foyda necha million bo‘ladi; (c) sof foyda necha foizga o‘zgaradi?",
+   "fields": [
+    {
+     "label": "(a) sof foyda",
+     "value": 37,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "(b) narx −5% bo‘lganda sof foyda",
+     "value": 27.4,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "(c) sof foydaning o‘zgarishi",
+     "value": -25.9459,
+     "unit": "%",
+     "tol": 0.3
+    }
+   ],
+   "solution": "(a) Tannarx = 90; yalpi foyda = 110; EBIT = 110 − 60 = 50; soliqqacha = 50 − 5 = 45; soliq = 8; sof foyda = 37. (b) Tushum 190; tannarx 90; yalpi 100; EBIT 40; soliqqacha 35; soliq 4% × 190 = 7,6; sof foyda = 27,4. (c) (27,4 − 37) / 37 = −25,9% (taxminan −26%).",
+   "formula": "Sof foyda = Tushum − Tannarx − Operatsion xarajat − Foiz − Soliq",
+   "note": "Narxning 5% pasayishi sof foydaning chorak qismini yo‘q qildi."
+  },
+  {
+   "id": "tb12-p2",
+   "title": "LTV, CAC va qoplanish muddati",
+   "text": "Mobil ilova obunasi: oylik narx 80 000 so‘m, marja 70%, mijoz o‘rtacha 10 oy qoladi, CAC 190 000 so‘m. (a) LTV; (b) LTV:CAC nisbati; (c) CAC qoplanish muddati; (d) mijoz hayoti 14 oyga cho‘zilsa LTV.",
+   "fields": [
+    {
+     "label": "(a) LTV",
+     "value": 560000.0,
+     "unit": "so‘m"
+    },
+    {
+     "label": "(b) LTV:CAC",
+     "value": 2.9474,
+     "unit": "marta",
+     "tol": 0.02
+    },
+    {
+     "label": "(c) CAC qoplanish muddati",
+     "value": 3.3929,
+     "unit": "oy",
+     "tol": 0.05
+    },
+    {
+     "label": "(d) 14 oyda LTV",
+     "value": 784000,
+     "unit": "so‘m"
+    }
+   ],
+   "solution": "Oylik marja = 80 000 × 0,7 = 56 000. (a) LTV = 56 000 × 10 = 560 000. (b) 560 000 / 190 000 ≈ 2,95. (c) 190 000 / 56 000 ≈ 3,4 oy. (d) 56 000 × 14 = 784 000 (nisbat ≈ 4,1).",
+   "formula": "LTV = Oylik marja × Mijoz yashash oylari; Qoplanish = CAC / Oylik marja",
+   "note": "Mijozni ushlab qolish foydani reklama byudjetini oshirishdan ko‘ra kuchliroq oshiradi."
+  },
+  {
+   "id": "tb12-p3",
+   "title": "Agro-Dry: zararsizlik va foyda",
+   "text": "Quritilgan meva eksport qiladigan MChJ: doimiy xarajat oyiga 4 000 dollar, bir qadoq uchun o‘zgaruvchan xarajat 5 dollar, eksport narxi 10 dollar, oylik quvvat 2 000 qadoq. (a) Zararsizlik nuqtasini toping; (b) 1 200 qadoq sotilsa oylik foyda; (c) to‘liq quvvatda foyda; (d) xavfsizlik zaxirasi quvvatga nisbatan necha foiz?",
+   "fields": [
+    {
+     "label": "(a) zararsizlik nuqtasi",
+     "value": 800.0,
+     "unit": "qadoq",
+     "tol": 1
+    },
+    {
+     "label": "(b) 1 200 qadoqda foyda",
+     "value": 2000,
+     "unit": "dollar"
+    },
+    {
+     "label": "(c) 2 000 qadoqda foyda",
+     "value": 6000,
+     "unit": "dollar"
+    },
+    {
+     "label": "(d) xavfsizlik zaxirasi",
+     "value": 60.0,
+     "unit": "%",
+     "tol": 0.5
+    }
+   ],
+   "solution": "Marja = 10 − 5 = 5 dollar. (a) BEP = 4 000 / 5 = 800 qadoq. (b) 1 200 × 5 − 4 000 = 2 000. (c) 2 000 × 5 − 4 000 = 6 000. (d) (2 000 − 800) / 2 000 = 60%.",
+   "formula": "BEP = FC / (Narx − VC); Xavfsizlik zaxirasi = (Hajm − BEP) / Hajm",
+   "note": "Net-30 sharti tufayli foyda bo‘lsa ham pul oqimi uzilishi xavfi bor (11-bob)."
+  }
+ ],
+ "open": [
+  "Amaliy 12. Foyda va zarar tahlili. Berilgan ma’lumotlar asosida foyda va zarar hisobotini tuzib, xarajat va sof foydani tahlil qiling. Bajarish tartibi: 1) Berilgan tushum va xarajat ma’lumotlarini 12.1-jadval bo‘yicha joylashtiring; 2) Yalpi, operatsion va sof foydani hisoblang; 3) Marjalarni va xarajat tuzilmasini foizda hisoblang; 4) Xomashyo yoki narx 10% o‘zgarganda sezgirlik tahlilini bajaring; 5) ROI va to‘lov muddatini hisoblang; 6) Biznes barqaror yoki barqaror emasligi haqida xulosa yozing.",
+  "Amaliy mashg‘ulotga tayyorgarlik: Berilgan ma’lumotlar asosida kichik biznes uchun foyda va zarar hisobotini 12.2-jadval shaklida tuzing; xarajat tarkibini foizda tahlil qiling; xomashyo yoki narxning 10 foizga o‘zgarishi uchun sezgirlik tahlilini bajaring; biznes moliyaviy barqaror yoki barqaror emasligini 12.6-jadval bo‘yicha asoslang.",
+  "12.1-rasmdagi waterfall usulida o‘z g‘oyangizning taxminiy P&L hisobotini bosqichma-bosqich (daromaddan sof foydagacha) chizing.",
+  "O‘z g‘oyangiz uchun LTV va CAC ni hisoblab, 12.2-rasmdagi kabi ularni ustunli diagrammada solishtiring va xulosa yozing."
+ ],
+ "refs": [
+  "Natija: P&L hisoboti, tahlil va xulosa. Baholash mezoni: hisoblarning to‘g‘riligi, tahlil chuqurligi, asoslangan xulosa. Ko‘p uchraydigan xatolar: yalpi, operatsion va sof foydani ajratmasdan, faqat “foyda” deb umumlashtirish; sezgirlik tahlilini o‘tkazmasdan, hisobotni “yakuniy haqiqat” deb qabul qilish; balansda aktiv va majburiyat-kapital tomonlarining tengligini tekshirmaslik.",
+  "Mezon: P&L ketma-ketligi to‘g‘ri (tushum − tannarx = yalpi foyda; − operatsion xarajat = EBIT; − foiz va soliq = sof foyda); xarajat tarkibi foizda; xomashyo yoki narx ±10% uchun foydaning o‘zgarishi hisoblangan; barqarorlik xulosasi raqamlarga tayangan.",
+  "Mezon: waterfall daromaddan boshlanadi, har bosqichda (tannarx, operatsion xarajat, foiz, soliq) ayirma ustuni bor va oxirida sof foyda; qadamlar yig‘indisi hisobotga mos; eng katta xarajat bandi ajratib ko‘rsatilgan.",
+  "Mezon: LTV = oylik marja × mijoz yashash oylari; CAC = marketing xarajati / yangi mijozlar; LTV:CAC nisbati (3:1 va undan yuqori yaxshi hisoblanadi) va qoplanish muddati keltirilgan; ustunli diagramma to‘g‘ri; xulosada mijozni ushlab qolish yoki CACni kamaytirish chorasi bor."
+ ]
+}

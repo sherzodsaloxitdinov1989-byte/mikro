@@ -1,0 +1,25 @@
+{
+ "goal": "O‘z g‘oyasi uchun Business Model Canvasni to‘ldirish va qiymat taklifini aniq ifodalash.",
+ "concepts": [
+  "Biznes-model",
+  "Business Model Canvas",
+  "mijoz segmenti",
+  "qiymat taklifi",
+  "kanal",
+  "daromad oqimi"
+ ],
+ "source": "Saloxitdinov Sh.F. Tadbirkorlik asoslari, 6-bob; Ilova E, Z",
+ "tasks": [],
+ "open": [
+  "Amaliy 6. Biznes-model. o‘z g‘oyasi uchun Business Model Canvasni to‘ldirish va qiymat taklifini aniq ifodalash. Bajarish tartibi: 1) Katta qog‘ozga yoki elektron shaklga 9 blokli kanvasni chizing; 2) Mijoz segmentlari va qiymat taklifi blokidan boshlab to‘ldiring; 3) Kanallar, munosabatlar va daromad oqimlarini yozing; 4) Resurslar, faoliyatlar, hamkorlar va xarajatlarni yozing; 5) Qiymat taklifini “to‘rt savol” yordamida bir jumlaga jamlang; 6) Ikkita raqibning kuchli va zaif tomonlarini jadvalga yozing; 7) Kanvasni guruh bilan muhokama qilib, eng xavfli faraz ustida ishlashni belgilang.",
+  "O‘z biznes g‘oyangiz uchun BMCni to‘ldiring; qiymat taklifini bir jumlada ifodalang; kamida uchta raqibni 6.4-jadval shaklida solishtiring va o‘z modelingiz bozorda qanday pul topishini asoslang.",
+  "Mahalliy bozordagi ikkita kompaniyaning (masalan, bitta marketpleys va bitta restoran tarmog‘i) Business Model Canvasini 6.1-rasm asosida tuzing va ularni solishtiring.",
+  "6.3-jadvaldagi biznes-modellardan ikkitasini o‘z g‘oyangizga moslashtirib ko‘ring va qaysi biri ko‘proq daromad barqarorligi berishini 6.3-rasm asosida baholang."
+ ],
+ "refs": [
+  "Namuna: 9 blok to‘ldirilgan (mijoz segmentlari, qiymat taklifi, kanallar, munosabat, daromad oqimlari, resurslar, faoliyat, hamkorlar, xarajatlar) va bloklar o‘zaro mos: kanal segmentga, daromad qiymat taklifiga bog‘langan. Qiymat taklifi jumlasi: “[Segment] uchun, [muammo] ni [yechim] orqali [foyda] bilan hal qiladigan, [raqiblardan farqli]”. Ikki raqib kuchli va zaif tomonlari bilan jadvalda. Eng xavfli faraz (masalan, mijoz to‘lashga tayyorligi) aniqlangan va sinash yo‘li aytilgan. Xato: bloklarni bir-biridan ajratish, xususiyatni (“tez”) foyda deb yozish, bilvosita raqiblarni unutish.",
+  "Mezon: BMC to‘liq va bloklar bog‘langan; qiymat taklifi bir jumlada, muammo-yechim-foyda-farq to‘rt savoliga javob beradi; kamida uchta raqib 6.4-jadval shaklida (narx, tezlik, sifat, qulaylik, kuchli va zaif tomon) solishtirilgan, bilvosita raqib ham ko‘rsatilgan; daromad oqimi (kim, nima uchun, qanday to‘laydi) aniq. Xususiyat va foyda farqlanishi kerak.",
+  "Mezon: ikki kompaniya (masalan, marketpleys va restoran tarmog‘i) uchun 9 blok to‘ldirilgan. Taqqoslash mazmunli: marketpleysda ikki tomonlama segment va komissiya, tarmoq effekti, “tovuq va tuxum” muammosi; restoranda oddiy sotuv, ijara va xomashyo xarajati. Qiymat taklifi, daromad oqimi va xarajat tuzilmasi farqi ko‘rsatilgan. Faktlar o‘ylab topilmagan, taxminlar shunday deb belgilangan.",
+  "Mezon: 6.3-jadvaldan ikki model (masalan, oddiy sotuv va obuna) o‘z g‘oyaga mos moslashtirilgan. Daromad barqarorligi taqqoslangan: obuna barqaror daromad beradi, biroq mijozni ushlab qolish qiyin; oddiy sotuvda takroriy daromad kafolatlanmagan. Qoida: takroriy ehtiyoj bo‘lsa obuna yoki bonusli tizim; bir martalik xarid bo‘lsa sotuvdan keyingi xizmat va tavsiya. Xulosa o‘z g‘oyasiga bog‘langan."
+ ]
+}

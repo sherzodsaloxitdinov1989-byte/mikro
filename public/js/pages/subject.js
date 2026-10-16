@@ -3,6 +3,7 @@
 import { h, mount, loading, emptyState } from "../ui.js";
 import { api, session } from "../api.js";
 import { SUBJECTS, subjectByKey, subjectOfGroup, formByKey } from "../../data/course.js";
+import { TOPICS, SUBJECT_KEY } from "../../data/topics.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 const fmtIso = (iso) => {
@@ -64,7 +65,7 @@ export async function render(el, key) {
   }
   const s = user.role === "teacher" ? subjectByKey(key) : subjectOfGroup(user.group);
   if (!s) return mount(el, emptyState("🧭", "Fan topilmadi", "", h("a", { class: "btn", href: "#/fan" }, "Fanlar")));
-  if (s.hasContent) return (location.hash = "#/topics");
+  if (s.key === SUBJECTS[0].key) return (location.hash = "#/topics"); // asosiy fanning bosh sahifasi — mavzular
   mount(el, loading());
   const group = user.role === "teacher" ? s.groups[0] : user.group;
   const [tasks, rating] = await Promise.all([
@@ -78,7 +79,10 @@ export async function render(el, key) {
   drawRating(group, rating);
   mount(el,
     head(s),
-    h("div", { class: "card" }, h("p", {}, s.description), h("div", { class: "alert alert-info small" }, h("b", {}, "Darslik, taqdimotlar va testlar: "), "o'qituvchi yuklagach shu yerda paydo bo'ladi. Hozircha o'qituvchi bergan topshiriqlarni “Vazifalar” bo'limida bajarasiz.")),
+    h("div", { class: "card stack" }, h("p", {}, s.description),
+      s.hasContent && TOPICS.length && s.key === SUBJECT_KEY
+        ? h("div", { class: "row wrap" }, h("a", { class: "btn", href: "#/topics" }, `📚 Mavzular (${TOPICS.length} ta)`), h("a", { class: "btn ghost", href: "#/practice" }, "🧮 Amaliyot"), h("a", { class: "btn ghost", href: "#/media" }, "🎬 Mediateka"), h("a", { class: "btn ghost", href: "#/self-study" }, "🧩 Mustaqil ta'lim"))
+        : h("div", { class: "alert alert-info small" }, h("b", {}, "Darslik, taqdimotlar va testlar: "), "o'qituvchi yuklagach shu yerda paydo bo'ladi. Hozircha o'qituvchi bergan topshiriqlarni “Vazifalar” bo'limida bajarasiz.")),
     semesterCard(s.semester),
     user.role === "student" && h("div", { class: "card stack" },
       h("div", { class: "row between wrap" }, h("h3", {}, "🗂️ Vazifalar"), h("a", { class: "btn small", href: "#/tasks" }, "Barchasini ko'rish")),

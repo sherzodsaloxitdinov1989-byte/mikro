@@ -3,7 +3,7 @@
 import { handleApi, serveGated } from "./cloudflare.js";
 
 // Darslik mazmuni (matn, test kalitlari, masala yechimlari), rasmlar va taqdimotlar ochiq berilmaydi.
-const GATED = /^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment(-masofaviy)?)\.js$)/;
+const GATED = /^\/(slides\/|img\/book\/|data\/((tb\/)?(book|layers-auto|practice-auto)|assignment(-masofaviy)?)\.js$)/;
 
 // Statik fayllar uchun xuddi shu sarlavhalar public/_headers da ham bor (ular Worker'dan o'tmasligi mumkin) — ikkalasini birga yangilang.
 const CSP = "default-src 'self'; script-src 'self' 'sha256-XW8LyM+OENkyfugRyQx7IM8YhqagA7yXrGHYu5asRjs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://i.ytimg.com https://img.youtube.com https://i.vimeocdn.com; media-src 'self' blob: data:; connect-src 'self' blob: data:; frame-src 'self' blob: https://www.youtube-nocookie.com https://www.youtube.com https://player.vimeo.com https://docs.google.com https://www.canva.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'";

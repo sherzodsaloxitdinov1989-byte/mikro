@@ -1,0 +1,481 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Nima uchun g‘oyadan emas, muammodan boshlanadi",
+   "sub": "2.1. Muammodan boshlash",
+   "bullets": [
+    "An’anaviy yo‘l: avval mahsulot, keyin mijoz izlash — oylab ‘mukammallashtirib’ keraksiz bo‘lib chiqadi",
+    "Keng tarqalgan muvaffaqiyatsizlik sababi: mahsulot bor, talab yo‘q",
+    "Zamonaviy yo‘l: dolzarb muammoga dalilga asoslangan javob (problem-solving)",
+    "G‘oya ‘mening fikrim’ emas, bozorda sinaladigan taxmin bo‘lishi kerak"
+   ],
+   "note": "Maqtov dalil emas: tadbirkor o‘zi mijoz emas, tanishlar odob uchun maqtaydi, ‘foydali’ va ‘to‘layman’ orasida masofa bor"
+  },
+  {
+   "type": "figure",
+   "title": "Problem-solving algoritmining bosqichlari",
+   "img": "image4.png",
+   "caption": "2.1-rasm. Problem-solving algoritmining oltita bosqichi"
+  },
+  {
+   "type": "table",
+   "title": "Problem-solving algoritmi (2.1-jadval)",
+   "head": [
+    "Bosqich",
+    "Asosiy savol",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "1. Muammoni aniqlash",
+     "Qaysi muammo, kim aziyat chekadi, qanchalik tez-tez?",
+     "Muammo bayonoti (1–2 jumla)"
+    ],
+    [
+     "2. Sabablarni tahlil",
+     "Tub sabablar nima? Mavjud yechim nega qoniqtirmaydi?",
+     "Sabab-oqibat sxemasi"
+    ],
+    [
+     "3. Maqsad qo‘yish",
+     "Aniq va o‘lchanadigan natija nima?",
+     "SMART maqsad"
+    ],
+    [
+     "4. G‘oyalar ishlab chiqish",
+     "Brainstorming, SCAMPER bilan qancha variant?",
+     "10–20 ta g‘oya ro‘yxati"
+    ],
+    [
+     "5. Maqbul yechim tanlash",
+     "Imkoniyat, xarajat, vaqt, texnologiya, qabul qilinish",
+     "Baholash matritsasi va tanlov"
+    ],
+    [
+     "6. Sinov va takomillashtirish",
+     "Prototipni kichik guruhda sinash, fikr olish",
+     "Sinov natijalari va xulosa"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Muammo bayonoti",
+   "sub": "2.2. Problem-solving algoritmi",
+   "bullets": [
+    "To‘rt element: kim aziyat chekadi, qanday vaziyatda, nima yuz beradi, oqibati nima",
+    "Misol: Toshkent talabalari dars oralig‘ida (30–40 daqiqa) sog‘lom va hamyonbop ovqat topa olmaydi",
+    "Oqibat: tez tayyorlanadigan zararli mahsulot iste’mol qiladi yoki ovqatlanmaydi",
+    "Bayonotda yechim bo‘lmaydi: ‘mobil ilova kerak’ desa — bu muammo emas, g‘oya"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Ildiz sabab: ‘5 marta nima uchun’",
+   "sub": "2.2. Problem-solving algoritmi",
+   "steps": [
+    "Talaba tushlik qilmaydi. Nega? — Yaqin atrofda taom yo‘q",
+    "Nega yo‘q? — Kafelar qimmat, navbat uzun",
+    "Nega navbat uzun? — Buyurtma oldindan qabul qilinmaydi",
+    "Nega oldindan buyurtma yo‘q? — Kichik kafelarda raqamli tizim yo‘q",
+    "Nega tizim yo‘q? — Xarajat va texnik bilim yetishmaydi",
+    "Asl muammo: vaqt cheklangan sharoitda tez buyurtma va tayyor taom tizimi yo‘q"
+   ],
+   "note": "Baliq skeleti (Ishikawa): sabablar guruhlari — odamlar, jarayon, texnologiya, narx, muhit"
+  },
+  {
+   "type": "bullets",
+   "title": "Mijozni o‘rganish: chuqur suhbat",
+   "sub": "2.3. Customer discovery",
+   "bullets": [
+    "Muammo borligi kabinetda emas, mijoz bilan gaplashib aniqlanadi (customer discovery)",
+    "Kamida 5–8 potensial mijoz, 15–20 daqiqalik suhbat",
+    "G‘oyani maqtamang, gipotetik savol bermang",
+    "Mom Test (Fitspatrik): o‘tmishdagi xatti-harakat, mijoz hayoti, fakt va majburiyat haqida so‘rang"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Suhbatda yomon va yaxshi savollar (2.2-jadval)",
+   "head": [
+    "Yomon savol (maqtatadi)",
+    "Yaxshi savol (haqiqatni ochadi)"
+   ],
+   "rows": [
+    [
+     "Sog‘lom tushlik xizmati sizga yoqarmidi?",
+     "Oxirgi marta dars oralig‘ida qayerda va nima yegansiz?"
+    ],
+    [
+     "25 ming so‘m to‘lar edingizmi?",
+     "Tushlikka kuniga qancha sarflaysiz? Nimalar sinagansiz?"
+    ],
+    [
+     "Bunday ilova kerak deb o‘ylaysizmi?",
+     "Bu muammo oxirgi marta qachon yuz berdi? Nima qildingiz?"
+    ],
+    [
+     "Do‘stlaringizga tavsiya qilasizmi?",
+     "Yana kim bilan gaplashay? Tanishtirasizmi?"
+    ]
+   ],
+   "note": "Natijani jadvalga yozing: kim, qachon, o‘tkirlik (1–5), hozirgi yechim va sarf, iqtibos"
+  },
+  {
+   "type": "bullets",
+   "title": "Kuzatuv, so‘rovnoma, fokus-guruh",
+   "sub": "2.3. Customer discovery",
+   "bullets": [
+    "Kuzatuv: aytgan va qilgan farq qiladi; ko‘nikilgan noqulaylikni odam aytmaydi",
+    "So‘rovnoma: gipoteza shakllangach; 7–10 savol, bitta savolda bitta narsa, yo‘naltiruvchi savolsiz",
+    "Onlayn so‘rovnoma arzon, lekin javob berganlar butun bozorni ifodalamaydi",
+    "Fokus-guruh: 6–8 kishi, moderator, 45–60 daqiqa; xavf — ovozi baland odamning ta’siri",
+    "Fokus-guruh chuqur intervyuni almashtirmaydi; ikkalasi birga ishonchli"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "SCAMPER usuli: ‘talabalar uchun tushlik’ (2.3-jadval)",
+   "head": [
+    "Harf",
+    "Savol",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "S — almashtirish",
+     "Nimani almashtirsa bo‘ladi?",
+     "Kafe o‘rniga avtomat yoki savat"
+    ],
+    [
+     "C — birlashtirish",
+     "Nimani nima bilan qo‘shsak?",
+     "Tushlik va jadval eslatmasi bitta botda"
+    ],
+    [
+     "A — moslashtirish",
+     "Boshqa sohadan nimani olsak?",
+     "Avia ‘oldindan buyurtma’ tamoyili"
+    ],
+    [
+     "M — o‘zgartirish",
+     "Kattalik, shakl, vaqt?",
+     "10 daqiqalik ‘ushlab ketiladigan’ tushlik"
+    ],
+    [
+     "P — boshqa maqsad",
+     "Boshqa mijoz yoki holat?",
+     "Ofis xodimlari uchun"
+    ],
+    [
+     "E — olib tashlash",
+     "Nimani olib tashlasak arzonlashadi?",
+     "O‘z oshxonasi o‘rniga hamkorlik"
+    ],
+    [
+     "R — teskari qilish",
+     "Jarayonni teskari qilsak?",
+     "Taom auditoriyaga keladi"
+    ]
+   ],
+   "note": "Brainstorming: miqdor muhim, tanqid taqiqlanadi, g‘alati g‘oya rag‘batlanadi, avval yakka, keyin guruhda"
+  },
+  {
+   "type": "compare",
+   "title": "G‘oyani tanlash: matritsa va ICE",
+   "sub": "2.4. G‘oyalarni yaratish va tanlash",
+   "left": {
+    "head": "Ta’sir va kuch matritsasi",
+    "items": [
+     "Ta’sir: muammoni hal qilishi, daromad",
+     "Amalga oshirish qulayligi: xarajat, vaqt, bilim",
+     "‘Yuqori ta’sir – oson’ chorak birinchi sinaladi"
+    ]
+   },
+   "right": {
+    "head": "ICE ballari (1–10)",
+    "items": [
+     "Impact — ta’sir",
+     "Confidence — ishonch (dalil darajasi)",
+     "Ease — osonlik",
+     "Natija: o‘rtacha ball",
+     "Sinov bilan tasdiqlangan g‘oya — yuqori ishonch"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Yarat–O‘lch–O‘rgan tsikli",
+   "img": "image5.png",
+   "caption": "2.2-rasm. Yarat–O‘lch–O‘rgan (Build–Measure–Learn) tsikli"
+  },
+  {
+   "type": "steps",
+   "title": "Lean Startup: tez o‘rganish sikli",
+   "sub": "2.5. Lean Startup",
+   "steps": [
+    "YARAT — eng kichik sinov versiyasi",
+    "KO‘RSAT — real mijozlarga",
+    "FIKR OL — o‘lchang: sotib olishadimi, foydalanishadimi",
+    "YAXSHILA — davom etish, tuzatish yoki pivot",
+    "Maqsad — tasdiqlangan bilim (validated learning); sikl kunlar yoki haftalarda"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Gipoteza va muvaffaqiyat mezoni",
+   "sub": "2.5. Lean Startup",
+   "bullets": [
+    "Har g‘oya ostida faraz bor: to‘laydimi, oldindan buyurtma beradimi, kuniga 30 buyurtma bo‘ladimi?",
+    "Eng muhim va xavfli farazlar (leap-of-faith) birinchi tekshiriladi",
+    "Namuna: 100 talabaga taklif, kamida 20 tasi buyurtma bersa (20%) — tasdiqlandi (shartli)",
+    "Mezonni sinovdan OLDIN yozing, aks holda natija har doim ‘yaxshi’ deb izohlanadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "MVP nima",
+   "sub": "2.6. Minimal hayotiy mahsulot",
+   "bullets": [
+    "MVP — eng minimal funksiyali, lekin asosiy muammoni hal qiladigan dastlabki model",
+    "‘Yomon mahsulot’ emas: asosiy qiymatni sinash uchun eng kichik shakl",
+    "O‘xshatish: skeyt, keyin velosiped, keyin mototsikl — har birida mijozdan fikr",
+    "MVP mahsulotni yaratmasdan ham qurilishi mumkin"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "MVP turlari: xarajat va ishonchlilik",
+   "img": "image6.png",
+   "caption": "2.3-rasm. MVP turlari: xarajat va ishonchlilik nisbati"
+  },
+  {
+   "type": "table",
+   "title": "MVP turlari (2.4-jadval)",
+   "head": [
+    "MVP turi",
+    "Mohiyati",
+    "Qachon qulay",
+    "Xarajat"
+   ],
+   "rows": [
+    [
+     "Tushuntiruvchi video",
+     "Qisqa video, qiziqqanlarni ro‘yxatga olish",
+     "Murakkab mahsulot",
+     "Juda past"
+    ],
+    [
+     "Sotuv sahifasi",
+     "G‘oya, foyda, ro‘yxatdan o‘tish tugmasi",
+     "Raqamli xizmat, obuna",
+     "Past"
+    ],
+    [
+     "Kutish ro‘yxati",
+     "Qiziqqanlar pochta/Telegram orqali yoziladi",
+     "Har qanday g‘oya",
+     "Juda past"
+    ],
+    [
+     "Concierge",
+     "Xizmatni qo‘lda bajarish",
+     "Xizmat, platforma",
+     "Past"
+    ],
+    [
+     "Wizard of Oz",
+     "Tashqarida avtomat, ichkarida odam",
+     "Ilova, bot",
+     "Past–o‘rtacha"
+    ],
+    [
+     "Oldindan sotish",
+     "Tayyor bo‘lmasdan oldindan to‘lov",
+     "Jismoniy mahsulot",
+     "Past"
+    ],
+    [
+     "Katalog / narxlar",
+     "Rasm va narx bilan buyurtma qabul qilish",
+     "Savdo, hunarmandchilik",
+     "Juda past"
+    ],
+    [
+     "Jamoaviy moliyalashtirish",
+     "Oldindan mablag‘ yig‘ish",
+     "Ijodiy, ijtimoiy loyiha",
+     "O‘rtacha"
+    ]
+   ],
+   "note": "Yana: bitta funksiyali MVP — faqat eng muhim funksiya, qolgani qo‘lda (xarajat o‘rta)"
+  },
+  {
+   "type": "bullets",
+   "title": "Dropbox va O‘zbekistondagi arzon MVP",
+   "sub": "2.6. Minimal hayotiy mahsulot",
+   "bullets": [
+    "Dropbox: Xyuston mahsulotni yozmay, 3 daqiqalik video joyladi va kutish ro‘yxatiga odamlar yozildi",
+    "Ibrat: mahsulot yo‘q edi, muammo va qiziqish tasdiqlandi",
+    "Bizda: Telegram kanal/bot, Instagram, Google Forms, WhatsApp-katalog, Google Sheets, Uzum, Olx",
+    "Misol: 10 porsiya tayyorlab, guruh chatlarida e’lon qilish, buyurtmani Google Forms orqali olish"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Acid Test: uch savol",
+   "sub": "2.7. Acid Test",
+   "steps": [
+    "1. Mijoz mahsulotga qiziqadimi? — eng zaif dalil (like, ro‘yxatga yozilish)",
+    "2. U mahsulotdan foydalanadimi? — o‘rtacha dalil (sinash, qaytish)",
+    "3. U pul to‘lashga tayyormi? — eng kuchli dalil (to‘lov, oldindan buyurtma)",
+    "Imkon qadar to‘lov signalini oling: kichik summa ham ‘ha’dan ishonchli"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Konversiya va sinov natijasi",
+   "sub": "2.7. Acid Test",
+   "items": [
+    {
+     "name": "Konversiya (%)",
+     "formula": "(Maqsadli harakat qilganlar / Jami ko‘rganlar) × 100",
+     "note": "Bir bosqichdan keyingisiga o‘tganlar ulushi"
+    },
+    {
+     "name": "Misol (shartli)",
+     "formula": "400 ko‘rdi → 60 ochdi (15%) → 24 to‘ldirdi (40%) → 9 to‘ladi (37,5%)",
+     "note": "Jami konversiya 9/400 = 2,25%; baho sinovdan oldingi mezon bilan solishtiriladi"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Sinovdan keyingi qaror",
+   "sub": "2.7. Acid Test",
+   "left": {
+    "head": "Davom etish yoki pivot",
+    "items": [
+     "Davom etish: gipoteza tasdiqlandi, kengaytirish",
+     "Pivot: asosiy qism qoladi; segment, yechim yoki narx o‘zgaradi",
+     "Pivot — muvaffaqiyatsizlik emas, o‘rganish natijasi"
+    ]
+   },
+   "right": {
+    "head": "To‘xtatish",
+    "items": [
+     "G‘oya tasdiqlanmadi, davom etish qimmat",
+     "To‘xtatish ham muvaffaqiyat: behuda sarf oldi olinadi",
+     "Misol: xizmat talabadan ko‘ra ofis xodimlarida talab topishi mumkin"
+    ]
+   }
+  },
+  {
+   "type": "steps",
+   "title": "Keys: HealthyBite — vaziyat va ehtiyoj",
+   "sub": "2.8. Amaliy keys",
+   "steps": [
+    "Vaziyat: Toshkent talabalari tanaffusda tez, sifatli, arzon ovqat topolmaydi",
+    "Vazifa: JTBD asosida asl ehtiyoj, qiymat taklifi, kam xarajatli tekshiruv",
+    "Job: 30–40 daqiqada hamyondan oshmay to‘yish, kayfiyat va diqqatni saqlash",
+    "Asosiy ehtiyoj — vaqt, narx, energiya; ‘sog‘lom’ — qo‘shimcha afzallik",
+    "Qiymat taklifi: oldindan buyurtma, 3 daqiqada 25 ming so‘mlik tushlik (shartli narx)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "HealthyBite yechimi: MVP, Acid Test, kengayish",
+   "sub": "2.8. Amaliy keys",
+   "steps": [
+    "Model: kunlik sotuv bilan boshlab, sodiq mijozga haftalik obuna taklif qilish",
+    "MVP: 10 ta suhbat, hamkor oshxona, bir haftada 15–20 buyurtma, Telegram-bot/Forms, oldindan to‘lov",
+    "Mezon: 2-hafta oxirigacha kamida 30 talaba takroran buyursa va marja 20% dan kam bo‘lmasa — davom (shartli)",
+    "Aks holda pivot: narx yoki segmentni o‘zgartirish",
+    "Kengayish: 2-universitetda tanishlarsiz yangi sinov; natija yaqin bo‘lsa — model takrorlanadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Lean Startup va nega startaplar yutqazadi",
+   "sub": "2.9. Chuqurlashtirilgan tahlil",
+   "bullets": [
+    "Ris (2011): g‘oyani to‘liq ishlamay, MVP yaratib, o‘lchab, davom/iteratsiya/pivot tanlanadi",
+    "Eng ko‘p sabab: bozorda hech kimga kerak bo‘lmagan mahsulot",
+    "Boshqa sabablar: pul tugashi (11-bob), noto‘g‘ri jamoa (14-bob), raqobatda yutqazish",
+    "Innovatsiya buxgalteriyasi: faollashtirish, saqlab qolish (retention), tavsiya darajasi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Behuda va haqiqiy ko‘rsatkichlar (2.5-jadval)",
+   "sub": "2.9. Chuqurlashtirilgan tahlil",
+   "head": [
+    "Soha",
+    "Behuda (vanity)",
+    "Haqiqiy (actionable)"
+   ],
+   "rows": [
+    [
+     "Ijtimoiy tarmoq",
+     "Obunachilar soni",
+     "Obunachilardan sotib olganlar foizi"
+    ],
+    [
+     "Veb-sayt",
+     "Sahifaga tashriflar",
+     "Sahifadan buyurtma bergan foiz"
+    ],
+    [
+     "Ilova",
+     "Yuklab olishlar soni",
+     "Bir haftadan keyin ham foydalanuvchilar foizi"
+    ],
+    [
+     "Reklama",
+     "Ko‘rsatishlar soni",
+     "Bir mijozni jalb qilish narxi (CAC)"
+    ]
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Dizayn tafakkuri va Lean Startup (2.6-jadval)",
+   "sub": "2.9. Chuqurlashtirilgan tahlil",
+   "head": [
+    "Jihat",
+    "Dizayn tafakkuri",
+    "Lean Startup"
+   ],
+   "rows": [
+    [
+     "Asosiy urg‘u",
+     "Mijozning hissiy va amaliy tajribasi",
+     "Modelning iqtisodiy hayotiyligi"
+    ],
+    [
+     "Jarayon",
+     "Empatiya → Aniqlash → G‘oyalash → Prototip → Sinov",
+     "Yarat → O‘lch → O‘rgan"
+    ],
+    [
+     "Muvaffaqiyat mezoni",
+     "Muammo to‘g‘ri hal qilinganmi",
+     "Model daromad keltiradimi"
+    ]
+   ],
+   "note": "Muammo noaniq bo‘lsa — empatiyadan; biznes savoli bo‘lsa — Lean Startupdan; ko‘pincha ketma-ket"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa",
+   "bullets": [
+    "Biznes g‘oya mijozning aniq muammosidan tug‘iladi va bozor sinovidan o‘tadi",
+    "G‘oyalar brainstorming va SCAMPER bilan yaratilib, matritsa yoki ICE bilan tanlanadi",
+    "MVP — eng zarur qism; Acid Test: qiziqish, foydalanish, to‘lov",
+    "Natija oldindan belgilangan mezon bilan: davom etish, pivot yoki to‘xtatish",
+    "Ko‘rilgan emas, pul yoki vaqt ajratganlar soni muhim"
+   ]
+  }
+ ]
+}

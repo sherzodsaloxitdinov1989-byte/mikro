@@ -3,8 +3,8 @@
 import { h, toast, fmtDate } from "./ui.js";
 import { api, session } from "./api.js";
 import { topicState, updateTopic } from "./progress.js";
-import { checkField } from "../data/practice.js";
-import { COURSE } from "../data/course.js";
+import { checkField } from "../data/practice-lib.js";
+import { COURSE } from "../data/topics.js";
 import { confetti, shake } from "./motion.js";
 
 const changed = () => window.dispatchEvent(new Event("vgt:progress"));

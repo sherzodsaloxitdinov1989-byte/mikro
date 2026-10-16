@@ -1,7 +1,7 @@
 // Platforma service worker: ilovani o'rnatish va internetsiz rejim.
 // Statik fayllar (sahifa, uslublar, skriptlar, mavzu rasmlari) keshdan tez ochiladi va fonda yangilanadi.
 // API so'rovlari keshlanmaydi (taqdimot/video bo'laklari va AI ovoz fayllaridan tashqari — ular o'zgarmaydi).
-const VERSION = "mikro-v29"; // har bir muhim yangilanishda raqamni oshiring
+const VERSION = "mikro-v30"; // har bir muhim yangilanishda raqamni oshiring
 const SHELL = ["/", "/index.html", "/css/style.css", "/css/motion.css", "/css/features.css", "/css/media.css", "/css/live.css", "/css/analytics.css", "/js/app.js", "/manifest.webmanifest", "/icons/icon-192.png"];
 
 self.addEventListener("install", (e) => {
@@ -42,7 +42,7 @@ self.addEventListener("fetch", (e) => {
   }
 
   // Himoyalangan darslik fayllari (rasm, taqdimot, matn): sessiyaga bog'liq — service worker keshlamaydi.
-  if (/^\/(slides\/|img\/book\/|data\/(book|layers-auto|practice-auto|assignment(-masofaviy)?)\.js$)/.test(url.pathname)) return;
+  if (/^\/(slides\/|img\/book\/|data\/((tb\/)?(book|layers-auto|practice-auto)|assignment(-masofaviy)?)\.js$)/.test(url.pathname)) return;
 
   // Rasmlar, ikonkalar va kutubxonalar: keshdan darhol, fonda yangilash.
   if (/^\/(img|icons|vendor|slides)\//.test(url.pathname)) {

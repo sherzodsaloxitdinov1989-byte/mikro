@@ -1,6 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { COURSE, formOfGroup, formByKey } from "../../data/course.js";
+import { SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
 
 
 export async function render(el) {
@@ -18,6 +19,8 @@ export async function render(el) {
         const res = await api.put("me", data);
         if (res.token) session.set(res.token, res.user);
         else session.updateUser(res.user);
+        // Guruh o'zgarib, fan ham o'zgargan bo'lsa — ma'lumotlar yangi fan bo'yicha qayta yuklanadi
+        if (user.role === "student" && currentSubjectKey() !== SUBJECT_KEY) return location.reload();
         toast("Ma'lumotlar saqlandi", "ok");
         form.querySelectorAll("input[type=password]").forEach((i) => (i.value = ""));
       } catch (ex) {

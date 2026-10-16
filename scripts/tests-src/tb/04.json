@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Davlat ro‘yxatidan o‘tgan tadbirkorlik subyektiga soliq va statistika organlarida hisobga qo‘yilganda qaysi raqam beriladi?",
+  "options": [
+   "Jismoniy shaxsning shaxsiy identifikatsiya raqami (JShShIR)",
+   "Yagona soliq to‘lovchining identifikatsiya raqami (STIR)",
+   "Onlayn nazorat-kassa mashinasining ro‘yxat raqami",
+   "Elektron raqamli imzo kalitining seriya raqami"
+  ],
+  "c": 1,
+  "e": "Rasmiylashtirish natijasida subyektga STIR beriladi va u soliq hamda statistika organlarida hisobga qo‘yiladi."
+ },
+ {
+  "q": "Yakka tartibdagi tadbirkor (YaTT) kim hisoblanadi?",
+  "options": [
+   "Oila a’zolarining mehnatiga tayangan xo‘jalik yurituvchi guruh",
+   "Davlat ro‘yxatidan o‘tmasdan xizmat ko‘rsatuvchi shaxs",
+   "Ustav fondi bo‘lgan va ikki ta’sischi tomonidan tuzilgan yuridik shaxs",
+   "Yuridik shaxs tashkil etmay tadbirkorlik qiluvchi bir jismoniy shaxs"
+  ],
+  "c": 3,
+  "e": "YaTT yuridik shaxs tashkil etmagan holda bir jismoniy shaxs tomonidan amalga oshiriladigan tadbirkorlikdir."
+ },
+ {
+  "q": "MChJ ta’sischilari jamiyat majburiyatlari bo‘yicha qanday javobgar bo‘ladi?",
+  "options": [
+   "Kiritgan hissasi doirasida tavakkal qiladi, shaxsiy mulki himoyalangan",
+   "Hissasidan tashqari subsidiar javobgarlikka ega bo‘ladi",
+   "Barcha shaxsiy mol-mulki bilan, hissasi qiymatidan ham ortiq javob beradi",
+   "Jamiyat direktori shaxsiy mol-mulki bilan to‘liq javob beradi, ta’sischilar emas"
+  ],
+  "c": 0,
+  "e": "MChJning asosiy afzalligi: ta’sischi faqat kiritgan ulushi qiymati doirasida tavakkal qiladi."
+ },
+ {
+  "q": "Yuridik shaxslar ustav fondining eng kam miqdori bo‘yicha 2019-yildan buyon umumiy qoida qanday?",
+  "options": [
+   "Barcha yuridik shaxslar uchun yagona eng kam miqdor saqlangan",
+   "MChJ uchun miqdor belgilangan, aksiyadorlik jamiyati uchun talab yo‘q",
+   "Umumiy talab chiqarilgan, ta’sischilar miqdorni erkin belgilaydi",
+   "Miqdorni ro‘yxatdan o‘tish paytida davlat belgilaydi"
+  ],
+  "c": 2,
+  "e": "Umumiy talab chiqarib tashlangan; alohida minimal talablar faqat ayrim faoliyat turlari va xorijiy investitsiyali korxonalar uchun saqlangan."
+ },
+ {
+  "q": "Elektron raqamli imzo (ERI) nima?",
+  "options": [
+   "Davlat boji to‘langanini tasdiqlovchi elektron kvitansiya",
+   "Hisobot topshirish muddatini eslatuvchi soliq xizmati",
+   "Qo‘lyozma imzoning huquqiy ekvivalenti bo‘lgan elektron kalit",
+   "Bank hisobvarag‘ini ochish uchun soliq organi beradigan maxsus kod"
+  ],
+  "c": 2,
+  "e": "ERI qo‘lyozma imzoning huquqiy ekvivalenti; usiz onlayn ariza, elektron shartnoma yoki hisobot topshirib bo‘lmaydi."
+ },
+ {
+  "q": "Xabardor qilish (bildirishnoma) tartibining litsenziyadan asosiy farqi nimada?",
+  "options": [
+   "Faoliyat boshlanishi haqida xabar beriladi, ruxsat kutish talab etilmaydi",
+   "Xabarnoma yuborilgach, shartlarga rioya qilish talab etilmaydi",
+   "Faoliyat boshlashdan oldin maxsus davlat organidan ruxsat olish kerak bo‘ladi",
+   "Xorijiy investitsiyali korxonalar uchun qo‘llanadi"
+  ],
+  "c": 0,
+  "e": "Xabardor qilishda ruxsat kutilmaydi, biroq shartlarga rioya majburiy."
+ },
+ {
+  "q": "Intellektual mulkning qaysi turi brend nomi va logotipni himoya qiladi?",
+  "options": [
+   "Patent",
+   "Sanoat namunasi",
+   "Savdo siri",
+   "Tovar belgisi"
+  ],
+  "c": 3,
+  "e": "Brend nomi, logotip va shior tovar belgisi sifatida IM Agentligida rasmiylashtiriladi."
+ },
+ {
+  "q": "Franshiza beruvchi (franchisor) franshiza oluvchiga nimani taqdim etadi?",
+  "options": [
+   "Franshiza oluvchining hududdagi barcha soliq majburiyatlarini o‘z zimmasiga olishni",
+   "Brend, biznes-jarayon va qo‘llab-quvvatlashdan haq evaziga foydalanish huquqini",
+   "Litsenziya talab qilinadigan faoliyatni ruxsatsiz yuritish huquqini",
+   "Ro‘yxatdan o‘tish uchun davlat bojini to‘lashni bepul"
+  ],
+  "c": 1,
+  "e": "Franchisor brend, biznes-jarayon va qo‘llab-quvvatlashni franshiza oluvchiga haq evaziga beradi."
+ },
+ {
+  "q": "YaTT uchun eng muhim xavf nimada?",
+  "options": [
+   "Barcha mol-mulki bilan javob beradi, biznes va shaxsiy mulk ajratilmagan",
+   "Ro‘yxatdan o‘tish bir necha oy davom etadigan bosqichli jarayon ekani",
+   "Ro‘yxatdan oldin ustav fondini to‘liq shakllantirish majburiyati",
+   "Xodim yollash qonunchilikda mutlaqo taqiqlangani, shu sababli o‘sish cheklanadi"
+  ],
+  "c": 0,
+  "e": "YaTTning cheklanmagan javobgarligi biznes va shaxsiy mulk o‘rtasida huquqiy to‘siq yo‘qligini bildiradi."
+ },
+ {
+  "q": "Nega aksiyadorlik jamiyati (AJ) yangi boshlovchi uchun odatda mos emas?",
+  "options": [
+   "Aksiyadorlar jamiyat qarzlari uchun barcha shaxsiy mol-mulki bilan cheksiz javob beradi",
+   "Ustav fondining eng kam miqdori hamma uchun qat’iy belgilangan",
+   "Murakkab boshqaruv, oshkora hisobdorlik va ko‘pincha mustaqil audit talab etadi",
+   "Ro‘yxatdan o‘tishni onlayn amalga oshirishning imkoni umuman yo‘q"
+  ],
+  "c": 2,
+  "e": "AJ murakkab boshqaruv va doimiy oshkora hisobdorlikni talab qiladi, shu sababli yirik loyihalarga mos."
+ },
+ {
+  "q": "“Biznesni 15 daqiqada boshlash” doirasidagi xizmatlar haqida qaysi fikr to‘g‘ri?",
+  "options": [
+   "Har bir xizmat uchun to‘lov alohida idoraga topshiriladi",
+   "Xizmatlarning bir qismini tanlash mumkin, to‘lov yagona QR-kod orqali bajariladi",
+   "QQS to‘lovchisi guvohnomasi barcha subyektlarga avtomatik beriladi",
+   "Yetti xizmatning barchasini birgalikda olish va alohida-alohida to‘lash majburiy hisoblanadi"
+  ],
+  "c": 1,
+  "e": "Xizmatlardan foydalanish ixtiyoriy, to‘lov esa tanlanganlar uchun yagona QR-kod orqali bir vaqtda amalga oshiriladi."
+ },
+ {
+  "q": "Nega biznes va shaxsiy mablag‘larni aralashtirmaslik muhim?",
+  "options": [
+   "Mablag‘lar aralashganda ERI kaliti avtomatik bekor bo‘ladi",
+   "Bank shaxsiy kartaga tushgan har qanday mablag‘ni darhol musodara qilib qo‘yadi",
+   "Davlat ro‘yxatidan o‘tish uchun alohida shaxsiy karta ochish talab qilinadi",
+   "Soliq tekshiruvida savol tug‘iladi va o‘z xarajatni hisoblash qiyinlashadi"
+  ],
+  "c": 3,
+  "e": "Aralashib ketsa, soliq tekshiruvida savol tug‘iladi va xarajatni hisoblash qiyinlashadi."
+ },
+ {
+  "q": "Nega tajribali investorlar odatda dastlabki bosqichda NDA imzolamaydi?",
+  "options": [
+   "Maxfiylik shartnomasini investor bilan tuzish qonunda to‘g‘ridan-to‘g‘ri taqiqlangan",
+   "Maxfiylik shartnomasi uchun alohida davlat litsenziyasi talab qilinadi",
+   "Investorlar barcha g‘oyani ommaga e’lon qilish majburiyatiga ega",
+   "Kuniga o‘nlab g‘oya ko‘radi va NDA ularning ish jarayonini murakkablashtiradi"
+  ],
+  "c": 3,
+  "e": "Investorlar ko‘p g‘oya ko‘radi, shu sababli tadbirkorga nozik tafsilotlarni ochmaslik tavsiya etiladi."
+ },
+ {
+  "q": "Brend nomini ro‘yxatdan o‘tkazmagan tadbirkor qanday xavfga duch keladi?",
+  "options": [
+   "Boshqa shaxs o‘xshash nomni ro‘yxatga olib, foydalanishni taqiqlashi mumkin",
+   "Soliq organi nom ro‘yxatga olinguncha faoliyatni to‘xtatadi",
+   "Nomni birinchi bo‘lib ishlatgani uchun unga bo‘lgan huquq to‘liq saqlanib qoladi",
+   "Nom avtomatik ravishda davlat mulkiga o‘tkazilib, boshqa foydalanish taqiqlanadi"
+  ],
+  "c": 0,
+  "e": "Nomni birinchi ishlata boshlagan bo‘lsa ham, uni ro‘yxatga olgan boshqa shaxs foydalanishni taqiqlashi mumkin."
+ },
+ {
+  "q": "Talaba 3D-bosma buyumlarni yolg‘iz sinab yurgan edi; keyin kafe tarmog‘idan yirik buyurtma va hamkor dizayner paydo bo‘ldi. Qaysi qaror mantiqli?",
+  "options": [
+   "Ro‘yxatdan o‘tmay, kelishuvni og‘zaki tuzib ishlashni davom ettirish",
+   "O‘zini o‘zi band qilgan shaxs bo‘lib qolib, hamkorni norasmiy yollash",
+   "MChJ tuzib, hamkor bilan ulushlarni shartnomada belgilash",
+   "AJ tuzib, aksiyalarni qimmatli qog‘ozlar bozoriga chiqarish"
+  ],
+  "c": 2,
+  "e": "Barqaror mijoz va hamkor paydo bo‘lganda MChJ mos, ulushlar esa shartnomada belgilanadi."
+ },
+ {
+  "q": "Talaba xususiy tibbiy xizmat ko‘rsatishni rejalashtirmoqda. Ish boshlashdan oldin u nima qilishi shart?",
+  "options": [
+   "Faoliyatni boshlab, litsenziya kerak bo‘lsa keyinroq so‘rab olishi mumkin",
+   "Faoliyat litsenziya talab qilishini aniqlab, zarur bo‘lsa litsenziya olishi",
+   "Bank hisobvarag‘i ochishning o‘zi yetarli bo‘lishiga tayanishi",
+   "Davlat organiga faoliyat haqida xabar yuborib, ruxsat kutmasdan ishlashi"
+  ],
+  "c": 1,
+  "e": "Tibbiyot yuqori xavfli faoliyat; litsenziya kerak-kerakmasligini tadbirkor ish boshlashdan oldin aniqlashi shart."
+ },
+ {
+  "q": "Ikki hamkor ta’sis hujjatlarini shoshilinch tayyorladi: ulush, dividend va biznesdan chiqish tartibi yozilmadi. Bu nimaga olib kelishi mumkin?",
+  "options": [
+   "Ta’sischilar o‘rtasida ulush, dividend va chiqish bo‘yicha nizolarga",
+   "Faoliyat to‘xtatilishi va katta jarimaga",
+   "Hisobvaraq operatsiyalarining cheklanishiga",
+   "Soliq xavfi darajasining oshishi va QQS guvohnomasi bilan muammolarga"
+  ],
+  "c": 0,
+  "e": "Maslahatsiz tayyorlangan ta’sis hujjatlari ta’sischilar o‘rtasida ulush, dividend va chiqish nizolarini keltirib chiqaradi."
+ },
+ {
+  "q": "Shartnomada predmet “qulay xizmat ko‘rsatiladi” deb yozilgan. Bu qanday kamchilik?",
+  "options": [
+   "Nizolarni hal etish tartibi tartibsiz “qonunga muvofiq” deb qoldirilgan",
+   "Noaniq ta’rif: nima sotilishi, miqdori va sifati ko‘rsatilmagan",
+   "Tomonlarning rekvizitlari va imzosi unutilgan",
+   "To‘lov muddati va usuli ko‘rsatilmagan"
+  ],
+  "c": 1,
+  "e": "Predmet bo‘limida nima, qancha va qanday sifatda berilishi aniq yozilishi kerak."
+ },
+ {
+  "q": "Litsenziya qanday hujjat?",
+  "options": [
+   "Faoliyat boshlanishi haqida tegishli davlat organiga yuboriladigan xabarnoma",
+   "Ayrim tovarlarni olib kirishga yoki hududdan foydalanishga ruxsat",
+   "Subyektning davlat ro‘yxatidan o‘tganini tasdiqlovchi guvohnoma",
+   "Yuqori xavfli faoliyat turlari uchun maxsus davlat organi beradigan hujjat"
+  ],
+  "c": 3,
+  "e": "Litsenziya bank, tibbiyot, ta’lim kabi yuqori xavfli faoliyat uchun maxsus organ beradigan hujjatdir."
+ },
+ {
+  "q": "Soliq hisobotini topshirish, qarzdorlikni ko‘rish va soliq rejimini tanlash uchun qaysi vosita ishlatiladi?",
+  "options": [
+   "lex.uz — qonunchilik hujjatlarining milliy bazasi",
+   "ERI — elektron raqamli imzo kaliti",
+   "my.soliq.uz — soliq to‘lovchining shaxsiy kabineti",
+   "my.gov.uz — yagona interaktiv davlat xizmatlari portali"
+  ],
+  "c": 2,
+  "e": "my.soliq.uz soliq hisobotlari, to‘lovlar va rejim tanlash uchun mo‘ljallangan shaxsiy kabinet."
+ }
+]

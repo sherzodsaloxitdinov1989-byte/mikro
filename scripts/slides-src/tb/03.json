@@ -1,0 +1,561 @@
+{
+ "slides": [
+  {
+   "type": "figure",
+   "title": "Boshlovchi tadbirkorlar moliyalashtirish tuzilmasi",
+   "img": "image7.png",
+   "caption": "3.1-rasm. Yangi boshlovchi tadbirkorlar uchun tipik moliyalashtirish tuzilmasi (namuna)"
+  },
+  {
+   "type": "compare",
+   "title": "Moliyalashtirish manbalari",
+   "sub": "3.1. Manbalar va kreditning o‘rni",
+   "left": {
+    "head": "O‘z mablag‘i",
+    "items": [
+     "Shaxsiy jamg‘arma",
+     "Oila va do‘stlar yordami",
+     "Foydani qayta investitsiya qilish"
+    ]
+   },
+   "right": {
+    "head": "Jalb qilingan mablag‘",
+    "items": [
+     "Kredit",
+     "Grant, investor sarmoyasi",
+     "Lizing, mikromoliya",
+     "Jamoaviy moliyalashtirish"
+    ]
+   },
+   "note": "Kredit ‘tekin pul’ emas: vaqt va foiz evaziga, muddatida qaytariladi. Batafsil — 11-bob"
+  },
+  {
+   "type": "table",
+   "title": "Kredit shartnomasining elementlari (3.1-jadval)",
+   "sub": "3.2. Kredit va to‘lov turlari",
+   "head": [
+    "Element",
+    "Mazmuni",
+    "Nimaga e’tibor"
+   ],
+   "rows": [
+    [
+     "Asosiy qarz",
+     "Olingan mablag‘ning o‘zi",
+     "Biznes-reja bo‘yicha kerakli summa, ortiqcha emas"
+    ],
+    [
+     "Foiz stavkasi",
+     "Foydalanish uchun to‘lov (yillik)",
+     "Nominal va effektiv stavka, komissiyalar"
+    ],
+    [
+     "Muddat",
+     "Qaytarish davri",
+     "Pul oqimi davriga mos kelishi"
+    ],
+    [
+     "Imtiyozli davr",
+     "Asosiy qarz to‘lanmaydigan dastlabki davr",
+     "Daromadga chiqish uchun vaqt"
+    ],
+    [
+     "Ta’minot",
+     "Garov, kafillik, sug‘urta",
+     "Garov qiymati, kafil javobgarligi, polis narxi"
+    ],
+    [
+     "Maqsadli foydalanish",
+     "Faqat shartnomadagi maqsadga sarflash",
+     "Boshqa maqsad — shartnoma buzilishi"
+    ]
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Annuitet va differensial to‘lov taqqoslash",
+   "img": "image8.png",
+   "caption": "3.2-rasm. Annuitet va differensial to‘lov jadvali (60 mln so‘m, 24 oy, yillik 24%)"
+  },
+  {
+   "type": "compare",
+   "title": "Annuitet va differensial to‘lov",
+   "sub": "3.2. Kredit va to‘lov turlari",
+   "left": {
+    "head": "Annuitet",
+    "items": [
+     "Oylik to‘lov butun muddat bir xil",
+     "Dastlab ko‘p qismi foizga, keyin qarzga",
+     "Barqaror, o‘sib boruvchi daromadda qulay",
+     "Oylik yukni bashorat qilish oson"
+    ]
+   },
+   "right": {
+    "head": "Differensial",
+    "items": [
+     "Asosiy qarz teng qismlarga bo‘linadi",
+     "Foiz qolgan qarzdan hisoblanadi",
+     "To‘lov dastlab katta, keyin kamayadi",
+     "Daromad avval yuqori bo‘lsa yoki jami foiz kam bo‘lishi kerak bo‘lsa"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Annuitet to‘lovi formulasi",
+   "sub": "3.2. Kredit va to‘lov turlari",
+   "items": [
+    {
+     "name": "Annuitet to‘lov (PMT)",
+     "formula": "PMT = P × r / (1 − (1 + r)^(−n))",
+     "note": "P — kredit summasi, r — oylik stavka (yillik/12), n — oylar soni"
+    },
+    {
+     "name": "Differensial: asosiy qarz qismi",
+     "formula": "Oylik qarz = P / n; foiz = qoldiq × r",
+     "note": "Birinchi oyda to‘lov eng katta"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Misol: 100 mln so‘m, 24 oy, yillik 15%",
+   "sub": "3.2. Kredit va to‘lov turlari",
+   "head": [
+    "Ko‘rsatkich",
+    "Annuitet",
+    "Differensial"
+   ],
+   "rows": [
+    [
+     "Oylik foiz stavkasi (r)",
+     "1,25%",
+     "1,25%"
+    ],
+    [
+     "Birinchi oy to‘lovi",
+     "≈ 4 848 665 so‘m",
+     "5 416 667 so‘m"
+    ],
+    [
+     "Oxirgi oy to‘lovi",
+     "≈ 4 848 665 so‘m",
+     "4 218 750 so‘m"
+    ],
+    [
+     "Jami foiz",
+     "16,37 mln so‘m",
+     "15,63 mln so‘m"
+    ]
+   ],
+   "note": "Effektiv stavka nominaldan tashqari komissiya va majburiy sug‘urtani ham hisobga oladi. Imtiyozli davr: masalan, 6 oy faqat foiz"
+  },
+  {
+   "type": "figure",
+   "title": "Moliyaviy richagning ROE ga ta’siri",
+   "img": "image9.png",
+   "caption": "3.3-rasm. Moliyaviy richagning ROE ga ta’siri"
+  },
+  {
+   "type": "bullets",
+   "title": "Kredit olishning uch afzalligi",
+   "sub": "3.3. Afzalliklari va xavflari",
+   "bullets": [
+    "Bozorga kirish va kengayish tezligi: uskuna, texnologiya, xomashyo qisqa muddatda",
+    "Moliyaviy richag: loyiha daromadliligi kredit foizidan yuqori bo‘lsa, o‘z kapital daromadliligi oshadi",
+    "Kredit tarixi va reputatsiya: o‘z vaqtida qaytarish yirikroq, arzonroq moliyalashtirishga yo‘l ochadi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Richag misoli: loyiha 200 mln, daromadlilik 30%, foiz 15%",
+   "sub": "3.3. Afzalliklari va xavflari",
+   "head": [
+    "Variant",
+    "Daromad",
+    "Foiz",
+    "Sof daromad",
+    "O‘z kapital daromadliligi"
+   ],
+   "rows": [
+    [
+     "(a) 200 mln o‘z mablag‘i",
+     "60 mln",
+     "0",
+     "60 mln",
+     "30%"
+    ],
+    [
+     "(b) 100 o‘z + 100 kredit",
+     "60 mln",
+     "15 mln",
+     "45 mln",
+     "45%"
+    ],
+    [
+     "Daromadlilik 10%: o‘z mablag‘",
+     "20 mln",
+     "0",
+     "20 mln",
+     "10%"
+    ],
+    [
+     "Daromadlilik 10%: kredit bilan",
+     "20 mln",
+     "15 mln",
+     "5 mln",
+     "5%"
+    ],
+    [
+     "Daromadlilik 5%: kredit bilan",
+     "10 mln",
+     "15 mln",
+     "−5 mln",
+     "−5% (zarar)"
+    ]
+   ],
+   "note": "Richag ikki tomonlama qurol: kredit oldidan pessimistik stsenariyni hisoblang"
+  },
+  {
+   "type": "table",
+   "title": "Sog‘lom va xavfli kredit (3.2-jadval)",
+   "sub": "3.3. Afzalliklari va xavflari",
+   "head": [
+    "Mezon",
+    "Sog‘lom kredit",
+    "Xavfli kredit"
+   ],
+   "rows": [
+    [
+     "Nimaga sarflanadi",
+     "Uskuna, xomashyo, aylanma mablag‘",
+     "To‘y, shaxsiy sarf, eski qarz"
+    ],
+    [
+     "Qaytarish manbayi",
+     "Loyihaning hisoblangan pul oqimi",
+     "‘Qandaydir topaman’, maosh, boshqa qarz"
+    ],
+    [
+     "DSCR",
+     "Kamida 1,25–1,5",
+     "1 dan past yoki hisoblanmagan"
+    ],
+    [
+     "Pessimistik stsenariyda",
+     "Kredit hali ham to‘lanadi",
+     "Birinchi pasayishdayoq to‘lov to‘xtaydi"
+    ],
+    [
+     "Imtiyozli davr",
+     "Daromadga chiqish muddatiga mos",
+     "Yo‘q yoki juda qisqa"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "DSCR — qaytarish qobiliyati ko‘rsatkichi",
+   "sub": "3.3. Afzalliklari va xavflari",
+   "items": [
+    {
+     "name": "DSCR",
+     "formula": "DSCR = Yillik sof operatsion pul oqimi / Yillik kredit xizmati",
+     "note": "Kredit xizmati = asosiy qarz + foiz"
+    },
+    {
+     "name": "Misol (shartli)",
+     "formula": "180 mln / 120 mln = 1,5",
+     "note": "Bank odatda 1,25 va undan yuqorini maqbul hisoblaydi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Biznes krediti va iste’mol krediti (3.3-jadval)",
+   "sub": "3.4. Qiyosiy tahlil",
+   "head": [
+    "Mezon",
+    "Biznes krediti",
+    "Iste’mol krediti"
+   ],
+   "rows": [
+    [
+     "Maqsad",
+     "Daromad keltiruvchi faoliyat",
+     "Shaxsiy ehtiyoj: texnika, to‘y, sayohat"
+    ],
+    [
+     "Qarz oluvchi",
+     "YaTT, yuridik shaxs, g‘oyali fuqaro",
+     "Jismoniy shaxs"
+    ],
+    [
+     "Qaytarish manbayi",
+     "Biznes pul oqimi",
+     "Ish haqi va qat’iy daromad"
+    ],
+    [
+     "Hujjatlar",
+     "Biznes-reja, hisob-kitob, ta’minot",
+     "Shaxs hujjati, daromad ma’lumoti"
+    ],
+    [
+     "Imtiyozli davr",
+     "Odatda bor (6 oydan 2 yilgacha)",
+     "Odatda yo‘q"
+    ],
+    [
+     "Summa va muddat",
+     "Yirik summa, uzoq muddat",
+     "Kichik summa, qisqa/o‘rta muddat"
+    ],
+    [
+     "Foiz stavkasi",
+     "Dasturga bog‘liq, imtiyozli bo‘lishi mumkin",
+     "Odatda yuqoriroq"
+    ],
+    [
+     "Javobgarlik",
+     "Biznes va ta’minot hisobiga",
+     "Shaxsiy daromad va mol-mulk"
+    ]
+   ],
+   "note": "Biznesga iste’mol krediti xatar: imtiyozsiz, maosh asosida, qimmat, qarz shaxsiy majburiyat bo‘lib qoladi"
+  },
+  {
+   "type": "table",
+   "title": "Misol: 400 mln so‘m, ikki kredit (shartli)",
+   "sub": "3.4. Qiyosiy tahlil",
+   "head": [
+    "Ko‘rsatkich",
+    "Iste’mol krediti",
+    "Biznes krediti"
+   ],
+   "rows": [
+    [
+     "Yillik stavka",
+     "25%",
+     "15%"
+    ],
+    [
+     "Muddat",
+     "36 oy, imtiyozsiz",
+     "6 oy imtiyoz + 54 oy annuitet"
+    ],
+    [
+     "Imtiyozli davrda to‘lov",
+     "—",
+     "≈ 5 mln so‘m/oy (faqat foiz)"
+    ],
+    [
+     "Keyingi oylik to‘lov",
+     "≈ 15,9 mln so‘m",
+     "≈ 10,2 mln so‘m"
+    ],
+    [
+     "Jami foiz",
+     "≈ 172,5 mln so‘m",
+     "—"
+    ]
+   ],
+   "note": "O‘quv maqsadidagi shartli hisob; real shartlar bank taklifiga bog‘liq. Iste’molda yuk ≈ 1,5 barobar yuqori"
+  },
+  {
+   "type": "steps",
+   "title": "Bank kredit berish jarayoni",
+   "sub": "3.5. Bank kredit qanday beriladi",
+   "steps": [
+    "1. Ariza va dastlabki maslahat",
+    "2. Biznes-reja va moliyaviy hisob-kitoblar",
+    "3. Hujjatlar: pasport/ID, biznes-reja, ta’minot",
+    "4. Bank tahlili: kredit tarixi, samaradorlik, ta’minot qiymati",
+    "5. Kredit komissiyasi qarori",
+    "6. Shartnoma va ta’minotni rasmiylashtirish",
+    "7. Mablag‘ni o‘zlashtirish, monitoring va qaytarish"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "5C modeli: bank nimani baholaydi (3.6-jadval)",
+   "sub": "3.5, 3.10. Bank qarori",
+   "head": [
+    "Omil",
+    "Nima baholanadi",
+    "Amaliy maslahat"
+   ],
+   "rows": [
+    [
+     "Character",
+     "Kredit tarixi, obro‘, tajriba",
+     "Kichik kreditlarni ham vaqtida to‘lang"
+    ],
+    [
+     "Capacity",
+     "Pul oqimi, DSCR",
+     "Realistik pul oqimi jadvalini tayyorlang"
+    ],
+    [
+     "Capital",
+     "O‘z hissa miqdori",
+     "Kamida 20–30% o‘z mablag‘ bilan keling"
+    ],
+    [
+     "Collateral",
+     "Garov turi va likvidligi",
+     "Yuqori likvidli garovni afzal ko‘ring"
+    ],
+    [
+     "Conditions",
+     "Maqsad, bozor, soha xavfi",
+     "Maqsadni aniq va hujjatlashtirilgan ko‘rsating"
+    ]
+   ],
+   "note": "Omillar birgalikda baholanadi; o‘z hissasi ko‘pincha 10–30% bo‘lishi kerak"
+  },
+  {
+   "type": "bullets",
+   "title": "‘Kelajakka qadam’ dasturi",
+   "sub": "3.6. Yoshlar tadbirkorligini qo‘llab-quvvatlash",
+   "bullets": [
+    "Asos: Prezidentning 2025-yil 14-fevraldagi PQ-61-son qarori",
+    "1-yo‘nalish: bitiruvchi talabaning g‘oyasini tayyor loyihagacha hamrohlik va qulay moliyalashtirish",
+    "2-yo‘nalish: sohalar bo‘yicha ochiq tanlovlar, g‘oliblarni ishga joylashtirishga ko‘maklashish",
+    "Universitetlarda ‘Kelajakka qadam’ markazlari: trening, g‘oyani qo‘llab-quvvatlash, bankka yo‘naltirish",
+    "Ishtirokchi banklardan biri — ‘O‘zmilliybank’ AJ"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Talaba yo‘li: g‘oyadan tayyor loyihagacha (3.4-jadval)",
+   "sub": "3.6. ‘Kelajakka qadam’",
+   "steps": [
+    "1. G‘oyani aniqlash — markazga murojaat",
+    "2. Trening va biznes-reja — marketing, moliya, mentor",
+    "3. Rasmiylashtirish — mos huquqiy shakl, hujjatlar",
+    "4. Bankka yo‘naltirish — tayyor loyiha hududiy filialga",
+    "5. Moliyalashtirish — shartnoma va mablag‘ ajratish",
+    "6. Monitoring — amalga oshirish, mentorlik, qo‘shimcha ko‘mak"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Dastur imkoniyatlari: 2026-yil rasmiy xabarlari",
+   "sub": "3.6. ‘Kelajakka qadam’",
+   "bullets": [
+    "2026-yil mart seminari: biznes g‘oyalar uchun 20 mln so‘mdan 10 mlrd so‘mgacha imtiyozli kredit",
+    "O‘zini o‘zi band qilgan yoshlar uchun kredit 300 mln so‘mgacha; startaplarga 100 ming dollargacha investitsiya",
+    "‘Kelajak tadbirkori’: 7 yilgacha, yillik 15%; kengayish uchun 2 mlrd, 5+ bitiruvchi ishga olsa 10 mlrd so‘mgacha",
+    "Manbalarda diapazonlar farq qilishi mumkin — amaldagi shartni bank va markazdan aniqlang"
+   ],
+   "note": "Imtiyoz — arzon pul emas, balki bank tahlilidan o‘tgan loyiha, mentor va hamrohlik"
+  },
+  {
+   "type": "bullets",
+   "title": "Boshqa davlat va institutsional mexanizmlar",
+   "sub": "3.7. Boshqa mexanizmlar",
+   "bullets": [
+    "‘Yoshlar biznesi’: ish o‘rni yaratish sharti bilan imtiyozli kredit, imtiyozli davr",
+    "Kafolat va sug‘urta: garov yetmasa ta’minotni to‘ldirish",
+    "Venchur jamg‘armalari, startap grantlari; biznes-inkubatsiya va akseleratsiya",
+    "Mikromoliya va lizing: kichik summalar, yengil garov talabi; davlat grantlari va subsidiyalar",
+    "Mexanizmlar bir-birini inkor etmaydi: inkubator, grant, so‘ng ‘Kelajakka qadam’ krediti"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Keys: EcoMilk — vaziyat",
+   "sub": "3.8. Amaliy keys",
+   "steps": [
+    "Samarqandlik bitiruvchi sut qayta ishlash sexini kengaytirmoqchi: 400 mln so‘m kerak",
+    "Variant 1: tijorat bankidan shaxsiy iste’mol krediti",
+    "Variant 2: ‘Kelajakka qadam’ doirasida biznes krediti",
+    "Savol: qaysi biri mos va nega?"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "EcoMilk yechimi",
+   "sub": "3.8. Amaliy keys",
+   "steps": [
+    "1. Farqlar: maqsad, imtiyozli davr (biznesda 6 oydan 2 yilgacha), qaytarish manbayi",
+    "2. Iste’mol kredit xavfi: to‘lov 1-oydan (≈ 15,9 mln/oy), manba — maosh, 400 mln berilmasligi mumkin",
+    "3. ‘Kelajakka qadam’: imtiyozli stavka va muddat, mentor, kredit tarixi, aniq maqsad; faoliyat rasmiylashgan bo‘lishi kerak",
+    "4. Muqobil — lizing: uskunaning o‘zi ta’minot, garovsiz; kamchilik — jami xarajat biroz yuqori"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Moliyaviy yo‘l xaritasi shabloni (3.5-jadval)",
+   "sub": "3.9. Amaliy mashg‘ulotga tayyorgarlik",
+   "head": [
+    "Bo‘lim",
+    "Nimani yozish kerak"
+   ],
+   "rows": [
+    [
+     "Kredit maqsadi",
+     "Nimaga sarflanadi (uskuna, xomashyo, ijara, reklama) va nega"
+    ],
+    [
+     "Taxminiy summa",
+     "Xarajatlar smetasi va o‘z hissasi"
+    ],
+    [
+     "Qaytarish manbayi",
+     "Oylik daromad va xarajat, sof pul oqimi, DSCR"
+    ],
+    [
+     "To‘lov jadvali",
+     "Muddat, imtiyozli davr, annuitet/differensial, oylik to‘lov"
+    ],
+    [
+     "Xavflar",
+     "Pessimistik stsenariy: sotuv 30% kam bo‘lsa-chi?"
+    ],
+    [
+     "Davlat dasturi",
+     "Qaysi dastur, kimga va qachon murojaat qilish"
+    ],
+    [
+     "Harakat rejasi",
+     "Keyingi 30 kun uchun 5–7 aniq qadam"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Kredit tarixi va garov",
+   "sub": "3.10. Chuqurlashtirilgan tahlil",
+   "bullets": [
+    "Kredit byurosi har bir shaxsning kredit tarixini yig‘adi; skoring qancha yuqori — foiz past, qaror tez",
+    "Maslahat: kichik kredit yoki karta qarzini o‘z vaqtida to‘lab, ijobiy tarix yarating",
+    "Garov turlari: ko‘chmas mulk, transport, uskuna, tovar zaxirasi, kafolat",
+    "Likvidlik: ko‘chmas mulk yuqori, maxsus uskuna past",
+    "Bank garov qiymatining ko‘pincha 60–80% gacha beradi (LTV)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Mikromoliya, sug‘urta, kafolat, crowdlending",
+   "sub": "3.10. Chuqurlashtirilgan tahlil",
+   "bullets": [
+    "Mikromoliya: bir necha mln–o‘n mln so‘m, yengil hujjat, ammo foiz yuqoriroq; barqarorlashgach bankka o‘ting",
+    "Kredit sug‘urtasi: vafot, mehnatga layoqatsizlik, biznes to‘xtashida qoldiqni sug‘urtachi to‘laydi; mukofot ≈ 0,5–2%",
+    "Davlat kafolati: kredit qismiga kafolat, shaxsiy garov talabini yengillashtiradi",
+    "Crowdlending (P2P): ko‘plab investor mablag‘i; tezroq, lekin stavka yuqori, platforma ishonchliligini tekshiring",
+    "O‘zbekistonda bu yo‘nalish hali shakllanish bosqichida"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Xulosa",
+   "bullets": [
+    "Kredit — kuchli vosita, lekin foiz va muddat bilan bog‘liq majburiyat",
+    "Biznes krediti — imtiyozli davr va biznes pul oqimi; iste’mol krediti biznes uchun qulay emas",
+    "Richag daromadliligi foizdan yuqori bo‘lsa foyda, aks holda zarar; DSCR va pessimistik stsenariy shart",
+    "‘Kelajakka qadam’ g‘oyadan loyihagacha hamrohlik qiladi; shartlarni amaldagi hujjatdan tekshiring"
+   ]
+  }
+ ]
+}
