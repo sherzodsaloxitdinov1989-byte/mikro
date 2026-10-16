@@ -73,7 +73,8 @@ export async function renderForgot(el) {
   try {
     config = await api.get("config");
   } catch {}
-  if (!config.mailEnabled) return renderForgotLegacy(el);
+  const legacy = new URLSearchParams(location.hash.split("?")[1] || "").get("legacy");
+  if (!config.mailEnabled || legacy) return renderForgotLegacy(el, config);
 
   const err = h("div");
   const card = h("div", { class: "card auth-card" });
@@ -106,6 +107,7 @@ export async function renderForgot(el) {
       h("h1", {}, "Parolni tiklash"),
       h("p", { class: "muted" }, "Talaba va o'qituvchi uchun bir xil: ro'yxatdan o'tgan emailingizni kiriting, pochtangizga 6 xonali tasdiqlash kodi yuboramiz. Eski parol kerak emas."),
       form,
+      config.teacherByCode && h("p", { class: "center small" }, "Xat kelmayaptimi? ", h("a", { href: "#/forgot?legacy=1" }, "O'qituvchi kodi bilan tiklash")),
       h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish")));
   }
 
@@ -174,7 +176,7 @@ export async function renderForgot(el) {
   mount(el, h("div", { class: "auth-wrap" }, card));
 }
 
-function renderForgotLegacy(el) {
+function renderForgotLegacy(el, config = {}) {
   const err = h("div");
   const form = h(
     "form",
@@ -220,7 +222,7 @@ function renderForgotLegacy(el) {
       h("div", { class: "card auth-card" },
         h("h1", {}, "Parolni tiklash"),
         h("div", { class: "alert alert-info" }, h("b", {}, "🎓 Talabamisiz? "), "O'qituvchingizga murojaat qiling — u panelning “Talabalar” bo'limida 🔑 tugmasi orqali sizga vaqtinchalik parol beradi. Kirgach, uni Profil sahifasida o'zgartiring."),
-        h("div", { class: "alert alert-warn small" }, "Elektron pochta orqali tiklash hali ulanmagan (administrator BREVO_API_KEY va MAIL_FROM ni sozlashi kerak). Hozircha quyidagi usul ishlaydi."),
+        !config.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta orqali tiklash hali ulanmagan (administrator BREVO_API_KEY va MAIL_FROM ni sozlashi kerak). Hozircha quyidagi usul ishlaydi."),
         h("h3", {}, "👩‍🏫 O'qituvchi uchun"),
         form,
         h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish"))))
