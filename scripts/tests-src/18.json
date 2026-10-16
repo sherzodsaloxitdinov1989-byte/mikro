@@ -90,10 +90,10 @@
  {
   "q": "Kaldor-Xiks mezoniga ko‘ra o‘zgarish qachon ijtimoiy jihatdan maqbul?",
   "options": [
-   "Hech kimning ahvoli yomonlashmasa va kamida bir kishi yutsa",
-   "Yutqazganlarga kompensatsiya amalda to‘liq to‘langan bo‘lsa",
-   "Yutganlar yutqazganlarga kompensatsiya to‘lab, baribir yutuqda qola olsa, kompensatsiya amalda to‘lanmasa ham",
-   "Eng yomon holatdagi shaxsning nafligi oshsa"
+   "Hech kimning ahvoli yomonlashmasa va kamida bir kishining ahvoli yaxshilansa",
+   "Yutqazganlarga kompensatsiya amalda to‘langandagina, aks holda mezon bajarilmaydi",
+   "Yutganlar yutqazganlarni qoplab ham yutuqda qola olsa, kompensatsiya to‘lanmasa ham",
+   "Eng yomon holatdagi shaxsning nafligi oshib, boshqalar nafligi o‘zgarmasa"
   ],
   "c": 2,
   "e": "Kaldor-Xiks potensial kompensatsiya mezoni: yutganlar yutqazganlarni qoplay olishi yetarli."
@@ -134,10 +134,10 @@
  {
   "q": "Bozor natijasi adolatsiz deb topilsa, farovonlik iqtisodiyotining ikkinchi teoremasidan kelib chiqib nima qilish ma’qul?",
   "options": [
-   "Narxlarni nazorat qilib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
-   "Muvozanat narxlarini o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
-   "Raqobatni cheklab, ishlab chiqarishni davlat rejasi asosida tashkil etish",
-   "Boshlang‘ich resurslarni yalpi soliqlar va transfertlar orqali qayta taqsimlab, bozorga erkin ishlash imkonini berish"
+   "Narxlarni davlat nazorati ostiga olib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
+   "Muvozanat narxlarini ma’muriy yo‘l bilan o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
+   "Raqobatni cheklab, ishlab chiqarish hajmini davlat rejasi asosida to‘liq tashkil etish",
+   "Boshlang‘ich resurslarni yalpi soliq va transfertlar bilan qayta taqsimlab, bozorni erkin qoldirish"
   ],
   "c": 3,
   "e": "Ikkinchi teorema samaradorlik va adolatni ajratadi: narxlarni buzmasdan boshlang‘ich zaxiralar qayta taqsimlanadi."

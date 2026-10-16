@@ -49,7 +49,7 @@
    "Tovar narxi bilan uni sotib olishga tayyor xaridorlar soni o‘rtasidagi bog‘liqlikni",
    "Iste’molchi o‘z daromadiga sotib olishi mumkin bo‘lgan tovar to‘plamlarini",
    "Ishlab chiqarish hajmi ortishi bilan o‘rtacha xarajatlarning o‘zgarishini",
-   "Mavjud omillar va texnologiya bilan ishlab chiqarish mumkin bo‘lgan mahsulot kombinatsiyalarini"
+   "Mavjud resurslar bilan ishlab chiqarish mumkin bo‘lgan tovar kombinatsiyalarini"
   ],
   "c": 3,
   "e": "ICHE iqtisodiyot mavjud resurslar va texnologiya bilan ishlab chiqara oladigan tovar kombinatsiyalarining grafigidir."
@@ -125,7 +125,7 @@
   "options": [
    "Mutlaq ustunlikka: ikkala tovarni ham eng arzon ishlab chiqaruvchi savdodan yutadi",
    "Resurslar miqdoridagi tenglikka: har ikki tomon teng hajmda ishlab chiqaradi",
-   "Nisbiy ustunlikka: tovarlar pastroq muqobil xarajat bilan ishlab chiqaruvchida to‘planadi",
+   "Nisbiy ustunlikka: tovar pastroq muqobil xarajatli ishlab chiqaruvchida to‘planadi",
    "Davlat nazoratiga: bitimlar markazlashgan tartibda belgilab beriladi"
   ],
   "c": 2,

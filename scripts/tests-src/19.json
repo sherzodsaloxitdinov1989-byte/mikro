@@ -13,7 +13,7 @@
  {
   "q": "Quyidagilardan qaysi biri noformal institutga misol bo‘la oladi?",
   "options": [
-   "Mahalla instituti va qo‘ni-qo‘shnichilikka asoslangan ishonch",
+   "Mahalla instituti va qo‘shnichilikka asoslangan ishonch",
    "Konstitutsiya va unga muvofiq qabul qilingan qonunlar",
    "Majburiy ijro etiladigan sud qarorlari va hukmlari",
    "Notarius tasdiqlagan yozma oldi-sotdi shartnomasi"
@@ -22,7 +22,7 @@
   "e": "Urf-odat, an’ana va ishonch noformal institutlar bo‘lib, mahalla va qo‘shnichilik munosabatlari shular jumlasidandir."
  },
  {
-  "q": "Iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
+  "q": "Institutsional iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
   "options": [
    "Tovarni yaratishga sarflangan barcha resurs va ishchi kuchining umumiy qiymati",
    "Pul mablag‘larining bir bank hisobidan boshqa hisobga o‘tkazilishi va to‘lov amalga oshirilishi",
@@ -36,7 +36,7 @@
   "q": "Iqtisodiyot nazariyasida mulk huquqi qanday tushuniladi?",
   "options": [
    "Narsaning jismoniy egasiga tegishli yagona va bo‘linmas huquq",
-   "Egalik, foydalanish, tasarruf etish kabi bir necha huquqdan iborat to‘plam",
+   "Egalik, foydalanish va tasarruf kabi bir necha huquq to‘plami",
    "Narsani sotish yoki sovg‘a qilish imkonini beruvchi huquq",
    "Davlat tomonidan fuqarolarga beriladigan vaqtinchalik ruxsatnoma"
   ],

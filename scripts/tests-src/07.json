@@ -49,7 +49,7 @@
    "Bir xil umumiy xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini ko‘rsatadi",
    "Bir xil foyda keltiruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
    "Bir xil mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
-   "Bir xil naflilikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
+   "Bir xil naflikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
   ],
   "c": 2,
   "e": "Izokvanta teng mahsulot hajmini ishlab chiqarish imkonini beruvchi barcha omil kombinatsiyalarini ifodalaydi."
@@ -140,7 +140,7 @@
    "Izokvanta mahsulot miqdorini aniq ko‘rsatadi, befarqlik chizig‘i esa tartibni"
   ],
   "c": 3,
-  "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, naflilikni esa faqat tartiblash mumkin."
+  "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, nafliklarni esa faqat tartiblash mumkin."
  },
  {
   "q": "Kobb-Duglas funksiyasi Q = ALαKβ da α koeffitsiyenti nimani bildiradi?",

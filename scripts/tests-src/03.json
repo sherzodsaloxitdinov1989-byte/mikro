@@ -41,7 +41,7 @@
    "Elastik talab: miqdor narxdan ko‘proq foizga o‘zgaradi"
   ],
   "c": 2,
-  "e": "Vertikal talab chizig‘i abs(E) = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
+  "e": "Vertikal talab chizig‘i |E| = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
  },
  {
   "q": "Yalpi tushum (TR) qanday aniqlanadi?",

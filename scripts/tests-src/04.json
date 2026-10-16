@@ -46,7 +46,7 @@
  {
   "q": "Gossenning ikkinchi qonuniga ko‘ra, iste’molchi naflikni maksimallashtiradi, agar:",
   "options": [
-   "Barcha ne’matlarning narxlari bir-biriga teng bo‘lgan holatda",
+   "Barcha ne’matlarning narxlari bir-biriga teng bo‘lsa",
    "Barcha ne’matlarning chegaraviy nafliklari o‘zaro teng bo‘lsa, narxlardan qat’i nazar",
    "Oxirgi so‘mning chegaraviy nafligi barcha ne’matlarda teng bo‘lsa",
    "Barcha ne’matlardan olingan umumiy nafliklar o‘zaro teng bo‘lsa"
@@ -209,9 +209,9 @@
   "e": "Ordinalistik (tartibiy) yondashuvda naflikni o‘lchash shart emas, to‘plamlarni tartiblash yetarli."
  },
  {
-  "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real daromad taxminan qanday o‘zgargan?",
+  "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real ish haqi aniq hisoblaganda necha foizga o‘zgargan?",
   "options": [
-   "10 foizga oshgan",
+   "Taxminan 8,3 foizga oshgan",
    "30 foizga oshgan",
    "O‘zgarmagan",
    "Taxminan 9,1 foizga oshgan"

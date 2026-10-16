@@ -35,7 +35,7 @@
  {
   "q": "Daromadlar mutlaq teng taqsimlansa, Lorents egri chizig‘i qanday ko‘rinadi?",
   "options": [
-   "Pastki va o‘ng o‘qlar bo‘ylab o‘tadi",
+   "Pastki va o‘ng o‘qlar bo‘ylab, so‘ng yuqori o‘ng burchakka o‘tadi",
    "45° li diagonal (mutlaq tenglik chizig‘i) bilan ustma-ust tushadi",
    "Diagonaldan eng uzoqda joylashgan egri chiziq bo‘ladi",
    "Gorizontal o‘qqa parallel to‘g‘ri chiziq bo‘ladi"
@@ -134,7 +134,7 @@
  {
   "q": "Libertarizm (R. Nozik) taqsimot adolatini nimaga qarab baholaydi?",
   "options": [
-   "Daromad qanday yo‘l bilan (ixtiyoriy ayirboshlash, mehnat, meros) olinganiga",
+   "Daromad qanday yo‘l bilan (ayirboshlash, mehnat, meros) olinganiga",
    "Eng yomon holatdagi shaxs farovonligi qanchalik oshganiga",
    "Jamiyat a’zolarining umumiy nafligi qanchalik ko‘payganiga",
    "Natijalar tengligi va kambag‘allar ulushining qanchalik kattaligiga"
@@ -192,7 +192,7 @@
    "Ishlash rag‘bati kuchayadi, chunki oila nafaqaga qaramlikdan qutuladi",
    "Oilaning jami daromadi ishlab topilgan har bir so‘m hisobiga 1 so‘mga oshadi",
    "Chegaraviy soliq stavkasi nolga teng bo‘lib, rag‘batlar o‘zgarmaydi",
-   "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan oilaning foydasi qolmaydi"
+   "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan foyda qolmaydi"
   ],
   "c": 3,
   "e": "Nafaqaning 1 so‘mga kamayishi 100% li chegaraviy soliqqa teng («kambag‘allik tuzog‘i»)."

@@ -199,7 +199,7 @@ export const AUTO = {
      "Tovar narxi bilan uni sotib olishga tayyor xaridorlar soni o‘rtasidagi bog‘liqlikni",
      "Iste’molchi o‘z daromadiga sotib olishi mumkin bo‘lgan tovar to‘plamlarini",
      "Ishlab chiqarish hajmi ortishi bilan o‘rtacha xarajatlarning o‘zgarishini",
-     "Mavjud omillar va texnologiya bilan ishlab chiqarish mumkin bo‘lgan mahsulot kombinatsiyalarini"
+     "Mavjud resurslar bilan ishlab chiqarish mumkin bo‘lgan tovar kombinatsiyalarini"
     ],
     "c": 3,
     "e": "ICHE iqtisodiyot mavjud resurslar va texnologiya bilan ishlab chiqara oladigan tovar kombinatsiyalarining grafigidir."
@@ -275,7 +275,7 @@ export const AUTO = {
     "options": [
      "Mutlaq ustunlikka: ikkala tovarni ham eng arzon ishlab chiqaruvchi savdodan yutadi",
      "Resurslar miqdoridagi tenglikka: har ikki tomon teng hajmda ishlab chiqaradi",
-     "Nisbiy ustunlikka: tovarlar pastroq muqobil xarajat bilan ishlab chiqaruvchida to‘planadi",
+     "Nisbiy ustunlikka: tovar pastroq muqobil xarajatli ishlab chiqaruvchida to‘planadi",
      "Davlat nazoratiga: bitimlar markazlashgan tartibda belgilab beriladi"
     ],
     "c": 2,
@@ -573,7 +573,7 @@ export const AUTO = {
      "Xaridorlar narxdan qat’i nazar sotib olishni istaydigan tovarning umumiy miqdori",
      "Sotuvchilar ma’lum narxda bozorga chiqarishga tayyor bo‘lgan tovar miqdori",
      "Xaridorlar bir yil davomida amalda sotib olgan tovarning umumiy hajmi",
-     "Xaridorlar ma’lum narxda sotib olishni xohlaydigan va sotib olishga qodir bo‘lgan miqdor"
+     "Xaridorlar ma’lum narxda sotib olishni xohlaydigan va qodir bo‘lgan miqdor"
     ],
     "c": 3,
     "e": "Talab miqdori ham xohish, ham to‘lov qobiliyatini talab qiladi va ma’lum narxga bog‘langan bitta son."
@@ -594,7 +594,7 @@ export const AUTO = {
     "options": [
      "Sotuvchilar olgan summa va ularning xarajatlari o‘rtasidagi farqqa",
      "Xaridor to‘lagan narx va tovarning o‘rtacha xarajati o‘rtasidagi farqqa",
-     "Xaridorlarning to‘lashga tayyorligi va haqiqatda to‘lagan summasi o‘rtasidagi farqqa",
+     "Xaridorning to‘lashga tayyorligi va to‘lagan narxi o‘rtasidagi farqqa",
      "Muvozanat narx bilan davlat belgilagan narx o‘rtasidagi farqqa"
     ],
     "c": 2,
@@ -658,7 +658,7 @@ export const AUTO = {
    {
     "q": "Muzqaymoqning o‘z narxi pasaysa, talab chizig‘ida qanday o‘zgarish yuz beradi?",
     "options": [
-     "Talab chizig‘i bo‘ylab harakat bo‘ladi va talab miqdori oshadi",
+     "Talab chizig‘i bo‘ylab harakat, talab miqdori oshadi",
      "Talab chizig‘i o‘ngga siljiydi va talab oshadi",
      "Talab chizig‘i chapga siljiydi va talab kamayadi",
      "Taklif chizig‘i o‘ngga siljiydi va muvozanat o‘zgarmaydi"
@@ -998,7 +998,7 @@ export const AUTO = {
      "Elastik talab: miqdor narxdan ko‘proq foizga o‘zgaradi"
     ],
     "c": 2,
-    "e": "Vertikal talab chizig‘i abs(E) = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
+    "e": "Vertikal talab chizig‘i |E| = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
    },
    {
     "q": "Yalpi tushum (TR) qanday aniqlanadi?",
@@ -1401,7 +1401,7 @@ export const AUTO = {
    {
     "q": "Gossenning ikkinchi qonuniga ko‘ra, iste’molchi naflikni maksimallashtiradi, agar:",
     "options": [
-     "Barcha ne’matlarning narxlari bir-biriga teng bo‘lgan holatda",
+     "Barcha ne’matlarning narxlari bir-biriga teng bo‘lsa",
      "Barcha ne’matlarning chegaraviy nafliklari o‘zaro teng bo‘lsa, narxlardan qat’i nazar",
      "Oxirgi so‘mning chegaraviy nafligi barcha ne’matlarda teng bo‘lsa",
      "Barcha ne’matlardan olingan umumiy nafliklar o‘zaro teng bo‘lsa"
@@ -1564,9 +1564,9 @@ export const AUTO = {
     "e": "Ordinalistik (tartibiy) yondashuvda naflikni o‘lchash shart emas, to‘plamlarni tartiblash yetarli."
    },
    {
-    "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real daromad taxminan qanday o‘zgargan?",
+    "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real ish haqi aniq hisoblaganda necha foizga o‘zgargan?",
     "options": [
-     "10 foizga oshgan",
+     "Taxminan 8,3 foizga oshgan",
      "30 foizga oshgan",
      "O‘zgarmagan",
      "Taxminan 9,1 foizga oshgan"
@@ -1868,7 +1868,7 @@ export const AUTO = {
    {
     "q": "Quyidagi shartlardan qaysi biri tovarning Giffen tovari bo‘lishi uchun zarur?",
     "options": [
-     "Tovar kuchli past kategoriyali va xarajatlarda ulushi katta",
+     "Tovar kuchli past kategoriyali, xarajatlardagi ulushi esa katta",
      "Tovar hashamat buyumi bo‘lib, narxi juda yuqori bo‘ladi",
      "Tovarning ko‘plab yaqin o‘rinbosarlari mavjud bo‘ladi",
      "Tovarning iste’molchi xarajatlaridagi ulushi juda kichik bo‘ladi"
@@ -2255,7 +2255,7 @@ export const AUTO = {
      "Tavakkalchilikka befarqlikni",
      "Tavakkalchilikdan qochishni",
      "Tavakkalchilikka moyillikni",
-     "Tavakkalchilik mukofotining yo‘qligini ko‘rsatuvchi sug‘urta zarurligini"
+     "Tavakkalchilik mukofotining eng yuqori bo‘lishini"
     ],
     "c": 0,
     "e": "Chiziqli naflik funksiyasida shaxs faqat kutilayotgan qiymatga qaraydi, ya’ni tavakkalchilikka befarq."
@@ -2595,7 +2595,7 @@ export const AUTO = {
      "Bir xil umumiy xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini ko‘rsatadi",
      "Bir xil foyda keltiruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
      "Bir xil mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
-     "Bir xil naflilikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
+     "Bir xil naflikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
     ],
     "c": 2,
     "e": "Izokvanta teng mahsulot hajmini ishlab chiqarish imkonini beruvchi barcha omil kombinatsiyalarini ifodalaydi."
@@ -2686,7 +2686,7 @@ export const AUTO = {
      "Izokvanta mahsulot miqdorini aniq ko‘rsatadi, befarqlik chizig‘i esa tartibni"
     ],
     "c": 3,
-    "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, naflilikni esa faqat tartiblash mumkin."
+    "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, nafliklarni esa faqat tartiblash mumkin."
    },
    {
     "q": "Kobb-Duglas funksiyasi Q = ALαKβ da α koeffitsiyenti nimani bildiradi?",
@@ -3491,12 +3491,12 @@ export const AUTO = {
     "e": "Narx o‘zgaruvchan xarajatlardan past bo‘lsa (P < AVC), ishlab chiqarish zararni oshiradi."
    },
    {
-    "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Qaysi shart bajarilsa, bu qaror oqilona bo‘ladi?",
+    "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Ochiq turish oqilona bo‘lishi uchun tushum eng kamida nimani qoplashi kerak?",
     "options": [
-     "Tushum ijara va uskunalar xarajatini ham to‘liq qoplasa",
-     "Tushum oziq-ovqat va qo‘shimcha ish haqini qoplasa",
-     "Tushum kunning boshqa vaqtlaridagi tushumga teng bo‘lsa",
-     "Restoranning iqtisodiy foydasi musbat bo‘lsa"
+     "Ijara va uskunalar xarajatini ham to‘liq",
+     "Oziq-ovqat va qo‘shimcha ish haqini",
+     "Kunning boshqa vaqtlaridagi tushumni",
+     "Iqtisodiy foyda musbat bo‘ladigan darajadagi xarajatlarni"
     ],
     "c": 1,
     "e": "Qarorda faqat o‘zgaruvchan xarajatlar muhim; ijara va uskunalar qaytarilmaydigan xarajat."
@@ -4272,8 +4272,8 @@ export const AUTO = {
     "options": [
      "Bozorda faqat bitta sotuvchi qolgani va u narxni belgilagani uchun",
      "Firmalar narx bo‘yicha o‘zaro kelishib, kartel tuzgani uchun",
-     "Tarmoqqa kirish va undan chiqish taqiqlangani uchun",
-     "Differensiatsiya tufayli firma ma’lum darajada monopolist"
+     "Tarmoqqa kirish va undan chiqish qonun bilan taqiqlangani uchun",
+     "Differensiatsiya tufayli firma ma’lum darajada monopol hokimiyatga ega bo‘lgani uchun"
     ],
     "c": 3,
     "e": "Brend, dizayn, joylashuv kabi farqlar mijozlarni bog‘laydi, narx oshsa ham ayrimlari qoladi."
@@ -6380,7 +6380,7 @@ export const AUTO = {
     "q": "Ijarachi shartnoma muddati davomida o‘z mablag‘i hisobiga tomchilatib sug‘orish tizimini o‘rnatib, qo‘shimcha daromad oldi. Bu daromad shartnoma amal qilgan davrda kimga tegishli?",
     "options": [
      "Yer egasiga, chunki yer uning mulki va barcha qo‘shimcha daromad rentaga aylanadi",
-     "Ijarachiga; shartnoma yangilanganda esa yer egasi ijara haqini oshirib, uni o‘zlashtirishga harakat qiladi",
+     "Ijarachiga; shartnoma yangilanganda yer egasi ijara haqini oshirishga harakat qiladi",
      "Ijarachi bilan yer egasiga teng ulushlarda, chunki ikkalasi ham hosil olishda qatnashadi",
      "Iste’molchilarga, chunki hosildorlik oshgani uchun mahsulot narxi tushadi"
     ],
@@ -6656,7 +6656,7 @@ export const AUTO = {
    {
     "q": "Daromadlar mutlaq teng taqsimlansa, Lorents egri chizig‘i qanday ko‘rinadi?",
     "options": [
-     "Pastki va o‘ng o‘qlar bo‘ylab o‘tadi",
+     "Pastki va o‘ng o‘qlar bo‘ylab, so‘ng yuqori o‘ng burchakka o‘tadi",
      "45° li diagonal (mutlaq tenglik chizig‘i) bilan ustma-ust tushadi",
      "Diagonaldan eng uzoqda joylashgan egri chiziq bo‘ladi",
      "Gorizontal o‘qqa parallel to‘g‘ri chiziq bo‘ladi"
@@ -6755,7 +6755,7 @@ export const AUTO = {
    {
     "q": "Libertarizm (R. Nozik) taqsimot adolatini nimaga qarab baholaydi?",
     "options": [
-     "Daromad qanday yo‘l bilan (ixtiyoriy ayirboshlash, mehnat, meros) olinganiga",
+     "Daromad qanday yo‘l bilan (ayirboshlash, mehnat, meros) olinganiga",
      "Eng yomon holatdagi shaxs farovonligi qanchalik oshganiga",
      "Jamiyat a’zolarining umumiy nafligi qanchalik ko‘payganiga",
      "Natijalar tengligi va kambag‘allar ulushining qanchalik kattaligiga"
@@ -6813,7 +6813,7 @@ export const AUTO = {
      "Ishlash rag‘bati kuchayadi, chunki oila nafaqaga qaramlikdan qutuladi",
      "Oilaning jami daromadi ishlab topilgan har bir so‘m hisobiga 1 so‘mga oshadi",
      "Chegaraviy soliq stavkasi nolga teng bo‘lib, rag‘batlar o‘zgarmaydi",
-     "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan oilaning foydasi qolmaydi"
+     "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan foyda qolmaydi"
     ],
     "c": 3,
     "e": "Nafaqaning 1 so‘mga kamayishi 100% li chegaraviy soliqqa teng («kambag‘allik tuzog‘i»)."
@@ -7126,10 +7126,10 @@ export const AUTO = {
    {
     "q": "Kaldor-Xiks mezoniga ko‘ra o‘zgarish qachon ijtimoiy jihatdan maqbul?",
     "options": [
-     "Hech kimning ahvoli yomonlashmasa va kamida bir kishi yutsa",
-     "Yutqazganlarga kompensatsiya amalda to‘liq to‘langan bo‘lsa",
-     "Yutganlar yutqazganlarga kompensatsiya to‘lab, baribir yutuqda qola olsa, kompensatsiya amalda to‘lanmasa ham",
-     "Eng yomon holatdagi shaxsning nafligi oshsa"
+     "Hech kimning ahvoli yomonlashmasa va kamida bir kishining ahvoli yaxshilansa",
+     "Yutqazganlarga kompensatsiya amalda to‘langandagina, aks holda mezon bajarilmaydi",
+     "Yutganlar yutqazganlarni qoplab ham yutuqda qola olsa, kompensatsiya to‘lanmasa ham",
+     "Eng yomon holatdagi shaxsning nafligi oshib, boshqalar nafligi o‘zgarmasa"
     ],
     "c": 2,
     "e": "Kaldor-Xiks potensial kompensatsiya mezoni: yutganlar yutqazganlarni qoplay olishi yetarli."
@@ -7170,10 +7170,10 @@ export const AUTO = {
    {
     "q": "Bozor natijasi adolatsiz deb topilsa, farovonlik iqtisodiyotining ikkinchi teoremasidan kelib chiqib nima qilish ma’qul?",
     "options": [
-     "Narxlarni nazorat qilib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
-     "Muvozanat narxlarini o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
-     "Raqobatni cheklab, ishlab chiqarishni davlat rejasi asosida tashkil etish",
-     "Boshlang‘ich resurslarni yalpi soliqlar va transfertlar orqali qayta taqsimlab, bozorga erkin ishlash imkonini berish"
+     "Narxlarni davlat nazorati ostiga olib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
+     "Muvozanat narxlarini ma’muriy yo‘l bilan o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
+     "Raqobatni cheklab, ishlab chiqarish hajmini davlat rejasi asosida to‘liq tashkil etish",
+     "Boshlang‘ich resurslarni yalpi soliq va transfertlar bilan qayta taqsimlab, bozorni erkin qoldirish"
     ],
     "c": 3,
     "e": "Ikkinchi teorema samaradorlik va adolatni ajratadi: narxlarni buzmasdan boshlang‘ich zaxiralar qayta taqsimlanadi."
@@ -7463,7 +7463,7 @@ export const AUTO = {
    {
     "q": "Quyidagilardan qaysi biri noformal institutga misol bo‘la oladi?",
     "options": [
-     "Mahalla instituti va qo‘ni-qo‘shnichilikka asoslangan ishonch",
+     "Mahalla instituti va qo‘shnichilikka asoslangan ishonch",
      "Konstitutsiya va unga muvofiq qabul qilingan qonunlar",
      "Majburiy ijro etiladigan sud qarorlari va hukmlari",
      "Notarius tasdiqlagan yozma oldi-sotdi shartnomasi"
@@ -7472,7 +7472,7 @@ export const AUTO = {
     "e": "Urf-odat, an’ana va ishonch noformal institutlar bo‘lib, mahalla va qo‘shnichilik munosabatlari shular jumlasidandir."
    },
    {
-    "q": "Iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
+    "q": "Institutsional iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
     "options": [
      "Tovarni yaratishga sarflangan barcha resurs va ishchi kuchining umumiy qiymati",
      "Pul mablag‘larining bir bank hisobidan boshqa hisobga o‘tkazilishi va to‘lov amalga oshirilishi",
@@ -7486,7 +7486,7 @@ export const AUTO = {
     "q": "Iqtisodiyot nazariyasida mulk huquqi qanday tushuniladi?",
     "options": [
      "Narsaning jismoniy egasiga tegishli yagona va bo‘linmas huquq",
-     "Egalik, foydalanish, tasarruf etish kabi bir necha huquqdan iborat to‘plam",
+     "Egalik, foydalanish va tasarruf kabi bir necha huquq to‘plami",
      "Narsani sotish yoki sovg‘a qilish imkonini beruvchi huquq",
      "Davlat tomonidan fuqarolarga beriladigan vaqtinchalik ruxsatnoma"
     ],
@@ -7905,7 +7905,7 @@ export const AUTO = {
     "options": [
      "Davlat har ikki tomonga teng miqdorda subsidiya ajratib bersa",
      "Mulk huquqlari zarar ko‘ruvchi tomonga berilgan bo‘lsa",
-     "Tranzaksiya xarajatlari bo‘lmasa va muzokara xarajatsiz bo‘lsa",
+     "Tranzaksiya xarajatlari nolga teng bo‘lib, muzokara erkin olib borilsa",
      "Tashqi samaradan ko‘rilgan zarar tashqi foydadan kichik bo‘lsa"
     ],
     "c": 2,
@@ -8033,7 +8033,7 @@ export const AUTO = {
     "e": "Ruxsatnomalarda davlat miqdorni belgilaydi, shuning uchun ifloslanish darajasini aniq nazorat qilish mumkin (Vaysman)."
    },
    {
-    "q": "Davlat uy xo‘jaliklariga quyosh panellari o‘rnatish uchun subsidiya ajratdi. Bu qaysi vosita?",
+    "q": "Davlat quyosh panellari o‘rnatgan uy xo‘jaliklariga xarajatining bir qismini qoplab berdi. Bu qaysi vosita?",
     "options": [
      "Tartiblashtiruvchi subsidiya (ijobiy tashqi samara uchun)",
      "Salbiy tashqi samarani cheklovchi Pigu solig‘i joriy etish",
@@ -8432,7 +8432,7 @@ export const AUTO = {
     "e": "Bepul yo‘ldan chetlatib bo‘lmaydi, tirbandlikda esa qo‘shimcha avtomobil boshqalarni sekinlashtiradi — umumiy resurs."
    },
    {
-    "q": "Yaylovlarni ijaraga berish va foydalanish huquqlarini aniq belgilash umumiy resurslar fojiasining qaysi yechimiga misol?",
+    "q": "Yaylovlardan foydalanish huquqlarini aniq belgilash umumiy resurslar fojiasining qaysi yechimiga misol?",
     "options": [
      "Tartiblashtiruvchi soliq stavkasini joriy etish",
      "Sotiladigan kvotalar tizimini yaratish",

@@ -48,7 +48,7 @@
   "options": [
    "Davlat har ikki tomonga teng miqdorda subsidiya ajratib bersa",
    "Mulk huquqlari zarar ko‘ruvchi tomonga berilgan bo‘lsa",
-   "Tranzaksiya xarajatlari bo‘lmasa va muzokara xarajatsiz bo‘lsa",
+   "Tranzaksiya xarajatlari nolga teng bo‘lib, muzokara erkin olib borilsa",
    "Tashqi samaradan ko‘rilgan zarar tashqi foydadan kichik bo‘lsa"
   ],
   "c": 2,
@@ -176,7 +176,7 @@
   "e": "Ruxsatnomalarda davlat miqdorni belgilaydi, shuning uchun ifloslanish darajasini aniq nazorat qilish mumkin (Vaysman)."
  },
  {
-  "q": "Davlat uy xo‘jaliklariga quyosh panellari o‘rnatish uchun subsidiya ajratdi. Bu qaysi vosita?",
+  "q": "Davlat quyosh panellari o‘rnatgan uy xo‘jaliklariga xarajatining bir qismini qoplab berdi. Bu qaysi vosita?",
   "options": [
    "Tartiblashtiruvchi subsidiya (ijobiy tashqi samara uchun)",
    "Salbiy tashqi samarani cheklovchi Pigu solig‘i joriy etish",

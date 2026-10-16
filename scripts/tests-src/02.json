@@ -16,7 +16,7 @@
    "Xaridorlar narxdan qat’i nazar sotib olishni istaydigan tovarning umumiy miqdori",
    "Sotuvchilar ma’lum narxda bozorga chiqarishga tayyor bo‘lgan tovar miqdori",
    "Xaridorlar bir yil davomida amalda sotib olgan tovarning umumiy hajmi",
-   "Xaridorlar ma’lum narxda sotib olishni xohlaydigan va sotib olishga qodir bo‘lgan miqdor"
+   "Xaridorlar ma’lum narxda sotib olishni xohlaydigan va qodir bo‘lgan miqdor"
   ],
   "c": 3,
   "e": "Talab miqdori ham xohish, ham to‘lov qobiliyatini talab qiladi va ma’lum narxga bog‘langan bitta son."
@@ -37,7 +37,7 @@
   "options": [
    "Sotuvchilar olgan summa va ularning xarajatlari o‘rtasidagi farqqa",
    "Xaridor to‘lagan narx va tovarning o‘rtacha xarajati o‘rtasidagi farqqa",
-   "Xaridorlarning to‘lashga tayyorligi va haqiqatda to‘lagan summasi o‘rtasidagi farqqa",
+   "Xaridorning to‘lashga tayyorligi va to‘lagan narxi o‘rtasidagi farqqa",
    "Muvozanat narx bilan davlat belgilagan narx o‘rtasidagi farqqa"
   ],
   "c": 2,
@@ -101,7 +101,7 @@
  {
   "q": "Muzqaymoqning o‘z narxi pasaysa, talab chizig‘ida qanday o‘zgarish yuz beradi?",
   "options": [
-   "Talab chizig‘i bo‘ylab harakat bo‘ladi va talab miqdori oshadi",
+   "Talab chizig‘i bo‘ylab harakat, talab miqdori oshadi",
    "Talab chizig‘i o‘ngga siljiydi va talab oshadi",
    "Talab chizig‘i chapga siljiydi va talab kamayadi",
    "Taklif chizig‘i o‘ngga siljiydi va muvozanat o‘zgarmaydi"

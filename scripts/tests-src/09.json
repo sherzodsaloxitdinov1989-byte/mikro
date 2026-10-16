@@ -165,12 +165,12 @@
   "e": "Narx o‘zgaruvchan xarajatlardan past bo‘lsa (P < AVC), ishlab chiqarish zararni oshiradi."
  },
  {
-  "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Qaysi shart bajarilsa, bu qaror oqilona bo‘ladi?",
+  "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Ochiq turish oqilona bo‘lishi uchun tushum eng kamida nimani qoplashi kerak?",
   "options": [
-   "Tushum ijara va uskunalar xarajatini ham to‘liq qoplasa",
-   "Tushum oziq-ovqat va qo‘shimcha ish haqini qoplasa",
-   "Tushum kunning boshqa vaqtlaridagi tushumga teng bo‘lsa",
-   "Restoranning iqtisodiy foydasi musbat bo‘lsa"
+   "Ijara va uskunalar xarajatini ham to‘liq",
+   "Oziq-ovqat va qo‘shimcha ish haqini",
+   "Kunning boshqa vaqtlaridagi tushumni",
+   "Iqtisodiy foyda musbat bo‘ladigan darajadagi xarajatlarni"
   ],
   "c": 1,
   "e": "Qarorda faqat o‘zgaruvchan xarajatlar muhim; ijara va uskunalar qaytarilmaydigan xarajat."
