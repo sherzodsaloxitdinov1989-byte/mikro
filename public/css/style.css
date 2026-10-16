@@ -633,3 +633,6 @@ html:not([data-role="teacher"]) img { -webkit-user-drag: none; user-drag: none; 
 .secure-shield-box { max-width: 420px; margin: 20px; padding: 28px; text-align: center; background: var(--surface, #fff); border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); }
 body.secure-blur main { filter: blur(26px); pointer-events: none; }
 .semester-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+/* Telefonda uzun segmentli tanlovlar (reyting: guruh / muassasa / hamma) ekrandan chiqib ketmasin */
+.segmented { max-width: 100%; flex-wrap: wrap; }

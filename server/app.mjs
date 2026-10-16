@@ -122,6 +122,8 @@ async function register(req) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
   if (password.length < 6) throw new HttpError(400, "Parol kamida 6 belgidan iborat bo'lishi kerak");
   if (!name) throw new HttpError(400, "Ism-familiyani kiriting");
+  const regLimit = await bump(`ratelimit/register-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 300);
+  if (!regLimit.ok) throw new HttpError(429, "Bu manzildan juda ko'p profil yaratildi. Birozdan keyin qayta urinib ko'ring.");
   if (role === "teacher") {
     const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 15);
     if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
@@ -160,14 +162,32 @@ async function register(req) {
   return withCookie(json({ token: createToken(user), user: publicUser(user) }, 201), createToken(user));
 }
 
+const LOGIN_WINDOW_MS = 15 * 60_000;
+const LOGIN_FAILS_PER_EMAIL = 8;
+const LOGIN_FAILS_PER_IP = 200;
+
 async function login(req) {
   const b = await body(req);
   const email = str(b.email, 120).toLowerCase();
+  // Parolni taxmin qilishdan himoya: noto'g'ri urinishlar email va IP bo'yicha cheklanadi (15 daqiqada email bo'yicha 8, umumiy IP bo'yicha 200 ta: bir Wi-Fi tarmog'idagi sinf bloklanmasligi uchun)
+  const keys = [[`ratelimit/login/${sha(email).slice(0, 32)}`, LOGIN_FAILS_PER_EMAIL], [`ratelimit/login-ip/${sha(clientIp(req)).slice(0, 24)}`, LOGIN_FAILS_PER_IP]];
+  const recs = [];
+  for (const [k, limit] of keys) {
+    const r = (await db().get(k)) || { hits: [] };
+    r.hits = r.hits.filter((t) => Date.now() - t < LOGIN_WINDOW_MS);
+    if (r.hits.length >= limit) throw new HttpError(429, "Noto'g'ri urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring yoki «Parolni unutdingizmi?» dan foydalaning.");
+    recs.push([k, r]);
+  }
   const ref = await db().get(emailKey(email));
   const user = ref && (await db().get(userKey(ref.id)));
   if (!user || !(await verifyPassword(String(b.password || ""), user.salt, user.hash))) {
+    for (const [k, r] of recs) {
+      r.hits.push(Date.now());
+      await db().set(k, r);
+    }
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
+  await db().del(keys[0][0]);
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -180,7 +200,7 @@ const CODE_TTL_MS = 10 * 60_000;
 const CODE_RESEND_MS = 60_000;
 const CODE_MAX_ATTEMPTS = 5;
 const FORGOT_PER_HOUR = 4;
-const FORGOT_IP_PER_HOUR = 12;
+const FORGOT_IP_PER_HOUR = 60;
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
 const resetCodeKey = (email, purpose = "reset") => `${purpose === "reset" ? "resetcode" : purpose + "code"}/${sha(email).slice(0, 32)}`;
 const codeHash = (email, code, purpose = "reset") => sha(`${code}:${email}:${purpose}:${process.env.JWT_SECRET || ""}`);
@@ -584,6 +604,9 @@ async function assignUploadChunk(req, no, uploadId, i) {
   const user = await requireUser(req);
   stageParam(no, formKeyOf(user));
   if (!/^[\w-]{6,64}$/.test(uploadId) || !/^\d{1,3}$/.test(i)) throw new HttpError(400, "So'rov noto'g'ri");
+  // Ombor to'lib ketmasligi uchun: bitta talaba kuniga ko'pi bilan 120 ta bo'lak (~360 MB) yuklay oladi
+  const lim = await bump(`ratelimit/assignchunk/${user.id}/${new Date().toISOString().slice(0, 10)}`, 86_400_000, 120);
+  if (!lim.ok) throw new HttpError(429, "Bugungi yuklash limiti tugadi. Ertaga qayta urinib ko'ring.");
   const data = await req.arrayBuffer();
   if (!data.byteLength || data.byteLength > ASSIGN_CHUNK) throw new HttpError(400, "Fayl bo'lagi hajmi noto'g'ri");
   await db().setBinary(assignBin(user.id, no, uploadId, i), data);

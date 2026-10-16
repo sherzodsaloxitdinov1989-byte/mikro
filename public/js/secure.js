@@ -10,6 +10,7 @@ import { session, api } from "./api.js";
 let routeSecure = false;
 let zoneVisible = false;
 let shield = null;
+let suppressUntil = 0; // fayl tanlash oynasi va tizim dialoglari ochilganda oyna fokusi yo'qolishi — qoidabuzarlik emas
 const lastSent = {};
 
 const active = () => session.user && session.user.role !== "teacher" && (routeSecure || zoneVisible);
@@ -45,6 +46,7 @@ function hideShield() {
 
 function trigger(type, reason) {
   if (!active()) return;
+  if (type === "leave" && Date.now() < suppressUntil) return;
   showShield(reason);
   report(type);
 }
@@ -72,6 +74,11 @@ export function setRouteSecure(on) {
 }
 
 export function initSecureMode() {
+  // Fayl yuklash (topshiriq hisoboti) oynasi ochilganda brauzer fokusni yo'qotadi: bu holat hisobga olinmaydi
+  document.addEventListener("click", (e) => {
+    if (e.target?.closest?.("input[type=file], label")?.querySelector?.("input[type=file]") || e.target?.matches?.("input[type=file]")) suppressUntil = Date.now() + 120_000;
+  }, true);
+  window.addEventListener("focus", () => { suppressUntil = Math.min(suppressUntil, Date.now() + 1500); });
   window.addEventListener("blur", () => trigger("leave", "Oyna fokusini yo'qotdi (boshqa ilova yoki suratga olish dasturi ochilgan bo'lishi mumkin)."));
   document.addEventListener("visibilitychange", () => document.hidden && trigger("leave", "Sahifadan chiqdingiz."));
   const shot = (e) => {

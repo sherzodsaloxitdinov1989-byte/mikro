@@ -382,3 +382,10 @@
 @keyframes archDraw { to { stroke-dashoffset: 0; } }
 .arch-merge { border-left: 4px solid var(--primary); }
 @media (max-width: 860px) { .arch-hero { grid-template-columns: 1fr; } .arch-kpis { grid-template-columns: repeat(2, 1fr); } }
+
+/* Telefonda pasport darajalari sig'ishi uchun: 4 ustun va uzun nomlarni so'zlarga bo'lish */
+@media (max-width: 640px) {
+  .pp-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pp-step { min-width: 0; text-align: center; }
+  .pp-step b, .pp-step small { overflow-wrap: anywhere; font-size: 0.66rem; }
+}
