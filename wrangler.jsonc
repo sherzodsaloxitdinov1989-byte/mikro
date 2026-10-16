@@ -15,7 +15,7 @@
     "binding": "ASSETS",
     "run_worker_first": ["/api/*", "/slides/*", "/img/book/*", "/data/book.js", "/data/layers-auto.js", "/data/practice-auto.js", "/data/assignment.js", "/data/assignment-masofaviy.js"]
   },
-  "d1_databases": [{ "binding": "DB", "database_name": "mikro-db" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "mikroiqtisodiyot-db" }],
   "keep_vars": true,
   "observability": { "enabled": true }
 }

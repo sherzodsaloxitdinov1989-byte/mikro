@@ -41,7 +41,7 @@ write("public/manifest.webmanifest", JSON.stringify(man, null, 2) + "\n");
 let wr = read("wrangler.jsonc");
 wr = wr
   .replace(/"name": "[^"]*"/, `"name": "${COURSE.slug}"`)
-  .replace(/"database_name": "[^"]*"/, `"database_name": "${COURSE.slug}-db"`)
+  .replace(/"database_name": "[^"]*"/, `"database_name": "${COURSE.dbName || COURSE.slug + "-db"}"`)
   .replace(/"bucket_name": "[^"]*"/g, `"bucket_name": "${COURSE.slug}-files"`);
 write("wrangler.jsonc", wr);
 

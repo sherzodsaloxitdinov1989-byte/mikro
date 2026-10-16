@@ -10,6 +10,7 @@ export const COURSE = {
   // Texnik nom (faqat kichik lotin harflar, raqam va "-"): Cloudflare'dagi Worker nomi va sayt manzili
   // (https://<slug>.<akkaunt>.workers.dev), baza nomi. O'zgartirgandan keyin: npm run configure
   slug: "mikro",
+  dbName: "mikroiqtisodiyot-db", // eski baza nomi (hisoblar shu yerda saqlangan) — o'zgartirmang
   // Sertifikat raqami prefiksi (2–3 lotin harf): #/cert/FA-XXXXXXXX
   certPrefix: "MI",
 
