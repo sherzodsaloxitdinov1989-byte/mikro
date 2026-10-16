@@ -9,7 +9,7 @@ export const COURSE = {
   brand: "MikroAkademiya",
   // Texnik nom (faqat kichik lotin harflar, raqam va "-"): Cloudflare'dagi Worker nomi va sayt manzili
   // (https://<slug>.<akkaunt>.workers.dev), baza nomi. O'zgartirgandan keyin: npm run configure
-  slug: "mikroiqtisodiyot",
+  slug: "mikro",
   // Sertifikat raqami prefiksi (2–3 lotin harf): #/cert/FA-XXXXXXXX
   certPrefix: "MI",
 

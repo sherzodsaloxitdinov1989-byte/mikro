@@ -2,10 +2,10 @@
 // avtomatik yaratiladi (ID yozish shart emas). Maxfiy kalitlar (JWT_SECRET, TEACHER_CODE, GEMINI_API_KEY)
 // Cloudflare panelida: Worker → Settings → Variables and Secrets (turi: Secret).
 // R2 (FILES) ixtiyoriy: R2 bo'lmasa fayllar va AI ovozlari D1 bazasida saqlanadi. Katta videolar uchun R2 ni qo'shing:
-//   "r2_buckets": [{ "binding": "FILES", "bucket_name": "mikroiqtisodiyot-files" }]
+//   "r2_buckets": [{ "binding": "FILES", "bucket_name": "mikro-files" }]
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mikroiqtisodiyot",
+  "name": "mikro",
   "main": "worker/index.js",
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat"],
@@ -15,7 +15,7 @@
     "binding": "ASSETS",
     "run_worker_first": ["/api/*", "/slides/*", "/img/book/*", "/data/book.js", "/data/layers-auto.js", "/data/practice-auto.js", "/data/assignment.js", "/data/assignment-masofaviy.js"]
   },
-  "d1_databases": [{ "binding": "DB", "database_name": "mikroiqtisodiyot-db" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "mikro-db" }],
   "keep_vars": true,
   "observability": { "enabled": true }
 }
