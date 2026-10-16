@@ -60,10 +60,10 @@ export function createForm() {
 }
 
 const CLOUD_IDEAS = [
-  "Raqamli turizm deganda nimani tushunasiz?",
-  "Yaxshi gid qanday bo'lishi kerak? (1–3 so'z)",
-  "Samarqandni bir so'z bilan ta'riflang",
-  "Turistlar uchun eng foydali mobil ilova qaysi?",
+  "Mikroiqtisodiyot deganda nimani tushunasiz?",
+  "Narx oshganda talab nima uchun kamayadi? (1–3 so'z)",
+  "Monopoliya iste'molchi uchun nima uchun zararli?",
+  "Muqobil xarajat deganda nima tushuniladi?",
   "Bugungi darsdan nimani eslab qoldingiz?",
 ];
 

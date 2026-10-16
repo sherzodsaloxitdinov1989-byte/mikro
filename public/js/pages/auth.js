@@ -209,7 +209,7 @@ function renderForgotLegacy(el) {
     } },
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("O'qituvchi kodi", { name: "teacherCode", type: "password", required: true, autocomplete: "off" }),
-    h("p", { class: "muted small" }, "Ro'yxatdan o'tishda kiritilgan kod. U Netlify sozlamalarida saqlanadi: Site configuration → Environment variables → TEACHER_CODE."),
+    h("p", { class: "muted small" }, "Ro'yxatdan o'tishda kiritilgan kod. U Cloudflare sozlamalarida saqlanadi: Worker → Settings → Variables and Secrets → TEACHER_CODE."),
     h("div", { class: "grid cols-2" }, field("Yangi parol", { name: "newPassword", type: "password", required: true, minlength: 6, autocomplete: "new-password" }), field("Yangi parolni takrorlang", { name: "newPassword2", type: "password", required: true, minlength: 6, autocomplete: "new-password" })),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Parolni yangilash va kirish")

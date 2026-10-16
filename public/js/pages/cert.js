@@ -44,7 +44,7 @@ export async function render(el, code) {
         "div",
         { class: "cert-foot" },
         h("div", {}, h("span", {}, "Berilgan sana"), h("b", {}, date)),
-        h("div", { class: "cert-seal", "aria-hidden": "true" }, h("span", {}, "TURTAHLIL"), h("b", {}, "📊"), h("span", {}, "AKADEMIYA")),
+        h("div", { class: "cert-seal", "aria-hidden": "true" }, h("span", {}, COURSE.brand.toUpperCase()), h("b", {}, COURSE.logo || "🎓"), h("span", {}, "SERTIFIKAT")),
         h("div", {}, h("span", {}, "Sertifikat raqami"), h("b", {}, cert.code))
       ),
       h("p", { class: "cert-verify" }, `Haqiqiyligini tekshirish: ${url}`)

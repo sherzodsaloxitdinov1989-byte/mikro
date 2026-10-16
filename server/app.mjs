@@ -319,7 +319,7 @@ async function resetPassword(req) {
   const email = str(b.email, 120).toLowerCase();
   const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
   const code = process.env.TEACHER_CODE;
-  if (!code) throw new HttpError(403, "O'qituvchi kodi sozlanmagan (Netlify → Environment variables → TEACHER_CODE)");
+  if (!code) throw new HttpError(403, "O'qituvchi kodi sozlanmagan (Cloudflare → Worker → Settings → Variables and Secrets → TEACHER_CODE)");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
   if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
   const store = db();
@@ -1082,7 +1082,7 @@ async function ttsSpeak(req) {
     // Suhbat: bir nechta personaj — bitta so'rovda (limitni tejash uchun).
     dialogue = b.dialogue
       .slice(0, 12)
-      .map((x) => ({ speaker: str(x?.speaker, 40) || "Turist", gender: x?.gender === "male" ? "male" : "female", text: str(x?.text, 1500).replace(/\s+/g, " ").trim() }))
+      .map((x) => ({ speaker: str(x?.speaker, 40) || "Talaba", gender: x?.gender === "male" ? "male" : "female", text: str(x?.text, 1500).replace(/\s+/g, " ").trim() }))
       .filter((x) => x.text);
     if (!dialogue.length) throw new HttpError(400, "Matn bo'sh");
     if (dialogue.reduce((n, x) => n + x.text.length, 0) > 2400) throw new HttpError(400, "Matn juda uzun");
@@ -1786,7 +1786,7 @@ async function listSlides() {
 
 async function getSlides(req, topicId) {
   const meta = await db().get(slideKey(topicId));
-  if (!meta) throw new HttpError(404, "Bu mavzu uchun taqdimot joylanmagan");
+  if (!meta) return json(null); // taqdimot yo'q: xato emas (brauzer konsolida 404 chiqmasligi uchun)
   const { by, ...rest } = meta;
   return json(rest);
 }

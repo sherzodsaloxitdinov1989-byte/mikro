@@ -93,6 +93,7 @@ function pdfViewer(meta) {
   let auto;
   let busy = false;
   let pending = null;
+  let destroyed = false; // sahifa almashganda yarim yuklangan PDF xatoga olib kelmasligi uchun
 
   const loader = h("div", { class: "sv-loading" }, h("div", { class: "sv-spinner" }), h("span", {}, "Taqdimot yuklanmoqda…"), h("div", { class: "sv-load-bar" }, h("i")));
   const stage = h("div", { class: "sv-stage", tabindex: "0", "aria-label": `${meta.title} taqdimoti. Chap va o'ng strelkalar bilan varaqlang.` }, loader);
@@ -125,7 +126,9 @@ function pdfViewer(meta) {
   );
 
   async function renderPage(n, dir) {
+    if (destroyed || !pdf) return;
     const p = await pdf.getPage(n);
+    if (destroyed) return;
     const base = p.getViewport({ scale: 1 });
     ratio = base.width / base.height;
     stage.style.aspectRatio = `${base.width} / ${base.height}`;
@@ -175,6 +178,8 @@ function pdfViewer(meta) {
     updateUi();
     try {
       await renderPage(n, dir);
+    } catch (err) {
+      if (!destroyed) throw err;
     } finally {
       busy = false;
     }
@@ -208,12 +213,15 @@ function pdfViewer(meta) {
       for (const e of entries) {
         if (!e.isIntersecting) continue;
         io.unobserve(e.target);
+        if (destroyed) return;
         const n = Number(e.target.dataset.page);
-        const p = await pdf.getPage(n);
+        const p = await pdf.getPage(n).catch(() => null);
+        if (destroyed || !p) return;
         const vp0 = p.getViewport({ scale: 1 });
         const vp = p.getViewport({ scale: 220 / vp0.width });
         const c = h("canvas", { width: Math.floor(vp.width), height: Math.floor(vp.height) });
-        await p.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise;
+        await p.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise.catch(() => {});
+        if (destroyed) return;
         e.target.prepend(c);
       }
     }, { root: thumbs, rootMargin: "0px 300px" });
@@ -264,9 +272,11 @@ function pdfViewer(meta) {
       page = 1;
       updateUi();
       await renderPage(1, 0);
+      if (destroyed) return;
       buildThumbs();
       ro.observe(stage);
     } catch (err) {
+      if (destroyed) return;
       loader.replaceChildren(h("span", {}, `⚠️ ${err.message || "Taqdimotni ochib bo'lmadi"}`));
     }
   })();
@@ -276,7 +286,10 @@ function pdfViewer(meta) {
     document.removeEventListener("fullscreenchange", onResize);
     ro.disconnect();
     if (auto) clearInterval(auto);
-    pdf?.destroy();
+    destroyed = true;
+    try {
+      pdf?.destroy();
+    } catch {}
   };
   return viewer;
 }

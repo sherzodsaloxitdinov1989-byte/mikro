@@ -33,7 +33,7 @@ export async function render(el) {
         "div",
         { class: "pp-cover-main" },
         h("div", { class: "pp-emblem", "aria-hidden": "true" }, "📊"),
-        h("div", { class: "pp-title" }, h("small", {}, "TURTAHLIL AKADEMIYA · TAHLILCHI PASPORTI"), h("h1", {}, user.name)),
+        h("div", { class: "pp-title" }, h("small", {}, `${COURSE.brand.toUpperCase()} · ${COURSE.passportName.toUpperCase()}`), h("h1", {}, user.name)),
         h(
           "dl",
           { class: "pp-fields" },

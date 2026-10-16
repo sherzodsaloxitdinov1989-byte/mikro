@@ -8,6 +8,7 @@ import { confetti, reducedMotion } from "./motion.js";
 import { sceneSVG } from "./landmarks.js";
 
 const ICONS = [
+  [/narx|talab|taklif|elastik/i, "💹"], [/raqobat|monopoliya|oligopoliya|bozor/i, "🏪"], [/xarajat|foyda|daromad|rentа?|renta/i, "💰"], [/iste.molchi|naflik|byudjet/i, "🛒"], [/ishlab chiqarish|mehnat|kapital|resurs/i, "🏭"], [/tavakkal|noaniq|risk/i, "🎲"], [/davlat|soliq|tartibga/i, "🏛️"], [/tashqi samara|ekologiya|ifloslan/i, "🌫️"],
   [/mehmonxona|hotel|joylashtir/i, "🏨"], [/bron|rezerv/i, "📅"], [/turist|sayyoh|mijoz|mehmon/i, "🧳"], [/gid|ekskursiya/i, "🧭"],
   [/internet|veb|sayt|onlayn/i, "🌐"], [/tarmoq|wi-?fi|router|lokal/i, "🛜"], [/mobil|smartfon|ilova/i, "📱"], [/kompyuter|noutbuk|server/i, "💻"],
   [/printer|nusxa/i, "🖨️"], [/skaner/i, "📠"], [/proyektor|ekran|displey/i, "📽️"], [/video|kamera|multimedia/i, "🎬"],

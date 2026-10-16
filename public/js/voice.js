@@ -46,7 +46,7 @@ function uzForTurkish(t) {
 export function speakerSegments(text, scenario) {
   const speakers = scenario.speakers || {};
   const names = Object.keys(speakers);
-  const main = names[0] || "Turist";
+  const main = names[0] || "Talaba";
   const segs = [];
   for (const raw of text.split(/\n+/)) {
     let line = raw.trim();
