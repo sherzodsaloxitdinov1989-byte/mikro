@@ -20,12 +20,16 @@ export const VOICES = [
 ];
 const VOICE_IDS = new Set(VOICES.map((v) => v.id));
 
+// Uslub — faqat "rejissyor eslatmasi"; ovoz faqat TRANSCRIPT dan keyingi matnni o'qiydi.
 export const STYLES = {
-  narrator: "Read the following Uzbek text aloud in natural, fluent Uzbek language (O'zbek tili, Latin script) with correct Uzbek pronunciation, as a warm and clear teacher narrating a lesson. Do not translate:",
-  guide: "Read the following Uzbek text aloud in natural, fluent Uzbek language (O'zbek tili) with correct Uzbek pronunciation, as an enthusiastic professional tour guide. Do not translate:",
-  tourist: "Say the following line in Uzbek exactly as written, naturally and expressively, as a tourist talking to a guide. Keep foreign words as they are:",
-  english: "Say the following in clear, natural English:",
+  narrator: "Language: Uzbek (Latin script), natural and fluent, correct Uzbek pronunciation. Style: a warm and clear teacher narrating a lesson. Do not translate.",
+  guide: "Language: Uzbek, natural and fluent, correct Uzbek pronunciation. Style: an enthusiastic professional tour guide. Do not translate.",
+  tourist: "Language: Uzbek. Style: natural and expressive, a tourist talking to a guide. Keep foreign words as they are. Read the transcript exactly as written.",
+  english: "Language: English. Style: clear and natural.",
 };
+
+const directed = (style, body, extra = "") =>
+  `### DIRECTOR'S NOTES (do NOT read these notes aloud)\n${STYLES[style] || STYLES.narrator}${extra}\n\n### TRANSCRIPT (read ONLY the text below, exactly as written)\n${body}`;
 
 export const ttsEnabled = () => Boolean(process.env.GEMINI_API_KEY);
 
@@ -52,7 +56,7 @@ export async function ttsModels() {
 }
 
 export function ttsKey(text, voice, style) {
-  return crypto.createHash("sha256").update(`${voice}|${style}|${text}`).digest("hex").slice(0, 40);
+  return crypto.createHash("sha256").update(`v2|${voice}|${style}|${text}`).digest("hex").slice(0, 40);
 }
 
 /** Audio formati: "mp3" (standart) yoki "wav" (siqishsiz — Cloudflare'ning bepul tarifida protsessor vaqtini tejaydi). */
@@ -153,14 +157,14 @@ export async function synthesize(text, { voice = "Kore", style = "narrator", dia
   if (dialogue?.length) {
     const { slots, lines } = dialogueScript(dialogue);
     if (slots.length < 2) {
-      prompt = `${STYLES[style] || STYLES.narrator}\n\n${lines.map((l) => l.text).join(" ")}`;
+      prompt = directed(style, lines.map((l) => l.text).join(" "));
       speechConfig = { voiceConfig: { prebuiltVoiceConfig: { voiceName: slots[0].voice } } };
     } else {
-      prompt = `${STYLES[style] || STYLES.narrator}\nThis is a conversation; each line starts with a speaker label (${slots.map((x) => x.label).join(", ")}). Do not read the labels aloud.\n\n${lines.map((l) => `${l.label}: ${l.text}`).join("\n")}`;
+      prompt = directed(style, lines.map((l) => `${l.label}: ${l.text}`).join("\n"), ` This is a conversation between ${slots.map((x) => x.label).join(" and ")}; never read the speaker labels aloud.`);
       speechConfig = { multiSpeakerVoiceConfig: { speakerVoiceConfigs: slots.map((x) => ({ speaker: x.label, voiceConfig: { prebuiltVoiceConfig: { voiceName: x.voice } } })) } };
     }
   } else {
-    prompt = `${STYLES[style] || STYLES.narrator}\n\n${text}`;
+    prompt = directed(style, text);
     speechConfig = { voiceConfig: { prebuiltVoiceConfig: { voiceName: VOICE_IDS.has(voice) ? voice : "Kore" } } };
   }
   let last = null;
