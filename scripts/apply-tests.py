@@ -16,6 +16,7 @@ i = text.index("{")
 head, d = text[:i], json.loads(text[i : text.rindex("}") + 1])
 tail = text[text.rindex("}") + 1 :]
 errs = []
+keys = {}
 for num in sorted(d, key=int):
     f = SRC / f"{int(num):02d}.json"
     if not f.exists():
@@ -38,8 +39,15 @@ for num in sorted(d, key=int):
     cs = [t["c"] for t in tests]
     if max(cs.count(x) for x in range(4)) > 8: errs.append(f"{f.name}: c taqsimoti notekis {[cs.count(x) for x in range(4)]}")
     if longest > 8: errs.append(f"{f.name}: to'g'ri javob {longest} ta savolda eng uzun")
-    d[num]["tests"] = [{k: v for k, v in t.items() if k in ("q", "options", "c", "e")} for t in tests]
+    # Mijozga (brauzerga) faqat savol va variantlar beriladi; to'g'ri javob kaliti va izoh faqat serverda (server/quiz-keys.mjs).
+    d[num]["tests"] = [{"q": t["q"], "options": t["options"]} for t in tests]
+    keys[num] = [{"c": t["c"], **({"e": t["e"]} if t.get("e") else {})} for t in tests]
 if errs:
     print("\n".join(errs)); sys.exit(1)
 AUTO.write_text(head + json.dumps(d, ensure_ascii=False, indent=1) + tail, encoding="utf-8")
+(ROOT / "server" / "quiz-keys.mjs").write_text(
+    "// Avtomatik yaratilgan (scripts/apply-tests.py): test javob kalitlari — FAQAT server. Brauzerga yuborilmaydi.\n"
+    "export const KEYS = " + json.dumps(keys, ensure_ascii=False, indent=1) + ";\n",
+    encoding="utf-8",
+)
 print("✅", sum(len(v["tests"]) for v in d.values()), "ta test yozildi")

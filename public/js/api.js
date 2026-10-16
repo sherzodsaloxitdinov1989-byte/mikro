@@ -36,12 +36,13 @@ export const session = {
     window.dispatchEvent(new Event("tt:auth"));
   },
   clear() {
+    const oldToken = safeGet(TOKEN_KEY);
     safeSet(TOKEN_KEY, null);
     safeSet(USER_KEY, null);
     // Himoyalangan materiallar uchun sessiya cookie'si ham o'chiriladi
     try {
       sessionStorage.removeItem("tt.cookie-try");
-      fetch("/api/auth/logout", { method: "POST", keepalive: true }).catch(() => {});
+      fetch("/api/auth/logout", { method: "POST", keepalive: true, headers: oldToken ? { authorization: `Bearer ${oldToken}` } : {} }).catch(() => {});
     } catch {}
     window.dispatchEvent(new Event("tt:auth"));
   },

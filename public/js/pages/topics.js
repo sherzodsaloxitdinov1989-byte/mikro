@@ -339,28 +339,27 @@ function quizTab(topic) {
       h("div", { class: "quiz-explain hidden" })
     )
   );
-  const submit = h("button", { class: "btn lg", onclick: () => {
+  const submit = h("button", { class: "btn lg", onclick: async () => {
     if (Object.keys(answers).length < topic.quiz.length) return toast("Barcha savollarga javob bering", "warn");
-    let correct = 0;
-    topic.quiz.forEach((q, i) => {
-      const ok = answers[i] === q.correct;
-      if (ok) correct++;
-      qs[i].classList.add(ok ? "ok" : "bad");
-      if (!ok) setTimeout(() => shake(qs[i]), i * 60);
+    // Baholash serverda: to'g'ri javoblar brauzerga oldindan yuborilmaydi.
+    submit.disabled = true;
+    let res;
+    try {
+      res = await api.post(`quiz/${topic.id}`, { answers: topic.quiz.map((_, i) => answers[i]) });
+    } catch (ex) {
+      submit.disabled = false;
+      return toast(ex.message, "error");
+    }
+    const { score, correct } = res;
+    res.results.forEach((r, i) => {
+      qs[i].classList.add(r.ok ? "ok" : "bad");
+      if (!r.ok) setTimeout(() => shake(qs[i]), i * 60);
       const ex = qs[i].querySelector(".quiz-explain");
       ex.classList.remove("hidden");
-      ex.textContent = (ok ? "✓ To'g'ri." : `✗ To'g'ri javob: ${q.options[q.correct]}.`) + (q.explain ? ` ${q.explain}` : "");
+      ex.textContent = (r.ok ? "✓ To'g'ri." : `✗ To'g'ri javob: ${topic.quiz[i].options[r.correct]}.`) + (r.explain ? ` ${r.explain}` : "");
       qs[i].querySelectorAll("input").forEach((inp) => (inp.disabled = true));
     });
-    const score = Math.round((correct / topic.quiz.length) * 100);
-    const chosen = topic.quiz.map((_, i) => answers[i]);
-    updateTopic(topic.id, (s) => {
-      s.quiz = Math.max(s.quiz ?? 0, score);
-      s.quizAttempts = (s.quizAttempts || 0) + 1;
-      // Test tahlili (item-analiz) uchun: birinchi urinishdagi va oxirgi tanlangan variantlar (asl tartib bo'yicha)
-      if (!Array.isArray(s.quizFirst)) s.quizFirst = chosen;
-      s.quizLast = chosen;
-    });
+    updateTopic(topic.id, (s) => Object.assign(s, res.state));
     changed();
     submit.disabled = true;
     const cls = score >= 80 ? "score-high" : score >= 60 ? "score-mid" : "score-low";

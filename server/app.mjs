@@ -1,7 +1,7 @@
 // Platformaning yagona API funksiyasi: /api/* so'rovlarini marshrutlaydi.
 // Muhitdan mustaqil: Netlify (netlify/functions/api.mjs) va Cloudflare (functions/api/[[path]].js) ulagichlari chaqiradi.
-import { db, getMany, getEntries } from "./store.mjs";
-import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret } from "./auth.mjs";
+import { db, getMany, getEntries, hit, peekHit, resetHit } from "./store.mjs";
+import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret, generatedSecretValue } from "./auth.mjs";
 import crypto from "node:crypto";
 import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.mjs";
 import { computeGame, certificateStatus } from "../public/js/gamification.js";
@@ -15,7 +15,20 @@ import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, p
 import { mailEnabled, sendResetCode } from "./mail.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
+import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { normalizeSubmission, reviewPrompt, REVIEW_SCHEMA, REVIEW_CRITERIA, parseReview, demoReview as demoPracticeReview, totalOf } from "./practice-review.mjs";
+// Test javob kalitlari faqat serverda: brauzerga yuborilmaydi (talaba kalitni ko'rib ball soxtalashtirmasligi uchun).
+for (const t of TOPICS) {
+  const keys = QUIZ_KEYS[t.num] || [];
+  if (keys.length !== (t.quiz || []).length) {
+    if (t.quiz?.length) console.error(`Test kalitlari ${t.num}-mavzuga mos emas: ${keys.length} ≠ ${t.quiz.length}`);
+    continue;
+  }
+  t.quiz.forEach((q, i) => {
+    q.correct = keys[i].c;
+    q.explain = keys[i].e || "";
+  });
+}
 const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
 
@@ -36,7 +49,7 @@ const emailKey = (email) => `user-email/${email.toLowerCase()}`;
 const userKey = (id) => `user/${id}`;
 
 function publicUser(u) {
-  const { salt, hash, ...rest } = u;
+  const { salt, hash, revoked, ...rest } = u;
   // Ta'lim shakli: saqlangan qiymat yoki guruh bo'yicha aniqlanadi (eski profillar uchun)
   if (u.role === "student") rest.studyForm = u.studyForm || formOfGroup(u.group)?.key || "";
   return rest;
@@ -50,13 +63,20 @@ async function body(req) {
   }
 }
 
-async function currentUser(req) {
-  const auth = req.headers.get("authorization") || "";
-  const data = readToken(auth.replace(/^Bearer\s+/i, ""));
+/** Token bo'yicha foydalanuvchi: imzo, muddat, parol versiyasi va chiqish (logout) bilan bekor qilinganligi tekshiriladi. */
+async function userFromToken(token) {
+  const data = readToken(token);
   if (!data) return null;
   const user = await db().get(userKey(data.uid));
-  // Parol tiklanganda eski kirishlar (boshqa qurilmalardagi) bekor bo'ladi.
-  return user && (user.pwdV || 0) === (data.pv || 0) ? user : null;
+  // Parol o'zgarganda eski kirishlar (boshqa qurilmalardagi) bekor bo'ladi.
+  if (!user || (user.pwdV || 0) !== (data.pv || 0)) return null;
+  if (data.jti && (user.revoked || []).some((r) => r.jti === data.jti)) return null;
+  return user;
+}
+
+async function currentUser(req) {
+  const auth = req.headers.get("authorization") || "";
+  return userFromToken(auth.replace(/^Bearer\s+/i, ""));
 }
 
 async function requireUser(req) {
@@ -81,9 +101,18 @@ const readCookie = (req, name) => {
 };
 const sessionToken = (req) => (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "") || readCookie(req, COOKIE);
 /** Token imzosi va muddatini tekshiradi (ma'lumotlar bazasiga murojaat qilmaydi — statik fayllar uchun tez). */
+const sessionCache = new Map();
 export async function hasSession(req) {
   await ensureSecret();
-  return Boolean(readToken(sessionToken(req)));
+  const token = sessionToken(req);
+  if (!readToken(token)) return false;
+  // Foydalanuvchi bazasi har bir rasm uchun emas, qisqa muddat (60 soniya) keshlab tekshiriladi: parol almashgan yoki chiqib ketgan sessiya tez bekor bo'ladi.
+  const hitC = sessionCache.get(token);
+  if (hitC && hitC.until > Date.now()) return hitC.ok;
+  const ok = Boolean(await userFromToken(token));
+  if (sessionCache.size > 500) sessionCache.clear();
+  sessionCache.set(token, { ok, until: Date.now() + 60_000 });
+  return ok;
 }
 async function requireSession(req) {
   if (!(await hasSession(req))) throw new HttpError(401, "Darslik materiallarini ko'rish uchun tizimga kiring");
@@ -96,7 +125,23 @@ async function startSession(req) {
   const user = await requireUser(req);
   return withCookie(json({ ok: true }), sessionToken(req) || createToken(user));
 }
-async function endSession() {
+async function endSession(req) {
+  // Chiqishda token serverda ham bekor qilinadi (o'g'irlangan nusxa ishlamasligi uchun).
+  try {
+    const token = sessionToken(req);
+    const data = readToken(token);
+    if (data?.jti) {
+      const user = await db().get(userKey(data.uid));
+      if (user) {
+        const now = Date.now();
+        user.revoked = [...(user.revoked || []).filter((r) => r.exp > now), { jti: data.jti, exp: data.exp }].slice(-30);
+        await db().set(userKey(user.id), user);
+        sessionCache.delete(token);
+      }
+    }
+  } catch (e) {
+    console.error("Chiqishda tokenni bekor qilib bo'lmadi:", e);
+  }
   const res = json({ ok: true });
   res.headers.append("set-cookie", `${COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0`);
   return res;
@@ -121,12 +166,12 @@ async function register(req) {
   const name = str(b.name, 120);
   const role = b.role === "teacher" ? "teacher" : "student";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
-  if (password.length < 6) throw new HttpError(400, "Parol kamida 6 belgidan iborat bo'lishi kerak");
+  checkPasswordStrength(password);
   if (!name) throw new HttpError(400, "Ism-familiyani kiriting");
   const regLimit = await bump(`ratelimit/register-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 300);
   if (!regLimit.ok) throw new HttpError(429, "Bu manzildan juda ko'p profil yaratildi. Birozdan keyin qayta urinib ko'ring.");
   if (role === "teacher") {
-    const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 15);
+    const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 8);
     if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
     const secret = process.env.TEACHER_CODE;
     if (str(b.emailCode)) {
@@ -135,7 +180,11 @@ async function register(req) {
       await checkEmailCode(email, "teacher", str(b.emailCode, 12).replace(/\s/g, ""));
     } else if (secret) {
       // Zaxira yo'l: umumiy o'qituvchi kodi
-      if (str(b.teacherCode) !== secret) throw new HttpError(403, "O'qituvchi kodi noto'g'ri");
+      await teacherCodeGuard();
+      if (!safeEqual(str(b.teacherCode), secret)) {
+        await teacherCodeFailed();
+        throw new HttpError(403, "O'qituvchi kodi noto'g'ri");
+      }
     } else {
       throw new HttpError(403, "O'qituvchi sifatida ro'yxatdan o'tish uchun emailingizga kelgan tasdiqlash kodini kiriting");
     }
@@ -164,31 +213,35 @@ async function register(req) {
 }
 
 const LOGIN_WINDOW_MS = 15 * 60_000;
-const LOGIN_FAILS_PER_EMAIL = 8;
+const LOGIN_FAILS_PER_PAIR = 8; // bitta email + bitta manzil (IP)
+const LOGIN_FAILS_PER_EMAIL = 40; // bitta email, barcha manzillardan (taqsimlangan hujumga qarshi)
 const LOGIN_FAILS_PER_IP = 200;
+// Mavjud bo'lmagan email uchun ham parol xeshlash bajariladi: javob vaqti bo'yicha email mavjudligini bilib bo'lmasin.
+const DUMMY_SALT = "0".repeat(32);
+const DUMMY_HASH = `pbkdf2:60000:${"0".repeat(64)}`;
 
 async function login(req) {
   const b = await body(req);
   const email = str(b.email, 120).toLowerCase();
-  // Parolni taxmin qilishdan himoya: noto'g'ri urinishlar email va IP bo'yicha cheklanadi (15 daqiqada email bo'yicha 8, umumiy IP bo'yicha 200 ta: bir Wi-Fi tarmog'idagi sinf bloklanmasligi uchun)
-  const keys = [[`ratelimit/login/${sha(email).slice(0, 32)}`, LOGIN_FAILS_PER_EMAIL], [`ratelimit/login-ip/${sha(clientIp(req)).slice(0, 24)}`, LOGIN_FAILS_PER_IP]];
-  const recs = [];
+  const ip = sha(clientIp(req)).slice(0, 24);
+  // Parolni taxmin qilishdan himoya: noto'g'ri urinishlar hisoblanadi. Cheklov email+manzil juftligi bo'yicha, shuning uchun
+  // begona odam boshqa joydan urinib, haqiqiy foydalanuvchini blokka sola olmaydi; umumiy email va IP cheklovlari qo'shimcha.
+  const keys = [
+    [`ratelimit/login-pair/${sha(email).slice(0, 24)}/${ip}`, LOGIN_FAILS_PER_PAIR],
+    [`ratelimit/login/${sha(email).slice(0, 32)}`, LOGIN_FAILS_PER_EMAIL],
+    [`ratelimit/login-ip/${ip}`, LOGIN_FAILS_PER_IP],
+  ];
   for (const [k, limit] of keys) {
-    const r = (await db().get(k)) || { hits: [] };
-    r.hits = r.hits.filter((t) => Date.now() - t < LOGIN_WINDOW_MS);
-    if (r.hits.length >= limit) throw new HttpError(429, "Noto'g'ri urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring yoki «Parolni unutdingizmi?» dan foydalaning.");
-    recs.push([k, r]);
+    if ((await peekHit(k, LOGIN_WINDOW_MS)).n >= limit) throw new HttpError(429, "Noto'g'ri urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring yoki «Parolni unutdingizmi?» dan foydalaning.");
   }
   const ref = await db().get(emailKey(email));
   const user = ref && (await db().get(userKey(ref.id)));
-  if (!user || !(await verifyPassword(String(b.password || ""), user.salt, user.hash))) {
-    for (const [k, r] of recs) {
-      r.hits.push(Date.now());
-      await db().set(k, r);
-    }
+  const ok = await verifyPassword(String(b.password || ""), user ? user.salt : DUMMY_SALT, user ? user.hash : DUMMY_HASH);
+  if (!user || !ok) {
+    await Promise.all(keys.map(([k]) => hit(k, LOGIN_WINDOW_MS)));
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
-  await db().del(keys[0][0]);
+  await resetHit(keys[0][0]);
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -204,19 +257,34 @@ const FORGOT_PER_HOUR = 4;
 const FORGOT_IP_PER_HOUR = 60;
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
 const resetCodeKey = (email, purpose = "reset") => `${purpose === "reset" ? "resetcode" : purpose + "code"}/${sha(email).slice(0, 32)}`;
-const codeHash = (email, code, purpose = "reset") => sha(`${code}:${email}:${purpose}:${process.env.JWT_SECRET || ""}`);
+const codeHash = (email, code, purpose = "reset") => sha(`${code}:${email}:${purpose}:${process.env.JWT_SECRET || generatedSecretValue()}`);
 const clientIp = (req) => (req.headers.get("cf-connecting-ip") || req.headers.get("x-nf-client-connection-ip") || (req.headers.get("x-forwarded-for") || "").split(",")[0] || "unknown").trim();
+const COMMON_PASSWORDS = new Set(["12345678", "123456789", "1234567890", "password", "qwertyui", "qwerty123", "11111111", "00000000", "iloveyou", "12341234", "87654321", "abcd1234", "password1", "123123123", "asdfghjk", "uzbekistan"]);
+/** Parol: kamida 8 belgi va keng tarqalgan oson parollardan emas. */
+function checkPasswordStrength(pw, label = "Parol") {
+  if (typeof pw !== "string" || pw.length < 8) throw new HttpError(400, `${label} kamida 8 belgidan iborat bo'lishi kerak`);
+  if (pw.length > 200) throw new HttpError(400, `${label} juda uzun`);
+  if (COMMON_PASSWORDS.has(pw.toLowerCase()) || /^(.)\1+$/.test(pw)) throw new HttpError(400, `${label} juda oson. Boshqa, qiyinroq parol tanlang.`);
+}
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
 async function bump(key, windowMs, limit) {
-  const store = db();
-  const rec = (await store.get(key)) || { hits: [] };
-  const now = Date.now();
-  rec.hits = rec.hits.filter((t) => now - t < windowMs);
-  if (rec.hits.length >= limit) return { ok: false, wait: Math.ceil((rec.hits[0] + windowMs - now) / 1000), rec };
-  rec.hits.push(now);
-  await store.set(key, rec);
-  return { ok: true, rec };
+  // Atomik hisoblagich (D1): parallel so'rovlar bilan cheklovni aylanib o'tib bo'lmaydi.
+  const r = await hit(key, windowMs);
+  return { ok: r.n <= limit, wait: Math.max(1, Math.ceil((r.since + windowMs - Date.now()) / 1000)), n: r.n };
+}
+
+/** Vaqt bo'yicha xavfsiz solishtirish (maxfiy kodlar uchun). */
+const safeEqual = (a, b) => crypto.timingSafeEqual(crypto.createHash("sha256").update(String(a)).digest(), crypto.createHash("sha256").update(String(b)).digest());
+
+/** O'qituvchi kodini taxmin qilishdan himoya: barcha manzillar bo'yicha umumiy cheklov (taqsimlangan hujumga qarshi). */
+const TCODE_FAIL_KEY = "ratelimit/tcode-fail-all";
+async function teacherCodeGuard() {
+  if ((await peekHit(TCODE_FAIL_KEY, 3600_000)).n >= 30) throw new HttpError(429, "O'qituvchi kodi vaqtincha bloklandi (juda ko'p noto'g'ri urinish). Bir soatdan keyin urinib ko'ring yoki email orqali tasdiqlashdan foydalaning.");
+}
+async function teacherCodeFailed() {
+  await hit(TCODE_FAIL_KEY, 3600_000);
+  await new Promise((r) => setTimeout(r, 700));
 }
 
 async function forgotPassword(req) {
@@ -243,6 +311,7 @@ async function forgotPassword(req) {
       console.error("Kod yuborilmadi:", e);
       throw new HttpError(502, "Xatni yuborib bo'lmadi. Birozdan keyin qayta urinib ko'ring.");
     }
+    await resetHit(`ratelimit/codeatt/reset/${sha(email).slice(0, 24)}`);
     await store.set(resetCodeKey(email), { hash: codeHash(email, code), exp: Date.now() + CODE_TTL_MS, attempts: 0, sentAt: Date.now() });
   } else {
     await new Promise((r) => setTimeout(r, 400)); // email mavjudligini vaqt bo'yicha ham bildirmaslik uchun
@@ -262,18 +331,20 @@ async function checkEmailCode(email, purpose, code) {
     if (rec) await store.del(key);
     throw new HttpError(400, fail);
   }
+  // Urinishlar atomik hisoblanadi: parallel so'rovlar bilan 6 xonali kodni topib bo'lmaydi.
+  const attKey = `ratelimit/codeatt/${purpose}/${sha(email).slice(0, 24)}`;
+  const att = await hit(attKey, CODE_TTL_MS);
+  if (att.n > CODE_MAX_ATTEMPTS) {
+    await store.del(key);
+    throw new HttpError(400, "Urinishlar ko'p bo'ldi, kod bekor qilindi. Yangi kod so'rang.");
+  }
   const given = Buffer.from(codeHash(email, code, purpose), "hex");
   const want = Buffer.from(rec.hash, "hex");
   if (given.length !== want.length || !crypto.timingSafeEqual(given, want)) {
-    rec.attempts++;
-    if (rec.attempts >= CODE_MAX_ATTEMPTS) {
-      await store.del(key);
-      throw new HttpError(400, "Urinishlar ko'p bo'ldi, kod bekor qilindi. Yangi kod so'rang.");
-    }
-    await store.set(key, rec);
     await new Promise((r) => setTimeout(r, 500));
-    throw new HttpError(400, `Kod noto'g'ri (qolgan urinishlar: ${CODE_MAX_ATTEMPTS - rec.attempts})`);
+    throw new HttpError(400, `Kod noto'g'ri (qolgan urinishlar: ${Math.max(0, CODE_MAX_ATTEMPTS - att.n)})`);
   }
+  await resetHit(attKey);
   await store.del(key);
 }
 
@@ -283,7 +354,7 @@ async function resetWithCode(req) {
   const code = str(b.code, 12).replace(/\s/g, "");
   const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
   if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
-  if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
+  checkPasswordStrength(newPassword, "Yangi parol");
   const store = db();
   await checkEmailCode(email, "reset", code);
   const ref = await store.get(emailKey(email));
@@ -325,6 +396,7 @@ async function teacherSignupCode(req) {
     console.error("O'qituvchi kodi yuborilmadi:", e);
     throw new HttpError(502, "Xatni yuborib bo'lmadi. Birozdan keyin qayta urinib ko'ring.");
   }
+  await resetHit(`ratelimit/codeatt/teacher/${sha(email).slice(0, 24)}`);
   await store.set(key, { hash: codeHash(email, code, "teacher"), exp: Date.now() + CODE_TTL_MS, attempts: 0, sentAt: Date.now() });
   return json({ ok: true, expiresInMin: CODE_TTL_MS / 60000, resendAfterSec: CODE_RESEND_MS / 1000 });
 }
@@ -342,17 +414,17 @@ async function resetPassword(req) {
   const code = process.env.TEACHER_CODE;
   if (!code) throw new HttpError(403, "O'qituvchi kodi sozlanmagan (Cloudflare → Worker → Settings → Variables and Secrets → TEACHER_CODE)");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
-  if (newPassword.length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgidan iborat bo'lishi kerak");
+  checkPasswordStrength(newPassword, "Yangi parol");
   const store = db();
   const rlKey = `ratelimit/reset/${crypto.createHash("sha256").update(email).digest("hex").slice(0, 32)}`;
-  const rl = (await store.get(rlKey)) || { count: 0, since: Date.now() };
-  if (Date.now() - rl.since > RESET_WINDOW_MS) Object.assign(rl, { count: 0, since: Date.now() });
-  if (rl.count >= RESET_LIMIT) throw new HttpError(429, "Urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring.");
-  if (str(b.teacherCode) !== code) {
-    rl.count++;
-    await store.set(rlKey, rl);
-    await new Promise((r) => setTimeout(r, 700));
-    throw new HttpError(403, `O'qituvchi kodi noto'g'ri (qolgan urinishlar: ${RESET_LIMIT - rl.count})`);
+  const ipKey = `ratelimit/reset-ip/${sha(clientIp(req)).slice(0, 24)}`;
+  if ((await peekHit(rlKey, RESET_WINDOW_MS)).n >= RESET_LIMIT || (await peekHit(ipKey, 3600_000)).n >= 10) throw new HttpError(429, "Urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring.");
+  await teacherCodeGuard();
+  if (!safeEqual(str(b.teacherCode), code)) {
+    const n = (await hit(rlKey, RESET_WINDOW_MS)).n;
+    await hit(ipKey, 3600_000);
+    await teacherCodeFailed();
+    throw new HttpError(403, `O'qituvchi kodi noto'g'ri (qolgan urinishlar: ${Math.max(0, RESET_LIMIT - n)})`);
   }
   const ref = await store.get(emailKey(email));
   const user = ref && (await store.get(userKey(ref.id)));
@@ -372,7 +444,7 @@ async function resetPassword(req) {
   }
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
-  await store.del(rlKey);
+  await resetHit(rlKey);
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -414,9 +486,19 @@ async function updateMe(req) {
     user.cohortSource = "self";
   }
   if (b.newPassword) {
-    if (!(await verifyPassword(String(b.password || ""), user.salt, user.hash))) throw new HttpError(400, "Joriy parol noto'g'ri");
-    if (String(b.newPassword).length < 6) throw new HttpError(400, "Yangi parol kamida 6 belgi bo'lsin");
-    Object.assign(user, await hashPassword(String(b.newPassword)));
+    // O'g'irlangan sessiya bilan joriy parolni taxmin qilishdan himoya
+    const pwKey = `ratelimit/pwchange/${user.id}`;
+    if ((await peekHit(pwKey, LOGIN_WINDOW_MS)).n >= 8) throw new HttpError(429, "Urinishlar ko'p bo'ldi. 15 daqiqadan keyin qayta urinib ko'ring.");
+    if (!(await verifyPassword(String(b.password || ""), user.salt, user.hash))) {
+      await hit(pwKey, LOGIN_WINDOW_MS);
+      throw new HttpError(400, "Joriy parol noto'g'ri");
+    }
+    checkPasswordStrength(String(b.newPassword), "Yangi parol");
+    Object.assign(user, await hashPassword(String(b.newPassword)), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
+    await db().set(userKey(user.id), user);
+    // Parol almashgach boshqa qurilmalardagi kirishlar bekor bo'ladi; bu qurilma uchun yangi token beriladi.
+    const token = createToken(user);
+    return withCookie(json({ user: publicUser(user), token }), token);
   }
   await db().set(userKey(user.id), user);
   return json({ user: publicUser(user) });
@@ -480,6 +562,41 @@ async function getProgress(req) {
   return json((await db().get(`progress/${user.id}`)) || { topics: {}, plan: [], notes: {} });
 }
 
+const QUIZ_FIELDS = ["quiz", "quizAttempts", "quizFirst", "quizLast", "quizAt"];
+
+/** Mavzu testini serverda baholash: talaba tanlagan variantlar (asl tartibda) yuboriladi, ball serverda hisoblanadi. */
+async function quizSubmit(req, topicId) {
+  const user = await requireUser(req);
+  const topic = TOPICS.find((t) => t.id === topicId);
+  if (!topic || !topic.quiz.length || topic.quiz.some((q) => !Number.isInteger(q.correct))) throw new HttpError(404, "Bu mavzu uchun test topilmadi");
+  const b = await body(req);
+  const answers = b.answers;
+  if (!Array.isArray(answers) || answers.length !== topic.quiz.length || answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length)) throw new HttpError(400, "Barcha savollarga javob bering");
+  const lim = await bump(`ratelimit/quiz/${user.id}`, 3600_000, 60);
+  if (!lim.ok) throw new HttpError(429, "Testni juda tez-tez topshiryapsiz. Birozdan keyin qayta urinib ko'ring.");
+  const results = topic.quiz.map((q, i) => ({ ok: answers[i] === q.correct, correct: q.correct, explain: q.explain || "" }));
+  const correct = results.filter((r) => r.ok).length;
+  const score = Math.round((correct / topic.quiz.length) * 100);
+  const key = `progress/${user.id}`;
+  const progress = (await db().get(key)) || { topics: {}, plan: [], notes: {} };
+  progress.topics ||= {};
+  const st = (progress.topics[topic.id] ||= {});
+  st.quiz = Math.max(st.quiz ?? 0, score);
+  st.quizAttempts = (st.quizAttempts || 0) + 1;
+  if (!Array.isArray(st.quizFirst)) st.quizFirst = answers;
+  st.quizLast = answers;
+  st.quizAt = new Date().toISOString();
+  progress.updatedAt = st.quizAt;
+  await db().set(key, progress);
+  return json({ score, correct, total: topic.quiz.length, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
+}
+
+/** O'qituvchi uchun: test javob kalitlari (Word jamlanma va boshqalar uchun). */
+async function adminQuizKeys(req) {
+  await requireTeacher(req);
+  return json(QUIZ_KEYS);
+}
+
 async function saveProgress(req) {
   const user = await requireUser(req);
   const b = await body(req);
@@ -498,8 +615,16 @@ async function saveProgress(req) {
       .map(([k, v]) => [k, { box: Math.max(0, Math.min(5, v.box)), due: v.due.slice(0, 10) }])
   );
   const st = obj(b.srsStats);
+  // Test natijalari (ball, urinishlar, javoblar) faqat server tomonidan yoziladi (quiz/:id yo'li): mijoz yuborgan qiymatlar e'tiborga olinmaydi.
+  const topics = Object.fromEntries(
+    Object.entries(obj(b.topics)).map(([tid, v]) => {
+      const t = { ...obj(v) };
+      for (const f of QUIZ_FIELDS) delete t[f];
+      return [tid, t];
+    })
+  );
   const progress = {
-    topics: obj(b.topics),
+    topics,
     plan: Array.isArray(b.plan) ? b.plan.slice(0, 200) : [],
     notes: obj(b.notes),
     activity,
@@ -508,6 +633,11 @@ async function saveProgress(req) {
     updatedAt: new Date().toISOString(),
   };
   if (JSON.stringify(progress).length > 200_000) throw new HttpError(413, "Ma'lumot hajmi juda katta");
+  // Yozishdan oldin eng so'nggi server natijalari qayta o'qiladi (parallel test topshirish bilan to'qnashuvni kamaytirish uchun).
+  const prevProgress = (await db().get(`progress/${user.id}`)) || { topics: {} };
+  for (const [tid, pv] of Object.entries(obj(prevProgress.topics))) {
+    for (const f of QUIZ_FIELDS) if (pv?.[f] !== undefined) (progress.topics[tid] ||= {})[f] = pv[f];
+  }
   await db().set(`progress/${user.id}`, progress);
   return json(progress);
 }
@@ -1620,6 +1750,9 @@ async function liveControl(req, pin) {
 }
 
 async function liveJoin(req, pin) {
+  // Begona odam ko'p soxta ishtirokchi qo'shib o'yinni to'ldirib qo'ymasligi uchun: bitta manzildan cheklov (sinf Wi-Fi tarmog'i uchun yetarli).
+  const jl = await bump(`ratelimit/livejoin/${sha(clientIp(req)).slice(0, 24)}`, 600_000, 150);
+  if (!jl.ok) throw new HttpError(429, "Juda ko'p qo'shilish urinishi. Birozdan keyin qayta urinib ko'ring.");
   const g = await loadGame(pin);
   if (g.state === "final" || g.state === "closed") throw new HttpError(409, "O'yin allaqachon tugagan");
   const b = await body(req);
@@ -2011,7 +2144,7 @@ function describeError(err) {
   return `Serverda kutilmagan xatolik yuz berdi (${name || "Error"}: ${msg.slice(0, 160)})`;
 }
 
-async function health() {
+async function health(req) {
   const checks = { blobs: "tekshirilmoqda", jwtSecret: process.env.JWT_SECRET ? "o'rnatilgan" : "avtomatik (omborda)", teacherCode: process.env.TEACHER_CODE ? "o'rnatilgan" : "o'rnatilmagan", ai: provider() ? `${provider()} (${modelName()})` : "demo-rejim", node: process.version, platform: process.env.CF_PAGES ? "Cloudflare" : "Netlify / Node" };
   checks.tts = ttsEnabled() ? `gemini (${(await ttsModels().catch(() => []))[0] || "model topilmadi"})` : "o'chiq (brauzer ovozi)";
   try {
@@ -2021,7 +2154,10 @@ async function health() {
   } catch (err) {
     checks.blobs = `XATO: ${err?.name || ""} ${String(err?.message || err).slice(0, 200)}`;
   }
-  return json(checks, checks.blobs === "ishlayapti" ? 200 : 500);
+  const okAll = checks.blobs === "ishlayapti";
+  // Sozlamalar tafsiloti (kalit o'rnatilganmi, AI modeli va h.k.) faqat o'qituvchiga ko'rsatiladi.
+  const teacher = await currentUser(req).catch(() => null);
+  return json(teacher?.role === "teacher" ? checks : { ok: okAll }, okAll ? 200 : 500);
 }
 
 // ---------- Mavzu taqdimotlari (slaydlar) ----------
@@ -2339,6 +2475,8 @@ const routes = [
   ["DELETE", /^admin\/videos\/([\w-]+)\/([\w-]+)$/, videoDelete],
 
 
+  ["POST", /^quiz\/([\w-]+)$/, quizSubmit],
+  ["GET", /^admin\/quiz-keys$/, adminQuizKeys],
   ["GET", /^progress$/, getProgress],
   ["PUT", /^progress$/, saveProgress],
   ["GET", /^self-study$/, mySelfStudy],

@@ -1,9 +1,20 @@
 // O'qituvchi paneli: test jamlanmasini Word (.docx) fayliga yuklab olish.
-import { h, mount, downloadFile } from "../ui.js";
+import { h, mount, downloadFile, toast } from "../ui.js";
 import { TOPICS, COURSE } from "../../data/topics.js";
 import { buildDocx } from "../docx.js";
+import { api } from "../api.js";
 
 const L = "ABCDEF";
+
+/** Javob kalitlari brauzerga oldindan yuborilmaydi: o'qituvchi uchun serverdan olinadi. */
+async function loadKeys() {
+  if (TOPICS.every((t) => t.quiz.every((q) => Number.isInteger(q.correct)))) return;
+  const keys = await api.get("admin/quiz-keys");
+  for (const t of TOPICS) t.quiz.forEach((q, i) => {
+    const k = keys[t.num]?.[i];
+    if (k) Object.assign(q, { correct: k.c, explain: k.e || "" });
+  });
+}
 
 function build(topics, withAnswers) {
   const blocks = [
@@ -46,7 +57,14 @@ export async function view(el) {
   const sel = h("select", { class: "input" }, h("option", { value: "all" }, `Barcha mavzular (${total} ta test)`), TOPICS.map((t) => h("option", { value: t.num }, `${t.num}-mavzu · ${t.quiz.length} ta test · ${t.title.slice(0, 60)}`)));
   const pick = () => (sel.value === "all" ? TOPICS : TOPICS.filter((t) => String(t.num) === sel.value));
   const name = (suffix) => `test-jamlanma${sel.value === "all" ? "" : `-${sel.value}-mavzu`}${suffix}.docx`;
-  const dl = (withAnswers) => downloadFile(name(withAnswers ? "-javoblar-bilan" : "-javobsiz"), build(pick(), withAnswers), "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  const dl = async (withAnswers) => {
+    try {
+      await loadKeys();
+    } catch (ex) {
+      return toast(ex.message, "error");
+    }
+    downloadFile(name(withAnswers ? "-javoblar-bilan" : "-javobsiz"), build(pick(), withAnswers), "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  };
   mount(
     el,
     h("div", { class: "card stack" },

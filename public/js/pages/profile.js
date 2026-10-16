@@ -16,7 +16,8 @@ export async function render(el) {
       delete data.showInRating;
       try {
         const res = await api.put("me", data);
-        session.updateUser(res.user);
+        if (res.token) session.set(res.token, res.user);
+        else session.updateUser(res.user);
         toast("Ma'lumotlar saqlandi", "ok");
         form.querySelectorAll("input[type=password]").forEach((i) => (i.value = ""));
       } catch (ex) {
@@ -31,7 +32,7 @@ export async function render(el) {
     h("h3", {}, "Parolni o'zgartirish"),
     h("div", { class: "grid cols-2" },
       h("label", { class: "field" }, h("span", {}, "Joriy parol"), h("input", { name: "password", type: "password", autocomplete: "current-password" })),
-      h("label", { class: "field" }, h("span", {}, "Yangi parol"), h("input", { name: "newPassword", type: "password", minlength: 6, autocomplete: "new-password" }))),
+      h("label", { class: "field" }, h("span", {}, "Yangi parol"), h("input", { name: "newPassword", type: "password", minlength: 8, autocomplete: "new-password" }))),
     h("button", { class: "btn", type: "submit" }, "Saqlash")
   );
   mount(

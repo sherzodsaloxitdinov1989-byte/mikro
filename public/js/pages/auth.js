@@ -114,8 +114,8 @@ export async function renderForgot(el) {
   function stepCode(resendAfter, minutes) {
     let left = resendAfter;
     const code = h("input", { name: "code", inputmode: "numeric", autocomplete: "one-time-code", maxlength: 6, required: true, placeholder: "______", style: { letterSpacing: "8px", fontSize: "1.4rem", textAlign: "center" } });
-    const p1 = h("input", { type: "password", name: "newPassword", required: true, minlength: 6, autocomplete: "new-password" });
-    const p2 = h("input", { type: "password", name: "newPassword2", required: true, minlength: 6, autocomplete: "new-password" });
+    const p1 = h("input", { type: "password", name: "newPassword", required: true, minlength: 8, autocomplete: "new-password" });
+    const p2 = h("input", { type: "password", name: "newPassword2", required: true, minlength: 8, autocomplete: "new-password" });
     const resend = h("button", { type: "button", class: "btn ghost small", disabled: true }, "");
     const paint = () => {
       resend.disabled = left > 0;
@@ -212,7 +212,7 @@ function renderForgotLegacy(el, config = {}) {
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("O'qituvchi kodi", { name: "teacherCode", type: "password", required: true, autocomplete: "off" }),
     h("p", { class: "muted small" }, "Ro'yxatdan o'tishda kiritilgan kod. U Cloudflare sozlamalarida saqlanadi: Worker → Settings → Variables and Secrets → TEACHER_CODE."),
-    h("div", { class: "grid cols-2" }, field("Yangi parol", { name: "newPassword", type: "password", required: true, minlength: 6, autocomplete: "new-password" }), field("Yangi parolni takrorlang", { name: "newPassword2", type: "password", required: true, minlength: 6, autocomplete: "new-password" })),
+    h("div", { class: "grid cols-2" }, field("Yangi parol", { name: "newPassword", type: "password", required: true, minlength: 8, autocomplete: "new-password" }), field("Yangi parolni takrorlang", { name: "newPassword2", type: "password", required: true, minlength: 8, autocomplete: "new-password" })),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Parolni yangilash va kirish")
   );
@@ -359,7 +359,7 @@ export async function renderRegister(el) {
     h("datalist", { id: "college-list" }, (config.colleges || []).map((c) => h("option", { value: c }))),
     studentFields,
     teacherFields,
-    h("div", { class: "grid cols-2" }, field("Parol", { name: "password", type: "password", required: true, minlength: 6, autocomplete: "new-password" }), field("Parolni takrorlang", { name: "password2", type: "password", required: true, minlength: 6, autocomplete: "new-password" })),
+    h("div", { class: "grid cols-2" }, field("Parol", { name: "password", type: "password", required: true, minlength: 8, autocomplete: "new-password" }), field("Parolni takrorlang", { name: "password2", type: "password", required: true, minlength: 8, autocomplete: "new-password" })),
     h("p", { class: "muted small" }, "Ro'yxatdan o'tish orqali o'quv natijalaringiz (test, amaliy mashg'ulot, AI tekshiruvlari) o'qituvchingizga ko'rinishiga rozilik bildirasiz. Javoblaringiz AI tekshiruvi uchun sun'iy intellekt xizmatiga yuboriladi."),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Profil yaratish"),

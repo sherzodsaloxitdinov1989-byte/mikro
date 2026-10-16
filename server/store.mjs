@@ -27,3 +27,31 @@ export async function getEntries(prefix) {
 export async function getMany(prefix) {
   return (await getEntries(prefix)).map(([, v]) => v);
 }
+
+// ---------- Urinishlar hisoblagichi (cheklovlar) ----------
+// D1 da atomik (parallel so'rovlar bilan aylanib o'tib bo'lmaydi); boshqa omborlarda oddiy (atomik emas) zaxira.
+
+/** Oyna ichida hisoblagichni oshiradi: { n, since } */
+export async function hit(key, windowMs) {
+  const store = db();
+  if (store.hit) return store.hit(key, windowMs);
+  const rec = (await store.get(`counter/${key}`)) || { n: 0, since: Date.now() };
+  if (Date.now() - rec.since > windowMs) Object.assign(rec, { n: 0, since: Date.now() });
+  rec.n++;
+  await store.set(`counter/${key}`, rec);
+  return rec;
+}
+
+/** Hisoblagichni oshirmasdan o'qiydi. */
+export async function peekHit(key, windowMs) {
+  const store = db();
+  if (store.peekHit) return store.peekHit(key, windowMs);
+  const rec = await store.get(`counter/${key}`);
+  return rec && Date.now() - rec.since <= windowMs ? rec : { n: 0, since: Date.now() };
+}
+
+export async function resetHit(key) {
+  const store = db();
+  if (store.resetHit) return store.resetHit(key);
+  await store.del(`counter/${key}`);
+}

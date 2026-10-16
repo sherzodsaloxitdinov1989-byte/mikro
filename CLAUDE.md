@@ -166,6 +166,7 @@ npx wrangler dev --port 8788 --var TEACHER_CODE:ustoz-local --var JWT_SECRET:loc
 - Kod (`public/js`, `server/`) odatda o'zgarmaydi. Fanga xos narsa faqat `public/data/` va `public/slides/` da bo'ladi.
 - API kalit, parol yoki tokenni chatga yozishni **hech qachon so'rama**. Ular faqat Cloudflare/Netlify panelida kiritiladi.
 - Katta fayllar: bitta taqdimot ~5 MB dan oshsa, siqib qo'y. Cloudflare'da bitta statik fayl 25 MB dan oshmasligi kerak.
+- **Test javob kalitlari brauzerga yuborilmaydi:** `public/data/layers-auto.js` da faqat savol va variantlar, kalit va izoh — `server/quiz-keys.mjs` da. Testlar manbasi `scripts/tests-src/NN.json`; o'zgartirgach `python3 scripts/apply-tests.py`. Qayta `import-mikro.py` ishga tushirsangiz ham, keyin `apply-tests.py` ni ishga tushiring.
 - Har bir muhim yangilanishdan keyin `public/sw.js` dagi `VERSION` raqamini oshir. Aks holda brauzerlar eski versiyani ko'rsatadi.
 
 ## Bepul tariflar (kredit tejash)

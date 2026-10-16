@@ -6,6 +6,10 @@ import { LAYERS } from "../public/data/layers.js";
 import { PRACTICE, parseNum } from "../public/data/practice.js";
 import { UPDATES } from "../public/data/updates.js";
 import { COURSE } from "../public/data/course.js";
+let KEYS = {};
+try {
+  KEYS = (await import("../server/quiz-keys.mjs")).KEYS;
+} catch {}
 
 const errors = [];
 const warns = [];
@@ -31,7 +35,7 @@ for (const [num, L] of Object.entries(LAYERS)) {
   if (!nums.has(Number(num))) err(`${where}: book.js da bunday mavzu yo'q`);
   (L.tests || []).forEach((q, i) => {
     if (!q.q || !Array.isArray(q.options) || q.options.length < 2) err(`${where}: ${i + 1}-test noto'g'ri`);
-    else if (!(Number.isInteger(q.c) && q.c >= 0 && q.c < q.options.length)) err(`${where}: ${i + 1}-test — to'g'ri javob indeksi (c=${q.c}) variantlar oralig'ida emas`);
+    else if (!(Number.isInteger(KEYS[num]?.[i]?.c) && KEYS[num][i].c >= 0 && KEYS[num][i].c < q.options.length)) err(`${where}: ${i + 1}-test — to'g'ri javob kaliti (server/quiz-keys.mjs) yo'q yoki variantlar oralig'ida emas`);
     else if (new Set(q.options).size !== q.options.length) err(`${where}: ${i + 1}-testda bir xil variantlar bor`);
   });
   if ((L.tests || []).length < 5) warn(`${where}: testlar soni ${L.tests?.length || 0} ta (tavsiya: 6–10)`);

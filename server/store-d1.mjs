@@ -8,6 +8,7 @@ import { Buffer } from "node:buffer";
 const SCHEMA = [
   "CREATE TABLE IF NOT EXISTS kv (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated INTEGER NOT NULL)",
   "CREATE TABLE IF NOT EXISTS bin (key TEXT NOT NULL, part INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY (key, part))",
+  "CREATE TABLE IF NOT EXISTS counters (key TEXT PRIMARY KEY, n INTEGER NOT NULL, since INTEGER NOT NULL)",
 ];
 const PART = 1_200_000; // base64 belgi (~900 KB ikkilik ma'lumot)
 // Prefiks bo'yicha qidiruv: key >= prefix AND key < prefix + U+FFFF (LIKE dan tezroq, indeksdan foydalanadi)
@@ -20,6 +21,26 @@ export function d1Store(DB, FILES) {
     throw e;
   }));
   return {
+    /** Atomik hisoblagich (urinishlar cheklovi uchun): oyna ichida n ni bittaga oshiradi va { n, since } qaytaradi. */
+    async hit(key, windowMs) {
+      await init();
+      const now = Date.now();
+      const row = await DB.prepare(
+        "INSERT INTO counters (key, n, since) VALUES (?1, 1, ?2) ON CONFLICT(key) DO UPDATE SET n = CASE WHEN ?2 - since > ?3 THEN 1 ELSE n + 1 END, since = CASE WHEN ?2 - since > ?3 THEN ?2 ELSE since END RETURNING n, since"
+      )
+        .bind(key, now, windowMs)
+        .first();
+      return { n: row.n, since: row.since };
+    },
+    async peekHit(key, windowMs) {
+      await init();
+      const row = await DB.prepare("SELECT n, since FROM counters WHERE key = ?").bind(key).first();
+      return row && Date.now() - row.since <= windowMs ? { n: row.n, since: row.since } : { n: 0, since: Date.now() };
+    },
+    async resetHit(key) {
+      await init();
+      await DB.prepare("DELETE FROM counters WHERE key = ?").bind(key).run();
+    },
     async get(key) {
       await init();
       const row = await DB.prepare("SELECT value FROM kv WHERE key = ?").bind(key).first();

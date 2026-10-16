@@ -100,3 +100,14 @@ npx wrangler dev --port 8788 --var TEACHER_CODE:ustoz-local --var JWT_SECRET:loc
 ```
 
 Agar loyiha Cloudflare **Pages** sifatida yaratilgan bo'lsa, `functions/api/[[path]].js` ulagichi ishlaydi. Bu holda bog'lanishlarni (D1 — `DB`, R2 — `FILES`) va `nodejs_compat` bayrog'ini panelda qo'lda qo'shish kerak.
+
+
+## Xavfsizlik (qisqacha)
+
+- **Test javoblari serverda.** Test savollari brauzerga faqat savol va variantlar bilan keladi; to'g'ri javob kaliti `server/quiz-keys.mjs` da (faqat server). Test serverda baholanadi (`POST /api/quiz/:mavzu`), ball va urinishlarni talaba o'zgartira olmaydi. Testlarni yangilash: `scripts/tests-src/NN.json` ni tahrirlab, `python3 scripts/apply-tests.py` ni ishga tushiring.
+- **O'qituvchi kodi (`TEACHER_CODE`) xavfli.** Kod tarqalsa, istalgan odam o'qituvchi bo'lib, barcha talaba ma'lumotini ko'radi. Tavsiya: Brevo (`BREVO_API_KEY`, `MAIL_FROM`) ni ulab, `TEACHER_CODE` ni **o'chirib qo'ying** (Worker → Settings → Variables and Secrets → o'chirish). O'qituvchilar emaillari `TEACHER_EMAILS` da yoki panelda qo'shiladi.
+- **Cheklovlar.** Kirish: bir email + bir manzil bo'yicha 15 daqiqada 8 ta xato; tasdiqlash kodi: 5 urinish (atomik hisob); o'qituvchi kodi: soatiga 30 ta umumiy xato. Hisoblagichlar D1 `counters` jadvalida.
+- **Sessiya.** Chiqishda (logout) token serverda bekor qilinadi; parol o'zgarganda boshqa qurilmalardagi kirishlar to'xtaydi; himoyalangan fayllar uchun ham 60 soniyada qayta tekshiriladi.
+- **Sarlavhalar.** CSP, HSTS, X-Frame-Options va boshqalar `worker/index.js` va `public/_headers` da (ikkalasini birga yangilang). Yangi tashqi manba (masalan, boshqa video xizmat) qo'shsangiz, CSP ga ham qo'shing.
+- **GitHub repozitoriy Private bo'lsin** (Settings → Danger Zone → Change visibility).
+- **Ma'lum cheklov:** test qayta topshirilganda to'g'ri javoblar ko'rsatiladi, shuning uchun eng yaxshi ball qayta urinishda oshishi mumkin; "o'qildi", "metod bajarildi" kabi belgilarni talaba o'zi belgilaydi (reytingda kichik ulush).
