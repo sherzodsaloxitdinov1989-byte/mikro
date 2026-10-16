@@ -4158,15 +4158,15 @@ export const AUTO = {
     "e": "Patent ixtirochiga mutlaq huquq berib, yuqori narx evaziga yangi kashfiyotlarni rag‘batlantiradi."
    },
    {
-    "q": "Qaysi holatda tarmoq tabiiy monopoliya hisoblanadi?",
+    "q": "Konsentratsiya koeffitsienti CR4 = 80% bo‘lsa, bu nimani bildiradi?",
     "options": [
-     "Firma asosiy resursning ko‘p qismiga egalik qilganda",
-     "Davlat firmaga mutlaq huquq beruvchi litsenziya taqdim etganda",
-     "O‘rtacha xarajatlar butun bozor hajmida kamayib borganda",
-     "Firma reklama orqali brend sodiqligini yuksak darajaga ko‘targanda"
+     "Tarmoqdagi barcha firmalar bozorning 80 foizini bo‘lib olganini",
+     "To‘rtta eng yirik firma bozorning 80 foizini nazorat qilishini",
+     "To‘rtta eng kichik firma bozorning 80 foizini nazorat qilishini",
+     "Tarmoqda jami to‘rtta firma faoliyat yuritib, ularning foydasi 80 foiz ekanini"
     ],
-    "c": 2,
-    "e": "Katta doimiy va kichik chegaraviy xarajatlar tufayli bitta firma butun bozorni arzonroq ta’minlaydi."
+    "c": 1,
+    "e": "CRn — tarmoqdagi eng yirik n ta firmaning bozor ulushlari yig‘indisi."
    },
    {
     "q": "Monopolistda chegaraviy tushum narxdan kichik (MR < P) bo‘lishining sababi nima?",
