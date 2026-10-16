@@ -20,6 +20,7 @@ Imkoniyatlar:
 - tushunchalar kartalari va kunlik takrorlash;
 - interaktiv metodlar va testlar;
 - amaliy mashg'ulotlar va **AI tekshiruv** (10 ballik feedback);
+- **o'qituvchi yaratadigan topshiriqlar** (`#/teacher/tasks`, talabada `#/tasks`): shart, auditoriya (ta'lim shakli/guruh), muddat, ball, AI mezonlari; kod: `server/tasks.mjs`, `public/js/pages/tasks.js`;
 - dolzarb ma'lumotlar;
 - mustaqil ta'lim;
 - mediateka;
