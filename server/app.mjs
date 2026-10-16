@@ -574,13 +574,19 @@ async function quizSubmit(req, topicId) {
   if (!Array.isArray(answers) || answers.length !== topic.quiz.length || answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length)) throw new HttpError(400, "Barcha savollarga javob bering");
   const lim = await bump(`ratelimit/quiz/${user.id}`, 3600_000, 60);
   if (!lim.ok) throw new HttpError(429, "Testni juda tez-tez topshiryapsiz. Birozdan keyin qayta urinib ko'ring.");
-  const results = topic.quiz.map((q, i) => ({ ok: answers[i] === q.correct, correct: q.correct, explain: q.explain || "" }));
-  const correct = results.filter((r) => r.ok).length;
-  const score = Math.round((correct / topic.quiz.length) * 100);
   const key = `progress/${user.id}`;
   const progress = (await db().get(key)) || { topics: {}, plan: [], notes: {} };
   progress.topics ||= {};
   const st = (progress.topics[topic.id] ||= {});
+  // To'g'ri javoblar faqat BIRINCHI urinishdan keyin ko'rsatiladi (o'rganish uchun). Qayta topshirishda faqat to'g'ri/noto'g'ri belgisi beriladi:
+  // talaba javoblarni yodlab olib, ballni oshirib yubormasligi uchun. Serverning o'zi to'g'ri javobni qaytarmaydi.
+  const reveal = !(st.quizAttempts > 0);
+  const results = topic.quiz.map((q, i) => {
+    const ok = answers[i] === q.correct;
+    return reveal ? { ok, correct: q.correct, explain: q.explain || "" } : { ok, explain: ok ? q.explain || "" : "" };
+  });
+  const correct = results.filter((r) => r.ok).length;
+  const score = Math.round((correct / topic.quiz.length) * 100);
   st.quiz = Math.max(st.quiz ?? 0, score);
   st.quizAttempts = (st.quizAttempts || 0) + 1;
   if (!Array.isArray(st.quizFirst)) st.quizFirst = answers;
@@ -588,7 +594,7 @@ async function quizSubmit(req, topicId) {
   st.quizAt = new Date().toISOString();
   progress.updatedAt = st.quizAt;
   await db().set(key, progress);
-  return json({ score, correct, total: topic.quiz.length, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
+  return json({ score, correct, total: topic.quiz.length, reveal, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
 }
 
 /** O'qituvchi uchun: test javob kalitlari (Word jamlanma va boshqalar uchun). */

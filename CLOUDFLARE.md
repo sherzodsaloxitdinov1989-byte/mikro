@@ -111,3 +111,6 @@ Agar loyiha Cloudflare **Pages** sifatida yaratilgan bo'lsa, `functions/api/[[pa
 - **Sarlavhalar.** CSP, HSTS, X-Frame-Options va boshqalar `worker/index.js` va `public/_headers` da (ikkalasini birga yangilang). Yangi tashqi manba (masalan, boshqa video xizmat) qo'shsangiz, CSP ga ham qo'shing.
 - **GitHub repozitoriy Private bo'lsin** (Settings → Danger Zone → Change visibility).
 - **Ma'lum cheklov:** test qayta topshirilganda to'g'ri javoblar ko'rsatiladi, shuning uchun eng yaxshi ball qayta urinishda oshishi mumkin; "o'qildi", "metod bajarildi" kabi belgilarni talaba o'zi belgilaydi (reytingda kichik ulush).
+
+- **Kirish sahifalari ajratilgan.** Talabalar `#/login` va `#/register` da faqat talaba panelini ko'radi. O'qituvchilar uchun alohida (hech qayerda havola qilinmagan) manzillar: `#/ustoz` (kirish), `#/ustoz/register` (ro'yxatdan o'tish), `#/ustoz/forgot` (parolni tiklash). Masalan: `https://<sayt>/#/ustoz`.
+- **Test qayta topshirilganda** to'g'ri javoblar ko'rsatilmaydi (server qaytarmaydi), faqat to'g'ri/noto'g'ri belgisi beriladi; to'g'ri javoblar birinchi urinishdan keyin ko'rinadi.

@@ -14,16 +14,18 @@ function field(label, attrs) {
   return h("label", { class: "field" }, h("span", {}, label), h("input", attrs));
 }
 
-export function renderLogin(el) {
+/** Talaba kirishi (asosiy sahifa): faqat talaba paneli ko'rinadi. O'qituvchilar alohida sahifadan kiradi (#/ustoz). */
+export const renderLogin = (el) => loginPage(el, false);
+export const renderTeacherLogin = (el) => loginPage(el, true);
+
+function loginPage(el, teacher) {
   if (session.user) return afterLogin();
   const err = h("div");
-  let role = "student";
+  const role = teacher ? "teacher" : "student";
   const ROLES = { student: ["🎓", "Talaba", "Talaba sifatida kirish", "Mavzular, topshiriq, testlar va natijalaringiz."], teacher: ["👩‍🏫", "O'qituvchi", "O'qituvchi sifatida kirish", "Baholash, talabalar va o'qituvchi paneli."] };
   const title = h("h1", {});
   const hint = h("p", { class: "muted" });
-  const tabs = h("div", { class: "segmented role-switch" }, Object.entries(ROLES).map(([r, [icon, label]]) => h("label", { class: `seg ${r === role ? "active" : ""}` }, h("input", { type: "radio", name: "loginRole", value: r, checked: r === role, onchange: () => { role = r; paint(); } }), `${icon} ${label}`)));
   const paint = () => {
-    tabs.querySelectorAll(".seg").forEach((s) => s.classList.toggle("active", s.querySelector("input").value === role));
     title.textContent = ROLES[role][2];
     hint.textContent = ROLES[role][3] + " Email va parolingizni kiriting.";
     err.replaceChildren();
@@ -39,8 +41,9 @@ export function renderLogin(el) {
       try {
         const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password") });
         if (res.user.role !== role) {
-          const actual = ROLES[res.user.role][1];
-          err.replaceChildren(h("div", { class: "alert alert-error" }, `Bu profil «${actual}» profili. Yuqoridagi «${ROLES[res.user.role][0]} ${actual}» tugmasini tanlab, qayta kiring.`));
+          // Noto'g'ri sahifa: sessiya ochilmaydi (token darhol bekor qilinadi)
+          fetch("/api/auth/logout", { method: "POST", headers: { authorization: `Bearer ${res.token}` } }).catch(() => {});
+          err.replaceChildren(h("div", { class: "alert alert-error" }, res.user.role === "teacher" ? h("span", {}, "Bu o'qituvchi profili. O'qituvchilar uchun kirish sahifasi: ", h("a", { href: "#/ustoz" }, "O'qituvchi kirishi")) : "Bu talaba profili. Talaba kirishi sahifasidan kiring."));
           return;
         }
         session.set(res.token, res.user);
@@ -52,29 +55,34 @@ export function renderLogin(el) {
         btn.disabled = false;
       }
     } },
-    tabs,
     title,
     hint,
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("Parol", { name: "password", type: "password", required: true, autocomplete: "current-password" }),
-    h("p", { class: "small", style: { margin: "-6px 0 0", textAlign: "right" } }, h("a", { href: "#/forgot" }, "Parolni unutdingizmi?")),
+    h("p", { class: "small", style: { margin: "-6px 0 0", textAlign: "right" } }, h("a", { href: teacher ? "#/ustoz/forgot" : "#/forgot" }, "Parolni unutdingizmi?")),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
-    h("p", { class: "center muted" }, "Profilingiz yo'qmi? ", h("a", { href: "#/register" }, "Ro'yxatdan o'ting"))
+    h("p", { class: "center muted" }, "Profilingiz yo'qmi? ", h("a", { href: teacher ? "#/ustoz/register" : "#/register" }, "Ro'yxatdan o'ting")),
+    teacher && h("p", { class: "center muted small" }, h("a", { href: "#/login" }, "← Talaba kirishi"))
   );
   paint();
   mount(el, h("div", { class: "auth-wrap" }, form));
 }
 
 /** Parolni tiklash: email → pochtaga kelgan 6 xonali kod → yangi parol. Talaba ham, o'qituvchi ham shu yo'ldan foydalanadi. */
-export async function renderForgot(el) {
+export const renderForgot = (el) => forgotPage(el, false);
+export const renderTeacherForgot = (el) => forgotPage(el, true);
+
+async function forgotPage(el, teacher) {
   if (session.user) return afterLogin();
   let config = {};
   try {
     config = await api.get("config");
   } catch {}
   const legacy = new URLSearchParams(location.hash.split("?")[1] || "").get("legacy");
-  if (!config.mailEnabled || legacy) return renderForgotLegacy(el, config);
+  // Talabalar sahifasida o'qituvchi kodi va o'qituvchi bo'limlari ko'rsatilmaydi
+  if (!teacher && !config.mailEnabled) return renderForgotStudentNoMail(el);
+  if (teacher && (!config.mailEnabled || legacy)) return renderForgotLegacy(el, config);
 
   const err = h("div");
   const card = h("div", { class: "card auth-card" });
@@ -105,10 +113,10 @@ export async function renderForgot(el) {
       h("button", { class: "btn block lg", type: "submit" }, "Tasdiqlash kodini yuborish"));
     card.replaceChildren(
       h("h1", {}, "Parolni tiklash"),
-      h("p", { class: "muted" }, "Talaba va o'qituvchi uchun bir xil: ro'yxatdan o'tgan emailingizni kiriting, pochtangizga 6 xonali tasdiqlash kodi yuboramiz. Eski parol kerak emas."),
+      h("p", { class: "muted" }, "Ro'yxatdan o'tgan emailingizni kiriting, pochtangizga 6 xonali tasdiqlash kodi yuboramiz. Eski parol kerak emas."),
       form,
-      config.teacherByCode && h("p", { class: "center small" }, "Xat kelmayaptimi? ", h("a", { href: "#/forgot?legacy=1" }, "O'qituvchi kodi bilan tiklash")),
-      h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish")));
+      teacher && config.teacherByCode && h("p", { class: "center small" }, "Xat kelmayaptimi? ", h("a", { href: "#/ustoz/forgot?legacy=1" }, "O'qituvchi kodi bilan tiklash")),
+      h("p", { class: "center muted" }, h("a", { href: teacher ? "#/ustoz" : "#/login" }, "← Kirish sahifasiga qaytish")));
   }
 
   function stepCode(resendAfter, minutes) {
@@ -176,6 +184,17 @@ export async function renderForgot(el) {
   mount(el, h("div", { class: "auth-wrap" }, card));
 }
 
+function renderForgotStudentNoMail(el) {
+  mount(
+    el,
+    h("div", { class: "auth-wrap" },
+      h("div", { class: "card auth-card" },
+        h("h1", {}, "Parolni tiklash"),
+        h("div", { class: "alert alert-info" }, h("b", {}, "🎓 Parolni unutdingizmi? "), "O'qituvchingizga murojaat qiling — u sizga vaqtinchalik parol beradi. Kirgach, uni Profil sahifasida o'zgartiring."),
+        h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish"))))
+  );
+}
+
 function renderForgotLegacy(el, config = {}) {
   const err = h("div");
   const form = h(
@@ -225,7 +244,7 @@ function renderForgotLegacy(el, config = {}) {
         !config.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta orqali tiklash hali ulanmagan (administrator BREVO_API_KEY va MAIL_FROM ni sozlashi kerak). Hozircha quyidagi usul ishlaydi."),
         h("h3", {}, "👩‍🏫 O'qituvchi uchun"),
         form,
-        h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish"))))
+        h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish sahifasiga qaytish"))))
   );
 }
 
@@ -308,15 +327,22 @@ function studentBlock(config) {
   return h("div", { class: "stack" }, h("div", {}, h("span", { class: "small" }, h("b", {}, "Ta'lim shakli")), tabs, note), h("label", { class: "field" }, h("span", {}, "Guruh"), select));
 }
 
-export async function renderRegister(el) {
+export const renderRegister = (el) => registerPage(el, false);
+export const renderTeacherRegister = (el) => registerPage(el, true);
+
+async function registerPage(el, teacher) {
   if (session.user) return afterLogin();
   let config = { teacherSignup: false };
   try {
     config = await api.get("config");
   } catch {}
   const err = h("div");
-  const teacherFields = teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase());
-  const studentFields = studentBlock(config);
+  if (teacher && !config.teacherSignup) {
+    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, h("h1", {}, "O'qituvchi ro'yxatdan o'tishi"), h("div", { class: "alert alert-warn" }, "O'qituvchi sifatida ro'yxatdan o'tish hozir yopiq. Mavjud o'qituvchi sizni panelning «O'qituvchilar» bo'limida qo'shishi kerak."), h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish")))));
+  }
+  const teacherFields = teacher ? teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase()) : null;
+  const studentFields = teacher ? null : studentBlock(config);
+  if (teacherFields) teacherFields.classList.remove("hidden");
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {
@@ -340,19 +366,8 @@ export async function renderRegister(el) {
         btn.disabled = false;
       }
     } },
-    h("h1", {}, "Ro'yxatdan o'tish"),
-    config.teacherSignup &&
-      h(
-        "div",
-        { class: "segmented role-switch" },
-        ["student", "teacher"].map((r, i) =>
-          h("label", { class: `seg ${i === 0 ? "active" : ""}` }, h("input", { type: "radio", name: "role", value: r, checked: i === 0, onchange: (e) => {
-            form.querySelectorAll(".role-switch .seg").forEach((s) => s.classList.toggle("active", s.contains(e.target)));
-            teacherFields.classList.toggle("hidden", r !== "teacher");
-            studentFields.classList.toggle("hidden", r === "teacher");
-          } }), r === "student" ? "🎓 Talaba" : "👩‍🏫 O'qituvchi")
-        )
-      ),
+    h("h1", {}, teacher ? "O'qituvchi sifatida ro'yxatdan o'tish" : "Talaba sifatida ro'yxatdan o'tish"),
+    h("input", { type: "hidden", name: "role", value: teacher ? "teacher" : "student" }),
     field("Ism-familiya", { name: "name", required: true, maxlength: 120, autocomplete: "name" }),
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("Ta'lim muassasasi", { name: "college", placeholder: "Masalan: O'zMU Jizzax filiali", maxlength: 160, list: "college-list", autocomplete: "off" }),
@@ -363,7 +378,7 @@ export async function renderRegister(el) {
     h("p", { class: "muted small" }, "Ro'yxatdan o'tish orqali o'quv natijalaringiz (test, amaliy mashg'ulot, AI tekshiruvlari) o'qituvchingizga ko'rinishiga rozilik bildirasiz. Javoblaringiz AI tekshiruvi uchun sun'iy intellekt xizmatiga yuboriladi."),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Profil yaratish"),
-    h("p", { class: "center muted" }, "Profilingiz bormi? ", h("a", { href: "#/login" }, "Kirish"))
+    h("p", { class: "center muted" }, "Profilingiz bormi? ", h("a", { href: teacher ? "#/ustoz" : "#/login" }, "Kirish"))
   );
   mount(el, h("div", { class: "auth-wrap" }, form));
 }

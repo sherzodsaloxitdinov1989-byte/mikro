@@ -356,7 +356,7 @@ function quizTab(topic) {
       if (!r.ok) setTimeout(() => shake(qs[i]), i * 60);
       const ex = qs[i].querySelector(".quiz-explain");
       ex.classList.remove("hidden");
-      ex.textContent = (r.ok ? "✓ To'g'ri." : `✗ To'g'ri javob: ${topic.quiz[i].options[r.correct]}.`) + (r.explain ? ` ${r.explain}` : "");
+      ex.textContent = (r.ok ? "✓ To'g'ri." : r.correct === undefined ? "✗ Noto'g'ri. Nazariy qismni qayta o'qib, yana urinib ko'ring." : `✗ To'g'ri javob: ${topic.quiz[i].options[r.correct]}.`) + (r.explain ? ` ${r.explain}` : "");
       qs[i].querySelectorAll("input").forEach((inp) => (inp.disabled = true));
     });
     updateTopic(topic.id, (s) => Object.assign(s, res.state));
@@ -381,6 +381,7 @@ function quizTab(topic) {
     ...[
       st.quiz != null && h("div", { class: "alert alert-info" }, `Eng yaxshi natijangiz: ${st.quiz}% (urinishlar: ${st.quizAttempts || 1}). O'tish balli — 60%.`),
       h("p", { class: "muted small" }, "Test savollari mavzu matni va dolzarb ma'lumotlar asosida tuzilgan. Variantlar tartibi har safar aralashtiriladi."),
+      st.quizAttempts > 0 && h("div", { class: "alert alert-warn small" }, "Qayta topshirishda to'g'ri javoblar ko'rsatilmaydi — faqat qaysi javob to'g'ri yoki noto'g'ri ekani belgilanadi. Avval nazariy qismni qayta o'qing."),
       ...qs,
       submit,
       result,

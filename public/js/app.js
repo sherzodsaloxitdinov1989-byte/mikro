@@ -32,6 +32,9 @@ import { initSecureMode, setRouteSecure } from "./secure.js";
 const routes = [
   [/^\/?$/, home.render],
   [/^\/login$/, auth.renderLogin],
+  [/^\/ustoz$/, auth.renderTeacherLogin],
+  [/^\/ustoz\/register$/, auth.renderTeacherRegister],
+  [/^\/ustoz\/forgot$/, auth.renderTeacherForgot],
   [/^\/register$/, auth.renderRegister],
   [/^\/forgot$/, auth.renderForgot],
   [/^\/topics$/, topics.renderList],
@@ -114,10 +117,10 @@ async function route() {
   // Test va topshiriq sahifalarida ekran surati himoyasi
   setRouteSecure(/^\/(assignment|tasks|practice\/|live\/play\/)/.test(path));
   // Darslik materiallari faqat tizimga kirgan foydalanuvchiga ko'rsatiladi
-  const PUBLIC = /^\/(login|register|forgot|qr)?$|^\/cert\/|^\/live(\/|$)/;
+  const PUBLIC = /^\/(login|register|forgot|ustoz|ustoz\/register|ustoz\/forgot|qr)?$|^\/cert\/|^\/live(\/|$)/;
   if (!session.user && !PUBLIC.test(path)) {
     sessionStorage.setItem("tt.after-login", location.hash);
-    location.hash = "#/login";
+    location.hash = /^\/(teacher|live\/host)/.test(path) ? "#/ustoz" : "#/login";
     return;
   }
   for (const [pattern, fn, opts = {}] of routes) {
@@ -125,7 +128,7 @@ async function route() {
     if (!m) continue;
     if ((opts.auth || opts.teacher) && !session.user) {
       sessionStorage.setItem("tt.after-login", location.hash);
-      location.hash = "#/login";
+      location.hash = opts.teacher ? "#/ustoz" : "#/login";
       return;
     }
     if (opts.student && session.user.role === "teacher") {

@@ -57,8 +57,9 @@ async function request(method, path, data, { raw = false } = {}) {
   if (session.token) headers.authorization = `Bearer ${session.token}`;
   const res = await fetch(`/api/${path}`, { method, headers, body: data === undefined ? undefined : binary ? data : JSON.stringify(data) });
   if (res.status === 401 && session.token && !path.startsWith("auth/")) {
+    const wasTeacher = session.user?.role === "teacher";
     session.clear();
-    location.hash = "#/login";
+    location.hash = wasTeacher ? "#/ustoz" : "#/login";
   }
   if (!res.ok) {
     let message = `Xatolik (${res.status})`;
