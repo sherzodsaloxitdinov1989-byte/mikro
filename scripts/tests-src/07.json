@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Iqtisodiy nazariyada qisqa muddat qanday davr hisoblanadi?",
+  "options": [
+   "Bir kalendar yildan oshmaydigan har qanday davr",
+   "Kamida bitta ishlab chiqarish omili doimiy bo‘lgan davr",
+   "Barcha ishlab chiqarish omillari o‘zgaruvchan bo‘lgan davr",
+   "Firma ishlab chiqarish hajmini o‘zgartira olmaydigan davr"
+  ],
+  "c": 1,
+  "e": "Qisqa va uzoq muddat kalendar vaqt bilan emas, omillarni o‘zgartirish imkoniyati bilan belgilanadi."
+ },
+ {
+  "q": "Texnologiya nima?",
+  "options": [
+   "Firma sotib olgan uskunalar va binolarning umumiy bozor qiymati",
+   "Tayyor mahsulotni xaridorga yetkazib berish usullari va yo‘llari",
+   "Ishlab chiqarishga sarflangan barcha pul xarajatlarining yig‘indisi",
+   "Resurslarni mahsulotga aylantirish usullari va jarayonlari majmui"
+  ],
+  "c": 3,
+  "e": "Texnologiya resurslarni tovar va xizmatlarga aylantirishning usullari, bilimlari va jarayonlari majmuidir."
+ },
+ {
+  "q": "Ishlab chiqarish funksiyasi nimani ifodalaydi?",
+  "options": [
+   "Berilgan texnologiyada omillar miqdori va maksimal mahsulot o‘rtasidagi bog‘liqlikni",
+   "Mahsulot hajmi bilan uni ishlab chiqarishga ketgan xarajatlar o‘rtasidagi bog‘liqlikni",
+   "Mahsulot narxi bilan firma taklif qiladigan miqdor o‘rtasidagi bog‘liqlikni",
+   "Omillar narxi bilan firma yollaydigan omillar miqdori o‘rtasidagi bog‘liqlikni"
+  ],
+  "c": 0,
+  "e": "Q = f(L, K) berilgan texnologiyada omillar miqdori va olinishi mumkin bo‘lgan maksimal mahsulot o‘rtasidagi bog‘liqlikdir."
+ },
+ {
+  "q": "Mehnatning chegaraviy mahsuloti (MPL) nimani bildiradi?",
+  "options": [
+   "Yalpi mahsulotning ishlatilgan mehnatning umumiy miqdoriga nisbatini",
+   "Barcha ishchilar bir ish kunida ishlab chiqargan jami mahsulot hajmini",
+   "Mehnat bir birlikka ko‘payganda yalpi mahsulot qancha oshishini",
+   "Qo‘shimcha ishchi yollash va o‘qitish uchun sarflangan xarajatni"
+  ],
+  "c": 2,
+  "e": "MPL = ΔTP/ΔL, ya’ni qo‘shimcha bir birlik mehnat beradigan qo‘shimcha mahsulot."
+ },
+ {
+  "q": "Izokvanta qanday chiziq?",
+  "options": [
+   "Bir xil umumiy xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+   "Bir xil foyda keltiruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+   "Bir xil mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+   "Bir xil naflilikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
+  ],
+  "c": 2,
+  "e": "Izokvanta teng mahsulot hajmini ishlab chiqarish imkonini beruvchi barcha omil kombinatsiyalarini ifodalaydi."
+ },
+ {
+  "q": "Izokosta nimani ko‘rsatadi?",
+  "options": [
+   "Berilgan xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini",
+   "Berilgan mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini",
+   "Firma erisha oladigan eng yuqori mahsulot hajmini turli omillar bo‘yicha",
+   "Mehnat va kapital narxlarining vaqt davomida o‘zgarishini va dinamikasini"
+  ],
+  "c": 0,
+  "e": "Izokosta (teng xarajatlar chizig‘i) TC = wL + rK tenglamasi bilan berilgan xarajatga sotib olish mumkin bo‘lgan kombinatsiyalarni beradi."
+ },
+ {
+  "q": "Kengayish yo‘li nima?",
+  "options": [
+   "Mahsulot narxi oshgan sari yalpi tushum nuqtalarini birlashtiruvchi egri chiziq",
+   "Izokvantalarning barcha burilish nuqtalarini tutashtiruvchi chiziq",
+   "Ish haqi o‘zgarganda hosil bo‘ladigan izokosta kesishish nuqtalarini tutashtiruvchi chiziq",
+   "Xarajat oshgan sari ishlab chiqaruvchi muvozanati nuqtalarini tutashtiruvchi chiziq"
+  ],
+  "c": 3,
+  "e": "Kengayish yo‘li firma ishlab chiqarishni kengaytirganda omillarni qanday nisbatda ko‘paytirishini ko‘rsatadi."
+ },
+ {
+  "q": "Q = min(L/a, K/b) ko‘rinishidagi ishlab chiqarish funksiyasining izokvantasi qanday shaklda bo‘ladi?",
+  "options": [
+   "To‘g‘ri chiziq shaklida",
+   "L-shaklida",
+   "Koordinatalar boshiga nisbatan qavariq egri chiziq shaklida",
+   "Koordinatalar boshiga nisbatan botiq egri chiziq shaklida"
+  ],
+  "c": 1,
+  "e": "Leontyev funksiyasida omillar faqat qat’iy nisbatda ishlatiladi, shuning uchun izokvanta L-shaklida bo‘ladi."
+ },
+ {
+  "q": "Mehnatning chegaraviy mahsuloti nolga teng bo‘lgan nuqtada yalpi mahsulot qanday bo‘ladi?",
+  "options": [
+   "Maksimal darajaga yetadi",
+   "Nolga teng bo‘ladi",
+   "Minimal darajaga tushadi",
+   "Hali o‘sishda davom etadi"
+  ],
+  "c": 0,
+  "e": "MP > 0 bo‘lganda TP o‘sadi, MP = 0 da TP maksimal, MP < 0 da TP kamayadi."
+ },
+ {
+  "q": "Chegaraviy mahsulot o‘rtacha mahsulotdan katta bo‘lganda o‘rtacha mahsulot qanday o‘zgaradi?",
+  "options": [
+   "Kamayadi",
+   "O‘zgarmay qoladi",
+   "O‘sadi",
+   "Avval kamayib, keyin maksimumga yetadi"
+  ],
+  "c": 2,
+  "e": "MP > AP bo‘lsa, AP o‘sadi: o‘rtachadan yuqori baholi talaba qo‘shilsa guruh o‘rtacha bahosi oshganidek."
+ },
+ {
+  "q": "Oqil firma qisqa muddatli ishlab chiqarishning qaysi bosqichida ishlaydi?",
+  "options": [
+   "Noldan AP maksimumigacha davom etadigan birinchi bosqichda",
+   "AP maksimumidan TP maksimumigacha bo‘lgan II bosqichda",
+   "TP maksimumidan keyin boshlanadigan uchinchi bosqichda",
+   "MP maksimal bo‘lgan nuqtagacha bo‘lgan qismda"
+  ],
+  "c": 1,
+  "e": "I bosqichda mehnatni ko‘paytirish foydali, III bosqichda MP < 0; oqil firma II bosqichda ishlaydi."
+ },
+ {
+  "q": "Izokvantalar koordinatalar boshiga nisbatan nima uchun qavariq bo‘ladi?",
+  "options": [
+   "Omillar narxlari nisbati izokvanta bo‘ylab o‘zgarmay doimiy qoladi",
+   "Mahsulot hajmi izokvanta bo‘ylab harakatlanganda asta-sekin oshib boradi",
+   "Mehnat va kapital bir-birining mukammal o‘rinbosari hisoblanadi",
+   "Mehnat ko‘paygan sari chegaraviy almashtirish normasi kamayadi"
+  ],
+  "c": 3,
+  "e": "MRTS ning kamayishi chegaraviy mahsuldorlikning kamayish qonunining natijasi bo‘lib, izokvantani qavariq qiladi."
+ },
+ {
+  "q": "Izokvanta iste’molchi nazariyasidagi befarqlik egri chizig‘idan nimasi bilan farq qiladi?",
+  "options": [
+   "Izokvantalar o‘zaro kesishishi mumkin, befarqlik egri chiziqlari esa kesishmaydi",
+   "Izokvanta yuqoriga og‘ma, befarqlik egri chizig‘i esa pastga og‘ma bo‘ladi",
+   "Izokvanta koordinatalar boshiga botiq, befarqlik egri chizig‘i esa qavariq bo‘ladi",
+   "Izokvanta mahsulot miqdorini aniq ko‘rsatadi, befarqlik chizig‘i esa tartibni"
+  ],
+  "c": 3,
+  "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, naflilikni esa faqat tartiblash mumkin."
+ },
+ {
+  "q": "Kobb-Duglas funksiyasi Q = ALαKβ da α koeffitsiyenti nimani bildiradi?",
+  "options": [
+   "Mehnat 1 foizga oshganda mahsulot necha foizga oshishini",
+   "Mehnatning bir birligi uchun to‘lanadigan narxni",
+   "Kapitalning mahsulot bo‘yicha elastikligini ifodalovchi ko‘rsatkichni",
+   "Mehnat va kapitalning o‘zaro almashinish chegaraviy normasini"
+  ],
+  "c": 0,
+  "e": "α va β mahsulotning mehnat va kapital bo‘yicha elastikliklari: mehnat 1 foizga oshsa, mahsulot α foizga oshadi."
+ },
+ {
+  "q": "Firmada MPL/w > MPK/r. Xarajatni oshirmasdan mahsulotni ko‘paytirish uchun firma nima qilishi kerak?",
+  "options": [
+   "Kapitalni ko‘paytirib, mehnatni kamaytirishi",
+   "Ikkala omilni bir xil miqdorda kamaytirishi",
+   "Mehnatni oshirib, kapitalni kamaytirishi",
+   "Omillar nisbatini o‘zgartirmay saqlashi"
+  ],
+  "c": 2,
+  "e": "Mehnatga sarflangan oxirgi so‘m ko‘proq mahsulot beradi, shuning uchun kapital mehnat bilan almashtiriladi."
+ },
+ {
+  "q": "Nima uchun AQSH va Germaniya kabi ish haqi yuqori mamlakatlarda firmalar ko‘pincha avtomatlashtirilgan liniyalarni tanlaydi?",
+  "options": [
+   "Kapital narxi ish haqiga nisbatan ancha yuqori bo‘lgani uchun",
+   "Mehnat qimmat bo‘lgani uchun kapital ko‘proq ishlatiladigan nuqta tanlanadi",
+   "Kapitalning chegaraviy mahsuloti u yerda nolga tenglashib qolgani uchun",
+   "Mehnat va kapital u yerda qat’iy nisbatda ishlatilishi shart bo‘lgani uchun"
+  ],
+  "c": 1,
+  "e": "Ish haqi oshganda izokosta tikroq bo‘ladi va urinish nuqtasi kapital ko‘proq, mehnat kamroq bo‘lgan tomonga siljiydi."
+ },
+ {
+  "q": "Pechene fabrikasida ishchilar soni oshgani sari har bir qo‘shimcha ishchi kamroq qo‘shimcha mahsulot beradi. Buning asosiy sababi nima?",
+  "options": [
+   "Oshxona hajmi cheklangan, ishchilar bir-biriga xalaqit bera boshlaydi",
+   "Yangi yollangan ishchilarning malakasi har safar oldingisidan pastroq bo‘lishi",
+   "Texnologiyaning ishchilar soni oshgani sari yomonlashib borishi",
+   "Ish haqining oshishi tufayli ishchilarning kamroq mehnat qilishi"
+  ],
+  "c": 0,
+  "e": "Bu chegaraviy mahsuldorlikning kamayish qonuni: o‘zgaruvchan omilning har bir birligiga doimiy omilning kichikroq qismi to‘g‘ri keladi."
+ },
+ {
+  "q": "Ish haqi stavkasi (w) oshganda, kapital narxi va umumiy xarajat o‘zgarmasa, izokosta qanday o‘zgaradi?",
+  "options": [
+   "Tikroq bo‘ladi, L o‘qidagi kesishish nuqtasi o‘ngga siljiydi",
+   "Yotiqroq bo‘ladi, K o‘qidagi kesishish nuqtasi yuqoriga siljiydi",
+   "O‘ziga parallel holda tashqariga siljiydi",
+   "Tikroq bo‘ladi, L o‘qidagi kesishish nuqtasi chapga siljiydi"
+  ],
+  "c": 3,
+  "e": "Izokosta qiyaligi w/r ortadi; omillardan biri narxi o‘zgarsa izokosta buriladi, parallel siljish esa xarajat o‘zgarganda bo‘ladi."
+ },
+ {
+  "q": "Pechene fabrikasida 3 ishchi soatiga 120 ta, 4 ishchi esa 140 ta pechene tayyorlaydi. To‘rtinchi ishchining chegaraviy mahsuloti nechaga teng?",
+  "options": [
+   "35 ta pechene",
+   "40 ta pechene",
+   "20 ta pechene",
+   "140 ta pechene"
+  ],
+  "c": 2,
+  "e": "MP = ΔTP/ΔL = (140 – 120)/1 = 20; 35 – to‘rt ishchining o‘rtacha mahsuloti (140/4)."
+ },
+ {
+  "q": "Q = 10L0,5K0,5 funksiyali firmada w = 20, r = 40 (ming so‘m) va umumiy xarajat 480 ming so‘m. Xarajatni minimallashtiruvchi (mahsulotni maksimallashtiruvchi) omillar kombinatsiyasi qaysi?",
+  "options": [
+   "L = 6, K = 12",
+   "L = 12, K = 6",
+   "L = 8, K = 8",
+   "L = 4,8; K = 9,6"
+  ],
+  "c": 1,
+  "e": "Shart MRTS = K/L = w/r = 0,5 ⇒ K = 0,5L; 20L + 40·0,5L = 480 ⇒ L = 12, K = 6."
+ }
+]

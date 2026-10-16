@@ -150,304 +150,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Iqtisodiyot fani asosan nimani o‘rganadi?",
+    "q": "Mankyu ta’rifiga ko‘ra, iqtisodiyot qanday fan?",
     "options": [
-     "Faqat firmalar buxgalteriyasini",
-     "Jamiyat cheklangan resurslarini qanday boshqarishini",
-     "Faqat davlat byudjetini",
-     "Faqat pul muomalasini"
+     "Jamiyatda pul muomalasi va banklar faoliyatini tartibga solish qoidalarini o‘rganuvchi fan",
+     "Davlat byudjetining daromadlari va xarajatlarini rejalashtirish usullarini o‘rganuvchi fan",
+     "Jamiyat o‘zining cheklangan resurslarini qanday boshqarishini o‘rganuvchi fan",
+     "Ishlab chiqarilgan tovarlarni xalqaro bozorlarda sotish yo‘llarini o‘rganuvchi fan"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Mankyu iqtisodiyotni jamiyat cheklangan resurslarini qanday boshqarishini o‘rganuvchi fan deb ta’riflaydi."
    },
    {
-    "q": "Mikroiqtisodiyot o‘rganadi:",
+    "q": "Muqobil xarajat nimani anglatadi?",
     "options": [
-     "Davlat qarzini",
-     "Valyuta kursini",
-     "Inflyatsiya va ishsizlikni",
-     "Alohida uy xo‘jaliklari, firmalar va bozorlarni"
+     "Tanlangan variant uchun voz kechilgan eng yaxshi muqobil variantning qiymatini",
+     "Tanlangan variant uchun sarflangan pul summasining barcha qismlari yig‘indisini, xarajatlar bilan birga",
+     "Voz kechilgan barcha muqobil variantlar qiymatlarining umumiy yig‘indisini",
+     "Tanlangan variantni amalga oshirishga ketgan vaqt va mehnat sarfini"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Muqobil xarajat faqat voz kechilgan eng yaxshi variantning qiymati bilan o‘lchanadi."
    },
    {
-    "q": "Muqobil xarajat – bu:",
+    "q": "Iqtisodiy tahlilda «ceteris paribus» (boshqa sharoitlar o‘zgarmagan) farazi nimani bildiradi?",
     "options": [
-     "Barcha muqobil variantlar yig‘indisi",
-     "O‘rtacha xarajat",
-     "Buxgalteriya xarajatlari",
-     "Voz kechilgan eng yaxshi muqobil variantning qiymati"
+     "Barcha omillarning bir vaqtda va bir xil sur’atda o‘zgarishini qabul qilishni",
+     "Ikkinchi darajali omillarni tahlildan chiqarib, hisoblash ishlarini soddalashtirishni",
+     "Faktlardan umumiy xulosaga o‘tib, nazariyani tajribada tekshirib ko‘rishni",
+     "Bir omil ta’sirini o‘rganishda qolgan omillarni o‘zgarmas deb qabul qilishni"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Ceteris paribus farazida tahlil qilinayotgan omildan boshqa barcha omillar o‘zgarmas deb olinadi."
    },
    {
-    "q": "«Oqil odamlar chegaraviy fikrlaydi» degani:",
+    "q": "Quyidagi savollardan qaysi biri mikroiqtisodiyot o‘rganadigan masalaga tegishli?",
     "options": [
-     "Doimo eng arzon tovarni tanlaydi",
-     "Qo‘shimcha harakatning chegaraviy foyda va xarajatini taqqoslaydi",
-     "Hech qachon tavakkal qilmaydi",
-     "Ular faqat o‘rtacha qiymatlarni taqqoslaydi"
+     "Mamlakat YaIMining kelgusi yildagi o‘sish sur’ati qanday bo‘ladi",
+     "Minimal ish haqining oshirilishi yoshlar bandligiga qanday ta’sir qiladi",
+     "Umumiy ishsizlik darajasini davlat siyosati yordamida qanday pasaytirish mumkin",
+     "Milliy valyuta kursi yil davomida qanday o‘zgarishi mumkin"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Alohida bozordagi narx yoki ish haqining ta’siri mikro, YaIM, umumiy ishsizlik va valyuta kursi esa makro masalalardir."
    },
    {
-    "q": "Mankyuning 4-tamoyili:",
+    "q": "Ishlab chiqarish imkoniyatlari chizig‘i (ICHE) nimani ko‘rsatadi?",
     "options": [
-     "Savdo hammani yutqazadi",
-     "Bozorlar har doim muvaffaqiyatsiz",
-     "Odamlar rag‘batlarga javob beradi",
-     "Hukumat har doim samarali"
+     "Tovar narxi bilan uni sotib olishga tayyor xaridorlar soni o‘rtasidagi bog‘liqlikni",
+     "Iste’molchi o‘z daromadiga sotib olishi mumkin bo‘lgan tovar to‘plamlarini",
+     "Ishlab chiqarish hajmi ortishi bilan o‘rtacha xarajatlarning o‘zgarishini",
+     "Mavjud omillar va texnologiya bilan ishlab chiqarish mumkin bo‘lgan mahsulot kombinatsiyalarini"
     ],
-    "c": 2
+    "c": 3,
+    "e": "ICHE iqtisodiyot mavjud resurslar va texnologiya bilan ishlab chiqara oladigan tovar kombinatsiyalarining grafigidir."
    },
    {
-    "q": "«Ko‘rinmas qo‘l» g‘oyasi muallifi:",
+    "q": "Qaysi holatda ishlab chiqaruvchi mutlaq ustunlikka ega bo‘ladi?",
     "options": [
-     "A. Smit",
-     "K. Marks",
-     "A. Marshall",
-     "J.M. Keyns"
+     "Tovarni boshqalarga qaraganda kamroq resurs sarflab ishlab chiqara olsa",
+     "Tovarni boshqalarga qaraganda pastroq muqobil xarajat bilan ishlab chiqara olsa",
+     "Tovarni boshqalarga qaraganda yuqoriroq narxda sota olsa",
+     "Tovarni boshqalarga qaraganda ko‘proq xaridorga yetkaza olsa"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Mutlaq ustunlik kamroq resurs sarfi bilan, nisbiy ustunlik esa past muqobil xarajat bilan belgilanadi."
    },
    {
-    "q": "Normativ tasdiq:",
+    "q": "«Laissez-faire» tamoyiliga ko‘ra davlat iqtisodiyotda qanday rol o‘ynaydi?",
     "options": [
-     "Narx oshsa, talab miqdori kamayadi",
-     "Minimal ish haqi oshirilishi kerak",
-     "2025-yilda kambag‘allik 5,8% ga tushdi",
-     "Import bojlari kamaysa, narxlar pasayadi"
+     "Barcha asosiy qarorlarni markaziy reja asosida o‘zi qabul qiladi",
+     "Narxlar va ish haqini ma’muriy yo‘l bilan doimiy ravishda belgilaydi",
+     "Minimal aralashadi: mulk huquqi, shartnomalar va mudofaani ta’minlaydi",
+     "Asosiy ishlab chiqarish vositalarini o‘z mulkiga aylantirib boshqaradi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Laissez-faire davlat aralashuvini mulk huquqi, shartnomalar va mudofaani ta’minlash bilan cheklaydi."
    },
    {
-    "q": "«Ceteris paribus» degani:",
+    "q": "Aylanma oqim modelida uy xo‘jaliklari ishlab chiqarish omillari bozorida qanday ishtirok etadi?",
     "options": [
-     "Chegaraviy tahlil",
-     "Pozitiv tahlil",
-     "Boshqa sharoitlar o‘zgarmagan holda",
-     "Barcha omillar o‘zgaradi"
+     "Mehnat, yer va kapital resurslarining xaridori sifatida, firmalar esa ularning sotuvchisi bo‘ladi",
+     "Mehnat, yer va kapital resurslari sotuvchisi sifatida, firmalar esa xaridor bo‘ladi",
+     "Tayyor tovar va xizmatlarning sotuvchisi sifatida, firmalar esa xaridor bo‘ladi",
+     "Jamg‘armalarni to‘plovchi sifatida, firmalar bilan resurslar bozorida aloqa qilmaydi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Omillar bozorida uy xo‘jaliklari resurs sotib daromad oladi, firmalar esa resurslarni sotib oladi."
    },
    {
-    "q": "Kapital resursidan olinadigan daromad:",
+    "q": "Nima uchun ICHE koordinatalar boshiga nisbatan botiq (tashqariga bo‘rtib chiqqan) shaklga ega?",
     "options": [
-     "Foyda",
-     "Foiz",
-     "Ish haqi",
-     "Renta"
+     "Resurslar ixtisoslashgan, bir sohadan boshqasiga to‘liq almashtirib bo‘lmaydi",
+     "Barcha resurslar har ikkala tovarni ishlab chiqarishga bir xil darajada yaroqli bo‘ladi",
+     "Texnologiya vaqt o‘tishi bilan takomillashib, ishlab chiqarishni arzonlashtirib boradi",
+     "Ehtiyojlar cheksiz bo‘lgani uchun chiziq koordinatalar boshiga qarab egiladi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Resurslarning ixtisoslashganligi sababli muqobil xarajat ortib boradi va chiziq botiq bo‘ladi."
    },
    {
-    "q": "Iqtisodiyotning bosh muammosi:",
+    "q": "ICHE ichida joylashgan nuqta (masalan, H) nimani bildiradi?",
     "options": [
-     "Soliqlar",
-     "Cheksiz ehtiyojlar va cheklangan resurslar o‘rtasidagi ziddiyat",
-     "Inflyatsiya",
-     "Pul yetishmasligi"
+     "Mavjud resurslar bilan hozircha erishib bo‘lmaydigan, kelajak uchun mo‘ljallangan mahsulot to‘plamini",
+     "Resurslardan to‘liq va eng samarali foydalanilayotganini",
+     "Texnologiyaning tez sur’atlarda yangilanayotganini",
+     "Resurslarning bir qismi ishlatilmayotgani yoki noto‘g‘ri taqsimlanganini"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Chiziq ichidagi nuqta samarasiz: ishsizlik yoki resurslarning noto‘g‘ri taqsimlanishi tufayli imkoniyatlardan to‘liq foydalanilmaydi."
    },
    {
-    "q": "ICHE ichidagi nuqta:",
+    "q": "Talabaning daromadi oshib, kitob va kino chiptasi narxlari o‘zgarmasa, uning byudjet chizig‘i qanday o‘zgaradi?",
     "options": [
-     "Iqtisodiy o‘sishni ko‘rsatadi",
-     "Resurslardan to‘liq foydalanilmayotganini ko‘rsatadi",
-     "Erishib bo‘lmaydi",
-     "Samarali ishlab chiqarishni ko‘rsatadi"
+     "Koordinatalar boshi atrofida soat mili yo‘nalishida buriladi",
+     "Tashqariga qarab, o‘ziga parallel siljiydi",
+     "Qiyaligi oshib, bir o‘q bo‘yicha buriladi",
+     "O‘z o‘rnida qoladi, undagi nuqtalar joylashuvi o‘zgaradi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Daromad o‘zgarsa byudjet chizig‘i parallel siljiydi, faqat narxlardan biri o‘zgarsa buriladi."
    },
    {
-    "q": "ICHE dan tashqaridagi nuqta:",
+    "q": "Savdodan yutuq qanday asosga tayanadi?",
     "options": [
-     "Optimal",
-     "Samarasiz",
-     "Mavjud resurslar va texnologiya bilan erishib bo‘lmaydi",
-     "Ishsizlikni ko‘rsatadi"
+     "Mutlaq ustunlikka: ikkala tovarni ham eng arzon ishlab chiqaruvchi savdodan yutadi",
+     "Resurslar miqdoridagi tenglikka: har ikki tomon teng hajmda ishlab chiqaradi",
+     "Nisbiy ustunlikka: tovarlar pastroq muqobil xarajat bilan ishlab chiqaruvchida to‘planadi",
+     "Davlat nazoratiga: bitimlar markazlashgan tartibda belgilab beriladi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Hamma narsada ustun bo‘lgan tomon ham, boshqa tomon ham nisbiy ustunlikka asoslangan ixtisoslashuvdan yutadi."
    },
    {
-    "q": "Muqobil xarajatlarning ortib borish qonuni sababi:",
+    "q": "Nima uchun olmos suvdan qimmat, garchi suv hayot uchun zarur bo‘lsa ham?",
     "options": [
-     "Soliqlar",
-     "Monopoliyalar",
-     "Resurslarning ixtisoslashganligi va to‘liq almashtirib bo‘lmasligi",
-     "Pul massasining o‘sishi"
+     "Olmos kamyob, shu sababli uning qo‘shimcha birligining chegaraviy foydasi katta",
+     "Olmosning umumiy foydasi suvning umumiy foydasidan ancha yuqori bo‘ladi",
+     "Suvni ishlab chiqarishning chegaraviy xarajati olmosnikidan ancha yuqori bo‘ladi",
+     "Odamlar hayot uchun zaruriy narsalarga nisbatan kamroq pul to‘lashga tayyor bo‘ladi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Narx chegaraviy foydaga bog‘liq: suv mo‘l, shuning uchun uning qo‘shimcha birligining chegaraviy foydasi kichik."
    },
    {
-    "q": "ICHE koordinatalar boshiga nisbatan botiq bo‘lishining sababi:",
+    "q": "Nima sababdan rejali (ma’muriy-buyruqbozlik) iqtisodiyotda doimiy taqchillik yuzaga keldi?",
     "options": [
-     "Texnologik taraqqiyot",
-     "Muqobil xarajatlarning ortib borishi",
-     "Muqobil xarajatlarning kamayishi",
-     "Doimiy muqobil xarajatlar"
+     "Xususiy mulk kengayib, raqobat kuchaygani sababli resurslar ortiqcha bo‘lgan edi",
+     "Narxlar bozor signallari asosida erkin o‘zgarib turardi",
+     "Davlat korxonalari o‘z foydasini maksimallashtirishga intilardi",
+     "Narxlar resurslar kamyobligini aks ettirmadi, shuningdek rag‘batlar zaif bo‘ldi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Narx signallarining yo‘qligi, zaif rag‘batlar va axborot muammolari taqchillikka olib keldi."
    },
    {
-    "q": "Optimal taqsimot qoidasi:",
+    "q": "Quyidagi tasdiqlardan qaysi biri normativ tahlilga misol bo‘ladi?",
     "options": [
-     "MB = 0",
-     "MB > MC",
-     "MB = MC",
-     "MB < MC"
+     "Elektr energiyasi narxining oshishi iste’molni kamaytiradi",
+     "Minimal ish haqini ikki baravar oshirish adolatli bo‘lar edi",
+     "Import bojlarining kamayishi avtomobil narxlarini pasaytiradi",
+     "Davlat minimal ish haqini qonun bilan belgilab qo‘ygan"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Normativ tasdiq qadriyatlarga asoslangan «nima bo‘lishi kerak» degan bahodir, qolganlari faktlar bilan tekshiriladi."
    },
    {
-    "q": "Iqtisodiy o‘sish ICHE da qanday aks etadi?",
+    "q": "Reysdan oldin samolyotda bo‘sh o‘rin qoldi. Bir o‘ringa o‘rtacha xarajat 500 dollar, qo‘shimcha yo‘lovchining chegaraviy xarajati juda kichik. Yo‘lovchi 300 dollar taklif qilsa, aviakompaniya nima qilishi kerak?",
     "options": [
-     "ICHE ichkariga siljiydi",
-     "ICHE bo‘ylab harakat",
-     "ICHE ichidagi nuqta",
-     "ICHE tashqariga siljiydi"
+     "Sotmasligi kerak, chunki 300 dollar o‘rtacha xarajat 500 dollardan past",
+     "Sotmasligi kerak, chunki arzon chipta boshqa yo‘lovchilarning ishonchini kamaytiradi",
+     "Chiptani sotishi kerak, chunki 300 dollar chegaraviy xarajatdan ancha katta",
+     "500 dollarga yetkazib sotishi kerak, aks holda reys zarar bilan yakunlanadi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Chegaraviy foyda chegaraviy xarajatdan katta bo‘lsa harakat qilish kerak; bo‘sh o‘rin uchun qo‘shimcha xarajat deyarli yo‘q."
    },
    {
-    "q": "Faqat bitta tarmoqda texnologik taraqqiyot yuz bersa, ICHE:",
+    "q": "Faqat mashinasozlikda texnologik taraqqiyot yuz bersa (paxtachilikda esa o‘zgarish bo‘lmasa), ICHE qanday o‘zgaradi?",
     "options": [
-     "O‘zgarmaydi",
-     "Ichkariga siljiydi",
-     "Parallel siljiydi",
-     "Shu tovar o‘qi bo‘yicha buriladi"
+     "Mashinalar o‘qi bo‘yicha tashqariga buriladi, paxta o‘qidagi nuqta o‘zgarmaydi",
+     "Butun chiziq barcha yo‘nalishlarda teng ravishda tashqariga qarab parallel siljiydi",
+     "Butun chiziq ichkariga siljiydi, chunki resurslar mashinasozlikka o‘tadi",
+     "Chiziq o‘z holicha qoladi, unda harakat yo‘nalishi o‘zgaradi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Bitta tarmoqdagi texnologik yutuq ICHE ni faqat shu tovar o‘qi bo‘yicha kengaytiradi."
    },
    {
-    "q": "Nisbiy ustunlik – bu:",
+    "q": "Fermer Frenkda 1 unsiya go‘shtning muqobil xarajati 4 unsiya kartoshka, chorvador Rubida esa 2 unsiya kartoshka. 1 unsiya go‘shtni qaysi miqdordagi kartoshkaga almashtirsa, ikkala tomon ham yutadi?",
     "options": [
-     "Pastroq muqobil xarajat bilan ishlab chiqarish",
-     "Ko‘proq mahsulot ishlab chiqarish",
-     "Yuqori narxda sotish",
-     "Kamroq resurs sarflab ishlab chiqarish"
+     "1 unsiya kartoshkaga",
+     "2 unsiya kartoshkaga",
+     "5 unsiya kartoshkaga",
+     "3 unsiya kartoshkaga"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Almashuv nisbati ikkala muqobil xarajat (2 va 4) oralig‘ida bo‘lsagina ikkala tomon yutadi, 3 shu oraliqqa kiradi."
    },
    {
-    "q": "Mankyu misolida chorvador Rubi:",
+    "q": "Kitob narxi 50 ming so‘m, kino chiptasi narxi 40 ming so‘m. 4 ta kitobning muqobil xarajati nechta kino chiptasiga teng?",
     "options": [
-     "Ikkala tovarda mutlaq ustunlikka, go‘shtda nisbiy ustunlikka ega",
-     "Faqat go‘shtda mutlaq ustunlikka ega",
-     "Kartoshkada nisbiy ustunlikka ega",
-     "Hech qanday ustunlikka ega emas"
+     "4 ta kino chiptasiga",
+     "5 ta kino chiptasiga",
+     "3,2 ta kino chiptasiga",
+     "6,25 ta kino chiptasiga"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Bitta kitobning muqobil xarajati 50/40 = 1,25 chipta, demak 4 kitob uchun 4 × 1,25 = 5 chipta."
    },
    {
-    "q": "Savdodan yutuq asoslanadi:",
+    "q": "Abituriyent 4 yillik bakalavriatni tanlamoqda: kontrakt va kitoblar uchun yiliga jami 12 mln so‘m, yashash xarajati yiliga 9 mln so‘m (ishlasa ham shuncha), ishlasa oyiga 3 mln so‘m topardi. O‘qishning to‘liq iqtisodiy xarajati qancha?",
     "options": [
-     "Nisbiy ustunlikka",
-     "Mutlaq ustunlikka",
-     "Davlat buyurtmasiga",
-     "Monopoliyaga"
+     "48 mln so‘m",
+     "144 mln so‘m",
+     "192 mln so‘m",
+     "228 mln so‘m"
     ],
-    "c": 0
-   },
-   {
-    "q": "Byudjet chizig‘ining qiyaligi nimani ko‘rsatadi?",
-    "options": [
-     "Talab elastikligini",
-     "Daromadni",
-     "Naflikni",
-     "Narxlar nisbatini (muqobil xarajatni)"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Daromad oshsa, byudjet chizig‘i:",
-    "options": [
-     "Tashqariga parallel siljiydi",
-     "Ichkariga siljiydi",
-     "O‘zgarmaydi",
-     "Buriladi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Resurslar asosan davlat mulkida va qarorlar markaziy reja asosida qabul qilinadigan tizim:",
-    "options": [
-     "Aralash",
-     "Bozor",
-     "An’anaviy",
-     "Ma’muriy-buyruqbozlik"
-    ],
-    "c": 3
-   },
-   {
-    "q": "«Laissez-faire» tamoyili nimani anglatadi?",
-    "options": [
-     "Narxlarni davlat belgilashi",
-     "Urf-odatlarga asoslanish",
-     "Davlatning iqtisodiyotga minimal aralashuvi",
-     "To‘liq davlat rejalashtirishi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Bozor iqtisodiyotining belgisi emas:",
-    "options": [
-     "Markazlashgan narx belgilash",
-     "Raqobat",
-     "Narx mexanizmi",
-     "Xususiy mulk"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Aylanma oqim modelida ishlab chiqarish omillari bozorida uy xo‘jaliklari:",
-    "options": [
-     "Sotuvchi",
-     "Xaridor",
-     "Regulyator",
-     "Ishtirok etmaydi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Aylanma oqim modelidagi pul oqimiga kiradi:",
-    "options": [
-     "Mehnat va kapital",
-     "Ish haqi, renta, foiz va foyda",
-     "Tovar va xizmatlar",
-     "Yer"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Mankyuga ko‘ra mamlakat turmush darajasi asosan nimaga bog‘liq?",
-    "options": [
-     "Aholi soniga",
-     "Pul massasiga",
-     "Oltin zaxiralariga",
-     "Unumdorlikka"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Hozirgi rivojlangan mamlakatlar iqtisodiyoti asosan:",
-    "options": [
-     "Sof bozor",
-     "An’anaviy",
-     "Aralash",
-     "Ma’muriy-buyruqbozlik"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Iqtisodchilarning 93 foizi qo‘shiladigan fikr (Mankyu):",
-    "options": [
-     "Tariflar farovonlikni oshiradi",
-     "Monopoliyalar foydali",
-     "Ijara haqi chegarasi uy-joy miqdori va sifatini kamaytiradi",
-     "Narxlarni davlat belgilashi samarali"
-    ],
-    "c": 2
+    "c": 2,
+    "e": "To‘g‘ridan-to‘g‘ri xarajat 4 × 12 = 48, voz kechilgan ish haqi 4 × 36 = 144; yashash xarajati qo‘shilmaydi, jami 192."
    }
   ],
   "selfStudy": [
@@ -637,304 +557,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Talab qonuniga ko‘ra:",
+    "q": "Talab qonuniga ko‘ra, boshqa sharoitlar o‘zgarmaganda tovar narxi oshsa nima yuz beradi?",
     "options": [
-     "Daromad oshsa, talab kamayadi",
-     "Narx oshsa, talab miqdori oshadi",
-     "Taklif oshsa, talab oshadi",
-     "Narx oshsa, talab miqdori kamayadi"
+     "Uning talab miqdori ko‘payadi",
+     "Uning talab miqdori kamayadi",
+     "Talab chizig‘i butunlay o‘ngga siljiydi",
+     "Uning taklif miqdori kamayadi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Talab qonuni narx va talab miqdori o‘rtasida teskari bog‘liqlik borligini bildiradi."
    },
    {
-    "q": "Talab chizig‘i bo‘ylab harakatga sabab bo‘ladi:",
+    "q": "Talab miqdori deganda nima tushuniladi?",
     "options": [
-     "Daromadning o‘zgarishi",
-     "Xaridorlar soni o‘zgarishi",
-     "Didlarning o‘zgarishi",
-     "Tovarning o‘z narxi o‘zgarishi"
+     "Xaridorlar narxdan qat’i nazar sotib olishni istaydigan tovarning umumiy miqdori",
+     "Sotuvchilar ma’lum narxda bozorga chiqarishga tayyor bo‘lgan tovar miqdori",
+     "Xaridorlar bir yil davomida amalda sotib olgan tovarning umumiy hajmi",
+     "Xaridorlar ma’lum narxda sotib olishni xohlaydigan va sotib olishga qodir bo‘lgan miqdor"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Talab miqdori ham xohish, ham to‘lov qobiliyatini talab qiladi va ma’lum narxga bog‘langan bitta son."
    },
    {
-    "q": "Normal tovar uchun daromad oshsa:",
+    "q": "Bozor muvozanat narxi (bozorni tozalovchi narx) qanday narx?",
     "options": [
-     "Taklif oshadi",
-     "Talab kamayadi",
-     "Talab o‘zgarmaydi",
-     "Talab oshadi"
+     "Talab miqdori va taklif miqdori teng bo‘ladigan narx",
+     "Ishlab chiqarish xarajatlarini aniq qoplaydigan eng past narx",
+     "Davlat tomonidan iste’molchilar himoyasi uchun belgilangan narx",
+     "Sotuvchilar olishi mumkin bo‘lgan eng yuqori narx"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Muvozanat narxda talab va taklif miqdorlari tenglashadi, shuning uchun taqchillik ham, ortiqchalik ham bo‘lmaydi."
    },
    {
-    "q": "Past kategoriyali tovar uchun daromad oshsa:",
+    "q": "Iste’molchi yutug‘i nimaga teng?",
     "options": [
-     "Talab oshadi",
-     "Talab miqdori oshadi",
-     "Talab kamayadi",
-     "Taklif kamayadi"
+     "Sotuvchilar olgan summa va ularning xarajatlari o‘rtasidagi farqqa",
+     "Xaridor to‘lagan narx va tovarning o‘rtacha xarajati o‘rtasidagi farqqa",
+     "Xaridorlarning to‘lashga tayyorligi va haqiqatda to‘lagan summasi o‘rtasidagi farqqa",
+     "Muvozanat narx bilan davlat belgilagan narx o‘rtasidagi farqqa"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Iste’molchi yutug‘i to‘lashga tayyorlikdan haqiqatda to‘langan narxni ayirish bilan topiladi."
    },
    {
-    "q": "Choy qimmatlashsa, qahvaga talab oshdi. Choy va qahva:",
+    "q": "Ishlab chiqaruvchi yutug‘i nima?",
     "options": [
-     "Giffen tovarlari",
-     "O‘rinbosar tovarlar",
-     "Past kategoriyali tovarlar",
-     "To‘ldiruvchi tovarlar"
+     "Xaridorlarning to‘lashga tayyorligi bilan to‘lagan narxi o‘rtasidagi farq",
+     "Sotuvchi belgilagan narx bilan davlat belgilagan narx o‘rtasidagi farq",
+     "Sotuvchilar olgan summa bilan ularning xarajatlari o‘rtasidagi farq",
+     "Tovar sotilgan yalpi tushum va uni sotishga ketgan vaqt o‘rtasidagi farq"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Ishlab chiqaruvchi yutug‘i sotuvchi olgan narx va uning minimal sotishga tayyorlik narxi (xarajati) o‘rtasidagi farqdir."
    },
    {
-    "q": "Benzin narxining oshishi avtomobillarga talabni:",
+    "q": "Taklif qonuniga ko‘ra, boshqa sharoitlar o‘zgarmaganda tovar narxi oshsa nima yuz beradi?",
     "options": [
-     "O‘zgartirmaydi",
-     "Taklifni oshiradi",
-     "Oshiradi",
-     "Kamaytiradi"
+     "Uning taklif miqdori ko‘payadi",
+     "Uning taklif miqdori kamayadi",
+     "Uning talab miqdori ko‘payadi",
+     "Taklif chizig‘i chapga siljiydi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Yuqori narx ishlab chiqarishni foydaliroq qiladi, shuning uchun taklif miqdori ortadi."
    },
    {
-    "q": "Bozor talabi individual talablarni qanday qo‘shish orqali topiladi?",
+    "q": "Norasmiy (qora) bozor nima?",
     "options": [
-     "Ko‘paytirish orqali",
-     "O‘rtachasini olish orqali",
-     "Vertikal",
-     "Gorizontal (har bir narxda miqdorlarni)"
+     "Davlat tomonidan rasman ro‘yxatdan o‘tkazilgan, soliq to‘lanadigan va nazorat qilinadigan bozor",
+     "Xorijiy valyuta bilan savdo qilinadigan xalqaro birja bozori",
+     "Xaridorlar va sotuvchilar soni kam bo‘lgan mahalliy bozor",
+     "Davlat nazoratidan tashqarida, qonuniy narxdan yuqori narxda savdo qilinadigan bozor"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Maksimal narx sharoitida cheklangan miqdor qonuniy narxdan yuqori narxda norasmiy bozorda sotiladi."
    },
    {
-    "q": "Taklif qonuniga ko‘ra narx oshsa:",
+    "q": "To‘ldiruvchi tovarlar qanday tovarlar?",
     "options": [
-     "Taklif miqdori oshadi",
-     "Taklif chizig‘i chapga siljiydi",
-     "Talab oshadi",
-     "Taklif miqdori kamayadi"
+     "Birini ikkinchisi o‘rniga iste’mol qilish mumkin bo‘lgan, bir-birini almashtiradigan tovarlar",
+     "Birgalikda iste’mol qilinadigan, biri qimmatlashsa ikkinchisiga talab kamayadigan tovarlar",
+     "Daromad oshganda talabi kamayib boradigan arzon tovarlar",
+     "Narxlari o‘zgarmaganda ham talabi bir xil darajada qoladigan tovarlar"
     ],
-    "c": 0
+    "c": 1,
+    "e": "To‘ldiruvchi tovarlar (avtomobil va benzin) birga ishlatiladi, shuning uchun biri qimmatlashsa ikkinchisiga talab kamayadi."
    },
    {
-    "q": "Yangi texnologiya joriy etilishi:",
+    "q": "Bozor talabi individual talablardan qanday topiladi?",
     "options": [
-     "Taklif chizig‘ini o‘ngga siljitadi",
-     "Ta’sir qilmaydi",
-     "Talab chizig‘ini siljitadi",
-     "Taklif chizig‘ini chapga siljitadi"
+     "Har bir talab miqdorida individual narxlar vertikal bo‘yicha qo‘shiladi",
+     "Individual talablarning o‘rtacha qiymati olinib, xaridorlar soniga bo‘linadi",
+     "Eng ko‘p talab ko‘rsatgan xaridorning talabi bozor talabi deb olinadi",
+     "Har bir narxda individual talab miqdorlari gorizontal bo‘yicha qo‘shiladi"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Bozor talabi har bir narxdagi individual talab miqdorlarining yig‘indisidir."
    },
    {
-    "q": "Resurslar narxi oshsa, taklif:",
+    "q": "Muzqaymoqning o‘z narxi pasaysa, talab chizig‘ida qanday o‘zgarish yuz beradi?",
     "options": [
-     "Kamayadi (chapga siljiydi)",
-     "Talab bilan birga oshadi",
-     "O‘zgarmaydi",
-     "Oshadi"
+     "Talab chizig‘i bo‘ylab harakat bo‘ladi va talab miqdori oshadi",
+     "Talab chizig‘i o‘ngga siljiydi va talab oshadi",
+     "Talab chizig‘i chapga siljiydi va talab kamayadi",
+     "Taklif chizig‘i o‘ngga siljiydi va muvozanat o‘zgarmaydi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Tovarning o‘z narxi o‘zgarishi talab chizig‘i bo‘ylab harakatga, ya’ni talab miqdorining o‘zgarishiga olib keladi."
    },
    {
-    "q": "Bozor muvozanati – bu:",
+    "q": "Maksimal narx muvozanat narxidan yuqori belgilansa, bozorga qanday ta’sir qiladi?",
     "options": [
-     "Davlat narx belgilagan holat",
-     "Narx eng past bo‘lgan holat",
-     "Taklif maksimal bo‘lgan holat",
-     "Talab miqdori taklif miqdoriga teng bo‘lgan holat"
+     "Taqchillik keltirib chiqaradi va qora bozor paydo bo‘ladi",
+     "Ortiqcha taklif paydo bo‘lib, tovar zaxiralari to‘planadi",
+     "Cheklamaydi, bozor muvozanat narxda ishlashda davom etadi",
+     "Talab chizig‘ini o‘ngga siljitib, narxni oshiradi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Muvozanatdan yuqori maksimal narx cheklovchi emas, shuning uchun bozor natijasi o‘zgarmaydi."
    },
    {
-    "q": "Narx muvozanatdan yuqori bo‘lsa:",
+    "q": "Muvozanat ish haqidan yuqori belgilangan minimal ish haqi mehnat bozorida nimaga olib keladi?",
     "options": [
-     "Talab oshadi",
-     "Muvozanat saqlanadi",
-     "Ortiqcha taklif yuzaga keladi",
-     "Taqchillik yuzaga keladi"
+     "Mehnatga talab taklifdan oshib, ishchi kuchi taqchilligi paydo bo‘ladi",
+     "Mehnat taklifi talabdan oshib, ishsizlik paydo bo‘ladi",
+     "Barcha ishchilarning ish haqi bir xil darajada tenglashadi",
+     "Mehnat bozori muvozanati o‘zgarmaydi, ish soatlari qisqaradi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Cheklovchi minimal narx (ish haqi) ortiqcha taklifni, ya’ni ishsizlikni yuzaga keltiradi."
    },
    {
-    "q": "QD = 100 – 2P va QS = 20 + 2P bo‘lsa, muvozanat narxi:",
+    "q": "Narx muvozanat narxidan yuqori bo‘lsa, bozorda nima yuz beradi va narx qanday o‘zgaradi?",
     "options": [
-     "10",
-     "20",
-     "30",
-     "40"
+     "Taqchillik paydo bo‘ladi va narx muvozanatgacha oshadi",
+     "Ortiqcha taklif paydo bo‘ladi va narx muvozanatgacha pasayadi",
+     "Ortiqcha taklif paydo bo‘ladi va narx yanada oshadi",
+     "Taqchillik paydo bo‘ladi va narx muvozanatgacha pasayadi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Yuqori narxda taklif miqdori talab miqdoridan ko‘p, sotilmagan zaxiralar sotuvchilarni narxni tushirishga majbur qiladi."
    },
    {
-    "q": "Talab oshsa va taklif o‘zgarmasa:",
+    "q": "Issiq yozda muzqaymoqqa talab oshdi va shu bilan bir vaqtda taklif ham oshdi. Muvozanat narx va miqdorga ta’siri qanday?",
     "options": [
-     "P↑, Q↓",
-     "P↑, Q↑",
-     "P↓, Q↑",
-     "P↓, Q↓"
+     "Muvozanat narx oshadi, miqdorning o‘zgarishi esa noaniq bo‘ladi",
+     "Muvozanat narx ham, miqdor ham albatta oshadi",
+     "Muvozanat miqdor kamayadi, narxning o‘zgarishi esa noaniq bo‘ladi",
+     "Muvozanat miqdor oshadi, narxning o‘zgarishi esa noaniq bo‘ladi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Talab va taklif ikkalasi oshganda miqdor oshadi, narx esa siljishlarning nisbiy kattaligiga bog‘liq."
    },
    {
-    "q": "Taklif oshsa va talab o‘zgarmasa:",
+    "q": "Ramazon oldidan odamlar kelgusida narx oshishini kutib, shakar va unni ko‘proq xarid qila boshladi. Bu qaysi omilga misol?",
     "options": [
-     "P↓, Q↑",
-     "P↑, Q↓",
-     "P↑, Q↑",
-     "P↓, Q↓"
+     "Kutishlarga: hozirgi talab oshadi, talab chizig‘i o‘ngga siljiydi",
+     "Didlarning o‘zgarishiga: talab chizig‘i chapga siljiydi",
+     "Xaridorlar sonining ortishiga: taklif chizig‘i o‘ngga siljiydi",
+     "Daromadning kamayishiga: talab miqdori talab chizig‘i bo‘ylab kamayadi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Kelajakda narx oshishi kutilsa, hozirgi talab ortadi va talab chizig‘i o‘ngga siljiydi."
    },
    {
-    "q": "Talab ham, taklif ham oshsa:",
+    "q": "Smartfon narxi keskin pasaydi. Mobil internetga talabda qanday o‘zgarish yuz beradi?",
     "options": [
-     "Miqdor kamayadi",
-     "Miqdor oshadi, narx noaniq",
-     "Narx albatta pasayadi",
-     "Narx albatta oshadi"
+     "Talab kamayadi, chunki bu tovarlar o‘rinbosar",
+     "Talab oshadi, chunki bu tovarlar o‘rinbosar",
+     "Talab oshadi, chunki bu tovarlar to‘ldiruvchi",
+     "Talab kamayadi, chunki bu tovarlar to‘ldiruvchi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Smartfon va mobil internet to‘ldiruvchi: biri arzonlashsa, ikkinchisiga talab oshadi."
    },
    {
-    "q": "Iste’molchi yutug‘i – bu:",
+    "q": "Bahorgi sovuq o‘rik hosilini keskin kamaytirdi. O‘rik bozorida muvozanat qanday o‘zgaradi?",
     "options": [
-     "To‘lashga tayyorlik va to‘langan narx farqi",
-     "Daromad va xarajat farqi",
-     "Foyda",
-     "Narx va xarajat farqi"
+     "Taklif kamayib, narx oshadi, sotilgan miqdor kamayadi",
+     "Taklif kamayib, narx pasayadi, sotilgan miqdor kamayadi",
+     "Talab kamayib, narx pasayadi, sotilgan miqdor kamayadi",
+     "Taklif oshib, narx pasayadi, sotilgan miqdor oshadi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Noqulay tabiiy sharoit taklif chizig‘ini chapga siljitadi: narx oshadi, muvozanat miqdor kamayadi."
    },
    {
-    "q": "Ishlab chiqaruvchi yutug‘i grafikda:",
+    "q": "Davlat valyutaning rasmiy kursini bozor muvozanatidan ancha past ushlab turdi. Bu qanday oqibat keltirib chiqardi?",
     "options": [
-     "Talab va taklif chiziqlari orasida",
-     "Taklif chizig‘idan pastda",
-     "Talab chizig‘idan pastda va narxdan yuqorida",
-     "Narxdan pastda va taklif chizig‘idan yuqorida"
+     "Rasmiy kursda valyuta ortiqchaligi va banklarda valyuta zaxiralari to‘planib qoldi",
+     "Valyuta bozori muvozanatga kelib, taqchillik va navbatlar yo‘qoldi",
+     "Rasmiy kursda valyuta taqchilligi va yuqori kursli norasmiy bozor paydo bo‘ldi",
+     "Eksportyorlar tushumni rasmiy kursdan yuqori kursda sotish imkoniga ega bo‘ldi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Muvozanatdan past rasmiy kurs maksimal narx vazifasini bajarib, taqchillik va qora bozorni keltirib chiqardi."
    },
    {
-    "q": "Mankyuga ko‘ra raqobatli bozor muvozanati:",
+    "q": "Mahalliy bozorda talab QD = 120 – 4P, taklif QS = 20 + 6P bo‘lsa, muvozanat narx qancha?",
     "options": [
-     "Jami yutuqni maksimallashtiradi",
-     "Jami yutuqni minimallashtiradi",
-     "Har doim adolatsiz",
-     "Faqat ishlab chiqaruvchilarga foydali"
+     "P = 14",
+     "P = 5",
+     "P = 12",
+     "P = 10"
     ],
-    "c": 0
+    "c": 3,
+    "e": "120 – 4P = 20 + 6P ⇒ 100 = 10P ⇒ P = 10; Q = 80."
    },
    {
-    "q": "Cheklovchi maksimal narx:",
+    "q": "Talab QD = 120 – 4P, taklif QS = 20 + 6P (muvozanat P = 10, Q = 80). Talab chizig‘i narx o‘qini P = 30 da kesadi. Iste’molchi yutug‘i qancha?",
     "options": [
-     "Muvozanatdan yuqori belgilanadi",
-     "Muvozanatdan past belgilanadi va taqchillik keltirib chiqaradi",
-     "Ortiqcha taklif keltirib chiqaradi",
-     "Bozorga ta’sir qilmaydi"
+     "1600",
+     "800",
+     "400",
+     "1200"
     ],
-    "c": 1
-   },
-   {
-    "q": "Maksimal narx sharoitida norasmiy bozordagi narx:",
-    "options": [
-     "Nolga teng",
-     "Qonuniy narxdan past",
-     "Qonuniy narxga teng",
-     "Qonuniy narxdan yuqori"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Cheklovchi minimal narx:",
-    "options": [
-     "Sotilgan miqdorni oshiradi",
-     "Ortiqcha taklif keltirib chiqaradi",
-     "Taqchillik keltirib chiqaradi",
-     "Muvozanatdan past belgilanadi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Minimal ish haqi muvozanatdan yuqori belgilansa:",
-    "options": [
-     "Hech narsa o‘zgarmaydi",
-     "Ishchi kuchi taqchilligi yuzaga keladi",
-     "Bandlik oshadi",
-     "Ishsizlik yuzaga keladi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Minimal ish haqi eng ko‘p ta’sir qiladigan guruh:",
-    "options": [
-     "Yuqori malakali mutaxassislar",
-     "Malakasiz va kam tajribali yoshlar",
-     "Davlat xizmatchilari",
-     "Tadbirkorlar"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Mankyuga ko‘ra ijara haqi chegarasining uzoq muddatli oqibati:",
-    "options": [
-     "Taqchillikning kattalashishi va sifatning pasayishi",
-     "Ijara narxining oshishi",
-     "Hech qanday ta’sir yo‘q",
-     "Uy-joy taklifining oshishi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "2017-yilgacha O‘zbekistonda valyutaning rasmiy kursi bozor kursidan past ushlab turilishi:",
-    "options": [
-     "Subsidiya",
-     "Maksimal narx misoli",
-     "Muvozanat narxi",
-     "Minimal narx misoli"
-    ],
-    "c": 1
-   },
-   {
-    "q": "2025-yil 1-avgustdan O‘zbekistonda eng kam oylik ish haqi:",
-    "options": [
-     "980 000 so‘m",
-     "1 155 000 so‘m",
-     "1 271 000 so‘m",
-     "1 500 000 so‘m"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Sigaret aksiz solig‘ining oshishi Mankyuga ko‘ra:",
-    "options": [
-     "Talab chizig‘ini siljitadi",
-     "Taklifni oshiradi",
-     "Talab chizig‘i bo‘ylab harakatga olib keladi",
-     "Ta’sir qilmaydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Kelajakda narx oshishi kutilsa, hozirgi talab:",
-    "options": [
-     "Nolga tushadi",
-     "Kamayadi",
-     "O‘zgarmaydi",
-     "Oshadi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Taklif kamaysa va talab oshsa:",
-    "options": [
-     "Narx pasayadi",
-     "Miqdor albatta oshadi",
-     "Narx albatta oshadi, miqdor noaniq",
-     "Narx noaniq"
-    ],
-    "c": 2
+    "c": 1,
+    "e": "Iste’molchi yutug‘i = 0,5 × (30 – 10) × 80 = 800."
    }
   ],
   "selfStudy": [
@@ -1117,304 +957,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Elastiklik koeffitsienti:",
+    "q": "Elastiklik koeffitsienti qanday topiladi?",
     "options": [
-     "Talab va taklif farqi",
-     "Ikki miqdorning mutlaq o‘zgarishlari nisbati",
-     "Ikki o‘zgaruvchining foizli o‘zgarishlari nisbati",
-     "Narx va miqdor ko‘paytmasi"
+     "Bir o‘zgaruvchining mutlaq o‘zgarishini ikkinchisining mutlaq o‘zgarishiga bo‘lish orqali",
+     "Bir o‘zgaruvchining foizli o‘zgarishini ikkinchisining foizli o‘zgarishiga bo‘lish orqali",
+     "Ikki o‘zgaruvchining foizli o‘zgarishlarini bir-biriga qo‘shish orqali",
+     "Bir o‘zgaruvchining boshlang‘ich qiymatini ikkinchisining oxirgi qiymatiga bo‘lish orqali"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Elastiklik foizlar nisbati bo‘lgani uchun u o‘lchov birliklariga bog‘liq emas."
    },
    {
-    "q": "Narx 10% oshib, talab miqdori 5% kamaysa, talab:",
+    "q": "Talabning narx bo‘yicha elastikligi nimani ko‘rsatadi?",
     "options": [
-     "Elastik",
-     "Noelastik",
-     "Mutlaq elastik",
-     "Birlik elastik"
+     "Daromad 1 foizga o‘zgarganda talab miqdori necha foizga o‘zgarishini",
+     "Narx 1 foizga o‘zgarganda taklif miqdori necha foizga o‘zgarishini",
+     "Narx 1 so‘mga o‘zgarganda talab miqdori necha donaga o‘zgarishini",
+     "Narx 1 foizga o‘zgarganda talab miqdori necha foizga o‘zgarishini"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Talabning narx bo‘yicha elastikligi talab miqdori va narxning foizli o‘zgarishlari nisbatidir."
    },
    {
-    "q": "Talab chizig‘i vertikal bo‘lsa, talab:",
+    "q": "Talab noelastik bo‘lsa, narxning o‘zgarishiga talab miqdori qanday javob beradi?",
     "options": [
-     "Elastik",
-     "Mutlaq elastik",
-     "Birlik elastik",
-     "Mutlaq noelastik"
+     "Talab miqdori narxga qaraganda kamroq foizga o‘zgaradi",
+     "Talab miqdori narxga qaraganda ko‘proq foizga o‘zgaradi",
+     "Talab miqdori narx bilan bir xil foizga o‘zgaradi",
+     "Talab miqdori narx o‘zgarganda umuman o‘zgarmaydi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Noelastik talabda |E| < 1, ya’ni miqdorning foizli o‘zgarishi narxnikidan kichik."
    },
    {
-    "q": "Mukammal raqobatdagi firma mahsulotiga talab:",
+    "q": "Talab chizig‘i vertikal bo‘lsa, bu talabning qanday holatini bildiradi?",
     "options": [
-     "Mutlaq elastik",
-     "Birlik elastik",
-     "Noelastik",
-     "Mutlaq noelastik"
+     "Mutlaq elastik talab: narxning eng kichik oshishi miqdorni nolga tushiradi",
+     "Birlik elastik talab: miqdor narx bilan bir xil foizga o‘zgaradi",
+     "Mutlaq noelastik talab: narx o‘zgarsa ham miqdor o‘zgarmaydi",
+     "Elastik talab: miqdor narxdan ko‘proq foizga o‘zgaradi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Vertikal talab chizig‘i abs(E) = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
    },
    {
-    "q": "O‘rta nuqta usulining afzalligi:",
+    "q": "Yalpi tushum (TR) qanday aniqlanadi?",
     "options": [
-     "Daromadni hisobga olishi",
-     "Hisoblash osonligi",
-     "Faqat musbat qiymat berishi",
-     "Natija harakat yo‘nalishiga bog‘liq emasligi"
+     "Narxni sotilgan miqdorga ko‘paytirish orqali",
+     "Narxni sotilgan miqdorga bo‘lish orqali",
+     "Sotilgan miqdorni o‘rtacha xarajatga ko‘paytirish orqali",
+     "Narx bilan chegaraviy xarajat orasidagi farqni miqdorga ko‘paytirish orqali"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Yalpi tushum TR = P × Q."
    },
    {
-    "q": "Chiziqli talab chizig‘ining yuqori qismida talab:",
+    "q": "Engel qonuniga ko‘ra, oilaning daromadi oshgani sari nima yuz beradi?",
     "options": [
-     "Elastik",
-     "Birlik elastik",
-     "Noelastik",
-     "Mutlaq noelastik"
+     "Oziq-ovqatga xarajatlarning umumiy xarajatlardagi ulushi oshadi",
+     "Oziq-ovqatga xarajatlarning umumiy xarajatlardagi ulushi kamayadi",
+     "Oziq-ovqat uchun xarajatlarning mutlaq summasi tobora kamayib nolga tushadi",
+     "Hashamat tovarlariga xarajatlarning umumiy xarajatlardagi ulushi kamayadi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Daromad o‘sishi bilan oziq-ovqat ulushi kamayadi, shuning uchun bu ulush farovonlik ko‘rsatkichidir."
    },
    {
-    "q": "Talab elastikroq bo‘ladi, agar:",
+    "q": "Kesishgan elastiklik koeffitsienti musbat bo‘lsa, ikki tovar o‘rtasidagi bog‘liqlik qanday?",
     "options": [
-     "Xarajatlar ulushi kichik bo‘lsa",
-     "Ko‘plab yaqin o‘rinbosarlar mavjud bo‘lsa",
-     "Qisqa muddat ko‘rilsa",
-     "Tovar zaruriy bo‘lsa"
+     "Tovarlar to‘ldiruvchi: biri qimmatlashsa, ikkinchisiga talab kamayadi",
+     "Tovarlar o‘zaro mustaqil: biri qimmatlashsa, ikkinchisining talabi o‘zgarmaydi",
+     "Tovarlardan biri past kategoriyali: daromad oshganda uning talabi kamayadi",
+     "Tovarlar o‘rinbosar: biri qimmatlashsa, ikkinchisiga talab oshadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Musbat kesishgan elastiklik o‘rinbosar tovarlarni (mol va parranda go‘shti), manfiysi to‘ldiruvchilarni bildiradi."
    },
    {
-    "q": "Noelastik talabda narx oshsa, yalpi tushum:",
+    "q": "Daromad bo‘yicha elastiklik manfiy (EI < 0) bo‘lgan tovar qanday ataladi?",
     "options": [
-     "O‘zgarmaydi",
-     "Oshadi",
-     "Nolga tushadi",
-     "Kamayadi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Elastik talabda narx pasaysa, yalpi tushum:",
-    "options": [
-     "Ikki baravar kamayadi",
-     "Kamayadi",
-     "Oshadi",
-     "O‘zgarmaydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Chiziqli talab chizig‘ida yalpi tushum maksimal bo‘ladi:",
-    "options": [
-     "Elastik qismda",
-     "Birlik elastiklik nuqtasida",
-     "Noelastik qismda",
-     "Narx nolga teng bo‘lganda"
-    ],
-    "c": 1
-   },
-   {
-    "q": "MR = P(1 – 1/abs(E)) formulasiga ko‘ra noelastik talabda:",
-    "options": [
-     "MR < 0",
-     "MR > 0",
-     "MR = P",
-     "MR = 0"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Daromad elastikligi manfiy bo‘lgan tovar:",
-    "options": [
-     "Past kategoriyali",
-     "O‘rinbosar",
-     "Birlamchi ehtiyoj",
-     "Oliy kategoriyali"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Daromad elastikligi 0,4 bo‘lgan tovar:",
-    "options": [
-     "Birlamchi ehtiyoj (zaruriy) tovar",
-     "To‘ldiruvchi",
-     "Past kategoriyali",
-     "Hashamat tovar"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Daromad elastikligi 2,5 bo‘lgan tovar:",
-    "options": [
-     "Zaruriy tovar",
-     "Giffen tovari",
+     "Birlamchi ehtiyoj tovari",
+     "Oliy kategoriyali tovar",
      "Past kategoriyali tovar",
-     "Hashamat (oliy kategoriyali) tovar"
+     "Birlik elastik tovar"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Past kategoriyali tovarlarga daromad oshganda talab kamayadi, ya’ni EI < 0."
    },
    {
-    "q": "Engel qonuniga ko‘ra daromad oshgan sari:",
+    "q": "Elastiklikni hisoblashda nima uchun o‘rta nuqta usulidan foydalaniladi?",
     "options": [
-     "Oziq-ovqat xarajatlari ulushi oshadi",
-     "Barcha xarajatlar ulushi o‘zgarmaydi",
-     "Jamg‘arma kamayadi",
-     "Oziq-ovqat xarajatlari ulushi kamayadi"
+     "Narx va miqdorni bir xil o‘lchov birligiga keltirib solishtirish uchun",
+     "Natijaning birdan katta chiqishini ta’minlash uchun",
+     "Uzluksiz funksiyalar uchun aniq hisoblash imkonini berish uchun",
+     "Natija o‘zgarish yo‘nalishiga bog‘liq bo‘lmasligi uchun"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Oddiy foizlar bilan hisoblaganda natija yo‘nalishga bog‘liq bo‘ladi, o‘rta nuqta usuli buni bartaraf etadi."
    },
    {
-    "q": "Kesishgan elastiklik +0,8 bo‘lsa, tovarlar:",
+    "q": "Chiziqli talab chizig‘ining yuqori qismida (yuqori narx, kichik miqdor) talab qanday bo‘ladi?",
     "options": [
-     "Past kategoriyali",
-     "O‘rinbosar",
-     "Mustaqil",
-     "To‘ldiruvchi"
+     "Elastik, chunki narx o‘zgarishi foizda kichik, miqdor o‘zgarishi esa katta",
+     "Noelastik, chunki narx o‘zgarishi foizda katta, miqdor o‘zgarishi esa kichik",
+     "Birlik elastik, chunki qiyalik chiziq bo‘ylab bir xil",
+     "Mutlaq noelastik, chunki yuqori narxda xaridorlar kamayadi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Yuqori narxda mutlaq o‘zgarish kichik foizni, kichik miqdorda esa katta foizni beradi, shu sababli talab elastik."
    },
    {
-    "q": "Avtomobil va benzin o‘rtasidagi kesishgan elastiklik:",
+    "q": "Nima uchun uzoq muddatda talab elastikroq bo‘ladi?",
     "options": [
-     "Manfiy",
-     "Nolga teng",
-     "Musbat",
-     "Cheksiz"
+     "Uzoq muddatda narx o‘zgarishlari iste’molchilar tomonidan sezilmay qoladi",
+     "Uzoq muddatda iste’molchilarning daromadi kamayib, talab pasayadi",
+     "Iste’molchilar o‘rinbosarlarga va tejamkor texnologiyalarga o‘tishga ulguradi",
+     "Uzoq muddatda sotuvchilar barcha narxlarni bir xil darajaga keltiradi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Vaqt o‘tishi bilan odamlar iste’molni o‘zgartirish imkoniyatiga ega bo‘ladi, shuning uchun talab elastikroq."
    },
    {
-    "q": "Taklif uzoq muddatda qisqa muddatdagiga qaraganda:",
+    "q": "Nima uchun hosildorlikning oshishi fermerlar yalpi tushumini kamaytirishi mumkin?",
     "options": [
-     "O‘zgarmaydi",
-     "Mutlaq noelastik",
-     "Kamroq elastik",
-     "Elastikroq"
+     "Talab elastik bo‘lgani uchun narx pasayadi, ammo sotilgan miqdor yetarlicha oshmaydi",
+     "Talab noelastik bo‘lgani uchun narx keskin pasayadi va tushum kamayadi",
+     "Taklif kamayib, narx oshgani uchun xaridorlar kamroq sotib oladi",
+     "Narx o‘zgarmaydi, ammo ishlab chiqarish xarajatlari ancha oshadi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Taklif oshganda noelastik talab sharoitida narx miqdor o‘sishidan ko‘proq pasayadi, tushum kamayadi."
    },
    {
-    "q": "Bir lahzali davrda taklif chizig‘i:",
+    "q": "Talab noelastik, taklif elastik bo‘lgan tovarga (masalan, sigaretga) soliq joriy qilinsa, soliq yukini asosan kim ko‘taradi?",
     "options": [
-     "Gorizontal",
-     "Birlik elastik",
-     "Pastga og‘ma",
-     "Vertikal (mutlaq noelastik)"
+     "Sotuvchilar, chunki yuk kamroq elastik tomonga ko‘proq tushadi",
+     "Iste’molchilar, chunki yuk elastikroq tomonga ko‘proq tushadi",
+     "Iste’molchilar, chunki yuk kamroq elastik tomonga ko‘proq tushadi",
+     "Soliq yuki ikki tomon o‘rtasida teng taqsimlanadi, elastiklik rol o‘ynamaydi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Soliq yuki bozorning kamroq elastik tomoniga ko‘proq tushadi, bu yerda talab noelastik."
    },
    {
-    "q": "Mankyuga ko‘ra bug‘doyning yangi navi yaratilib, hosil oshsa, fermerlar tushumi:",
+    "q": "1980-yillarda OPEK neft narxini yuqori darajada ushlab tura olmadi. Mankyu buni qanday izohlaydi?",
     "options": [
-     "Kamayadi, chunki talab noelastik",
-     "Oshadi, chunki talab elastik",
-     "O‘zgarmaydi",
-     "Ikki baravar oshadi"
+     "Uzoq muddatda talab va taklif elastikroq bo‘lib qoldi",
+     "Uzoq muddatda talab va taklif noelastikroq bo‘lib qoldi",
+     "Qisqa muddatda talab va taklif elastikroq bo‘lib qoldi",
+     "Neftga talab yaqin o‘rinbosarlari yo‘qligi sababli mutlaq noelastik bo‘ldi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Uzoq muddatda tejamkor texnologiyalar va OPEKga a’zo bo‘lmagan ishlab chiqaruvchilar talab va taklifni elastikroq qildi."
    },
    {
-    "q": "OPEK neft narxini uzoq muddat yuqori ushlab tura olmaganining sababi:",
+    "q": "Do‘kon egasi mahsulotiga talab elastik ekanini aniqladi. Yalpi tushumni oshirish uchun u nima qilishi kerak?",
     "options": [
-     "Qisqa muddatda talab elastik",
-     "Neft – past kategoriyali tovar",
-     "Uzoq muddatda talab va taklif elastikroq",
-     "Davlat narxni cheklagan"
+     "Narxni oshirishi kerak, chunki miqdor narxdan kamroq foizga kamayadi",
+     "Narxni o‘zgartirmasligi kerak, chunki tushum narxga bog‘liq emas",
+     "Narxni oshirishi kerak, chunki yuqori narx sotuvchi tushumini oshiradi",
+     "Narxni pasaytirishi kerak, chunki miqdor narxdan ko‘proq foizga oshadi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Elastik talabda narx pasayganda tushum oshadi, narx oshganda kamayadi."
    },
    {
-    "q": "Soliq yuki ko‘proq qaysi tomonga tushadi?",
+    "q": "Qaysi tovarga talab eng elastik bo‘lishi kutiladi?",
     "options": [
-     "Har doim iste’molchiga",
-     "Kamroq elastik tomonga",
-     "Elastikroq tomonga",
-     "Har doim ishlab chiqaruvchiga"
+     "Umuman oziq-ovqat mahsulotlari",
+     "Vanilli muzqaymoq",
+     "Kundalik ovqatda ishlatiladigan tuz",
+     "Hayotiy zarur dori-darmon vositalari"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Bozor qanchalik tor belgilansa va o‘rinbosarlar qanchalik ko‘p bo‘lsa, talab shunchalik elastik bo‘ladi."
    },
    {
-    "q": "Talab noelastik, taklif elastik bo‘lsa, aksiz solig‘ini asosan to‘laydi:",
+    "q": "Daromad 5 foizga oshganda oilaning sut xaridi 2 foizga ko‘paydi. Sut daromad bo‘yicha qaysi tovar turiga kiradi?",
     "options": [
-     "Davlat",
-     "Iste’molchilar",
-     "Ishlab chiqaruvchilar",
-     "Teng taqsimlanadi"
+     "Oliy kategoriyali tovar, chunki EI > 1",
+     "Past kategoriyali tovar, chunki EI < 0",
+     "Mutlaq noelastik tovar, chunki EI = 0",
+     "Birlamchi ehtiyoj tovari, chunki 0 < EI < 1"
     ],
-    "c": 1
+    "c": 3,
+    "e": "EI = 2/5 = 0,4, ya’ni 0 dan katta va 1 dan kichik: birlamchi ehtiyoj tovari."
    },
    {
-    "q": "Mankyuning «hashamat solig‘i» misolida soliq yuki asosan kimga tushdi?",
+    "q": "Dehqon ertalab bozorga pomidor olib keldi. Kun davomida narx oshsa ham, bugungi taklif qanday bo‘ladi?",
     "options": [
-     "Boy xaridorlarga",
-     "Davlatga",
-     "Yaxta ishlab chiqaruvchi zavodlar ishchilariga",
-     "Chet elliklarga"
+     "Elastik, chunki dehqon qisqa muddatda ishlab chiqarishni kengaytira oladi",
+     "Mutlaq elastik, chunki narx oshsa taklif cheksiz ko‘payib ketadi",
+     "Mutlaq noelastik, chunki bir lahzali davrda miqdorni oshirib bo‘lmaydi",
+     "Birlik elastik, chunki taklif narx bilan bir xil foizga o‘zgaradi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Bir lahzali davrda taklif mutlaq noelastik: taklif chizig‘i vertikal."
    },
    {
-    "q": "Narx 5 dan 6 ga oshib, miqdor 100 dan 80 ga kamaysa, o‘rta nuqta usulidagi |E|:",
+    "q": "Narx 10 dan 14 ga oshdi va talab miqdori 100 dan 60 ga kamaydi. O‘rta nuqta usulida narx bo‘yicha elastiklikning mutlaq qiymati qancha?",
     "options": [
-     "0,82",
-     "1,22",
-     "2,0",
-     "0,5"
+     "1,5",
+     "1,0",
+     "1,4",
+     "0,67"
     ],
-    "c": 1
+    "c": 0,
+    "e": "%ΔQ = –40/80 = –50%, %ΔP = 4/12 ≈ 33,3%, |E| = 50/33,3 = 1,5."
    },
    {
-    "q": "Elastiklik o‘lchov birliklariga:",
+    "q": "Avtomobil narxi 10 foizga oshganda benzinga talab miqdori 4 foizga kamaydi. Kesishgan elastiklik koeffitsienti va uning ma’nosi qanday?",
     "options": [
-     "Bog‘liq emas",
-     "Faqat pulda o‘lchanganda bog‘liq",
-     "Faqat tonnada bog‘liq",
-     "Bog‘liq"
+     "+0,4: tovarlar o‘rinbosar",
+     "–0,4: tovarlar to‘ldiruvchi",
+     "–2,5: tovarlar o‘rinbosar",
+     "+2,5: tovarlar to‘ldiruvchi"
     ],
-    "c": 0
-   },
-   {
-    "q": "Tuz kabi tovarlarga talab noelastik bo‘lishining sababi:",
-    "options": [
-     "Xarajatlar ulushining kichikligi va o‘rinbosarlarning yo‘qligi",
-     "O‘rinbosarlarning ko‘pligi",
-     "Hashamat tovar ekanligi",
-     "Uzoq muddat"
-    ],
-    "c": 0
-   },
-   {
-    "q": "«Vanilli muzqaymoq»qa talab «oziq-ovqat»ga talabga nisbatan:",
-    "options": [
-     "Mutlaq noelastik",
-     "Bir xil",
-     "Kamroq elastik",
-     "Elastikroq"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Giyohvand moddalar taklifi qisqarsa, talab noelastik bo‘lgani uchun:",
-    "options": [
-     "Ularga umumiy xarajat kamayadi",
-     "Narx pasayadi",
-     "Ularga umumiy xarajat oshadi",
-     "Iste’mol keskin kamayadi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Talab funksiyasi Q = 100 – 2P, P = 25 da nuqtali elastiklik (mutlaq qiymat):",
-    "options": [
-     "0,5",
-     "1",
-     "2",
-     "0,25"
-    ],
-    "c": 1
+    "c": 1,
+    "e": "E = –4/10 = –0,4; manfiy ishora tovarlar to‘ldiruvchi ekanini bildiradi."
    }
   ],
   "selfStudy": [
@@ -1595,304 +1355,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Naflik – bu:",
+    "q": "Iqtisodiy nazariyada ne’mat deb nimaga aytiladi?",
     "options": [
-     "Ne’matni iste’mol qilishdan olinadigan qoniqish",
-     "Tovar narxi",
-     "Daromad",
-     "Ishlab chiqarish xarajati"
+     "Faqat bozorda pulga sotib olinadigan moddiy buyum",
+     "Insonning ehtiyojini qondira oladigan har qanday narsa",
+     "Ishlab chiqarish jarayonida sarflanadigan resurs",
+     "Davlat tomonidan bepul taqdim etiladigan xizmat"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Ne’mat – tovar, xizmat, axborot, bo‘sh vaqt kabi insonning ehtiyojini qondira oladigan har qanday narsa."
    },
    {
-    "q": "Kardinalistik yondashuvga ko‘ra naflik:",
+    "q": "Naflikni shartli birliklarda (yutilda) miqdoran o‘lchash mumkin deb hisoblaydigan yondashuv qanday ataladi?",
     "options": [
-     "Shartli birliklarda (yutil) o‘lchanishi mumkin",
-     "Faqat tartiblanadi",
-     "Pulda o‘lchanadi",
-     "O‘lchanmaydi"
+     "Ordinalistik yondashuv",
+     "Institutsional yondashuv",
+     "Normativ yondashuv",
+     "Kardinalistik yondashuv"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Kardinalistik (miqdoriy) yondashuv naflikni yutil kabi shartli birliklarda o‘lchash mumkin deb hisoblaydi."
    },
    {
-    "q": "Chegaraviy naflik:",
+    "q": "Chegaraviy naflik (MU) nima?",
     "options": [
-     "Barcha birliklar nafligi yig‘indisi",
-     "O‘rtacha naflik",
-     "Qo‘shimcha bir birlikdan olinadigan qo‘shimcha naflik",
-     "Narx va naflik nisbati"
+     "Ne’matning qo‘shimcha bir birligidan olinadigan qo‘shimcha naflik",
+     "Ne’matning barcha birliklaridan olinadigan jami qoniqish",
+     "Iste’mol qilingan bir birlikka to‘g‘ri keladigan o‘rtacha qoniqish",
+     "Ne’mat narxining bir birlik naflikka nisbati"
     ],
-    "c": 2
+    "c": 0,
+    "e": "MU = ΔTU / ΔQ, ya’ni qo‘shimcha bir birlik iste’moldan olingan qo‘shimcha naflik."
    },
    {
-    "q": "Umumiy naflik maksimal bo‘lganda chegaraviy naflik:",
+    "q": "Chegaraviy naflik nolga teng bo‘lganda umumiy naflik (TU) qanday bo‘ladi?",
     "options": [
-     "Maksimal",
-     "Nolga teng",
-     "Umumiy naflikka teng",
-     "Manfiy"
+     "Nolga teng bo‘lib qoladi",
+     "Manfiy qiymatga tushib ketadi",
+     "Maksimal darajaga yetadi",
+     "Eng kichik qiymatga tushib qoladi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "MU > 0 bo‘lsa TU o‘sadi, MU = 0 bo‘lganda TU maksimal, MU < 0 bo‘lsa TU kamayadi."
    },
    {
-    "q": "Chegaraviy naflikning kamayish qonuni nomi bilan ham ataladi:",
+    "q": "Gossenning ikkinchi qonuniga ko‘ra, iste’molchi naflikni maksimallashtiradi, agar:",
     "options": [
-     "Engel qonuni",
-     "Gossenning birinchi qonuni",
-     "Say qonuni",
-     "Valras qonuni"
+     "Barcha ne’matlarning narxlari bir-biriga teng bo‘lgan holatda",
+     "Barcha ne’matlarning chegaraviy nafliklari o‘zaro teng bo‘lsa, narxlardan qat’i nazar",
+     "Oxirgi so‘mning chegaraviy nafligi barcha ne’matlarda teng bo‘lsa",
+     "Barcha ne’matlardan olingan umumiy nafliklar o‘zaro teng bo‘lsa"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Qoida: MUX/PX = MUY/PY = … va butun daromad sarflangan; nafliklarning o‘zi emas, MU/P nisbatlari tenglashadi."
    },
    {
-    "q": "Naflikni maksimallashtirish qoidasi:",
+    "q": "Befarqlik egri chiziqlari nima uchun kesishmaydi?",
     "options": [
-     "MUX/PX = MUY/PY",
-     "TUX = TUY",
-     "MUX = MUY",
-     "PX = PY"
+     "Kesishsa, tranzitivlik farazi buzilgan bo‘lar edi",
+     "Kesishsa, byudjet chegarasi tenglamasi buzilar edi",
+     "Kesishsa, narxlar nisbati o‘zgarib ketar edi",
+     "Kesishsa, chegaraviy naflik ortib ketar edi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Kesishuv nuqtasida bir xil to‘plam ikki xil naflik darajasiga tegishli bo‘lib qolar, bu tranzitivlikka zid."
    },
    {
-    "q": "MUX/PX > MUY/PY bo‘lsa, iste’molchi:",
+    "q": "Chegaraviy almashtirish normasi (MRS) geometrik jihatdan nimaga teng?",
     "options": [
-     "Y ni ko‘paytirishi kerak",
-     "Hech narsani o‘zgartirmasligi kerak",
-     "X ni kamaytirishi kerak",
-     "X ni ko‘paytirib, Y ni kamaytirishi kerak"
+     "Byudjet chizig‘ining har qanday nuqtadagi qiyaligiga",
+     "Umumiy nafliklar nisbatiga",
+     "Daromadning ne’mat narxiga nisbatiga",
+     "Befarqlik egri chizig‘ining qiyaligiga"
     ],
-    "c": 3
+    "c": 3,
+    "e": "MRSXY = –ΔY/ΔX = MUX/MUY va u befarqlik egri chizig‘ining qiyaligiga teng."
    },
    {
-    "q": "Befarqlik egri chizig‘i:",
+    "q": "Befarqlik egri chiziqlarining koordinatalar boshiga nisbatan qavariq bo‘lishi nima bilan izohlanadi?",
     "options": [
-     "Bir xil narxdagi tovarlar",
-     "Ishlab chiqarish imkoniyatlari",
-     "Bir xil naflik beradigan to‘plamlar",
-     "Bir xil xarajat talab qiladigan to‘plamlar"
+     "Chegaraviy naflikning ortib borishi bilan",
+     "MRS ning kamayishi bilan",
+     "Byudjet chizig‘i qiyaligining o‘zgarishi bilan",
+     "Daromadning ortib borishi bilan"
     ],
-    "c": 2
+    "c": 1,
+    "e": "X ko‘paygan, Y kamaygan sari iste’molchi qo‘shimcha X uchun kamroq Y berishga tayyor, ya’ni MRS kamayadi."
    },
    {
-    "q": "Befarqlik egri chiziqlarining xususiyati emas:",
+    "q": "Chap va o‘ng poyabzal kabi mukammal to‘ldiruvchi tovarlarning befarqlik egri chiziqlari qanday shaklda bo‘ladi?",
     "options": [
-     "Qavariq",
-     "Pastga og‘ma",
-     "Kesishmaydi",
-     "Yuqoriga og‘ma"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Yuqoriroq befarqlik egri chizig‘i:",
-    "options": [
-     "Bir xil naflik beradi",
-     "Ko‘proq naflik beradi",
-     "Kamroq naflik beradi",
-     "Erishib bo‘lmaydi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Chegaraviy almashtirish normasi teng:",
-    "options": [
-     "I/PX",
-     "PY/PX",
-     "MUY/MUX",
-     "MUX/MUY"
-    ],
-    "c": 3
-   },
-   {
-    "q": "MRS ning kamayishi befarqlik egri chizig‘ining qanday shaklini belgilaydi?",
-    "options": [
-     "Vertikal",
-     "Botiq",
-     "Koordinatalar boshiga nisbatan qavariq",
-     "To‘g‘ri chiziq"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mukammal o‘rinbosarlar uchun befarqlik egri chiziqlari:",
-    "options": [
-     "Qavariq egri chiziq",
-     "To‘g‘ri chiziq",
+     "Pastga og‘ma to‘g‘ri chiziq shaklida",
      "To‘g‘ri burchak shaklida",
-     "Vertikal"
+     "Koordinatalar boshiga botiq egri chiziq shaklida",
+     "Gorizontal to‘g‘ri chiziq shaklida"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Juftisiz qo‘shimcha poyabzal naflik bermaydi, shuning uchun egri chiziqlar to‘g‘ri burchak hosil qiladi."
    },
    {
-    "q": "Chap va o‘ng poyabzal:",
+    "q": "Byudjet chizig‘ining qiyaligi nimaga teng?",
     "options": [
-     "Mukammal o‘rinbosarlar",
-     "Mukammal to‘ldiruvchilar",
-     "Past kategoriyali tovarlar",
-     "Mustaqil tovarlar"
+     "Daromadning X narxiga nisbati I/PX ga",
+     "Chegaraviy nafliklar nisbati MUX/MUY ga",
+     "Narxlar nisbati PX/PY ga",
+     "Narxlar nisbati PY/PX ga"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Y = I/PY – (PX/PY)X tenglamada X oldidagi koeffitsient narxlar nisbatidir."
    },
    {
-    "q": "Byudjet chizig‘ining qiyaligi teng:",
+    "q": "Narxlar o‘zgarmagan holda iste’molchining daromadi oshsa, byudjet chizig‘i qanday o‘zgaradi?",
     "options": [
-     "MU nisbatiga",
-     "Narxlar nisbatiga (PX/PY)",
-     "MRS ga",
-     "Daromadga"
+     "Qiyaligini saqlab, tashqariga parallel siljiydi",
+     "Y o‘qidagi nuqta atrofida tashqariga qarab buriladi",
+     "X o‘qidagi nuqta atrofida tashqariga qarab buriladi",
+     "Qiyaligi oshgan holda tashqariga qarab siljiydi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Daromad o‘zgarishi narxlar nisbatiga ta’sir qilmaydi, shu sababli chiziq parallel siljiydi."
    },
    {
-    "q": "I = 1000, PX = 10, PY = 2 bo‘lsa, byudjet chizig‘i Y o‘qini qayerda kesadi?",
+    "q": "Daromad ham, barcha narxlar ham bir xil foizga oshsa, byudjet chizig‘i bilan nima sodir bo‘ladi?",
     "options": [
-     "100",
-     "500",
-     "1000",
-     "200"
+     "Tashqariga parallel siljiydi, chunki daromad oshgan",
+     "Ichkariga parallel siljiydi, chunki narxlar oshgan",
+     "Qiyaligi o‘zgarib, chiziq buriladi",
+     "O‘zgarishsiz qoladi, chunki real daromad saqlanadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Ikkala ta’sir bir-birini yo‘qotadi: real daromad va nisbiy narxlar o‘zgarmaydi."
    },
    {
-    "q": "Daromad oshsa, byudjet chizig‘i:",
-    "options": [
-     "Buriladi",
-     "O‘zgarmaydi",
-     "Parallel tashqariga siljiydi",
-     "Ichkariga siljiydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Faqat X tovar narxi pasaysa, byudjet chizig‘i:",
-    "options": [
-     "Parallel siljiydi",
-     "Y o‘qi bo‘yicha buriladi",
-     "O‘zgarmaydi",
-     "X o‘qi bo‘yicha tashqariga buriladi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Daromad va barcha narxlar ikki baravar oshsa:",
-    "options": [
-     "Byudjet chizig‘i buriladi",
-     "Byudjet chizig‘i tashqariga siljiydi",
-     "Byudjet chizig‘i o‘zgarmaydi",
-     "Byudjet chizig‘i ichkariga siljiydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Iste’molchi muvozanati sharti:",
+    "q": "Iste’molchi muvozanati nuqtasida qaysi shart bajariladi?",
     "options": [
      "MRS = PX/PY",
-     "MRS = I",
-     "MUX = PX",
-     "TU = I"
+     "MUX = MUY",
+     "PX = PY",
+     "TUX = TUY"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Muvozanatda befarqlik egri chizig‘i byudjet chizig‘iga uriniladi, qiyaliklar teng: MRS = PX/PY."
    },
    {
-    "q": "Iste’molchi muvozanati grafikda:",
+    "q": "Go‘sht iste’mol qilmaydigan vegetarian go‘sht sotib olmaydi. Iste’molchi tanlovi nazariyasida bu qanday holat?",
     "options": [
-     "Koordinatalar boshi",
-     "Befarqlik egri chiziqlarining kesishish nuqtasi",
-     "Byudjet chizig‘ining eng yuqori befarqlik egri chizig‘iga urinish nuqtasi",
-     "Byudjet chizig‘ining o‘qlar bilan kesishish nuqtasi"
+     "Giffen holati",
+     "To‘yinish nuqtasi",
+     "Burchakli yechim",
+     "Mukammal o‘rinbosarlik holati"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Tovarlardan birining umuman sotib olinmasligi burchakli yechim deyiladi va u ham optimal tanlov bo‘lishi mumkin."
    },
    {
-    "q": "MRS > PX/PY bo‘lsa, iste’molchi:",
+    "q": "Iste’molchida MRSXY = 4, narxlar nisbati PX/PY = 2. Naflikni oshirish uchun u nima qilishi kerak?",
     "options": [
-     "X ni ko‘paytirishi kerak",
-     "X ni kamaytirishi kerak",
-     "Y ni ko‘paytirishi kerak",
-     "Muvozanatda"
+     "X ni kamroq, Y ni ko‘proq sotib olishi",
+     "X ni ko‘proq, Y ni kamroq sotib olishi",
+     "Xaridlarni o‘zgartirmasligi, chunki u muvozanatda",
+     "Butun daromadni faqat Y ga sarflashi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "MRS > PX/PY bo‘lsa, iste’molchi X ni bozor taklif qilganidan ko‘proq qadrlaydi va uni ko‘proq sotib olishi kerak."
    },
    {
-    "q": "U = X × Y, I = 100, PX = 5, PY = 10 bo‘lsa, optimal X:",
+    "q": "MUX = 60, PX = 20 ming so‘m; MUY = 40, PY = 10 ming so‘m. Naflikni oshirish uchun iste’molchi nima qilishi kerak?",
     "options": [
-     "5",
-     "10",
-     "20",
-     "50"
+     "Xarajatni Y dan X ga o‘tkazishi",
+     "Ikkala tovar xarajatini teng oshirishi",
+     "Xaridlarni o‘zgartirmasligi",
+     "Xarajatni X dan Y ga o‘tkazishi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "MUX/PX = 3, MUY/PY = 4: Y ga sarflangan so‘m ko‘proq naflik beradi, shuning uchun xarajat Y ga o‘tkaziladi."
    },
    {
-    "q": "Burchakli yechimda:",
+    "q": "U = X×Y, daromad 600, PX = 10, PY = 5. Iste’molchi muvozanatida X va Y miqdorlari qanday?",
     "options": [
-     "Iste’molchi tovarlardan birini sotib olmaydi",
-     "MRS = PX/PY",
-     "Iste’molchi ikkala tovarni teng sotib oladi",
-     "Byudjet to‘liq sarflanmaydi"
+     "X = 60, Y = 30",
+     "X = 40, Y = 40",
+     "X = 30, Y = 60",
+     "X = 30, Y = 120"
     ],
-    "c": 0
+    "c": 2,
+    "e": "MRS = Y/X = 10/5 = 2, Y = 2X; 10X + 5·2X = 600, X = 30, Y = 60."
    },
    {
-    "q": "Ordinalistik yondashuv asoschilaridan biri:",
+    "q": "Befarqlik egri chizig‘i nimani ko‘rsatadi?",
     "options": [
-     "D. Rikardo",
-     "A. Smit",
-     "J.M. Keyns",
-     "V. Pareto"
+     "Iste’molchiga bir xil naflik beradigan to‘plamlarni",
+     "Iste’molchi sotib ola oladigan to‘plamlarni",
+     "Eng yuqori naflik beradigan yagona to‘plamni",
+     "Iste’molchining har bir to‘plamdan olgan chegaraviy nafligini"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Egri chiziqdagi barcha to‘plamlar teng darajada afzal, iste’molchi ular o‘rtasida befarq."
    },
    {
-    "q": "To‘yinmaslik farazi:",
+    "q": "Ordinalistik yondashuvga ko‘ra iste’molchidan nima talab qilinadi?",
     "options": [
-     "Naflik o‘lchanmaydi",
-     "Iste’molchi befarq",
-     "Kamroq tovar afzal",
-     "Ko‘proq tovar kamroqdan afzal"
+     "Naflikni yutil birliklarida aniq o‘lchay olishi",
+     "To‘plamlarni afzalligiga qarab tartiblay olishi",
+     "Naflikni pul birligida baholay olishi",
+     "Barcha ne’matlarning narxini bilishi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Ordinalistik (tartibiy) yondashuvda naflikni o‘lchash shart emas, to‘plamlarni tartiblash yetarli."
    },
    {
-    "q": "Tranzitivlik farazi buzilsa:",
+    "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real daromad taxminan qanday o‘zgargan?",
     "options": [
-     "Befarqlik egri chiziqlari kesishishi mumkin",
-     "Befarqlik egri chiziqlari to‘g‘ri chiziq bo‘ladi",
-     "MRS doimiy bo‘ladi",
-     "Byudjet chizig‘i siljiydi"
+     "10 foizga oshgan",
+     "30 foizga oshgan",
+     "O‘zgarmagan",
+     "Taxminan 9,1 foizga oshgan"
     ],
-    "c": 0
-   },
-   {
-    "q": "Nominal ish haqi 18,9%, narxlar 7,3% oshsa, real ish haqi taxminan:",
-    "options": [
-     "7,3% kamayadi",
-     "26,2% oshadi",
-     "10,8% oshadi",
-     "O‘zgarmaydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "U = XaYb funksiyada X ga sarflanadigan daromad ulushi:",
-    "options": [
-     "b/(a+b)",
-     "1/2",
-     "a",
-     "a/(a+b)"
-    ],
-    "c": 3
-   },
-   {
-    "q": "«Nudge» (yengil turtki) g‘oyasi muallifi:",
-    "options": [
-     "J. Xiks",
-     "A. Marshall",
-     "V. Pareto",
-     "R. Taler"
-    ],
-    "c": 3
+    "c": 3,
+    "e": "1,20 / 1,10 – 1 ≈ 0,091, ya’ni real daromad taxminan 9,1 foizga oshgan."
    }
   ],
   "selfStudy": [
@@ -2065,304 +1745,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Daromad-iste’mol chizig‘i (ICC) ko‘rsatadi:",
+    "q": "Narxlar o‘zgarmagan holda turli daromad darajalaridagi muvozanat nuqtalarini tutashtiruvchi chiziq qanday ataladi?",
     "options": [
-     "Narx o‘zgarganda muvozanat o‘zgarishini",
-     "Xarajatlar o‘zgarishini",
-     "Taklif o‘zgarishini",
-     "Daromad o‘zgarganda muvozanat o‘zgarishini"
+     "Narx-iste’mol chizig‘i (PCC)",
+     "Kompensatsiyalangan byudjet chizig‘i",
+     "Daromad-iste’mol chizig‘i (ICC)",
+     "Befarqlik egri chizig‘i"
     ],
-    "c": 3
+    "c": 2,
+    "e": "ICC daromad o‘zgarganda muvozanat nuqtasining harakat izini ko‘rsatadi; PCC esa narx o‘zgarishiga tegishli."
    },
    {
-    "q": "Ikkala tovar normal bo‘lsa, ICC:",
+    "q": "Agar X tovar past kategoriyali bo‘lsa, daromad-iste’mol chizig‘i daromadning ma’lum darajasidan keyin qanday bo‘ladi?",
     "options": [
-     "Musbat qiyalikka ega",
-     "Manfiy qiyalikka ega",
-     "Gorizontal",
-     "Vertikal"
+     "Orqaga (chapga) buriladi",
+     "Gorizontal holatga o‘tadi",
+     "Tikroq bo‘lib yuqoriga ketadi",
+     "Koordinatalar boshiga qaytadi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Daromad oshgani sari past kategoriyali tovar iste’moli kamayadi, shuning uchun ICC orqaga buriladi."
    },
    {
-    "q": "Engel chizig‘i:",
+    "q": "Kobb-Duglas naflik funksiyasida (gomotetik afzalliklar) daromad-iste’mol chizig‘i qanday ko‘rinishda bo‘ladi?",
     "options": [
-     "PCC dan keltirib chiqariladi",
-     "ICC dan keltirib chiqariladi",
-     "Taklif chizig‘idan keltirib chiqariladi",
-     "ICHE dan keltirib chiqariladi"
+     "Orqaga bukilgan egri chiziq",
+     "Boshdan chiquvchi to‘g‘ri chiziq",
+     "Gorizontal to‘g‘ri chiziq",
+     "Koordinatalar boshiga qavariq egri chiziq"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Gomotetik afzalliklarda iste’molchi daromadini har qanday darajada tovarlar o‘rtasida bir xil nisbatda taqsimlaydi."
    },
    {
-    "q": "Individual talab chizig‘i keltirib chiqariladi:",
+    "q": "Hashamat tovarlari uchun Engel chizig‘i qanday xususiyatga ega?",
     "options": [
-     "ICC dan",
-     "Lorens chizig‘idan",
-     "PCC dan",
-     "Engel chizig‘idan"
+     "Daromad oshgan sari sekinlashib o‘sadi",
+     "Daromad oshgan sari kamayib boradi",
+     "Daromadga bog‘liq bo‘lmaydi",
+     "Daromad oshgan sari tezlashib o‘sadi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Hashamat tovarlarining daromad elastikligi 1 dan katta, shu sababli Engel chizig‘i tezlashib o‘sadi."
    },
    {
-    "q": "Kobb-Duglas naflik funksiyasida PCC:",
+    "q": "Narx-iste’mol chizig‘i (PCC) yordamida nima aniqlanadi?",
     "options": [
-     "Gorizontal",
-     "Vertikal",
-     "Pastga og‘ma",
-     "Yuqoriga og‘ma"
+     "Tovarning Engel chizig‘i",
+     "Bozor taklifi chizig‘i",
+     "Iste’molchining byudjet chegarasi",
+     "Individual talab chizig‘i"
     ],
-    "c": 0
+    "c": 3,
+    "e": "PCC dagi har bir X narxiga muvozanatdagi X miqdori mos qo‘yilib, individual talab chizig‘i hosil qilinadi."
    },
    {
-    "q": "Almashtirish samarasi narx pasayganda:",
+    "q": "U = X^0,5·Y^0,5, daromad 24, PY = 1. PX = 4 bo‘lganda iste’molchi X tovarini qancha sotib oladi?",
     "options": [
-     "Tovar turiga bog‘liq",
-     "Har doim kamaytiradi",
-     "Nolga teng",
-     "Har doim tovar iste’molini oshiradi"
+     "6 birlik",
+     "3 birlik",
+     "12 birlik",
+     "2 birlik"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Talab funksiyasi X = I/(2PX) = 24/8 = 3 birlik (daromadning yarmi X ga sarflanadi)."
    },
    {
-    "q": "Daromad samarasining yo‘nalishi bog‘liq:",
+    "q": "Narx o‘zgarishining umumiy samarasi qanday ifodalanadi?",
     "options": [
-     "Tovar normal yoki past kategoriyali ekaniga",
-     "Soliqlarga",
-     "Taklifga",
-     "Faqat narxga"
+     "Almashtirish va daromad samaralarining yig‘indisi",
+     "Almashtirish va daromad samaralarining ayirmasi",
+     "Almashtirish samarasining daromad samarasiga nisbati",
+     "Almashtirish va daromad samaralarining ko‘paytmasi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Umumiy samara = almashtirish samarasi + daromad samarasi."
    },
    {
-    "q": "Normal tovarda narx pasayganda daromad samarasi:",
+    "q": "Almashtirish samarasi nimani anglatadi?",
     "options": [
-     "Iste’molni kamaytiradi",
-     "Iste’molni oshiradi",
-     "Nolga teng",
-     "Almashtirish samarasiga qarama-qarshi"
+     "Real daromad o‘zgarishi tufayli iste’molning o‘zgarishini",
+     "Byudjet chizig‘ining parallel siljishini",
+     "Nisbiy narxlar o‘zgarishidan iste’molning o‘zgarishini",
+     "Iste’molchi naflik darajasining oshishini"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Almashtirish samarasi naflik darajasi o‘zgarmagan holda faqat nisbiy narxlar o‘zgarishi ta’sirini ifodalaydi."
    },
    {
-    "q": "Xiks usulida kompensatsiyalangan byudjet chizig‘i iste’molchini saqlaydi:",
+    "q": "Xiks va Slutskiy usullarining kompensatsiyalangan byudjet chizig‘ini chizishdagi farqi nimada?",
     "options": [
-     "Boshlang‘ich naflik darajasida",
-     "Boshlang‘ich to‘plamni sotib olish imkoniyatida",
-     "Nol daromadda",
-     "Yangi naflik darajasida"
+     "Xiks boshlang‘ich to‘plamni, Slutskiy boshlang‘ich naflik darajasini saqlaydi",
+     "Xiks nominal daromadni, Slutskiy narxlarni o‘zgarmas qoldiradi",
+     "Xiks boshlang‘ich naflik darajasini, Slutskiy boshlang‘ich to‘plamni saqlaydi",
+     "Xiks daromad samarasini, Slutskiy almashtirish samarasini hisobga olmaydi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Xiksda iste’molchi dastlabki befarqlik egri chizig‘ida qoladi, Slutskiyda esa dastlabki to‘plamni sotib olish imkoni saqlanadi."
    },
    {
-    "q": "Slutskiy usulida kompensatsiya:",
+    "q": "Normal tovar narxi pasayganda almashtirish va daromad samaralari iste’molga qanday ta’sir qiladi?",
     "options": [
-     "Boshlang‘ich to‘plamni sotib olish imkonini saqlaydi",
-     "Daromadni ikki baravar oshiradi",
-     "Boshlang‘ich naflikni saqlaydi",
-     "Narxlarni o‘zgartirmaydi"
+     "Almashtirish samarasi oshiradi, daromad samarasi kamaytiradi",
+     "Almashtirish samarasi kamaytiradi, daromad samarasi oshiradi",
+     "Ikkalasi ham iste’molni kamaytiradi",
+     "Ikkalasi ham iste’molni oshiradi"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Normal tovarda ikkala samara bir yo‘nalishda ishlaydi, shuning uchun talab chizig‘i pastga og‘ma."
    },
    {
-    "q": "Past kategoriyali tovarda narx pasayganda daromad samarasi:",
+    "q": "Past kategoriyali tovar narxi pasayganda talab chizig‘i odatda nima uchun baribir pastga og‘ma bo‘ladi?",
     "options": [
-     "Iste’molni oshiradi",
-     "Iste’molni kamaytiradi",
-     "Nolga teng",
-     "Almashtirish samarasi bilan bir yo‘nalishda"
+     "Chunki daromad samarasi almashtirish samarasidan kuchliroq",
+     "Chunki almashtirish samarasi daromad samarasidan kuchliroq",
+     "Chunki daromad samarasi iste’molni oshiradi",
+     "Chunki almashtirish samarasi narx pasayganda yo‘qoladi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Daromad samarasi iste’molni kamaytirsa-da, kuchsiz bo‘ladi; umumiy samara musbat qoladi."
    },
    {
-    "q": "Past kategoriyali (Giffen bo‘lmagan) tovar uchun talab chizig‘i:",
+    "q": "Quyidagi shartlardan qaysi biri tovarning Giffen tovari bo‘lishi uchun zarur?",
     "options": [
-     "Vertikal",
-     "Yuqoriga og‘ma",
-     "Pastga og‘ma",
-     "Gorizontal"
+     "Tovar kuchli past kategoriyali va xarajatlarda ulushi katta",
+     "Tovar hashamat buyumi bo‘lib, narxi juda yuqori bo‘ladi",
+     "Tovarning ko‘plab yaqin o‘rinbosarlari mavjud bo‘ladi",
+     "Tovarning iste’molchi xarajatlaridagi ulushi juda kichik bo‘ladi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Giffen tovari uchun kuchli past kategoriyalilik, xarajatlardagi katta ulush va yaqin o‘rinbosarlarning kamligi shart."
    },
    {
-    "q": "Giffen tovarida:",
+    "q": "Veblen samarasi Giffen holatidan nimasi bilan farq qiladi?",
     "options": [
-     "Almashtirish samarasi yo‘q",
-     "Daromad samarasi almashtirish samarasidan katta va qarama-qarshi",
-     "Tovar normal",
-     "Ikkala samara bir yo‘nalishda"
+     "Tovar kuchli past kategoriyali bo‘lgani uchun xarid qilinadi",
+     "Yuqori narx tovarni ijtimoiy signal sifatida qadrli qiladi",
+     "Tovarning daromad samarasi manfiy va juda kuchli bo‘ladi",
+     "Tovarning yaqin o‘rinbosarlari deyarli mavjud bo‘lmaydi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Veblen holatida talab narxning ijtimoiy signal rolidan kelib chiqadi (ko‘z-ko‘z qilish uchun iste’mol)."
    },
    {
-    "q": "Giffen tovari uchun talab chizig‘i:",
+    "q": "Xunan provinsiyasidagi tajribada guruch narxiga subsidiya olgan juda kambag‘al oilalar nima qildi?",
     "options": [
-     "Yuqoriga og‘ma",
-     "Birlik elastik",
-     "Pastga og‘ma",
-     "Gorizontal"
+     "Guruch iste’molini oshirib, boshqa mahsulotlarni kamaytirdi",
+     "Guruch iste’molini o‘zgartirmadi, jamg‘armasini oshirdi",
+     "Go‘sht va guruchni ham kamroq sotib oldi",
+     "Guruchni kamroq iste’mol qilib, go‘shtni ko‘proq sotib oldi"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Guruch arzonlashib, oilalar real daromadi oshdi; kuchli daromad samarasi tufayli guruch iste’moli kamaydi – bu Giffen tovari dalili."
    },
    {
-    "q": "Jensen va Miller (2008) tajribasida Giffen tovari sifatida aniqlangan mahsulot:",
+    "q": "Ish haqi oshganda almashtirish samarasi mehnat taklifiga qanday ta’sir qiladi?",
     "options": [
-     "Guruch",
-     "Kartoshka",
-     "Go‘sht",
-     "Bug‘doy"
+     "Dam olish arzonlashgani uchun inson kamroq ishlaydi",
+     "Inson boyigani uchun ko‘proq dam oladi",
+     "Dam olish qimmatlashgani sababli ko‘proq ishlaydi",
+     "Inson ish vaqtini o‘zgartirmaydi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Ish haqi – dam olishning muqobil xarajati; u oshsa dam olish qimmatlashadi va mehnat taklifi ortadi."
    },
    {
-    "q": "Veblen samarasi bog‘liq:",
+    "q": "Orqaga bukilgan mehnat taklifi chizig‘i qaysi holatda hosil bo‘ladi?",
     "options": [
-     "Soliqlar bilan",
-     "Daromad samarasi bilan",
-     "Past kategoriyali tovarlar bilan",
-     "Ko‘z-ko‘z qilish uchun iste’mol bilan"
+     "Yuqori ish haqida daromad samarasi almashtirish samarasidan ustun kelganda",
+     "Past ish haqi darajasida daromad samarasi almashtirish samarasidan ustun kelganda",
+     "Almashtirish samarasi har qanday ish haqida ustun kelganda",
+     "Dam olish past kategoriyali tovar hisoblanganda"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Boy bo‘lgan inson dam olishni (normal tovar) ko‘proq xohlaydi va mehnat taklifini kamaytiradi."
    },
    {
-    "q": "Ish haqi oshganda almashtirish samarasi:",
+    "q": "Kam ta’minlangan oilaga non narxiga subsidiya o‘rniga shu qiymatdagi pul yordami berilsa, nima uchun u oilaga kamida teng foyda keltiradi?",
     "options": [
-     "Ta’sir qilmaydi",
-     "Dam olishni oshiradi",
-     "Ishlash vaqtini kamaytiradi",
-     "Ishlash vaqtini oshiradi"
+     "Oilaning umumiy iste’molini nonga yo‘naltirib, nazoratni osonlashtiradi",
+     "Nonning bozor narxini pasaytirib, boshqa oilalarga ham talabni oshiradi",
+     "Almashtirish samarasini kuchaytirib, nonga talabni oshiradi",
+     "Nisbiy narxlarni buzmaydi, xarajatni didga ko‘ra taqsimlashga imkon beradi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Pul yordami almashtirish samarasini keltirib chiqarmaydi, oila esa yordamni o‘z didiga mos sarflaydi."
    },
    {
-    "q": "Ish haqi oshganda (dam olish normal tovar bo‘lsa) daromad samarasi:",
+    "q": "Foiz stavkasi oshganda jamg‘arma qanday o‘zgaradi?",
     "options": [
-     "Ishlash vaqtini oshiradi",
-     "Ishlash vaqtini kamaytiradi",
-     "Ish haqini kamaytiradi",
-     "Ta’sir qilmaydi"
+     "Har doim oshadi, chunki bugungi iste’mol qimmatlashib, jamg‘arma foydali bo‘ladi",
+     "Almashtirish samarasi oshiradi, daromad samarasi kamaytiradi; natija noaniq",
+     "Har doim kamayadi, chunki jamg‘aruvchi boyiydi va kam jamg‘arishga tayyor bo‘ladi",
+     "O‘zgarmaydi, chunki ikki samara bir-birini to‘liq yo‘qotadi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Bugungi iste’mol qimmatlashishi jamg‘armani oshiradi, boyish esa kamaytiradi; umumiy natija ikki samara nisbatiga bog‘liq."
    },
    {
-    "q": "Orqaga bukilgan mehnat taklifi chizig‘ining sababi:",
+    "q": "Bozorda q1 = 40 – 4P (P ≤ 10) va q2 = 60 – 3P (P ≤ 20) talab funksiyali ikki guruh bor. P = 12 bo‘lganda bozor talabi qancha?",
     "options": [
-     "Yuqori ish haqida daromad samarasining ustunligi",
-     "Kasaba uyushmalari",
-     "Minimal ish haqi",
-     "Almashtirish samarasining ustunligi"
+     "16 birlik",
+     "36 birlik",
+     "24 birlik",
+     "48 birlik"
     ],
-    "c": 0
+    "c": 2,
+    "e": "P = 12 > 10 da birinchi guruh talab qilmaydi: Q = q2 = 60 – 36 = 24. 100 – 7P formulasi bu narxda yaroqsiz (16 beradi)."
    },
    {
-    "q": "Lotereya yutuqlari bo‘yicha tadqiqotlar nimani tasdiqladi?",
+    "q": "Telegram foydalanuvchilari qancha ko‘p bo‘lsa, unga qo‘shilish shuncha foydali. Bu qaysi samaraga misol?",
     "options": [
-     "Giffen tovarlarini",
-     "Sof daromad samarasi mehnat taklifini kamaytirishi mumkinligini",
-     "Talab qonunini",
-     "Almashtirish samarasini"
+     "Qo‘shilish (bandwagon) samarasiga",
+     "Snob (eksklyuziv) samarasiga",
+     "Veblen (ko‘z-ko‘z qilish) samarasiga",
+     "Giffen (past kategoriyali) samarasiga"
     ],
-    "c": 1
-   },
-   {
-    "q": "Foiz stavkasi oshganda almashtirish samarasi:",
-    "options": [
-     "Jamg‘armani oshiradi",
-     "Iste’molni oshiradi",
-     "Ta’sir qilmaydi",
-     "Jamg‘armani kamaytiradi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Foiz stavkasi oshishining jamg‘armaga umumiy ta’siri:",
-    "options": [
-     "Har doim musbat",
-     "Har doim manfiy",
-     "Nolga teng",
-     "Noaniq (daromad va almashtirish samarasi nisbatiga bog‘liq)"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Pul yordami narx subsidiyasidan afzal, chunki:",
-    "options": [
-     "Arzonroq",
-     "Faqat boylarga beriladi",
-     "Inflyatsiyani pasaytiradi",
-     "Nisbiy narxlarni buzmaydi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Bozor talabi topiladi:",
-    "options": [
-     "Individual talablarni vertikal qo‘shish orqali",
-     "Individual talablarni gorizontal qo‘shish orqali",
-     "Taklif bilan tenglashtirish orqali",
-     "O‘rtacha qiymat orqali"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Qo‘shilish (bandwagon) samarasi bozor talabini:",
-    "options": [
-     "O‘zgartirmaydi",
-     "Elastikroq qiladi",
-     "Kamroq elastik qiladi",
-     "Vertikal qiladi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Snob samarasi:",
-    "options": [
-     "Boshqalar sotib olgani sababli talab oshishi",
-     "Daromad samarasi",
-     "Boshqalar sotib olgani sababli talab kamayishi",
-     "Narx oshganda talab oshishi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "U = X × Y, I = 100, PX = 2, PY = 1 bo‘lsa, X ning optimal miqdori:",
-    "options": [
-     "50",
-     "25",
-     "100",
-     "20"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Almashtirish samarasi nimani o‘zgartirmagan holda o‘lchanadi?",
-    "options": [
-     "Narxlarni",
-     "Naflik darajasini (Xiks bo‘yicha)",
-     "Nisbiy narxlarni",
-     "Talabni"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Normal tovar uchun narx pasayganda yangi muvozanat nuqtasi C:",
-    "options": [
-     "A bilan bir xil",
-     "A dan chapda",
-     "B dan o‘ngda (ko‘proq X)",
-     "A va B orasida"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Giffen tovari bo‘lishi uchun zarur shart emas:",
-    "options": [
-     "Tovar hashamat buyumi",
-     "Tovar kuchli past kategoriyali",
-     "Yaqin o‘rinbosarlari kam",
-     "Xarajatlardagi ulushi katta"
-    ],
-    "c": 0
+    "c": 0,
+    "e": "Boshqalar sotib olgani sababli talab oshishi qo‘shilish samarasi; bunda bozor talabi elastikroq bo‘ladi."
    }
   ],
   "selfStudy": [
@@ -2551,304 +2151,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "F. Naytga ko‘ra tavakkalchilik:",
+    "q": "F. Nayt bo‘yicha tavakkalchilik noaniqlikdan nimasi bilan farq qiladi?",
     "options": [
-     "Natijalar va ehtimollar noma’lum holat",
-     "Faqat zarar",
-     "Aniq natija",
-     "Natijalar va ularning ehtimollari ma’lum holat"
+     "Tavakkalchilikda natijalar ham, ehtimollar ham noma’lum bo‘ladi",
+     "Tavakkalchilikda natijalar noma’lum, ehtimollar ma’lum bo‘ladi",
+     "Tavakkalchilik faqat moliyaviy yo‘qotishni bildiradi",
+     "Tavakkalchilikda natijalar va ehtimollar ma’lum bo‘ladi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Tavakkalchilikda natijalar va ehtimollar ma’lum (tanga tashlash), noaniqlikda esa ular noma’lum (yangi texnologiya muvaffaqiyati)."
    },
    {
-    "q": "Tajriba va shaxsiy bahoga asoslangan ehtimol:",
+    "q": "Ob’ektiv ehtimol nimaga asoslanadi?",
     "options": [
-     "Ob’ektiv",
-     "Sub’ektiv",
-     "Matematik",
-     "Statistik"
+     "Shaxsiy tajriba va intuitsiya asosidagi bahoga",
+     "Ko‘p marta takrorlangan hodisalar statistikasiga",
+     "Mutaxassislarning kelishilgan shaxsiy bahosiga",
+     "Tadbirkorning kelajakka oid kutishlariga"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Masalan, 20 yilda 4 marta qurg‘oqchilik bo‘lgan bo‘lsa, ob’ektiv ehtimol 4/20 = 0,2."
    },
    {
-    "q": "Kutilayotgan qiymat:",
+    "q": "Tadbirkor shaxsiy tajribasiga tayanib yangi kafe muvaffaqiyatli bo‘lish ehtimolini 0,6 deb baholadi. Bu qanday ehtimol?",
     "options": [
-     "Natijalar yig‘indisi",
-     "Eng katta natija",
-     "Eng ko‘p uchraydigan natija",
-     "Natijalarning ehtimollar bilan tortilgan o‘rtachasi"
+     "Ob’ektiv ehtimol",
+     "Statistik ehtimol",
+     "Sub’ektiv ehtimol",
+     "Tizimli ehtimol"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Shaxsiy baho, tajriba va intuitsiyaga asoslangan ehtimol sub’ektiv ehtimol deyiladi."
    },
    {
-    "q": "0,4 ehtimol bilan 100, 0,6 ehtimol bilan 50 daromad – kutilayotgan qiymat:",
+    "q": "Valyuta kursi va foiz stavkalarining o‘zgarishi tavakkalchilikning qaysi manbaiga kiradi?",
     "options": [
-     "75",
-     "70",
-     "60",
-     "80"
+     "Bozor omillariga",
+     "Tabiiy-iqlim omillariga",
+     "Texnologik omillarga",
+     "Inson omiliga"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Talab, narxlar, valyuta kursi va foiz stavkalari o‘zgarishi bozor omillari hisoblanadi."
    },
    {
-    "q": "Tavakkalchilikning asosiy o‘lchovi:",
+    "q": "Loyiha 0,4 ehtimol bilan 100 mln so‘m, 0,6 ehtimol bilan 30 mln so‘m foyda keltiradi. Kutilayotgan foyda qancha?",
     "options": [
-     "Kutilayotgan qiymat",
-     "Standart chetlanish",
-     "Median",
-     "Narx"
+     "58 mln so‘m",
+     "65 mln so‘m",
+     "72 mln so‘m",
+     "130 mln so‘m"
     ],
-    "c": 1
+    "c": 0,
+    "e": "E = 0,4 × 100 + 0,6 × 30 = 40 + 18 = 58 mln so‘m."
    },
    {
-    "q": "Variatsiya koeffitsienti:",
+    "q": "Loyihaning standart chetlanishi kattalashsa, bu nimani bildiradi?",
     "options": [
-     "E(X) / σ",
-     "σ × E(X)",
-     "σ2",
-     "σ / E(X)"
+     "Kutilayotgan foyda oshib borayotganini",
+     "Tavakkalchilik darajasi pasayganini",
+     "Tavakkalchilik yuqori ekanini",
+     "Natijalar aniq oldindan ma’lum ekanini"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Standart chetlanish natijalarning kutilayotgan qiymatdan chetlanishini o‘lchaydi: u katta bo‘lsa, tavakkalchilik yuqori."
    },
    {
-    "q": "Tavakkalchilikdan qochuvchi shaxsning naflik funksiyasi:",
+    "q": "Variatsiya koeffitsienti (CV = σ / E(X)) nimani ko‘rsatadi?",
     "options": [
-     "Qavariq",
-     "Chiziqli",
-     "Botiq",
-     "Vertikal"
+     "Natijalarning eng katta va eng kichik qiymatlari farqini",
+     "Daromad birligiga to‘g‘ri keladigan tavakkalchilikni",
+     "Loyiha natijalari ehtimollarining umumiy yig‘indisini",
+     "Kutilayotgan daromadning dispersiyaga nisbatini"
     ],
-    "c": 2
+    "c": 1,
+    "e": "CV tavakkalchilikni nisbiy o‘lchaydi, shu sababli turli kattalikdagi loyihalarni taqqoslashga imkon beradi."
    },
    {
-    "q": "Tavakkalchilikdan qochuvchi shaxs uchun:",
+    "q": "Import qiluvchi firma bank bilan valyutani kelajakda belgilangan kursda sotib olish bo‘yicha forvard shartnoma tuzdi. Bu qaysi usul?",
     "options": [
-     "U(E(W)) < EU",
-     "U(E(W)) > EU",
-     "EU = 0",
-     "U(E(W)) = EU"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Tavakkalchilikka befarq shaxs:",
-    "options": [
-     "Lotereyani yoqtiradi",
-     "Tavakkaldan qochadi",
-     "Har doim sug‘urta sotib oladi",
-     "Faqat kutilayotgan qiymatga qaraydi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Aniqlik ekvivalenti:",
-    "options": [
-     "Sug‘urta mukofoti",
-     "Kutilayotgan qiymat",
-     "Tavakkalli variant bilan teng naflik beruvchi kafolatlangan summa",
-     "Standart chetlanish"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Tavakkalchilik mukofoti teng:",
-    "options": [
-     "CE – E(W)",
-     "EU – U",
-     "σ",
-     "E(W) – CE"
-    ],
-    "c": 3
-   },
-   {
-    "q": "U = 10√W, boylik 0,5 ehtimol bilan 16 yoki 64 bo‘lsa, aniqlik ekvivalenti:",
-    "options": [
-     "40",
-     "36",
-     "30",
-     "60"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Diversifikatsiya yo‘qotadigan tavakkalchilik:",
-    "options": [
-     "Bozor",
-     "Inflyatsion",
-     "Tizimli",
-     "O‘ziga xos (firma tavakkalchiligi)"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Diversifikatsiya bilan yo‘qotib bo‘lmaydigan tavakkalchilik:",
-    "options": [
-     "Mahsulot muvaffaqiyatsizligi",
-     "Tizimli (bozor) tavakkalchilik",
-     "Boshqaruv xatolari",
-     "Firma tavakkalchiligi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Sug‘urtaning asosi bo‘lgan statistik qonun:",
-    "options": [
-     "Engel qonuni",
-     "Say qonuni",
-     "Talab qonuni",
-     "Katta sonlar qonuni"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Forvard va fyuchers shartnomalari orqali tavakkalchilikdan himoyalanish:",
-    "options": [
-     "Skrining",
-     "Signal berish",
      "Diversifikatsiya",
+     "Tavakkalchilikni qo‘shish",
+     "Skrining",
      "Xedjirlash"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Muddatli shartnomalar (forvard, fyuchers, opsion) orqali kurs o‘zgarishi tavakkalchiligidan himoyalanish xedjirlash deyiladi."
    },
    {
-    "q": "«Limonlar bozori» modeli muallifi:",
+    "q": "Tavakkalchilikdan qochuvchi shaxsning boylik naflik funksiyasi qanday shaklga ega?",
     "options": [
-     "M. Spens",
-     "J. Akerlof",
-     "J. Stiglits",
-     "F. Nayt"
+     "Chiziqli, chegaraviy naflik doimiy",
+     "Qavariq, boylikning chegaraviy nafligi ortadi",
+     "Gorizontal, boylik naflikka ta’sir qilmaydi",
+     "Botiq, boylikning chegaraviy nafligi kamayadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Botiq naflik funksiyasida U(E(W)) > EU: shaxs kafolatlangan daromadni tavakkalli daromaddan afzal ko‘radi."
    },
    {
-    "q": "Ishlatilgan avtomobillar bozorida sotuvchi sifatni biladi, xaridor bilmaydi – bu:",
+    "q": "U(E(W)) = EU tengligi qanday munosabatni bildiradi?",
+    "options": [
+     "Tavakkalchilikka befarqlikni",
+     "Tavakkalchilikdan qochishni",
+     "Tavakkalchilikka moyillikni",
+     "Tavakkalchilik mukofotining yo‘qligini ko‘rsatuvchi sug‘urta zarurligini"
+    ],
+    "c": 0,
+    "e": "Chiziqli naflik funksiyasida shaxs faqat kutilayotgan qiymatga qaraydi, ya’ni tavakkalchilikka befarq."
+   },
+   {
+    "q": "Tavakkalchilik mukofoti nima?",
+    "options": [
+     "Kutilayotgan qiymat bilan dispersiya o‘rtasidagi farq",
+     "Sug‘urta kompaniyasining ma’muriy xarajatlari",
+     "Kutilayotgan qiymat bilan aniqlik ekvivalenti farqi",
+     "Yutuq va yo‘qotish ehtimollari o‘rtasidagi farq"
+    ],
+    "c": 2,
+    "e": "Bu shaxs tavakkalchilikdan qutulish uchun voz kechishga tayyor bo‘lgan maksimal summa."
+   },
+   {
+    "q": "Soyabon va muzqaymoq sotuvchi firma yomg‘irli va quyoshli kunlarda daromadini barqarorlashtiradi. Bu nimaga misol?",
+    "options": [
+     "Xedjirlash shartnomasiga",
+     "Diversifikatsiyaga",
+     "Qayta sug‘urtalashga",
+     "Signal berishga"
+    ],
+    "c": 1,
+    "e": "Bir-biri bilan bog‘liqligi kuchsiz faoliyat turlari birga olib borilsa, daromad tebranishi kamayadi."
+   },
+   {
+    "q": "Qaysi tavakkalchilikni diversifikatsiya bilan yo‘qotib bo‘lmaydi?",
+    "options": [
+     "Bitta kompaniya rahbariyatining xatosi tavakkalchiligini",
+     "Bitta mahsulotning muvaffaqiyatsizligi tavakkalchiligini",
+     "Retsessiya kabi butun iqtisodiyotga xos tavakkalchilikni",
+     "Bitta fermerning hosilsizligi tavakkalchiligini"
+    ],
+    "c": 2,
+    "e": "Tizimli (bozor) tavakkalchilik barcha aktivlarga ta’sir qiladi; o‘ziga xos tavakkalchilik esa diversifikatsiya bilan kamayadi."
+   },
+   {
+    "q": "Sug‘urta kompaniyasi uchun umumiy tavakkalchilik kichik bo‘lishi nima bilan izohlanadi?",
+    "options": [
+     "Katta sonlar qonuniga ko‘ra yo‘qotishlarni bashorat qila olishi bilan",
+     "Barcha mijozlarning bir vaqtda zarar ko‘rishi ehtimoli yuqoriligi bilan",
+     "Sug‘urta mukofotining kutilayotgan zarardan ancha yuqori belgilanishi bilan",
+     "Mijozlar xavfi kompaniyaga umuman ma’lum bo‘lmasligi bilan"
+    ],
+    "c": 0,
+    "e": "Ko‘plab mustaqil tavakkalchiliklar qo‘shilganda, nechta hodisa yuz berishini taxminan aniq aytish mumkin."
+   },
+   {
+    "q": "Uy qiymati 200 mln so‘m, bir yilda yonish ehtimoli 5 foiz. «Adolatli» sug‘urta mukofoti qancha?",
+    "options": [
+     "5 mln so‘m",
+     "20 mln so‘m",
+     "190 mln so‘m",
+     "10 mln so‘m"
+    ],
+    "c": 3,
+    "e": "Adolatli mukofot kutilayotgan yo‘qotishga teng: 0,05 × 200 = 10 mln so‘m."
+   },
+   {
+    "q": "Teskari tanlov axborot asimmetriyasining qaysi turidan kelib chiqadi?",
+    "options": [
+     "Bitimdan keyingi yashirin harakatlardan",
+     "Bitimdan oldingi yashirin xususiyatlardan",
+     "Narxlar haqidagi ochiq axborotdan",
+     "Sheriklarning bir xil axborotga egaligidan"
+    ],
+    "c": 1,
+    "e": "Yashirin xususiyatlar (tovar sifati, sog‘liq) teskari tanlovga, yashirin harakatlar esa ma’naviy tavakkalchilikka olib keladi."
+   },
+   {
+    "q": "Akerlofning «limonlar» bozorida sifatli avtomobil egalari nima uchun bozorni tark etadi?",
+    "options": [
+     "O‘rtacha sifatga mos narx ular uchun juda past bo‘ladi",
+     "Xaridorlar ular avtomobillarining sifatini yuqori baholaydi",
+     "Davlat sifatli avtomobil savdosini cheklaydi",
+     "Sifatsiz avtomobillar narxi sifatlilarnikidan yuqori bo‘ladi"
+    ],
+    "c": 0,
+    "e": "Xaridor sifatni bilmagani uchun o‘rtacha narx beradi; sifatli egalar chiqib ketadi va o‘rtacha sifat yana pasayadi."
+   },
+   {
+    "q": "To‘liq sug‘urtalangan haydovchi sug‘urtadan keyin ehtiyotsizroq haydaydigan bo‘ldi. Bu qanday muammo?",
     "options": [
      "Teskari tanlov muammosi",
+     "Tizimli tavakkalchilik muammosi",
      "Ma’naviy tavakkalchilik",
-     "Xedjirlash",
-     "Tizimli tavakkalchilik"
+     "Diversifikatsiya muammosi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Sug‘urtalanuvchining bitimdan keyingi harakatini sug‘urtachi kuzata olmaydi, bu ma’naviy tavakkalchilikdir."
    },
    {
-    "q": "Teskari tanlov natijasida bozorda:",
+    "q": "Bozor signali samarali bo‘lishi uchun qanday shart bajarilishi kerak?",
     "options": [
-     "Narxlar oshadi",
-     "Sifatsiz tovarlar ustunlik qiladi",
-     "Axborot ko‘payadi",
-     "Sifatli tovarlar ko‘payadi"
+     "U barcha ishtirokchilar uchun bir xil xarajatli bo‘lishi va hamma tomonidan qo‘llanishi kerak",
+     "U faqat axborotga ega bo‘lmagan tomon tomonidan qo‘llanishi va tekshirilishi kerak",
+     "U past sifatli tomon uchun yuqori sifatlilarnikidan arzonroq bo‘lishi kerak",
+     "Yuqori sifatli tomon uchun arzonroq, past sifatli uchun qimmatroq bo‘lishi kerak"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Aks holda past sifatli tomon ham signalni osongina taqlid qilar va u ishonchli axborot bermas edi."
    },
    {
-    "q": "To‘liq sug‘urtalangan haydovchining ehtiyotsiz haydashi:",
+    "q": "Sug‘urta kompaniyasi turli franshizali polislar taklif qiladi, xavfi past mijozlar yuqori franshizali arzon polisni tanlaydi. Bu nima?",
     "options": [
-     "Diversifikatsiya",
      "Signal berish",
-     "Ma’naviy tavakkalchilik",
-     "Teskari tanlov"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Principal-agent muammosida agent:",
-    "options": [
-     "Ishni bajaradigan tomon",
-     "Davlat",
-     "Sug‘urtachi",
-     "Ishni topshiradigan tomon"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Ma’naviy tavakkalchilikni kamaytirish usuli:",
-    "options": [
-     "Franshiza",
-     "Narxni pasaytirish",
-     "Diversifikatsiya",
-     "Reklama"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Signal nazariyasi muallifi:",
-    "options": [
-     "R. Kouz",
-     "A. Smit",
-     "M. Spens",
-     "J. Akerlof"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Signal samarali bo‘lishi uchun:",
-    "options": [
-     "U hammaga bir xil qimmat bo‘lishi kerak",
-     "U davlat tomonidan berilishi kerak",
-     "U yuqori sifatli tomon uchun arzonroq bo‘lishi kerak",
-     "U bepul bo‘lishi kerak"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Sug‘urta kompaniyasining tibbiy ko‘rik o‘tkazishi:",
-    "options": [
      "Skrining",
      "Xedjirlash",
-     "Ma’naviy tavakkalchilik",
-     "Signal berish"
+     "Tavakkalchilikni qo‘shish"
     ],
-    "c": 0
-   },
-   {
-    "q": "Mankyuga ko‘ra qimmat reklama:",
-    "options": [
-     "Faqat isrofgarchilik",
-     "Mahsulot sifatining signali bo‘lishi mumkin",
-     "Ma’naviy tavakkalchilik",
-     "Teskari tanlovni kuchaytiradi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Stiglits va Vaysga ko‘ra yuqori foiz stavkasi kredit bozorida:",
-    "options": [
-     "Kreditlarni ko‘paytiradi",
-     "Eng tavakkal loyihalarga ega qarz oluvchilarni jalb qiladi",
-     "Eng ishonchli qarz oluvchilarni jalb qiladi",
-     "Teskari tanlovni yo‘qotadi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Majburiy sug‘urta hal qiladigan muammo:",
-    "options": [
-     "Teskari tanlov",
-     "Inflyatsiya",
-     "Tizimli tavakkalchilik",
-     "Ma’naviy tavakkalchilik"
-    ],
-    "c": 0
-   },
-   {
-    "q": "O‘zbekistonda fuqarolarning bank omonatlari kafolatlanadi:",
-    "options": [
-     "Kafolatlanmaydi",
-     "50 foiz miqdorida",
-     "To‘liq hajmda",
-     "Faqat 10 mln so‘mgacha"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Samarali ish haqi va kechiktirilgan to‘lov qaysi muammoga javob?",
-    "options": [
-     "Ma’naviy tavakkalchilik (principal-agent)",
-     "Tizimli tavakkalchilik",
-     "Teskari tanlov",
-     "Monopoliya"
-    ],
-    "c": 0
+    "c": 1,
+    "e": "Axborotga ega bo‘lmagan tomon (sug‘urtachi) mijozlar tanlovi orqali yashirin axborotni aniqlaydi – bu skrining."
    }
   ],
   "selfStudy": [
@@ -3026,304 +2546,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Qisqa muddatda:",
+    "q": "Iqtisodiy nazariyada qisqa muddat qanday davr hisoblanadi?",
     "options": [
-     "Barcha omillar o‘zgaruvchan",
-     "Barcha omillar doimiy",
-     "Kamida bitta omil doimiy",
-     "Texnologiya o‘zgaradi"
+     "Bir kalendar yildan oshmaydigan har qanday davr",
+     "Kamida bitta ishlab chiqarish omili doimiy bo‘lgan davr",
+     "Barcha ishlab chiqarish omillari o‘zgaruvchan bo‘lgan davr",
+     "Firma ishlab chiqarish hajmini o‘zgartira olmaydigan davr"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Qisqa va uzoq muddat kalendar vaqt bilan emas, omillarni o‘zgartirish imkoniyati bilan belgilanadi."
    },
    {
-    "q": "Ishlab chiqarish funksiyasi ko‘rsatadi:",
+    "q": "Texnologiya nima?",
     "options": [
-     "Omillar miqdori va maksimal mahsulot bog‘liqligini",
-     "Foyda va narx bog‘liqligini",
-     "Narx va talab bog‘liqligini",
-     "Xarajatlar va mahsulot bog‘liqligini"
+     "Firma sotib olgan uskunalar va binolarning umumiy bozor qiymati",
+     "Tayyor mahsulotni xaridorga yetkazib berish usullari va yo‘llari",
+     "Ishlab chiqarishga sarflangan barcha pul xarajatlarining yig‘indisi",
+     "Resurslarni mahsulotga aylantirish usullari va jarayonlari majmui"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Texnologiya resurslarni tovar va xizmatlarga aylantirishning usullari, bilimlari va jarayonlari majmuidir."
    },
    {
-    "q": "Chegaraviy mahsulot:",
+    "q": "Ishlab chiqarish funksiyasi nimani ifodalaydi?",
     "options": [
-     "TP/L",
-     "L/TP",
-     "TP × L",
-     "ΔTP/ΔL"
+     "Berilgan texnologiyada omillar miqdori va maksimal mahsulot o‘rtasidagi bog‘liqlikni",
+     "Mahsulot hajmi bilan uni ishlab chiqarishga ketgan xarajatlar o‘rtasidagi bog‘liqlikni",
+     "Mahsulot narxi bilan firma taklif qiladigan miqdor o‘rtasidagi bog‘liqlikni",
+     "Omillar narxi bilan firma yollaydigan omillar miqdori o‘rtasidagi bog‘liqlikni"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Q = f(L, K) berilgan texnologiyada omillar miqdori va olinishi mumkin bo‘lgan maksimal mahsulot o‘rtasidagi bog‘liqlikdir."
    },
    {
-    "q": "O‘rtacha mahsulot:",
+    "q": "Mehnatning chegaraviy mahsuloti (MPL) nimani bildiradi?",
     "options": [
-     "TP/L",
-     "ΔTP/ΔL",
-     "MP/L",
-     "TP – L"
+     "Yalpi mahsulotning ishlatilgan mehnatning umumiy miqdoriga nisbatini",
+     "Barcha ishchilar bir ish kunida ishlab chiqargan jami mahsulot hajmini",
+     "Mehnat bir birlikka ko‘payganda yalpi mahsulot qancha oshishini",
+     "Qo‘shimcha ishchi yollash va o‘qitish uchun sarflangan xarajatni"
     ],
-    "c": 0
+    "c": 2,
+    "e": "MPL = ΔTP/ΔL, ya’ni qo‘shimcha bir birlik mehnat beradigan qo‘shimcha mahsulot."
    },
    {
-    "q": "Yalpi mahsulot maksimal bo‘lganda:",
+    "q": "Izokvanta qanday chiziq?",
     "options": [
-     "MP = AP",
-     "AP = 0",
-     "MP maksimal",
-     "MP = 0"
+     "Bir xil umumiy xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+     "Bir xil foyda keltiruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+     "Bir xil mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini ko‘rsatadi",
+     "Bir xil naflilikni beruvchi ikki tovar to‘plamlarini ko‘rsatadi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Izokvanta teng mahsulot hajmini ishlab chiqarish imkonini beruvchi barcha omil kombinatsiyalarini ifodalaydi."
    },
    {
-    "q": "MP chizig‘i AP chizig‘ini kesib o‘tadi:",
+    "q": "Izokosta nimani ko‘rsatadi?",
     "options": [
-     "MP maksimumida",
-     "Hech qachon",
-     "TP maksimumida",
-     "AP maksimumida"
+     "Berilgan xarajatga sotib olinadigan mehnat va kapital kombinatsiyalarini",
+     "Berilgan mahsulot hajmini beruvchi mehnat va kapital kombinatsiyalarini",
+     "Firma erisha oladigan eng yuqori mahsulot hajmini turli omillar bo‘yicha",
+     "Mehnat va kapital narxlarining vaqt davomida o‘zgarishini va dinamikasini"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Izokosta (teng xarajatlar chizig‘i) TC = wL + rK tenglamasi bilan berilgan xarajatga sotib olish mumkin bo‘lgan kombinatsiyalarni beradi."
    },
    {
-    "q": "MP > AP bo‘lganda AP:",
+    "q": "Kengayish yo‘li nima?",
     "options": [
-     "O‘zgarmaydi",
-     "O‘sadi",
-     "Nolga teng",
-     "Kamayadi"
+     "Mahsulot narxi oshgan sari yalpi tushum nuqtalarini birlashtiruvchi egri chiziq",
+     "Izokvantalarning barcha burilish nuqtalarini tutashtiruvchi chiziq",
+     "Ish haqi o‘zgarganda hosil bo‘ladigan izokosta kesishish nuqtalarini tutashtiruvchi chiziq",
+     "Xarajat oshgan sari ishlab chiqaruvchi muvozanati nuqtalarini tutashtiruvchi chiziq"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Kengayish yo‘li firma ishlab chiqarishni kengaytirganda omillarni qanday nisbatda ko‘paytirishini ko‘rsatadi."
    },
    {
-    "q": "Oqil firma ishlab chiqarishning qaysi bosqichida ishlaydi?",
+    "q": "Q = min(L/a, K/b) ko‘rinishidagi ishlab chiqarish funksiyasining izokvantasi qanday shaklda bo‘ladi?",
     "options": [
-     "Har qanday",
-     "II",
-     "III",
-     "I"
-    ],
-    "c": 1
-   },
-   {
-    "q": "III bosqichda:",
-    "options": [
-     "MP < 0",
-     "TP o‘sadi",
-     "MP > AP",
-     "AP o‘sadi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Chegaraviy mahsuldorlikning kamayish qonunining sharti emas:",
-    "options": [
-     "O‘zgaruvchan omil birliklari bir xil sifatli",
-     "Texnologiya o‘zgarmaydi",
-     "Barcha omillar bir vaqtda oshadi",
-     "Kamida bitta omil doimiy"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mankyu misolida 4-ishchining chegaraviy mahsuloti (pechene):",
-    "options": [
-     "50",
-     "30",
-     "20",
-     "10"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Izokvanta:",
-    "options": [
-     "Bir xil mahsulot beruvchi omillar kombinatsiyalari",
-     "Bir xil naflik beruvchi to‘plamlar",
-     "Bir xil narxli tovarlar",
-     "Bir xil xarajatli kombinatsiyalar"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Izokvantalar koordinatalar boshiga nisbatan qavariq, chunki:",
-    "options": [
-     "MRTS kamayadi",
-     "Texnologiya o‘zgaradi",
-     "Omillar narxi o‘zgarmas",
-     "MRTS oshadi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "MRTS teng:",
-    "options": [
-     "MPK/MPL",
-     "TP/L",
-     "MPL/MPK",
-     "w/r"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Leontyev ishlab chiqarish funksiyasida izokvanta:",
-    "options": [
-     "Qavariq egri chiziq",
-     "Vertikal",
-     "To‘g‘ri chiziq",
-     "L-shaklida"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Omillar mukammal o‘rinbosar bo‘lganda izokvanta:",
-    "options": [
-     "To‘g‘ri chiziq",
-     "Botiq",
+     "To‘g‘ri chiziq shaklida",
      "L-shaklida",
-     "Gorizontal"
+     "Koordinatalar boshiga nisbatan qavariq egri chiziq shaklida",
+     "Koordinatalar boshiga nisbatan botiq egri chiziq shaklida"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Leontyev funksiyasida omillar faqat qat’iy nisbatda ishlatiladi, shuning uchun izokvanta L-shaklida bo‘ladi."
    },
    {
-    "q": "Izokosta qiyaligi teng:",
+    "q": "Mehnatning chegaraviy mahsuloti nolga teng bo‘lgan nuqtada yalpi mahsulot qanday bo‘ladi?",
     "options": [
-     "MPL/MPK",
-     "TC/r",
-     "w/r",
-     "r/w"
+     "Maksimal darajaga yetadi",
+     "Nolga teng bo‘ladi",
+     "Minimal darajaga tushadi",
+     "Hali o‘sishda davom etadi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "MP > 0 bo‘lganda TP o‘sadi, MP = 0 da TP maksimal, MP < 0 da TP kamayadi."
    },
    {
-    "q": "Xarajatlar oshsa, izokosta:",
+    "q": "Chegaraviy mahsulot o‘rtacha mahsulotdan katta bo‘lganda o‘rtacha mahsulot qanday o‘zgaradi?",
     "options": [
-     "Parallel tashqariga siljiydi",
-     "Buriladi",
-     "Ichkariga siljiydi",
-     "O‘zgarmaydi"
+     "Kamayadi",
+     "O‘zgarmay qoladi",
+     "O‘sadi",
+     "Avval kamayib, keyin maksimumga yetadi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "MP > AP bo‘lsa, AP o‘sadi: o‘rtachadan yuqori baholi talaba qo‘shilsa guruh o‘rtacha bahosi oshganidek."
    },
    {
-    "q": "Ish haqi oshsa (r o‘zgarmasa), izokosta:",
+    "q": "Oqil firma qisqa muddatli ishlab chiqarishning qaysi bosqichida ishlaydi?",
     "options": [
-     "O‘zgarmaydi",
-     "Parallel siljiydi",
-     "Yassilashadi",
-     "Tiklashadi (L o‘qidagi nuqta chapga siljiydi)"
+     "Noldan AP maksimumigacha davom etadigan birinchi bosqichda",
+     "AP maksimumidan TP maksimumigacha bo‘lgan II bosqichda",
+     "TP maksimumidan keyin boshlanadigan uchinchi bosqichda",
+     "MP maksimal bo‘lgan nuqtagacha bo‘lgan qismda"
     ],
-    "c": 3
+    "c": 1,
+    "e": "I bosqichda mehnatni ko‘paytirish foydali, III bosqichda MP < 0; oqil firma II bosqichda ishlaydi."
    },
    {
-    "q": "Ishlab chiqaruvchi muvozanati sharti:",
+    "q": "Izokvantalar koordinatalar boshiga nisbatan nima uchun qavariq bo‘ladi?",
     "options": [
-     "TP = TC",
-     "w = r",
-     "MPL = MPK",
-     "MPL/w = MPK/r"
+     "Omillar narxlari nisbati izokvanta bo‘ylab o‘zgarmay doimiy qoladi",
+     "Mahsulot hajmi izokvanta bo‘ylab harakatlanganda asta-sekin oshib boradi",
+     "Mehnat va kapital bir-birining mukammal o‘rinbosari hisoblanadi",
+     "Mehnat ko‘paygan sari chegaraviy almashtirish normasi kamayadi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "MRTS ning kamayishi chegaraviy mahsuldorlikning kamayish qonunining natijasi bo‘lib, izokvantani qavariq qiladi."
    },
    {
-    "q": "MPL/w > MPK/r bo‘lsa, firma:",
+    "q": "Izokvanta iste’molchi nazariyasidagi befarqlik egri chizig‘idan nimasi bilan farq qiladi?",
     "options": [
-     "Hech narsani o‘zgartirmasligi kerak",
-     "Ishlab chiqarishni to‘xtatishi kerak",
-     "Kapitalni mehnat bilan almashtirishi kerak",
-     "Mehnatni kapital bilan almashtirishi kerak"
+     "Izokvantalar o‘zaro kesishishi mumkin, befarqlik egri chiziqlari esa kesishmaydi",
+     "Izokvanta yuqoriga og‘ma, befarqlik egri chizig‘i esa pastga og‘ma bo‘ladi",
+     "Izokvanta koordinatalar boshiga botiq, befarqlik egri chizig‘i esa qavariq bo‘ladi",
+     "Izokvanta mahsulot miqdorini aniq ko‘rsatadi, befarqlik chizig‘i esa tartibni"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Izokvanta aniq mahsulot hajmini (masalan, Q = 100 dona) ko‘rsatadi, naflilikni esa faqat tartiblash mumkin."
    },
    {
-    "q": "Kengayish yo‘li ko‘rsatadi:",
+    "q": "Kobb-Duglas funksiyasi Q = ALαKβ da α koeffitsiyenti nimani bildiradi?",
     "options": [
-     "Bozor taklifini",
-     "Xarajatlar o‘zgarganda muvozanat nuqtalarini",
-     "Texnologik taraqqiyotni",
-     "Narx o‘zgarganda talabni"
+     "Mehnat 1 foizga oshganda mahsulot necha foizga oshishini",
+     "Mehnatning bir birligi uchun to‘lanadigan narxni",
+     "Kapitalning mahsulot bo‘yicha elastikligini ifodalovchi ko‘rsatkichni",
+     "Mehnat va kapitalning o‘zaro almashinish chegaraviy normasini"
     ],
-    "c": 1
+    "c": 0,
+    "e": "α va β mahsulotning mehnat va kapital bo‘yicha elastikliklari: mehnat 1 foizga oshsa, mahsulot α foizga oshadi."
    },
    {
-    "q": "Kobb-Duglas funksiyasi Q = ALαKβ da α:",
+    "q": "Firmada MPL/w > MPK/r. Xarajatni oshirmasdan mahsulotni ko‘paytirish uchun firma nima qilishi kerak?",
     "options": [
-     "Ish haqi",
-     "Mahsulotning mehnat bo‘yicha elastikligi",
-     "Mehnatning chegaraviy mahsuloti",
-     "Texnologiya darajasi"
+     "Kapitalni ko‘paytirib, mehnatni kamaytirishi",
+     "Ikkala omilni bir xil miqdorda kamaytirishi",
+     "Mehnatni oshirib, kapitalni kamaytirishi",
+     "Omillar nisbatini o‘zgartirmay saqlashi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Mehnatga sarflangan oxirgi so‘m ko‘proq mahsulot beradi, shuning uchun kapital mehnat bilan almashtiriladi."
    },
    {
-    "q": "Q = 10L0,5K0,5, w = 50, r = 100 bo‘lsa, optimal K/L nisbati:",
+    "q": "Nima uchun AQSH va Germaniya kabi ish haqi yuqori mamlakatlarda firmalar ko‘pincha avtomatlashtirilgan liniyalarni tanlaydi?",
     "options": [
-     "2",
-     "0,5",
-     "1",
-     "0,25"
+     "Kapital narxi ish haqiga nisbatan ancha yuqori bo‘lgani uchun",
+     "Mehnat qimmat bo‘lgani uchun kapital ko‘proq ishlatiladigan nuqta tanlanadi",
+     "Kapitalning chegaraviy mahsuloti u yerda nolga tenglashib qolgani uchun",
+     "Mehnat va kapital u yerda qat’iy nisbatda ishlatilishi shart bo‘lgani uchun"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Ish haqi oshganda izokosta tikroq bo‘ladi va urinish nuqtasi kapital ko‘proq, mehnat kamroq bo‘lgan tomonga siljiydi."
    },
    {
-    "q": "Ish haqi kapital narxiga nisbatan oshsa, firma:",
+    "q": "Pechene fabrikasida ishchilar soni oshgani sari har bir qo‘shimcha ishchi kamroq qo‘shimcha mahsulot beradi. Buning asosiy sababi nima?",
     "options": [
-     "Kapital sig‘imliroq texnologiyani tanlaydi",
-     "Ishlab chiqarishni to‘xtatadi",
-     "Mehnat sig‘imliroq texnologiyani tanlaydi",
-     "Texnologiyani o‘zgartirmaydi"
+     "Oshxona hajmi cheklangan, ishchilar bir-biriga xalaqit bera boshlaydi",
+     "Yangi yollangan ishchilarning malakasi har safar oldingisidan pastroq bo‘lishi",
+     "Texnologiyaning ishchilar soni oshgani sari yomonlashib borishi",
+     "Ish haqining oshishi tufayli ishchilarning kamroq mehnat qilishi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Bu chegaraviy mahsuldorlikning kamayish qonuni: o‘zgaruvchan omilning har bir birligiga doimiy omilning kichikroq qismi to‘g‘ri keladi."
    },
    {
-    "q": "Izokvanta va izokosta tahlili iste’molchi nazariyasidagi qaysi tahlilga o‘xshash?",
+    "q": "Ish haqi stavkasi (w) oshganda, kapital narxi va umumiy xarajat o‘zgarmasa, izokosta qanday o‘zgaradi?",
     "options": [
-     "Engel chizig‘i",
-     "Talab va taklif",
-     "Lorens egri chizig‘i",
-     "Befarqlik egri chizig‘i va byudjet chizig‘i"
+     "Tikroq bo‘ladi, L o‘qidagi kesishish nuqtasi o‘ngga siljiydi",
+     "Yotiqroq bo‘ladi, K o‘qidagi kesishish nuqtasi yuqoriga siljiydi",
+     "O‘ziga parallel holda tashqariga siljiydi",
+     "Tikroq bo‘ladi, L o‘qidagi kesishish nuqtasi chapga siljiydi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Izokosta qiyaligi w/r ortadi; omillardan biri narxi o‘zgarsa izokosta buriladi, parallel siljish esa xarajat o‘zgarganda bo‘ladi."
    },
    {
-    "q": "Uzoq muddatda:",
+    "q": "Pechene fabrikasida 3 ishchi soatiga 120 ta, 4 ishchi esa 140 ta pechene tayyorlaydi. To‘rtinchi ishchining chegaraviy mahsuloti nechaga teng?",
     "options": [
-     "Kapital doimiy",
-     "Barcha omillar o‘zgaruvchan",
-     "Texnologiya o‘zgarmas",
-     "Mehnat doimiy"
+     "35 ta pechene",
+     "40 ta pechene",
+     "20 ta pechene",
+     "140 ta pechene"
     ],
-    "c": 1
+    "c": 2,
+    "e": "MP = ΔTP/ΔL = (140 – 120)/1 = 20; 35 – to‘rt ishchining o‘rtacha mahsuloti (140/4)."
    },
    {
-    "q": "TP chizig‘ining burilish nuqtasi qaysi nuqtaga mos keladi?",
+    "q": "Q = 10L0,5K0,5 funksiyali firmada w = 20, r = 40 (ming so‘m) va umumiy xarajat 480 ming so‘m. Xarajatni minimallashtiruvchi (mahsulotni maksimallashtiruvchi) omillar kombinatsiyasi qaysi?",
     "options": [
-     "AP maksimumi",
-     "MP = 0",
-     "MP maksimumi",
-     "TP maksimumi"
+     "L = 6, K = 12",
+     "L = 12, K = 6",
+     "L = 8, K = 8",
+     "L = 4,8; K = 9,6"
     ],
-    "c": 2
-   },
-   {
-    "q": "Texnologik taraqqiyot ishlab chiqarish funksiyasini:",
-    "options": [
-     "Vertikal qiladi",
-     "Pastga siljitadi",
-     "Yuqoriga siljitadi",
-     "O‘zgartirmaydi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Tikuvchilik sexi misolida 9-tikuvchining MP = –2 bo‘lsa, sex qaysi bosqichda?",
-    "options": [
-     "II",
-     "III",
-     "I",
-     "Muvozanatda"
-    ],
-    "c": 1
+    "c": 1,
+    "e": "Shart MRTS = K/L = w/r = 0,5 ⇒ K = 0,5L; 20L + 40·0,5L = 480 ⇒ L = 12, K = 6."
    }
   ],
   "selfStudy": [
@@ -3500,304 +2940,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Foyda teng:",
+    "q": "Yashirin (ichki) xarajatlar nima?",
     "options": [
-     "TC – FC",
-     "P × Q",
-     "TR + TC",
-     "TR – TC"
+     "Firma tashqi resurs egalariga pul to‘laydigan barcha xarajatlar yig‘indisi",
+     "Yil yakunida hisobot tuzilgandan keyin aniqlanadigan kutilmagan xarajatlar",
+     "Pul chiqmaydigan, ammo boy berilgan imkoniyat qiymatiga teng xarajatlar",
+     "Ishlab chiqarish hajmiga bog‘liq bo‘lmagan xarajatlar yig‘indisi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Yashirin xarajatlarga tadbirkorning o‘z vaqti, o‘z kapitali va o‘z binosining muqobil xarajati kiradi."
    },
    {
-    "q": "Yashirin xarajatga misol:",
+    "q": "Quyidagilardan qaysi biri oshkor (tashqi) xarajatga kiradi?",
     "options": [
-     "Xom ashyo xaridi",
-     "Elektr energiyasi to‘lovi",
-     "Ijara to‘lovi",
-     "Tadbirkorning boshqa ishda olishi mumkin bo‘lgan ish haqi"
+     "Xom ashyo uchun to‘langan pul",
+     "Tadbirkorning o‘z ishiga sarflagan vaqtining qiymati",
+     "O‘z binosidan foydalanish uchun boy berilgan ijara haqi",
+     "O‘z kapitalini bankka qo‘ymagani uchun boy berilgan foiz"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Oshkor xarajatlar firmadan pul chiqishini talab qiladi: xom ashyo, ish haqi, ijara, elektr energiyasi, foizlar."
    },
    {
-    "q": "Buxgalteriya foydasi teng:",
+    "q": "Buxgalteriya foydasi qanday hisoblanadi?",
     "options": [
-     "TR – oshkor va yashirin xarajatlar",
-     "TR – FC",
-     "TR – VC",
-     "TR – oshkor xarajatlar"
+     "Yalpi tushumdan yashirin xarajatlarni ayirib",
+     "Yalpi tushumdan oshkor va yashirin xarajatlarni ayirib",
+     "Yalpi tushumdan doimiy xarajatlarni ayirib",
+     "Yalpi tushumdan oshkor xarajatlarni ayirib"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Buxgalteriya foydasi = TR – oshkor xarajatlar; yashirin xarajatlar hisobga olinmaydi."
    },
    {
-    "q": "Iqtisodiy foyda buxgalteriya foydasiga nisbatan:",
+    "q": "Normal foyda nima?",
     "options": [
-     "Har doim katta",
-     "Teng",
-     "Har doim kichik yoki teng",
-     "Bog‘liq emas"
+     "Oshkor xarajatlar qoplangandan keyin tadbirkorda qoladigan barcha daromad",
+     "Tadbirkorni shu faoliyatda ushlab turish uchun zarur minimal daromad",
+     "Davlat tomonidan har bir tarmoq uchun belgilanadigan foyda me’yori",
+     "Yalpi tushumdan o‘zgaruvchan xarajatlarni ayirgandan qolgan daromad"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Normal foyda tadbirkorlik qobiliyati va kapitalning muqobil xarajatiga teng va iqtisodiy xarajatlar tarkibiga kiradi."
    },
    {
-    "q": "Normal foyda olinadi, agar:",
+    "q": "Qaytarilmaydigan (cho‘kkan) xarajatlar nima?",
     "options": [
-     "Iqtisodiy foyda nolga teng bo‘lsa",
-     "Buxgalteriya foydasi nolga teng bo‘lsa",
-     "Tushum nolga teng bo‘lsa",
-     "Xarajatlar nolga teng bo‘lsa"
+     "Ishlab chiqarish hajmi oshganda o‘sib boradigan xarajatlar",
+     "Allaqachon sarflangan va qaytarib bo‘lmaydigan xarajatlar",
+     "Qarz va kreditlar bo‘yicha to‘lanadigan foiz xarajatlari",
+     "Bank hisobidan pul chiqishini talab qilmaydigan xarajatlar"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Masalan, reklama yoki litsenziya to‘lovi: ular qaror qabul qilishda hisobga olinmasligi kerak."
    },
    {
-    "q": "Qaytarilmaydigan xarajatlar:",
+    "q": "Chegaraviy xarajat (MC) nimani ko‘rsatadi?",
     "options": [
-     "Qaror qabul qilishda asosiy rol o‘ynaydi",
-     "Qaror qabul qilishda hisobga olinmasligi kerak",
-     "O‘zgaruvchan xarajatlar",
-     "Chegaraviy xarajatlar"
+     "Mahsulot bir birligiga to‘g‘ri keladigan o‘rtacha yalpi xarajat miqdorini",
+     "Ishlab chiqarish hajmi nolga teng bo‘lgandagi xarajatni",
+     "Firma ishlab chiqarishni kengaytirganda oshgan doimiy xarajatni",
+     "Qo‘shimcha bir birlik ishlab chiqarilganda yalpi xarajatning o‘sishini"
     ],
-    "c": 1
+    "c": 3,
+    "e": "MC = ΔTC/ΔQ: «yana bir birlik ishlab chiqarish qancha turadi?» savoliga javob beradi."
    },
    {
-    "q": "Doimiy xarajatlarga misol:",
+    "q": "Samarali miqyos nima?",
     "options": [
-     "Xom ashyo",
-     "Yoqilg‘i",
-     "Ishlab chiqarish ishchilari ish haqi",
-     "Bino ijarasi"
+     "O‘rtacha yalpi xarajat (ATC) minimal bo‘ladigan hajm",
+     "Chegaraviy xarajat nolga teng bo‘ladigan ishlab chiqarish hajmi",
+     "Yalpi tushum yalpi xarajatdan eng katta bo‘lgan ishlab chiqarish hajmi",
+     "Doimiy xarajatlar nolga tushadigan ishlab chiqarish hajmi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Samarali miqyos – ATC eng past bo‘lgan hajm (limonad misolida 5–6 stakan)."
    },
    {
-    "q": "TC = FC + VC tengligi qaysi davrga xos?",
+    "q": "Qisqa muddatda firma hech narsa ishlab chiqarmasa ham qaysi xarajatni to‘laydi?",
     "options": [
-     "Bir lahzali davr",
-     "Hech qaysi",
-     "Faqat uzoq muddat",
-     "Qisqa muddat"
+     "Xom ashyo narxini",
+     "Ishlab chiqarish xodimlarining ish haqini",
+     "Bino ijarasi uchun to‘lovni",
+     "Mahsulotni tashish xarajatini"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Bino ijarasi doimiy xarajat (FC) bo‘lib, ishlab chiqarish hajmiga bog‘liq emas."
    },
    {
-    "q": "AFC ishlab chiqarish hajmi oshgan sari:",
+    "q": "Chegaraviy xarajat o‘rtacha yalpi xarajatdan kichik bo‘lganda ATC qanday o‘zgaradi?",
     "options": [
-     "O‘zgarmaydi",
      "Oshadi",
-     "Doimiy kamayadi",
-     "U-shaklida"
+     "O‘zgarmay qoladi",
+     "Minimumga yetadi",
+     "Kamayadi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "MC < ATC bo‘lsa, qo‘shimcha birlik o‘rtachadan arzon va o‘rtachani pasaytiradi."
    },
    {
-    "q": "Chegaraviy xarajat:",
+    "q": "Ishlab chiqarish hajmi oshgan sari o‘rtacha doimiy xarajat (AFC) nima uchun kamayadi?",
     "options": [
-     "VC/Q",
-     "TC/Q",
-     "ΔTC/ΔQ",
-     "FC/Q"
+     "Doimiy xarajatlarning o‘zi hajm oshgani sari kamayib boradi",
+     "Doimiy xarajatlar tobora ko‘p birlikka taqsimlanadi",
+     "Chegaraviy mahsuldorlik hajm oshgani sari ortib boradi",
+     "O‘zgaruvchan xarajatlar doimiy xarajatlarga qo‘shiladi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "AFC = FC/Q: FC o‘zgarmaydi, Q ortadi, shuning uchun AFC doimiy kamayadi."
    },
    {
-    "q": "Chegaraviy xarajatlar oshishining sababi:",
+    "q": "Iqtisodiy foyda musbat bo‘lsa, tarmoqda nima yuz beradi?",
     "options": [
-     "Narxlarning oshishi",
-     "Masshtab samarasi",
+     "Firmalar tarmoqdan chiqa boshlaydi",
+     "Normal foyda nolga tushib qoladi",
+     "Tarmoq yangi firmalarni jalb qiladi",
+     "Buxgalteriya foydasi iqtisodiy foydaga tenglashadi"
+    ],
+    "c": 2,
+    "e": "Musbat iqtisodiy foyda yangi firmalarni jalb qiladi, manfiy bo‘lsa firmalar tarmoqdan chiqadi."
+   },
+   {
+    "q": "Uzoq muddatli xarajatlar qisqa muddatlilardan nima uchun yuqori bo‘lmaydi?",
+    "options": [
+     "Firma har bir hajm uchun eng arzon zavod hajmini tanlay oladi",
+     "Uzoq muddatda doimiy xarajatlar o‘zgaruvchan xarajatlardan arzon bo‘ladi",
+     "Uzoq muddatda resurs narxlari pasayib ketadi",
+     "Uzoq muddatda firma ishlab chiqarish hajmini o‘zgartira olmaydi"
+    ],
+    "c": 0,
+    "e": "LRATC barcha SRATC chiziqlariga pastdan urinadigan qobiq: tanlov imkoniyatlari kengroq."
+   },
+   {
+    "q": "Ma’lum hajmdan keyin chegaraviy xarajatning ortib borishiga nima sabab bo‘ladi?",
+    "options": [
      "Chegaraviy mahsuldorlikning kamayishi",
-     "Doimiy xarajatlarning oshishi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "MC chizig‘i ATC chizig‘ini kesadi:",
-    "options": [
-     "ATC maksimumida",
-     "Hech qachon",
-     "ATC minimumida",
-     "AFC minimumida"
-    ],
-    "c": 2
-   },
-   {
-    "q": "MC < ATC bo‘lganda ATC:",
-    "options": [
-     "Oshadi",
-     "Kamayadi",
-     "Nolga teng",
-     "O‘zgarmaydi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Samarali miqyos – bu:",
-    "options": [
-     "ATC minimal bo‘lgan hajm",
-     "MC minimal bo‘lgan hajm",
-     "AFC minimal bo‘lgan hajm",
-     "TC minimal bo‘lgan hajm"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Limonad misolida (Mankyu) samarali miqyos (stakan):",
-    "options": [
-     "5–6",
-     "9–10",
-     "3",
-     "1–2"
-    ],
-    "c": 0
-   },
-   {
-    "q": "ATC = AFC + ?",
-    "options": [
-     "AVC",
-     "TC",
-     "MC",
-     "FC"
-    ],
-    "c": 0
-   },
-   {
-    "q": "MC = w/MPL formulasiga ko‘ra MPL maksimal bo‘lganda:",
-    "options": [
-     "MC minimal",
-     "ATC = 0",
-     "AVC maksimal",
-     "MC maksimal"
-    ],
-    "c": 0
-   },
-   {
-    "q": "AVC = w/APL formulasiga ko‘ra APL maksimal bo‘lganda:",
-    "options": [
-     "FC = 0",
-     "AVC maksimal",
-     "AVC minimal",
-     "MC = 0"
-    ],
-    "c": 2
-   },
-   {
-    "q": "TC = 100 + 5Q + Q2 bo‘lsa, MC:",
-    "options": [
-     "100/Q",
-     "5Q",
-     "5 + Q",
-     "5 + 2Q"
-    ],
-    "c": 3
-   },
-   {
-    "q": "TC = 100 + 5Q + Q2 bo‘lsa, FC:",
-    "options": [
-     "5",
-     "100",
-     "105",
-     "0"
-    ],
-    "c": 1
-   },
-   {
-    "q": "LRATC – bu:",
-    "options": [
-     "AVC chizig‘i",
-     "Qisqa muddatli ATC chiziqlarining qobig‘i",
-     "Talab chizig‘i",
-     "MC chizig‘i"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Uzoq muddatda o‘rtacha xarajatlar qisqa muddatdagiga nisbatan:",
-    "options": [
-     "Har doim yuqori",
-     "Bog‘liq emas",
-     "Yuqori bo‘lmaydi",
-     "Teng"
-    ],
-    "c": 2
-   },
-   {
-    "q": "LRATC kamayadigan oraliq:",
-    "options": [
+     "Doimiy xarajatlarning oshishi",
      "Masshtabdan ijobiy samara",
-     "Masshtabdan salbiy samara",
-     "Doimiy samara",
-     "Qisqa muddat"
+     "O‘rtacha doimiy xarajatlarning doimiy kamayib borishi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Doimiy omil band bo‘lgach, qo‘shimcha ishchi kam mahsulot beradi va MC oshadi."
    },
    {
-    "q": "Mankyu misolida Kerolinning dasturchi sifatida boy bergan ish haqi:",
+    "q": "MC = w / MPL formulasiga ko‘ra mehnatning chegaraviy mahsuloti maksimal bo‘lganda chegaraviy xarajat qanday bo‘ladi?",
     "options": [
-     "Doimiy xarajat",
-     "Qaytarilmaydigan xarajat",
-     "Oshkor xarajat",
-     "Yashirin xarajat"
+     "Maksimal bo‘ladi",
+     "Nolga teng bo‘ladi",
+     "Ish haqiga teng bo‘ladi",
+     "Minimal bo‘ladi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "MPL va MC teskari bog‘liq: xarajat chiziqlari ishlab chiqarish chiziqlarining «teskari ko‘zgudagi aksi»."
    },
    {
-    "q": "Firma 300 ming dollar o‘z kapitalini qo‘ygan, foiz 5% – kapitalning yillik muqobil xarajati:",
+    "q": "Kompaniya muvaffaqiyatsiz loyihaga katta mablag‘ sarfladi va «shuncha pul sarflangan» degan bahona bilan uni davom ettirmoqchi. Bu qaysi xato?",
     "options": [
-     "5 ming",
-     "15 ming",
-     "30 ming",
-     "300 ming"
+     "Yashirin xarajatlarni buxgalteriya hisobiga kiritmaslik",
+     "Qaytarilmaydigan xarajatlarni qarorda hisobga olish",
+     "Chegaraviy xarajatni o‘rtacha xarajat bilan almashtirish",
+     "Normal foydani iqtisodiy foyda deb hisoblash"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Sarflangan pul qaytmaydi; qaror faqat kelajakdagi chegaraviy xarajat va foydalarga tayanishi kerak."
    },
    {
-    "q": "Energiya tariflarining oshishi qaysi xarajat chiziqlarini yuqoriga siljitadi?",
+    "q": "Tadbirkor o‘z binosida do‘kon ochib, ijara to‘lamaydi. Iqtisodchi nuqtai nazaridan bu bino uchun xarajat bormi?",
     "options": [
-     "AVC, ATC va MC",
-     "Faqat FC",
-     "Faqat AFC",
-     "Hech qaysini"
+     "Yo‘q: ijara uchun pul to‘lanmagani sababli xarajat vujudga kelmaydi",
+     "Bor: u buxgalteriya hisobida oshkor xarajat sifatida o‘z aksini topadi",
+     "Bor: binoni ijaraga berganda olinadigan ijara haqi yashirin xarajatdir",
+     "Yo‘q: bino qaytarilmaydigan xarajat hisoblanadi, shuning uchun hisobga olinmaydi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "O‘z binosi – boy berilgan imkoniyat; iqtisodchi uni yashirin xarajat sifatida hisoblaydi."
    },
    {
-    "q": "Doimiy xarajatlar oshsa, qaysi chiziq o‘zgarmaydi?",
+    "q": "Elektr energiyasi tarifi oshsa, energiya o‘zgaruvchan xarajat bo‘lgan korxonada qaysi chiziqlar yuqoriga siljiydi?",
     "options": [
-     "TC",
-     "AFC",
-     "MC",
-     "ATC"
+     "Faqat AFC chizig‘i",
+     "AFC va FC chiziqlari",
+     "Hech bir chiziq siljimaydi",
+     "AVC, ATC va MC chiziqlari"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Energiya o‘zgaruvchan xarajat, shuning uchun tarif oshganda AVC, ATC va MC yuqoriga siljiydi."
    },
    {
-    "q": "Kino chiptasi yo‘qolganda yangi chipta sotib olish qaroriga yo‘qolgan chipta narxi:",
+    "q": "Quyidagilardan qaysi biri masshtabdan ijobiy samara manbai hisoblanadi?",
     "options": [
-     "Faqat buxgalteriyada hisobga olinadi",
-     "Ta’sir qilmasligi kerak (qaytarilmaydigan xarajat)",
-     "Ta’sir qilishi kerak",
-     "Ikki baravar ta’sir qiladi"
+     "Ixtisoslashuv va yirik uskunalardan foydalanish",
+     "Boshqaruv tizimining tobora murakkablashuvi",
+     "Bo‘limlar o‘rtasida koordinatsiya muammolarining ko‘payishi",
+     "Ishchilar mehnat unumdorligining doimiy pasayishi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Ixtisoslashuv va yirik uskunalar ishlab chiqarish oshganda LRATC ning kamayishiga olib keladi."
    },
    {
-    "q": "Fermer misolida iqtisodiy foyda kichik bo‘lishining sababi:",
+    "q": "Tadbirkor yiliga 200 mln so‘m tushum oldi, oshkor xarajatlari 120 mln so‘m. U boshqa ishda yiliga 30 mln so‘m ishlashi va o‘z kapitalini bankka qo‘yib 20 mln so‘m foiz olishi mumkin edi. Iqtisodiy foyda qancha?",
     "options": [
-     "Soliqlar",
-     "Yashirin xarajatlarning hisobga olinishi",
-     "Oshkor xarajatlarning yuqoriligi",
-     "Tushumning pastligi"
+     "50 mln so‘m",
+     "30 mln so‘m",
+     "60 mln so‘m",
+     "80 mln so‘m"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Iqtisodiy foyda = 200 – 120 – 30 – 20 = 30 mln so‘m; 80 – buxgalteriya foydasi."
    },
    {
-    "q": "Iqtisodiy qo‘shilgan qiymat (EVA) ko‘rsatkichi qaysi foydaning amaliy ifodasi?",
+    "q": "6 birlik ishlab chiqarilganda yalpi xarajat 78 ming so‘m, 7 birlik ishlab chiqarilganda 93 ming so‘m. Yettinchi birlikning chegaraviy xarajati qancha?",
     "options": [
-     "Iqtisodiy foyda",
-     "Yalpi tushum",
-     "Normal foyda",
-     "Buxgalteriya foydasi"
+     "13,3 ming so‘m",
+     "13 ming so‘m",
+     "15 ming so‘m",
+     "93 ming so‘m"
     ],
-    "c": 0
+    "c": 2,
+    "e": "MC = ΔTC/ΔQ = (93 – 78)/1 = 15; 13,3 – 7 birlikdagi o‘rtacha yalpi xarajat (93/7)."
    }
   ],
   "selfStudy": [
@@ -3966,304 +3326,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Mukammal raqobat sharti emas:",
+    "q": "Narxni qabul qiluvchi firma deganda qanday firma tushuniladi?",
     "options": [
-     "Ko‘plab sotuvchilar",
-     "To‘liq axborot",
-     "Bir jinsli mahsulot",
-     "Bozorga kirish to‘siqlari"
+     "Bozor narxida xohlagan miqdorni sotadigan, narxga ta’sir qila olmaydigan firma",
+     "Narxni o‘z xohishiga ko‘ra belgilay oladigan, xaridorni yo‘qotmaydigan firma",
+     "Narxni raqobatchilar bilan kelishib belgilaydigan firma",
+     "Mahsulotini bozor narxidan past narxda sotishga majbur bo‘lgan davlat korxonasi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Raqobatlashuvchi firma narxni bir so‘m oshirsa, barcha xaridorlarni yo‘qotadi, shuning uchun bozor narxini qabul qiladi."
    },
    {
-    "q": "Raqobatlashuvchi firma mahsulotiga talab:",
+    "q": "Har qanday firma uchun o‘rtacha daromad (AR) nimaga teng?",
     "options": [
-     "Mutlaq noelastik",
-     "Pastga og‘ma",
-     "Birlik elastik",
-     "Mutlaq elastik (gorizontal)"
+     "Chegaraviy xarajatga (MC)",
+     "Yalpi daromadga (TR)",
+     "Mahsulot narxiga (P)",
+     "O‘rtacha yalpi xarajatga (ATC)"
     ],
-    "c": 3
+    "c": 2,
+    "e": "AR = TR/Q = (P × Q)/Q = P."
    },
    {
-    "q": "Raqobatlashuvchi firma uchun:",
+    "q": "Chegaraviy daromad (MR) nimani bildiradi?",
     "options": [
-     "P = AR = MR",
-     "AR > P",
-     "MR < AR",
-     "P > MR"
+     "Bir birlik mahsulotni sotishdan olinadigan o‘rtacha daromadni",
+     "Qo‘shimcha bir birlik sotishdan olinadigan qo‘shimcha daromadni",
+     "Mahsulotning bozor narxi bilan xarajat o‘rtasidagi farqni",
+     "Yalpi daromadning ishlab chiqarilgan mahsulot miqdoriga nisbatini"
     ],
-    "c": 0
+    "c": 1,
+    "e": "MR = ΔTR/ΔQ – qo‘shimcha bir birlik sotishdan olinadigan qo‘shimcha tushum."
    },
    {
-    "q": "Foydani maksimallashtirishning umumiy sharti:",
+    "q": "Zararsizlik nuqtasi qaysi tenglik bilan aniqlanadi?",
     "options": [
-     "TR = TC",
-     "AVC = MC",
-     "MR = MC",
-     "P = ATC"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mukammal raqobatda optimallik sharti:",
-    "options": [
-     "P = MC",
-     "MR = 0",
-     "P = ATC",
-     "P = AVC"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Vatslav fermasida (Mankyu) maksimal foyda:",
-    "options": [
-     "6 dollar",
-     "7 dollar",
-     "10 dollar",
-     "3 dollar"
-    ],
-    "c": 1
-   },
-   {
-    "q": "MR > MC bo‘lsa, firma:",
-    "options": [
-     "Ishlab chiqarishni kamaytirishi kerak",
-     "Ishlab chiqarishni ko‘paytirishi kerak",
-     "Narxni oshirishi kerak",
-     "Yopilishi kerak"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Foyda teng:",
-    "options": [
-     "P × Q",
-     "(P – MC) × Q",
-     "(P – AVC) × Q",
-     "(P – ATC) × Q"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Zararsizlik nuqtasi:",
-    "options": [
-     "P = min ATC",
-     "P = max MC",
      "P = min AVC",
-     "MR = 0"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Yopilish nuqtasi:",
-    "options": [
-     "TR = TC",
-     "P = min AVC",
-     "P = MC = 0",
+     "P = min AFC",
+     "TR = FC",
      "P = min ATC"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Bu narxda iqtisodiy foyda nolga teng, firma normal foyda oladi."
    },
    {
-    "q": "min AVC < P < min ATC bo‘lsa, qisqa muddatda firma:",
+    "q": "Raqobatlashuvchi firma qisqa muddatda qachon ishlab chiqarishni vaqtincha to‘xtatadi?",
     "options": [
-     "Yopiladi",
-     "Zarar bilan ishlab chiqarishni davom ettiradi",
-     "Foyda oladi",
-     "Narxni oshiradi"
+     "Tushum doimiy xarajatlarni qoplamaganda (TR < FC)",
+     "Narx o‘rtacha yalpi xarajatdan past bo‘lganda (P < ATC)",
+     "Iqtisodiy foyda nolga teng bo‘lganda (P = ATC)",
+     "Tushum o‘zgaruvchan xarajatlarni qoplamasa (P < AVC)"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Yopilish sharti TR < VC, ya’ni P < AVC; P < ATC bo‘lsa ham, P > AVC bo‘lsa firma ishlayveradi."
    },
    {
-    "q": "Qisqa muddatda yopilgan firmaning zarari teng:",
+    "q": "Raqobatlashuvchi firmaning qisqa muddatli taklif chizig‘i qaysi?",
     "options": [
-     "Doimiy xarajatlarga",
+     "MC chizig‘ining ATC minimumidan yuqori qismi",
+     "MC chizig‘ining AVC minimumidan yuqori qismi",
+     "MC chizig‘ining butun uzunligi",
+     "ATC chizig‘ining AVC minimumidan yuqori qismi"
+    ],
+    "c": 1,
+    "e": "Firma P = MC bo‘yicha ishlab chiqaradi, P < min AVC bo‘lganda esa umuman ishlab chiqarmaydi."
+   },
+   {
+    "q": "Tarmoqning qisqa muddatli taklif chizig‘i qanday hosil bo‘ladi?",
+    "options": [
+     "Barcha firmalar taklif chiziqlarini vertikal bo‘yicha yig‘ish orqali",
+     "Eng samarali firmaning taklif chizig‘ini olish orqali",
+     "Firmalar taklif chiziqlarini gorizontal bo‘yicha yig‘ish orqali",
+     "Barcha firmalar taklif chiziqlarining o‘rtachasini olish orqali"
+    ],
+    "c": 2,
+    "e": "Har bir narxda firmalar taklif qiladigan miqdorlar qo‘shiladi; 1000 ta bir xil firma bo‘lsa, taklif 1000 marta katta."
+   },
+   {
+    "q": "Foydani maksimallashtirishning umumiy optimallik sharti qaysi?",
+    "options": [
+     "MR = MC",
+     "P = AR",
+     "TR = TC",
+     "MC = ATC"
+    ],
+    "c": 0,
+    "e": "Har qanday bozor tuzilmasida foyda MR = MC bo‘lgan hajmda maksimal bo‘ladi."
+   },
+   {
+    "q": "Alohida raqobatlashuvchi firma mahsulotiga talab chizig‘i nima uchun gorizontal?",
+    "options": [
+     "Firma mahsuloti bozorda o‘rinbosarsiz yagona tovar hisoblanadi",
+     "Firma narxga ta’sir qila olmaydi va xohlagan miqdorni sota oladi",
+     "Narx oshirilganda xaridorlarning ko‘pchiligi firmada qolishi mumkinligi sababli",
+     "Tarmoq talabi ham gorizontal chiziqdan iborat bo‘lgani uchun"
+    ],
+    "c": 1,
+    "e": "Firma talabi mutlaq elastik, tarmoq talabi esa odatdagidek pastga og‘ma."
+   },
+   {
+    "q": "Qaysi holatda raqobatlashuvchi firma foydani oshirish uchun ishlab chiqarishni ko‘paytirishi kerak?",
+    "options": [
+     "MR < MC bo‘lganda",
+     "MR = MC bo‘lganda",
+     "P < AVC bo‘lganda",
+     "MR > MC bo‘lganda"
+    ],
+    "c": 3,
+    "e": "MR > MC bo‘lsa, qo‘shimcha birlik foydani oshiradi."
+   },
+   {
+    "q": "Narx min AVC dan yuqori, ammo min ATC dan past. Firma nima uchun qisqa muddatda ishlab chiqarishni davom ettiradi?",
+    "options": [
+     "Tushum VC ni va FC ning bir qismini qoplaydi, zarar FC dan kichik",
+     "Tushum barcha xarajatlarni qoplab, firmaga iqtisodiy foyda beradi",
+     "Yopilganda doimiy xarajatlar nolga tushib, zarar sezilarli kamayadi",
+     "Zarar yopilganda ham, ishlaganda ham bir xil miqdorda bo‘ladi"
+    ],
+    "c": 0,
+    "e": "Yopilsa firma baribir FC miqdorida zarar ko‘radi; ishlasa, zarar FC dan kichik."
+   },
+   {
+    "q": "Raqobatlashuvchi firma uchun nima uchun P = MR bo‘ladi?",
+    "options": [
+     "Firma narxni har bir qo‘shimcha birlik sotilganda pasaytirishga majbur bo‘ladi",
+     "Chegaraviy xarajat narxga teng bo‘lgani uchun, firma ko‘proq sotadi",
+     "Narx doimiy bo‘lgani uchun har bir qo‘shimcha birlik P ga teng tushum beradi",
+     "Firma mahsulotiga talab pastga og‘ma chiziq ko‘rinishida bo‘lgani uchun"
+    ],
+    "c": 2,
+    "e": "Doimiy narxda har bir birlik P qo‘shadi, shu sababli P = AR = MR (monopoliyada esa MR < P)."
+   },
+   {
+    "q": "Mini-golf maydoni qishda tushum xodimlar ish haqini va elektr energiyasini qoplamagani uchun yopiladi. Yopilish qarori uchun qaysi xarajatlar ahamiyatsiz?",
+    "options": [
+     "Xodimlar ish haqi va boshqa o‘zgaruvchan xarajatlar",
+     "Elektr energiyasi uchun to‘lovlar va kommunal xarajatlar",
+     "Yer va qurilmalarga sarflangan qaytarilmaydigan xarajatlar",
+     "Mahsulot sotishdan olinadigan tushum miqdori va uning dinamikasi"
+    ],
+    "c": 2,
+    "e": "Qaytarilmaydigan xarajatlar yopilish qaroriga ta’sir qilmaydi – faqat tushum va o‘zgaruvchan xarajatlar taqqoslanadi."
+   },
+   {
+    "q": "P = min AVC bo‘lganda raqobatlashuvchi firmaning zarari nimaga teng bo‘ladi?",
+    "options": [
      "O‘zgaruvchan xarajatlarga",
      "Nolga",
-     "Yalpi xarajatlarga"
+     "Yalpi xarajatlarga",
+     "Doimiy xarajatlarga"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Tushum faqat o‘zgaruvchan xarajatlarni qoplaydi, shuning uchun zarar FC ga teng (ishlash va yopilish tengdir)."
    },
    {
-    "q": "Qisqa muddatda vaqtincha yopilish sharti:",
+    "q": "Hosil mo‘l bo‘lgan yili pomidor narxi juda pasayib, dehqon hosilni yig‘ib olmadi. Bu qaysi holatga mos keladi?",
     "options": [
-     "P < MC",
-     "P < AVC",
-     "P > ATC",
-     "P < ATC"
+     "Narx hosilni yig‘ish xarajatlarini qoplamadi, bu yopilish nuqtasiga mos",
+     "Narx zararsizlik nuqtasiga tenglashdi, shu bois dehqon normal foyda oldi",
+     "Narx MC dan yuqori bo‘lgani uchun dehqon taklifni kengaytirdi",
+     "Bozorga kirish uchun yangi to‘siqlar paydo bo‘lgani sababli"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Narx o‘zgaruvchan xarajatlardan past bo‘lsa (P < AVC), ishlab chiqarish zararni oshiradi."
    },
    {
-    "q": "Uzoq muddatda bozordan chiqish sharti:",
+    "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Qaysi shart bajarilsa, bu qaror oqilona bo‘ladi?",
     "options": [
-     "P < AVC",
-     "P = MR",
-     "P > MC",
-     "P < ATC"
+     "Tushum ijara va uskunalar xarajatini ham to‘liq qoplasa",
+     "Tushum oziq-ovqat va qo‘shimcha ish haqini qoplasa",
+     "Tushum kunning boshqa vaqtlaridagi tushumga teng bo‘lsa",
+     "Restoranning iqtisodiy foydasi musbat bo‘lsa"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Qarorda faqat o‘zgaruvchan xarajatlar muhim; ijara va uskunalar qaytarilmaydigan xarajat."
    },
    {
-    "q": "Raqobatlashuvchi firmaning qisqa muddatli taklif chizig‘i:",
+    "q": "Bozor narxi 10 ming so‘m. Firma P = MC bo‘yicha ishlab chiqarganda ATC = 12, AVC = 8 ming so‘m. Firma qanday qaror qabul qiladi?",
     "options": [
-     "Talab chizig‘i",
-     "MC chizig‘ining AVC minimumidan yuqori qismi",
-     "ATC chizig‘i",
-     "AVC chizig‘i"
+     "Darhol yopiladi, chunki narx o‘rtacha yalpi xarajatdan past",
+     "Ishlab chiqarishni davom ettiradi, chunki zarar FC dan kichik",
+     "Ishlab chiqarishni davom ettiradi, chunki iqtisodiy foyda musbat",
+     "Narxni 12 ming so‘mga ko‘taradi, chunki zararni qoplaydi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "min AVC < P < min ATC: firma zararni minimallashtirib ishlaydi; narxni qabul qiluvchi sifatida narxni o‘zgartira olmaydi."
    },
    {
-    "q": "Tarmoqning qisqa muddatli taklifi:",
+    "q": "Quyidagi bozorlardan qaysi biri mukammal raqobatga eng yaqin?",
     "options": [
-     "Talab chizig‘i",
-     "Bitta firma taklifi",
-     "Firmalar taklif chiziqlarining gorizontal yig‘indisi",
-     "Firmalar taklif chiziqlarining vertikal yig‘indisi"
+     "Mobil aloqa xizmatlari bozori",
+     "Temir yo‘l infratuzilmasi xizmatlari bozori",
+     "Dehqon bozorida kartoshka savdosi",
+     "Restoranlar xizmatlari bozori"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Dehqon bozorida ko‘p sotuvchi, bir jinsli mahsulot, erkin kirish va tez narx taqqoslash mavjud."
    },
    {
-    "q": "TC = 100 + 10Q + Q2, P = 50 bo‘lsa, optimal Q:",
+    "q": "Raqobatlashuvchi firma bozor narxi 14 mln so‘m bo‘lganda 10 birlik ishlab chiqaradi, bunda ATC = 9 mln so‘m. Foyda qancha?",
     "options": [
-     "10",
-     "20",
-     "25",
-     "40"
+     "5 mln so‘m",
+     "90 mln so‘m",
+     "140 mln so‘m",
+     "50 mln so‘m"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Foyda = (P – ATC) × Q = (14 – 9) × 10 = 50; 140 – tushum, 90 – yalpi xarajat."
    },
    {
-    "q": "Qaytarilmaydigan xarajatlar yopilish qaroriga:",
+    "q": "Raqobatlashuvchi firmaning chegaraviy xarajati MC = 4 + 2Q, bozor narxi P = 20. Foydani maksimallashtiruvchi hajm qancha?",
     "options": [
-     "Faqat buxgalteriyada ta’sir qiladi",
-     "Faqat uzoq muddatda ta’sir qiladi",
-     "Hal qiluvchi ta’sir qiladi",
-     "Ta’sir qilmaydi"
+     "8 birlik",
+     "10 birlik",
+     "12 birlik",
+     "16 birlik"
     ],
-    "c": 3
-   },
-   {
-    "q": "Mankyuning tushlikdagi bo‘sh restoran misolida restoran ochiq qoladi, agar:",
-    "options": [
-     "Mijozlar ko‘p bo‘lsa",
-     "Tushum barcha xarajatlarni qoplasa",
-     "Ijara arzon bo‘lsa",
-     "Tushum o‘zgaruvchan xarajatlarni qoplasa"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Mini-golf maydonining qishda yopilishi sababi:",
-    "options": [
-     "Tushumning o‘zgaruvchan xarajatlarni qoplamasligi",
-     "Raqobatchilar",
-     "Doimiy xarajatlarning yuqoriligi",
-     "Soliqlar"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Raqobatlashuvchi firmaning chegaraviy daromadi:",
-    "options": [
-     "Narxdan kichik",
-     "Narxga teng",
-     "Nolga teng",
-     "Narxdan katta"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Foyda grafikda TR va TC orasidagi masofa eng katta bo‘lgan nuqtada, bu yerda:",
-    "options": [
-     "TC minimal",
-     "TC qiyaligi TR qiyaligiga teng",
-     "ATC minimal",
-     "TR maksimal"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Iqtisodiy foyda nolga teng bo‘lganda firma:",
-    "options": [
-     "Yopilishi kerak",
-     "Normal foyda oladi",
-     "Monopolist",
-     "Zarar ko‘radi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Tarmoqda 100 ta firma, har birining taklifi q = P – 5 bo‘lsa, tarmoq taklifi:",
-    "options": [
-     "Q = 100P – 500",
-     "Q = 100P",
-     "Q = P – 5",
-     "Q = P – 500"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Mukammal raqobatga eng yaqin bozor:",
-    "options": [
-     "Mobil aloqa",
-     "Avtomobilsozlik",
-     "Dehqon bozoridagi kartoshka savdosi",
-     "Elektr energiyasi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Narx oshganda raqobatlashuvchi firma ishlab chiqarishni oshiradi, chunki:",
-    "options": [
-     "ATC kamayadi",
-     "FC kamayadi",
-     "MC chizig‘i yuqoriga og‘ma",
-     "Talab oshadi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Firma P = 7 da ishlab chiqarmoqda, AVC = 5,4, ATC = 8,1. Firma:",
-    "options": [
-     "Darhol yopiladi",
-     "Narxni oshiradi",
-     "Zarar bilan ishlab chiqarishni davom ettiradi",
-     "Foyda oladi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mukammal raqobatda firmaning qisqa muddatli muvozanatida:",
-    "options": [
-     "Faqat iqtisodiy foyda bo‘lishi mumkin",
-     "Foyda, normal foyda yoki zarar bo‘lishi mumkin",
-     "Faqat normal foyda",
-     "Faqat zarar"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Firma qo‘shimcha birlikdan 6 so‘m daromad oladi, uning MC 7 so‘m. Firma:",
-    "options": [
-     "Befarq",
-     "Bu birlikni ishlab chiqarishi kerak",
-     "Bu birlikni ishlab chiqarmasligi kerak",
-     "Narxni oshirishi kerak"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Firma taklif chizig‘ining yopilish nuqtasidan pastki qismi:",
-    "options": [
-     "Q = 0 (firma ishlab chiqarmaydi)",
-     "ATC bilan bir xil",
-     "Gorizontal",
-     "MC bilan bir xil"
-    ],
-    "c": 0
+    "c": 0,
+    "e": "P = MC ⇒ 20 = 4 + 2Q ⇒ Q = 8."
    }
   ],
   "selfStudy": [
@@ -4433,304 +3713,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Uzoq muddatli raqobatli muvozanat sharti:",
+    "q": "Uzoq muddatli o‘rtacha xarajatlar chizig‘i (LRATC) nimani ko‘rsatadi?",
     "options": [
-     "P < AVC",
-     "MR > MC",
-     "P = MC > ATC",
-     "P = MC = min ATC"
+     "Har bir ishlab chiqarish hajmi uchun mumkin bo‘lgan eng past o‘rtacha xarajatni",
+     "Har bir ishlab chiqarish hajmi uchun qisqa muddatdagi eng yuqori o‘rtacha xarajatni",
+     "Faqat o‘zgaruvchan xarajatlarning bir birlik mahsulotga to‘g‘ri keladigan qismini",
+     "Zavod hajmi o‘zgarmagan holda chegaraviy xarajatning o‘sish sur’atini"
     ],
-    "c": 3
+    "c": 0,
+    "e": "LRATC qisqa muddatli ATC chiziqlarining qobig‘i bo‘lib, har bir hajm uchun eng past o‘rtacha xarajatni beradi."
    },
    {
-    "q": "Uzoq muddatli muvozanatda iqtisodiy foyda:",
+    "q": "Raqobatlashuvchi tarmoq uzoq muddatli muvozanatda bo‘lganda qaysi shart bajariladi?",
     "options": [
-     "Nolga teng",
-     "Manfiy",
-     "Musbat",
-     "Maksimal"
+     "P = MR > min ATC",
+     "P > MC = min ATC",
+     "P = MC = min ATC",
+     "P = AVC > min ATC"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Kirish va chiqish narx minimal o‘rtacha xarajatga teng bo‘lguncha davom etadi, shu sababli P = MC = min ATC."
    },
    {
-    "q": "Tarmoqdagi firmalar iqtisodiy foyda olsa, uzoq muddatda:",
+    "q": "Tahlilda «tipik firma» deganda nima tushuniladi?",
     "options": [
-     "Narx oshadi",
-     "Yangi firmalar kiradi",
-     "Hech narsa o‘zgarmaydi",
-     "Firmalar chiqadi"
+     "Tarmoqdagi eng katta bozor ulushiga ega va narxni belgilovchi yetakchi firma",
+     "Tarmoqdagi barcha firmalarga xos xarajat tuzilmasiga ega vakil firma",
+     "Tarmoqqa eng oxirgi bo‘lib kirgan va eng past xarajatli firma",
+     "Tarmoqdagi eng yuqori iqtisodiy foyda oladigan firma"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Tipik firma tarmoq xarajat tuzilmasini ifodalovchi vakil firma bo‘lib, uning yordamida tarmoq muvozanati tahlil qilinadi."
    },
    {
-    "q": "Yangi firmalar kirishi bozor taklifini:",
+    "q": "Tarmoqdagi firmalar zarar ko‘rayotgan (P < ATC) bo‘lsa, uzoq muddatda nima yuz beradi?",
     "options": [
-     "O‘zgartirmaydi",
-     "O‘ngga siljitadi",
-     "Chapga siljitadi",
-     "Vertikal qiladi"
+     "Yangi firmalar kiradi, taklif ko‘payadi, narx pasayadi va zarar yo‘qoladi",
+     "Firmalar soni o‘zgarmaydi, narx esa ATC dan past darajada qotib qoladi",
+     "Barcha firmalar bir vaqtda chiqadi va tarmoq butunlay yo‘qoladi",
+     "Ayrim firmalar chiqib ketadi, taklif kamayadi, narx oshadi va zarar qisqaradi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Zarar firmalarni chiqaradi; taklif kamayib, narx min ATC darajasiga qaytguncha ko‘tariladi."
    },
    {
-    "q": "P = min ATC sharti qaysi samaradorlikni ifodalaydi?",
+    "q": "Uzoq muddatda iqtisodiy foyda nolga teng bo‘lsa ham, tadbirkorlar nima uchun biznesni davom ettiradi?",
     "options": [
-     "X-samaradorlik",
-     "Ishlab chiqarish samaradorligi",
-     "Allokativ",
-     "Dinamik"
+     "Nol iqtisodiy foyda buxgalteriya zarari bilan baravar, ammo davlat uni qoplaydi",
+     "Ular narxni xohlagancha oshirib, yashirin iqtisodiy foyda olishda davom etadi, buxgalteriya foydasi esa nolga teng",
+     "Iqtisodiy xarajatlarga muqobil xarajat kiradi, buxgalteriya foydasi esa musbat bo‘ladi",
+     "Chiqish xarajatlari kirish xarajatlaridan doim ancha yuqori bo‘lgani uchun"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Nol iqtisodiy foyda tadbirkor o‘z vaqti va kapitalidan boshqa joyda olishi mumkin bo‘lgan daromadni olayotganini bildiradi."
    },
    {
-    "q": "P = MC sharti qaysi samaradorlikni ifodalaydi?",
+    "q": "Ishlab chiqarish samaradorligi uzoq muddatli raqobatli muvozanatda qanday ta’minlanadi?",
     "options": [
-     "Texnik",
-     "Masshtab",
-     "Ishlab chiqarish",
-     "Allokativ"
+     "Har bir firma ATC minimal bo‘lgan hajmda ishlaydi",
+     "Har bir firma narxni chegaraviy xarajatdan yuqori belgilaydi",
+     "Tarmoqda faqat bitta eng yirik firma qoladi",
+     "Firmalar iqtisodiy foydani maksimal darajada saqlab qoladi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Muvozanatda narx min ATC ga teng bo‘lgani uchun firma samarali miqyosda ishlaydi."
    },
    {
-    "q": "Nol iqtisodiy foyda sharoitida buxgalteriya foydasi:",
+    "q": "Uzoq muddatli raqobatli muvozanatda allokativ (taqsimlash) samaradorlikni qaysi tenglik ta’minlaydi?",
     "options": [
-     "Aniqlab bo‘lmaydi",
-     "Manfiy",
-     "Musbat",
-     "Nolga teng"
+     "P = ATC, ya’ni narxning o‘rtacha yalpi xarajatga tengligi (bu faqat nol foydani bildiradi)",
+     "MR = MC, ya’ni chegaraviy tushumning chegaraviy xarajatga tengligi",
+     "TR = TC, ya’ni yalpi tushumning yalpi xarajatga tengligi",
+     "P = MC, ya’ni tovarning iste’molchi uchun qadri jamiyat xarajatiga tengligi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "P = MC bo‘lganda iste’molchilar uchun qadr ishlab chiqarishning jamiyat xarajatiga teng bo‘ladi."
    },
    {
-    "q": "Xarajatlari o‘zgarmas tarmoqda uzoq muddatli taklif chizig‘i:",
+    "q": "Xarajatlari o‘sayotgan tarmoqda uzoq muddatli taklif chizig‘i nima uchun yuqoriga og‘ma bo‘ladi?",
     "options": [
-     "Vertikal",
-     "Yuqoriga og‘ma",
-     "Gorizontal",
-     "Pastga og‘ma"
+     "Tarmoq kengayganda ixtisoslashgan yetkazib beruvchilar paydo bo‘lib, xarajat tushadi",
+     "Tarmoq kengayganda resurslar narxi ko‘tarilib, ATC chiziqlari yuqoriga siljiydi",
+     "Yangi firmalar mavjudlariga qaraganda doim arzonroq xarajatga ega bo‘ladi",
+     "Talab oshganda firmalar narxni kelishib, ataylab yuqori ushlab turadi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Cheklangan resurslar (masalan, yer) narxi oshadi, shuning uchun LRS yuqoriga og‘adi."
    },
    {
-    "q": "Xarajatlari o‘sayotgan tarmoqda talab oshsa, uzoq muddatda narx:",
+    "q": "Xarajatlari kamayayotgan tarmoqda LRS pastga og‘ma bo‘lishining asosiy sababi qaysi?",
     "options": [
-     "O‘zgarmaydi",
-     "Nolga tushadi",
-     "Pasayadi",
-     "Oshadi"
+     "Resurslarning cheklanganligi va ularning narxi oshishi",
+     "Yangi kiruvchi firmalarning tajribasizligi",
+     "Tarmoq kengayishi bilan paydo bo‘ladigan tashqi ijobiy samaralar",
+     "Davlatning narxni majburan pasaytirishi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Ixtisoslashgan yetkazib beruvchilar, malakali kadrlar va infratuzilma rivojlanib, har bir firma xarajati pasayadi."
    },
    {
-    "q": "Xarajatlari kamayayotgan tarmoqning sababi:",
+    "q": "Q = A·L^0,6·K^0,7 ishlab chiqarish funksiyasida masshtab samarasi qanday?",
     "options": [
-     "Tashqi ijobiy samaralar",
-     "Monopoliya",
-     "Resurslarning cheklanganligi",
-     "Soliqlar"
+     "Ijobiy, chunki daraja ko‘rsatkichlari yig‘indisi 1 dan katta",
+     "Doimiy, chunki daraja ko‘rsatkichlarining har biri 1 dan kichik",
+     "Salbiy, chunki ikkala daraja ko‘rsatkichi ham 1 dan kichik",
+     "Aniqlab bo‘lmaydi, chunki A koeffitsientining qiymati noma’lum va natijaga ta’sir qiladi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "α + β = 1,3 > 1 bo‘lgani uchun omillar 2 baravar oshganda mahsulot 2 baravardan ko‘p oshadi."
    },
    {
-    "q": "Qishloq xo‘jaligi odatda qanday tarmoq?",
+    "q": "Minimal samarali miqyos (MES) nima?",
     "options": [
-     "Tabiiy monopoliya",
-     "Xarajatlari kamayayotgan",
-     "Xarajatlari o‘sayotgan",
-     "Xarajatlari o‘zgarmas"
+     "Firma zarar ko‘rmasdan sotishi mumkin bo‘lgan eng kichik hajm",
+     "LRATC minimal darajaga yetadigan eng kichik ishlab chiqarish hajmi",
+     "ATC chizig‘i chegaraviy xarajat chizig‘ini birinchi marta kesadigan nuqta",
+     "Bozor talabi nolga teng bo‘ladigan eng yuqori ishlab chiqarish hajmi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "MES — LRATC eng past qiymatga yetadigan eng kichik hajm."
    },
    {
-    "q": "Talab oshganda qisqa muddatda raqobatlashuvchi firmalar:",
+    "q": "MES bozor hajmiga nisbatan juda katta bo‘lsa, tarmoq tuzilmasi qanday bo‘ladi?",
     "options": [
-     "Zarar ko‘radi",
-     "Yopiladi",
-     "Iqtisodiy foyda oladi",
-     "Narxni pasaytiradi"
+     "Tarmoqda juda ko‘p mayda firma mavjud bo‘ladi: mukammal raqobat",
+     "Tarmoqda firmalar soni doimiy ravishda ko‘payib boradi",
+     "Tarmoqdagi barcha firmalar bir xil hajmda ishlab chiqaradi",
+     "Tarmoqda bir nechta yirik firma qoladi: oligopoliya yoki monopoliya"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Samarali ishlash uchun katta hajm kerak bo‘lgani sababli bozorga sig‘adigan samarali firmalar soni kam bo‘ladi."
    },
    {
-    "q": "Barcha omillar 2 baravar oshganda mahsulot 2,5 baravar oshsa:",
+    "q": "Qaysi holatda tarmoq tabiiy monopoliya hisoblanadi?",
     "options": [
-     "Masshtabdan ijobiy samara",
-     "Masshtabdan salbiy samara",
-     "Chegaraviy mahsuldorlikning kamayishi",
-     "Doimiy samara"
+     "LRATC butun bozor talabi hajmida kamayib borganda",
+     "Davlat tarmoqqa yangi firmalar kirishini taqiqlaganda",
+     "Tarmoqda LRATC bozor hajmidan ancha kichik hajmda minimumga yetganda",
+     "Firma yagona resursga egalik qilib, narxni ixtiyoriy belgilaganda"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Bitta firma butun bozorni bir nechta firmaga qaraganda arzonroq ta’minlay olgani uchun monopoliya tabiiy yuzaga keladi."
    },
    {
-    "q": "Masshtabdan ijobiy samarada LRATC:",
+    "q": "Masshtabdan salbiy samaraning sababi qaysi?",
     "options": [
-     "Vertikal",
-     "Kamayadi",
-     "O‘zgarmaydi",
-     "Oshadi"
+     "Mehnat taqsimoti va ixtisoslashuvning chuqurlashuvi",
+     "Doimiy xarajatlarning ko‘proq mahsulot birligiga taqsimlanishi",
+     "Boshqaruvning murakkablashuvi va byurokratiya",
+     "Xom ashyoni ulgurji va arzonroq narxda sotib olish"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Katta firmada axborot, koordinatsiya va byurokratiya muammolari o‘rtacha xarajatni oshiradi."
    },
    {
-    "q": "Q = L0,4K0,4 funksiyada masshtab samarasi:",
+    "q": "Daromad oshgan sari Engel qonuniga ko‘ra iqtisodiyot tarkibida nima yuz beradi?",
     "options": [
-     "Doimiy",
-     "Salbiy",
-     "Aniqlab bo‘lmaydi",
-     "Ijobiy"
+     "Oziq-ovqatga talab ulushi oshadi, xizmatlar ulushi kamayadi",
+     "Barcha tovarlarga talab ulushi bir xil nisbatda saqlanadi",
+     "Faqat sanoat mahsulotlariga talab ulushi tez oshadi",
+     "Oziq-ovqatga talab ulushi kamayadi, xizmatlar ulushi oshadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Engel qonuni daromad o‘sishi bilan oziq-ovqat ulushi kamayib, xizmatlar ulushi oshishini ko‘rsatadi."
    },
    {
-    "q": "Masshtabdan salbiy samaraning sababi:",
+    "q": "Xarajatlari o‘zgarmas tarmoqda talab oshgach, uzoq muddatda narx va firmalar soni qanday o‘zgaradi?",
     "options": [
-     "Ulgurji xaridlar",
-     "Boshqaruvning murakkablashuvi",
-     "Ixtisoslashuv",
-     "Yirik uskunalar"
+     "Narx yangi, yuqoriroq darajada qoladi, firmalar soni o‘zgarmaydi",
+     "Narx avvalgi darajasiga qaytadi, firmalar soni ko‘payadi",
+     "Narx avvalgidan pasayib ketadi, firmalar soni kamayadi",
+     "Narx va firmalar soni dastlabki darajasida qoladi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Foyda yangi firmalarni jalb qiladi; taklif o‘ngga siljib, narx min ATC ga qaytadi, tarmoq esa kengayadi."
    },
    {
-    "q": "Minimal samarali miqyos (MES):",
+    "q": "Tipik firma xarajatlari TC = 36 + q² (ming so‘m) bo‘lsa, uzoq muddatli muvozanat narxi qancha?",
     "options": [
-     "LRATC maksimal bo‘lgan hajm",
-     "TC minimal bo‘lgan hajm",
-     "MC = 0 bo‘lgan hajm",
-     "LRATC minimal darajaga yetadigan eng kichik hajm"
+     "12 ming so‘m",
+     "6 ming so‘m",
+     "18 ming so‘m",
+     "37 ming so‘m"
     ],
-    "c": 3
+    "c": 0,
+    "e": "ATC = 36/q + q minimumi q = 6 da, ATC = 6 + 6 = 12; P = min ATC = 12."
    },
    {
-    "q": "MES bozor hajmiga nisbatan katta bo‘lsa, tarmoq tuzilmasi:",
+    "q": "Uzoq muddatli muvozanatda tipik firma 6 birlik chiqaradi, narx 12 ming so‘m. Bozor talabi QD = 1200 – 50P bo‘lsa, tarmoqda nechta firma bor?",
     "options": [
-     "Oligopoliya yoki monopoliya",
-     "Ko‘p kichik firmalar",
-     "Mukammal raqobat",
-     "Monopolistik raqobat"
+     "50 ta",
+     "200 ta",
+     "100 ta",
+     "600 ta"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Q = 1200 – 50 × 12 = 600; firmalar soni n = 600 / 6 = 100."
    },
    {
-    "q": "A. Smitning to‘g‘nog‘ich fabrikasi misoli nimani ko‘rsatadi?",
+    "q": "Kichik mamlakatda avtomobil zavodining MES yiliga 250 ming dona, ichki talab esa yiliga 50 ming dona. Masshtab samarasiga erishishning eng mantiqiy yo‘li qaysi?",
     "options": [
-     "Ixtisoslashuv tufayli masshtabdan ijobiy samarani",
-     "Monopoliyani",
-     "Tashqi samaralarni",
-     "Masshtabdan salbiy samarani"
+     "Zavod hajmini ichki talabga moslab, kichik hajmda ishlashni davom ettirish",
+     "Mahsulotni eksport qilib, jahon bozoriga chiqish",
+     "Ichki bozorda narxni MES dagi xarajatdan ham pastroq belgilab, talabni oshirish",
+     "Zavodni bir nechta mayda ustaxonaga bo‘lib yuborish"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Ichki bozor MES dan kichik bo‘lgani uchun faqat eksport orqali samarali hajmga erishish mumkin."
    },
    {
-    "q": "Tipik firmaning q = 8 va tarmoq Q = 1200 bo‘lsa, firmalar soni:",
+    "q": "Bozor mexanizmida iqtisodiyotdagi tarkibiy o‘zgarishlar qanday amalga oshadi?",
     "options": [
-     "100",
-     "150",
-     "200",
-     "1200"
+     "Resurslar tarmoqlar o‘rtasida davlat buyrug‘isiz hech qachon qayta taqsimlanmaydi",
+     "Barcha tarmoqlarda resurslar ulushi bir xil darajada doimiy saqlanadi",
+     "Talab o‘zgarishi faqat narxga ta’sir qiladi, resurslar ko‘chmaydi",
+     "Foyda resurslarni o‘sayotgan tarmoqlarga jalb qiladi, zarar ularni qisqarayotgan tarmoqlardan chiqaradi"
     ],
-    "c": 1
-   },
-   {
-    "q": "Talab kamayganda uzoq muddatda (xarajatlari o‘zgarmas tarmoq):",
-    "options": [
-     "Firmalar chiqib, narx min ATC ga qaytadi",
-     "Foyda oshadi",
-     "Narx pasayib qoladi",
-     "Firmalar soni oshadi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Uzoq muddatli tarmoq taklifi yuqoriga og‘ma bo‘lishining Mankyu keltirgan sababi:",
-    "options": [
-     "Davlat narxlari",
-     "Soliqlar",
-     "Monopoliya",
-     "Ayrim resurslarning cheklanganligi va firmalar xarajatlarining turlicha bo‘lishi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Tarkibiy o‘zgarishlarning sababi emas:",
-    "options": [
-     "Qaytarilmaydigan xarajatlar",
-     "Texnologik taraqqiyot",
-     "Xalqaro savdo",
-     "Talab tarkibining o‘zgarishi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "2025-yilning to‘qqiz oyida O‘zbekiston YaIMida xizmatlar ulushi taxminan:",
-    "options": [
-     "30%",
-     "49%",
-     "60%",
-     "20%"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Engel qonuniga ko‘ra daromad oshishi bilan qaysi tarmoqning YaIMdagi ulushi kamayadi?",
-    "options": [
-     "Qishloq xo‘jaligi",
-     "Moliya",
-     "IT",
-     "Xizmatlar"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Kirish va chiqish mexanizmi ta’minlaydi:",
-    "options": [
-     "Resurslarning talab yuqori tarmoqlarga ko‘chishini",
-     "Monopoliyalarni",
-     "Tashqi samaralarni",
-     "Narxlarning doimiy o‘sishini"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Krugmanning yangi savdo nazariyasida masshtab samarasining roli:",
-    "options": [
-     "Savdoni cheklaydi",
-     "Faqat monopoliyalarga tegishli",
-     "Ahamiyatsiz",
-     "Xalqaro savdoning muhim manbai"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Xarajatlari kamayayotgan tarmoqda talab oshsa, uzoq muddatda:",
-    "options": [
-     "Narx o‘zgarmaydi",
-     "Narx oshadi",
-     "Narx pasayadi",
-     "Firmalar chiqadi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "LRATC butun bozor hajmida kamaysa, bu:",
-    "options": [
-     "Monopolistik raqobat",
-     "Mukammal raqobat",
-     "Xarajatlari o‘sayotgan tarmoq",
-     "Tabiiy monopoliya"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Omillar 1,5 baravar, mahsulot 1,5 baravar oshsa:",
-    "options": [
-     "Salbiy masshtab samarasi",
-     "Doimiy masshtab samarasi",
-     "Texnologik taraqqiyot",
-     "Ijobiy masshtab samarasi"
-    ],
-    "c": 1
+    "c": 3,
+    "e": "Kirish va chiqish orqali iqtisodiy foyda yoki zarar resurslarni tarmoqlar o‘rtasida qayta taqsimlaydi."
    }
   ],
   "selfStudy": [
@@ -4925,304 +4125,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Sof monopoliyaning belgisi:",
+    "q": "Sof monopoliya qanday bozor tuzilmasi?",
     "options": [
-     "Ko‘plab sotuvchilar",
-     "Erkin kirish",
-     "Differensiatsiyalangan mahsulot",
-     "Yagona sotuvchi va yaqin o‘rinbosarlarning yo‘qligi"
+     "Ko‘plab sotuvchilar o‘xshash, lekin bir xil bo‘lmagan mahsulot sotadi",
+     "Yagona sotuvchi bor va mahsulotning yaqin o‘rinbosarlari yo‘q",
+     "Bir nechta yirik sotuvchi bir xil mahsulotni o‘zaro kelishib sotadi",
+     "Bozorda yagona xaridor bor va ko‘plab sotuvchilar uning talabini kutadi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Sof monopoliyada tarmoqda bitta firma bo‘ladi va uning mahsulotiga yaqin o‘rinbosarlar mavjud emas."
    },
    {
-    "q": "Patent qaysi monopoliya manbai?",
+    "q": "Monopolist «narxni belgilovchi» (price maker) deyilganda nima nazarda tutiladi?",
     "options": [
-     "Davlat tomonidan yaratilgan monopoliya",
-     "Kartel",
-     "Tabiiy monopoliya",
-     "Monopol resurs"
+     "U bozor narxini berilgan deb qabul qiladi va faqat hajmni tanlaydi",
+     "U narxni cheksiz oshira oladi, chunki talab unga ta’sir qilmaydi",
+     "U narxni davlat belgilab beradi, o‘zi esa hajmga ta’sir qilmaydi",
+     "U narxni o‘zi tanlaydi, ammo talab chizig‘i bilan cheklangan"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Monopolist narx tanlay oladi, ammo pastga og‘ma talab uni cheklaydi."
    },
    {
-    "q": "Tabiiy monopoliyada ATC:",
+    "q": "Patent tizimi monopoliyaning qaysi manbasiga kiradi va uning maqsadi nima?",
     "options": [
-     "Oshadi",
-     "Butun bozor hajmida kamayadi",
-     "Doimiy",
-     "U-shaklida"
+     "Davlat yaratgan monopoliya; innovatsiyalarni rag‘batlantirish",
+     "Monopol resurs; xom ashyo zaxirasini bitta firmada jamlash",
+     "Tabiiy monopoliya; ATC ning butun bozorda kamayishini ta’minlash",
+     "Strategik to‘siq; raqiblarni narx urushida mag‘lub etish"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Patent ixtirochiga mutlaq huquq berib, yuqori narx evaziga yangi kashfiyotlarni rag‘batlantiradi."
    },
    {
-    "q": "Monopolist uchun:",
+    "q": "Qaysi holatda tarmoq tabiiy monopoliya hisoblanadi?",
     "options": [
-     "MR = 0",
-     "MR < P",
-     "MR > P",
-     "MR = P"
+     "Firma asosiy resursning ko‘p qismiga egalik qilganda",
+     "Davlat firmaga mutlaq huquq beruvchi litsenziya taqdim etganda",
+     "O‘rtacha xarajatlar butun bozor hajmida kamayib borganda",
+     "Firma reklama orqali brend sodiqligini yuksak darajaga ko‘targanda"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Katta doimiy va kichik chegaraviy xarajatlar tufayli bitta firma butun bozorni arzonroq ta’minlaydi."
    },
    {
-    "q": "Mankyuning suv misolida Q = 4 da MR:",
+    "q": "Monopolistda chegaraviy tushum narxdan kichik (MR < P) bo‘lishining sababi nima?",
     "options": [
-     "7",
-     "4",
-     "28",
-     "2"
+     "Monopolist qo‘shimcha birlikni doim o‘z xarajatidan arzon sotadi",
+     "Monopolist narxni o‘zgartirmaydi, shu sababli tushum o‘smaydi",
+     "Qo‘shimcha birlik sotilganda yalpi xarajat tushumdan tez oshadi",
+     "Ko‘proq sotish uchun narx barcha birliklar uchun pasayadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Narx samarasi tufayli avvalgi birliklardan ham tushum kamayadi, shuning uchun MR chizig‘i talabdan pastda joylashadi."
    },
    {
-    "q": "Chiziqli talab P = a – bQ uchun MR:",
+    "q": "Chiziqli talab P = a – bQ bo‘lganda monopolistning MR chizig‘i talab chizig‘iga nisbatan qanday?",
     "options": [
-     "a/2",
-     "2a – bQ",
-     "a – 2bQ",
-     "a – bQ"
+     "Talab chizig‘i bilan ustma-ust tushadi: MR = a – bQ",
+     "Ikki baravar tikroq: MR = a – 2bQ",
+     "Ikki baravar yotiqroq: MR = a – 0,5bQ",
+     "Gorizontal: MR = a ga teng doimiy qiymat"
     ],
-    "c": 2
+    "c": 1,
+    "e": "TR = aQ – bQ² dan MR = a – 2bQ kelib chiqadi."
    },
    {
-    "q": "Monopolist foydani maksimallashtiradi:",
+    "q": "Yangi dori patenti muddati tugagach, odatda bozorda nima yuz beradi?",
     "options": [
-     "TR maksimal bo‘lganda",
-     "P = MC da",
-     "MR = MC da",
-     "P = ATC da"
+     "Asl dori narxi yanada oshadi, chunki raqobat cheklanadi",
+     "Dori bozori yopiladi, chunki foyda to‘liq yo‘qoladi",
+     "Generiklar paydo bo‘lib, narx MC ga yaqinlashadi",
+     "Narx o‘zgarmaydi, chunki barcha iste’molchilar brendga sodiq"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Raqobat kuchayib, narx pasayadi; asl ishlab chiqaruvchi esa brend sodiqligi hisobiga biroz yuqori narx saqlaydi."
    },
    {
-    "q": "Monopol muvozanatda:",
+    "q": "Monopolistning taklif chizig‘i mavjud emas, chunki:",
     "options": [
-     "P > MR = MC",
-     "P = ATC",
-     "P < MC",
-     "P = MR = MC"
+     "Narx va miqdorni birga tanlaydi, qarori talab shakliga bog‘liq",
+     "U har doim narxni chegaraviy xarajatga tenglab, bozorga yetkazib beradi",
+     "U faqat talab chizig‘ining noelastik qismida ishlab chiqaradi",
+     "U ishlab chiqarish hajmini davlat buyrug‘i bilan belgilaydi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Taklif chizig‘i narxni berilgan deb qabul qiluvchi firmalarga xos; monopolistda narx va miqdor birga tanlanadi."
    },
    {
-    "q": "P = 120 – 2Q, MC = 20 bo‘lsa, monopol miqdor:",
+    "q": "Monopoliyaning sof yo‘qotishi (deadweight loss) nimadan kelib chiqadi?",
     "options": [
-     "50",
-     "25",
-     "20",
-     "40"
+     "Monopolist foydasi iste’molchilardan unga o‘tgan yutuq bo‘lgani uchun",
+     "Monopolist samarali hajmdan ko‘p ishlab chiqarib, ortiqcha zaxira yaratgani uchun",
+     "Monopolist xarajatlari raqobatli firmaga qaraganda doim kam bo‘lgani uchun",
+     "Hajm samarali darajadan past bo‘lgani uchun foydali bitimlar amalga oshmaydi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "QM va QC orasidagi birliklar iste’molchilar uchun xarajatdan qimmat, ammo ishlab chiqarilmaydi."
    },
    {
-    "q": "Monopolistning taklif chizig‘i:",
+    "q": "Lerner indeksi talab elastikligi bilan qanday bog‘liq?",
     "options": [
-     "Mavjud emas",
-     "Talab chizig‘i",
-     "MC chizig‘i",
-     "ATC chizig‘i"
+     "To‘g‘ri proporsional: talab elastikroq bo‘lsa, L ham oshadi",
+     "Teskari: monopolist uchun L = 1/|E|",
+     "Bog‘liq emas: L faqat firma xarajatlariga bog‘liq",
+     "Kvadratik: L = |E|² ga teng bo‘ladi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "MR = MC sharti (P – MC)/P = 1/|E| ni beradi; talab elastikroq bo‘lsa ustama kichrayadi."
    },
    {
-    "q": "Monopoliyaning ijtimoiy xarajati asosan:",
+    "q": "Bozorda ikkita firma bor: birining ulushi 60 foiz, ikkinchisiniki 40 foiz. Xirshman-Herfindal indeksi (HHI) qancha?",
     "options": [
-     "Sof yo‘qotish (deadweight loss)",
-     "Soliqlar",
-     "Ish haqi",
-     "Monopol foyda"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Lerner indeksi:",
-    "options": [
-     "(P – MC)/P",
-     "P/MC",
-     "(P – ATC)/ATC",
-     "MC/P"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Mukammal raqobatda Lerner indeksi:",
-    "options": [
-     "0,5",
-     "Cheksiz",
-     "0",
-     "1"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Monopolist hech qachon ishlamaydigan talab qismi:",
-    "options": [
-     "Mutlaq elastik",
-     "Elastik",
-     "Birlik elastik",
-     "Noelastik"
-    ],
-    "c": 3
-   },
-   {
-    "q": "|E| = 2 bo‘lsa, Lerner indeksi:",
-    "options": [
-     "2",
-     "0,5",
-     "0,25",
-     "1"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Ulushlar 50%, 30%, 20% bo‘lsa, HHI:",
-    "options": [
+     "5200",
      "100",
-     "3800",
-     "10000",
-     "2500"
+     "2400",
+     "10 000"
     ],
-    "c": 1
+    "c": 0,
+    "e": "HHI = 60² + 40² = 3600 + 1600 = 5200."
    },
    {
-    "q": "HHI maksimal qiymati (sof monopoliya):",
+    "q": "Monopolistning talabi P = 100 – 2Q, MC = 20. Foydani maksimallashtiruvchi miqdor va narx qanday?",
     "options": [
-     "100",
-     "1000",
-     "10000",
-     "1"
+     "Q = 40, P = 20",
+     "Q = 20, P = 20",
+     "Q = 20, P = 60",
+     "Q = 40, P = 60"
     ],
-    "c": 2
+    "c": 2,
+    "e": "MR = 100 – 4Q = 20 dan Q = 20; narx talabdan P = 100 – 40 = 60."
    },
    {
-    "q": "Monopolistik raqobatning belgisi:",
+    "q": "Nima uchun monopolist talabning noelastik qismida ishlamaydi?",
     "options": [
-     "Yagona sotuvchi",
-     "Mahsulot differensiatsiyasi",
-     "Kirish to‘siqlari",
-     "Bir jinsli mahsulot"
+     "Chunki noelastik talabda monopolist narxni pasaytirishga majbur bo‘ladi",
+     "Chunki |E| < 1 da MR manfiy, miqdorni kamaytirib foydani oshirish mumkin",
+     "Chunki noelastik qismda sof yo‘qotish nolga teng bo‘lib qoladi",
+     "Chunki bu qismda talab chizig‘i MC chizig‘idan yuqori joylashadi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "MR < 0 bo‘lsa, miqdorni kamaytirish tushumni oshiradi va xarajatni qisqartiradi."
    },
    {
-    "q": "Monopolistik raqobatda uzoq muddatda iqtisodiy foyda:",
+    "q": "Monopolistik raqobatda firmaning talab chizig‘i nima uchun pastga og‘ma?",
     "options": [
-     "Musbat",
-     "Maksimal",
-     "Nolga teng",
-     "Manfiy"
+     "Bozorda faqat bitta sotuvchi qolgani va u narxni belgilagani uchun",
+     "Firmalar narx bo‘yicha o‘zaro kelishib, kartel tuzgani uchun",
+     "Tarmoqqa kirish va undan chiqish taqiqlangani uchun",
+     "Differensiatsiya tufayli firma ma’lum darajada monopolist"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Brend, dizayn, joylashuv kabi farqlar mijozlarni bog‘laydi, narx oshsa ham ayrimlari qoladi."
    },
    {
-    "q": "Monopolistik raqobatda uzoq muddatli muvozanatda:",
+    "q": "Monopolistik raqobatda «ortiqcha quvvat» nimani bildiradi?",
     "options": [
-     "P = MC",
-     "P = min ATC",
-     "Talab chizig‘i ATC ga urinadi",
-     "MR > MC"
+     "Firma min ATC dan katta hajmda ishlab chiqarib, zaxira to‘playdi",
+     "Firma o‘z quvvatining bir qismini davlatga bepul beradi",
+     "Firma min ATC dan chapda, samarali miqyosdan kichik hajmda ishlaydi",
+     "Firma talabdan ortiq mahsulotni doimo narxini tushirib sotib yuboradi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Uzoq muddatli muvozanatda talab ATC ga urinadi, shuning uchun firma min ATC dan chapda ishlaydi."
    },
    {
-    "q": "Ortiqcha quvvat degani:",
+    "q": "Mahalliy sement ishlab chiqaruvchilar oldindan chiqarish hajmini kelishib oldi, biroq har biri yashirincha kvotadan ko‘p sotmoqda. Kartel nima uchun beqaror?",
     "options": [
-     "Firma monopolist",
-     "Firma maksimal hajmda ishlaydi",
-     "Firma zarar ko‘radi",
-     "Firma samarali miqyosdan kichik hajmda ishlaydi"
+     "Buzib ko‘proq sotish har bir a’zo uchun dominant strategiya",
+     "Kartel a’zolari uchun kelishuvga amal qilish dominant strategiya",
+     "Kartel ishlab chiqarishni oshirsa, foydasi doim kamayadi",
+     "Kartel faqat bitta firma ishtirokida tuzilishi mumkin"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Kelishuvni buzgan firma qisqa muddatda foydasini oshiradi, natijada mahbus dilemmasi yuzaga keladi."
    },
    {
-    "q": "Oligopoliyaning asosiy xususiyati:",
+    "q": "Talab P = 90 – Q, MC = 0 bo‘lgan duopoliyada Kurno muvozanatida har bir firma qancha ishlab chiqaradi?",
     "options": [
-     "Erkin kirish",
-     "Firmalarning o‘zaro bog‘liqligi",
-     "Mutlaq elastik talab",
-     "Yagona sotuvchi"
+     "45 birlik",
+     "30 birlik",
+     "22,5 birlik",
+     "60 birlik"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Reaksiya funksiyasi q1 = (90 – q2)/2; q1 = q2 bo‘lganda q = 30."
    },
    {
-    "q": "Mankyuning suv duopoliyasida kelishuvsiz muvozanatda har bir firma sotadi:",
+    "q": "Monopsonist ishchilar sonini qaysi shart bo‘yicha tanlaydi?",
     "options": [
-     "30 gallon",
-     "40 gallon",
-     "60 gallon",
-     "20 gallon"
+     "Ish haqi (W) chegaraviy daromad mahsulotiga (MRP) teng bo‘lganda",
+     "Chegaraviy tushum (MR) chegaraviy xarajatga (MC) teng bo‘lganda",
+     "Resursning chegaraviy xarajati (MFC) ish haqiga (W) teng bo‘lganda",
+     "Resursning chegaraviy xarajati (MFC) chegaraviy daromad mahsulotiga (MRP) teng bo‘lganda"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Qo‘shimcha ishchining xarajati (MFC) ish haqidan yuqori bo‘lgani uchun u MFC ni MRP ga tenglaydi."
    },
    {
-    "q": "Kurno modelida talab P = 120 – Q, MC = 0 bo‘lsa, umumiy miqdor:",
+    "q": "Kichik shaharda yagona yirik zavod mehnat bozorida yagona ish beruvchi. Raqobatli bozorga nisbatan nima kutiladi?",
     "options": [
-     "60",
-     "80",
-     "120",
-     "40"
+     "Bandlik ham, ish haqi ham raqobatli darajadan past bo‘ladi",
+     "Bandlik ham, ish haqi ham raqobatli darajadan yuqori bo‘ladi",
+     "Bandlik raqobatli darajadan past, ish haqi esa yuqori bo‘ladi",
+     "Bandlik oshadi, ish haqi esa raqobatli darajada qoladi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Monopsonist xaridni kamaytirib narxni (ish haqini) pasaytiradi."
    },
    {
-    "q": "Nesh muvozanati:",
+    "q": "Nesh muvozanati nimani bildiradi?",
     "options": [
-     "Monopol muvozanat",
-     "Raqobatli muvozanat",
-     "Kartel kelishuvi",
-     "Har bir ishtirokchi raqib strategiyasi berilganda o‘z strategiyasini o‘zgartirib yutmaydigan holat"
+     "Barcha firmalar o‘zaro kelishib, birgalikdagi foydani maksimallashtiradi",
+     "Firmalar ishlab chiqarishni raqobatli darajadan ham ko‘paytirib yuboradi",
+     "Raqib strategiyasi berilganda hech bir firma strategiyasini o‘zgartirib foydasini oshira olmaydi",
+     "Bozorda faqat bitta firma qolib, boshqa firmalar tarmoqdan chiqib ketadi"
     ],
-    "c": 3
-   },
-   {
-    "q": "Mahbus dilemmasida dominant strategiya:",
-    "options": [
-     "Aralash",
-     "Tan olish",
-     "Kelishish",
-     "Jim turish"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Kartellar beqaror, chunki:",
-    "options": [
-     "Talab elastik",
-     "Har bir a’zo uchun kelishuvni buzish foydali",
-     "Firmalar soni ko‘p",
-     "Davlat ularni qo‘llab-quvvatlaydi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Oligopoliyada firmalar soni ortgan sari natija:",
-    "options": [
-     "Kartelga aylanadi",
-     "Raqobatli natijaga yaqinlashadi",
-     "O‘zgarmaydi",
-     "Monopoliyaga yaqinlashadi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Monopsoniya – bu:",
-    "options": [
-     "Yagona sotuvchi",
-     "Kartel",
-     "Yagona xaridor",
-     "Ikki sotuvchi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Monopsoniyada raqobatli bozorga nisbatan:",
-    "options": [
-     "Bandlik va ish haqi yuqori",
-     "O‘zgarish yo‘q",
-     "Bandlik yuqori, ish haqi past",
-     "Bandlik va ish haqi past"
-    ],
-    "c": 3
+    "c": 2,
+    "e": "Kurno muvozanati Nesh muvozanatiga misol: har bir firma raqib hajmiga eng yaxshi javobni tanlagan."
    }
   ],
   "selfStudy": [
@@ -5421,304 +4541,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Narxning qaysi funksiyasi resurslarning nisbiy tanqisligi haqida xabar beradi?",
+    "q": "Narxning qaysi funksiyasi cheklangan tovarni uni eng yuqori baholaydigan xaridorlarga yetkazadi?",
     "options": [
-     "Taqsimlash funksiyasi",
-     "Muvozanatlash funksiyasi",
-     "Axborot (signal) funksiyasi",
-     "Hisob-o‘lchov funksiyasi"
+     "Hisob-o‘lchov (solishtirish) funksiyasi",
+     "Axborot (signal berish) funksiyasi",
+     "Taqsimlash (rasionlash) funksiyasi",
+     "Rag‘batlantirish (taklif) funksiyasi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Narx cheklangan tovarni uni eng yuqori baholaydigan xaridorlar o‘rtasida taqsimlaydi."
    },
    {
-    "q": "Narx diskriminatsiyasi – bu:",
+    "q": "F. Xayek narxni qanday ta’riflagan?",
     "options": [
-     "Turli tovarlarni turli narxda sotish",
-     "Narxni xarajatlardan past belgilash",
-     "Bir xil tovarni xarajatlar farqi bilan izohlanmaydigan turli narxlarda sotish",
-     "Narxni davlat tomonidan belgilash"
+     "Tarqoq bilimlarni bitta raqamga jamlovchi «telekommunikatsiya tizimi»",
+     "Davlat tomonidan belgilanadigan va ishlab chiqaruvchilarga yo‘l-yo‘riq beruvchi ko‘rsatma",
+     "Firma xarajatlariga ustama qo‘shib topiladigan oddiy hisob-kitob natijasi",
+     "Iste’molchining qanday tovar sotib olishini oldindan belgilovchi majburiy me’yor"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Xayek narxning axborot funksiyasini ta’kidlab, uni tarqoq bilimlarni jamlovchi tizimga o‘xshatgan."
    },
    {
-    "q": "Narx diskriminatsiyasining sharti emas:",
+    "q": "Rezerv narx nima?",
     "options": [
-     "Xaridorlarni ajratish imkoniyati",
-     "Bozor hokimiyati",
-     "Arbitrajning imkonsizligi",
-     "Mukammal raqobat"
+     "Firma zarar ko‘rmasdan sotishi mumkin bo‘lgan minimal narx",
+     "Davlat tomonidan tabiiy monopoliya uchun belgilangan eng yuqori narx",
+     "Ulgurji va chakana narxlar o‘rtasidagi o‘rtacha farq",
+     "Xaridor tovar birligi uchun to‘lashga tayyor bo‘lgan maksimal narx"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Talab chizig‘i rezerv narxlari kamayish tartibida joylashgan xaridorlar ro‘yxatidir."
    },
    {
-    "q": "Arbitraj – bu:",
+    "q": "Arbitraj narx diskriminatsiyasiga nima uchun to‘sqinlik qiladi?",
     "options": [
-     "Firmalar kelishuvi",
-     "Davlat narx nazorati",
-     "Tovarni arzon bozorda olib, qimmat bozorda sotish",
-     "Narxni sud orqali belgilash"
+     "Arbitraj firmaning chegaraviy xarajatini keskin oshirib, ishlab chiqarishni qimmatlashtiradi",
+     "Arzon olgan xaridor tovarni qimmat bozorda qayta sotib, farqni yo‘qotadi",
+     "Arbitraj xaridorlarning rezerv narxini hammada bir xil qilib qo‘yadi",
+     "Arbitraj davlatning narxlarni tartibga solishini majburiy qiladi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Arbitraj imkoni bo‘lsa, past narxli xaridorlar tovarni qayta sotib, firmaning narx tizimini buzadi."
    },
    {
-    "q": "Rezerv narx – bu:",
+    "q": "Nima uchun mukammal raqobat bozorida narx diskriminatsiyasi mumkin emas?",
     "options": [
-     "Xaridor to‘lashga tayyor bo‘lgan maksimal narx",
-     "Ulgurji narx",
-     "Davlat belgilagan eng past narx",
-     "Firmaning tannarxi"
+     "Qimmat sotsa, xaridor raqibga ketadi, chunki firma narxni belgilay olmaydi",
+     "Raqobatli firmalarda chegaraviy xarajat bo‘lmaydi, narxni esa davlat belgilaydi",
+     "Raqobatli bozorda xaridorlarning rezerv narxlari bir-biridan farq qilmaydi",
+     "Raqobatli firmalar uchun barcha turdagi chegirmalar qonun bilan taqiqlab qo‘yilgan"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Narx diskriminatsiyasi uchun avvalo bozor hokimiyati kerak; raqobat bozorida u yo‘q."
    },
    {
-    "q": "«Bosh barmoq» qoidasiga ko‘ra:",
+    "q": "Chegaraviy xarajat 6000 so‘m, talab elastikligi |Ed| = 4 bo‘lsa, «bosh barmoq» qoidasi bo‘yicha monopol narx qancha?",
     "options": [
-     "P = ATC + MC",
-     "P = MR × |Ed|",
-     "(P – MC)/P = 1/|Ed|",
-     "P = MC × |Ed|"
+     "7500 so‘m",
+     "24 000 so‘m",
+     "9000 so‘m",
+     "8000 so‘m"
     ],
-    "c": 2
+    "c": 3,
+    "e": "P = MC × |Ed|/(|Ed| – 1) = 6000 × 4/3 = 8000."
    },
    {
-    "q": "MC = 50, talab elastikligi –2 bo‘lsa, optimal monopol narx:",
+    "q": "Supermarketda brend tovar ustamasi mahalla do‘koniga qaraganda nima uchun kichikroq?",
     "options": [
-     "75",
-     "100",
+     "Supermarketda chegaraviy xarajat doim mahalla do‘konidagidan baland",
+     "Supermarketda talab elastikroq, xaridorlar narxlarni solishtiradi va o‘rinbosarlar ko‘p",
+     "Supermarket xaridorlarining rezerv narxi mahalla do‘koni xaridorlariga qaraganda yuqori",
+     "Mahalla do‘koni narxni davlat nazoratisiz belgilaydi, supermarket esa belgilay olmaydi"
+    ],
+    "c": 1,
+    "e": "Ustama talab elastikligiga teskari bog‘liq: elastiklik yuqori bo‘lsa, P MC ga yaqin bo‘ladi."
+   },
+   {
+    "q": "Birinchi darajali (mukammal) narx diskriminatsiyasining natijasi qanday?",
+    "options": [
+     "Hajm samarasiz, sof yo‘qotish yagona narxdagidan ham katta bo‘ladi",
+     "Hajm samarali, ortiqcha iste’molchilar va firma o‘rtasida teng bo‘linadi",
+     "Hajm samarali, sof yo‘qotish yo‘q, ammo butun ortiqcha firmaga o‘tadi",
+     "Hajm yagona narxdagi bilan bir xil, iste’molchi ortiqchaligi oshadi"
+    ],
+    "c": 2,
+    "e": "MR = D bo‘lgani uchun firma Q* gacha ishlab chiqaradi (P = MC), iste’molchi ortiqchaligi esa nolga teng."
+   },
+   {
+    "q": "Talab P = 12 – Q, MC = 2. Mukammal narx diskriminatsiyasida firma foydasi qancha?",
+    "options": [
      "50",
-     "150"
-    ],
-    "c": 1
-   },
-   {
-    "q": "MC = 40, elastiklik –5 bo‘lsa, optimal narx:",
-    "options": [
-     "40",
-     "50",
+     "25",
      "60",
-     "200"
+     "100"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Q* = 10 (P = MC); foyda = 0,5 × 10 × (12 – 2) = 50."
    },
    {
-    "q": "Talab elastikroq bo‘lsa, monopol ustama:",
+    "q": "Ikkinchi darajali narx diskriminatsiyasining uchinchi darajalidan asosiy farqi nimada?",
     "options": [
-     "O‘zgarmaydi",
-     "Nolga teng",
-     "Kattaroq",
-     "Kichikroq"
+     "Firma xaridorlarni yoshi yoki hududiga qarab guruhlarga ajratadi",
+     "Firma har bir xaridorning rezerv narxini oldindan aniq biladi",
+     "Xaridorlar ajratilmaydi, har kim bir xil narx menyusidan o‘zi tanlaydi",
+     "Firma barcha xaridorlarga hajmdan qat’i nazar bitta narx belgilaydi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Ikkinchi darajada o‘zini o‘zi tanlash (self-selection) ishlaydi va shaxsiy axborot talab qilinmaydi."
    },
    {
-    "q": "Monopolist talabning qaysi qismida ishlamaydi?",
+    "q": "Kommunal xizmatlarda birinchi blok arzon, keyingilari qimmat bo‘lgan o‘suvchi blokli tarifning asosiy maqsadi nima?",
     "options": [
-     "Noelastik qismida",
-     "Elastik qismida",
-     "Birlik elastik nuqtadan chaproqda",
-     "Elastiklik –3 bo‘lgan nuqtada"
+     "Firma foydasini har bir xaridordan iloji boricha maksimal darajaga yetkazib olish",
+     "Barcha iste’molchilarga bir xil miqdorda xizmat ko‘rsatishni majburlash",
+     "Kommunal tarmoqqa yangi firmalar kirishini rag‘batlantirish va raqobatni kuchaytirish",
+     "Kam ta’minlanganlarni himoya qilish va resurslarni tejashga rag‘batlantirish"
     ],
-    "c": 0
+    "c": 3,
+    "e": "O‘suvchi bloklar foyda emas, ijtimoiy maqsadlarga: himoya va tejashga yo‘naltirilgan."
    },
    {
-    "q": "Mukammal narx diskriminatsiyasida:",
+    "q": "Uchinchi darajali diskriminatsiyada noelastik talabli guruhga qanday narx belgilanadi?",
     "options": [
-     "MR chizig‘i talab chizig‘i bilan ustma-ust tushadi",
-     "Sof yo‘qotish maksimal",
-     "Iste’molchi ortiqchaligi maksimal",
-     "Hajm monopol hajmdan kam"
+     "Elastik talabli guruhga qaraganda biroz pastroq narx",
+     "Elastik talabli guruhga qaraganda yuqoriroq narx",
+     "Elastik talabli guruhdagi bilan aynan bir xil narx",
+     "Chegaraviy xarajatga aynan teng narx"
     ],
-    "c": 0
+    "c": 1,
+    "e": "MR1 = MR2 = MC sharti bajarilganda ustama elastikligi kichik guruhda katta bo‘ladi."
    },
    {
-    "q": "Mukammal narx diskriminatsiyasida iste’molchi ortiqchaligi:",
+    "q": "Uchinchi darajali diskriminatsiyada foydani maksimallashtirish sharti qaysi?",
     "options": [
-     "Monopoliyadagidek",
-     "Nolga teng",
-     "Maksimal",
-     "Raqobatdagidek"
+     "Har ikki bozorda narxlar o‘zaro va chegaraviy xarajatga teng bo‘lishi kerak",
+     "Har ikki bozorda sotilgan miqdorlar o‘zaro teng bo‘lishi kerak",
+     "Har ikki bozorda chegaraviy tushum o‘zaro va chegaraviy xarajatga teng",
+     "Har ikki bozorda talab elastikligi o‘zaro teng bo‘lishi kerak"
     ],
-    "c": 1
+    "c": 2,
+    "e": "MR1 = MR2 = MC bo‘lmasa, bir birlikni bozorlar o‘rtasida ko‘chirib foydani oshirish mumkin."
    },
    {
-    "q": "Readalot misolida narx diskriminatsiyasi foydani qanchaga oshirdi?",
+    "q": "Muzeyga kirish chiptasi xorijiy fuqarolar uchun qimmatroq, mahalliy fuqarolar uchun arzonroq. Bu narx diskriminatsiyasining qaysi turi?",
     "options": [
-     "O‘zgarmadi",
-     "1 mln dan 2 mln dollarga",
-     "0,5 mln dan 1 mln dollarga",
-     "1 mln dan 3 mln dollarga"
+     "Uchinchi darajali, chunki xaridorlar fuqaroligi belgisi bo‘yicha ajratiladi",
+     "Birinchi darajali, chunki har bir xaridorga aniq rezerv narxi belgilanadi",
+     "Ikkinchi darajali, chunki narx xaridor sotib olgan hajmga bog‘liq",
+     "Cho‘qqi davri narxi, chunki narx farqi xarajatlar farqiga asoslanadi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Fuqarolik hujjat bilan aniqlanadi va guruhlar bo‘yicha alohida narx belgilanadi."
    },
    {
-    "q": "Blokli narxlar qaysi turdagi narx diskriminatsiyasi?",
+    "q": "Aviakompaniya ikki guruhga xizmat ko‘rsatadi: P1 = 12 – Q1 va P2 = 6 – Q2 (mln so‘m), MC = 2. Narx diskriminatsiyasi bilan foyda qancha?",
     "options": [
-     "Vaqt bo‘yicha",
-     "Birinchi darajali",
-     "Ikkinchi darajali",
-     "Uchinchi darajali"
+     "43",
+     "29",
+     "25",
+     "21"
     ],
-    "c": 2
+    "c": 1,
+    "e": "MR = MC dan Q1 = 5, P1 = 7; Q2 = 2, P2 = 4. Foyda = (7 – 2) × 5 + (4 – 2) × 2 = 29."
    },
    {
-    "q": "Talabalar va pensionerlar uchun chegirmali chiptalar:",
+    "q": "Paketli sotish qachon yagona narxdagi alohida sotishdan foydaliroq bo‘ladi?",
     "options": [
-     "Uchinchi darajali diskriminatsiya",
-     "Cho‘qqi davri narxi",
-     "Birinchi darajali diskriminatsiya",
-     "Ikki qismli tarif"
+     "Xaridorlarning ikki tovarga rezerv narxlari ijobiy korrelyatsiyalangan bo‘lganda",
+     "Ikkala tovarning chegaraviy xarajati nolga teng bo‘lmaganda",
+     "Xaridorlar ikkala tovarni ham bir xil narxda baholaganda",
+     "Xaridorlarning ikki tovarga rezerv narxlari salbiy korrelyatsiyalangan bo‘lganda"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Salbiy korrelyatsiyada paket rezerv narxlardagi farqni tekislaydi va tushumni oshiradi."
    },
    {
-    "q": "Uchinchi darajali diskriminatsiyada foydani maksimallashtirish sharti:",
+    "q": "Printer arzon sotiladi, ammo uning kartrijlarini faqat shu ishlab chiqaruvchidan sotib olish mumkin. Bu qaysi usul?",
     "options": [
-     "MR1 = P2",
-     "ATC1 = ATC2",
-     "P1 = P2 = MC",
-     "MR1 = MR2 = MC"
+     "Versiyalash",
+     "Aralash paketli sotish",
+     "Bog‘lab sotish (tying)",
+     "Cho‘qqi davri narxlari"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Bir tovarni sotib olish uchun boshqasini ham olish sharti bog‘lab sotish deyiladi."
    },
    {
-    "q": "Uchinchi darajali diskriminatsiyada yuqori narx qaysi guruhga belgilanadi?",
+    "q": "Bir xil iste’molchilar uchun ikki qismli tarifda talab P = 60 – 5Q, MC = 10. Optimal kirish to‘lovi T qancha?",
     "options": [
-     "Soni ko‘proq guruhga",
-     "Talabi elastikroq guruhga",
-     "Daromadi past guruhga",
-     "Talabi noelastikroq guruhga"
+     "500",
+     "250",
+     "300",
+     "100"
     ],
-    "c": 3
+    "c": 1,
+    "e": "P* = MC = 10 da Q = 10; T = CS = 0,5 × 10 × (60 – 10) = 250."
    },
    {
-    "q": "E1 = –2 va E2 = –4 bo‘lsa, P1/P2 nisbati:",
+    "q": "Cho‘qqi davri narxi vaqt bo‘yicha narx diskriminatsiyasidan nimasi bilan farq qiladi?",
     "options": [
-     "0,5",
-     "1,5",
-     "2",
-     "1"
+     "Narx farqi asosan davrlar bo‘yicha MC farqini aks ettiradi",
+     "Narx farqi faqat xaridorlarning rezerv narxlari farqidan kelib chiqadi, MC esa o‘zgarmaydi",
+     "Narx barcha davrlarda bir xil qoladi, farq faqat miqdorda bo‘ladi",
+     "Bu usul faqat narxni qabul qiluvchi raqobatli firmalarga xos bo‘ladi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Cho‘qqida quvvatlar band, MC keskin oshadi; narx har bir davrdagi MC ga yaqinlashadi."
    },
    {
-    "q": "Ikkinchi darajali diskriminatsiyaning o‘ziga xosligi:",
+    "q": "Yangi smartfon modeli sotuvga chiqqan kunida qimmat, bir yildan keyin sezilarli arzon bo‘ladi. Bu qaysi usul?",
     "options": [
-     "Xaridorlar hujjat bo‘yicha ajratiladi",
-     "Narx davlat tomonidan belgilanadi",
-     "Firma har bir xaridorni taniydi",
-     "Xaridorlar narx menyusidan o‘zlari tanlaydi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Bir xil iste’molchilar uchun optimal ikki qismli tarifda:",
-    "options": [
-     "P = 0, T = foyda",
-     "P = ATC, T = MC",
-     "P = monopol narx, T = 0",
-     "P = MC, T = iste’molchi ortiqchaligi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Ikki qismli tarifga misol:",
-    "options": [
-     "Ulgurji narx",
-     "Mavsumiy chegirma",
-     "Talaba chiptasi",
-     "Fitnes-klub a’zolik badali va mashg‘ulot to‘lovi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Paketli sotish qachon ayniqsa foydali?",
-    "options": [
-     "Xaridorlar talablari salbiy korrelyatsiyalangan bo‘lsa",
-     "Xaridorlar talablari ijobiy korrelyatsiyalangan bo‘lsa",
-     "Bozor raqobatli bo‘lsa",
-     "Chegaraviy xarajatlar juda yuqori bo‘lsa"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Aralash paketli sotish – bu:",
-    "options": [
-     "Tovarlarni ham alohida, ham paketda sotish",
-     "Bir tovarni ikki narxda sotish",
-     "Tovarlarni faqat paketda sotish",
-     "Tovarni ijaraga berish"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Cho‘qqi davri narxlari:",
-    "options": [
-     "Talab yuqori bo‘lgan davrda yuqori narx belgilash",
-     "Narxni doim o‘zgarmas saqlash",
-     "Faqat ulgurji xaridorlar uchun chegirma",
-     "Yangi tovarni arzon sotish"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Yangi smartfonni avval qimmat, keyin arzon sotish:",
-    "options": [
-     "Ikki qismli tarif",
-     "Paketli sotish",
-     "Cho‘qqi davri narxi",
+     "Ikki qismli tarif (kirish to‘lovi bilan)",
+     "Ikkinchi darajali blokli narxlash",
+     "Mukammal narx diskriminatsiyasi",
      "Vaqt bo‘yicha narx diskriminatsiyasi"
     ],
-    "c": 3
-   },
-   {
-    "q": "O‘zbekistonda aholi uchun elektr energiyasining 200 kVt·soatgacha bloki tarifi 2025-yil 1-maydan:",
-    "options": [
-     "450 so‘m",
-     "600 so‘m",
-     "800 so‘m",
-     "1000 so‘m"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Printer va uning kartrijlarini sotish shartini bog‘lash:",
-    "options": [
-     "Bog‘lab sotish (tying)",
-     "Arbitraj",
-     "Yirtqich narx",
-     "Cho‘qqi narxi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Ikki qismli tarif tabiiy monopoliyada qanday afzallik beradi?",
-    "options": [
-     "Foydalanish narxi MC ga teng bo‘lib, abonent to‘lovi doimiy xarajatlarni qoplaydi",
-     "Monopol narxni oshiradi",
-     "Sof yo‘qotishni oshiradi",
-     "Investitsiyalarni kamaytiradi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Nomukammal (uchinchi darajali) diskriminatsiyaning farovonlikka ta’siri:",
-    "options": [
-     "Har doim ijobiy",
-     "Har doim salbiy",
-     "Noaniq: umumiy hajm oshsa, ko‘pincha ijobiy",
-     "Nolga teng"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Arzon versiyani ataylab yomonlashtirish (damaged goods) maqsadi:",
-    "options": [
-     "Xarajatlarni oshirish",
-     "Raqobatni kuchaytirish",
-     "Yuqori baho beruvchi xaridorlarni arzon versiyadan voz kechtirish orqali ajratish",
-     "Davlat talabini bajarish"
-    ],
-    "c": 2
+    "c": 3,
+    "e": "Zudlik bilan olishni istaydigan yuqori baho beruvchilarga avval qimmat, keyin boshqalarga arzon sotiladi."
    }
   ],
   "selfStudy": [
@@ -5911,304 +4951,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Monopoliyaning jamiyat uchun haqiqiy samaradorlik xarajati:",
+    "q": "Monopoliyada sof yo‘qotish nima?",
     "options": [
-     "Soliq tushumi",
-     "Iste’molchi ortiqchaligi",
-     "Sof yo‘qotish",
-     "Monopol foyda"
+     "Iste’molchilardan monopolistga o‘tgan monopol foydaning butun miqdori, ya’ni qayta taqsimlangan summa",
+     "Monopol narx tufayli amalga oshmagan foydali bitimlardan yo‘qolgan jami ortiqcha",
+     "Monopolist buxgalteriya hisobida ko‘rgan zarar miqdori",
+     "Davlatga to‘lanadigan soliq, jarima va boshqa majburiy to‘lovlarning umumiy yig‘indisi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Sof yo‘qotish monopolist MC dan yuqori narx qo‘yib, hajmni cheklagani sababli yo‘qolgan jami ortiqchadir."
    },
    {
-    "q": "Talab P = 10 – Q, MC = 2 bo‘lsa, monopoliyadagi sof yo‘qotish:",
+    "q": "Birlik solig‘i (aksiz) monopolistga qanday ta’sir qiladi?",
     "options": [
-     "4",
-     "8",
-     "16",
-     "32"
+     "Ishlab chiqarish hajmidan qat’i nazar undiriladigan bir martalik qat’iy summa",
+     "Foydaning belgilangan foizi undiriladi va MC o‘zgarmaydi",
+     "Soliq doimiy xarajatga o‘xshab ATC chizig‘ini yuqoriga suradi, MC esa o‘zgarmaydi",
+     "Har bir sotilgan birlik uchun t undiriladi va MC ni t ga oshiradi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Birlik solig‘i har bir birlik uchun undirilgani sababli chegaraviy xarajatni t ga oshiradi."
    },
    {
-    "q": "X-samarasizlik – bu:",
+    "q": "Iqtisodiy konsentratsiyani nazorat qilish antimonopol qonunchilikda nimani anglatadi?",
     "options": [
-     "Narx diskriminatsiyasi",
-     "Raqobat bosimi yo‘qligi sababli xarajatlarning minimaldan yuqori bo‘lishi",
-     "Tashqi samara",
-     "Soliqning sof yo‘qotishi"
+     "Yirik birlashuvlar uchun antimonopol organning oldindan ruxsati talab qilinishini",
+     "Dominant firmalar narxlarini davlat har yili inflyatsiya darajasida indeksatsiya qilib borishini",
+     "Kartel haqida birinchi bo‘lib xabar bergan ishtirokchini jarimadan ozod qilishni",
+     "Tabiiy monopoliya tarmog‘ini tarkibiy qismlarga vertikal ajratib, raqobatli bo‘g‘inlarni ochishni"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Konsentratsiya nazorati yirik birlashuvlarni oldindan ruxsat orqali tekshirishni nazarda tutadi."
    },
    {
-    "q": "Rentani izlash – bu:",
+    "q": "Tartibga soluvchining asirligi (regulatory capture) nazariyasi nimani bildiradi?",
     "options": [
-     "Investitsiya",
-     "Monopol mavqe uchun resurslarni sarflash",
-     "Yer ijarasini olish",
-     "Raqobat"
+     "Tartibga soluvchi firmaning haqiqiy xarajatlari haqida yetarli axborotga ega bo‘lmasligini",
+     "Davlat korxonasi yo‘qotishlarini soliq to‘lovchilar qoplashini",
+     "Tartibga soluvchi organ o‘zi nazorat qilishi kerak bo‘lgan tarmoq ta’siriga tushib qolishini",
+     "Tartibga soluvchi monopolist narxini talab chizig‘idan past belgilashga majbur bo‘lishini"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Stigler fikricha, tartibga soluvchilar ko‘pincha nazorat ostidagi tarmoqlar manfaatiga bo‘ysunib qoladi."
    },
    {
-    "q": "Chiziqli talab va doimiy MC sharoitida birlik solig‘i monopol narxni:",
+    "q": "Antimonopol qonunchilikda kartel kelishuviga qaysi harakat kiradi?",
     "options": [
-     "Pasaytiradi",
-     "O‘zgartirmaydi",
-     "Soliq miqdorida oshiradi",
-     "Soliqning yarmiga oshiradi"
+     "Dominant firmaning raqiblarni bozorga kiritmasligi",
+     "Ishlab chiqaruvchining xarajatlarni kamaytirish uchun boshqa firma bilan qo‘shilishi",
+     "Raqobatchilarning narxlarni belgilash, bozorni bo‘lish yoki tenderlarda til biriktirishi",
+     "Firmaning tovarlarini bog‘lab sotishi orqali narx diskriminatsiyasini qo‘llashi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Narx belgilash, bozorni bo‘lish va tenderda til biriktirish kartelning eng og‘ir ko‘rinishlaridir."
    },
    {
-    "q": "Monopolistga yalpi soliq solinsa:",
+    "q": "X-samarasizlik nimani anglatadi?",
     "options": [
-     "Narx oshadi",
-     "Narx va hajm o‘zgarmaydi",
-     "Hajm oshadi",
-     "Sof yo‘qotish oshadi"
+     "Raqobat bosimi yo‘qligidan monopolist xarajatlarni minimallashtirishga intilmasligi",
+     "Monopol foydaning iste’molchilardan ishlab chiqaruvchiga qayta taqsimlanishi va jamiyat ortiqchasining o‘zgarishi",
+     "Monopoliya sharoitida lobbi va litsenziyalar uchun kurashga sarflanadigan resurslar",
+     "Tabiiy monopoliyada masshtab samarasi tufayli xarajatlarning kamayishi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "X-samarasizlik (Leybenstayn) — raqobat bo‘lmagani uchun xarajatlarni kamaytirishga intilmaslikdir."
    },
    {
-    "q": "Foyda solig‘i monopolistning:",
+    "q": "Rentani izlash monopoliyaning qaysi ijtimoiy xarajatini ifodalaydi?",
     "options": [
-     "Optimal hajmini kamaytiradi",
-     "Narxini oshiradi",
-     "Optimal hajmini o‘zgartirmaydi",
-     "MC ni oshiradi"
+     "Mahsulot sifati va innovatsiyalarning pasayishi tufayli kelib chiqadigan ijtimoiy yo‘qotishlarni",
+     "Ortiqcha xodimlar va eskirgan texnologiyalar tufayli oshgan ishlab chiqarish xarajatlarini",
+     "Ishlab chiqarish hajmi samarali darajadan kam bo‘lgani uchun yo‘qolgan ortiqchani",
+     "Mavqeni olish va saqlash uchun lobbi, litsenziya va sun’iy to‘siqlarga ketgan resurslarni"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Pozner ko‘rsatganidek, monopol mavqe uchun kurashga sarflanadigan resurslar rentani izlash xarajatidir."
    },
    {
-    "q": "Monopolistga birlik solig‘i sof yo‘qotishni:",
+    "q": "Quyidagilardan qaysi biri dominant mavqeni suiiste’mol qilishga misol bo‘ladi?",
     "options": [
-     "Oshiradi",
-     "O‘zgartirmaydi",
-     "Kamaytiradi",
-     "Yo‘q qiladi"
+     "Raqobatchilar bilan tender narxlari bo‘yicha til biriktirish",
+     "Raqiblarni bozorga kiritmaslik va xaridorlarga diskriminatsion shartlar qo‘yish",
+     "Raqobatni cheklamaydigan qo‘shilish uchun antimonopol organdan ruxsat so‘rash",
+     "Yangi dori uchun patent olib, vaqtinchalik ishlab chiqarish huquqiga ega bo‘lish"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Raqiblarni kiritmaslik va diskriminatsion shartlar dominant mavqeni suiiste’mol qilish turlaridir."
    },
    {
-    "q": "Monopoliyada samaradorlikni oshirishi mumkin bo‘lgan chora:",
+    "q": "Mankyuga ko‘ra monopoliya muammosi nimada?",
     "options": [
-     "Birlik solig‘i",
-     "Import taqiqlari",
-     "To‘g‘ri belgilangan narx shifti",
-     "Yalpi soliq"
+     "Monopolistning foyda olishining o‘zida",
+     "Monopol narx tufayli ishlab chiqarish hajmi samarali darajadan kam bo‘lishida",
+     "Monopolist xarajatlarining raqobatchi firmaga nisbatan yuqori bo‘lishida",
+     "Monopolist reklamaga ortiqcha mablag‘ sarflashida"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Mankyu muammo foydada emas, samarali hajmdan kam ishlab chiqarishda ekanini ta’kidlaydi."
    },
    {
-    "q": "Sherman qonuni qaysi yilda qabul qilingan?",
+    "q": "Nima uchun yalpi (bir martalik) soliq monopol narx va hajmni o‘zgartirmaydi?",
     "options": [
-     "1776",
-     "1890",
-     "1914",
-     "1957"
+     "U chegaraviy tushumni pasaytiradi, lekin talab chizig‘i o‘zgarmaganidan hajm saqlanadi",
+     "U chegaraviy xarajatni soliq summasiga teng miqdorda oshiradi va hajmni kamaytiradi",
+     "U narxni oshiradi, ammo hajm samarali darajaga yaqinlashadi va sof yo‘qotish kamayadi",
+     "U MC ni o‘zgartirmaydi, shuning uchun MR = MC sharti saqlanadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Yalpi soliq doimiy xarajatga o‘xshaydi: ATC ni suradi, MC ni emas, shu sabab optimal hajm saqlanadi."
    },
    {
-    "q": "Kleyton qonuni nimani taqiqlagan?",
+    "q": "Nima uchun monopoliyaga narx shifti belgilash hajmni oshirishi mumkin?",
     "options": [
-     "Faqat kartellarni",
-     "Narx diskriminatsiyasi, bog‘lab sotish, raqobatni cheklovchi birlashuvlarni",
-     "Import bojlarini",
-     "Xususiylashtirishni"
+     "Pmax monopolistning chegaraviy xarajatini pasaytiradi va ishlab chiqarishni arzonlashtiradi",
+     "Pmax talab chizig‘ini o‘ngga siljitib, bozordagi xaridorlar sonini ko‘paytiradi",
+     "Pmax gacha MR gorizontal bo‘ladi, shuning uchun hajmni cheklash rag‘bati yo‘qoladi",
+     "Pmax monopolistga zararini qoplovchi davlat subsidiyasini olish huquqini beradi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Narx shifti ostida har bir qo‘shimcha birlik Pmax ga sotiladi, shuning uchun hajm cheklanmaydi."
    },
    {
-    "q": "Standard Oil kompaniyasi 1911-yilda:",
+    "q": "Nima uchun tabiiy monopoliyada P = MC narx belgilansa, firma zarar ko‘radi?",
     "options": [
-     "Davlatlashtirildi",
-     "Xususiylashtirildi",
-     "Jarimaga tortildi, xolos",
-     "34 ta kompaniyaga bo‘lindi"
+     "ATC kamayuvchi bo‘lgani uchun MC < ATC, shuning uchun P = MC o‘rtacha xarajatni qoplamaydi",
+     "MC chizig‘i ATC dan yuqorida joylashgani uchun narx xarajatdan past bo‘ladi",
+     "P = MC narxda hajm samarali darajadan kam bo‘lib, tushum kamayadi",
+     "Tartibga soluvchi foyda normasini juda past belgilagani uchun narx tushib ketadi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Kamayuvchi ATC da MC < ATC, shu sababli P = MC narx doimiy xarajatlarni qoplamaydi."
    },
    {
-    "q": "YeI raqobat huquqining asosiy moddalari:",
+    "q": "AQSh va Yevropa Ittifoqi antimonopol yondashuvlari o‘rtasidagi asosiy farq qanday?",
     "options": [
-     "50 va 51-moddalar",
-     "101 va 102-moddalar",
-     "10 va 11-moddalar",
-     "1 va 2-moddalar"
+     "AQSh asosan iste’molchi farovonligiga, YeI esa raqobat jarayonini himoya qilishga tayanadi",
+     "AQSh kichik raqobatchilarni himoya qilishga, YeI esa iste’molchi narxlarining pasayishiga tayanadi",
+     "AQShda antimonopol nazorat qo‘llanmaydi, YeIda esa asosan davlat mulki ustun turadi",
+     "AQSh jarima o‘rniga korxonalarni bo‘lishni, YeI esa jinoiy javobgarlikni qo‘llaydi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Chikago maktabi ta’sirida AQSh iste’molchi farovonligiga, YeI esa raqobat jarayonining o‘ziga ko‘proq e’tibor beradi."
    },
    {
-    "q": "Yevropa Komissiyasi antimonopol jarima miqdori yillik aylanmaning:",
+    "q": "Mankyuga ko‘ra kinostudiyaning kuchli va kuchsiz filmni birga ijaraga berishi nima?",
     "options": [
-     "1 foizigacha",
-     "50 foizigacha",
-     "Cheklanmagan",
-     "10 foizigacha"
+     "Raqobatchilarni siqib chiqarish uchun narxni xarajatdan past belgilash strategiyasi",
+     "Chakana sotuvchilarga narxni belgilab qo‘yish orqali ko‘rsatiladigan xizmatni rag‘batlantirish",
+     "Monopol hokimiyatni kengaytirmaydi, narx diskriminatsiyasi shakli bo‘lishi mumkin",
+     "Monopol hokimiyatni boshqa bozorga kengaytirishning aniq usuli"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Mankyu bog‘lab sotishni har bir holatda alohida tahlil qilish kerakligini, u narx diskriminatsiyasi bo‘lishi mumkinligini aytadi."
    },
    {
-    "q": "Tabiiy monopoliyada P = MC narx belgilansa:",
+    "q": "Tartibga soluvchi tabiiy monopoliya narxini xarajatlar va belgilangan foyda normasi asosida belgilaydi. Firma qanday yo‘l tutishi mumkin?",
     "options": [
-     "Hajm monopol hajmga teng",
-     "Firma iqtisodiy foyda oladi",
-     "Firma zarar ko‘radi",
-     "Sof yo‘qotish maksimal"
+     "Xarajatlarni keskin kamaytiradi, chunki tejalgan mablag‘ butunlay firmada qoladi",
+     "Foyda kapitalga bog‘liq bo‘lgani uchun keraksiz qimmat uskunalarga ortiqcha kapital qo‘yadi",
+     "Narxni inflyatsiya darajasidan X foizga kam oshiradi",
+     "Narxni chegaraviy xarajat darajasiga tushiradi va zararini subsidiyadan qoplaydi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Bu Averch-Jonson samarasi: foyda kapitalga bog‘liq bo‘lgani uchun firma ortiqcha kapital to‘playdi."
    },
    {
-    "q": "P = ATC usulida tartibga solishda firma foydasi:",
+    "q": "Elektr energetikasida uzatish tarmog‘i tabiiy monopoliya hisoblanadi. Zamonaviy yondashuv bu tarmoqda nimani tavsiya qiladi?",
     "options": [
-     "Nolga teng (iqtisodiy)",
-     "Maksimal",
-     "Monopol foydaga teng",
-     "Manfiy"
+     "Barcha bo‘g‘inlarni, jumladan ishlab chiqarish va sotishni, yagona davlat korxonasi tarkibida saqlash",
+     "Uzatish tarmog‘ini bir necha raqobatchi firma o‘rtasida bo‘lib, parallel tarmoqlar qurish",
+     "Ishlab chiqarishni davlat nazoratida qoldirib, uzatish tarmog‘ini xususiylashtirish",
+     "Uzatish tarmog‘ini davlat nazoratida qoldirib, ishlab chiqarish va sotishni raqobatga ochish"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Vertikal ajratishda tabiiy monopol segment nazoratda qoladi, raqobatli segmentlar xususiy raqobatchilarga ochiladi."
    },
    {
-    "q": "Averch-Jonson samarasi:",
+    "q": "Bozorda ulushlari 35%, 25%, 15%, 10%, 8% va 7% bo‘lgan firmalar bor. Birinchi ikki firma qo‘shilsa, HHI qancha bo‘ladi?",
     "options": [
-     "Tarmoq samarasi",
-     "Foyda normasi tartibga solinganda firmaning ortiqcha kapital qo‘yishi",
-     "Monopolistning reklama xarajatlari",
-     "Narx shiftida taqchillik"
+     "2288",
+     "3600",
+     "10 000",
+     "4038"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Qo‘shilgan firma ulushi 60%: 3600 + 225 + 100 + 64 + 49 = 4038."
    },
    {
-    "q": "RPI–X formulasida X:",
+    "q": "Kartel har bir ishtirokchiga yiliga 60 mlrd so‘m qo‘shimcha foyda beradi, aniqlanish ehtimoli 0,25. Kartelni to‘xtatish uchun jarima F qanday bo‘lishi kerak?",
     "options": [
-     "Foyda normasi",
-     "Kutilayotgan unumdorlik o‘sishi",
-     "Soliq stavkasi",
-     "Inflyatsiya"
+     "240 mlrd so‘mdan katta",
+     "15 mlrd so‘mdan katta",
+     "120 mlrd so‘mdan katta",
+     "1 500 mlrd so‘mdan katta"
     ],
-    "c": 1
+    "c": 0,
+    "e": "0,25 × F > 60 shartidan F > 240 mlrd so‘m kelib chiqadi."
    },
    {
-    "q": "Tartibga soluvchining asirligi nazariyasi muallifi:",
+    "q": "Monopolist uchun talab P = 20 – Q, chegaraviy xarajat MC = 4. Har bir birlikka t = 4 birlik solig‘i joriy etilsa, monopol narx qancha bo‘ladi?",
     "options": [
-     "A. Smit",
-     "J. Stigler",
-     "J. Keyns",
-     "A. Marshall"
+     "Q = 8, P = 12",
+     "Q = 6, P = 16",
+     "Q = 6, P = 14",
+     "Q = 10, P = 10"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Soliqsiz Q = 8, P = 12. Soliq bilan MR = 20 – 2Q = 8, Q = 6, P = 14 (narx soliqning yarmiga oshadi)."
    },
    {
-    "q": "AQSh 2023-yilgi yo‘riqnomasiga ko‘ra yuqori konsentratsiyalashgan bozor:",
+    "q": "Yangi dori yaratgan kompaniyaga patent orqali vaqtinchalik monopoliya beriladi. Bu qaysi g‘oyaga asoslangan?",
     "options": [
-     "HHI > 500",
-     "HHI > 5000",
-     "HHI > 1800",
-     "HHI > 1000"
+     "Monopol foyda sof ijtimoiy xarajat bo‘lgani uchun uni darhol soliq bilan olish kerak (Pozner)",
+     "Vaqtinchalik monopol foyda ilmiy-tadqiqotlarni moliyalashtirish manbai bo‘ladi (Shumpeter)",
+     "Monopolist narxni doim MC ga tenglashtirishi kerak (Mankyu)",
+     "Davlat korxonalari xususiy firmalardan samaraliroq ishlaydi (Stigler)"
     ],
-    "c": 2
-   },
-   {
-    "q": "Mankyu fikricha, davlat mulkidagi monopoliyaning asosiy kamchiligi:",
-    "options": [
-     "Raqobat juda kuchli",
-     "Rahbarlarda xarajatlarni kamaytirish rag‘bati zaif",
-     "Narxlar juda past",
-     "Soliqlar yuqori"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda birinchi antimonopol qonun qabul qilingan yil:",
-    "options": [
-     "1990",
-     "1992",
-     "2012",
-     "2019"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda «Tabiiy monopoliyalar to‘g‘risida»gi qonun qabul qilingan yil:",
-    "options": [
-     "1992",
-     "1997",
-     "2007",
-     "2023"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Raqobatni rivojlantirish va iste’molchilar huquqlarini himoya qilish qo‘mitasi tashkil etilgan yil:",
-    "options": [
-     "2012",
-     "2019",
-     "2021",
-     "2023"
-    ],
-    "c": 1
-   },
-   {
-    "q": "2023-yilgi qonunga ko‘ra Raqobat qo‘mitasi hisobdor:",
-    "options": [
-     "Moliya vazirligiga",
-     "Vazirlar Mahkamasiga",
-     "Markaziy bankka",
-     "Prezident va Senatga"
-    ],
-    "c": 3
-   },
-   {
-    "q": "2023-yilgi qonunga ko‘ra dominant mavqe mezoni bo‘lgan bozor ulushi:",
-    "options": [
-     "20 foiz",
-     "40 foiz va undan ortiq",
-     "60 foiz",
-     "90 foiz"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Antimonopol komplayens – bu:",
-    "options": [
-     "Davlat narxlarni belgilash tizimi",
-     "Soliq imtiyozi",
-     "Raqobat qonunchiligini buzish xavfini oldini olishning ichki tizimi",
-     "Import kvotasi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Kartel jarimasi to‘xtatuvchi bo‘lishi uchun:",
-    "options": [
-     "Kutilgan jarima kartel foydasidan katta bo‘lishi kerak",
-     "Jarima foydadan kichik bo‘lishi kerak",
-     "Jarima nolga teng bo‘lishi kerak",
-     "Aniqlanish ehtimoli nol bo‘lishi kerak"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Yumshatish dasturi (leniency) nima uchun samarali?",
-    "options": [
-     "Kartel a’zolarini birinchi bo‘lib xabar berishga undaydi (mahbus dilemmasi)",
-     "Birlashuvlarni osonlashtiradi",
-     "Jarimalarni bekor qiladi",
-     "Narxlarni oshiradi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Tarmoqni vertikal ajratish deganda:",
-    "options": [
-     "Tabiiy monopol segmentni raqobatli segmentlardan ajratish tushuniladi",
-     "Narxni muzlatish",
-     "Import taqiqlash",
-     "Firmani ikkita bir xil firmaga bo‘lish"
-    ],
-    "c": 0
+    "c": 1,
+    "e": "Shumpeterga ko‘ra, vaqtinchalik monopol foyda innovatsiyalarni rag‘batlantiradi; patent tizimi shu g‘oyaga tayanadi."
    }
   ],
   "selfStudy": [
@@ -6411,304 +5371,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Mehnatga talab hosilaviy deyiladi, chunki:",
+    "q": "Hosilaviy talab (derived demand) nimani anglatadi?",
     "options": [
-     "U taklifga bog‘liq emas",
-     "U doimo noelastik",
-     "U davlat tomonidan belgilanadi",
-     "U mahsulotga bo‘lgan talabdan kelib chiqadi"
+     "Ish haqi oshganda firma mehnatga talabini kamaytirishi va bandlikni qisqartirishini",
+     "Uy xo‘jaliklarining omillarni sotishdan oladigan daromadi ish haqidan iborat bo‘lishini",
+     "Mehnatga talab ishchi ishlab chiqaradigan mahsulotga bo‘lgan talabdan kelib chiqishini",
+     "Mehnat taklifining ish haqi darajasiga bog‘liqligini"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Olma teruvchilarga talab olmaga talabdan kelib chiqadi — bu hosilaviy talab."
    },
    {
-    "q": "Mehnat unumdorligi formulasi:",
+    "q": "Mehnat sig‘imi qanday ko‘rsatkich?",
     "options": [
-     "Q/L",
-     "FOT/L",
-     "L/Q",
-     "Q/FOT"
+     "Mahsulot birligiga sarflangan mehnat miqdori, mehnat unumdorligiga teskari",
+     "Ish haqi fondining bir so‘miga to‘g‘ri keladigan mahsulot hajmi, ya’ni mehnat qaytimi",
+     "Bir xodim tomonidan vaqt birligida ishlab chiqarilgan mahsulot miqdori",
+     "Bir xodimga yoki ish haqi fondining bir so‘miga to‘g‘ri keladigan foyda"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Mehnat sig‘imi t = L / Q = 1 / WL, ya’ni unumdorlikka teskari ko‘rsatkichdir."
    },
    {
-    "q": "Mehnat sig‘imi:",
+    "q": "Iqtisodiy renta nima?",
     "options": [
-     "Ish haqi fondi",
-     "Mahsulot birligiga sarflangan mehnat",
-     "Bir xodimga to‘g‘ri keladigan mahsulot",
-     "Foyda"
+     "Omilning eng yaxshi muqobil foydalanishdagi daromadi",
+     "Firma omil uchun to‘laydigan yalpi xarajatlar summasi",
+     "Ish haqining inflyatsiyaga tuzatilgan real qismi",
+     "Omil egasi oladigan to‘lovning minimal zarur to‘lovdan ortiq qismi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Renta — omil daromadining transfer daromaddan ortiq qismidir."
    },
    {
-    "q": "VMPL formulasi:",
+    "q": "Mehnatning chegaraviy daromadliligi (MRP) nimani ifodalaydi?",
     "options": [
-     "P × Q",
-     "MR × MPL",
-     "P × MPL",
-     "W × L"
+     "Qo‘shimcha ishchi yollashdan ishlab chiqarilgan mahsulot miqdorining o‘sishini",
+     "Qo‘shimcha ishchi yollashdan firma tushumining o‘sishini, MRP = MR × MPL",
+     "Qo‘shimcha ishchini yollashning yalpi xarajatlarga qo‘shgan hissasini",
+     "Ish haqining mehnat unumdorligiga nisbatini"
     ],
-    "c": 2
+    "c": 1,
+    "e": "MRP — qo‘shimcha ishchi keltiradigan tushum: chegaraviy tushum bilan chegaraviy mahsulot ko‘paytmasi."
    },
    {
-    "q": "Raqobatlashuvchi firma mehnatni qaysi shartgacha yollaydi?",
+    "q": "Transfer daromad deb nimaga aytiladi?",
     "options": [
-     "VMPL = MR",
-     "W = P",
-     "MPL = 0",
-     "VMPL = W"
+     "Minimal ish haqidan yuqori to‘lanadigan qo‘shimcha haqqa",
+     "Omilning eng yaxshi muqobil foydalanishdagi daromadiga, ya’ni imkoniyat xarajatiga",
+     "Mehnat migrantlari yurtiga jo‘natadigan pul o‘tkazmalariga",
+     "Kasaba uyushmasi jamoaviy shartnoma asosida oladigan to‘lovga"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Transfer daromad omilni shu foydalanishda ushlab turish uchun zarur bo‘lgan minimal to‘lovdir."
    },
    {
-    "q": "Mankyuning olma bog‘i misolida (P = 10, W = 500) nechta ishchi yollanadi?",
+    "q": "Kompensatsiyalovchi farq nima?",
     "options": [
-     "2",
-     "3",
-     "4",
-     "5"
+     "Ta’lim, malaka va tajriba orqali to‘plangan bilimlar uchun to‘lanadigan ustama",
+     "Firma unumdorlikni oshirish maqsadida ataylab muvozanatdan yuqori to‘laydigan ish haqi",
+     "Diplom orqali yuqori qobiliyatni ko‘rsatgan xodimga beriladigan mukofot",
+     "Ishning xavf, og‘irlik yoki noqulay vaqt kabi nopul jihatlari uchun qo‘shimcha haq"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Shaxtyorlar yoki tungi smena ishchilari ishning noqulayliklari uchun ko‘proq oladi."
    },
    {
-    "q": "Monopolist uchun MRP va VMPL nisbati:",
+    "q": "Mehnat bozorida monopsoniya nimani bildiradi?",
     "options": [
-     "MRP < VMPL",
-     "MRP = VMPL",
-     "Bog‘liq emas",
-     "MRP > VMPL"
+     "Bozorda yagona yoki dominant ish beruvchi (xaridor) mavjudligini",
+     "Bozorda yagona sotuvchi sifatida kasaba uyushmasi mavjudligini",
+     "Ko‘plab firmalar ishchilarni jalb qilish uchun raqobatlashishini",
+     "Davlat tomonidan eng kam ish haqi belgilanishini"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Monopsoniya — yagona yoki dominant xaridorli bozor, masalan kichik shaharchadagi yagona yirik korxona."
    },
    {
-    "q": "Mahsulot narxi oshsa, mehnatga talab:",
+    "q": "Ish haqi tabaqalanishini izohlovchi signal berish nazariyasiga ko‘ra, ta’lim nima vazifani bajaradi?",
     "options": [
-     "Chapga siljiydi",
-     "O‘ngga siljiydi",
-     "O‘zgarmaydi",
-     "Noelastik bo‘ladi"
+     "Ishning xavf va noqulayliklari uchun qo‘shimcha haq olish huquqini beradi",
+     "Firmaga kadrlar qo‘nimsizligini kamaytirish va sadoqatni oshirish imkonini beradi",
+     "Ish beruvchiga yuqori qobiliyat haqida signal vazifasini ham bajaradi",
+     "Xodimni kasaba uyushmasining jamoaviy shartnomasi himoyasi ostiga oladi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Spens modeliga ko‘ra, diplom ish beruvchi uchun yuqori qobiliyat signalidir."
    },
    {
-    "q": "MC = W/MPL formulasi nimani ko‘rsatadi?",
+    "q": "Nima uchun yuqori ish haqi darajasida individual mehnat taklifi chizig‘i orqaga egilishi mumkin?",
     "options": [
-     "Inflyatsiyani",
-     "Monopsoniyani",
-     "Renta miqdorini",
-     "Mehnatga talab va mahsulot taklifining bog‘liqligini"
+     "Almashtirish samarasi daromad samarasidan ustun kelib, dam olish qimmatlashadi",
+     "Ish haqi oshgani sari dam olish past ne’mat bo‘lib qoladi va mehnatga ehtiyoj kamayadi",
+     "Daromad samarasi almashtirish samarasidan ustun kelib, inson ko‘proq dam olishni tanlaydi",
+     "Ish haqi oshganda yangi ishchilar bozorga kirib, har bir kishining ish vaqtini qisqartiradi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Boyigan inson dam olishni (normal ne’mat) ko‘proq xohlagani uchun kamroq ishlaydi."
    },
    {
-    "q": "Ish haqi oshganda daromad samarasi:",
+    "q": "Raqobatli mehnat bozorida muvozanatdan yuqori minimal ish haqi belgilansa, nima yuz beradi?",
     "options": [
-     "Ish haqini pasaytiradi",
-     "Ko‘proq dam olishga undaydi (dam olish normal ne’mat bo‘lsa)",
-     "Ko‘proq ishlashga undaydi",
-     "Ta’sir qilmaydi"
+     "Mehnatga talab kamayadi, taklif oshadi va ishsizlik paydo bo‘ladi",
+     "Mehnatga talab oshadi, taklif kamayadi va ishchilar taqchilligi yuzaga keladi",
+     "Bandlik o‘zgarmaydi, faqat firmalar foydasi kamayadi",
+     "Ish haqi va bandlik bir vaqtda oshadi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Minimal ish haqi narx tagi vazifasini bajaradi: ortiqcha mehnat taklifi, ya’ni ishsizlik yuzaga keladi."
    },
    {
-    "q": "Orqaga egiluvchi mehnat taklifi qachon yuzaga keladi?",
+    "q": "Nima uchun monopsoniyada raqobatli darajadagi minimal ish haqi bandlikni oshirishi mumkin?",
     "options": [
-     "Monopsoniyada",
-     "Ish haqi nolga teng bo‘lsa",
-     "Almashtirish samarasi daromad samarasidan kuchli bo‘lsa",
-     "Daromad samarasi almashtirish samarasidan kuchli bo‘lsa"
+     "Wmin mehnatga talabni o‘ngga siljitib, MRP chizig‘ini yuqoriga ko‘taradi va tushumni oshiradi",
+     "Wmin ostida MRC gorizontal bo‘ladi, monopsonist esa boshqalarning ish haqini oshirmaydi",
+     "Wmin mehnat taklifini kamaytirib, qolgan ishchilarning unumdorligini oshiradi",
+     "Wmin monopsonistning foydasini oshirib, yangi ish o‘rinlari ochishga imkon beradi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Monopsonistda MRC > W edi; Wmin bu bog‘liqlikni yo‘qotadi va bandlik raqobatli darajaga yetadi."
    },
    {
-    "q": "Immigratsiya natijasida mehnat bozorida:",
+    "q": "Nima uchun bozor hokimiyatiga ega monopolist raqobatlashuvchi firmaga qaraganda kamroq ishchi yollaydi?",
+    "options": [
+     "Monopolist mehnatning chegaraviy mahsulotini pasaytiruvchi texnologiyadan foydalanadi",
+     "Monopolist ishchilarga raqobatli darajadan yuqori ish haqi to‘lashga majbur bo‘ladi",
+     "MR > P bo‘lgani uchun qo‘shimcha ishchi tushumni kamaytiradi",
+     "MR < P bo‘lgani uchun MRP < VMPL va mehnatga talab past bo‘ladi"
+    ],
+    "c": 3,
+    "e": "Narxni tushirib sotish kerakligi sababli MR < P, demak MRP = MR × MPL < VMPL."
+   },
+   {
+    "q": "Ikki tomonlama monopoliyada (monopsonist ish beruvchi va kasaba uyushmasi) ish haqi qanday aniqlanadi?",
+    "options": [
+     "Monopsonist xohlagan WM darajasida",
+     "Kasaba uyushmasi xohlagan WU dan yuqori darajada",
+     "Nazariya bo‘yicha aniq raqobatli ish haqiga teng darajada",
+     "WM va WU oralig‘ida tomonlarning muzokara kuchiga qarab"
+    ],
+    "c": 3,
+    "e": "Natija nazariyada aniq belgilanmaydi: ish tashlashga bardosh va muqobil ish joylari kabi muzokara kuchi hal qiladi."
+   },
+   {
+    "q": "Qaysi holat mehnatga talabni elastikroq qiladi?",
+    "options": [
+     "Mahsulotga talabning noelastik bo‘lishi",
+     "Mehnatni kapital (mashinalar) bilan oson almashtirish imkoniyati",
+     "Mehnat xarajatlarining umumiy xarajatlardagi ulushi juda kichikligi",
+     "Firmaning texnologiyani o‘zgartirishga vaqti yo‘qligi"
+    ],
+    "c": 1,
+    "e": "Marshall–Xiks qoidasi: almashtirish oson bo‘lsa, talab elastik bo‘ladi."
+   },
+   {
+    "q": "Firma ish haqini ataylab muvozanatdan yuqori to‘laydi, chunki bu kadrlar qo‘nimsizligini kamaytiradi va unumdorlikni oshiradi. Bu qaysi tushunchaga mos?",
+    "options": [
+     "Samarali ish haqi",
+     "Kompensatsiyalovchi farq",
+     "Iqtisodiy renta",
+     "Monopsoniya ustamasi"
+    ],
+    "c": 0,
+    "e": "Genri Ford 1914-yilda shu sabab ish haqini oshirgan: qo‘nimsizlik keskin kamaygan."
+   },
+   {
+    "q": "Kasaba uyushmasi kasbga kirishni cheklaydi (uzoq shogirdlik, litsenziyalar). Raqobatli bozorda natija qanday?",
+    "options": [
+     "Taklif o‘ngga siljiydi, ish haqi pasayadi, bandlik oshadi",
+     "Talab o‘ngga siljiydi, ish haqi ham, bandlik ham oshadi",
+     "Taklif chapga siljiydi, ish haqi oshadi, bandlik kamayadi",
+     "Taklif chapga siljiydi, ish haqi ham, bandlik ham pasayadi"
+    ],
+    "c": 2,
+    "e": "Eksklyuziv modelda taklif kamayadi: ish haqi oshadi, lekin bandlik qisqaradi."
+   },
+   {
+    "q": "Migratsiya natijasida raqobatli mehnat bozorida mehnat taklifi ko‘paydi (talab o‘zgarmadi). Ish haqi va bandlik qanday o‘zgaradi?",
     "options": [
      "Ish haqi pasayadi, bandlik oshadi",
-     "Bandlik kamayadi",
-     "Ish haqi oshadi",
-     "O‘zgarish bo‘lmaydi"
+     "Ish haqi oshadi, bandlik oshadi",
+     "Ish haqi oshadi, bandlik kamayadi",
+     "Ish haqi pasayadi, bandlik kamayadi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Taklif o‘ngga siljiydi: kamayuvchi MPL tufayli muvozanat ish haqi tushadi, bandlik esa oshadi."
    },
    {
-    "q": "Raqobatli mehnat bozorida muvozanat ish haqidan yuqori minimal ish haqi:",
+    "q": "Mashhur futbolchi yiliga 50 mln dollar oladi; muqobil ishda esa 1 mln dollar topgan bo‘lardi. Uning iqtisodiy rentasi qancha?",
     "options": [
-     "Taklifni kamaytiradi",
-     "Bandlikni oshiradi",
-     "Ishsizlik yaratadi",
-     "Talabni oshiradi"
+     "50 mln dollar",
+     "1 mln dollar (transfer daromad)",
+     "49 mln dollar",
+     "51 mln dollar"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Renta = umumiy daromad – transfer daromad = 50 – 1 = 49 mln dollar."
    },
    {
-    "q": "Monopsoniyada MRC:",
+    "q": "Raqobatlashuvchi firma mahsulot narxi P = 8 dollar, ish haqi W = 300 dollar. Ketma-ket yollanadigan ishchilarning chegaraviy mahsuloti: 80, 60, 45, 30, 20. Firma nechta ishchi yollaydi?",
     "options": [
-     "Ish haqidan kichik",
-     "Ish haqidan katta",
-     "Ish haqiga teng",
-     "Nolga teng"
+     "2 ta ishchi",
+     "4 ta ishchi",
+     "5 ta ishchi, chunki MPL musbat qoladi",
+     "3 ta ishchi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "VMPL = 640, 480, 360, 240, 160. VMPL ≥ 300 faqat dastlabki uchta ishchi uchun bajariladi."
    },
    {
-    "q": "Monopsoniya natijasi raqobatga nisbatan:",
+    "q": "Mehnatga talab LD = 900 – 40W, mehnat taklifi LS = 100 + 60W (W – ming so‘m/soat, L – ming kishi). Muvozanatni toping.",
     "options": [
-     "Bir xil",
-     "Bandlik va ish haqi past",
-     "Bandlik yuqori, ish haqi past",
-     "Bandlik va ish haqi yuqori"
+     "W = 10 ming so‘m, L = 500 ming kishi",
+     "W = 8 ming so‘m, L = 580 ming kishi",
+     "W = 8 ming so‘m, L = 900 ming kishi",
+     "W = 6 ming so‘m, L = 660 ming kishi"
     ],
-    "c": 1
-   },
-   {
-    "q": "Monopsoniyada to‘g‘ri belgilangan minimal ish haqi:",
-    "options": [
-     "Ishsizlikni oshiradi",
-     "Bandlikni oshiradi",
-     "Bandlikni kamaytiradi",
-     "Ta’sir qilmaydi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "D. Kard va A. Kruger tadqiqoti nimani ko‘rsatdi?",
-    "options": [
-     "Migratsiya ish haqini oshiradi",
-     "Minimal ish haqi bandlikni keskin kamaytirgan",
-     "Kasaba uyushmalari zararli",
-     "Minimal ish haqi oshgandan keyin bandlik kamaymagan"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Kasaba uyushmasining eksklyuziv modeli:",
-    "options": [
-     "Mehnat taklifini cheklash",
-     "Ish haqini pasaytirish",
-     "Mehnatga talabni oshirish",
-     "Ishchilarni ko‘paytirish"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Ikki tomonlama monopoliyada ish haqi:",
-    "options": [
-     "Nolga teng",
-     "Monopsonist darajasida",
-     "Har doim raqobatli darajada",
-     "Tomonlarning muzokara kuchiga bog‘liq"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Kompensatsiyalovchi farq – bu:",
-    "options": [
-     "Pensiya",
-     "Ishsizlik nafaqasi",
-     "Ishning noqulayliklari uchun qo‘shimcha haq",
-     "Davlat subsidiyasi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Inson kapitali – bu:",
-    "options": [
-     "Yer",
-     "Pul jamg‘armalari",
-     "Ta’lim va tajriba orqali to‘plangan bilim va ko‘nikmalar",
-     "Korxona uskunalari"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Samarali ish haqi nazariyasiga ko‘ra firma:",
-    "options": [
-     "Minimal ish haqi to‘laydi",
-     "Ish haqini muvozanatdan past to‘laydi",
-     "Ish haqi to‘lamaydi",
-     "Ish haqini muvozanatdan yuqori to‘laydi, chunki bu unumdorlikni oshiradi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Genri Ford 1914-yilda kunlik ish haqini:",
-    "options": [
-     "2,34 dan 5 dollarga oshirdi",
-     "10 dollarga oshirdi",
-     "O‘zgartirmadi",
-     "1 dollarga kamaytirdi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Iqtisodiy renta:",
-    "options": [
-     "Ish haqining minimal qismi",
-     "Yer ijarasi",
-     "Omil daromadining transfer daromaddan ortiq qismi",
-     "Soliq"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mutlaq noelastik taklifda:",
-    "options": [
-     "Renta nolga teng",
-     "Butun daromad iqtisodiy renta",
-     "Butun daromad transfer daromad",
-     "Ish haqi nolga teng"
-    ],
-    "c": 1
-   },
-   {
-    "q": "2025-yil III choragida O‘zbekistonda ishsizlik darajasi:",
-    "options": [
-     "10,5%",
-     "4,9%",
-     "6,8%",
-     "8,9%"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda band aholining norasmiy sektordagi ulushi (2025-yil iyun):",
-    "options": [
-     "12%",
-     "33%",
-     "55%",
-     "70%"
-    ],
-    "c": 1
-   },
-   {
-    "q": "2025-yil 1-avgustdan O‘zbekistonda eng kam oylik ish haqi:",
-    "options": [
-     "1 155 000 so‘m",
-     "1 271 000 so‘m",
-     "412 000 so‘m",
-     "980 000 so‘m"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Mehnatga talab elastikroq bo‘ladi, agar:",
-    "options": [
-     "Mahsulotga talab noelastik bo‘lsa",
-     "Mehnatni kapital bilan almashtirish oson bo‘lsa",
-     "Mehnat xarajatlari ulushi kichik bo‘lsa",
-     "Qisqa muddat ko‘rilsa"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Uzoq muddatda real ish haqining asosiy omili:",
-    "options": [
-     "Mehnat unumdorligi",
-     "Inflyatsiya",
-     "Kasaba uyushmalari",
-     "Minimal ish haqi"
-    ],
-    "c": 0
+    "c": 1,
+    "e": "900 – 40W = 100 + 60W ⇒ W = 8; L = 900 – 320 = 580."
    }
   ],
   "selfStudy": [
@@ -6911,304 +5791,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Iqtisodiyot nazariyasida kapital – bu:",
+    "q": "Asosiy kapital nima?",
     "options": [
-     "Ishchi kuchi",
-     "Faqat pul mablag‘lari",
-     "Ishlab chiqarishda foydalaniladigan, avval ishlab chiqarilgan ne’matlar",
-     "Yer va tabiiy resurslar"
+     "Bir ishlab chiqarish sikli davomida qiymatini mahsulotga to‘liq o‘tkazadigan kapital",
+     "Fizik kapitalni sotib olish uchun ishlatiladigan pul mablag‘lari va qimmatli qog‘ozlar",
+     "Ta’lim va tajriba orqali to‘plangan bilim va ko‘nikmalar majmui",
+     "Qiymatini amortizatsiya orqali qismlab, bir necha siklda o‘tkazadigan kapital"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Binolar, mashinalar va uskunalar asosiy kapitalga kiradi; ularning qiymati amortizatsiya orqali o‘tadi."
    },
    {
-    "q": "Aylanma kapitalga kiradi:",
+    "q": "Yalpi investitsiya nimaga teng?",
     "options": [
-     "Xomashyo va materiallar",
-     "Patentlar",
-     "Binolar",
-     "Mashina va uskunalar"
+     "Sof investitsiya va amortizatsiya ayirmasiga",
+     "Yil oxiridagi kapital zaxirasining qiymatiga",
+     "Sof investitsiya va amortizatsiya yig‘indisiga",
+     "Eskirgan kapitalni almashtirishga ketgan mablag‘ning o‘ziga"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Iyalpi = Isof + A: yalpi investitsiya kapital o‘sishi va eskirgan qismni almashtirishni qamrab oladi."
    },
    {
-    "q": "Amortizatsiya – bu:",
+    "q": "Fisher tenglamasiga ko‘ra real foiz stavkasi taxminan nimaga teng?",
     "options": [
-     "Aylanma kapital",
-     "Asosiy kapital eskirishi qiymatini mahsulotga o‘tkazish",
-     "Soliq",
-     "Foiz to‘lovi"
+     "Nominal foiz stavkasidan inflyatsiya darajasini ayirganga",
+     "Nominal foiz stavkasiga inflyatsiya darajasini qo‘shganga",
+     "Nominal foiz stavkasini inflyatsiya darajasiga ko‘paytirganga",
+     "Inflyatsiya darajasidan nominal foiz stavkasini ayirganga"
     ],
-    "c": 1
+    "c": 0,
+    "e": "1 + i = (1 + r)(1 + π) dan r ≈ i – π kelib chiqadi."
    },
    {
-    "q": "Yalpi investitsiya 80, amortizatsiya 50 bo‘lsa, sof investitsiya:",
+    "q": "Sof joriy qiymat (NPV) nima?",
     "options": [
-     "130",
-     "30",
-     "50",
-     "–30"
+     "Loyiha daromadlarining diskontlanmagan oddiy yig‘indisi va kapital xarajatlar farqi",
+     "Kelgusi daromadlar joriy qiymati va dastlabki investitsiya o‘rtasidagi farq",
+     "Loyihaning ichki daromadlilik darajasini ifodalovchi diskont stavkasi",
+     "Dastlabki investitsiya daromadlar hisobiga qoplanadigan vaqt"
     ],
-    "c": 1
+    "c": 1,
+    "e": "NPV = –I0 + Σ Rt/(1 + r)^t."
    },
    {
-    "q": "Sof investitsiya manfiy bo‘lsa:",
+    "q": "Ichki daromad normasi (IRR) nima?",
     "options": [
-     "Kapital o‘zgarmaydi",
-     "Kapital zaxirasi kamayadi",
-     "Amortizatsiya nolga teng",
-     "Kapital zaxirasi oshadi"
+     "Loyiha NPV si eng yuqori bo‘ladigan diskont stavkasi",
+     "Loyihaning NPV sini nolga tenglashtiradigan diskont stavkasi",
+     "Tijorat bankining loyihaga beradigan kredit stavkasi",
+     "Loyiha yillik foydasining dastlabki investitsiyaga nisbati"
     ],
-    "c": 1
+    "c": 1,
+    "e": "IRR — 0 = –I0 + Σ Rt/(1 + IRR)^t tenglamasini qanoatlantiruvchi stavka."
    },
    {
-    "q": "Jamg‘arma taklifi foiz stavkasi bilan:",
+    "q": "Qoplash muddati mezonining asosiy kamchiligi nima?",
     "options": [
-     "Kamayadi",
-     "Bog‘liq emas",
-     "Oshadi",
-     "O‘zgarmaydi"
+     "Diskont stavkasini tanlashni va kelgusi pul oqimlarini bashorat qilishni talab qiladi",
+     "Noodatiy pul oqimlarida bir nechta qiymat berishi mumkin",
+     "Pulning vaqt qiymatini va qoplashdan keyingi daromadlarni hisobga olmaydi",
+     "Loyiha masshtabini hisobga olmaydi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Oddiy qoplash muddati faqat dastlabki investitsiya qoplanguncha bo‘lgan vaqtni o‘lchaydi."
    },
    {
-    "q": "Nominal stavka 18%, inflyatsiya 6% bo‘lsa, real stavka taxminan:",
+    "q": "Investitsiya tavakkalchiligini kamaytirishda diversifikatsiya nimani anglatadi?",
     "options": [
-     "24%",
-     "12%",
-     "3%",
-     "6%"
+     "Xavfli loyihalar uchun diskont stavkasiga tavakkalchilik ustamasi qo‘shishni",
+     "Asosiy omillar (narx, hajm, xarajat) o‘zgarganda NPV qanday o‘zgarishini tekshirishni",
+     "Butun iqtisodiyotga ta’sir qiluvchi bozor tavakkalchiligini ham to‘liq yo‘q qilishni",
+     "Mablag‘ni mustaqil loyihalarga taqsimlab, firmaga xos tavakkalchilikni kamaytirishni"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Diversifikatsiya «barcha tuxumni bitta savatga qo‘ymaslik»dir, lekin bozor tavakkalchiligini yo‘q qilmaydi."
    },
    {
-    "q": "100 ming so‘m 10% da 2 yil jamg‘arilsa:",
+    "q": "Muddatsiz obligatsiya (perpetuitet) qanday qimmatli qog‘oz?",
     "options": [
-     "120 ming",
-     "121 ming",
-     "110 ming",
-     "200 ming"
+     "Nominalini qaytarmaydigan, lekin cheksiz muddat to‘lov beradigan obligatsiya",
+     "Kupon to‘lamasdan, muddati oxirida nominal qiymatni qaytaradigan obligatsiya",
+     "Nominal qiymati bozor foiz stavkasiga qarab har yili o‘zgarib turadigan obligatsiya",
+     "Egasiga firmani boshqarishda ishtirok etish huquqini beruvchi qimmatli qog‘oz"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Muddatsiz obligatsiya narxi P = C / r formulasi bilan topiladi."
    },
    {
-    "q": "«70 qoidasi» bo‘yicha 7% o‘sishda ikki baravar oshish muddati:",
+    "q": "Keyns nazariyasiga ko‘ra, foiz nima uchun to‘lanadi?",
     "options": [
-     "7 yil",
-     "10 yil",
-     "70 yil",
-     "5 yil"
+     "Pulni naqd shaklda saqlashdan, ya’ni likvidlikdan voz kechgani uchun",
+     "Odamlar bugungi iste’molni ertangisidan afzal ko‘rgani uchun",
+     "Qarzga olingan kapital qo‘shimcha daromad keltirgani uchun",
+     "Qarz qaytarilmaslik xavfi mavjud bo‘lgani uchun"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Likvidlikdan voz kechish — Keyns tushuntirishi; boshqa javoblar boshqa nazariyalarga tegishli."
    },
    {
-    "q": "Joriy qiymat formulasi:",
+    "q": "Nima uchun investitsiyaga talab chizig‘i pastga og‘ma bo‘ladi?",
     "options": [
-     "PV = FV × r",
-     "PV = FV / (1 + r)n",
-     "PV = FV + r",
-     "PV = FV × (1 + r)n"
+     "Foiz stavkasi pasayganda jamg‘arma taklifi oshadi va investitsiya kamayadi",
+     "Foiz stavkasi pasayganda mavjud loyihalarning IRR i oshadi",
+     "Foiz stavkasi pasayganda firmalar amortizatsiya normasini oshiradi",
+     "Foiz stavkasi pasayganda IRR si pastroq bo‘lgan ko‘proq loyihalar foydali bo‘ladi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "IRR > r bo‘lgan loyihalar amalga oshiriladi; r pasaysa, shartga ko‘proq loyiha mos keladi."
    },
    {
-    "q": "Foiz stavkasi oshganda kelgusi summaning joriy qiymati:",
+    "q": "Diskont stavkasi oshsa, kelgusida olinadigan 1 mln so‘mning joriy qiymati qanday o‘zgaradi?",
     "options": [
-     "Kamayadi",
-     "O‘zgarmaydi",
-     "Ikki baravar oshadi",
-     "Oshadi"
+     "Oshadi, chunki jamg‘arish foydaliroq bo‘ladi",
+     "Kamayadi, chunki kelgusi summa kuchliroq diskontlanadi",
+     "O‘zgarmaydi, chunki nominal summa o‘zgarmagan",
+     "Dastlab oshadi, so‘ng nominal summaga tenglashadi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "PV = FV / (1 + r)^n: r qancha katta bo‘lsa, PV shuncha kichik."
    },
    {
-    "q": "Fisher modelida vaqtlararo byudjet chizig‘ining qiyaligi:",
+    "q": "Bozor foiz stavkasi oshsa, avval chiqarilgan obligatsiya narxi nima uchun pasayadi?",
     "options": [
-     "–1/r",
-     "1 + r",
-     "–r",
-     "–(1 + r)"
+     "Emitent obligatsiya nominal qiymatini kamaytirib qaytarishga majbur bo‘ladi",
+     "Emitent bozor stavkasi oshganda eski obligatsiya kuponlarini avtomatik kamaytirib boradi",
+     "Yangi obligatsiyalar yuqoriroq kupon beradi, eskisi esa kamroq jozibador bo‘lib qoladi",
+     "Obligatsiya muddati bozor stavkasi oshganda o‘z-o‘zidan uzayib ketadi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Obligatsiya narxi va bozor foiz stavkasi teskari bog‘liq."
    },
    {
-    "q": "Loyiha qabul qilinadi, agar:",
+    "q": "Nima uchun muddatsiz obligatsiya narxi foiz stavkasiga eng sezgir?",
     "options": [
-     "PI < 1",
-     "NPV > 0",
-     "NPV < 0",
-     "IRR < r"
+     "Uning nominal qiymati bozor stavkasi oshganda shuncha foizga kamayib boradi",
+     "Kupon to‘lovi bozor stavkasi o‘zgarishiga qarab har yili qayta belgilanadi",
+     "To‘lovlar cheksiz uzoq kelajakka cho‘zilgani sababli diskontlashga sezgir",
+     "Uni davlat chiqaradi va narxi ma’muriy yo‘l bilan belgilanadi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "P = C / r: uzoq muddatli to‘lovlar diskont stavkasiga kuchliroq bog‘liq."
    },
    {
-    "q": "IRR – bu:",
+    "q": "Inflyatsiya qanday qilib soliq yukini oshirishi mumkin?",
     "options": [
-     "NPV ni nolga tenglashtiradigan diskont stavkasi",
-     "Amortizatsiya normasi",
-     "Inflyatsiya darajasi",
-     "Markaziy bank stavkasi"
+     "Amortizatsiya tarixiy qiymatda hisoblangani uchun real ajratmalar kamayadi",
+     "Foyda solig‘i stavkasi inflyatsiya darajasiga qarab avtomatik oshirib boriladi",
+     "Kapital tovarlar import bojlari inflyatsiya tufayli oshadi",
+     "Nominal foiz stavkasi real stavkadan past bo‘lib qoladi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Inflyatsiya tarixiy qiymatga asoslangan amortizatsiyaning real qiymatini pasaytiradi."
    },
    {
-    "q": "Keyns IRR ni qanday atagan?",
+    "q": "Loyihaning ichki daromad normasi (IRR) 16%, kredit stavkasi esa 12%. Qanday qaror to‘g‘ri?",
     "options": [
-     "Sof foyda",
-     "Ssuda foizi",
-     "Kapitalning chegaraviy samaradorligi",
-     "Likvidlik afzalligi"
+     "Loyiha rad etiladi, chunki IRR kredit stavkasidan yuqori bo‘lsa xarajat oshadi",
+     "Qaror qoplash muddatiga qarab chiqariladi, IRR e’tiborga olinmaydi",
+     "Loyiha rad etiladi, chunki NPV manfiy bo‘ladi",
+     "Loyiha qabul qilinadi, chunki IRR kapital narxidan yuqori va NPV musbat"
     ],
-    "c": 2
+    "c": 3,
+    "e": "IRR > r bo‘lsa, loyiha foydali va NPV > 0."
    },
    {
-    "q": "Qoplash muddati mezonining kamchiligi:",
+    "q": "Firmada yalpi investitsiya 40 mlrd so‘m, amortizatsiya 55 mlrd so‘m. Kapital zaxirasi qanday o‘zgaradi?",
     "options": [
-     "Murakkab hisob-kitob",
-     "Pulning vaqt bo‘yicha qiymatini va keyingi daromadlarni hisobga olmaydi",
-     "Bir nechta qiymatga ega",
-     "Faqat foizda ifodalanadi"
+     "Sof investitsiya +15 mlrd so‘m, kapital zaxirasi ko‘payadi",
+     "Sof investitsiya –15 mlrd so‘m, kapital zaxirasi qisqaradi",
+     "Sof investitsiya 40 mlrd so‘m, kapital zaxirasi shuncha ko‘payadi",
+     "Sof investitsiya nolga teng, kapital zaxirasi o‘zgarmaydi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Isof = 40 – 55 = –15: firma o‘z kapitalini «yeydi»."
    },
    {
-    "q": "Kapitalning yillik ijara narxi formulasi:",
+    "q": "Kelgusi 2 yildan keyin olinadigan 800 ming so‘mning bugungi qiymati qancha (bozor stavkasi 10%)?",
     "options": [
-     "PK × r",
-     "PK / r",
-     "PK × (r + δ)",
-     "r – δ"
+     "727 ming so‘m",
+     "968 ming so‘m",
+     "1 056 ming so‘m",
+     "661 ming so‘m"
     ],
-    "c": 2
+    "c": 3,
+    "e": "PV = 800 / 1,1² = 800 / 1,21 ≈ 661,2 ming so‘m."
    },
    {
-    "q": "Foiz stavkasi pasaysa, investitsiyalar hajmi:",
+    "q": "Muddatsiz obligatsiya yiliga 120 ming so‘m to‘laydi, bozor stavkasi 8%. Uning narxi qancha?",
     "options": [
-     "Nolga tushadi",
-     "O‘zgarmaydi",
-     "Kamayadi",
-     "Oshadi"
+     "9,6 ming so‘m",
+     "1 500 ming so‘m",
+     "111,1 ming so‘m",
+     "15 000 ming so‘m"
     ],
-    "c": 3
+    "c": 1,
+    "e": "P = C / r = 120 / 0,08 = 1 500 ming so‘m."
    },
    {
-    "q": "Investitsiyaga talab chizig‘ini o‘ngga siljitadi:",
+    "q": "Nominal foiz stavkasi 26%, inflyatsiya 10%. Aniq 1 + i = (1 + r)(1 + π) formulasi bo‘yicha real foiz qancha?",
     "options": [
-     "Soliqlarning oshishi",
-     "Foiz stavkasining oshishi",
-     "Kutilayotgan daromadlarning oshishi",
-     "Inflyatsiya noaniqligining oshishi"
+     "14,5%",
+     "16,0%",
+     "36,0%",
+     "114,5%"
     ],
-    "c": 2
+    "c": 0,
+    "e": "1,26 / 1,10 – 1 ≈ 0,145 ya’ni 14,5% (taxminiy formula 16% beradi)."
    },
    {
-    "q": "Yuqori va o‘zgaruvchan inflyatsiya investitsiyalarga:",
+    "q": "Investitsiyalar YaIMning 28 foizini tashkil etadi, YaIM esa 7 foizga o‘smoqda. ICOR qancha?",
     "options": [
-     "Noaniqlikni oshirib, salbiy ta’sir qiladi",
-     "Ijobiy ta’sir qiladi",
-     "Ta’sir qilmaydi",
-     "Faqat davlat investitsiyalarini oshiradi"
+     "0,25",
+     "21",
+     "4",
+     "196"
     ],
-    "c": 0
-   },
-   {
-    "q": "Bozor foiz stavkasi oshsa, obligatsiya narxi:",
-    "options": [
-     "O‘zgarmaydi",
-     "Nominalga teng bo‘ladi",
-     "Pasayadi",
-     "Oshadi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Bozor stavkasi kupon stavkasiga teng bo‘lsa, obligatsiya narxi:",
-    "options": [
-     "Nolga teng",
-     "Nominaldan past",
-     "Nominaldan yuqori",
-     "Nominalga teng"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Yiliga 200 ming so‘m to‘laydigan muddatsiz obligatsiya narxi r = 10% da:",
-    "options": [
-     "200 ming",
-     "2 000 ming",
-     "20 000 ming",
-     "1 000 ming"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Muddatsiz obligatsiya narxi formulasi:",
-    "options": [
-     "P = C / (1 + r)",
-     "P = C × r",
-     "P = C + r",
-     "P = C / r"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Diversifikatsiya qaysi tavakkalchilikni kamaytiradi?",
-    "options": [
-     "Bozor tavakkalchiligini",
-     "Firmaga xos tavakkalchilikni",
-     "Barcha tavakkalchilikni",
-     "Inflyatsiya tavakkalchiligini"
-    ],
-    "c": 1
-   },
-   {
-    "q": "To‘g‘ridan-to‘g‘ri xorijiy investitsiyalar odatda korxona kapitalida qancha ulushni anglatadi?",
-    "options": [
-     "5% dan kam",
-     "1% gacha",
-     "10% va undan ortiq",
-     "Faqat 100%"
-    ],
-    "c": 2
-   },
-   {
-    "q": "2025-yilda O‘zbekistonda asosiy kapitalga investitsiyalar:",
-    "options": [
-     "210,2 trln so‘m",
-     "591,1 trln so‘m",
-     "356,1 trln so‘m",
-     "44,8 trln so‘m"
-    ],
-    "c": 1
-   },
-   {
-    "q": "ICOR koeffitsienti nimani ko‘rsatadi?",
-    "options": [
-     "YaIM birlik o‘sishiga kerakli investitsiya hajmini",
-     "Ishsizlikni",
-     "Foiz stavkasini",
-     "Inflyatsiyani"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Davlat qarz olishi xususiy investitsiyalarni kamaytirishi:",
-    "options": [
-     "Siqib chiqarish samarasi",
-     "Daromad samarasi",
-     "Diversifikatsiya",
-     "Multiplikator samarasi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "2025-yilda O‘zbekiston Markaziy bankining asosiy stavkasi:",
-    "options": [
-     "9%",
-     "14%",
-     "20%",
-     "25%"
-    ],
-    "c": 1
+    "c": 2,
+    "e": "ICOR = 28 / 7 = 4."
    }
   ],
   "selfStudy": [
@@ -7401,304 +6201,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Iqtisodiyot nazariyasida «yer» tushunchasiga kirmaydi:",
+    "q": "Butun mamlakat miqyosida yer taklifi qanday xususiyatga ega?",
     "options": [
-     "O‘rmonlar",
-     "Suv resurslari",
-     "Mashina va uskunalar",
-     "Foydali qazilmalar"
+     "Elastik: renta oshgani sari yer miqdori ham tez ko‘payib boradi",
+     "Mutlaq noelastik: renta qancha oshsa ham yer miqdori o‘zgarmaydi",
+     "Mutlaq elastik: yer miqdori renta darajasiga to‘liq moslashadi",
+     "Birlik elastik: renta o‘zgarishiga yer miqdori teng nisbatda javob beradi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Yer inson mehnatining mahsuli emas va uning umumiy miqdori qat’iy, shuning uchun taklif mutlaq noelastik."
    },
    {
-    "q": "Yerning umumiy taklifi:",
+    "q": "Yerning iqtisodiy unumdorligi nima bilan belgilanadi?",
     "options": [
-     "Mutlaq elastik",
-     "Birlik elastik",
-     "Pastga og‘ma",
-     "Mutlaq noelastik"
+     "Tuproqning tabiiy tarkibi, iqlimi, relyefi va suv bilan ta’minlanganligi bilan",
+     "Yer uchastkasining umumiy maydoni va davlat tomonidan belgilangan normativ narxi bilan",
+     "Yer egasining huquqiy maqomi hamda ijara shartnomasi muddatining uzunligi bilan",
+     "Tabiiy unumdorlik hamda unga qo‘shilgan mehnat va kapital bilan"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Iqtisodiy unumdorlik tabiiy unumdorlikka mehnat va kapital qo‘shilishi natijasida erishiladigan hosildorlikdir."
    },
    {
-    "q": "Yer taklifi qat’iy bo‘lsa, talab oshganda:",
+    "q": "Differensial renta II qanday daromad hisoblanadi?",
     "options": [
-     "Yer miqdori oshadi",
-     "Faqat renta oshadi",
-     "O‘zgarish bo‘lmaydi",
-     "Renta pasayadi"
+     "Bir xil uchastkaga qo‘shimcha kapital qo‘yish (intensivlash) natijasida olinadigan daromad",
+     "Unumdorligi yaxshiroq yerlardan tabiiy sharoit farqi tufayli olinadigan qo‘shimcha daromad",
+     "Bozorga yaqin joylashgan uchastkalardan transport xarajatlari kamligi tufayli olinadigan daromad",
+     "Eng yomon uchastkadan ham yer egasi mulk huquqi sababli oladigan qo‘shimcha daromad"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Differensial renta II bir uchastkaga melioratsiya, sug‘orish, o‘g‘it kabi qo‘shimcha kapital qo‘yish natijasida hosil bo‘ladi."
    },
    {
-    "q": "Yerning iqtisodiy unumdorligi:",
+    "q": "K. Marksga ko‘ra absolyut rentaning manbai nima?",
     "options": [
-     "Faqat iqlimga bog‘liq",
-     "Faqat tabiiy omillarga bog‘liq",
-     "Doimiy",
-     "Tabiiy unumdorlik va qo‘shilgan mehnat hamda kapital natijasi"
+     "Uchastkalar unumdorligidagi farq va yaxshi yerlarning miqdoran cheklanganligi tufayli paydo bo‘ladigan afzallik",
+     "Uchastkaning bozordan uzoq-yaqinligi va transport xarajatlaridagi farq",
+     "Yerga xususiy mulkchilik monopoliyasi: eng yomon yer ham bepul ijaraga berilmaydi",
+     "Noyob tabiiy sharoitli yerlarda yetishtirilgan mahsulotga qo‘yiladigan monopol narx"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Marks absolyut rentani yerga xususiy mulkchilik monopoliyasidan keltirib chiqaradi."
    },
    {
-    "q": "Rikardo bo‘yicha qishloq xo‘jaligi mahsuloti narxi qaysi yerda belgilanadi?",
+    "q": "Monopol renta qanday yerlardan olinadi?",
     "options": [
-     "Eng yomon (chegaraviy)",
-     "Eng unumdor",
-     "Bozorga yaqin",
-     "O‘rtacha"
+     "Barcha yerlardan, shu jumladan eng yomon uchastkadan ham olinadigan to‘lov sifatida",
+     "Noyob tabiiy sharoitlarga ega yerlardan, ularda yetishtirilgan mahsulot monopol narxda sotiladi",
+     "Shahar markazidagi qurilish uchastkalaridan joylashuv tufayli olinadigan to‘lov sifatida",
+     "Foydali qazilmalar konlaridan resursning qayta tiklanmasligi tufayli olinadigan to‘lov sifatida"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Monopol renta noyob tabiiy sharoitli yerlardan (masalan, Shampan uzumzorlari) olinadi."
    },
    {
-    "q": "Joylashuv rentasi nazariyasi muallifi:",
+    "q": "Ijara haqi tarkibi qaysi javobda to‘g‘ri ko‘rsatilgan?",
     "options": [
-     "A. Smit",
-     "A. Marshall",
-     "I. fon Tyunen",
-     "J. Keyns"
+     "Sof renta + yerga qo‘yilgan kapitalga foiz + amortizatsiya",
+     "Sof renta + yer solig‘i + yer egasining tadbirkorlik foydasi",
+     "Yer narxi × foiz stavkasi + yer solig‘i + amortizatsiya",
+     "Differensial renta + absolyut renta + monopol renta"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Ijara haqi sof renta, yerga qo‘yilgan kapitalga foiz va uning eskirishini (amortizatsiya) o‘z ichiga oladi."
    },
    {
-    "q": "«Yagona soliq» g‘oyasi muallifi:",
+    "q": "Kon (tog‘-kon) rentasining o‘ziga xosligi nimada?",
     "options": [
-     "K. Marks",
-     "M. Fridmen",
-     "G. Jorj",
-     "D. Rikardo"
+     "Resurs har yili o‘zini qayta tiklaydi, shuning uchun renta doimiy o‘sib boradi",
+     "Renta joylashuv bilan belgilanadi, konning boyligi va chuqurligi unga ta’sir qilmaydi",
+     "Renta kon egasining mehnati natijasi bo‘lgani uchun soliqqa tortilmaydi",
+     "Resurs qayta tiklanmaydi, shuning uchun renta kelajak avlodlar uchun ham muhim"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Foydali qazilmalar qayta tiklanmaydi, shu sababli kon rentasi kelajak avlodlar uchun ham ahamiyatli."
    },
    {
-    "q": "Differensial renta I manbai:",
+    "q": "Yerga egalik huquqi (mulk huquqi) nimani o‘z ichiga oladi?",
     "options": [
-     "Unumdorlik va joylashuv farqi",
-     "Qo‘shimcha kapital qo‘yilmalari",
-     "Mulk monopoliyasi",
-     "Noyob tabiiy sharoit"
+     "Yerga egalik qilmasdan, unda iqtisodiy maqsadlarda doimiy yoki muddatli foydalanish huquqi",
+     "Shartnoma asosida muayyan muddatga ijara haqi evaziga yerdan foydalanish va hosildan bahramand bo‘lish huquqi",
+     "Yerni egallash, undan foydalanish va tasarruf etish (sotish, garovga qo‘yish) huquqlari majmui",
+     "Yerdan foydalanish va hosilni sotish huquqi, ammo yerni sotish yoki garovga qo‘yish huquqisiz"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Egalik huquqi egallash, foydalanish va tasarruf etish huquqlarining to‘liq majmuidir."
    },
    {
-    "q": "Differensial renta II manbai:",
+    "q": "G. Jorj yer rentasi haqida qanday g‘oyani ilgari surgan?",
     "options": [
-     "Joylashuv",
-     "Qo‘shimcha kapital qo‘yilmalari (intensivlash)",
-     "Unumdorlik farqi",
-     "Monopol narx"
+     "Renta jamiyat taraqqiyotining «ishlanmagan daromadi», unga yagona soliq solish kerak",
+     "Renta yer egasining mehnati mahsuli bo‘lgani uchun u soliqdan to‘liq ozod etilishi kerak",
+     "Renta tabiatning in’omi bo‘lib, yagona «sof mahsulot» manbai hisoblanadi, shuning uchun yer egasiga tegishli",
+     "Renta yerning bozordan uzoqligiga bog‘liq bo‘lib, transport xarajatlari funksiyasi hisoblanadi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Jorj rentani jamiyat rivoji natijasidagi «ishlanmagan daromad» deb, unga yagona soliq solishni taklif qilgan."
    },
    {
-    "q": "Eng yomon yerdan ham olinadigan renta:",
+    "q": "D. Rikardoga ko‘ra don narxi va renta o‘rtasidagi bog‘liqlik qanday?",
     "options": [
-     "Monopol renta",
-     "Absolyut renta",
-     "Kvazirenta",
-     "Differensial renta"
+     "Don narxi yuqori, chunki yer egalari ijarachilardan yuqori renta talab qiladi",
+     "Renta to‘lanadi, chunki don narxi yuqori; narx eng yomon yerda belgilanadi",
+     "Narx eng unumdor yerdagi xarajat bilan belgilanadi, renta esa undan kelib chiqadi",
+     "Renta yerga xususiy mulkchilik monopoliyasidan kelib chiqib, narxni o‘zi belgilaydi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Rikardo xulosasi: «renta to‘lanadi, chunki don yuqori narxda», narx esa chegaraviy (eng yomon) yerda belgilanadi."
    },
    {
-    "q": "Shampan mintaqasi uzumzorlari rentasi:",
+    "q": "I. fon Tyunen modeliga ko‘ra markazdan uzoqlashgan sari renta nima uchun kamayadi?",
     "options": [
-     "Absolyut renta",
-     "Kvazirenta",
-     "Differensial renta II",
-     "Monopol renta"
+     "Yerning tabiiy unumdorligi markazdan uzoqlashgan sari izchil pasayib, ijara arzonlashadi",
+     "Yer taklifi markazdan uzoqda elastik bo‘lib, ijara narxini pasaytirib turadi",
+     "Uzoq hududlarda yerga xususiy mulkchilik monopoliyasi kuchsizroq bo‘ladi",
+     "Transport xarajatlari oshadi, shuning uchun uchastka qo‘shimcha daromadi qisqaradi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Tyunen rentani joylashuv bilan bog‘laydi: bozordan uzoqlik transport xarajatlarini oshirib, rentani kamaytiradi."
    },
    {
-    "q": "Ijara haqi tarkibi:",
+    "q": "Boshqa sharoitlar teng bo‘lganda foiz stavkasi pasaysa, yer narxi qanday o‘zgaradi?",
     "options": [
-     "Faqat amortizatsiya",
-     "Foyda + soliq",
-     "Faqat sof renta",
-     "Sof renta + kapitalga foiz + amortizatsiya"
+     "Pasayadi, chunki foiz stavkasi kamayganda yerdan olinadigan renta ham kamayadi",
+     "O‘zgarmaydi, chunki yer taklifi mutlaq noelastik bo‘lib qoladi",
+     "Oshadi, chunki yer narxi R/i formulasi bilan topiladi",
+     "Pasayadi, chunki yerga qo‘yilgan kapitalning amortizatsiyasi tezroq oshadi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "P = R/i bo‘lgani uchun foiz stavkasi pasayganda yer narxi oshadi."
    },
    {
-    "q": "Yer narxi formulasi:",
+    "q": "Neoklassik nuqtai nazardan eng yomon yerning absolyut rentasi qachon nolga yaqin bo‘ladi?",
     "options": [
-     "P = R × i",
-     "P = R / i",
-     "P = R + i",
-     "P = i / R"
+     "Barcha ishlov berishga yaroqli yerlar band bo‘lganda",
+     "Ishlov berilmagan bo‘sh yerlar ko‘p bo‘lganda",
+     "Yerga bo‘lgan talab keskin oshganda",
+     "Yer egalarining monopoliyasi kuchaygan davrda"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Bo‘sh yerlar ko‘p bo‘lsa, eng yomon yerning rentasi nolga yaqin bo‘ladi; yerlar band bo‘lsa, u ijobiy renta keltiradi."
    },
    {
-    "q": "Renta 20 mln so‘m, foiz 10% bo‘lsa, yer narxi:",
+    "q": "Nega rentaga solinadigan soliq sof yo‘qotish (samarasizlik) yaratmaydi?",
     "options": [
-     "2 mln",
-     "200 mln",
-     "20 mln",
-     "2 000 mln"
+     "Yer taklifi mutlaq noelastik, shuning uchun soliq yer egasiga tushadi, hajm o‘zgarmaydi",
+     "Soliq yuki ijarachilarga o‘tadi, ammo ular yerdan foydalanish hajmini qisqartira olmaydi",
+     "Yer solig‘i barcha davlat xarajatlarini qoplab, boshqa soliqlarni bekor qilish imkonini beradi",
+     "Yer egalari soliqni yerga qo‘yilgan kapital daromadidan to‘lashga majbur bo‘ladi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Soliq yuki bozorning kamroq elastik tomoniga tushadi; yer taklifi noelastik bo‘lgani uchun yuk yer egasida qoladi."
    },
    {
-    "q": "Foiz stavkasi pasaysa, yer narxi:",
+    "q": "XIV asrda vabo Yevropa aholisining uchdan bir qismini yo‘q qilgach, yer rentasi nega pasaydi?",
     "options": [
-     "Oshadi",
-     "Pasayadi",
-     "Nolga tushadi",
-     "O‘zgarmaydi"
+     "Yerning umumiy miqdori qisqarib, qolgan yerlarning tabiiy unumdorligi pasayib ketdi",
+     "Ish haqi tushgani uchun yer egalari ijarani arzonlashtirishga majbur bo‘ldi",
+     "Ishchi kam qolgani uchun yerning chegaraviy mahsuloti kamaydi",
+     "Dehqonlar yerni ijaraga olishni ko‘paytirgani uchun ijara raqobatda arzonladi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Ishchilar kamayib, yer o‘zgarmagani sababli yerning chegaraviy mahsuloti va renta pasaydi, ish haqi esa oshdi."
    },
    {
-    "q": "Rentani kapitallashtirish – bu:",
+    "q": "Shahar markazida, metro yonidagi uchastkaning ijara haqi chekkadagidan o‘nlab baravar yuqori. Bu qaysi renta turi bilan bog‘liq?",
     "options": [
-     "Yerni sug‘orish",
-     "Kelgusi rentalar oqimini joriy qiymatga keltirish",
-     "Yerni ijaraga berish",
-     "Soliq to‘lash"
+     "Kon rentasi, u konning boyligi va qazib olish sharoitlariga bog‘liq",
+     "Differensial renta II, u uchastkaga qo‘yilgan qo‘shimcha kapitalga bog‘liq",
+     "Monopol renta, u noyob tabiiy iqlim sharoitlariga bog‘liq",
+     "Shahar (qurilish) rentasi, u deyarli to‘liq joylashuv bilan belgilanadi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Qurilish uchastkalarining rentasi shahar rentasi deb ataladi va joylashuvga bog‘liq."
    },
    {
-    "q": "Yer rentasiga soliq:",
+    "q": "Ijarachi shartnoma muddati davomida o‘z mablag‘i hisobiga tomchilatib sug‘orish tizimini o‘rnatib, qo‘shimcha daromad oldi. Bu daromad shartnoma amal qilgan davrda kimga tegishli?",
     "options": [
-     "Sof yo‘qotish keltirmaydi va yer egasiga tushadi",
-     "To‘liq ijarachiga tushadi",
-     "Yer taklifini kamaytiradi",
-     "Katta sof yo‘qotish keltiradi"
+     "Yer egasiga, chunki yer uning mulki va barcha qo‘shimcha daromad rentaga aylanadi",
+     "Ijarachiga; shartnoma yangilanganda esa yer egasi ijara haqini oshirib, uni o‘zlashtirishga harakat qiladi",
+     "Ijarachi bilan yer egasiga teng ulushlarda, chunki ikkalasi ham hosil olishda qatnashadi",
+     "Iste’molchilarga, chunki hosildorlik oshgani uchun mahsulot narxi tushadi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Differensial renta II ijara shartnomasi amal qilgan davrda ijarachiga tegishli bo‘ladi."
    },
    {
-    "q": "«Qora o‘lim» natijasida Yevropada:",
+    "q": "Uch uchastkada bir sentner mahsulot tannarxi 60, 80 va 100 ming so‘m; narx eng yomon uchastka tannarxi bilan belgilanadi. Birinchi uchastka 50 sentner hosil bersa, uning differensial rentasi qancha?",
     "options": [
-     "O‘zgarish bo‘lmadi",
-     "Ish haqi pasaydi, renta oshdi",
-     "Ikkalasi ham oshdi",
-     "Ish haqi oshdi, renta pasaydi"
+     "1 000 ming so‘m",
+     "3 000 ming so‘m",
+     "2 000 ming so‘m",
+     "5 000 ming so‘m"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Narx 100, tannarx 60: sentnerdan 40 ming so‘m renta; 40 × 50 = 2 000 ming so‘m."
    },
    {
-    "q": "Kvazirenta tushunchasini kiritgan:",
+    "q": "Yer yiliga 24 mln so‘m sof renta keltiradi, foiz stavkasi 8%. Yer narxi qancha?",
     "options": [
-     "D. Rikardo",
-     "A. Marshall",
-     "G. Jorj",
-     "F. Kene"
+     "300 mln so‘m",
+     "1,92 mln so‘m",
+     "192 mln so‘m",
+     "32 mln so‘m"
     ],
-    "c": 1
+    "c": 0,
+    "e": "P = R/i = 24 / 0,08 = 300 mln so‘m."
    },
    {
-    "q": "Neoklassik nazariyada yer rentasi:",
+    "q": "Yillik renta R yiliga g sur’atda o‘sishi kutilsa va foiz stavkasi i bo‘lsa, yer narxi qaysi formula bilan topiladi?",
     "options": [
-     "Har doim nolga teng",
-     "Davlat tomonidan belgilanadi",
-     "Yerning chegaraviy mahsuloti qiymatiga teng",
-     "Qo‘shimcha qiymatning bir qismi"
+     "P = R / (i + g)",
+     "P = R × (1 + i – g)",
+     "P = R × i / g",
+     "P = R / (i – g)"
     ],
-    "c": 2
-   },
-   {
-    "q": "Renta yiliga g o‘sishi kutilsa, yer narxi:",
-    "options": [
-     "R × g",
-     "R/(i – g)",
-     "R/(i + g)",
-     "R/i"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda qishloq xo‘jaligi yerlari:",
-    "options": [
-     "Kooperativ mulki",
-     "Davlat mulki bo‘lib, uzoq muddatli ijaraga beriladi",
-     "Xususiy mulk",
-     "Chet elliklarga sotiladi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda yer uchastkalariga huquqlar asosan qaysi platforma orqali beriladi?",
-    "options": [
-     "Soliq organi",
-     "Bank",
-     "Fond birjasi",
-     "«E-auksion» elektron savdo platformasi"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Qisqa muddatli ijaraning salbiy oqibati:",
-    "options": [
-     "Ijarachining yerga uzoq muddatli investitsiyasi kamayadi",
-     "Yer narxi oshadi",
-     "Renta yo‘qoladi",
-     "Hosildorlik oshadi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "O‘zbekistonda aholi jon boshiga sug‘oriladigan yer 1991–2025-yillarda:",
-    "options": [
-     "Taxminan ikki baravar kamaydi",
-     "Oshdi",
-     "Uch baravar oshdi",
-     "O‘zgarmadi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Kon rentasining o‘ziga xosligi:",
-    "options": [
-     "Faqat qishloq xo‘jaligida",
-     "Renta har doim nol",
-     "Resurs qayta tiklanmaydi",
-     "Joylashuvga bog‘liq emas"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Shahar (qurilish) rentasi asosan nimaga bog‘liq?",
-    "options": [
-     "Tuproq unumdorligiga",
-     "Suv bilan ta’minlanishiga",
-     "Iqlimga",
-     "Joylashuvga"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Qishloq xo‘jaligi mahsulotlariga talab:",
-    "options": [
-     "Juda elastik",
-     "Musbat qiyalikka ega",
-     "Noelastik",
-     "Mutlaq elastik"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Ijarachilar o‘rtasidagi raqobat natijasida ijara haqi:",
-    "options": [
-     "Rentaga tenglashadi",
-     "Rentadan ancha past bo‘ladi",
-     "Nolga tushadi",
-     "O‘zgarmaydi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Absolyut renta neoklassik nuqtai nazardan nimani aks ettiradi?",
-    "options": [
-     "Kapital qo‘yilmalarini",
-     "Yerning noyob sifatlarini",
-     "Yerning umumiy tanqisligini",
-     "Inflyatsiyani"
-    ],
-    "c": 2
+    "c": 3,
+    "e": "Renta o‘sishi kutilganda yer narxi Gordon formulasi bo‘yicha R/(i – g) ga teng."
    }
   ],
   "selfStudy": [
@@ -7901,304 +6621,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Ixtiyoridagi daromad – bu:",
+    "q": "Real daromad nimani ko‘rsatadi?",
     "options": [
-     "Real daromad",
-     "Soliqqacha daromad",
-     "Soliqlar va majburiy to‘lovlardan keyingi daromad",
-     "Faqat ish haqi"
+     "Joriy narxlarda pul ko‘rinishida olingan, inflyatsiyaga tuzatilmagan daromad miqdorini",
+     "Soliqlar va majburiy to‘lovlar chegirilgandan keyin iste’mol va jamg‘arishga qoladigan daromadni",
+     "Narxlar o‘zgarishiga tuzatilgan daromadning xarid qobiliyatini",
+     "Mehnat, mulk va transfertlardan olingan barcha daromadlar yig‘indisini"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Real daromad narxlar o‘zgarishiga tuzatilgan daromad bo‘lib, xarid qobiliyatini ko‘rsatadi."
    },
    {
-    "q": "Funksional taqsimot nimani ko‘rsatadi?",
+    "q": "Ixtiyoridagi daromad qanday daromad?",
     "options": [
-     "Hududlar o‘rtasidagi taqsimotni",
-     "Ishlab chiqarish omillari o‘rtasidagi taqsimotni",
-     "Oilalar o‘rtasidagi taqsimotni",
-     "Soliqlar taqsimotini"
+     "Soliq va majburiy to‘lovlardan keyin iste’mol va jamg‘arishga qoladigan daromad",
+     "Narxlar o‘zgarishiga tuzatilib, xarid qobiliyati bilan o‘lchanadigan daromad miqdori",
+     "Ish haqi va tadbirkorlik daromadlaridan iborat, mehnat faoliyatidan olingan daromad",
+     "Davlatdan pensiya, nafaqa va stipendiya ko‘rinishida olinadigan ijtimoiy daromad"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Ixtiyoridagi daromad soliq va majburiy to‘lovlardan keyin iste’mol va jamg‘arishga qoladigan qismdir."
    },
    {
-    "q": "Kvintil guruh aholining qancha qismini o‘z ichiga oladi?",
+    "q": "Daromadlarning funksional taqsimoti nimani ko‘rsatadi?",
     "options": [
-     "10%",
-     "20%",
-     "25%",
-     "5%"
+     "Milliy daromadning alohida oilalar va shaxslar o‘rtasida taqsimlanishini",
+     "Milliy daromadning davlat byudjeti va aholi o‘rtasida taqsimlanishini",
+     "Aholi daromadining iste’mol va jamg‘arish o‘rtasida taqsimlanishini",
+     "Milliy daromadning mehnat, kapital va yer o‘rtasida taqsimlanishini"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Funksional taqsimot daromadni omillar bo‘yicha, shaxsiy taqsimot esa oilalar bo‘yicha ko‘rsatadi."
    },
    {
-    "q": "Mutlaq tenglikda Lorents egri chizig‘i:",
+    "q": "Daromadlar mutlaq teng taqsimlansa, Lorents egri chizig‘i qanday ko‘rinadi?",
     "options": [
-     "Egri chiziq",
-     "45° li diagonalga mos keladi",
-     "Vertikal chiziq",
-     "Gorizontal o‘qqa mos keladi"
+     "Pastki va o‘ng o‘qlar bo‘ylab o‘tadi",
+     "45° li diagonal (mutlaq tenglik chizig‘i) bilan ustma-ust tushadi",
+     "Diagonaldan eng uzoqda joylashgan egri chiziq bo‘ladi",
+     "Gorizontal o‘qqa parallel to‘g‘ri chiziq bo‘ladi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Mutlaq tenglikda aholining har 20% i daromadning 20% ini oladi, shuning uchun chiziq diagonalga mos keladi."
    },
    {
-    "q": "Jini koeffitsienti 0 ga teng bo‘lsa:",
+    "q": "Jini koeffitsienti 0 ga teng bo‘lsa, bu nimani bildiradi?",
     "options": [
-     "Mutlaq tengsizlik",
-     "Kambag‘allik yo‘q",
-     "Mutlaq tenglik",
-     "O‘rtacha tengsizlik"
+     "Barcha daromad bitta odamga tegishli ekanini",
+     "Aholining yarmi kambag‘allik chegarasidan past yashayotganini",
+     "Daromadlar mutlaq teng taqsimlanganini",
+     "Kambag‘allik butunlay bartaraf etilganini"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Jini 0 (mutlaq tenglik) va 1 (mutlaq tengsizlik) oralig‘ida o‘zgaradi."
    },
    {
-    "q": "Jini koeffitsienti formulasi (grafik bo‘yicha):",
+    "q": "Mutlaq kambag‘allik chegarasi nimaga asoslanib aniqlanadi?",
     "options": [
-     "A + B",
-     "B/(A + B)",
-     "A/B",
-     "A/(A + B)"
+     "Mamlakatdagi mediana daromadning 50 yoki 60 foiziga to‘g‘ri keladigan miqdorga",
+     "Aholi jon boshiga to‘g‘ri keladigan o‘rtacha daromadning yarmiga teng miqdorga",
+     "Eng boy 10 foiz aholi daromadining ma’lum ulushiga teng miqdorga",
+     "Minimal iste’mol savatchasining (zarur tovarlar va xizmatlar) qiymatiga"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Kambag‘allik chegarasi minimal iste’mol savatchasi qiymati asosida belgilanadi; mediana daromad foizi nisbiy yondashuvga xos."
    },
    {
-    "q": "Lorents chizig‘i diagonaldan qancha uzoq bo‘lsa:",
+    "q": "Nisbiy kambag‘allik qanday holat?",
     "options": [
-     "Daromad shuncha yuqori",
-     "Kambag‘allik shuncha kam",
-     "Tengsizlik shuncha kichik",
-     "Tengsizlik shuncha katta"
+     "Daromad mediana daromadning ma’lum foizidan (50–60%) past bo‘lgan holat",
+     "Daromad minimal iste’mol savatchasi qiymatidan past bo‘lgan, mutlaq o‘lchanadigan holat",
+     "Daromad kuniga bir necha dollarlik xalqaro chegaradan past bo‘lgan holat, ya’ni o‘ta qashshoqlik",
+     "Daromad o‘tgan yilga nisbatan kamaygan va oila xarajatlaridan oshmagan holat"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Nisbiy kambag‘allik mediana daromadga nisbatan o‘lchanadi va ijtimoiy chetlashishni aks ettiradi."
    },
    {
-    "q": "AQShda 2014-yilda eng boy 20% oilalarning daromad ulushi:",
+    "q": "Manfiy daromad solig‘i tizimida past daromadli oilalar qanday holatda bo‘ladi?",
     "options": [
-     "20,8%",
-     "48,9%",
-     "3,6%",
-     "23,2%"
+     "Boshqalar bilan bir xil stavkada soliq to‘laydi, so‘ngra to‘langan soliqning bir qismini qaytarib oladi",
+     "Soliq to‘lamaydi, aksincha transfert oladi; daromad oshgani sari transfert kamayadi",
+     "Soliqdan to‘liq ozod etiladi, lekin davlatdan hech qanday transfert olmaydi",
+     "Ishlab topilgan daromad oshgani sari davlatdan oladigan transfert ham oshib boradi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "T = t × Y – G: daromad kichik bo‘lsa T manfiy, ya’ni transfert; daromad oshgani sari u kamayadi."
    },
    {
-    "q": "Mankyu ma’lumotlariga ko‘ra eng tengsiz taqsimot qaysi mamlakatda?",
+    "q": "Rouls tasvirlagan «bexabarlik pardasi» ortida odamlar qanday mezonni tanlaydi?",
     "options": [
-     "Janubiy Afrika",
-     "Xitoy",
-     "Shvetsiya",
-     "AQSh"
+     "Jamiyat a’zolari umumiy nafligi yig‘indisini maksimallashtirishni (utilitar mezon)",
+     "Davlat qayta taqsimlashga aralashmasligini va jarayonlar adolatini ta’minlashni",
+     "O‘rtacha daromadni maksimallashtirishni, tengsizlikka e’tibor bermasdan",
+     "Eng yomon holatdagi shaxs farovonligini maksimallashtirishni (maksimin)"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Rouls bo‘yicha pardasi ortidagi odamlar maksimin mezonini tanlaydi."
    },
    {
-    "q": "O‘zbekistonda 2025-yilda kambag‘allik darajasi:",
+    "q": "Nega utilitar hukumat daromadlarning to‘liq tengligini talab qilmaydi?",
     "options": [
-     "14%",
-     "5,8%",
-     "11%",
-     "8,9%"
+     "Yuqori soliqlar ishlash rag‘batini pasaytirib, umumiy daromadni kamaytiradi («teshik chelak»)",
+     "Chegaraviy naflik daromad oshgani sari ortib boradi, shuning uchun boylar ko‘proq naflik oladi",
+     "Shaxslar nafligini taqqoslab bo‘lmaydi va davlat qayta taqsimlashga haqli emas",
+     "Daromadlar jamiyatga emas, ularni ishlab topgan shaxslarga tegishli"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Qayta taqsimlash rag‘batlarni buzib, bir qism naflikni yo‘qotadi (Okunning «teshik chelak» misoli)."
    },
    {
-    "q": "O‘zbekistonda Jini koeffitsienti:",
+    "q": "Bir yillik daromad ma’lumotlari hayotiy sikl tufayli tengsizlikni qanday ko‘rsatadi?",
     "options": [
-     "0,50",
-     "0,33",
-     "0,15",
-     "0,60"
+     "Kamaytirib ko‘rsatadi, chunki yoshlar va pensionerlar daromadi umuman hisobga olinmaydi",
+     "To‘g‘ri ko‘rsatadi, chunki iste’mol har yili joriy daromadga aynan teng bo‘ladi",
+     "Oshirib ko‘rsatadi, chunki odamlar jamg‘arish va qarz olib iste’molni tekislaydi",
+     "Ta’sir qilmaydi, chunki daromad hayot davomida deyarli o‘zgarmay qoladi"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Daromad yoshlikda past, o‘rta yoshda yuqori, pensiyada yana past bo‘ladi, iste’mol esa tekislanadi."
    },
    {
-    "q": "Nisbiy kambag‘allik qanday aniqlanadi?",
+    "q": "Natura shaklidagi transfertlar (oziq-ovqat taloni, bepul tibbiy xizmat) pul daromadi sifatida hisobga olinmasa, kambag‘allik darajasi qanday ko‘rinadi?",
     "options": [
-     "Kuniga 3 dollar",
-     "Minimal iste’mol savatchasi asosida",
-     "Mediana daromadning ma’lum foizidan past daromad",
-     "Eng kam ish haqi"
+     "Haqiqatdagidan past; ularni hisobga olsak, kambag‘allik darajasi yanada oshadi",
+     "Haqiqatdagidan yuqori; ularni hisobga olsak, kambag‘allik darajasi pasayadi",
+     "To‘g‘ri aks etadi, chunki natura yordami turmush darajasiga ta’sir qilmaydi",
+     "O‘zgarmaydi, chunki kambag‘allik chegarasi ham shunga mos ravishda o‘zgaradi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Natura transfertlari hisobga olinmagani uchun kambag‘allik darajasi to‘liq aks etmaydi va yuqori ko‘rinadi."
    },
    {
-    "q": "Mankyu ko‘rsatgan kambag‘allikni o‘lchash muammosi emas:",
+    "q": "Libertarizm (R. Nozik) taqsimot adolatini nimaga qarab baholaydi?",
     "options": [
-     "Hayotiy sikl",
-     "Natura transfertlari",
-     "Vaqtinchalik daromad",
-     "Inflyatsiya darajasi"
+     "Daromad qanday yo‘l bilan (ixtiyoriy ayirboshlash, mehnat, meros) olinganiga",
+     "Eng yomon holatdagi shaxs farovonligi qanchalik oshganiga",
+     "Jamiyat a’zolarining umumiy nafligi qanchalik ko‘payganiga",
+     "Natijalar tengligi va kambag‘allar ulushining qanchalik kattaligiga"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Libertarlar uchun natijalar emas, jarayonlar muhim: adolatli yo‘l bilan olingan daromad adolatli."
    },
    {
-    "q": "Doimiy daromad gipotezasi muallifi:",
+    "q": "T. Piketti nima uchun boylik konsentratsiyasi o‘sib borishi mumkin deb hisoblaydi?",
     "options": [
-     "Dj. Rouls",
-     "M. Fridmen",
-     "J. Keyns",
-     "R. Nozik"
+     "Iqtisodiy o‘sish sur’ati (g) kapital daromadliligidan (r) yuqori bo‘lsa",
+     "Ish haqi mulkdan olinadigan daromadlarga qaraganda tezroq o‘ssa",
+     "Kapital daromadliligi (r) iqtisodiy o‘sish sur’atidan (g) yuqori bo‘lsa",
+     "Davlat ijtimoiy transfertlarni muntazam oshirib borsa"
     ],
-    "c": 1
+    "c": 2,
+    "e": "Pikettining r > g qoidasiga ko‘ra kapital daromadi o‘sishdan oshsa, boylik to‘planib boradi."
    },
    {
-    "q": "Utilitarizm asoschilari:",
+    "q": "Uy xo‘jaliklari so‘rovlariga asoslangan Jini koeffitsienti haqiqiy tengsizlikni nima uchun kamroq ko‘rsatishi mumkin?",
     "options": [
-     "Dj. Rouls",
-     "A. Smit",
-     "R. Nozik",
-     "I. Bentam va J.S. Mill"
+     "Eng kambag‘al oilalar so‘rovlarda ishtirok etmagani uchun ularning daromadi hisobga olinmaydi",
+     "Eng boy oilalar so‘rovlarda kam ishtirok etgani uchun ularning daromadi to‘liq qamralmaydi",
+     "Norasmiy daromadlar so‘rovlarda ortiqcha hisoblanib, tengsizlik kamayib ketadi",
+     "Jini koeffitsienti ish haqini hisobga oladi, mulkdan daromadlar formulaga kirmaydi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Eng boy oilalar so‘rovlarda kam qatnashadi, shuning uchun haqiqiy tengsizlik rasmiy ko‘rsatkichdan yuqori bo‘lishi mumkin."
    },
    {
-    "q": "Utilitar qayta taqsimlash dalili nimaga asoslanadi?",
+    "q": "Mamlakatda kvintillar bo‘yicha daromad ulushlari: 6%, 11%, 16%, 22% va 45%. Kvintil koeffitsienti qancha?",
     "options": [
-     "Jarayonlar adolatiga",
-     "Maksimin mezoniga",
-     "Chegaraviy naflikning kamayishiga",
-     "Meros huquqiga"
+     "0,13",
+     "39",
+     "4,1",
+     "7,5"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Kvintil koeffitsienti = eng boy 20% ulushi / eng kambag‘al 20% ulushi = 45 / 6 = 7,5."
    },
    {
-    "q": "Roulsning maksimin mezoni:",
+    "q": "Manfiy daromad solig‘ida T = t × Y – G; G = 900 ming so‘m, t = 30%. Oilaning bozor daromadi 1 000 ming so‘m bo‘lsa, u qancha transfert oladi?",
     "options": [
-     "Eng yomon holatdagi shaxs farovonligini maksimallashtirish",
-     "Umumiy naflikni maksimallashtirish",
-     "O‘rtacha daromad",
-     "Eng boy shaxs farovonligi"
+     "600 ming so‘m",
+     "300 ming so‘m",
+     "900 ming so‘m",
+     "1 200 ming so‘m"
     ],
-    "c": 0
+    "c": 0,
+    "e": "T = 0,3 × 1 000 – 900 = –600, ya’ni oila 600 ming so‘m transfert oladi."
    },
    {
-    "q": "Libertarizm vakili:",
+    "q": "Kambag‘al oila ishlab topgan har bir qo‘shimcha so‘m uchun ijtimoiy nafaqa ham 1 so‘mga kamaysa, bu qanday ta’sir ko‘rsatadi?",
     "options": [
-     "I. Bentam",
-     "A. Okun",
-     "R. Nozik",
-     "Dj. Rouls"
+     "Ishlash rag‘bati kuchayadi, chunki oila nafaqaga qaramlikdan qutuladi",
+     "Oilaning jami daromadi ishlab topilgan har bir so‘m hisobiga 1 so‘mga oshadi",
+     "Chegaraviy soliq stavkasi nolga teng bo‘lib, rag‘batlar o‘zgarmaydi",
+     "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan oilaning foydasi qolmaydi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Nafaqaning 1 so‘mga kamayishi 100% li chegaraviy soliqqa teng («kambag‘allik tuzog‘i»)."
    },
    {
-    "q": "Okunning «teshik chelak» masali nimani ko‘rsatadi?",
+    "q": "Hukumat kambag‘allarga pul o‘rniga oziq-ovqat taloni va uy-joy subsidiyasi beradi. Bu dastakning kamchiligi nima?",
     "options": [
-     "Qayta taqsimlashdagi samaradorlik yo‘qotishlarini",
-     "Inflyatsiyani",
-     "Savdo samarasini",
-     "Monopoliya foydasini"
+     "Yordam pul ko‘rinishida bo‘lgani uchun noto‘g‘ri maqsadga sarflanishi mumkin",
+     "Oluvchilarning tanlov erkinligi cheklanadi va ma’muriy xarajatlar oshadi",
+     "Ishlab topilgan daromad ortgani sari yordam miqdori ham oshib boradi",
+     "Yordam kam ta’minlanmagan oilalarga ham to‘lanadi va byudjet xarajatlari oshadi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Natura shaklidagi yordam aniq ehtiyojlarga yo‘naltiriladi, lekin tanlov erkinligini cheklaydi va ma’muriy xarajat talab qiladi."
    },
    {
-    "q": "Manfiy daromad solig‘ida zararsizlik nuqtasi:",
+    "q": "O‘zbekistonda jismoniy shaxslar daromadiga yagona (proporsional) soliq stavkasi qo‘llanadi. Qayta taqsimlash funksiyasi asosan qanday amalga oshiriladi?",
     "options": [
-     "G × t",
-     "G + t",
-     "t / G",
-     "G / t"
+     "Progressiv shkala orqali: boylardan yuqori stavkada soliq olinadi",
+     "Mulk va merosga yuqori soliq solish orqali",
+     "Xarajatlar orqali: nafaqalar va ijtimoiy xizmatlar yordamida",
+     "Daromad solig‘ini kam ta’minlanganlarga to‘liq qaytarish orqali"
     ],
-    "c": 3
-   },
-   {
-    "q": "G = 2 mln, t = 40% bo‘lsa, zararsizlik nuqtasi:",
-    "options": [
-     "0,8 mln",
-     "5 mln",
-     "2,4 mln",
-     "8 mln"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Manfiy daromad solig‘ining asosiy afzalligi:",
-    "options": [
-     "Arzonligi",
-     "Ishlash rag‘batini saqlashi",
-     "Faqat kambag‘allarga to‘lanishi",
-     "Soliqlarni bekor qilishi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Ishlab topilgan har bir so‘m uchun nafaqa bir so‘mga kamaysa, yashirin chegaraviy soliq stavkasi:",
-    "options": [
-     "0%",
-     "100%",
-     "50%",
-     "12%"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Natura shaklidagi yordamga misol:",
-    "options": [
-     "Oziq-ovqat taloni yoki bepul tibbiy xizmat",
-     "Ish haqi",
-     "Pensiya",
-     "Pul nafaqasi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "O‘zbekistonda jismoniy shaxslar daromad solig‘i stavkasi:",
-    "options": [
-     "20%",
-     "Progressiv 5–22%",
-     "0%",
-     "Yagona 12%"
-    ],
-    "c": 3
-   },
-   {
-    "q": "O‘zbekistonda nafaqalar qaysi axborot tizimi orqali tayinlanadi?",
-    "options": [
-     "Soliq reestri",
-     "Ijtimoiy himoya yagona reestri",
-     "Bank reestri",
-     "Temir daftar"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekiston aholisi daromadlarida mehnatdan daromadlar ulushi:",
-    "options": [
-     "11,8%",
-     "72,6%",
-     "50%",
-     "90%"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Piketti tengsizlik o‘sishini qanday shart bilan bog‘laydi?",
-    "options": [
-     "r > g",
-     "g > r",
-     "r = g",
-     "r = 0"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Workfare tamoyili:",
-    "options": [
-     "Barcha uchun shartsiz daromad",
-     "Nafaqani ish izlash yoki o‘qish bilan bog‘lash",
-     "Eng kam ish haqini oshirish",
-     "Soliqlarni bekor qilish"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda eng boy va eng kambag‘al 20% aholi daromadlari nisbati:",
-    "options": [
-     "9,8",
-     "5,7",
-     "28,5",
-     "2,0"
-    ],
-    "c": 1
+    "c": 2,
+    "e": "Yagona stavka sharoitida qayta taqsimlash asosan nafaqalar va ijtimoiy xizmatlar xarajatlari orqali amalga oshiriladi."
    }
   ],
   "selfStudy": [
@@ -8396,304 +7036,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Qisman muvozanat tahlili asoschisi:",
+    "q": "Qisman muvozanat tahlili nimaga asoslanadi?",
     "options": [
-     "K. Errou",
-     "L. Valras",
-     "V. Pareto",
-     "A. Marshall"
+     "Barcha bozorlardagi narx va miqdorlarni bir vaqtda, o‘zaro ta’sirini hisobga olib aniqlashga",
+     "Davlat tomonidan tartibga solinadigan bozorlarni alohida o‘rganishga",
+     "Omillar bozorlarini tovarlar bozorlaridan ajratmasdan birgalikda o‘rganishga",
+     "Bitta bozorni boshqa bozorlardagi narx va miqdorlar o‘zgarmas deb olib o‘rganishga"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Qisman muvozanat (Marshall) «boshqa sharoitlar teng bo‘lganda» tamoyilida bitta bozorni o‘rganadi."
    },
    {
-    "q": "Umumiy muvozanat nazariyasi asoschisi:",
+    "q": "Valras tizimida umumiy muvozanat qachon o‘rnatiladi?",
     "options": [
-     "L. Valras",
-     "D. Rikardo",
-     "J. Keyns",
-     "A. Smit"
+     "Bitta bozorda talab va taklif tenglashib, boshqalarida ortiqcha taklif saqlanganda",
+     "Barcha bozorlarda ortiqcha talab nolga teng bo‘ladigan narxlar majmuida",
+     "Barcha tovarlarning mutlaq narxlari o‘zaro bir xil bo‘lganda",
+     "Barcha bozorlarda ortiqcha talab yig‘indisi musbat bo‘lganda"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Umumiy muvozanat Z1 = Z2 = … = Zn = 0 shartida o‘rnatiladi."
    },
    {
-    "q": "Umumiy muvozanat – bu:",
+    "q": "Valras qonuniga ko‘ra n ta bozordan n – 1 tasida muvozanat bo‘lsa, nima bo‘ladi?",
     "options": [
-     "Davlat byudjeti muvozanati",
-     "Tashqi savdo muvozanati",
-     "Barcha bozorlarda bir vaqtdagi muvozanat",
-     "Bitta bozordagi muvozanat"
+     "n-bozorda ortiqcha talab qoladi va narx oshadi",
+     "n-bozorda ortiqcha taklif qoladi va narx tushadi",
+     "n-bozorda ham muvozanat avtomatik ravishda o‘rnatiladi",
+     "n-bozor muvozanati boshqa bozorlarga bog‘liq bo‘lmay, alohida aniqlanadi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Ortiqcha talablar qiymati yig‘indisi nolga teng (ΣPiZi = 0), shuning uchun n – 1 muvozanat n-ni ham belgilaydi."
    },
    {
-    "q": "Valras qonuniga ko‘ra n ta bozordan n – 1 tasida muvozanat bo‘lsa:",
+    "q": "Iste’mol bo‘yicha Edjvort qutisi qanday iqtisodiyotni tahlil qilish uchun qulay?",
     "options": [
-     "Narxlar nolga teng",
-     "Muvozanat mavjud emas",
-     "n-bozorda taqchillik bo‘ladi",
-     "n-bozorda ham muvozanat bo‘ladi"
+     "Ikki iste’molchi va ikki tovarli, faqat ayirboshlash bor iqtisodiyotni",
+     "Bitta iste’molchi va ko‘p tovarli, narxlari davlat nazorat qiladigan iqtisodiyotni",
+     "Ikki firma va bitta omil bilan ishlaydigan monopol bozor sharoitidagi iqtisodiyotni",
+     "Davlat sektori va tashqi savdoni o‘z ichiga olgan ochiq iqtisodiyotni"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Edjvort qutisi ikki iste’molchi va ikki tovar o‘rtasidagi ayirboshlashni ko‘rsatadi."
    },
    {
-    "q": "Umumiy muvozanat mavjudligini qat’iy isbotlaganlar:",
+    "q": "Pareto samaradorligi nima?",
     "options": [
-     "Errou va Debre",
-     "Smit va Rikardo",
-     "Marshall va Keyns",
-     "Lipsi va Lankaster"
+     "Barcha iste’molchilarga teng miqdorda tovar tushadigan va hamma rozi bo‘ladigan adolatli taqsimot",
+     "Jami naflik yig‘indisi eng yuqori bo‘ladigan va hech kim yutqazmaydigan taqsimot",
+     "Eng kambag‘al shaxsning nafligi maksimal bo‘ladigan va farqlar kamayadigan taqsimot",
+     "Hech kimning ahvolini boshqasini yomonlashtirmay yaxshilab bo‘lmaydigan taqsimot"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Pareto samarali taqsimotda birovning ahvolini yomonlashtirmay boshqasini yaxshilab bo‘lmaydi."
    },
    {
-    "q": "Edjvort qutisining o‘lchamlari nimaga teng?",
+    "q": "Ayirboshlash samaradorligining sharti qaysi?",
     "options": [
-     "Narxlarga",
-     "Naflikka",
-     "Tovarlarning umumiy miqdoriga",
-     "Iste’molchilar daromadiga"
+     "MRTS(X) = MRTS(Y): tarmoqlarda texnik almashtirish normalari o‘zaro teng",
+     "MRT = MRS: transformatsiyaning chegaraviy normasi iste’molchilar MRS iga teng",
+     "MRS(A) = MRS(B): iste’molchilarning chegaraviy almashtirish normalari teng",
+     "U(A) = U(B): har ikkala iste’molchining nafliklari aynan bir xil bo‘lishi"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Befarqlik chiziqlari urinish nuqtasida qiyaliklar teng, ya’ni MRS(A) = MRS(B)."
    },
    {
-    "q": "Ayirboshlash samaradorligi sharti:",
+    "q": "Mahsulot tarkibi samaradorligi qachon ta’minlanadi?",
     "options": [
-     "MRTSX = MRTSY",
-     "MRT = 0",
-     "P = MC",
-     "MRSA = MRSB"
+     "Ikki tarmoqda omillarning texnik almashtirish normalari o‘zaro teng bo‘lganda",
+     "X ni ishlab chiqarish xarajati (MRT) iste’molchilar bahosiga (MRS) teng bo‘lganda",
+     "Barcha tovarlar bir xil miqdorda ishlab chiqarilib, iste’molchilarga teng bo‘lib berilganda",
+     "Narxlar davlat tomonidan tannarxdan past darajada belgilab qo‘yilganda"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Mahsulot tarkibi samaradorligi sharti MRT = MRS bo‘lib, ishlab chiqarish tarkibi iste’molchilar afzalliklariga mos bo‘ladi."
    },
    {
-    "q": "Shartnoma egri chizig‘i – bu:",
+    "q": "Naflik imkoniyatlari egri chizig‘ining ichkarisidagi nuqta nimani bildiradi?",
     "options": [
-     "Izokvanta",
-     "Barcha Pareto samarali taqsimotlar to‘plami",
-     "Talab chizig‘i",
-     "Byudjet chizig‘i"
+     "Samarasiz holat: egri chiziqqa o‘tish Pareto-yaxshilanish bo‘ladi",
+     "Pareto samarali holat: hech kimni yomonlashtirmasdan yaxshilab bo‘lmaydi",
+     "Mavjud resurslar bilan erishib bo‘lmaydigan, ya’ni imkonsiz holat",
+     "Ijtimoiy jihatdan eng maqbul bo‘lgan, eng yuqori farovonlik holati"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Egri chiziq ichidagi nuqtalar samarasiz; chiziqdagi nuqtalar Pareto samarali, tashqarisi esa erishib bo‘lmaydi."
    },
    {
-    "q": "Pareto samaradorligi:",
+    "q": "Kaldor-Xiks mezoniga ko‘ra o‘zgarish qachon ijtimoiy jihatdan maqbul?",
     "options": [
-     "Hech kimni yomonlashtirmasdan hech kimni yaxshilab bo‘lmaydigan holat",
-     "Tenglikni anglatadi",
-     "Faqat monopoliyada mavjud",
-     "Adolatli taqsimotni anglatadi"
+     "Hech kimning ahvoli yomonlashmasa va kamida bir kishi yutsa",
+     "Yutqazganlarga kompensatsiya amalda to‘liq to‘langan bo‘lsa",
+     "Yutganlar yutqazganlarga kompensatsiya to‘lab, baribir yutuqda qola olsa, kompensatsiya amalda to‘lanmasa ham",
+     "Eng yomon holatdagi shaxsning nafligi oshsa"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Kaldor-Xiks potensial kompensatsiya mezoni: yutganlar yutqazganlarni qoplay olishi yetarli."
    },
    {
-    "q": "Pareto-yaxshilanish:",
+    "q": "Nega Valras tizimida faqat nisbiy narxlar muhim?",
     "options": [
-     "Boylar yutadi",
-     "Ko‘pchilik yutadi",
-     "Hamma yutqazadi",
-     "Kamida bir kishi yutadi, hech kim yutqazmaydi"
+     "Mutlaq narxlar o‘zgarsa, tovarlarning ortiqcha talabi darhol nolga tushib qoladi",
+     "Narxlar darajasi pul massasi bilan emas, tovarlar miqdori bilan belgilanadi",
+     "Barcha narxlar teng oshganda byudjet cheklovi bo‘shashib, real talab ham ortadi",
+     "Narxlar va daromadlar ikki baravar oshsa, real talab va taklif o‘zgarmaydi"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Narxlar va daromadlar bir xil nisbatda o‘zgarsa, real o‘zgarish bo‘lmaydi; shu sabab bitta tovar numerar qilib olinadi."
    },
    {
-    "q": "Naflik imkoniyatlari egri chizig‘i ichidagi nuqta:",
+    "q": "Nega Pareto samaradorligi adolatni anglatmaydi?",
     "options": [
-     "Erishib bo‘lmaydi",
-     "Pareto samarali",
-     "Ijtimoiy optimum",
-     "Samarasiz"
+     "Bir kishi hamma narsaga ega bo‘lgan taqsimot ham Pareto samarali bo‘lishi mumkin",
+     "Pareto samarali nuqtalarda barcha iste’molchilar teng naflik oladi, lekin resurslar isrof bo‘ladi",
+     "Shartnoma egri chizig‘ida yagona Pareto samarali nuqta bor va uni bozor o‘zi tanlaydi",
+     "Pareto mezoni har qanday ikki taqsimotni to‘liq tartiblab, eng adolatlisini ko‘rsatib beradi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Shartnoma egri chizig‘idagi barcha nuqtalar Pareto samarali, ular taqsimot jihatidan keskin farq qilishi mumkin."
    },
    {
-    "q": "Ishlab chiqarish samaradorligi sharti:",
+    "q": "Farovonlik iqtisodiyotining birinchi teoremasiga ko‘ra raqobat muvozanati qachon Pareto samarali bo‘ladi?",
     "options": [
-     "P = AC",
-     "MRT = 0",
-     "MRTSX = MRTSY",
-     "MRSA = MRSB"
+     "Davlat narxlarni nazorat qilib, boshlang‘ich zaxiralarni teng taqsimlagan bo‘lsa",
+     "Raqobat mukammal bo‘lib, tashqi samara va axborot asimmetriyasi bo‘lmasa",
+     "Bozorda bir nechta yirik firma bo‘lib, ular o‘zaro kelishib ish yuritsa",
+     "Iste’molchilar o‘z afzalliklarini yashirib, axborot nomukammal almashilsa"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Birinchi teorema mukammal raqobat va tashqi samaralar, ijtimoiy ne’matlar, axborot asimmetriyasi yo‘qligini talab qiladi."
    },
    {
-    "q": "MRT qanday nisbatga teng?",
+    "q": "Bozor natijasi adolatsiz deb topilsa, farovonlik iqtisodiyotining ikkinchi teoremasidan kelib chiqib nima qilish ma’qul?",
     "options": [
-     "MUX/MUY",
-     "MCX/MCY",
-     "w/r",
-     "PX/PY"
+     "Narxlarni nazorat qilib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
+     "Muvozanat narxlarini o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
+     "Raqobatni cheklab, ishlab chiqarishni davlat rejasi asosida tashkil etish",
+     "Boshlang‘ich resurslarni yalpi soliqlar va transfertlar orqali qayta taqsimlab, bozorga erkin ishlash imkonini berish"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Ikkinchi teorema samaradorlik va adolatni ajratadi: narxlarni buzmasdan boshlang‘ich zaxiralar qayta taqsimlanadi."
    },
    {
-    "q": "Mahsulot tarkibi samaradorligi sharti:",
+    "q": "X tarmog‘i monopollashgan, Y esa raqobatli bo‘lsa, mahsulot tarkibi samaradorligi nega buziladi?",
     "options": [
-     "MRS = 1",
-     "MRT = MRTS",
-     "MRT = MRS",
-     "P = 0"
+     "P(X) > MC(X), shuning uchun MRS > MRT va resurslar X dan Y ga ortiqcha o‘tadi",
+     "P(X) < MC(X), shuning uchun MRS < MRT va resurslar X tarmog‘iga ortiqcha oqib keladi",
+     "Ikki tarmoqda narx xarajatga teng bo‘lgani uchun MRS = MRT bo‘lib qoladi",
+     "Monopolist ishlab chiqarishni oshirgani uchun Y tarmog‘ida omillar yetishmay qoladi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Monopoliyada PX/PY > MCX/MCY = MRT, ya’ni MRS > MRT; X kam ishlab chiqariladi."
    },
    {
-    "q": "Farovonlikning birinchi teoremasi:",
+    "q": "Kvazi-optimal (ikkinchi eng yaxshi) nazariyasiga ko‘ra Pareto samaradorligi shartlaridan biri buzilgan bo‘lsa, nima bo‘lishi mumkin?",
     "options": [
-     "Har qanday taqsimot samarali",
-     "Raqobat muvozanati Pareto samarali",
-     "Monopoliya samarali",
-     "Davlat aralashuvi zarur"
+     "Qolgan shartlarni bajarish farovonlikni oshirishi muqarrar, chunki ular bir-biriga bog‘liq",
+     "Qolgan shartlarni bajarish farovonlikni oshirmasligi, hatto kamaytirishi mumkin",
+     "Qolgan shartlar ham o‘z-o‘zidan buziladi va iqtisodiyot muvozanatni yo‘qotadi",
+     "Buzilgan shart raqobat mexanizmi orqali o‘zi tiklanadi va barcha shartlar bajariladi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "Lipsi va Lankaster xulosasi: bitta shart buzilgan bo‘lsa, qolganlarini bajarish farovonlikni oshirishi shart emas."
    },
    {
-    "q": "Farovonlikning ikkinchi teoremasi nimani ko‘rsatadi?",
+    "q": "Paxta yog‘i taklifi qisqarsa, o‘rinbosar kungaboqar yog‘i qimmatlashib, paxta yog‘iga talab biroz oshadi. Qisman tahlil bilan solishtirganda paxta yog‘i narxi umumiy muvozanatda qanday bo‘ladi?",
     "options": [
-     "Bozorlar har doim adolatli ekanini",
-     "Narxlarni nazorat qilish zarurligini",
-     "Monopoliya foydali ekanini",
-     "Samaradorlik va taqsimot masalalarini ajratish mumkinligini"
+     "Pastroq, chunki kungaboqar yog‘i bozori paxta yog‘i narxini tushiradi",
+     "Bir xil, chunki bozorlar bir-biriga ta’sir qilmaydi",
+     "Yuqoriroq, chunki qaytar aloqa samarasi talabni qo‘shimcha oshiradi",
+     "Pastroq, chunki talab o‘rinbosarga butunlay o‘tib ketadi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Qaytar aloqa tufayli A bozordagi narx qisman muvozanat bashoratidan yuqoriroq bo‘ladi."
    },
    {
-    "q": "«Ko‘rinmas qo‘l» g‘oyasi muallifi:",
+    "q": "Hukumat to‘rt dasturdan birini tanlaydi (A va B guruhlar nafligi): 1-dastur: 70 va 15; 2-dastur: 50 va 30; 3-dastur: 40 va 38; 4-dastur: 55 va 25. Rouls (maksimin) mezoni bo‘yicha qaysi dastur tanlanadi?",
     "options": [
-     "L. Valras",
-     "V. Pareto",
-     "K. Marks",
-     "A. Smit"
+     "1-dastur",
+     "2-dastur",
+     "4-dastur",
+     "3-dastur"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Minimal nafliklar: 15, 30, 38, 25; eng kattasi 3-dasturda (38)."
    },
    {
-    "q": "Kaldor-Xiks mezoni:",
+    "q": "Loyiha natijasida B ning yutug‘i 40, A ning yo‘qotishi 25 birlik. Kaldor-Xiks mezoni bo‘yicha loyiha qanday baholanadi?",
     "options": [
-     "Hech kim yutqazmasligi kerak",
-     "Yutganlar yutqazganlarni potensial kompensatsiya qila olsa, o‘zgarish maqbul",
-     "Eng kambag‘al shaxs yutishi kerak",
-     "Ko‘pchilik ovozi"
+     "Maqbul emas: A ning ahvoli yomonlashgani uchun bu Pareto-yaxshilanish emas",
+     "Maqbul: B A ni to‘liq qoplab, baribir 15 birlik yutuqda qola oladi",
+     "Maqbul emas: kompensatsiya amalda to‘lanmagani uchun",
+     "Maqbul emas: yutuq va yo‘qotish teng bo‘lmagani uchun mezon tanlov qila olmaydi"
     ],
-    "c": 1
+    "c": 1,
+    "e": "40 – 25 = 15 > 0: yutuvchi yutqazuvchini qoplab ham yutuqda qoladi, shuning uchun Kaldor-Xiks bo‘yicha maqbul."
    },
    {
-    "q": "Rouls ijtimoiy farovonlik funksiyasi:",
+    "q": "Boshlang‘ich zaxirada A da 8 birlik X va 2 birlik Y, B da 2 birlik X va 8 birlik Y bor. Savdo qanday yo‘nalishda foydali?",
     "options": [
-     "W = UA × UB",
-     "W = min(UA, UB)",
-     "W = max(UA, UB)",
-     "W = UA + UB"
+     "A X ni berib Y oladi, B Y ni berib X oladi, chunki MRS lari farqli",
+     "A Y ni berib X oladi, chunki u X ni boshqasidan yuqori qadrlaydi",
+     "Savdo foydali emas, chunki har bir tovardan jami 10 birlik mavjud",
+     "B yutadi, A esa yutqazadi, chunki B da Y ko‘p, A da esa X ko‘p"
     ],
-    "c": 1
+    "c": 0,
+    "e": "A da X ko‘p, Y kam, shuning uchun u X ni kam qadrlaydi; B da aksincha, ikkalasi ayirboshlashdan yutadi."
    },
    {
-    "q": "Errou imkonsizlik teoremasi:",
+    "q": "Qaysi soliq nisbiy narxlarni kamroq buzadi va samaradorlikni kamroq pasaytiradi?",
     "options": [
-     "Raqobat muvozanati mavjud emas",
-     "Pareto samaradorligi imkonsiz",
-     "Barcha demokratik shartlarni qanoatlantiruvchi ijtimoiy tanlov qoidasi mavjud emas",
-     "Bozorlar har doim muvozanatda"
+     "Bitta tovarga solinib, uning o‘rinbosarlariga solinmaydigan aksiz solig‘i",
+     "Korporativ sektor kapitaliga solinib, boshqa sektorlarga solinmaydigan foyda solig‘i",
+     "Barcha tovarlarga bir xil stavkada solinadigan keng bazali soliq (QQS kabi)",
+     "Tovarlar guruhlari bo‘yicha turlicha stavkalarda solinadigan soliq"
     ],
-    "c": 2
-   },
-   {
-    "q": "X tarmog‘i monopollashgan bo‘lsa:",
-    "options": [
-     "MRS > MRT, X kam ishlab chiqariladi",
-     "MRS = MRT",
-     "X ko‘p ishlab chiqariladi",
-     "MRS < MRT"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Barcha tarmoqlarda bir xil narx ustamasi bo‘lsa:",
-    "options": [
-     "Har doim katta yo‘qotish",
-     "Mahsulot tarkibi buzilmasligi mumkin",
-     "Narxlar nolga teng",
-     "Iqtisodiyot to‘xtaydi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Xarberger modeli nimani ko‘rsatdi?",
-    "options": [
-     "Soliqlar yo‘qotish keltirmaydi",
-     "Korporativ soliq yuki butun iqtisodiyotdagi kapitalga tarqaladi",
-     "Valras qonuni noto‘g‘ri",
-     "Monopoliya foydali"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Kvazi-optimal nazariyasi mualliflari:",
-    "options": [
-     "Bergson va Samuelson",
-     "Lipsi va Lankaster",
-     "Errou va Debre",
-     "Kaldor va Xiks"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Kvazi-optimal nazariyasiga ko‘ra bitta samaradorlik sharti buzilgan bo‘lsa:",
-    "options": [
-     "Qolgan shartlarni bajarish farovonlikni oshirishi shart emas",
-     "Iqtisodiyot to‘xtaydi",
-     "Qolgan shartlarni bajarish har doim foydali",
-     "Muvozanat mavjud emas"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Bojxona ittifoqidagi savdo burilishi tushunchasi muallifi:",
-    "options": [
-     "J. Viner",
-     "J. Keyns",
-     "A. Marshall",
-     "D. Rikardo"
-    ],
-    "c": 0
-   },
-   {
-    "q": "«Tatonnement» – bu:",
-    "options": [
-     "Monopoliya strategiyasi",
-     "Investitsiya mezoni",
-     "Narxlarni paypaslab izlash orqali muvozanatga erishish jarayoni",
-     "Soliq turi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Umumiy muvozanatda nima aniqlanadi?",
-    "options": [
-     "Faqat mutlaq narxlar",
-     "Faqat miqdorlar",
-     "Faqat ish haqi",
-     "Nisbiy narxlar"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Raqobat bozorida ishlab chiqarish samaradorligi qanday ta’minlanadi?",
-    "options": [
-     "Har bir firma MRTS = w/r shartini bajaradi",
-     "Narxlar nazorati orqali",
-     "Monopoliya orqali",
-     "Davlat rejasi orqali"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Mankyu bo‘yicha raqobat bozori muvozanati:",
-    "options": [
-     "Jami ortiqchani maksimallashtiradi",
-     "Iste’molchi ortiqchaligini nolga tushiradi",
-     "Adolatni kafolatlaydi",
-     "Sof yo‘qotishni maksimallashtiradi"
-    ],
-    "c": 0
+    "c": 2,
+    "e": "Bir xil stavkali keng bazali soliq nisbiy narxlarni o‘zgartirmaydi, shuning uchun buzilish kam bo‘ladi."
    }
   ],
   "selfStudy": [
@@ -8890,304 +7450,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "D. Nort ta’rifiga ko‘ra institutlar:",
+    "q": "D. Nort ta’rifiga ko‘ra, institutlar nima?",
     "options": [
-     "Jamiyatdagi «o‘yin qoidalari»",
-     "Bozor narxlari",
-     "Faqat qonunlar",
-     "Davlat tashkilotlari"
+     "Bozorda tovar va xizmatlar almashinuvini bevosita amalga oshiruvchi barcha tashkilotlar va muassasalar",
+     "Davlat tomonidan tasdiqlangan va majburiy ijro etiladigan yozma qonun hujjatlarining yagona to‘plami",
+     "Jamiyatdagi «o‘yin qoidalari», ya’ni odamlar munosabatini tartibga soluvchi, inson yaratgan cheklovlar",
+     "Mamlakat iqtisodiyotida faoliyat yuritayotgan barcha firmalar va tadbirkorlik subyektlarining yig‘indisi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Nortga ko‘ra institutlar rasmiy va norasmiy cheklovlardan iborat jamiyat «o‘yin qoidalari»dir."
    },
    {
-    "q": "Noformal institutga misol:",
+    "q": "Quyidagilardan qaysi biri noformal institutga misol bo‘la oladi?",
     "options": [
-     "Urf-odatlar va ishonch",
-     "Sud qarori",
-     "Soliq kodeksi",
-     "Konstitutsiya"
+     "Mahalla instituti va qo‘ni-qo‘shnichilikka asoslangan ishonch",
+     "Konstitutsiya va unga muvofiq qabul qilingan qonunlar",
+     "Majburiy ijro etiladigan sud qarorlari va hukmlari",
+     "Notarius tasdiqlagan yozma oldi-sotdi shartnomasi"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Urf-odat, an’ana va ishonch noformal institutlar bo‘lib, mahalla va qo‘shnichilik munosabatlari shular jumlasidandir."
    },
    {
-    "q": "A. Onore bo‘yicha mulk huquqi:",
+    "q": "Iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
     "options": [
-     "Faqat sotish huquqi",
-     "Yagona huquq",
-     "Huquqlar to‘plami",
-     "Faqat foydalanish huquqi"
+     "Tovarni yaratishga sarflangan barcha resurs va ishchi kuchining umumiy qiymati",
+     "Pul mablag‘larining bir bank hisobidan boshqa hisobga o‘tkazilishi va to‘lov amalga oshirilishi",
+     "Firma ichida xodimlar o‘rtasida ish vazifalarining taqsimlanishi",
+     "Agentlar o‘rtasida mulk huquqlarining bir shaxsdan boshqasiga o‘tishi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Tranzaksiya — tovar, xizmat yoki resurs ustidan huquqlarning bir shaxsdan boshqasiga o‘tishi."
    },
    {
-    "q": "Demsets nazariyasiga ko‘ra mulk huquqlari qachon paydo bo‘ladi?",
+    "q": "Iqtisodiyot nazariyasida mulk huquqi qanday tushuniladi?",
     "options": [
-     "Davlat xohlaganda",
-     "Har doim",
-     "Hech qachon",
-     "Spetsifikatsiya foydasi xarajatlardan oshganda"
+     "Narsaning jismoniy egasiga tegishli yagona va bo‘linmas huquq",
+     "Egalik, foydalanish, tasarruf etish kabi bir necha huquqdan iborat to‘plam",
+     "Narsani sotish yoki sovg‘a qilish imkonini beruvchi huquq",
+     "Davlat tomonidan fuqarolarga beriladigan vaqtinchalik ruxsatnoma"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Mulk huquqi yagona huquq emas, balki turli shaxslar o‘rtasida taqsimlanishi mumkin bo‘lgan huquqlar to‘plamidir."
    },
    {
-    "q": "Ochiq kirish rejimining asosiy muammosi:",
+    "q": "O. Uilyamson ta’rifiga ko‘ra, opportunizm nima?",
     "options": [
-     "Monopoliya",
-     "Narxlarning yuqoriligi",
-     "Resursdan haddan tashqari foydalanish",
-     "Investitsiya ko‘pligi"
+     "Odamlarning axborotni qayta ishlash qobiliyati cheklanganligi tufayli noto‘g‘ri qaror qabul qilishi",
+     "Aldash, axborotni yashirish yoki va’dalarni bajarmaslik orqali o‘z manfaatini ko‘zlash",
+     "Shartnoma tuzishda tomonlarning bir xil darajada to‘liq axborotga ega bo‘lishi",
+     "Xodimning rahbar ko‘rsatmalarini so‘zsiz va o‘z vaqtida bajarishi"
     ],
-    "c": 2
+    "c": 1,
+    "e": "Uilyamson opportunizmni «hiyla-nayrang bilan o‘z manfaatini ko‘zlash» deb ta’riflaydi; axborot qayta ishlash cheklanganligi esa cheklangan oqilonalikdir."
    },
    {
-    "q": "Umumiy resurslarni jamoa tomonidan boshqarish tajribasini o‘rgangan Nobel sovrindori:",
+    "q": "Garovga olish (hold-up) muammosi qachon yuzaga keladi?",
     "options": [
-     "J. Keyns",
-     "A. Smit",
-     "E. Ostrom",
-     "M. Fridmen"
+     "Sotuvchi bitimdan oldin tovar sifati haqidagi ma’lumotni xaridordan yashirib, uni chalg‘itsa",
+     "Sug‘urtalangan shaxs shartnomadan keyin avvalgidan ehtiyotsizroq harakat qila boshlasa",
+     "Ish beruvchi yollanma xodimning ish jarayonini doimiy kuzata olmasa",
+     "Bir tomon bitimga xos investitsiya qilgach, sherik shartlarni o‘zgartirishni talab qilsa"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Garovga olishda spetsifik investitsiya qilingandan keyin ikkinchi tomon shartlarni qayta ko‘rib chiqib, uning daromadini o‘zlashtirishga harakat qiladi."
    },
    {
-    "q": "Tranzaksiya xarajatlari tushunchasini kiritgan:",
+    "q": "Printsipal-agent muammosi yuzaga kelishi uchun qaysi ikki shart bajarilishi kerak?",
     "options": [
-     "A. Marshall",
-     "L. Valras",
-     "R. Kouz",
-     "V. Pareto"
+     "Manfaatlar mos kelmasligi va printsipal agent harakatlarini to‘liq kuzata olmasligi",
+     "Agent printsipaldan yuqori maosh olishi va ular o‘rtasida yozma shartnoma bo‘lmasligi",
+     "Tomonlarning bir-birini avval bilmasligi va bitim narxi bozor narxidan past bo‘lishi",
+     "Printsipal ish haqini oldindan to‘liq to‘lashi va agent faoliyati nazoratdan butunlay chiqishi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Muammo manfaatlar mos kelmaganda va axborot asimmetriyasi tufayli agent harakatlarini kuzatib bo‘lmaganda yuzaga keladi."
    },
    {
-    "q": "Tranzaksiya xarajatiga kirmaydi:",
+    "q": "Uilyamson nazariyasida «aktivlar spetsifikligi» nimani bildiradi?",
     "options": [
-     "Xomashyo xarajati",
-     "Sifatni o‘lchash",
-     "Shartnoma tuzish",
-     "Axborot izlash"
+     "Bitim tuzishda tomonlar axborotni qanchalik bir xil darajada bilishini ko‘rsatadi",
+     "Bitim qanchalik tez-tez takrorlanib turishini",
+     "Bitimga qilingan investitsiya boshqa maqsadda qanchalik qadrsizlanishini",
+     "Kelajakdagi holatlarni oldindan bashorat qilish qanchalik qiyinligini ifodalaydi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Aktivlar spetsifikligi — investitsiyaning boshqa foydalanishda qadrsizlanish darajasi; qolgan ikki variant chastota va noaniqlikni bildiradi."
    },
    {
-    "q": "Tranzaksiya xarajatlari bozorga qanday ta’sir qiladi?",
+    "q": "H. Demsets nazariyasiga ko‘ra, mulk huquqlari qachon paydo bo‘ladi?",
     "options": [
-     "Ta’sir qilmaydi",
-     "Xaridor va sotuvchi narxlari o‘rtasida «pona» yaratib, bitimlarni kamaytiradi",
-     "Faqat sotuvchiga ta’sir qiladi",
-     "Bitimlar sonini oshiradi"
+     "Davlat resursni jamiyat a’zolari o‘rtasida teng taqsimlashga qaror qilganda",
+     "Resursdan foydalanuvchilar soni kamayib, ularning daromadi pasayganda",
+     "Huquqlarni belgilash xarajatsiz amalga oshirilishi mumkin bo‘lganda",
+     "Ularni spetsifikatsiya qilishdan olinadigan foyda buning xarajatlaridan oshganda"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Demsets bo‘yicha huquqlar faqat spetsifikatsiya foydasi xarajatidan katta bo‘lganda shakllanadi (masalan, mo‘yna savdosi rivojlangach)."
    },
    {
-    "q": "Cheklangan oqilonalik tushunchasi muallifi:",
+    "q": "Har bir bitimga T miqdorida tranzaksiya xarajati qo‘shilsa, bozorda nima ro‘y beradi?",
     "options": [
-     "D. Nort",
-     "G. Saymon",
-     "A. Smit",
-     "R. Kouz"
+     "Narxlar orasida T ga teng «pona» paydo bo‘ladi va bitimlar soni kamayadi",
+     "Xaridor ham, sotuvchi ham bir xil narxni oladi, savdo hajmi esa o‘zgarmaydi",
+     "Tranzaksiya xarajati byudjetga tushadi va bozor muvozanati o‘zgarmaydi",
+     "Talab chizig‘i T ga o‘ngga siljib, bitimlar soni ortadi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Tranzaksiya xarajati soliqqa o‘xshab xaridor va sotuvchi narxlari orasida pona hosil qiladi, shu sababli bitimlar soni kamayadi."
    },
    {
-    "q": "Uilyamson bo‘yicha opportunizm:",
+    "q": "R. Kouzga ko‘ra, nima uchun firmalar mavjud?",
     "options": [
-     "Oqilona tanlov",
-     "Altruizm",
-     "Raqobat",
-     "Hiyla-nayrang bilan o‘z manfaatini ko‘zlash"
+     "Firmalar bozor narxlarini tartibga solib, raqobatni yo‘qotish uchun tashkil etiladi",
+     "Firma ichida resurslar narxlar orqali taqsimlangani uchun xarajatlar bo‘lmaydi",
+     "Bozordan foydalanish qimmat, firma ichidagi buyruq orqali boshqaruv esa ko‘pincha arzonroq",
+     "Davlat barcha ishlab chiqarishni markazlashtirilgan tartibda yuritishni talab qiladi"
     ],
-    "c": 3
+    "c": 2,
+    "e": "Kouz javobi: bozor bitimlari tranzaksiya xarajatlarini talab qiladi, firma ichida ma’muriy buyruq esa ko‘pincha arzonroq tushadi."
    },
    {
-    "q": "Bitimdan keyingi yashirin harakatlar muammosi:",
+    "q": "Uilyamson bo‘yicha aktivlar spetsifikligi yuqori bo‘lganda qaysi boshqaruv tuzilmasi samaraliroq?",
     "options": [
-     "Signal berish",
-     "Saralash",
-     "Noqulay tanlov",
-     "Ma’naviy xavf"
+     "Raqobatli birjadagi oddiy spot bitimlar va narx orqali muvofiqlashtirish",
+     "Vertikal integratsiya, ya’ni bitimni firma ichiga olish",
+     "Franchayzing va alyanslar kabi gibrid shakllar hamda uzoq muddatli kelishuvlar",
+     "Ochiq bozordagi muntazam savdo va doimiy yetkazib beruvchilarni almashtirish"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Spetsifiklik yuqori bo‘lsa opportunizm xavfi katta, shuning uchun ierarxiya (vertikal integratsiya) samarali; o‘rtacha darajada gibrid shakllar mos."
    },
    {
-    "q": "Bitimdan oldingi yashirin xususiyatlar muammosi:",
+    "q": "Kouz nazariyasiga ko‘ra, raqamli platformalar tufayli bozor tranzaksiya xarajatlari pasaysa, firmalar chegarasi qanday o‘zgaradi?",
     "options": [
-     "Monopsoniya",
-     "Garovga olish",
-     "Ma’naviy xavf",
-     "Noqulay tanlov"
+     "Firmalar kichrayadi va ko‘proq funksiyalarni autsorsingga beradi",
+     "Firmalar kattalashib, ko‘proq faoliyatni o‘z ichiga oladi",
+     "Firmalar chegarasi o‘zgarmaydi, chunki u texnologiyaga bog‘liq emas",
+     "Ishlab chiqarish davlat nazoratiga o‘tadi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Bozor xarajatlari kamaysa, ichki tashkil etish bozordan qimmatroq bo‘lib qoladi va firmalar funksiyalarni tashqariga chiqaradi."
    },
    {
-    "q": "Garovga olish muammosi qachon yuzaga keladi?",
+    "q": "Kornai bo‘yicha davlat korxonalaridagi «yumshoq byudjet cheklovi» nimani anglatadi?",
     "options": [
-     "Davlat mulkida",
-     "Raqobatli bozorda",
-     "Spetsifik investitsiyadan keyin",
-     "Hech qachon"
+     "Korxona xarajatlarini davlat qat’iy limitlar bilan chegaralashini va ortiqcha sarfga yo‘l qo‘ymasligini",
+     "Zarar ko‘rgan korxonaning bozordan chiqib ketishi va bankrot bo‘lishining muqarrarligini",
+     "Korxona foydasining katta qismi soliq sifatida byudjetga olib qo‘yilishini",
+     "Zarar ko‘rgan korxonani davlat subsidiya bilan qutqarishini, shu sabab rag‘bat zaif bo‘ladi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Yumshoq byudjet cheklovida davlat zararni qoplagani uchun korxona xarajatni kamaytirishdan manfaatdor bo‘lmaydi."
    },
    {
-    "q": "Printsipal-agent muammosining shartlari:",
+    "q": "Sug‘urta polisiga ega haydovchi avvalgidan ehtiyotsizroq haydaydigan bo‘ldi. Bu qanday hodisa?",
     "options": [
-     "Manfaatlar to‘qnashuvi va axborot asimmetriyasi",
-     "Raqobat yo‘qligi",
-     "Bir xil manfaatlar",
-     "Mukammal axborot"
+     "Noqulay tanlov: shartnomadan oldin yashirilgan xususiyatlar",
+     "Garovga olish: spetsifik investitsiyadan keyin shartlarni o‘zgartirish",
+     "Ma’naviy xavf: shartnomadan keyin yashirin xatti-harakatning o‘zgarishi",
+     "Cheklangan oqilonalik: axborotni qayta ishlash qobiliyatining cheklanganligi"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Shartnomadan keyin kuzatib bo‘lmaydigan tarzda xulq o‘zgarishi ma’naviy xavfning (ex post) klassik misolidir."
    },
    {
-    "q": "Mankyu bo‘yicha «shirking»ga qarshi firma javobi emas:",
+    "q": "Xaridor ishlatilgan avtomobilni sotib olishdan oldin uni texnik ko‘rikdan va ekspertizadan o‘tkazdi. Bu qaysi tranzaksiya xarajatiga kiradi?",
     "options": [
-     "Ish haqini pasaytirish",
-     "Yuqori ish haqi",
-     "To‘lovni kechiktirish",
-     "Yaxshiroq nazorat"
+     "Axborot izlash xarajatlari",
+     "O‘lchash xarajatlari",
+     "Muzokara olib borish xarajatlari",
+     "Himoya va spetsifikatsiya xarajatlari"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Ekspertiza va texnik ko‘rik tovar sifatini tekshirish bo‘lib, o‘lchash xarajatlariga kiradi."
    },
    {
-    "q": "Kouz bo‘yicha firmalar mavjud, chunki:",
+    "q": "Klaster fermer bilan uzoq muddatli shartnoma tuzib, hosilni kafolatlangan narxda sotib oladi. Bu fermerning qaysi xarajatlarini kamaytiradi?",
     "options": [
-     "Davlat shuni talab qiladi",
-     "Bozorlar har doim samarasiz",
-     "Firmalar soliq to‘lamaydi",
-     "Bozordan foydalanish tranzaksiya xarajatlarini talab qiladi"
+     "Hosilni yetishtirish bilan bog‘liq ishlab chiqarish xarajatlarini",
+     "Yerga mulk huquqini kadastrda ro‘yxatdan o‘tkazish xarajatlarini",
+     "Soliq to‘lash va hisobot topshirish xarajatlarini",
+     "Xaridor izlash va narx bo‘yicha muzokara qilish xarajatlarini"
     ],
-    "c": 3
+    "c": 3,
+    "e": "Kafolatlangan narx va uzoq muddatli shartnoma fermerning xaridor qidirish va muzokara xarajatlarini kamaytiradi."
    },
    {
-    "q": "Bozor tranzaksiya xarajatlari pasaysa, Kouz bo‘yicha firmalar:",
+    "q": "Aksiyadorlar menejer maoshining bir qismini kompaniya aksiyalari narxiga bog‘ladi. Bu qaysi muammoga javob?",
     "options": [
-     "Kattalashadi",
-     "Kichrayadi",
-     "Yo‘qoladi",
-     "O‘zgarmaydi"
+     "Aksiyadorlar va menejerlar manfaatlari to‘qnashuvi, ya’ni printsipal-agent muammosiga",
+     "Bozorda tovar sifati haqidagi axborot asimmetriyasidan kelib chiqadigan limonlar muammosiga",
+     "Spetsifik investitsiyadan keyin sherik shartlarni o‘zgartirishi, ya’ni garovga olish muammosiga",
+     "Mulk huquqlari aniq belgilanmagani sababli resursdan haddan tashqari foydalanishga"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Maoshni aksiyalar narxiga bog‘lash agent (menejer) manfaatini printsipal (aksiyador) manfaatiga yaqinlashtiradi."
    },
    {
-    "q": "Uilyamson bo‘yicha aktivlar spetsifikligi yuqori bo‘lsa:",
+    "q": "Qishloq xo‘jaligi mahsuloti bozorida talab QD = 120 – 2P, taklif QS = 3P (P – ming so‘m/kg). Har bir kg uchun tranzaksiya xarajati T = 5 ming so‘m bo‘lsa, xaridor to‘laydigan narx qancha?",
     "options": [
-     "Bozor samarali",
-     "Ierarxiya (vertikal integratsiya) samarali",
-     "Spot bitimlar samarali",
-     "Gibrid shakl samarali"
+     "22 ming so‘m",
+     "27 ming so‘m",
+     "24 ming so‘m",
+     "29 ming so‘m"
     ],
-    "c": 1
+    "c": 1,
+    "e": "120 – 2(Ps + 5) = 3Ps ⇒ Ps = 22, demak xaridor narxi 22 + 5 = 27 ming so‘m."
    },
    {
-    "q": "Gibrid boshqaruv shakliga misol:",
+    "q": "Ehtiyot qismlar ishlab chiqaruvchisi bitta zavod uchun maxsus uskunaga 80 mln so‘m sarfladi (5 yil xizmat qiladi). Kelishilgan yillik daromad 130, operatsion xarajat 100 mln so‘m edi. Uskuna o‘rnatilgach, zavod yiliga 108 mln so‘m to‘lashni talab qildi. Yangi narxda 5 yillik sof operatsion daromad qancha?",
     "options": [
-     "Firma ichidagi bo‘lim",
-     "Franchayzing",
-     "Xomashyo birjasi",
-     "Auksion"
+     "8 mln so‘m",
+     "150 mln so‘m",
+     "40 mln so‘m",
+     "30 mln so‘m"
     ],
-    "c": 1
-   },
-   {
-    "q": "GM va Fisher Body misoli nimani ko‘rsatadi?",
-    "options": [
-     "Soliqlar ta’sirini",
-     "Garovga olish muammosi vertikal integratsiyaga olib kelishini",
-     "Monopoliyaning foydasini",
-     "Narx diskriminatsiyasini"
-    ],
-    "c": 1
-   },
-   {
-    "q": "«Yumshoq byudjet cheklovi» tushunchasi muallifi:",
-    "options": [
-     "O. Uilyamson",
-     "Ya. Kornai",
-     "R. Kouz",
-     "D. Nort"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Xususiy mulkning samaradorlik afzalligi:",
-    "options": [
-     "Doimiy subsidiyalar",
-     "Bankrotlikdan himoya",
-     "Siyosiy maqsadlar",
-     "Egasi qoldiq daromadga ega"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Davlat mulkidagi korxonada printsipal-agent muammosi:",
-    "options": [
-     "Ikki bosqichli",
-     "Faqat xususiy firmalarda",
-     "Faqat bitta bosqichli",
-     "Mavjud emas"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Uilyamson bitimlarning qaysi xususiyatlarini ajratgan?",
-    "options": [
-     "Narx, miqdor, sifat",
-     "Foyda, xarajat, tushum",
-     "Talab, taklif, elastiklik",
-     "Aktivlar spetsifikligi, noaniqlik, chastota"
-    ],
-    "c": 3
-   },
-   {
-    "q": "O‘zbekistonning «Doing Business» reytingidagi o‘rni 2020-yilda:",
-    "options": [
-     "166",
-     "69",
-     "87",
-     "141"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda qishloq xo‘jaligidagi klaster tizimi tranzaksiya xarajatlari nazariyasi nuqtai nazaridan:",
-    "options": [
-     "Davlat monopoliyasi",
-     "Ochiq kirish",
-     "Gibrid boshqaruv shakli",
-     "Sof bozor"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Institutlar sifati va o‘sish bo‘yicha tadqiqotlari uchun 2024-yilda Nobel mukofoti olganlar:",
-    "options": [
-     "Kard va Kruger",
-     "Kouz va Uilyamson",
-     "Errou va Debre",
-     "Asemoglu, Jonson va Robinson"
-    ],
-    "c": 3
-   },
-   {
-    "q": "To‘liq bo‘lmagan shartnomalar sababi:",
-    "options": [
-     "Cheklangan oqilonalik – barcha holatlarni oldindan ko‘zda tutib bo‘lmaydi",
-     "Qonunlar taqiqlaydi",
-     "Inflyatsiya",
-     "Raqobat"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Tranzaksiya xarajatlarini kamaytiradigan institutsional innovatsiya:",
-    "options": [
-     "Ruxsatnomalar sonini ko‘paytirish",
-     "Elektron davlat xizmatlari portali",
-     "Ko‘p narxli valyuta tizimi",
-     "Tekshiruvlarni ko‘paytirish"
-    ],
-    "c": 1
+    "c": 2,
+    "e": "(108 – 100) × 5 = 40 mln so‘m; bu 80 mln so‘mlik investitsiyadan kam, shuning uchun garovga olish xavfi investitsiyani to‘xtatadi."
    }
   ],
   "selfStudy": [
@@ -9377,304 +7857,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Tashqi samara – bu:",
+    "q": "Tashqi samara (eksternaliya) nima?",
     "options": [
-     "Davlat soliqlari",
-     "Import xarajati",
-     "Firmaning eksport daromadi",
-     "Faoliyatning uchinchi shaxslar farovonligiga kompensatsiyasiz ta’siri"
+     "Davlat belgilagan narxning bozor muvozanatidan chetga chiqishi",
+     "Bir shaxs faoliyatining uchinchi shaxslarga kompensatsiyasiz ta’siri",
+     "Xaridor va sotuvchi o‘rtasidagi bitimdan ikkala tomon oladigan foyda",
+     "Chet davlatlar bilan savdo qilishdan olinadigan valyuta tushumlari"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Tashqi samara — bitimda ishtirok etmaydigan uchinchi shaxslarga kompensatsiyasiz ta’sir."
    },
    {
-    "q": "Salbiy tashqi samaraga misol:",
+    "q": "Salbiy tashqi samara mavjud bo‘lganda ijtimoiy xarajat qanday topiladi?",
     "options": [
-     "Ilmiy tadqiqot",
-     "Emlash",
-     "Zavod chiqindilari",
-     "Ta’lim"
+     "Xususiy xarajatdan tashqi xarajat ayiriladi",
+     "Ishlab chiqaruvchining xususiy xarajatiga teng deb olinadi",
+     "Xususiy xarajat tashqi xarajatga ko‘paytiriladi",
+     "Xususiy xarajatga tashqi xarajat qo‘shiladi"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Ijtimoiy xarajat = xususiy xarajat + tashqi xarajat; shuning uchun u taklif chizig‘idan yuqorida joylashadi."
    },
    {
-    "q": "Ijobiy tashqi samaraga misol:",
+    "q": "Tashqi samarani ichkilashtirish nimani anglatadi?",
     "options": [
-     "Avtomobil shovqini",
-     "Tirbandlik",
-     "Emlash",
-     "Chekish"
+     "Tashqi ta’sirni ishtirokchilar qaroriga kiritadigan rag‘batlarni yaratish",
+     "Tashqi samara yuzaga kelgan tarmoqni mamlakat tashqarisiga ko‘chirish",
+     "Zarar ko‘rganlarga kompensatsiyani byudjetdan to‘lashni to‘xtatish",
+     "Tovar ishlab chiqarishni davlat monopoliyasiga to‘liq o‘tkazish"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Ichkilashtirish — xaridor va sotuvchilarni tashqi ta’sirni o‘z qarorlarida hisobga olishga majbur qiladigan rag‘batlar yaratish."
    },
    {
-    "q": "Ijtimoiy xarajat =",
+    "q": "Pigu solig‘i nima?",
     "options": [
-     "Narx × miqdor",
-     "Faqat tashqi xarajat",
-     "Xususiy xarajat + tashqi xarajat",
-     "Xususiy xarajat – tashqi xarajat"
+     "Eng yuqori daromad oladigan fuqarolarga nisbatan qo‘llanadigan progressiv daromad solig‘i",
+     "Importga solinib, ichki ishlab chiqaruvchilarni raqobatdan himoya qiluvchi bojxona to‘lovi",
+     "Salbiy tashqi samara keltiruvchi faoliyatga solinadigan, zararli oqibatni tuzatuvchi soliq",
+     "Korxona foydasiga solinib, byudjet kamomadini qoplashga yo‘naltirilgan umumiy soliq"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Pigu solig‘i tashqi xarajatga teng miqdorda solinib, rag‘batlarni to‘g‘rilaydi."
    },
    {
-    "q": "Salbiy tashqi samarada bozor miqdori:",
+    "q": "Kouz teoremasiga ko‘ra, qanday sharoitda tomonlar tashqi samarani o‘zaro kelishuv bilan hal qila oladi?",
     "options": [
-     "Optimalga teng",
-     "Nolga teng",
-     "Optimaldan ko‘p",
-     "Optimaldan kam"
+     "Davlat har ikki tomonga teng miqdorda subsidiya ajratib bersa",
+     "Mulk huquqlari zarar ko‘ruvchi tomonga berilgan bo‘lsa",
+     "Tranzaksiya xarajatlari bo‘lmasa va muzokara xarajatsiz bo‘lsa",
+     "Tashqi samaradan ko‘rilgan zarar tashqi foydadan kichik bo‘lsa"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Teorema sharti: xarajatsiz muzokara; shunda mulk huquqlarining dastlabki taqsimotidan qat’i nazar samarali natijaga erishiladi."
    },
    {
-    "q": "Ijobiy tashqi samarada bozor miqdori:",
+    "q": "«Cap-and-trade» tizimi nimani bildiradi?",
     "options": [
-     "Cheksiz",
-     "Optimaldan kam",
-     "Optimaldan ko‘p",
-     "Optimalga teng"
+     "Davlat umumiy ifloslanish chegarasini belgilaydi, firmalar ruxsatnomalarni o‘zaro sotadi",
+     "Davlat har bir firma uchun ishlab chiqarish texnologiyasini majburiy belgilaydi va nazorat qiladi",
+     "Davlat ifloslantiruvchi tovar narxiga qat’iy soliq stavkasini o‘rnatib, tushumni byudjetga yo‘naltiradi",
+     "Davlat ifloslanishni kamaytirgan firmalarga qat’iy miqdorda subsidiya to‘laydi"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Cap-and-trade — umumiy chegara (cap) belgilanib, ruxsatnomalar firmalar o‘rtasida savdo qilinadigan (trade) tizim."
    },
    {
-    "q": "Pigu solig‘i:",
+    "q": "«Ikki karra dividend» g‘oyasiga ko‘ra, Pigu solig‘i qanday foyda keltiradi?",
     "options": [
-     "Salbiy tashqi samarani tuzatuvchi soliq",
-     "Daromad solig‘i",
-     "Import boji",
-     "Mulk solig‘i"
+     "Ifloslanishni kamaytiradi va ayni paytda barcha tovarlar narxini sezilarli pasaytiradi",
+     "Ishlab chiqaruvchilarni ham, iste’molchilarni ham soliq yukidan ozod qiladi",
+     "Davlat byudjetini to‘ldiradi va tashqi samaraning o‘zgarmasdan qolishini ta’minlaydi",
+     "Rag‘batlarni to‘g‘rilaydi, tushumi esa boshqa buzuvchi soliqlarni kamaytiradi"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Birinchi dividend — samaradorlik, ikkinchisi — tushum hisobiga boshqa buzuvchi soliqlarni kamaytirish imkoniyati."
    },
    {
-    "q": "Pigu solig‘ining optimal stavkasi:",
+    "q": "Texnologik tarqalish (technology spillover) nima?",
     "options": [
-     "Tashqi xarajatga teng",
-     "Nolga teng",
-     "Foydaga teng",
-     "Narxga teng"
+     "Yangi texnologiyani chet davlatga litsenziya asosida sotib yuborish",
+     "Bir firma yaratgan bilimlarning boshqa firmalarga ham tarqalishi",
+     "Firmaning ilmiy tadqiqotlar uchun davlatdan olgan grant mablag‘lari",
+     "Eski uskunalarning yangilari bilan almashtirilishidan ishlab chiqarish ortishi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Texnologik tarqalish — ijobiy tashqi samara: yangi bilimlardan boshqa firmalar ham foydalanadi."
    },
    {
-    "q": "Pigu solig‘i oddiy soliqlardan farqli o‘laroq:",
+    "q": "Salbiy tashqi samara mavjud bo‘lgan bozor muvozanatida tovar miqdori ijtimoiy optimumga nisbatan qanday bo‘ladi?",
     "options": [
-     "Narxlarni o‘zgartirmaydi",
-     "Byudjetga daromad keltirmaydi",
-     "Sof yo‘qotishni oshiradi",
-     "Samaradorlikni oshiradi"
+     "Optimaldan ko‘p, chunki uchinchi shaxslarga zarar hisobga olinmaydi",
+     "Optimaldan kam, chunki ishlab chiqaruvchilar tashqi xarajatni ortiqcha hisobga oladi",
+     "Optimalga teng, chunki raqobat bozorida narx barcha xarajatni aks ettiradi",
+     "Optimaldan kam, chunki ijtimoiy xarajat chizig‘i taklif chizig‘idan pastda joylashadi"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Salbiy tashqi samarada QBOZOR > QOPTIMUM: bozor tovarni haddan tashqari ko‘p ishlab chiqaradi."
    },
    {
-    "q": "«Ikki karra dividend» g‘oyasi:",
+    "q": "Nima uchun xususiy bozor ilmiy-tadqiqot ishlariga ijtimoiy jihatdan yetarli mablag‘ sarflamaydi?",
     "options": [
-     "Ikki marta Pigu solig‘i solish",
-     "Pigu solig‘i tushumi bilan buzuvchi soliqlarni kamaytirish",
-     "Dividendlarga ikki marta soliq solish",
-     "Subsidiyalarni ikki baravar oshirish"
+     "Ilmiy tadqiqotlar uchinchi shaxslarga zarar yetkazadi va firma jarimadan qo‘rqadi",
+     "Tadqiqot xarajatlari soliq imtiyozi bilan qoplangani uchun firmalar bu sohaga qiziqmaydi",
+     "Davlat ilmiy tadqiqotlarni moliyalashtirishni qonun bilan taqiqlab qo‘ygan",
+     "Bilimlar boshqa firmalarga ham tarqaladi, shu sababli foyda tadqiqotchiga to‘liq qolmaydi"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Texnologik tarqalish tufayli tadqiqot foydasining bir qismi boshqalarga o‘tadi, shuning uchun bozor ijobiy tashqi samarali tovarni kam ishlab chiqaradi."
    },
    {
-    "q": "Ta’lim kabi ijobiy tashqi samaraga davlat javobi:",
+    "q": "Kouz teoremasi zavod va minglab aholi o‘rtasidagi ifloslanish muammosini amalda nima uchun hal qilmaydi?",
     "options": [
-     "Kvota",
-     "Taqiq",
-     "Soliq",
-     "Tartiblashtiruvchi subsidiya"
+     "Aholi ifloslanishdan zarar ko‘rmaydi, shu sababli ular kelishuv tuzishga ehtiyoj sezmaydi",
+     "Muzokara tashkil etish qimmat, har bir aholi esa boshqalar kelishuvni moliyalashtirishini kutadi",
+     "Qonun zavod va aholi o‘rtasida har qanday xususiy kelishuv tuzilishini taqiqlab qo‘ygan",
+     "Ifloslanish zarari pul bilan hisoblanmagani uchun kompensatsiya miqdorini aniq belgilab bo‘lmaydi"
     ],
-    "c": 3
+    "c": 1,
+    "e": "Tranzaksiya xarajatlari va ishtirokchilar ko‘pligi («chiptasiz yo‘lovchi») xususiy kelishuvni deyarli imkonsiz qiladi."
    },
    {
-    "q": "Kouz teoremasi qaysi shartda amal qiladi?",
+    "q": "Nima uchun ifloslanishning optimal darajasi odatda nolga teng emas?",
     "options": [
-     "Tranzaksiya xarajatlari nolga teng bo‘lganda",
-     "Inflyatsiya yo‘q bo‘lganda",
-     "Davlat aralashganda",
-     "Monopoliyada"
+     "Tartibga solinmagan firmalar ifloslanishni o‘zlari optimal darajagacha kamaytiradi",
+     "Ifloslanish oshgan sari chegaraviy zarar kamayadi, shu sababli nol daraja maqsadga muvofiq emas",
+     "Kamaytirishning ham xarajati bor; optimum MAC va MD tenglashgan nuqtada bo‘ladi",
+     "Sanoat ishlab chiqarishi ifloslanishsiz amalga oshishi texnologik jihatdan mumkin emas"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Optimal ifloslanish E* da MAC = MD bo‘ladi, chunki kamaytirish xarajatsiz emas."
    },
    {
-    "q": "Kouz teoremasiga ko‘ra mulk huquqlarining taqsimoti:",
+    "q": "Nima uchun Pigu solig‘i bir xil standartga qaraganda ifloslanishni kamaytirishning arzonroq usuli hisoblanadi?",
     "options": [
-     "Faqat daromad taqsimotini belgilaydi",
-     "Samaradorlikni belgilaydi",
-     "Narxni belgilaydi",
-     "Ahamiyatsiz"
+     "Soliq barcha firmalarni bir xil miqdorda kamaytirishga majbur qiladi",
+     "Soliq firmalardan kamaytirish xarajatlari haqida davlatga to‘liq axborot berishni talab qiladi",
+     "Soliq ifloslanish darajasini aniq belgilangan chegarada qat’iy ushlab turadi",
+     "Arzon kamaytiruvchi firma ko‘proq kamaytiradi va firmalarning MAC lari tenglashadi"
     ],
-    "c": 0
+    "c": 3,
+    "e": "Soliq ostida har bir firma MAC = t gacha kamaytiradi, MAC lar tenglashadi va umumiy xarajat minimal bo‘ladi."
    },
    {
-    "q": "Mankyu misolida Dik itdan 500, Jeyn 800 zarar ko‘rsa:",
+    "q": "Pigu solig‘i va sotiladigan ruxsatnomalar bozori o‘rtasidagi asosiy farq qanday?",
     "options": [
-     "Davlat aralashadi",
-     "Ikkalasi ham yutqazadi",
-     "Jeyn Dikka to‘lab, itdan voz kechtiradi",
-     "It qoladi"
+     "Soliqda davlat narxni belgilaydi, ruxsatnomalar bozorida esa miqdorni belgilaydi",
+     "Soliqda davlat miqdorni belgilaydi, ruxsatnomalar bozorida esa narxni belgilaydi",
+     "Soliq firmalar MAC sini tenglashtiradi, ruxsatnomalar bozori esa tenglashtirmaydi",
+     "Soliq xavfli moddalarni to‘liq taqiqlaydi, ruxsatnomalar bozori esa taqiqlamaydi"
     ],
-    "c": 2
+    "c": 0,
+    "e": "Soliqda narx davlat tomonidan, miqdor bozorda; ruxsatnomalarda miqdor davlat tomonidan, narx bozorda aniqlanadi."
    },
    {
-    "q": "Kouz teoremasi amalda ishlamasligining sababi emas:",
+    "q": "Asalarichi va bog‘bon yagona firmaga birlashdi. Kouz mantig‘iga ko‘ra bu nimaga olib keladi?",
     "options": [
-     "Mulk huquqlarining aniq belgilanganligi",
-     "Ishtirokchilar ko‘pligi",
-     "Tranzaksiya xarajatlari",
-     "Strategik xatti-harakat"
+     "Ijobiy tashqi samara salbiyga aylanib, bozor muvozanati buziladi",
+     "Tashqi samara ichki samaraga aylanadi, ya’ni ichkilashtiriladi",
+     "Asalarichilik va bog‘dorchilikning ijtimoiy foydasi yo‘qoladi",
+     "Davlat Pigu solig‘ini joriy etishga majbur bo‘ladi"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Biznesni birlashtirish xususiy yechim bo‘lib, tashqi samarani firma ichidagi samaraga aylantiradi."
    },
    {
-    "q": "Ifloslanishning optimal darajasi:",
+    "q": "Ifloslanish miqdorini aniq nazorat qilish muhim (xavfli chegaradan oshmaslik kerak), kamaytirish xarajatlari esa noma’lum. Qaysi vosita afzal?",
     "options": [
-     "Maksimal",
-     "Nolga teng",
-     "MAC = MD bo‘lgan nuqtada",
-     "MAC = 0 bo‘lgan nuqtada"
+     "Narxni belgilovchi Pigu solig‘i",
+     "Ifloslantiruvchi firmalar uchun soliq imtiyozlarini kengaytirish",
+     "Sotiladigan ifloslanish ruxsatnomalari bozori",
+     "Iste’molchilarning ixtiyoriy axloqiy majburiyatlariga tayanish"
     ],
-    "c": 2
+    "c": 2,
+    "e": "Ruxsatnomalarda davlat miqdorni belgilaydi, shuning uchun ifloslanish darajasini aniq nazorat qilish mumkin (Vaysman)."
    },
    {
-    "q": "Tartibga solinmagan bozorda firmalar ifloslantiradi:",
+    "q": "Davlat uy xo‘jaliklariga quyosh panellari o‘rnatish uchun subsidiya ajratdi. Bu qaysi vosita?",
     "options": [
-     "MAC = MD gacha",
-     "Umuman ifloslantirmaydi",
-     "MD = 0 gacha",
-     "MAC = 0 gacha"
+     "Tartiblashtiruvchi subsidiya (ijobiy tashqi samara uchun)",
+     "Salbiy tashqi samarani cheklovchi Pigu solig‘i joriy etish",
+     "Ifloslanish huquqlari savdosi bozorini yaratish",
+     "Majburiy texnologik standartni qonun bilan joriy etish"
     ],
-    "c": 3
+    "c": 0,
+    "e": "Qayta tiklanuvchi energiyaga subsidiya ijobiy tashqi samarani rag‘batlantiradigan tartiblashtiruvchi subsidiyadir."
    },
    {
-    "q": "Bir xil standartning asosiy kamchiligi:",
+    "q": "Yuqori oqimdagi sug‘oruvchilar Amudaryo va Sirdaryo suvidan foydalanib, quyi oqimdagi aholi va ekotizimga zararni hisobga olmadi (Orol dengizi). Bu qaysi hodisa?",
     "options": [
-     "Firmalarda MAC tenglashmaydi – xarajat jihatidan samarasiz",
-     "Natija noaniq",
-     "Juda arzon",
-     "Byudjetga daromad keltiradi"
+     "Ishlab chiqarishdagi ijobiy tashqi samara",
+     "Texnologik tarqalish natijasidagi foyda",
+     "Ishlab chiqarishdagi salbiy tashqi samara",
+     "Iste’moldagi ijobiy tashqi samara"
     ],
-    "c": 0
+    "c": 2,
+    "e": "Sug‘oruvchilar uchinchi shaxslarga yetkazilgan zararni hisobga olmagan — bu klassik salbiy tashqi samara."
    },
    {
-    "q": "Pigu solig‘ida firmalar:",
+    "q": "Talab P = 120 – Q, xususiy chegaraviy xarajat P = 30 + Q (Q – ming t, P – ming so‘m/t). Har bir tonna ishlab chiqarishda tashqi zarar 20 ming so‘m. Ijtimoiy optimal miqdor (ming t) qancha?",
     "options": [
-     "To‘liq to‘xtaydi",
-     "MAC = t bo‘lguncha kamaytiradi",
-     "Kamaytirmaydi",
-     "Bir xil miqdorda kamaytiradi"
+     "45",
+     "25",
+     "40",
+     "35"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Ijtimoiy xarajat 50 + Q: 120 – Q = 50 + Q ⇒ Q = 35 (bozor muvozanati esa 45)."
    },
    {
-    "q": "Ruxsatnomalar bozorida davlat belgilaydi:",
+    "q": "Zavod daryoni ifloslantirish huquqiga ega. Tozalash inshooti yiliga 40 mln so‘m turadi, quyi oqimdagi 4 ta baliqchilik xo‘jaligining har biri ifloslanishdan yiliga 18 mln so‘m zarar ko‘radi. Zavodni inshoot qurishga ko‘ndirish uchun kelishuvni tashkil etishga 40 mln so‘m sarflanishi kerak. Xo‘jaliklarning kelishuvdan sof yutug‘i qancha?",
     "options": [
-     "Har bir firma texnologiyasini",
-     "Narxni",
-     "Soliq stavkasini",
-     "Umumiy ifloslanish miqdorini"
+     "32 mln so‘m",
+     "–8 mln so‘m",
+     "8 mln so‘m",
+     "–32 mln so‘m"
     ],
-    "c": 3
-   },
-   {
-    "q": "Pigu solig‘ida davlat belgilaydi:",
-    "options": [
-     "Texnologiyani",
-     "Miqdorni",
-     "Firmalar sonini",
-     "Narxni"
-    ],
-    "c": 3
-   },
-   {
-    "q": "«Cap-and-trade» – bu:",
-    "options": [
-     "Ifloslanish huquqlari bozori",
-     "Import kvotasi",
-     "Narx shifti",
-     "Kartel"
-    ],
-    "c": 0
-   },
-   {
-    "q": "AQShdagi SO2 ruxsatnomalari savdosi dasturi:",
-    "options": [
-     "Chiqindilarni arzon xarajat bilan sezilarli kamaytirdi",
-     "Faqat soliq edi",
-     "Muvaffaqiyatsiz bo‘ldi",
-     "Ifloslanishni oshirdi"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Mankyu bo‘yicha benzin solig‘i qaysi tashqi samaralarni tuzatadi?",
-    "options": [
-     "Faqat inflyatsiya",
-     "Monopoliya",
-     "Tirbandlik, baxtsiz hodisalar, ifloslanish",
-     "Ishsizlik"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Texnologik tarqalish – bu:",
-    "options": [
-     "Monopoliya",
-     "Salbiy tashqi samara",
-     "Ijobiy tashqi samara",
-     "Soliq"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Patent tizimi tashqi samaraga nisbatan:",
-    "options": [
-     "Aloqasi yo‘q",
-     "Tashqi samarani oshiradi",
-     "Texnologik tarqalishni qisman ichkilashtiradi",
-     "Ifloslanishni kamaytiradi"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Orol dengizi fojiasi:",
-    "options": [
-     "Inflyatsiya natijasi",
-     "Salbiy tashqi samaraning yaqqol misoli",
-     "Ijobiy tashqi samara",
-     "Monopoliya natijasi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonning Parij kelishuvi doirasidagi majburiyati: 2030-yilga borib YaIM birligiga issiqxona gazlari chiqindilarini 2010-yilga nisbatan:",
-    "options": [
-     "10% kamaytirish",
-     "35% kamaytirish",
-     "100% kamaytirish",
-     "50% oshirish"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Qayta tiklanuvchi energiyaga subsidiyalar nazariy jihatdan:",
-    "options": [
-     "Kvota",
-     "Tartiblashtiruvchi subsidiya",
-     "Standart",
-     "Pigu solig‘i"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Pigu solig‘i va ruxsatnomalar bozori natijasi bir xil bo‘ladi, agar:",
-    "options": [
-     "Barcha firmalarda MAC tenglashsa va umumiy chiqindi bir xil bo‘lsa",
-     "Ifloslanish nolga teng bo‘lsa",
-     "Firmalar bitta bo‘lsa",
-     "Davlat aralashmasa"
-    ],
-    "c": 0
+    "c": 1,
+    "e": "Zarar 4 × 18 = 72; zavodga 40 va kelishuvga 40 to‘lanadi: 72 – 40 – 40 = –8, kelishuv amalga oshmaydi."
    }
   ],
   "selfStudy": [
@@ -9867,304 +8267,224 @@ export const AUTO = {
   ],
   "tests": [
    {
-    "q": "Istisno qilinadigan va raqobatlashuvchi ne’mat:",
+    "q": "Ijtimoiy (jamoat) ne’mat qanday ne’mat?",
     "options": [
-     "Umumiy resurs",
-     "Ijtimoiy ne’mat",
-     "Xususiy ne’mat",
-     "Klub ne’mati"
+     "Istisno qilinadigan va iste’molda raqobatlashuvchi ne’mat",
+     "Istisno qilinmaydigan, lekin iste’molda raqobatlashuvchi ne’mat",
+     "Istisno qilinadigan, lekin iste’molda raqobatlashmaydigan ne’mat",
+     "Istisno qilinmaydigan va iste’molda raqobatlashmaydigan ne’mat"
     ],
-    "c": 2
+    "c": 3,
+    "e": "Sof ijtimoiy ne’mat ikki belgiga ega: istisno qilib bo‘lmaydi va iste’molda raqobatlashmaydi."
    },
    {
-    "q": "Istisno qilinmaydigan va raqobatlashmaydigan ne’mat:",
+    "q": "Quyidagilardan qaysi biri umumiy resursga misol bo‘ladi?",
     "options": [
+     "Milliy mudofaa, ko‘cha yoritish va fundamental ilmiy bilimlar",
+     "Dengizdagi baliq va umumiy yaylovlar",
+     "Kabel televideniyesi, obuna xizmatlari va sport klublari",
+     "Non, kiyim-kechak, smartfon va maishiy texnika"
+    ],
+    "c": 1,
+    "e": "Umumiy resurslardan hamma foydalana oladi, lekin ular iste’molda raqobatlashuvchi (baliq, yaylov, yer osti suvlari)."
+   },
+   {
+    "q": "Chiptasiz yo‘lovchi (free rider) kim?",
+    "options": [
+     "Ne’mat uchun boshqalardan ko‘proq to‘lashga rozi bo‘lgan iste’molchi",
+     "Ne’matni ishlab chiqarib, uni arzon narxda sotuvchi tadbirkor",
+     "Ne’matdan foyda oladigan, lekin buning uchun haq to‘lamaydigan shaxs",
+     "Ne’matdan foydalanishdan davlat tomonidan chetlatilgan shaxs"
+    ],
+    "c": 2,
+    "e": "Chiptasiz yo‘lovchi boshqalar to‘lashini kutib, o‘zi to‘lamasdan ne’matdan foydalanadi."
+   },
+   {
+    "q": "Samuelson shartiga ko‘ra, ijtimoiy ne’matning optimal miqdorida qaysi tenglik bajariladi?",
+    "options": [
+     "Iste’molchilarning chegaraviy foydalari yig‘indisi chegaraviy xarajatga teng",
+     "Eng yuqori baho beruvchi iste’molchining chegaraviy foydasi chegaraviy xarajatga teng",
+     "Iste’molchilarning o‘rtacha foydasi o‘rtacha xarajatga teng",
+     "Iste’molchilar talab etgan miqdorlar yig‘indisi bozor narxiga teng"
+    ],
+    "c": 0,
+    "e": "Samuelson sharti: ΣMBi = MC, chunki barcha iste’molchilar bir xil miqdordan foydalanadi."
+   },
+   {
+    "q": "Qadrli ne’matlar (merit goods) qanday ne’matlar?",
+    "options": [
+     "Jamiyat qadrli deb bilib, davlat bepul yoki subsidiyalab ta’minlaydigan xususiy ne’matlar",
+     "Narxi juda yuqori bo‘lgani uchun boy aholi iste’mol qiladigan hashamatli va nodir tovarlar",
+     "Jamiyat iste’molini soliq va taqiqlar orqali cheklaydigan zararli ne’matlar",
+     "Istisno qilinmaydigan va raqobatlashmaydigan sof ijtimoiy ne’matlar"
+    ],
+    "c": 0,
+    "e": "Qadrli ne’matlar (maktab ta’limi, emlash) aslida xususiy ne’matlar, ammo davlat ularni subsidiya bilan ta’minlaydi."
+   },
+   {
+    "q": "Ne’matning «bo‘linmaslik» belgisi nimani bildiradi?",
+    "options": [
+     "Ne’mat bitta iste’molchi tomonidan to‘liq iste’mol qilinib, boshqalarga qolmaydi",
+     "Ne’matni ishlab chiqarish xarajatlarini bir necha kishi o‘rtasida bo‘lib bo‘lmaydi",
+     "Ne’matni alohida birliklarga bo‘lib, alohida shaxslarga sotib bo‘lmaydi",
+     "Ne’matdan foydalanish uchun a’zolik badali to‘lash majburiy bo‘ladi"
+    ],
+    "c": 2,
+    "e": "Bo‘linmas ne’mat «hammaga birdaniga» ta’minlanadi; uning «bir porsiyasi»ni alohida sotib olib bo‘lmaydi."
+   },
+   {
+    "q": "Ijtimoiy tanlov nazariyasiga ko‘ra, «davlat kamchiliklari» nima?",
+    "options": [
+     "Davlat byudjeti xarajatlarining daromadlaridan oshib ketishi",
+     "Davlat aralashuvi oqibatida samaradorlikning pasayishi",
+     "Bozor mexanizmi samarasiz natija berganda aralashuv zarur bo‘lishi",
+     "Davlatning ijtimoiy ne’matlarni ta’minlay olmasligi"
+    ],
+    "c": 1,
+    "e": "Davlat kamchiliklari — aralashuv oqibatida samaradorlikning pasayishi (cheklangan axborot, rentani izlash, byurokratiya, korrupsiya)."
+   },
+   {
+    "q": "Ijtimoiy ne’mat uchun bozor talabi qanday topiladi?",
+    "options": [
+     "Har bir narxda iste’molchilar talab qilgan miqdorlar qo‘shiladi (gorizontal yig‘indi)",
+     "Iste’molchilar talab chiziqlarining o‘rtacha qiymati olinadi",
+     "Eng ko‘p to‘lashga tayyor iste’molchining talabi tanlanadi",
+     "Har bir miqdorda chegaraviy baholar qo‘shiladi (vertikal yig‘indi)"
+    ],
+    "c": 3,
+    "e": "Hamma bir xil miqdordan foydalangani uchun ularning chegaraviy foydalari vertikal qo‘shiladi."
+   },
+   {
+    "q": "Nima uchun xususiy bozor ijtimoiy ne’matlarni yetarli miqdorda ta’minlay olmaydi?",
+    "options": [
+     "Ijtimoiy ne’matlar iste’molchilar uchun hech qanday foyda keltirmaydi",
+     "Ijtimoiy ne’matlarni ishlab chiqarish xususiy ne’matlarga qaraganda juda qimmat turadi",
+     "Foydalanuvchilarni chetlatib bo‘lmagani uchun har kim boshqalar to‘lashini kutadi",
+     "Firmalar ijtimoiy ne’matlarni sotish huquqidan qonun bilan mahrum etilgan"
+    ],
+    "c": 2,
+    "e": "Istisno qilib bo‘lmagani sababli chiptasiz yo‘lovchi muammosi yuzaga keladi va hech kim to‘lamaydi."
+   },
+   {
+    "q": "Mankyuga ko‘ra, umumiy resurslar fojiasining asosiy sababi nima?",
+    "options": [
+     "Resurslarning mutlaq tanqisligi va aholi sonining tez kamayib borishi",
+     "Mulk huquqlarining yo‘qligi va boshqalarga zararni hisobga olmaslik",
+     "Davlat resursdan foydalanish uchun yuqori to‘lov belgilashi",
+     "Foydalanuvchilarning resursni xususiy mulk sifatida egallab olishi"
+    ],
+    "c": 1,
+    "e": "Mulk huquqlari yo‘q joyda har kim boshqalarga yetkazgan zararni e’tiborsiz qoldiradi; yechim — huquqlarni belgilash."
+   },
+   {
+    "q": "Ochiq kirishli ko‘lda baliqchi qayiqlar soni nima uchun ijtimoiy optimumdan ko‘p bo‘ladi?",
+    "options": [
+     "Yangi baliqchi chegaraviy ovlovni hisoblaydi va resurs rentasini to‘liq o‘zlashtiradi",
+     "Davlat baliq ovlash uchun litsenziya to‘lovini juda yuqori belgilaydi",
+     "Qayiqlar soni oshgan sari umumiy ovlov o‘zgarmas tezlikda ortib boradi",
+     "Yangi baliqchi o‘rtacha ovlovni hisoblaydi, boshqalar zararini e’tiborsiz qoldiradi"
+    ],
+    "c": 3,
+    "e": "Ochiq kirishda qayiqlar AP = c gacha ko‘payadi, optimum esa MP = c da; AP > MP bo‘lgani uchun qayiqlar ortiqcha."
+   },
+   {
+    "q": "R. Kouz XIX asr Angliyasidagi xususiy mayoqlar misoli bilan nimani ko‘rsatdi?",
+    "options": [
+     "Port yig‘imi kabi institutlar ijtimoiy ne’matni istisno qilinadigan qila olishini",
+     "Mayoqni davlat qurmasa, kemalar uchun xavfsiz yo‘l ta’minlanishi mumkin emasligini",
+     "Mayoq xususiy egalar qo‘lida bo‘lsa, kemalar undan foydalanishni to‘xtatishini",
+     "Mayoq nuridan foydalanishda kemalar o‘zaro raqobatlashishini"
+    ],
+    "c": 0,
+    "e": "Xususiy egalar port yig‘imi orqali haq olgan, ya’ni institutsional innovatsiya mayoqni klub ne’matiga aylantirgan."
+   },
+   {
+    "q": "Fer va Gechter tajribalariga ko‘ra, ijtimoiy ne’mat o‘yinida badallar yuqori saqlanishi uchun nima muhim?",
+    "options": [
+     "Ishtirokchilar o‘z badallarini bir-biridan yashirishi",
+     "Ishtirokchilarga chiptasiz yo‘lovchilarni o‘z hisobidan jazolash imkoniyati berilishi",
+     "Ishtirokchilarga umumiy fonddagi mablag‘ning barchasini o‘zlashtirib olishga ruxsat berilishi",
+     "Ishtirokchilar o‘rtasida muloqotning taqiqlanishi"
+    ],
+    "c": 1,
+    "e": "Jazolash imkoniyati ijtimoiy normalar va sanksiyalarning kuchini ko‘rsatadi: badallar yuqori darajada saqlanadi."
+   },
+   {
+    "q": "Rentani izlash nima uchun davlat kamchiliklari manbai hisoblanadi?",
+    "options": [
+     "Soliq to‘lovchilar byudjet xarajatlarini aniq nazorat qilib, ularni ko‘paytirishga to‘sqinlik qiladi",
+     "Davlat amaldorlari qarorlarni jamiyat manfaatini to‘liq hisobga olib qabul qiladi",
+     "Kichik tashkil etilgan guruhlar lobbi qiladi, xarajat esa tarqoq soliq to‘lovchilarga tushadi",
+     "Siyosatchilar uzoq muddatli rejalarga tayanib, saylov sikllariga e’tibor bermaydi"
+    ],
+    "c": 2,
+    "e": "Olson mantig‘i: foyda tor guruhga, xarajat esa tarqoq soliq to‘lovchilarga tushgani uchun lobbi samarali bo‘ladi."
+   },
+   {
+    "q": "Yo‘l bepul va tirband. Mankyu tasnifi bo‘yicha u qaysi turga kiradi?",
+    "options": [
+     "Umumiy resurs",
      "Ijtimoiy ne’mat",
      "Klub ne’mati",
-     "Umumiy resurs",
      "Xususiy ne’mat"
     ],
-    "c": 0
+    "c": 0,
+    "e": "Bepul yo‘ldan chetlatib bo‘lmaydi, tirbandlikda esa qo‘shimcha avtomobil boshqalarni sekinlashtiradi — umumiy resurs."
    },
    {
-    "q": "Istisno qilinmaydigan, lekin raqobatlashuvchi ne’mat:",
+    "q": "Yaylovlarni ijaraga berish va foydalanish huquqlarini aniq belgilash umumiy resurslar fojiasining qaysi yechimiga misol?",
     "options": [
-     "Milliy mudofaa",
-     "Dengizdagi baliq",
-     "Non",
-     "Kabel TV"
+     "Tartiblashtiruvchi soliq stavkasini joriy etish",
+     "Sotiladigan kvotalar tizimini yaratish",
+     "Resursdan foydalanish uchun to‘lov joriy etish",
+     "Mulk va foydalanish huquqlarini belgilash"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Yaylovlarga huquqlarni aniq belgilash — Demsets va Mankyu ta’kidlagan «mulk huquqlarini belgilash» yechimi."
    },
    {
-    "q": "Istisno qilinadigan, lekin raqobatlashmaydigan ne’mat:",
+    "q": "«Ochiq byudjet»da fuqarolarning mahalliy loyihalar uchun ovoz berishi qaysi muammoni yumshatadi?",
     "options": [
-     "Kabel TV",
-     "Yaylov",
-     "Muzqaymoq",
-     "Mudofaa"
+     "Ijtimoiy ne’matlarni ishlab chiqarishning yuqori tannarxi muammosini",
+     "Ijtimoiy ne’matlarga bo‘lgan afzalliklarni oshkor qilish muammosini",
+     "Tabiiy monopoliyalarning narx belgilash hokimiyati muammosini",
+     "Mahalliy byudjet daromadlarining yetishmasligi muammosini"
     ],
-    "c": 0
+    "c": 1,
+    "e": "Ovoz berish Samuelson sharti uchun zarur bo‘lgan aholining chegaraviy baholari haqidagi axborotni qisman beradi."
    },
    {
-    "q": "Ijtimoiy ne’matning belgisi emas:",
+    "q": "Davlat ko‘ldagi umumiy ovlov chegarasini belgilab, baliq ovlash kvotalarini baliqchilarga sotmoqda. Bu 20-bobdagi qaysi vositaga mos keladi?",
     "options": [
-     "Istisno qilmaslik",
-     "Iste’molda raqobatlashuvchanlik",
-     "Raqobatlashmaslik",
-     "Bo‘linmaslik"
+     "Narx belgilovchi Pigu solig‘iga",
+     "Baliqchilarga tartiblashtiruvchi subsidiyaga",
+     "Majburiy texnologik standartlar joriy etishga",
+     "Ruxsatnomalar bozoriga (cap-and-trade)"
     ],
-    "c": 1
+    "c": 3,
+    "e": "Sotiladigan kvotalar — ruxsatnomalar bozori: davlat umumiy miqdorni (chegarani) belgilaydi, narx bozorda aniqlanadi."
    },
    {
-    "q": "Bepul va tirband yo‘l:",
+    "q": "Ko‘cha yoritgichlari uchun chegaraviy foydalar: A guruh MBA = 90 – 3Q, B guruh MBB = 60 – 2Q (ming so‘m/oy); bitta yoritgichning chegaraviy xarajati 60 ming so‘m/oy. Samuelson sharti bo‘yicha optimal yoritgichlar soni qancha?",
     "options": [
-     "Xususiy ne’mat",
-     "Ijtimoiy ne’mat",
-     "Umumiy resurs",
-     "Klub ne’mati"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Global ijtimoiy ne’matga misol:",
-    "options": [
-     "Ko‘cha yoritish",
-     "Iqlim barqarorligi",
-     "Kabel TV",
-     "Mahalla parki"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Qadrli ne’mat tushunchasi muallifi:",
-    "options": [
-     "G. Xardin",
-     "P. Samuelson",
-     "A. Pigu",
-     "R. Masgrev"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Chiptasiz yo‘lovchi – bu:",
-    "options": [
-     "Soliq to‘lovchi",
-     "Monopolist",
-     "Ne’matdan foyda olib, haq to‘lamaydigan shaxs",
-     "Ishsiz"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Mankyu misolida bayram mushaklarining jami foydasi:",
-    "options": [
-     "1 000 dollar",
-     "5 000 dollar",
-     "500 dollar",
-     "10 dollar"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Ijtimoiy ne’mat talabi qanday qo‘shiladi?",
-    "options": [
-     "Gorizontal",
-     "Qo‘shilmaydi",
-     "Ko‘paytiriladi",
-     "Vertikal (chegaraviy foydalar qo‘shiladi)"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Samuelson sharti:",
-    "options": [
-     "ΣMB = MC",
-     "P = AC",
-     "MB = 0",
-     "MR = MC"
-    ],
-    "c": 0
-   },
-   {
-    "q": "MBA = 60 – 2Q, MBB = 40 – 2Q, MC = 40 bo‘lsa, optimal Q:",
-    "options": [
+     "18",
      "10",
-     "15",
-     "20",
-     "25"
+     "30",
+     "12"
     ],
-    "c": 1
+    "c": 0,
+    "e": "Vertikal yig‘indi 150 – 5Q = 60 ⇒ Q = 18 (10 — faqat A guruh moliyalashtirgan miqdor)."
    },
    {
-    "q": "Ijtimoiy ne’mat o‘yinida jazo imkoniyati bo‘lmasa, badallar:",
+    "q": "Ko‘lda umumiy ovlov TP = 60n – n² tonna (n – qayiqlar soni), baliq narxi 1 mln so‘m/t, bir qayiqning mavsumiy xarajati 24 mln so‘m. Ochiq kirishda qayiqlar soni qancha bo‘ladi?",
     "options": [
-     "O‘zgarmaydi",
-     "Darhol nolga tushadi",
-     "Raundlar davomida kamayadi",
-     "Oshib boradi"
+     "18",
+     "24",
+     "36",
+     "30"
     ],
-    "c": 2
-   },
-   {
-    "q": "Mankyu bo‘yicha inson hayotining statistik qiymati taxminan:",
-    "options": [
-     "10 mln dollar",
-     "1 mln dollar",
-     "Cheksiz",
-     "100 mln dollar"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Kouz mayoq misolida nimani ko‘rsatdi?",
-    "options": [
-     "Mayoqlar zararli",
-     "Mayoqlar sof ijtimoiy ne’mat",
-     "Mayoqlar faqat davlat tomonidan qurilgan",
-     "Mayoqlar xususiy egalar tomonidan port yig‘imlari orqali moliyalashtirilgan"
-    ],
-    "c": 3
-   },
-   {
-    "q": "«Umumiy resurslar fojiasi» maqolasi muallifi:",
-    "options": [
-     "R. Kouz",
-     "E. Ostrom",
-     "A. Smit",
-     "G. Xardin"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Umumiy resurslar fojiasi qaysi bozor kamchiligining ko‘rinishi?",
-    "options": [
-     "Ijobiy tashqi samara",
-     "Monopoliya",
-     "Inflyatsiya",
-     "Salbiy tashqi samara"
-    ],
-    "c": 3
-   },
-   {
-    "q": "Ochiq kirishda foydalanuvchilar soni qaysi shartgacha oshadi?",
-    "options": [
-     "TP maksimal",
-     "MP = 0",
-     "AP = c",
-     "MP = c"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Ijtimoiy optimum sharti (baliq ovlash):",
-    "options": [
-     "MP = c",
-     "AP = c",
-     "TP = 0",
-     "AP = MP"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Tirbandlikka qarshi to‘lov joriy etgan shahar:",
-    "options": [
-     "Parij",
-     "Toshkent",
-     "London",
-     "Rim"
-    ],
-    "c": 2
-   },
-   {
-    "q": "Umumiy resurs muammosiga yechim emas:",
-    "options": [
-     "Mulk huquqlarini belgilash",
-     "Resursdan bepul va cheksiz foydalanishni rag‘batlantirish",
-     "Kvotalar",
-     "Foydalanish to‘lovi"
-    ],
-    "c": 1
-   },
-   {
-    "q": "O‘zbekistonda yaylovlardan foydalanishni tartibga soluvchi qonun qabul qilingan yil:",
-    "options": [
-     "2009",
-     "2019",
-     "2023",
-     "1995"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Masgrev bo‘yicha davlatning uchta funksiyasi:",
-    "options": [
-     "Mudofaa, ta’lim, sog‘liqni saqlash",
-     "Taqsimlash, qayta taqsimlash, barqarorlashtirish",
-     "Ishlab chiqarish, iste’mol, eksport",
-     "Soliq, kredit, investitsiya"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Ijtimoiy tanlov nazariyasi uchun Nobel mukofoti olgan:",
-    "options": [
-     "J. Keyns",
-     "J. Byukenen",
-     "M. Fridmen",
-     "P. Samuelson"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Davlat kamchiligining sababi:",
-    "options": [
-     "Rentani izlash va manfaatdor guruhlar ta’siri",
-     "To‘liq axborot",
-     "Samarali bozorlar",
-     "Mukammal raqobat"
-    ],
-    "c": 0
-   },
-   {
-    "q": "Kichik tashkil etilgan guruhlarning siyosatga ta’sirini o‘rgangan iqtisodchi:",
-    "options": [
-     "L. Valras",
-     "A. Marshall",
-     "M. Olson",
-     "D. Rikardo"
-    ],
-    "c": 2
-   },
-   {
-    "q": "«Ochiq byudjet» mexanizmi nazariy jihatdan qaysi muammoni yumshatadi?",
-    "options": [
-     "Valyuta kursini",
-     "Ijtimoiy ne’matlarga afzalliklarni oshkor qilish muammosini",
-     "Inflyatsiyani",
-     "Monopoliyani"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Klub ne’matlari nazariyasi muallifi:",
-    "options": [
-     "G. Xardin",
-     "J. Byukenen",
-     "A. Pigu",
-     "R. Kouz"
-    ],
-    "c": 1
-   },
-   {
-    "q": "Mankyu bo‘yicha «hukumatlar ba’zan bozor natijalarini yaxshilashi mumkin» tamoyilidagi «ba’zan» so‘zi nimani anglatadi?",
-    "options": [
-     "Davlat hech qachon aralashmasligi kerak",
-     "Bozor har doim samarasiz",
-     "Davlat har doim to‘g‘ri qaror qiladi",
-     "Davlat siyosati ham mukammal emas, davlat kamchiliklari mavjud"
-    ],
-    "c": 3
+    "c": 2,
+    "e": "Ochiq kirishda AP = c: 60 – n = 24 ⇒ n = 36 (ijtimoiy optimum MP = 60 – 2n = 24 ⇒ n = 18)."
    }
   ],
   "selfStudy": [

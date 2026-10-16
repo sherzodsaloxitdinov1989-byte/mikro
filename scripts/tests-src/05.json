@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Narxlar o‘zgarmagan holda turli daromad darajalaridagi muvozanat nuqtalarini tutashtiruvchi chiziq qanday ataladi?",
+  "options": [
+   "Narx-iste’mol chizig‘i (PCC)",
+   "Kompensatsiyalangan byudjet chizig‘i",
+   "Daromad-iste’mol chizig‘i (ICC)",
+   "Befarqlik egri chizig‘i"
+  ],
+  "c": 2,
+  "e": "ICC daromad o‘zgarganda muvozanat nuqtasining harakat izini ko‘rsatadi; PCC esa narx o‘zgarishiga tegishli."
+ },
+ {
+  "q": "Agar X tovar past kategoriyali bo‘lsa, daromad-iste’mol chizig‘i daromadning ma’lum darajasidan keyin qanday bo‘ladi?",
+  "options": [
+   "Orqaga (chapga) buriladi",
+   "Gorizontal holatga o‘tadi",
+   "Tikroq bo‘lib yuqoriga ketadi",
+   "Koordinatalar boshiga qaytadi"
+  ],
+  "c": 0,
+  "e": "Daromad oshgani sari past kategoriyali tovar iste’moli kamayadi, shuning uchun ICC orqaga buriladi."
+ },
+ {
+  "q": "Kobb-Duglas naflik funksiyasida (gomotetik afzalliklar) daromad-iste’mol chizig‘i qanday ko‘rinishda bo‘ladi?",
+  "options": [
+   "Orqaga bukilgan egri chiziq",
+   "Boshdan chiquvchi to‘g‘ri chiziq",
+   "Gorizontal to‘g‘ri chiziq",
+   "Koordinatalar boshiga qavariq egri chiziq"
+  ],
+  "c": 1,
+  "e": "Gomotetik afzalliklarda iste’molchi daromadini har qanday darajada tovarlar o‘rtasida bir xil nisbatda taqsimlaydi."
+ },
+ {
+  "q": "Hashamat tovarlari uchun Engel chizig‘i qanday xususiyatga ega?",
+  "options": [
+   "Daromad oshgan sari sekinlashib o‘sadi",
+   "Daromad oshgan sari kamayib boradi",
+   "Daromadga bog‘liq bo‘lmaydi",
+   "Daromad oshgan sari tezlashib o‘sadi"
+  ],
+  "c": 3,
+  "e": "Hashamat tovarlarining daromad elastikligi 1 dan katta, shu sababli Engel chizig‘i tezlashib o‘sadi."
+ },
+ {
+  "q": "Narx-iste’mol chizig‘i (PCC) yordamida nima aniqlanadi?",
+  "options": [
+   "Tovarning Engel chizig‘i",
+   "Bozor taklifi chizig‘i",
+   "Iste’molchining byudjet chegarasi",
+   "Individual talab chizig‘i"
+  ],
+  "c": 3,
+  "e": "PCC dagi har bir X narxiga muvozanatdagi X miqdori mos qo‘yilib, individual talab chizig‘i hosil qilinadi."
+ },
+ {
+  "q": "U = X^0,5·Y^0,5, daromad 24, PY = 1. PX = 4 bo‘lganda iste’molchi X tovarini qancha sotib oladi?",
+  "options": [
+   "6 birlik",
+   "3 birlik",
+   "12 birlik",
+   "2 birlik"
+  ],
+  "c": 1,
+  "e": "Talab funksiyasi X = I/(2PX) = 24/8 = 3 birlik (daromadning yarmi X ga sarflanadi)."
+ },
+ {
+  "q": "Narx o‘zgarishining umumiy samarasi qanday ifodalanadi?",
+  "options": [
+   "Almashtirish va daromad samaralarining yig‘indisi",
+   "Almashtirish va daromad samaralarining ayirmasi",
+   "Almashtirish samarasining daromad samarasiga nisbati",
+   "Almashtirish va daromad samaralarining ko‘paytmasi"
+  ],
+  "c": 0,
+  "e": "Umumiy samara = almashtirish samarasi + daromad samarasi."
+ },
+ {
+  "q": "Almashtirish samarasi nimani anglatadi?",
+  "options": [
+   "Real daromad o‘zgarishi tufayli iste’molning o‘zgarishini",
+   "Byudjet chizig‘ining parallel siljishini",
+   "Nisbiy narxlar o‘zgarishidan iste’molning o‘zgarishini",
+   "Iste’molchi naflik darajasining oshishini"
+  ],
+  "c": 2,
+  "e": "Almashtirish samarasi naflik darajasi o‘zgarmagan holda faqat nisbiy narxlar o‘zgarishi ta’sirini ifodalaydi."
+ },
+ {
+  "q": "Xiks va Slutskiy usullarining kompensatsiyalangan byudjet chizig‘ini chizishdagi farqi nimada?",
+  "options": [
+   "Xiks boshlang‘ich to‘plamni, Slutskiy boshlang‘ich naflik darajasini saqlaydi",
+   "Xiks nominal daromadni, Slutskiy narxlarni o‘zgarmas qoldiradi",
+   "Xiks boshlang‘ich naflik darajasini, Slutskiy boshlang‘ich to‘plamni saqlaydi",
+   "Xiks daromad samarasini, Slutskiy almashtirish samarasini hisobga olmaydi"
+  ],
+  "c": 2,
+  "e": "Xiksda iste’molchi dastlabki befarqlik egri chizig‘ida qoladi, Slutskiyda esa dastlabki to‘plamni sotib olish imkoni saqlanadi."
+ },
+ {
+  "q": "Normal tovar narxi pasayganda almashtirish va daromad samaralari iste’molga qanday ta’sir qiladi?",
+  "options": [
+   "Almashtirish samarasi oshiradi, daromad samarasi kamaytiradi",
+   "Almashtirish samarasi kamaytiradi, daromad samarasi oshiradi",
+   "Ikkalasi ham iste’molni kamaytiradi",
+   "Ikkalasi ham iste’molni oshiradi"
+  ],
+  "c": 3,
+  "e": "Normal tovarda ikkala samara bir yo‘nalishda ishlaydi, shuning uchun talab chizig‘i pastga og‘ma."
+ },
+ {
+  "q": "Past kategoriyali tovar narxi pasayganda talab chizig‘i odatda nima uchun baribir pastga og‘ma bo‘ladi?",
+  "options": [
+   "Chunki daromad samarasi almashtirish samarasidan kuchliroq",
+   "Chunki almashtirish samarasi daromad samarasidan kuchliroq",
+   "Chunki daromad samarasi iste’molni oshiradi",
+   "Chunki almashtirish samarasi narx pasayganda yo‘qoladi"
+  ],
+  "c": 1,
+  "e": "Daromad samarasi iste’molni kamaytirsa-da, kuchsiz bo‘ladi; umumiy samara musbat qoladi."
+ },
+ {
+  "q": "Quyidagi shartlardan qaysi biri tovarning Giffen tovari bo‘lishi uchun zarur?",
+  "options": [
+   "Tovar kuchli past kategoriyali va xarajatlarda ulushi katta",
+   "Tovar hashamat buyumi bo‘lib, narxi juda yuqori bo‘ladi",
+   "Tovarning ko‘plab yaqin o‘rinbosarlari mavjud bo‘ladi",
+   "Tovarning iste’molchi xarajatlaridagi ulushi juda kichik bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Giffen tovari uchun kuchli past kategoriyalilik, xarajatlardagi katta ulush va yaqin o‘rinbosarlarning kamligi shart."
+ },
+ {
+  "q": "Veblen samarasi Giffen holatidan nimasi bilan farq qiladi?",
+  "options": [
+   "Tovar kuchli past kategoriyali bo‘lgani uchun xarid qilinadi",
+   "Yuqori narx tovarni ijtimoiy signal sifatida qadrli qiladi",
+   "Tovarning daromad samarasi manfiy va juda kuchli bo‘ladi",
+   "Tovarning yaqin o‘rinbosarlari deyarli mavjud bo‘lmaydi"
+  ],
+  "c": 1,
+  "e": "Veblen holatida talab narxning ijtimoiy signal rolidan kelib chiqadi (ko‘z-ko‘z qilish uchun iste’mol)."
+ },
+ {
+  "q": "Xunan provinsiyasidagi tajribada guruch narxiga subsidiya olgan juda kambag‘al oilalar nima qildi?",
+  "options": [
+   "Guruch iste’molini oshirib, boshqa mahsulotlarni kamaytirdi",
+   "Guruch iste’molini o‘zgartirmadi, jamg‘armasini oshirdi",
+   "Go‘sht va guruchni ham kamroq sotib oldi",
+   "Guruchni kamroq iste’mol qilib, go‘shtni ko‘proq sotib oldi"
+  ],
+  "c": 3,
+  "e": "Guruch arzonlashib, oilalar real daromadi oshdi; kuchli daromad samarasi tufayli guruch iste’moli kamaydi – bu Giffen tovari dalili."
+ },
+ {
+  "q": "Ish haqi oshganda almashtirish samarasi mehnat taklifiga qanday ta’sir qiladi?",
+  "options": [
+   "Dam olish arzonlashgani uchun inson kamroq ishlaydi",
+   "Inson boyigani uchun ko‘proq dam oladi",
+   "Dam olish qimmatlashgani sababli ko‘proq ishlaydi",
+   "Inson ish vaqtini o‘zgartirmaydi"
+  ],
+  "c": 2,
+  "e": "Ish haqi – dam olishning muqobil xarajati; u oshsa dam olish qimmatlashadi va mehnat taklifi ortadi."
+ },
+ {
+  "q": "Orqaga bukilgan mehnat taklifi chizig‘i qaysi holatda hosil bo‘ladi?",
+  "options": [
+   "Yuqori ish haqida daromad samarasi almashtirish samarasidan ustun kelganda",
+   "Past ish haqi darajasida daromad samarasi almashtirish samarasidan ustun kelganda",
+   "Almashtirish samarasi har qanday ish haqida ustun kelganda",
+   "Dam olish past kategoriyali tovar hisoblanganda"
+  ],
+  "c": 0,
+  "e": "Boy bo‘lgan inson dam olishni (normal tovar) ko‘proq xohlaydi va mehnat taklifini kamaytiradi."
+ },
+ {
+  "q": "Kam ta’minlangan oilaga non narxiga subsidiya o‘rniga shu qiymatdagi pul yordami berilsa, nima uchun u oilaga kamida teng foyda keltiradi?",
+  "options": [
+   "Oilaning umumiy iste’molini nonga yo‘naltirib, nazoratni osonlashtiradi",
+   "Nonning bozor narxini pasaytirib, boshqa oilalarga ham talabni oshiradi",
+   "Almashtirish samarasini kuchaytirib, nonga talabni oshiradi",
+   "Nisbiy narxlarni buzmaydi, xarajatni didga ko‘ra taqsimlashga imkon beradi"
+  ],
+  "c": 3,
+  "e": "Pul yordami almashtirish samarasini keltirib chiqarmaydi, oila esa yordamni o‘z didiga mos sarflaydi."
+ },
+ {
+  "q": "Foiz stavkasi oshganda jamg‘arma qanday o‘zgaradi?",
+  "options": [
+   "Har doim oshadi, chunki bugungi iste’mol qimmatlashib, jamg‘arma foydali bo‘ladi",
+   "Almashtirish samarasi oshiradi, daromad samarasi kamaytiradi; natija noaniq",
+   "Har doim kamayadi, chunki jamg‘aruvchi boyiydi va kam jamg‘arishga tayyor bo‘ladi",
+   "O‘zgarmaydi, chunki ikki samara bir-birini to‘liq yo‘qotadi"
+  ],
+  "c": 1,
+  "e": "Bugungi iste’mol qimmatlashishi jamg‘armani oshiradi, boyish esa kamaytiradi; umumiy natija ikki samara nisbatiga bog‘liq."
+ },
+ {
+  "q": "Bozorda q1 = 40 – 4P (P ≤ 10) va q2 = 60 – 3P (P ≤ 20) talab funksiyali ikki guruh bor. P = 12 bo‘lganda bozor talabi qancha?",
+  "options": [
+   "16 birlik",
+   "36 birlik",
+   "24 birlik",
+   "48 birlik"
+  ],
+  "c": 2,
+  "e": "P = 12 > 10 da birinchi guruh talab qilmaydi: Q = q2 = 60 – 36 = 24. 100 – 7P formulasi bu narxda yaroqsiz (16 beradi)."
+ },
+ {
+  "q": "Telegram foydalanuvchilari qancha ko‘p bo‘lsa, unga qo‘shilish shuncha foydali. Bu qaysi samaraga misol?",
+  "options": [
+   "Qo‘shilish (bandwagon) samarasiga",
+   "Snob (eksklyuziv) samarasiga",
+   "Veblen (ko‘z-ko‘z qilish) samarasiga",
+   "Giffen (past kategoriyali) samarasiga"
+  ],
+  "c": 0,
+  "e": "Boshqalar sotib olgani sababli talab oshishi qo‘shilish samarasi; bunda bozor talabi elastikroq bo‘ladi."
+ }
+]

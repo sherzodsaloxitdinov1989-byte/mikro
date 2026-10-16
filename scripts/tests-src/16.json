@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Butun mamlakat miqyosida yer taklifi qanday xususiyatga ega?",
+  "options": [
+   "Elastik: renta oshgani sari yer miqdori ham tez ko‘payib boradi",
+   "Mutlaq noelastik: renta qancha oshsa ham yer miqdori o‘zgarmaydi",
+   "Mutlaq elastik: yer miqdori renta darajasiga to‘liq moslashadi",
+   "Birlik elastik: renta o‘zgarishiga yer miqdori teng nisbatda javob beradi"
+  ],
+  "c": 1,
+  "e": "Yer inson mehnatining mahsuli emas va uning umumiy miqdori qat’iy, shuning uchun taklif mutlaq noelastik."
+ },
+ {
+  "q": "Yerning iqtisodiy unumdorligi nima bilan belgilanadi?",
+  "options": [
+   "Tuproqning tabiiy tarkibi, iqlimi, relyefi va suv bilan ta’minlanganligi bilan",
+   "Yer uchastkasining umumiy maydoni va davlat tomonidan belgilangan normativ narxi bilan",
+   "Yer egasining huquqiy maqomi hamda ijara shartnomasi muddatining uzunligi bilan",
+   "Tabiiy unumdorlik hamda unga qo‘shilgan mehnat va kapital bilan"
+  ],
+  "c": 3,
+  "e": "Iqtisodiy unumdorlik tabiiy unumdorlikka mehnat va kapital qo‘shilishi natijasida erishiladigan hosildorlikdir."
+ },
+ {
+  "q": "Differensial renta II qanday daromad hisoblanadi?",
+  "options": [
+   "Bir xil uchastkaga qo‘shimcha kapital qo‘yish (intensivlash) natijasida olinadigan daromad",
+   "Unumdorligi yaxshiroq yerlardan tabiiy sharoit farqi tufayli olinadigan qo‘shimcha daromad",
+   "Bozorga yaqin joylashgan uchastkalardan transport xarajatlari kamligi tufayli olinadigan daromad",
+   "Eng yomon uchastkadan ham yer egasi mulk huquqi sababli oladigan qo‘shimcha daromad"
+  ],
+  "c": 0,
+  "e": "Differensial renta II bir uchastkaga melioratsiya, sug‘orish, o‘g‘it kabi qo‘shimcha kapital qo‘yish natijasida hosil bo‘ladi."
+ },
+ {
+  "q": "K. Marksga ko‘ra absolyut rentaning manbai nima?",
+  "options": [
+   "Uchastkalar unumdorligidagi farq va yaxshi yerlarning miqdoran cheklanganligi tufayli paydo bo‘ladigan afzallik",
+   "Uchastkaning bozordan uzoq-yaqinligi va transport xarajatlaridagi farq",
+   "Yerga xususiy mulkchilik monopoliyasi: eng yomon yer ham bepul ijaraga berilmaydi",
+   "Noyob tabiiy sharoitli yerlarda yetishtirilgan mahsulotga qo‘yiladigan monopol narx"
+  ],
+  "c": 2,
+  "e": "Marks absolyut rentani yerga xususiy mulkchilik monopoliyasidan keltirib chiqaradi."
+ },
+ {
+  "q": "Monopol renta qanday yerlardan olinadi?",
+  "options": [
+   "Barcha yerlardan, shu jumladan eng yomon uchastkadan ham olinadigan to‘lov sifatida",
+   "Noyob tabiiy sharoitlarga ega yerlardan, ularda yetishtirilgan mahsulot monopol narxda sotiladi",
+   "Shahar markazidagi qurilish uchastkalaridan joylashuv tufayli olinadigan to‘lov sifatida",
+   "Foydali qazilmalar konlaridan resursning qayta tiklanmasligi tufayli olinadigan to‘lov sifatida"
+  ],
+  "c": 1,
+  "e": "Monopol renta noyob tabiiy sharoitli yerlardan (masalan, Shampan uzumzorlari) olinadi."
+ },
+ {
+  "q": "Ijara haqi tarkibi qaysi javobda to‘g‘ri ko‘rsatilgan?",
+  "options": [
+   "Sof renta + yerga qo‘yilgan kapitalga foiz + amortizatsiya",
+   "Sof renta + yer solig‘i + yer egasining tadbirkorlik foydasi",
+   "Yer narxi × foiz stavkasi + yer solig‘i + amortizatsiya",
+   "Differensial renta + absolyut renta + monopol renta"
+  ],
+  "c": 0,
+  "e": "Ijara haqi sof renta, yerga qo‘yilgan kapitalga foiz va uning eskirishini (amortizatsiya) o‘z ichiga oladi."
+ },
+ {
+  "q": "Kon (tog‘-kon) rentasining o‘ziga xosligi nimada?",
+  "options": [
+   "Resurs har yili o‘zini qayta tiklaydi, shuning uchun renta doimiy o‘sib boradi",
+   "Renta joylashuv bilan belgilanadi, konning boyligi va chuqurligi unga ta’sir qilmaydi",
+   "Renta kon egasining mehnati natijasi bo‘lgani uchun soliqqa tortilmaydi",
+   "Resurs qayta tiklanmaydi, shuning uchun renta kelajak avlodlar uchun ham muhim"
+  ],
+  "c": 3,
+  "e": "Foydali qazilmalar qayta tiklanmaydi, shu sababli kon rentasi kelajak avlodlar uchun ham ahamiyatli."
+ },
+ {
+  "q": "Yerga egalik huquqi (mulk huquqi) nimani o‘z ichiga oladi?",
+  "options": [
+   "Yerga egalik qilmasdan, unda iqtisodiy maqsadlarda doimiy yoki muddatli foydalanish huquqi",
+   "Shartnoma asosida muayyan muddatga ijara haqi evaziga yerdan foydalanish va hosildan bahramand bo‘lish huquqi",
+   "Yerni egallash, undan foydalanish va tasarruf etish (sotish, garovga qo‘yish) huquqlari majmui",
+   "Yerdan foydalanish va hosilni sotish huquqi, ammo yerni sotish yoki garovga qo‘yish huquqisiz"
+  ],
+  "c": 2,
+  "e": "Egalik huquqi egallash, foydalanish va tasarruf etish huquqlarining to‘liq majmuidir."
+ },
+ {
+  "q": "G. Jorj yer rentasi haqida qanday g‘oyani ilgari surgan?",
+  "options": [
+   "Renta jamiyat taraqqiyotining «ishlanmagan daromadi», unga yagona soliq solish kerak",
+   "Renta yer egasining mehnati mahsuli bo‘lgani uchun u soliqdan to‘liq ozod etilishi kerak",
+   "Renta tabiatning in’omi bo‘lib, yagona «sof mahsulot» manbai hisoblanadi, shuning uchun yer egasiga tegishli",
+   "Renta yerning bozordan uzoqligiga bog‘liq bo‘lib, transport xarajatlari funksiyasi hisoblanadi"
+  ],
+  "c": 0,
+  "e": "Jorj rentani jamiyat rivoji natijasidagi «ishlanmagan daromad» deb, unga yagona soliq solishni taklif qilgan."
+ },
+ {
+  "q": "D. Rikardoga ko‘ra don narxi va renta o‘rtasidagi bog‘liqlik qanday?",
+  "options": [
+   "Don narxi yuqori, chunki yer egalari ijarachilardan yuqori renta talab qiladi",
+   "Renta to‘lanadi, chunki don narxi yuqori; narx eng yomon yerda belgilanadi",
+   "Narx eng unumdor yerdagi xarajat bilan belgilanadi, renta esa undan kelib chiqadi",
+   "Renta yerga xususiy mulkchilik monopoliyasidan kelib chiqib, narxni o‘zi belgilaydi"
+  ],
+  "c": 1,
+  "e": "Rikardo xulosasi: «renta to‘lanadi, chunki don yuqori narxda», narx esa chegaraviy (eng yomon) yerda belgilanadi."
+ },
+ {
+  "q": "I. fon Tyunen modeliga ko‘ra markazdan uzoqlashgan sari renta nima uchun kamayadi?",
+  "options": [
+   "Yerning tabiiy unumdorligi markazdan uzoqlashgan sari izchil pasayib, ijara arzonlashadi",
+   "Yer taklifi markazdan uzoqda elastik bo‘lib, ijara narxini pasaytirib turadi",
+   "Uzoq hududlarda yerga xususiy mulkchilik monopoliyasi kuchsizroq bo‘ladi",
+   "Transport xarajatlari oshadi, shuning uchun uchastka qo‘shimcha daromadi qisqaradi"
+  ],
+  "c": 3,
+  "e": "Tyunen rentani joylashuv bilan bog‘laydi: bozordan uzoqlik transport xarajatlarini oshirib, rentani kamaytiradi."
+ },
+ {
+  "q": "Boshqa sharoitlar teng bo‘lganda foiz stavkasi pasaysa, yer narxi qanday o‘zgaradi?",
+  "options": [
+   "Pasayadi, chunki foiz stavkasi kamayganda yerdan olinadigan renta ham kamayadi",
+   "O‘zgarmaydi, chunki yer taklifi mutlaq noelastik bo‘lib qoladi",
+   "Oshadi, chunki yer narxi R/i formulasi bilan topiladi",
+   "Pasayadi, chunki yerga qo‘yilgan kapitalning amortizatsiyasi tezroq oshadi"
+  ],
+  "c": 2,
+  "e": "P = R/i bo‘lgani uchun foiz stavkasi pasayganda yer narxi oshadi."
+ },
+ {
+  "q": "Neoklassik nuqtai nazardan eng yomon yerning absolyut rentasi qachon nolga yaqin bo‘ladi?",
+  "options": [
+   "Barcha ishlov berishga yaroqli yerlar band bo‘lganda",
+   "Ishlov berilmagan bo‘sh yerlar ko‘p bo‘lganda",
+   "Yerga bo‘lgan talab keskin oshganda",
+   "Yer egalarining monopoliyasi kuchaygan davrda"
+  ],
+  "c": 1,
+  "e": "Bo‘sh yerlar ko‘p bo‘lsa, eng yomon yerning rentasi nolga yaqin bo‘ladi; yerlar band bo‘lsa, u ijobiy renta keltiradi."
+ },
+ {
+  "q": "Nega rentaga solinadigan soliq sof yo‘qotish (samarasizlik) yaratmaydi?",
+  "options": [
+   "Yer taklifi mutlaq noelastik, shuning uchun soliq yer egasiga tushadi, hajm o‘zgarmaydi",
+   "Soliq yuki ijarachilarga o‘tadi, ammo ular yerdan foydalanish hajmini qisqartira olmaydi",
+   "Yer solig‘i barcha davlat xarajatlarini qoplab, boshqa soliqlarni bekor qilish imkonini beradi",
+   "Yer egalari soliqni yerga qo‘yilgan kapital daromadidan to‘lashga majbur bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Soliq yuki bozorning kamroq elastik tomoniga tushadi; yer taklifi noelastik bo‘lgani uchun yuk yer egasida qoladi."
+ },
+ {
+  "q": "XIV asrda vabo Yevropa aholisining uchdan bir qismini yo‘q qilgach, yer rentasi nega pasaydi?",
+  "options": [
+   "Yerning umumiy miqdori qisqarib, qolgan yerlarning tabiiy unumdorligi pasayib ketdi",
+   "Ish haqi tushgani uchun yer egalari ijarani arzonlashtirishga majbur bo‘ldi",
+   "Ishchi kam qolgani uchun yerning chegaraviy mahsuloti kamaydi",
+   "Dehqonlar yerni ijaraga olishni ko‘paytirgani uchun ijara raqobatda arzonladi"
+  ],
+  "c": 2,
+  "e": "Ishchilar kamayib, yer o‘zgarmagani sababli yerning chegaraviy mahsuloti va renta pasaydi, ish haqi esa oshdi."
+ },
+ {
+  "q": "Shahar markazida, metro yonidagi uchastkaning ijara haqi chekkadagidan o‘nlab baravar yuqori. Bu qaysi renta turi bilan bog‘liq?",
+  "options": [
+   "Kon rentasi, u konning boyligi va qazib olish sharoitlariga bog‘liq",
+   "Differensial renta II, u uchastkaga qo‘yilgan qo‘shimcha kapitalga bog‘liq",
+   "Monopol renta, u noyob tabiiy iqlim sharoitlariga bog‘liq",
+   "Shahar (qurilish) rentasi, u deyarli to‘liq joylashuv bilan belgilanadi"
+  ],
+  "c": 3,
+  "e": "Qurilish uchastkalarining rentasi shahar rentasi deb ataladi va joylashuvga bog‘liq."
+ },
+ {
+  "q": "Ijarachi shartnoma muddati davomida o‘z mablag‘i hisobiga tomchilatib sug‘orish tizimini o‘rnatib, qo‘shimcha daromad oldi. Bu daromad shartnoma amal qilgan davrda kimga tegishli?",
+  "options": [
+   "Yer egasiga, chunki yer uning mulki va barcha qo‘shimcha daromad rentaga aylanadi",
+   "Ijarachiga; shartnoma yangilanganda esa yer egasi ijara haqini oshirib, uni o‘zlashtirishga harakat qiladi",
+   "Ijarachi bilan yer egasiga teng ulushlarda, chunki ikkalasi ham hosil olishda qatnashadi",
+   "Iste’molchilarga, chunki hosildorlik oshgani uchun mahsulot narxi tushadi"
+  ],
+  "c": 1,
+  "e": "Differensial renta II ijara shartnomasi amal qilgan davrda ijarachiga tegishli bo‘ladi."
+ },
+ {
+  "q": "Uch uchastkada bir sentner mahsulot tannarxi 60, 80 va 100 ming so‘m; narx eng yomon uchastka tannarxi bilan belgilanadi. Birinchi uchastka 50 sentner hosil bersa, uning differensial rentasi qancha?",
+  "options": [
+   "1 000 ming so‘m",
+   "3 000 ming so‘m",
+   "2 000 ming so‘m",
+   "5 000 ming so‘m"
+  ],
+  "c": 2,
+  "e": "Narx 100, tannarx 60: sentnerdan 40 ming so‘m renta; 40 × 50 = 2 000 ming so‘m."
+ },
+ {
+  "q": "Yer yiliga 24 mln so‘m sof renta keltiradi, foiz stavkasi 8%. Yer narxi qancha?",
+  "options": [
+   "300 mln so‘m",
+   "1,92 mln so‘m",
+   "192 mln so‘m",
+   "32 mln so‘m"
+  ],
+  "c": 0,
+  "e": "P = R/i = 24 / 0,08 = 300 mln so‘m."
+ },
+ {
+  "q": "Yillik renta R yiliga g sur’atda o‘sishi kutilsa va foiz stavkasi i bo‘lsa, yer narxi qaysi formula bilan topiladi?",
+  "options": [
+   "P = R / (i + g)",
+   "P = R × (1 + i – g)",
+   "P = R × i / g",
+   "P = R / (i – g)"
+  ],
+  "c": 3,
+  "e": "Renta o‘sishi kutilganda yer narxi Gordon formulasi bo‘yicha R/(i – g) ga teng."
+ }
+]

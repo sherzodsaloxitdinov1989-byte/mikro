@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Narxning qaysi funksiyasi cheklangan tovarni uni eng yuqori baholaydigan xaridorlarga yetkazadi?",
+  "options": [
+   "Hisob-o‘lchov (solishtirish) funksiyasi",
+   "Axborot (signal berish) funksiyasi",
+   "Taqsimlash (rasionlash) funksiyasi",
+   "Rag‘batlantirish (taklif) funksiyasi"
+  ],
+  "c": 2,
+  "e": "Narx cheklangan tovarni uni eng yuqori baholaydigan xaridorlar o‘rtasida taqsimlaydi."
+ },
+ {
+  "q": "F. Xayek narxni qanday ta’riflagan?",
+  "options": [
+   "Tarqoq bilimlarni bitta raqamga jamlovchi «telekommunikatsiya tizimi»",
+   "Davlat tomonidan belgilanadigan va ishlab chiqaruvchilarga yo‘l-yo‘riq beruvchi ko‘rsatma",
+   "Firma xarajatlariga ustama qo‘shib topiladigan oddiy hisob-kitob natijasi",
+   "Iste’molchining qanday tovar sotib olishini oldindan belgilovchi majburiy me’yor"
+  ],
+  "c": 0,
+  "e": "Xayek narxning axborot funksiyasini ta’kidlab, uni tarqoq bilimlarni jamlovchi tizimga o‘xshatgan."
+ },
+ {
+  "q": "Rezerv narx nima?",
+  "options": [
+   "Firma zarar ko‘rmasdan sotishi mumkin bo‘lgan minimal narx",
+   "Davlat tomonidan tabiiy monopoliya uchun belgilangan eng yuqori narx",
+   "Ulgurji va chakana narxlar o‘rtasidagi o‘rtacha farq",
+   "Xaridor tovar birligi uchun to‘lashga tayyor bo‘lgan maksimal narx"
+  ],
+  "c": 3,
+  "e": "Talab chizig‘i rezerv narxlari kamayish tartibida joylashgan xaridorlar ro‘yxatidir."
+ },
+ {
+  "q": "Arbitraj narx diskriminatsiyasiga nima uchun to‘sqinlik qiladi?",
+  "options": [
+   "Arbitraj firmaning chegaraviy xarajatini keskin oshirib, ishlab chiqarishni qimmatlashtiradi",
+   "Arzon olgan xaridor tovarni qimmat bozorda qayta sotib, farqni yo‘qotadi",
+   "Arbitraj xaridorlarning rezerv narxini hammada bir xil qilib qo‘yadi",
+   "Arbitraj davlatning narxlarni tartibga solishini majburiy qiladi"
+  ],
+  "c": 1,
+  "e": "Arbitraj imkoni bo‘lsa, past narxli xaridorlar tovarni qayta sotib, firmaning narx tizimini buzadi."
+ },
+ {
+  "q": "Nima uchun mukammal raqobat bozorida narx diskriminatsiyasi mumkin emas?",
+  "options": [
+   "Qimmat sotsa, xaridor raqibga ketadi, chunki firma narxni belgilay olmaydi",
+   "Raqobatli firmalarda chegaraviy xarajat bo‘lmaydi, narxni esa davlat belgilaydi",
+   "Raqobatli bozorda xaridorlarning rezerv narxlari bir-biridan farq qilmaydi",
+   "Raqobatli firmalar uchun barcha turdagi chegirmalar qonun bilan taqiqlab qo‘yilgan"
+  ],
+  "c": 0,
+  "e": "Narx diskriminatsiyasi uchun avvalo bozor hokimiyati kerak; raqobat bozorida u yo‘q."
+ },
+ {
+  "q": "Chegaraviy xarajat 6000 so‘m, talab elastikligi |Ed| = 4 bo‘lsa, «bosh barmoq» qoidasi bo‘yicha monopol narx qancha?",
+  "options": [
+   "7500 so‘m",
+   "24 000 so‘m",
+   "9000 so‘m",
+   "8000 so‘m"
+  ],
+  "c": 3,
+  "e": "P = MC × |Ed|/(|Ed| – 1) = 6000 × 4/3 = 8000."
+ },
+ {
+  "q": "Supermarketda brend tovar ustamasi mahalla do‘koniga qaraganda nima uchun kichikroq?",
+  "options": [
+   "Supermarketda chegaraviy xarajat doim mahalla do‘konidagidan baland",
+   "Supermarketda talab elastikroq, xaridorlar narxlarni solishtiradi va o‘rinbosarlar ko‘p",
+   "Supermarket xaridorlarining rezerv narxi mahalla do‘koni xaridorlariga qaraganda yuqori",
+   "Mahalla do‘koni narxni davlat nazoratisiz belgilaydi, supermarket esa belgilay olmaydi"
+  ],
+  "c": 1,
+  "e": "Ustama talab elastikligiga teskari bog‘liq: elastiklik yuqori bo‘lsa, P MC ga yaqin bo‘ladi."
+ },
+ {
+  "q": "Birinchi darajali (mukammal) narx diskriminatsiyasining natijasi qanday?",
+  "options": [
+   "Hajm samarasiz, sof yo‘qotish yagona narxdagidan ham katta bo‘ladi",
+   "Hajm samarali, ortiqcha iste’molchilar va firma o‘rtasida teng bo‘linadi",
+   "Hajm samarali, sof yo‘qotish yo‘q, ammo butun ortiqcha firmaga o‘tadi",
+   "Hajm yagona narxdagi bilan bir xil, iste’molchi ortiqchaligi oshadi"
+  ],
+  "c": 2,
+  "e": "MR = D bo‘lgani uchun firma Q* gacha ishlab chiqaradi (P = MC), iste’molchi ortiqchaligi esa nolga teng."
+ },
+ {
+  "q": "Talab P = 12 – Q, MC = 2. Mukammal narx diskriminatsiyasida firma foydasi qancha?",
+  "options": [
+   "50",
+   "25",
+   "60",
+   "100"
+  ],
+  "c": 0,
+  "e": "Q* = 10 (P = MC); foyda = 0,5 × 10 × (12 – 2) = 50."
+ },
+ {
+  "q": "Ikkinchi darajali narx diskriminatsiyasining uchinchi darajalidan asosiy farqi nimada?",
+  "options": [
+   "Firma xaridorlarni yoshi yoki hududiga qarab guruhlarga ajratadi",
+   "Firma har bir xaridorning rezerv narxini oldindan aniq biladi",
+   "Xaridorlar ajratilmaydi, har kim bir xil narx menyusidan o‘zi tanlaydi",
+   "Firma barcha xaridorlarga hajmdan qat’i nazar bitta narx belgilaydi"
+  ],
+  "c": 2,
+  "e": "Ikkinchi darajada o‘zini o‘zi tanlash (self-selection) ishlaydi va shaxsiy axborot talab qilinmaydi."
+ },
+ {
+  "q": "Kommunal xizmatlarda birinchi blok arzon, keyingilari qimmat bo‘lgan o‘suvchi blokli tarifning asosiy maqsadi nima?",
+  "options": [
+   "Firma foydasini har bir xaridordan iloji boricha maksimal darajaga yetkazib olish",
+   "Barcha iste’molchilarga bir xil miqdorda xizmat ko‘rsatishni majburlash",
+   "Kommunal tarmoqqa yangi firmalar kirishini rag‘batlantirish va raqobatni kuchaytirish",
+   "Kam ta’minlanganlarni himoya qilish va resurslarni tejashga rag‘batlantirish"
+  ],
+  "c": 3,
+  "e": "O‘suvchi bloklar foyda emas, ijtimoiy maqsadlarga: himoya va tejashga yo‘naltirilgan."
+ },
+ {
+  "q": "Uchinchi darajali diskriminatsiyada noelastik talabli guruhga qanday narx belgilanadi?",
+  "options": [
+   "Elastik talabli guruhga qaraganda biroz pastroq narx",
+   "Elastik talabli guruhga qaraganda yuqoriroq narx",
+   "Elastik talabli guruhdagi bilan aynan bir xil narx",
+   "Chegaraviy xarajatga aynan teng narx"
+  ],
+  "c": 1,
+  "e": "MR1 = MR2 = MC sharti bajarilganda ustama elastikligi kichik guruhda katta bo‘ladi."
+ },
+ {
+  "q": "Uchinchi darajali diskriminatsiyada foydani maksimallashtirish sharti qaysi?",
+  "options": [
+   "Har ikki bozorda narxlar o‘zaro va chegaraviy xarajatga teng bo‘lishi kerak",
+   "Har ikki bozorda sotilgan miqdorlar o‘zaro teng bo‘lishi kerak",
+   "Har ikki bozorda chegaraviy tushum o‘zaro va chegaraviy xarajatga teng",
+   "Har ikki bozorda talab elastikligi o‘zaro teng bo‘lishi kerak"
+  ],
+  "c": 2,
+  "e": "MR1 = MR2 = MC bo‘lmasa, bir birlikni bozorlar o‘rtasida ko‘chirib foydani oshirish mumkin."
+ },
+ {
+  "q": "Muzeyga kirish chiptasi xorijiy fuqarolar uchun qimmatroq, mahalliy fuqarolar uchun arzonroq. Bu narx diskriminatsiyasining qaysi turi?",
+  "options": [
+   "Uchinchi darajali, chunki xaridorlar fuqaroligi belgisi bo‘yicha ajratiladi",
+   "Birinchi darajali, chunki har bir xaridorga aniq rezerv narxi belgilanadi",
+   "Ikkinchi darajali, chunki narx xaridor sotib olgan hajmga bog‘liq",
+   "Cho‘qqi davri narxi, chunki narx farqi xarajatlar farqiga asoslanadi"
+  ],
+  "c": 0,
+  "e": "Fuqarolik hujjat bilan aniqlanadi va guruhlar bo‘yicha alohida narx belgilanadi."
+ },
+ {
+  "q": "Aviakompaniya ikki guruhga xizmat ko‘rsatadi: P1 = 12 – Q1 va P2 = 6 – Q2 (mln so‘m), MC = 2. Narx diskriminatsiyasi bilan foyda qancha?",
+  "options": [
+   "43",
+   "29",
+   "25",
+   "21"
+  ],
+  "c": 1,
+  "e": "MR = MC dan Q1 = 5, P1 = 7; Q2 = 2, P2 = 4. Foyda = (7 – 2) × 5 + (4 – 2) × 2 = 29."
+ },
+ {
+  "q": "Paketli sotish qachon yagona narxdagi alohida sotishdan foydaliroq bo‘ladi?",
+  "options": [
+   "Xaridorlarning ikki tovarga rezerv narxlari ijobiy korrelyatsiyalangan bo‘lganda",
+   "Ikkala tovarning chegaraviy xarajati nolga teng bo‘lmaganda",
+   "Xaridorlar ikkala tovarni ham bir xil narxda baholaganda",
+   "Xaridorlarning ikki tovarga rezerv narxlari salbiy korrelyatsiyalangan bo‘lganda"
+  ],
+  "c": 3,
+  "e": "Salbiy korrelyatsiyada paket rezerv narxlardagi farqni tekislaydi va tushumni oshiradi."
+ },
+ {
+  "q": "Printer arzon sotiladi, ammo uning kartrijlarini faqat shu ishlab chiqaruvchidan sotib olish mumkin. Bu qaysi usul?",
+  "options": [
+   "Versiyalash",
+   "Aralash paketli sotish",
+   "Bog‘lab sotish (tying)",
+   "Cho‘qqi davri narxlari"
+  ],
+  "c": 2,
+  "e": "Bir tovarni sotib olish uchun boshqasini ham olish sharti bog‘lab sotish deyiladi."
+ },
+ {
+  "q": "Bir xil iste’molchilar uchun ikki qismli tarifda talab P = 60 – 5Q, MC = 10. Optimal kirish to‘lovi T qancha?",
+  "options": [
+   "500",
+   "250",
+   "300",
+   "100"
+  ],
+  "c": 1,
+  "e": "P* = MC = 10 da Q = 10; T = CS = 0,5 × 10 × (60 – 10) = 250."
+ },
+ {
+  "q": "Cho‘qqi davri narxi vaqt bo‘yicha narx diskriminatsiyasidan nimasi bilan farq qiladi?",
+  "options": [
+   "Narx farqi asosan davrlar bo‘yicha MC farqini aks ettiradi",
+   "Narx farqi faqat xaridorlarning rezerv narxlari farqidan kelib chiqadi, MC esa o‘zgarmaydi",
+   "Narx barcha davrlarda bir xil qoladi, farq faqat miqdorda bo‘ladi",
+   "Bu usul faqat narxni qabul qiluvchi raqobatli firmalarga xos bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Cho‘qqida quvvatlar band, MC keskin oshadi; narx har bir davrdagi MC ga yaqinlashadi."
+ },
+ {
+  "q": "Yangi smartfon modeli sotuvga chiqqan kunida qimmat, bir yildan keyin sezilarli arzon bo‘ladi. Bu qaysi usul?",
+  "options": [
+   "Ikki qismli tarif (kirish to‘lovi bilan)",
+   "Ikkinchi darajali blokli narxlash",
+   "Mukammal narx diskriminatsiyasi",
+   "Vaqt bo‘yicha narx diskriminatsiyasi"
+  ],
+  "c": 3,
+  "e": "Zudlik bilan olishni istaydigan yuqori baho beruvchilarga avval qimmat, keyin boshqalarga arzon sotiladi."
+ }
+]

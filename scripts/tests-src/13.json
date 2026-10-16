@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Monopoliyada sof yo‘qotish nima?",
+  "options": [
+   "Iste’molchilardan monopolistga o‘tgan monopol foydaning butun miqdori, ya’ni qayta taqsimlangan summa",
+   "Monopol narx tufayli amalga oshmagan foydali bitimlardan yo‘qolgan jami ortiqcha",
+   "Monopolist buxgalteriya hisobida ko‘rgan zarar miqdori",
+   "Davlatga to‘lanadigan soliq, jarima va boshqa majburiy to‘lovlarning umumiy yig‘indisi"
+  ],
+  "c": 1,
+  "e": "Sof yo‘qotish monopolist MC dan yuqori narx qo‘yib, hajmni cheklagani sababli yo‘qolgan jami ortiqchadir."
+ },
+ {
+  "q": "Birlik solig‘i (aksiz) monopolistga qanday ta’sir qiladi?",
+  "options": [
+   "Ishlab chiqarish hajmidan qat’i nazar undiriladigan bir martalik qat’iy summa",
+   "Foydaning belgilangan foizi undiriladi va MC o‘zgarmaydi",
+   "Soliq doimiy xarajatga o‘xshab ATC chizig‘ini yuqoriga suradi, MC esa o‘zgarmaydi",
+   "Har bir sotilgan birlik uchun t undiriladi va MC ni t ga oshiradi"
+  ],
+  "c": 3,
+  "e": "Birlik solig‘i har bir birlik uchun undirilgani sababli chegaraviy xarajatni t ga oshiradi."
+ },
+ {
+  "q": "Iqtisodiy konsentratsiyani nazorat qilish antimonopol qonunchilikda nimani anglatadi?",
+  "options": [
+   "Yirik birlashuvlar uchun antimonopol organning oldindan ruxsati talab qilinishini",
+   "Dominant firmalar narxlarini davlat har yili inflyatsiya darajasida indeksatsiya qilib borishini",
+   "Kartel haqida birinchi bo‘lib xabar bergan ishtirokchini jarimadan ozod qilishni",
+   "Tabiiy monopoliya tarmog‘ini tarkibiy qismlarga vertikal ajratib, raqobatli bo‘g‘inlarni ochishni"
+  ],
+  "c": 0,
+  "e": "Konsentratsiya nazorati yirik birlashuvlarni oldindan ruxsat orqali tekshirishni nazarda tutadi."
+ },
+ {
+  "q": "Tartibga soluvchining asirligi (regulatory capture) nazariyasi nimani bildiradi?",
+  "options": [
+   "Tartibga soluvchi firmaning haqiqiy xarajatlari haqida yetarli axborotga ega bo‘lmasligini",
+   "Davlat korxonasi yo‘qotishlarini soliq to‘lovchilar qoplashini",
+   "Tartibga soluvchi organ o‘zi nazorat qilishi kerak bo‘lgan tarmoq ta’siriga tushib qolishini",
+   "Tartibga soluvchi monopolist narxini talab chizig‘idan past belgilashga majbur bo‘lishini"
+  ],
+  "c": 2,
+  "e": "Stigler fikricha, tartibga soluvchilar ko‘pincha nazorat ostidagi tarmoqlar manfaatiga bo‘ysunib qoladi."
+ },
+ {
+  "q": "Antimonopol qonunchilikda kartel kelishuviga qaysi harakat kiradi?",
+  "options": [
+   "Dominant firmaning raqiblarni bozorga kiritmasligi",
+   "Ishlab chiqaruvchining xarajatlarni kamaytirish uchun boshqa firma bilan qo‘shilishi",
+   "Raqobatchilarning narxlarni belgilash, bozorni bo‘lish yoki tenderlarda til biriktirishi",
+   "Firmaning tovarlarini bog‘lab sotishi orqali narx diskriminatsiyasini qo‘llashi"
+  ],
+  "c": 2,
+  "e": "Narx belgilash, bozorni bo‘lish va tenderda til biriktirish kartelning eng og‘ir ko‘rinishlaridir."
+ },
+ {
+  "q": "X-samarasizlik nimani anglatadi?",
+  "options": [
+   "Raqobat bosimi yo‘qligidan monopolist xarajatlarni minimallashtirishga intilmasligi",
+   "Monopol foydaning iste’molchilardan ishlab chiqaruvchiga qayta taqsimlanishi va jamiyat ortiqchasining o‘zgarishi",
+   "Monopoliya sharoitida lobbi va litsenziyalar uchun kurashga sarflanadigan resurslar",
+   "Tabiiy monopoliyada masshtab samarasi tufayli xarajatlarning kamayishi"
+  ],
+  "c": 0,
+  "e": "X-samarasizlik (Leybenstayn) — raqobat bo‘lmagani uchun xarajatlarni kamaytirishga intilmaslikdir."
+ },
+ {
+  "q": "Rentani izlash monopoliyaning qaysi ijtimoiy xarajatini ifodalaydi?",
+  "options": [
+   "Mahsulot sifati va innovatsiyalarning pasayishi tufayli kelib chiqadigan ijtimoiy yo‘qotishlarni",
+   "Ortiqcha xodimlar va eskirgan texnologiyalar tufayli oshgan ishlab chiqarish xarajatlarini",
+   "Ishlab chiqarish hajmi samarali darajadan kam bo‘lgani uchun yo‘qolgan ortiqchani",
+   "Mavqeni olish va saqlash uchun lobbi, litsenziya va sun’iy to‘siqlarga ketgan resurslarni"
+  ],
+  "c": 3,
+  "e": "Pozner ko‘rsatganidek, monopol mavqe uchun kurashga sarflanadigan resurslar rentani izlash xarajatidir."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri dominant mavqeni suiiste’mol qilishga misol bo‘ladi?",
+  "options": [
+   "Raqobatchilar bilan tender narxlari bo‘yicha til biriktirish",
+   "Raqiblarni bozorga kiritmaslik va xaridorlarga diskriminatsion shartlar qo‘yish",
+   "Raqobatni cheklamaydigan qo‘shilish uchun antimonopol organdan ruxsat so‘rash",
+   "Yangi dori uchun patent olib, vaqtinchalik ishlab chiqarish huquqiga ega bo‘lish"
+  ],
+  "c": 1,
+  "e": "Raqiblarni kiritmaslik va diskriminatsion shartlar dominant mavqeni suiiste’mol qilish turlaridir."
+ },
+ {
+  "q": "Mankyuga ko‘ra monopoliya muammosi nimada?",
+  "options": [
+   "Monopolistning foyda olishining o‘zida",
+   "Monopol narx tufayli ishlab chiqarish hajmi samarali darajadan kam bo‘lishida",
+   "Monopolist xarajatlarining raqobatchi firmaga nisbatan yuqori bo‘lishida",
+   "Monopolist reklamaga ortiqcha mablag‘ sarflashida"
+  ],
+  "c": 1,
+  "e": "Mankyu muammo foydada emas, samarali hajmdan kam ishlab chiqarishda ekanini ta’kidlaydi."
+ },
+ {
+  "q": "Nima uchun yalpi (bir martalik) soliq monopol narx va hajmni o‘zgartirmaydi?",
+  "options": [
+   "U chegaraviy tushumni pasaytiradi, lekin talab chizig‘i o‘zgarmaganidan hajm saqlanadi",
+   "U chegaraviy xarajatni soliq summasiga teng miqdorda oshiradi va hajmni kamaytiradi",
+   "U narxni oshiradi, ammo hajm samarali darajaga yaqinlashadi va sof yo‘qotish kamayadi",
+   "U MC ni o‘zgartirmaydi, shuning uchun MR = MC sharti saqlanadi"
+  ],
+  "c": 3,
+  "e": "Yalpi soliq doimiy xarajatga o‘xshaydi: ATC ni suradi, MC ni emas, shu sabab optimal hajm saqlanadi."
+ },
+ {
+  "q": "Nima uchun monopoliyaga narx shifti belgilash hajmni oshirishi mumkin?",
+  "options": [
+   "Pmax monopolistning chegaraviy xarajatini pasaytiradi va ishlab chiqarishni arzonlashtiradi",
+   "Pmax talab chizig‘ini o‘ngga siljitib, bozordagi xaridorlar sonini ko‘paytiradi",
+   "Pmax gacha MR gorizontal bo‘ladi, shuning uchun hajmni cheklash rag‘bati yo‘qoladi",
+   "Pmax monopolistga zararini qoplovchi davlat subsidiyasini olish huquqini beradi"
+  ],
+  "c": 2,
+  "e": "Narx shifti ostida har bir qo‘shimcha birlik Pmax ga sotiladi, shuning uchun hajm cheklanmaydi."
+ },
+ {
+  "q": "Nima uchun tabiiy monopoliyada P = MC narx belgilansa, firma zarar ko‘radi?",
+  "options": [
+   "ATC kamayuvchi bo‘lgani uchun MC < ATC, shuning uchun P = MC o‘rtacha xarajatni qoplamaydi",
+   "MC chizig‘i ATC dan yuqorida joylashgani uchun narx xarajatdan past bo‘ladi",
+   "P = MC narxda hajm samarali darajadan kam bo‘lib, tushum kamayadi",
+   "Tartibga soluvchi foyda normasini juda past belgilagani uchun narx tushib ketadi"
+  ],
+  "c": 0,
+  "e": "Kamayuvchi ATC da MC < ATC, shu sababli P = MC narx doimiy xarajatlarni qoplamaydi."
+ },
+ {
+  "q": "AQSh va Yevropa Ittifoqi antimonopol yondashuvlari o‘rtasidagi asosiy farq qanday?",
+  "options": [
+   "AQSh asosan iste’molchi farovonligiga, YeI esa raqobat jarayonini himoya qilishga tayanadi",
+   "AQSh kichik raqobatchilarni himoya qilishga, YeI esa iste’molchi narxlarining pasayishiga tayanadi",
+   "AQShda antimonopol nazorat qo‘llanmaydi, YeIda esa asosan davlat mulki ustun turadi",
+   "AQSh jarima o‘rniga korxonalarni bo‘lishni, YeI esa jinoiy javobgarlikni qo‘llaydi"
+  ],
+  "c": 0,
+  "e": "Chikago maktabi ta’sirida AQSh iste’molchi farovonligiga, YeI esa raqobat jarayonining o‘ziga ko‘proq e’tibor beradi."
+ },
+ {
+  "q": "Mankyuga ko‘ra kinostudiyaning kuchli va kuchsiz filmni birga ijaraga berishi nima?",
+  "options": [
+   "Raqobatchilarni siqib chiqarish uchun narxni xarajatdan past belgilash strategiyasi",
+   "Chakana sotuvchilarga narxni belgilab qo‘yish orqali ko‘rsatiladigan xizmatni rag‘batlantirish",
+   "Monopol hokimiyatni kengaytirmaydi, narx diskriminatsiyasi shakli bo‘lishi mumkin",
+   "Monopol hokimiyatni boshqa bozorga kengaytirishning aniq usuli"
+  ],
+  "c": 2,
+  "e": "Mankyu bog‘lab sotishni har bir holatda alohida tahlil qilish kerakligini, u narx diskriminatsiyasi bo‘lishi mumkinligini aytadi."
+ },
+ {
+  "q": "Tartibga soluvchi tabiiy monopoliya narxini xarajatlar va belgilangan foyda normasi asosida belgilaydi. Firma qanday yo‘l tutishi mumkin?",
+  "options": [
+   "Xarajatlarni keskin kamaytiradi, chunki tejalgan mablag‘ butunlay firmada qoladi",
+   "Foyda kapitalga bog‘liq bo‘lgani uchun keraksiz qimmat uskunalarga ortiqcha kapital qo‘yadi",
+   "Narxni inflyatsiya darajasidan X foizga kam oshiradi",
+   "Narxni chegaraviy xarajat darajasiga tushiradi va zararini subsidiyadan qoplaydi"
+  ],
+  "c": 1,
+  "e": "Bu Averch-Jonson samarasi: foyda kapitalga bog‘liq bo‘lgani uchun firma ortiqcha kapital to‘playdi."
+ },
+ {
+  "q": "Elektr energetikasida uzatish tarmog‘i tabiiy monopoliya hisoblanadi. Zamonaviy yondashuv bu tarmoqda nimani tavsiya qiladi?",
+  "options": [
+   "Barcha bo‘g‘inlarni, jumladan ishlab chiqarish va sotishni, yagona davlat korxonasi tarkibida saqlash",
+   "Uzatish tarmog‘ini bir necha raqobatchi firma o‘rtasida bo‘lib, parallel tarmoqlar qurish",
+   "Ishlab chiqarishni davlat nazoratida qoldirib, uzatish tarmog‘ini xususiylashtirish",
+   "Uzatish tarmog‘ini davlat nazoratida qoldirib, ishlab chiqarish va sotishni raqobatga ochish"
+  ],
+  "c": 3,
+  "e": "Vertikal ajratishda tabiiy monopol segment nazoratda qoladi, raqobatli segmentlar xususiy raqobatchilarga ochiladi."
+ },
+ {
+  "q": "Bozorda ulushlari 35%, 25%, 15%, 10%, 8% va 7% bo‘lgan firmalar bor. Birinchi ikki firma qo‘shilsa, HHI qancha bo‘ladi?",
+  "options": [
+   "2288",
+   "3600",
+   "10 000",
+   "4038"
+  ],
+  "c": 3,
+  "e": "Qo‘shilgan firma ulushi 60%: 3600 + 225 + 100 + 64 + 49 = 4038."
+ },
+ {
+  "q": "Kartel har bir ishtirokchiga yiliga 60 mlrd so‘m qo‘shimcha foyda beradi, aniqlanish ehtimoli 0,25. Kartelni to‘xtatish uchun jarima F qanday bo‘lishi kerak?",
+  "options": [
+   "240 mlrd so‘mdan katta",
+   "15 mlrd so‘mdan katta",
+   "120 mlrd so‘mdan katta",
+   "1 500 mlrd so‘mdan katta"
+  ],
+  "c": 0,
+  "e": "0,25 × F > 60 shartidan F > 240 mlrd so‘m kelib chiqadi."
+ },
+ {
+  "q": "Monopolist uchun talab P = 20 – Q, chegaraviy xarajat MC = 4. Har bir birlikka t = 4 birlik solig‘i joriy etilsa, monopol narx qancha bo‘ladi?",
+  "options": [
+   "Q = 8, P = 12",
+   "Q = 6, P = 16",
+   "Q = 6, P = 14",
+   "Q = 10, P = 10"
+  ],
+  "c": 2,
+  "e": "Soliqsiz Q = 8, P = 12. Soliq bilan MR = 20 – 2Q = 8, Q = 6, P = 14 (narx soliqning yarmiga oshadi)."
+ },
+ {
+  "q": "Yangi dori yaratgan kompaniyaga patent orqali vaqtinchalik monopoliya beriladi. Bu qaysi g‘oyaga asoslangan?",
+  "options": [
+   "Monopol foyda sof ijtimoiy xarajat bo‘lgani uchun uni darhol soliq bilan olish kerak (Pozner)",
+   "Vaqtinchalik monopol foyda ilmiy-tadqiqotlarni moliyalashtirish manbai bo‘ladi (Shumpeter)",
+   "Monopolist narxni doim MC ga tenglashtirishi kerak (Mankyu)",
+   "Davlat korxonalari xususiy firmalardan samaraliroq ishlaydi (Stigler)"
+  ],
+  "c": 1,
+  "e": "Shumpeterga ko‘ra, vaqtinchalik monopol foyda innovatsiyalarni rag‘batlantiradi; patent tizimi shu g‘oyaga tayanadi."
+ }
+]

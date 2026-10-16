@@ -1,0 +1,222 @@
+[
+ {
+  "q": "D. Nort ta’rifiga ko‘ra, institutlar nima?",
+  "options": [
+   "Bozorda tovar va xizmatlar almashinuvini bevosita amalga oshiruvchi barcha tashkilotlar va muassasalar",
+   "Davlat tomonidan tasdiqlangan va majburiy ijro etiladigan yozma qonun hujjatlarining yagona to‘plami",
+   "Jamiyatdagi «o‘yin qoidalari», ya’ni odamlar munosabatini tartibga soluvchi, inson yaratgan cheklovlar",
+   "Mamlakat iqtisodiyotida faoliyat yuritayotgan barcha firmalar va tadbirkorlik subyektlarining yig‘indisi"
+  ],
+  "c": 2,
+  "e": "Nortga ko‘ra institutlar rasmiy va norasmiy cheklovlardan iborat jamiyat «o‘yin qoidalari»dir."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri noformal institutga misol bo‘la oladi?",
+  "options": [
+   "Mahalla instituti va qo‘ni-qo‘shnichilikka asoslangan ishonch",
+   "Konstitutsiya va unga muvofiq qabul qilingan qonunlar",
+   "Majburiy ijro etiladigan sud qarorlari va hukmlari",
+   "Notarius tasdiqlagan yozma oldi-sotdi shartnomasi"
+  ],
+  "c": 0,
+  "e": "Urf-odat, an’ana va ishonch noformal institutlar bo‘lib, mahalla va qo‘shnichilik munosabatlari shular jumlasidandir."
+ },
+ {
+  "q": "Iqtisodiyotda «tranzaksiya» deganda nima tushuniladi?",
+  "options": [
+   "Tovarni yaratishga sarflangan barcha resurs va ishchi kuchining umumiy qiymati",
+   "Pul mablag‘larining bir bank hisobidan boshqa hisobga o‘tkazilishi va to‘lov amalga oshirilishi",
+   "Firma ichida xodimlar o‘rtasida ish vazifalarining taqsimlanishi",
+   "Agentlar o‘rtasida mulk huquqlarining bir shaxsdan boshqasiga o‘tishi"
+  ],
+  "c": 3,
+  "e": "Tranzaksiya — tovar, xizmat yoki resurs ustidan huquqlarning bir shaxsdan boshqasiga o‘tishi."
+ },
+ {
+  "q": "Iqtisodiyot nazariyasida mulk huquqi qanday tushuniladi?",
+  "options": [
+   "Narsaning jismoniy egasiga tegishli yagona va bo‘linmas huquq",
+   "Egalik, foydalanish, tasarruf etish kabi bir necha huquqdan iborat to‘plam",
+   "Narsani sotish yoki sovg‘a qilish imkonini beruvchi huquq",
+   "Davlat tomonidan fuqarolarga beriladigan vaqtinchalik ruxsatnoma"
+  ],
+  "c": 1,
+  "e": "Mulk huquqi yagona huquq emas, balki turli shaxslar o‘rtasida taqsimlanishi mumkin bo‘lgan huquqlar to‘plamidir."
+ },
+ {
+  "q": "O. Uilyamson ta’rifiga ko‘ra, opportunizm nima?",
+  "options": [
+   "Odamlarning axborotni qayta ishlash qobiliyati cheklanganligi tufayli noto‘g‘ri qaror qabul qilishi",
+   "Aldash, axborotni yashirish yoki va’dalarni bajarmaslik orqali o‘z manfaatini ko‘zlash",
+   "Shartnoma tuzishda tomonlarning bir xil darajada to‘liq axborotga ega bo‘lishi",
+   "Xodimning rahbar ko‘rsatmalarini so‘zsiz va o‘z vaqtida bajarishi"
+  ],
+  "c": 1,
+  "e": "Uilyamson opportunizmni «hiyla-nayrang bilan o‘z manfaatini ko‘zlash» deb ta’riflaydi; axborot qayta ishlash cheklanganligi esa cheklangan oqilonalikdir."
+ },
+ {
+  "q": "Garovga olish (hold-up) muammosi qachon yuzaga keladi?",
+  "options": [
+   "Sotuvchi bitimdan oldin tovar sifati haqidagi ma’lumotni xaridordan yashirib, uni chalg‘itsa",
+   "Sug‘urtalangan shaxs shartnomadan keyin avvalgidan ehtiyotsizroq harakat qila boshlasa",
+   "Ish beruvchi yollanma xodimning ish jarayonini doimiy kuzata olmasa",
+   "Bir tomon bitimga xos investitsiya qilgach, sherik shartlarni o‘zgartirishni talab qilsa"
+  ],
+  "c": 3,
+  "e": "Garovga olishda spetsifik investitsiya qilingandan keyin ikkinchi tomon shartlarni qayta ko‘rib chiqib, uning daromadini o‘zlashtirishga harakat qiladi."
+ },
+ {
+  "q": "Printsipal-agent muammosi yuzaga kelishi uchun qaysi ikki shart bajarilishi kerak?",
+  "options": [
+   "Manfaatlar mos kelmasligi va printsipal agent harakatlarini to‘liq kuzata olmasligi",
+   "Agent printsipaldan yuqori maosh olishi va ular o‘rtasida yozma shartnoma bo‘lmasligi",
+   "Tomonlarning bir-birini avval bilmasligi va bitim narxi bozor narxidan past bo‘lishi",
+   "Printsipal ish haqini oldindan to‘liq to‘lashi va agent faoliyati nazoratdan butunlay chiqishi"
+  ],
+  "c": 0,
+  "e": "Muammo manfaatlar mos kelmaganda va axborot asimmetriyasi tufayli agent harakatlarini kuzatib bo‘lmaganda yuzaga keladi."
+ },
+ {
+  "q": "Uilyamson nazariyasida «aktivlar spetsifikligi» nimani bildiradi?",
+  "options": [
+   "Bitim tuzishda tomonlar axborotni qanchalik bir xil darajada bilishini ko‘rsatadi",
+   "Bitim qanchalik tez-tez takrorlanib turishini",
+   "Bitimga qilingan investitsiya boshqa maqsadda qanchalik qadrsizlanishini",
+   "Kelajakdagi holatlarni oldindan bashorat qilish qanchalik qiyinligini ifodalaydi"
+  ],
+  "c": 2,
+  "e": "Aktivlar spetsifikligi — investitsiyaning boshqa foydalanishda qadrsizlanish darajasi; qolgan ikki variant chastota va noaniqlikni bildiradi."
+ },
+ {
+  "q": "H. Demsets nazariyasiga ko‘ra, mulk huquqlari qachon paydo bo‘ladi?",
+  "options": [
+   "Davlat resursni jamiyat a’zolari o‘rtasida teng taqsimlashga qaror qilganda",
+   "Resursdan foydalanuvchilar soni kamayib, ularning daromadi pasayganda",
+   "Huquqlarni belgilash xarajatsiz amalga oshirilishi mumkin bo‘lganda",
+   "Ularni spetsifikatsiya qilishdan olinadigan foyda buning xarajatlaridan oshganda"
+  ],
+  "c": 3,
+  "e": "Demsets bo‘yicha huquqlar faqat spetsifikatsiya foydasi xarajatidan katta bo‘lganda shakllanadi (masalan, mo‘yna savdosi rivojlangach)."
+ },
+ {
+  "q": "Har bir bitimga T miqdorida tranzaksiya xarajati qo‘shilsa, bozorda nima ro‘y beradi?",
+  "options": [
+   "Narxlar orasida T ga teng «pona» paydo bo‘ladi va bitimlar soni kamayadi",
+   "Xaridor ham, sotuvchi ham bir xil narxni oladi, savdo hajmi esa o‘zgarmaydi",
+   "Tranzaksiya xarajati byudjetga tushadi va bozor muvozanati o‘zgarmaydi",
+   "Talab chizig‘i T ga o‘ngga siljib, bitimlar soni ortadi"
+  ],
+  "c": 0,
+  "e": "Tranzaksiya xarajati soliqqa o‘xshab xaridor va sotuvchi narxlari orasida pona hosil qiladi, shu sababli bitimlar soni kamayadi."
+ },
+ {
+  "q": "R. Kouzga ko‘ra, nima uchun firmalar mavjud?",
+  "options": [
+   "Firmalar bozor narxlarini tartibga solib, raqobatni yo‘qotish uchun tashkil etiladi",
+   "Firma ichida resurslar narxlar orqali taqsimlangani uchun xarajatlar bo‘lmaydi",
+   "Bozordan foydalanish qimmat, firma ichidagi buyruq orqali boshqaruv esa ko‘pincha arzonroq",
+   "Davlat barcha ishlab chiqarishni markazlashtirilgan tartibda yuritishni talab qiladi"
+  ],
+  "c": 2,
+  "e": "Kouz javobi: bozor bitimlari tranzaksiya xarajatlarini talab qiladi, firma ichida ma’muriy buyruq esa ko‘pincha arzonroq tushadi."
+ },
+ {
+  "q": "Uilyamson bo‘yicha aktivlar spetsifikligi yuqori bo‘lganda qaysi boshqaruv tuzilmasi samaraliroq?",
+  "options": [
+   "Raqobatli birjadagi oddiy spot bitimlar va narx orqali muvofiqlashtirish",
+   "Vertikal integratsiya, ya’ni bitimni firma ichiga olish",
+   "Franchayzing va alyanslar kabi gibrid shakllar hamda uzoq muddatli kelishuvlar",
+   "Ochiq bozordagi muntazam savdo va doimiy yetkazib beruvchilarni almashtirish"
+  ],
+  "c": 1,
+  "e": "Spetsifiklik yuqori bo‘lsa opportunizm xavfi katta, shuning uchun ierarxiya (vertikal integratsiya) samarali; o‘rtacha darajada gibrid shakllar mos."
+ },
+ {
+  "q": "Kouz nazariyasiga ko‘ra, raqamli platformalar tufayli bozor tranzaksiya xarajatlari pasaysa, firmalar chegarasi qanday o‘zgaradi?",
+  "options": [
+   "Firmalar kichrayadi va ko‘proq funksiyalarni autsorsingga beradi",
+   "Firmalar kattalashib, ko‘proq faoliyatni o‘z ichiga oladi",
+   "Firmalar chegarasi o‘zgarmaydi, chunki u texnologiyaga bog‘liq emas",
+   "Ishlab chiqarish davlat nazoratiga o‘tadi"
+  ],
+  "c": 0,
+  "e": "Bozor xarajatlari kamaysa, ichki tashkil etish bozordan qimmatroq bo‘lib qoladi va firmalar funksiyalarni tashqariga chiqaradi."
+ },
+ {
+  "q": "Kornai bo‘yicha davlat korxonalaridagi «yumshoq byudjet cheklovi» nimani anglatadi?",
+  "options": [
+   "Korxona xarajatlarini davlat qat’iy limitlar bilan chegaralashini va ortiqcha sarfga yo‘l qo‘ymasligini",
+   "Zarar ko‘rgan korxonaning bozordan chiqib ketishi va bankrot bo‘lishining muqarrarligini",
+   "Korxona foydasining katta qismi soliq sifatida byudjetga olib qo‘yilishini",
+   "Zarar ko‘rgan korxonani davlat subsidiya bilan qutqarishini, shu sabab rag‘bat zaif bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Yumshoq byudjet cheklovida davlat zararni qoplagani uchun korxona xarajatni kamaytirishdan manfaatdor bo‘lmaydi."
+ },
+ {
+  "q": "Sug‘urta polisiga ega haydovchi avvalgidan ehtiyotsizroq haydaydigan bo‘ldi. Bu qanday hodisa?",
+  "options": [
+   "Noqulay tanlov: shartnomadan oldin yashirilgan xususiyatlar",
+   "Garovga olish: spetsifik investitsiyadan keyin shartlarni o‘zgartirish",
+   "Ma’naviy xavf: shartnomadan keyin yashirin xatti-harakatning o‘zgarishi",
+   "Cheklangan oqilonalik: axborotni qayta ishlash qobiliyatining cheklanganligi"
+  ],
+  "c": 2,
+  "e": "Shartnomadan keyin kuzatib bo‘lmaydigan tarzda xulq o‘zgarishi ma’naviy xavfning (ex post) klassik misolidir."
+ },
+ {
+  "q": "Xaridor ishlatilgan avtomobilni sotib olishdan oldin uni texnik ko‘rikdan va ekspertizadan o‘tkazdi. Bu qaysi tranzaksiya xarajatiga kiradi?",
+  "options": [
+   "Axborot izlash xarajatlari",
+   "O‘lchash xarajatlari",
+   "Muzokara olib borish xarajatlari",
+   "Himoya va spetsifikatsiya xarajatlari"
+  ],
+  "c": 1,
+  "e": "Ekspertiza va texnik ko‘rik tovar sifatini tekshirish bo‘lib, o‘lchash xarajatlariga kiradi."
+ },
+ {
+  "q": "Klaster fermer bilan uzoq muddatli shartnoma tuzib, hosilni kafolatlangan narxda sotib oladi. Bu fermerning qaysi xarajatlarini kamaytiradi?",
+  "options": [
+   "Hosilni yetishtirish bilan bog‘liq ishlab chiqarish xarajatlarini",
+   "Yerga mulk huquqini kadastrda ro‘yxatdan o‘tkazish xarajatlarini",
+   "Soliq to‘lash va hisobot topshirish xarajatlarini",
+   "Xaridor izlash va narx bo‘yicha muzokara qilish xarajatlarini"
+  ],
+  "c": 3,
+  "e": "Kafolatlangan narx va uzoq muddatli shartnoma fermerning xaridor qidirish va muzokara xarajatlarini kamaytiradi."
+ },
+ {
+  "q": "Aksiyadorlar menejer maoshining bir qismini kompaniya aksiyalari narxiga bog‘ladi. Bu qaysi muammoga javob?",
+  "options": [
+   "Aksiyadorlar va menejerlar manfaatlari to‘qnashuvi, ya’ni printsipal-agent muammosiga",
+   "Bozorda tovar sifati haqidagi axborot asimmetriyasidan kelib chiqadigan limonlar muammosiga",
+   "Spetsifik investitsiyadan keyin sherik shartlarni o‘zgartirishi, ya’ni garovga olish muammosiga",
+   "Mulk huquqlari aniq belgilanmagani sababli resursdan haddan tashqari foydalanishga"
+  ],
+  "c": 0,
+  "e": "Maoshni aksiyalar narxiga bog‘lash agent (menejer) manfaatini printsipal (aksiyador) manfaatiga yaqinlashtiradi."
+ },
+ {
+  "q": "Qishloq xo‘jaligi mahsuloti bozorida talab QD = 120 – 2P, taklif QS = 3P (P – ming so‘m/kg). Har bir kg uchun tranzaksiya xarajati T = 5 ming so‘m bo‘lsa, xaridor to‘laydigan narx qancha?",
+  "options": [
+   "22 ming so‘m",
+   "27 ming so‘m",
+   "24 ming so‘m",
+   "29 ming so‘m"
+  ],
+  "c": 1,
+  "e": "120 – 2(Ps + 5) = 3Ps ⇒ Ps = 22, demak xaridor narxi 22 + 5 = 27 ming so‘m."
+ },
+ {
+  "q": "Ehtiyot qismlar ishlab chiqaruvchisi bitta zavod uchun maxsus uskunaga 80 mln so‘m sarfladi (5 yil xizmat qiladi). Kelishilgan yillik daromad 130, operatsion xarajat 100 mln so‘m edi. Uskuna o‘rnatilgach, zavod yiliga 108 mln so‘m to‘lashni talab qildi. Yangi narxda 5 yillik sof operatsion daromad qancha?",
+  "options": [
+   "8 mln so‘m",
+   "150 mln so‘m",
+   "40 mln so‘m",
+   "30 mln so‘m"
+  ],
+  "c": 2,
+  "e": "(108 – 100) × 5 = 40 mln so‘m; bu 80 mln so‘mlik investitsiyadan kam, shuning uchun garovga olish xavfi investitsiyani to‘xtatadi."
+ }
+]

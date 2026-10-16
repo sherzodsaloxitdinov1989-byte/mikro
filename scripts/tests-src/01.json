@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Mankyu ta’rifiga ko‘ra, iqtisodiyot qanday fan?",
+  "options": [
+   "Jamiyatda pul muomalasi va banklar faoliyatini tartibga solish qoidalarini o‘rganuvchi fan",
+   "Davlat byudjetining daromadlari va xarajatlarini rejalashtirish usullarini o‘rganuvchi fan",
+   "Jamiyat o‘zining cheklangan resurslarini qanday boshqarishini o‘rganuvchi fan",
+   "Ishlab chiqarilgan tovarlarni xalqaro bozorlarda sotish yo‘llarini o‘rganuvchi fan"
+  ],
+  "c": 2,
+  "e": "Mankyu iqtisodiyotni jamiyat cheklangan resurslarini qanday boshqarishini o‘rganuvchi fan deb ta’riflaydi."
+ },
+ {
+  "q": "Muqobil xarajat nimani anglatadi?",
+  "options": [
+   "Tanlangan variant uchun voz kechilgan eng yaxshi muqobil variantning qiymatini",
+   "Tanlangan variant uchun sarflangan pul summasining barcha qismlari yig‘indisini, xarajatlar bilan birga",
+   "Voz kechilgan barcha muqobil variantlar qiymatlarining umumiy yig‘indisini",
+   "Tanlangan variantni amalga oshirishga ketgan vaqt va mehnat sarfini"
+  ],
+  "c": 0,
+  "e": "Muqobil xarajat faqat voz kechilgan eng yaxshi variantning qiymati bilan o‘lchanadi."
+ },
+ {
+  "q": "Iqtisodiy tahlilda «ceteris paribus» (boshqa sharoitlar o‘zgarmagan) farazi nimani bildiradi?",
+  "options": [
+   "Barcha omillarning bir vaqtda va bir xil sur’atda o‘zgarishini qabul qilishni",
+   "Ikkinchi darajali omillarni tahlildan chiqarib, hisoblash ishlarini soddalashtirishni",
+   "Faktlardan umumiy xulosaga o‘tib, nazariyani tajribada tekshirib ko‘rishni",
+   "Bir omil ta’sirini o‘rganishda qolgan omillarni o‘zgarmas deb qabul qilishni"
+  ],
+  "c": 3,
+  "e": "Ceteris paribus farazida tahlil qilinayotgan omildan boshqa barcha omillar o‘zgarmas deb olinadi."
+ },
+ {
+  "q": "Quyidagi savollardan qaysi biri mikroiqtisodiyot o‘rganadigan masalaga tegishli?",
+  "options": [
+   "Mamlakat YaIMining kelgusi yildagi o‘sish sur’ati qanday bo‘ladi",
+   "Minimal ish haqining oshirilishi yoshlar bandligiga qanday ta’sir qiladi",
+   "Umumiy ishsizlik darajasini davlat siyosati yordamida qanday pasaytirish mumkin",
+   "Milliy valyuta kursi yil davomida qanday o‘zgarishi mumkin"
+  ],
+  "c": 1,
+  "e": "Alohida bozordagi narx yoki ish haqining ta’siri mikro, YaIM, umumiy ishsizlik va valyuta kursi esa makro masalalardir."
+ },
+ {
+  "q": "Ishlab chiqarish imkoniyatlari chizig‘i (ICHE) nimani ko‘rsatadi?",
+  "options": [
+   "Tovar narxi bilan uni sotib olishga tayyor xaridorlar soni o‘rtasidagi bog‘liqlikni",
+   "Iste’molchi o‘z daromadiga sotib olishi mumkin bo‘lgan tovar to‘plamlarini",
+   "Ishlab chiqarish hajmi ortishi bilan o‘rtacha xarajatlarning o‘zgarishini",
+   "Mavjud omillar va texnologiya bilan ishlab chiqarish mumkin bo‘lgan mahsulot kombinatsiyalarini"
+  ],
+  "c": 3,
+  "e": "ICHE iqtisodiyot mavjud resurslar va texnologiya bilan ishlab chiqara oladigan tovar kombinatsiyalarining grafigidir."
+ },
+ {
+  "q": "Qaysi holatda ishlab chiqaruvchi mutlaq ustunlikka ega bo‘ladi?",
+  "options": [
+   "Tovarni boshqalarga qaraganda kamroq resurs sarflab ishlab chiqara olsa",
+   "Tovarni boshqalarga qaraganda pastroq muqobil xarajat bilan ishlab chiqara olsa",
+   "Tovarni boshqalarga qaraganda yuqoriroq narxda sota olsa",
+   "Tovarni boshqalarga qaraganda ko‘proq xaridorga yetkaza olsa"
+  ],
+  "c": 0,
+  "e": "Mutlaq ustunlik kamroq resurs sarfi bilan, nisbiy ustunlik esa past muqobil xarajat bilan belgilanadi."
+ },
+ {
+  "q": "«Laissez-faire» tamoyiliga ko‘ra davlat iqtisodiyotda qanday rol o‘ynaydi?",
+  "options": [
+   "Barcha asosiy qarorlarni markaziy reja asosida o‘zi qabul qiladi",
+   "Narxlar va ish haqini ma’muriy yo‘l bilan doimiy ravishda belgilaydi",
+   "Minimal aralashadi: mulk huquqi, shartnomalar va mudofaani ta’minlaydi",
+   "Asosiy ishlab chiqarish vositalarini o‘z mulkiga aylantirib boshqaradi"
+  ],
+  "c": 2,
+  "e": "Laissez-faire davlat aralashuvini mulk huquqi, shartnomalar va mudofaani ta’minlash bilan cheklaydi."
+ },
+ {
+  "q": "Aylanma oqim modelida uy xo‘jaliklari ishlab chiqarish omillari bozorida qanday ishtirok etadi?",
+  "options": [
+   "Mehnat, yer va kapital resurslarining xaridori sifatida, firmalar esa ularning sotuvchisi bo‘ladi",
+   "Mehnat, yer va kapital resurslari sotuvchisi sifatida, firmalar esa xaridor bo‘ladi",
+   "Tayyor tovar va xizmatlarning sotuvchisi sifatida, firmalar esa xaridor bo‘ladi",
+   "Jamg‘armalarni to‘plovchi sifatida, firmalar bilan resurslar bozorida aloqa qilmaydi"
+  ],
+  "c": 1,
+  "e": "Omillar bozorida uy xo‘jaliklari resurs sotib daromad oladi, firmalar esa resurslarni sotib oladi."
+ },
+ {
+  "q": "Nima uchun ICHE koordinatalar boshiga nisbatan botiq (tashqariga bo‘rtib chiqqan) shaklga ega?",
+  "options": [
+   "Resurslar ixtisoslashgan, bir sohadan boshqasiga to‘liq almashtirib bo‘lmaydi",
+   "Barcha resurslar har ikkala tovarni ishlab chiqarishga bir xil darajada yaroqli bo‘ladi",
+   "Texnologiya vaqt o‘tishi bilan takomillashib, ishlab chiqarishni arzonlashtirib boradi",
+   "Ehtiyojlar cheksiz bo‘lgani uchun chiziq koordinatalar boshiga qarab egiladi"
+  ],
+  "c": 0,
+  "e": "Resurslarning ixtisoslashganligi sababli muqobil xarajat ortib boradi va chiziq botiq bo‘ladi."
+ },
+ {
+  "q": "ICHE ichida joylashgan nuqta (masalan, H) nimani bildiradi?",
+  "options": [
+   "Mavjud resurslar bilan hozircha erishib bo‘lmaydigan, kelajak uchun mo‘ljallangan mahsulot to‘plamini",
+   "Resurslardan to‘liq va eng samarali foydalanilayotganini",
+   "Texnologiyaning tez sur’atlarda yangilanayotganini",
+   "Resurslarning bir qismi ishlatilmayotgani yoki noto‘g‘ri taqsimlanganini"
+  ],
+  "c": 3,
+  "e": "Chiziq ichidagi nuqta samarasiz: ishsizlik yoki resurslarning noto‘g‘ri taqsimlanishi tufayli imkoniyatlardan to‘liq foydalanilmaydi."
+ },
+ {
+  "q": "Talabaning daromadi oshib, kitob va kino chiptasi narxlari o‘zgarmasa, uning byudjet chizig‘i qanday o‘zgaradi?",
+  "options": [
+   "Koordinatalar boshi atrofida soat mili yo‘nalishida buriladi",
+   "Tashqariga qarab, o‘ziga parallel siljiydi",
+   "Qiyaligi oshib, bir o‘q bo‘yicha buriladi",
+   "O‘z o‘rnida qoladi, undagi nuqtalar joylashuvi o‘zgaradi"
+  ],
+  "c": 1,
+  "e": "Daromad o‘zgarsa byudjet chizig‘i parallel siljiydi, faqat narxlardan biri o‘zgarsa buriladi."
+ },
+ {
+  "q": "Savdodan yutuq qanday asosga tayanadi?",
+  "options": [
+   "Mutlaq ustunlikka: ikkala tovarni ham eng arzon ishlab chiqaruvchi savdodan yutadi",
+   "Resurslar miqdoridagi tenglikka: har ikki tomon teng hajmda ishlab chiqaradi",
+   "Nisbiy ustunlikka: tovarlar pastroq muqobil xarajat bilan ishlab chiqaruvchida to‘planadi",
+   "Davlat nazoratiga: bitimlar markazlashgan tartibda belgilab beriladi"
+  ],
+  "c": 2,
+  "e": "Hamma narsada ustun bo‘lgan tomon ham, boshqa tomon ham nisbiy ustunlikka asoslangan ixtisoslashuvdan yutadi."
+ },
+ {
+  "q": "Nima uchun olmos suvdan qimmat, garchi suv hayot uchun zarur bo‘lsa ham?",
+  "options": [
+   "Olmos kamyob, shu sababli uning qo‘shimcha birligining chegaraviy foydasi katta",
+   "Olmosning umumiy foydasi suvning umumiy foydasidan ancha yuqori bo‘ladi",
+   "Suvni ishlab chiqarishning chegaraviy xarajati olmosnikidan ancha yuqori bo‘ladi",
+   "Odamlar hayot uchun zaruriy narsalarga nisbatan kamroq pul to‘lashga tayyor bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Narx chegaraviy foydaga bog‘liq: suv mo‘l, shuning uchun uning qo‘shimcha birligining chegaraviy foydasi kichik."
+ },
+ {
+  "q": "Nima sababdan rejali (ma’muriy-buyruqbozlik) iqtisodiyotda doimiy taqchillik yuzaga keldi?",
+  "options": [
+   "Xususiy mulk kengayib, raqobat kuchaygani sababli resurslar ortiqcha bo‘lgan edi",
+   "Narxlar bozor signallari asosida erkin o‘zgarib turardi",
+   "Davlat korxonalari o‘z foydasini maksimallashtirishga intilardi",
+   "Narxlar resurslar kamyobligini aks ettirmadi, shuningdek rag‘batlar zaif bo‘ldi"
+  ],
+  "c": 3,
+  "e": "Narx signallarining yo‘qligi, zaif rag‘batlar va axborot muammolari taqchillikka olib keldi."
+ },
+ {
+  "q": "Quyidagi tasdiqlardan qaysi biri normativ tahlilga misol bo‘ladi?",
+  "options": [
+   "Elektr energiyasi narxining oshishi iste’molni kamaytiradi",
+   "Minimal ish haqini ikki baravar oshirish adolatli bo‘lar edi",
+   "Import bojlarining kamayishi avtomobil narxlarini pasaytiradi",
+   "Davlat minimal ish haqini qonun bilan belgilab qo‘ygan"
+  ],
+  "c": 1,
+  "e": "Normativ tasdiq qadriyatlarga asoslangan «nima bo‘lishi kerak» degan bahodir, qolganlari faktlar bilan tekshiriladi."
+ },
+ {
+  "q": "Reysdan oldin samolyotda bo‘sh o‘rin qoldi. Bir o‘ringa o‘rtacha xarajat 500 dollar, qo‘shimcha yo‘lovchining chegaraviy xarajati juda kichik. Yo‘lovchi 300 dollar taklif qilsa, aviakompaniya nima qilishi kerak?",
+  "options": [
+   "Sotmasligi kerak, chunki 300 dollar o‘rtacha xarajat 500 dollardan past",
+   "Sotmasligi kerak, chunki arzon chipta boshqa yo‘lovchilarning ishonchini kamaytiradi",
+   "Chiptani sotishi kerak, chunki 300 dollar chegaraviy xarajatdan ancha katta",
+   "500 dollarga yetkazib sotishi kerak, aks holda reys zarar bilan yakunlanadi"
+  ],
+  "c": 2,
+  "e": "Chegaraviy foyda chegaraviy xarajatdan katta bo‘lsa harakat qilish kerak; bo‘sh o‘rin uchun qo‘shimcha xarajat deyarli yo‘q."
+ },
+ {
+  "q": "Faqat mashinasozlikda texnologik taraqqiyot yuz bersa (paxtachilikda esa o‘zgarish bo‘lmasa), ICHE qanday o‘zgaradi?",
+  "options": [
+   "Mashinalar o‘qi bo‘yicha tashqariga buriladi, paxta o‘qidagi nuqta o‘zgarmaydi",
+   "Butun chiziq barcha yo‘nalishlarda teng ravishda tashqariga qarab parallel siljiydi",
+   "Butun chiziq ichkariga siljiydi, chunki resurslar mashinasozlikka o‘tadi",
+   "Chiziq o‘z holicha qoladi, unda harakat yo‘nalishi o‘zgaradi"
+  ],
+  "c": 0,
+  "e": "Bitta tarmoqdagi texnologik yutuq ICHE ni faqat shu tovar o‘qi bo‘yicha kengaytiradi."
+ },
+ {
+  "q": "Fermer Frenkda 1 unsiya go‘shtning muqobil xarajati 4 unsiya kartoshka, chorvador Rubida esa 2 unsiya kartoshka. 1 unsiya go‘shtni qaysi miqdordagi kartoshkaga almashtirsa, ikkala tomon ham yutadi?",
+  "options": [
+   "1 unsiya kartoshkaga",
+   "2 unsiya kartoshkaga",
+   "5 unsiya kartoshkaga",
+   "3 unsiya kartoshkaga"
+  ],
+  "c": 3,
+  "e": "Almashuv nisbati ikkala muqobil xarajat (2 va 4) oralig‘ida bo‘lsagina ikkala tomon yutadi, 3 shu oraliqqa kiradi."
+ },
+ {
+  "q": "Kitob narxi 50 ming so‘m, kino chiptasi narxi 40 ming so‘m. 4 ta kitobning muqobil xarajati nechta kino chiptasiga teng?",
+  "options": [
+   "4 ta kino chiptasiga",
+   "5 ta kino chiptasiga",
+   "3,2 ta kino chiptasiga",
+   "6,25 ta kino chiptasiga"
+  ],
+  "c": 1,
+  "e": "Bitta kitobning muqobil xarajati 50/40 = 1,25 chipta, demak 4 kitob uchun 4 × 1,25 = 5 chipta."
+ },
+ {
+  "q": "Abituriyent 4 yillik bakalavriatni tanlamoqda: kontrakt va kitoblar uchun yiliga jami 12 mln so‘m, yashash xarajati yiliga 9 mln so‘m (ishlasa ham shuncha), ishlasa oyiga 3 mln so‘m topardi. O‘qishning to‘liq iqtisodiy xarajati qancha?",
+  "options": [
+   "48 mln so‘m",
+   "144 mln so‘m",
+   "192 mln so‘m",
+   "228 mln so‘m"
+  ],
+  "c": 2,
+  "e": "To‘g‘ridan-to‘g‘ri xarajat 4 × 12 = 48, voz kechilgan ish haqi 4 × 36 = 144; yashash xarajati qo‘shilmaydi, jami 192."
+ }
+]

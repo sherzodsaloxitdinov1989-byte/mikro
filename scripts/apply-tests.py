@@ -33,7 +33,7 @@ for num in sorted(d, key=int):
         if any(BAD.search(x) for x in o): errs.append(f"{w}: taqiqlangan variant")
         if t["q"] in seen: errs.append(f"{w}: takroriy savol")
         seen.add(t["q"])
-        if len(o[t["c"]]) == max(map(len, o)): longest += 1
+        if len(o[t["c"]]) > max(len(x) for j, x in enumerate(o) if j != t["c"]): longest += 1
     if len(tests) != 20: errs.append(f"{f.name}: {len(tests)} ta (20 kerak)")
     cs = [t["c"] for t in tests]
     if max(cs.count(x) for x in range(4)) > 8: errs.append(f"{f.name}: c taqsimoti notekis {[cs.count(x) for x in range(4)]}")

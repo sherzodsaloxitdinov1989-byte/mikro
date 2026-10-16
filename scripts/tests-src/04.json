@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Iqtisodiy nazariyada ne’mat deb nimaga aytiladi?",
+  "options": [
+   "Faqat bozorda pulga sotib olinadigan moddiy buyum",
+   "Insonning ehtiyojini qondira oladigan har qanday narsa",
+   "Ishlab chiqarish jarayonida sarflanadigan resurs",
+   "Davlat tomonidan bepul taqdim etiladigan xizmat"
+  ],
+  "c": 1,
+  "e": "Ne’mat – tovar, xizmat, axborot, bo‘sh vaqt kabi insonning ehtiyojini qondira oladigan har qanday narsa."
+ },
+ {
+  "q": "Naflikni shartli birliklarda (yutilda) miqdoran o‘lchash mumkin deb hisoblaydigan yondashuv qanday ataladi?",
+  "options": [
+   "Ordinalistik yondashuv",
+   "Institutsional yondashuv",
+   "Normativ yondashuv",
+   "Kardinalistik yondashuv"
+  ],
+  "c": 3,
+  "e": "Kardinalistik (miqdoriy) yondashuv naflikni yutil kabi shartli birliklarda o‘lchash mumkin deb hisoblaydi."
+ },
+ {
+  "q": "Chegaraviy naflik (MU) nima?",
+  "options": [
+   "Ne’matning qo‘shimcha bir birligidan olinadigan qo‘shimcha naflik",
+   "Ne’matning barcha birliklaridan olinadigan jami qoniqish",
+   "Iste’mol qilingan bir birlikka to‘g‘ri keladigan o‘rtacha qoniqish",
+   "Ne’mat narxining bir birlik naflikka nisbati"
+  ],
+  "c": 0,
+  "e": "MU = ΔTU / ΔQ, ya’ni qo‘shimcha bir birlik iste’moldan olingan qo‘shimcha naflik."
+ },
+ {
+  "q": "Chegaraviy naflik nolga teng bo‘lganda umumiy naflik (TU) qanday bo‘ladi?",
+  "options": [
+   "Nolga teng bo‘lib qoladi",
+   "Manfiy qiymatga tushib ketadi",
+   "Maksimal darajaga yetadi",
+   "Eng kichik qiymatga tushib qoladi"
+  ],
+  "c": 2,
+  "e": "MU > 0 bo‘lsa TU o‘sadi, MU = 0 bo‘lganda TU maksimal, MU < 0 bo‘lsa TU kamayadi."
+ },
+ {
+  "q": "Gossenning ikkinchi qonuniga ko‘ra, iste’molchi naflikni maksimallashtiradi, agar:",
+  "options": [
+   "Barcha ne’matlarning narxlari bir-biriga teng bo‘lgan holatda",
+   "Barcha ne’matlarning chegaraviy nafliklari o‘zaro teng bo‘lsa, narxlardan qat’i nazar",
+   "Oxirgi so‘mning chegaraviy nafligi barcha ne’matlarda teng bo‘lsa",
+   "Barcha ne’matlardan olingan umumiy nafliklar o‘zaro teng bo‘lsa"
+  ],
+  "c": 2,
+  "e": "Qoida: MUX/PX = MUY/PY = … va butun daromad sarflangan; nafliklarning o‘zi emas, MU/P nisbatlari tenglashadi."
+ },
+ {
+  "q": "Befarqlik egri chiziqlari nima uchun kesishmaydi?",
+  "options": [
+   "Kesishsa, tranzitivlik farazi buzilgan bo‘lar edi",
+   "Kesishsa, byudjet chegarasi tenglamasi buzilar edi",
+   "Kesishsa, narxlar nisbati o‘zgarib ketar edi",
+   "Kesishsa, chegaraviy naflik ortib ketar edi"
+  ],
+  "c": 0,
+  "e": "Kesishuv nuqtasida bir xil to‘plam ikki xil naflik darajasiga tegishli bo‘lib qolar, bu tranzitivlikka zid."
+ },
+ {
+  "q": "Chegaraviy almashtirish normasi (MRS) geometrik jihatdan nimaga teng?",
+  "options": [
+   "Byudjet chizig‘ining har qanday nuqtadagi qiyaligiga",
+   "Umumiy nafliklar nisbatiga",
+   "Daromadning ne’mat narxiga nisbatiga",
+   "Befarqlik egri chizig‘ining qiyaligiga"
+  ],
+  "c": 3,
+  "e": "MRSXY = –ΔY/ΔX = MUX/MUY va u befarqlik egri chizig‘ining qiyaligiga teng."
+ },
+ {
+  "q": "Befarqlik egri chiziqlarining koordinatalar boshiga nisbatan qavariq bo‘lishi nima bilan izohlanadi?",
+  "options": [
+   "Chegaraviy naflikning ortib borishi bilan",
+   "MRS ning kamayishi bilan",
+   "Byudjet chizig‘i qiyaligining o‘zgarishi bilan",
+   "Daromadning ortib borishi bilan"
+  ],
+  "c": 1,
+  "e": "X ko‘paygan, Y kamaygan sari iste’molchi qo‘shimcha X uchun kamroq Y berishga tayyor, ya’ni MRS kamayadi."
+ },
+ {
+  "q": "Chap va o‘ng poyabzal kabi mukammal to‘ldiruvchi tovarlarning befarqlik egri chiziqlari qanday shaklda bo‘ladi?",
+  "options": [
+   "Pastga og‘ma to‘g‘ri chiziq shaklida",
+   "To‘g‘ri burchak shaklida",
+   "Koordinatalar boshiga botiq egri chiziq shaklida",
+   "Gorizontal to‘g‘ri chiziq shaklida"
+  ],
+  "c": 1,
+  "e": "Juftisiz qo‘shimcha poyabzal naflik bermaydi, shuning uchun egri chiziqlar to‘g‘ri burchak hosil qiladi."
+ },
+ {
+  "q": "Byudjet chizig‘ining qiyaligi nimaga teng?",
+  "options": [
+   "Daromadning X narxiga nisbati I/PX ga",
+   "Chegaraviy nafliklar nisbati MUX/MUY ga",
+   "Narxlar nisbati PX/PY ga",
+   "Narxlar nisbati PY/PX ga"
+  ],
+  "c": 2,
+  "e": "Y = I/PY – (PX/PY)X tenglamada X oldidagi koeffitsient narxlar nisbatidir."
+ },
+ {
+  "q": "Narxlar o‘zgarmagan holda iste’molchining daromadi oshsa, byudjet chizig‘i qanday o‘zgaradi?",
+  "options": [
+   "Qiyaligini saqlab, tashqariga parallel siljiydi",
+   "Y o‘qidagi nuqta atrofida tashqariga qarab buriladi",
+   "X o‘qidagi nuqta atrofida tashqariga qarab buriladi",
+   "Qiyaligi oshgan holda tashqariga qarab siljiydi"
+  ],
+  "c": 0,
+  "e": "Daromad o‘zgarishi narxlar nisbatiga ta’sir qilmaydi, shu sababli chiziq parallel siljiydi."
+ },
+ {
+  "q": "Daromad ham, barcha narxlar ham bir xil foizga oshsa, byudjet chizig‘i bilan nima sodir bo‘ladi?",
+  "options": [
+   "Tashqariga parallel siljiydi, chunki daromad oshgan",
+   "Ichkariga parallel siljiydi, chunki narxlar oshgan",
+   "Qiyaligi o‘zgarib, chiziq buriladi",
+   "O‘zgarishsiz qoladi, chunki real daromad saqlanadi"
+  ],
+  "c": 3,
+  "e": "Ikkala ta’sir bir-birini yo‘qotadi: real daromad va nisbiy narxlar o‘zgarmaydi."
+ },
+ {
+  "q": "Iste’molchi muvozanati nuqtasida qaysi shart bajariladi?",
+  "options": [
+   "MRS = PX/PY",
+   "MUX = MUY",
+   "PX = PY",
+   "TUX = TUY"
+  ],
+  "c": 0,
+  "e": "Muvozanatda befarqlik egri chizig‘i byudjet chizig‘iga uriniladi, qiyaliklar teng: MRS = PX/PY."
+ },
+ {
+  "q": "Go‘sht iste’mol qilmaydigan vegetarian go‘sht sotib olmaydi. Iste’molchi tanlovi nazariyasida bu qanday holat?",
+  "options": [
+   "Giffen holati",
+   "To‘yinish nuqtasi",
+   "Burchakli yechim",
+   "Mukammal o‘rinbosarlik holati"
+  ],
+  "c": 2,
+  "e": "Tovarlardan birining umuman sotib olinmasligi burchakli yechim deyiladi va u ham optimal tanlov bo‘lishi mumkin."
+ },
+ {
+  "q": "Iste’molchida MRSXY = 4, narxlar nisbati PX/PY = 2. Naflikni oshirish uchun u nima qilishi kerak?",
+  "options": [
+   "X ni kamroq, Y ni ko‘proq sotib olishi",
+   "X ni ko‘proq, Y ni kamroq sotib olishi",
+   "Xaridlarni o‘zgartirmasligi, chunki u muvozanatda",
+   "Butun daromadni faqat Y ga sarflashi"
+  ],
+  "c": 1,
+  "e": "MRS > PX/PY bo‘lsa, iste’molchi X ni bozor taklif qilganidan ko‘proq qadrlaydi va uni ko‘proq sotib olishi kerak."
+ },
+ {
+  "q": "MUX = 60, PX = 20 ming so‘m; MUY = 40, PY = 10 ming so‘m. Naflikni oshirish uchun iste’molchi nima qilishi kerak?",
+  "options": [
+   "Xarajatni Y dan X ga o‘tkazishi",
+   "Ikkala tovar xarajatini teng oshirishi",
+   "Xaridlarni o‘zgartirmasligi",
+   "Xarajatni X dan Y ga o‘tkazishi"
+  ],
+  "c": 3,
+  "e": "MUX/PX = 3, MUY/PY = 4: Y ga sarflangan so‘m ko‘proq naflik beradi, shuning uchun xarajat Y ga o‘tkaziladi."
+ },
+ {
+  "q": "U = X×Y, daromad 600, PX = 10, PY = 5. Iste’molchi muvozanatida X va Y miqdorlari qanday?",
+  "options": [
+   "X = 60, Y = 30",
+   "X = 40, Y = 40",
+   "X = 30, Y = 60",
+   "X = 30, Y = 120"
+  ],
+  "c": 2,
+  "e": "MRS = Y/X = 10/5 = 2, Y = 2X; 10X + 5·2X = 600, X = 30, Y = 60."
+ },
+ {
+  "q": "Befarqlik egri chizig‘i nimani ko‘rsatadi?",
+  "options": [
+   "Iste’molchiga bir xil naflik beradigan to‘plamlarni",
+   "Iste’molchi sotib ola oladigan to‘plamlarni",
+   "Eng yuqori naflik beradigan yagona to‘plamni",
+   "Iste’molchining har bir to‘plamdan olgan chegaraviy nafligini"
+  ],
+  "c": 0,
+  "e": "Egri chiziqdagi barcha to‘plamlar teng darajada afzal, iste’molchi ular o‘rtasida befarq."
+ },
+ {
+  "q": "Ordinalistik yondashuvga ko‘ra iste’molchidan nima talab qilinadi?",
+  "options": [
+   "Naflikni yutil birliklarida aniq o‘lchay olishi",
+   "To‘plamlarni afzalligiga qarab tartiblay olishi",
+   "Naflikni pul birligida baholay olishi",
+   "Barcha ne’matlarning narxini bilishi"
+  ],
+  "c": 1,
+  "e": "Ordinalistik (tartibiy) yondashuvda naflikni o‘lchash shart emas, to‘plamlarni tartiblash yetarli."
+ },
+ {
+  "q": "Nominal ish haqi 20 foizga, iste’mol narxlari 10 foizga oshdi. Real daromad taxminan qanday o‘zgargan?",
+  "options": [
+   "10 foizga oshgan",
+   "30 foizga oshgan",
+   "O‘zgarmagan",
+   "Taxminan 9,1 foizga oshgan"
+  ],
+  "c": 3,
+  "e": "1,20 / 1,10 – 1 ≈ 0,091, ya’ni real daromad taxminan 9,1 foizga oshgan."
+ }
+]

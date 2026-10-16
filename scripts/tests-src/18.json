@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Qisman muvozanat tahlili nimaga asoslanadi?",
+  "options": [
+   "Barcha bozorlardagi narx va miqdorlarni bir vaqtda, o‘zaro ta’sirini hisobga olib aniqlashga",
+   "Davlat tomonidan tartibga solinadigan bozorlarni alohida o‘rganishga",
+   "Omillar bozorlarini tovarlar bozorlaridan ajratmasdan birgalikda o‘rganishga",
+   "Bitta bozorni boshqa bozorlardagi narx va miqdorlar o‘zgarmas deb olib o‘rganishga"
+  ],
+  "c": 3,
+  "e": "Qisman muvozanat (Marshall) «boshqa sharoitlar teng bo‘lganda» tamoyilida bitta bozorni o‘rganadi."
+ },
+ {
+  "q": "Valras tizimida umumiy muvozanat qachon o‘rnatiladi?",
+  "options": [
+   "Bitta bozorda talab va taklif tenglashib, boshqalarida ortiqcha taklif saqlanganda",
+   "Barcha bozorlarda ortiqcha talab nolga teng bo‘ladigan narxlar majmuida",
+   "Barcha tovarlarning mutlaq narxlari o‘zaro bir xil bo‘lganda",
+   "Barcha bozorlarda ortiqcha talab yig‘indisi musbat bo‘lganda"
+  ],
+  "c": 1,
+  "e": "Umumiy muvozanat Z1 = Z2 = … = Zn = 0 shartida o‘rnatiladi."
+ },
+ {
+  "q": "Valras qonuniga ko‘ra n ta bozordan n – 1 tasida muvozanat bo‘lsa, nima bo‘ladi?",
+  "options": [
+   "n-bozorda ortiqcha talab qoladi va narx oshadi",
+   "n-bozorda ortiqcha taklif qoladi va narx tushadi",
+   "n-bozorda ham muvozanat avtomatik ravishda o‘rnatiladi",
+   "n-bozor muvozanati boshqa bozorlarga bog‘liq bo‘lmay, alohida aniqlanadi"
+  ],
+  "c": 2,
+  "e": "Ortiqcha talablar qiymati yig‘indisi nolga teng (ΣPiZi = 0), shuning uchun n – 1 muvozanat n-ni ham belgilaydi."
+ },
+ {
+  "q": "Iste’mol bo‘yicha Edjvort qutisi qanday iqtisodiyotni tahlil qilish uchun qulay?",
+  "options": [
+   "Ikki iste’molchi va ikki tovarli, faqat ayirboshlash bor iqtisodiyotni",
+   "Bitta iste’molchi va ko‘p tovarli, narxlari davlat nazorat qiladigan iqtisodiyotni",
+   "Ikki firma va bitta omil bilan ishlaydigan monopol bozor sharoitidagi iqtisodiyotni",
+   "Davlat sektori va tashqi savdoni o‘z ichiga olgan ochiq iqtisodiyotni"
+  ],
+  "c": 0,
+  "e": "Edjvort qutisi ikki iste’molchi va ikki tovar o‘rtasidagi ayirboshlashni ko‘rsatadi."
+ },
+ {
+  "q": "Pareto samaradorligi nima?",
+  "options": [
+   "Barcha iste’molchilarga teng miqdorda tovar tushadigan va hamma rozi bo‘ladigan adolatli taqsimot",
+   "Jami naflik yig‘indisi eng yuqori bo‘ladigan va hech kim yutqazmaydigan taqsimot",
+   "Eng kambag‘al shaxsning nafligi maksimal bo‘ladigan va farqlar kamayadigan taqsimot",
+   "Hech kimning ahvolini boshqasini yomonlashtirmay yaxshilab bo‘lmaydigan taqsimot"
+  ],
+  "c": 3,
+  "e": "Pareto samarali taqsimotda birovning ahvolini yomonlashtirmay boshqasini yaxshilab bo‘lmaydi."
+ },
+ {
+  "q": "Ayirboshlash samaradorligining sharti qaysi?",
+  "options": [
+   "MRTS(X) = MRTS(Y): tarmoqlarda texnik almashtirish normalari o‘zaro teng",
+   "MRT = MRS: transformatsiyaning chegaraviy normasi iste’molchilar MRS iga teng",
+   "MRS(A) = MRS(B): iste’molchilarning chegaraviy almashtirish normalari teng",
+   "U(A) = U(B): har ikkala iste’molchining nafliklari aynan bir xil bo‘lishi"
+  ],
+  "c": 2,
+  "e": "Befarqlik chiziqlari urinish nuqtasida qiyaliklar teng, ya’ni MRS(A) = MRS(B)."
+ },
+ {
+  "q": "Mahsulot tarkibi samaradorligi qachon ta’minlanadi?",
+  "options": [
+   "Ikki tarmoqda omillarning texnik almashtirish normalari o‘zaro teng bo‘lganda",
+   "X ni ishlab chiqarish xarajati (MRT) iste’molchilar bahosiga (MRS) teng bo‘lganda",
+   "Barcha tovarlar bir xil miqdorda ishlab chiqarilib, iste’molchilarga teng bo‘lib berilganda",
+   "Narxlar davlat tomonidan tannarxdan past darajada belgilab qo‘yilganda"
+  ],
+  "c": 1,
+  "e": "Mahsulot tarkibi samaradorligi sharti MRT = MRS bo‘lib, ishlab chiqarish tarkibi iste’molchilar afzalliklariga mos bo‘ladi."
+ },
+ {
+  "q": "Naflik imkoniyatlari egri chizig‘ining ichkarisidagi nuqta nimani bildiradi?",
+  "options": [
+   "Samarasiz holat: egri chiziqqa o‘tish Pareto-yaxshilanish bo‘ladi",
+   "Pareto samarali holat: hech kimni yomonlashtirmasdan yaxshilab bo‘lmaydi",
+   "Mavjud resurslar bilan erishib bo‘lmaydigan, ya’ni imkonsiz holat",
+   "Ijtimoiy jihatdan eng maqbul bo‘lgan, eng yuqori farovonlik holati"
+  ],
+  "c": 0,
+  "e": "Egri chiziq ichidagi nuqtalar samarasiz; chiziqdagi nuqtalar Pareto samarali, tashqarisi esa erishib bo‘lmaydi."
+ },
+ {
+  "q": "Kaldor-Xiks mezoniga ko‘ra o‘zgarish qachon ijtimoiy jihatdan maqbul?",
+  "options": [
+   "Hech kimning ahvoli yomonlashmasa va kamida bir kishi yutsa",
+   "Yutqazganlarga kompensatsiya amalda to‘liq to‘langan bo‘lsa",
+   "Yutganlar yutqazganlarga kompensatsiya to‘lab, baribir yutuqda qola olsa, kompensatsiya amalda to‘lanmasa ham",
+   "Eng yomon holatdagi shaxsning nafligi oshsa"
+  ],
+  "c": 2,
+  "e": "Kaldor-Xiks potensial kompensatsiya mezoni: yutganlar yutqazganlarni qoplay olishi yetarli."
+ },
+ {
+  "q": "Nega Valras tizimida faqat nisbiy narxlar muhim?",
+  "options": [
+   "Mutlaq narxlar o‘zgarsa, tovarlarning ortiqcha talabi darhol nolga tushib qoladi",
+   "Narxlar darajasi pul massasi bilan emas, tovarlar miqdori bilan belgilanadi",
+   "Barcha narxlar teng oshganda byudjet cheklovi bo‘shashib, real talab ham ortadi",
+   "Narxlar va daromadlar ikki baravar oshsa, real talab va taklif o‘zgarmaydi"
+  ],
+  "c": 3,
+  "e": "Narxlar va daromadlar bir xil nisbatda o‘zgarsa, real o‘zgarish bo‘lmaydi; shu sabab bitta tovar numerar qilib olinadi."
+ },
+ {
+  "q": "Nega Pareto samaradorligi adolatni anglatmaydi?",
+  "options": [
+   "Bir kishi hamma narsaga ega bo‘lgan taqsimot ham Pareto samarali bo‘lishi mumkin",
+   "Pareto samarali nuqtalarda barcha iste’molchilar teng naflik oladi, lekin resurslar isrof bo‘ladi",
+   "Shartnoma egri chizig‘ida yagona Pareto samarali nuqta bor va uni bozor o‘zi tanlaydi",
+   "Pareto mezoni har qanday ikki taqsimotni to‘liq tartiblab, eng adolatlisini ko‘rsatib beradi"
+  ],
+  "c": 0,
+  "e": "Shartnoma egri chizig‘idagi barcha nuqtalar Pareto samarali, ular taqsimot jihatidan keskin farq qilishi mumkin."
+ },
+ {
+  "q": "Farovonlik iqtisodiyotining birinchi teoremasiga ko‘ra raqobat muvozanati qachon Pareto samarali bo‘ladi?",
+  "options": [
+   "Davlat narxlarni nazorat qilib, boshlang‘ich zaxiralarni teng taqsimlagan bo‘lsa",
+   "Raqobat mukammal bo‘lib, tashqi samara va axborot asimmetriyasi bo‘lmasa",
+   "Bozorda bir nechta yirik firma bo‘lib, ular o‘zaro kelishib ish yuritsa",
+   "Iste’molchilar o‘z afzalliklarini yashirib, axborot nomukammal almashilsa"
+  ],
+  "c": 1,
+  "e": "Birinchi teorema mukammal raqobat va tashqi samaralar, ijtimoiy ne’matlar, axborot asimmetriyasi yo‘qligini talab qiladi."
+ },
+ {
+  "q": "Bozor natijasi adolatsiz deb topilsa, farovonlik iqtisodiyotining ikkinchi teoremasidan kelib chiqib nima qilish ma’qul?",
+  "options": [
+   "Narxlarni nazorat qilib, adolatli deb topilgan taqsimotni majburan o‘rnatish",
+   "Muvozanat narxlarini o‘zgartirib, tovarlarni teng miqdorda taqsimlash",
+   "Raqobatni cheklab, ishlab chiqarishni davlat rejasi asosida tashkil etish",
+   "Boshlang‘ich resurslarni yalpi soliqlar va transfertlar orqali qayta taqsimlab, bozorga erkin ishlash imkonini berish"
+  ],
+  "c": 3,
+  "e": "Ikkinchi teorema samaradorlik va adolatni ajratadi: narxlarni buzmasdan boshlang‘ich zaxiralar qayta taqsimlanadi."
+ },
+ {
+  "q": "X tarmog‘i monopollashgan, Y esa raqobatli bo‘lsa, mahsulot tarkibi samaradorligi nega buziladi?",
+  "options": [
+   "P(X) > MC(X), shuning uchun MRS > MRT va resurslar X dan Y ga ortiqcha o‘tadi",
+   "P(X) < MC(X), shuning uchun MRS < MRT va resurslar X tarmog‘iga ortiqcha oqib keladi",
+   "Ikki tarmoqda narx xarajatga teng bo‘lgani uchun MRS = MRT bo‘lib qoladi",
+   "Monopolist ishlab chiqarishni oshirgani uchun Y tarmog‘ida omillar yetishmay qoladi"
+  ],
+  "c": 0,
+  "e": "Monopoliyada PX/PY > MCX/MCY = MRT, ya’ni MRS > MRT; X kam ishlab chiqariladi."
+ },
+ {
+  "q": "Kvazi-optimal (ikkinchi eng yaxshi) nazariyasiga ko‘ra Pareto samaradorligi shartlaridan biri buzilgan bo‘lsa, nima bo‘lishi mumkin?",
+  "options": [
+   "Qolgan shartlarni bajarish farovonlikni oshirishi muqarrar, chunki ular bir-biriga bog‘liq",
+   "Qolgan shartlarni bajarish farovonlikni oshirmasligi, hatto kamaytirishi mumkin",
+   "Qolgan shartlar ham o‘z-o‘zidan buziladi va iqtisodiyot muvozanatni yo‘qotadi",
+   "Buzilgan shart raqobat mexanizmi orqali o‘zi tiklanadi va barcha shartlar bajariladi"
+  ],
+  "c": 1,
+  "e": "Lipsi va Lankaster xulosasi: bitta shart buzilgan bo‘lsa, qolganlarini bajarish farovonlikni oshirishi shart emas."
+ },
+ {
+  "q": "Paxta yog‘i taklifi qisqarsa, o‘rinbosar kungaboqar yog‘i qimmatlashib, paxta yog‘iga talab biroz oshadi. Qisman tahlil bilan solishtirganda paxta yog‘i narxi umumiy muvozanatda qanday bo‘ladi?",
+  "options": [
+   "Pastroq, chunki kungaboqar yog‘i bozori paxta yog‘i narxini tushiradi",
+   "Bir xil, chunki bozorlar bir-biriga ta’sir qilmaydi",
+   "Yuqoriroq, chunki qaytar aloqa samarasi talabni qo‘shimcha oshiradi",
+   "Pastroq, chunki talab o‘rinbosarga butunlay o‘tib ketadi"
+  ],
+  "c": 2,
+  "e": "Qaytar aloqa tufayli A bozordagi narx qisman muvozanat bashoratidan yuqoriroq bo‘ladi."
+ },
+ {
+  "q": "Hukumat to‘rt dasturdan birini tanlaydi (A va B guruhlar nafligi): 1-dastur: 70 va 15; 2-dastur: 50 va 30; 3-dastur: 40 va 38; 4-dastur: 55 va 25. Rouls (maksimin) mezoni bo‘yicha qaysi dastur tanlanadi?",
+  "options": [
+   "1-dastur",
+   "2-dastur",
+   "4-dastur",
+   "3-dastur"
+  ],
+  "c": 3,
+  "e": "Minimal nafliklar: 15, 30, 38, 25; eng kattasi 3-dasturda (38)."
+ },
+ {
+  "q": "Loyiha natijasida B ning yutug‘i 40, A ning yo‘qotishi 25 birlik. Kaldor-Xiks mezoni bo‘yicha loyiha qanday baholanadi?",
+  "options": [
+   "Maqbul emas: A ning ahvoli yomonlashgani uchun bu Pareto-yaxshilanish emas",
+   "Maqbul: B A ni to‘liq qoplab, baribir 15 birlik yutuqda qola oladi",
+   "Maqbul emas: kompensatsiya amalda to‘lanmagani uchun",
+   "Maqbul emas: yutuq va yo‘qotish teng bo‘lmagani uchun mezon tanlov qila olmaydi"
+  ],
+  "c": 1,
+  "e": "40 – 25 = 15 > 0: yutuvchi yutqazuvchini qoplab ham yutuqda qoladi, shuning uchun Kaldor-Xiks bo‘yicha maqbul."
+ },
+ {
+  "q": "Boshlang‘ich zaxirada A da 8 birlik X va 2 birlik Y, B da 2 birlik X va 8 birlik Y bor. Savdo qanday yo‘nalishda foydali?",
+  "options": [
+   "A X ni berib Y oladi, B Y ni berib X oladi, chunki MRS lari farqli",
+   "A Y ni berib X oladi, chunki u X ni boshqasidan yuqori qadrlaydi",
+   "Savdo foydali emas, chunki har bir tovardan jami 10 birlik mavjud",
+   "B yutadi, A esa yutqazadi, chunki B da Y ko‘p, A da esa X ko‘p"
+  ],
+  "c": 0,
+  "e": "A da X ko‘p, Y kam, shuning uchun u X ni kam qadrlaydi; B da aksincha, ikkalasi ayirboshlashdan yutadi."
+ },
+ {
+  "q": "Qaysi soliq nisbiy narxlarni kamroq buzadi va samaradorlikni kamroq pasaytiradi?",
+  "options": [
+   "Bitta tovarga solinib, uning o‘rinbosarlariga solinmaydigan aksiz solig‘i",
+   "Korporativ sektor kapitaliga solinib, boshqa sektorlarga solinmaydigan foyda solig‘i",
+   "Barcha tovarlarga bir xil stavkada solinadigan keng bazali soliq (QQS kabi)",
+   "Tovarlar guruhlari bo‘yicha turlicha stavkalarda solinadigan soliq"
+  ],
+  "c": 2,
+  "e": "Bir xil stavkali keng bazali soliq nisbiy narxlarni o‘zgartirmaydi, shuning uchun buzilish kam bo‘ladi."
+ }
+]

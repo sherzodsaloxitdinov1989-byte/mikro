@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Real daromad nimani ko‘rsatadi?",
+  "options": [
+   "Joriy narxlarda pul ko‘rinishida olingan, inflyatsiyaga tuzatilmagan daromad miqdorini",
+   "Soliqlar va majburiy to‘lovlar chegirilgandan keyin iste’mol va jamg‘arishga qoladigan daromadni",
+   "Narxlar o‘zgarishiga tuzatilgan daromadning xarid qobiliyatini",
+   "Mehnat, mulk va transfertlardan olingan barcha daromadlar yig‘indisini"
+  ],
+  "c": 2,
+  "e": "Real daromad narxlar o‘zgarishiga tuzatilgan daromad bo‘lib, xarid qobiliyatini ko‘rsatadi."
+ },
+ {
+  "q": "Ixtiyoridagi daromad qanday daromad?",
+  "options": [
+   "Soliq va majburiy to‘lovlardan keyin iste’mol va jamg‘arishga qoladigan daromad",
+   "Narxlar o‘zgarishiga tuzatilib, xarid qobiliyati bilan o‘lchanadigan daromad miqdori",
+   "Ish haqi va tadbirkorlik daromadlaridan iborat, mehnat faoliyatidan olingan daromad",
+   "Davlatdan pensiya, nafaqa va stipendiya ko‘rinishida olinadigan ijtimoiy daromad"
+  ],
+  "c": 0,
+  "e": "Ixtiyoridagi daromad soliq va majburiy to‘lovlardan keyin iste’mol va jamg‘arishga qoladigan qismdir."
+ },
+ {
+  "q": "Daromadlarning funksional taqsimoti nimani ko‘rsatadi?",
+  "options": [
+   "Milliy daromadning alohida oilalar va shaxslar o‘rtasida taqsimlanishini",
+   "Milliy daromadning davlat byudjeti va aholi o‘rtasida taqsimlanishini",
+   "Aholi daromadining iste’mol va jamg‘arish o‘rtasida taqsimlanishini",
+   "Milliy daromadning mehnat, kapital va yer o‘rtasida taqsimlanishini"
+  ],
+  "c": 3,
+  "e": "Funksional taqsimot daromadni omillar bo‘yicha, shaxsiy taqsimot esa oilalar bo‘yicha ko‘rsatadi."
+ },
+ {
+  "q": "Daromadlar mutlaq teng taqsimlansa, Lorents egri chizig‘i qanday ko‘rinadi?",
+  "options": [
+   "Pastki va o‘ng o‘qlar bo‘ylab o‘tadi",
+   "45° li diagonal (mutlaq tenglik chizig‘i) bilan ustma-ust tushadi",
+   "Diagonaldan eng uzoqda joylashgan egri chiziq bo‘ladi",
+   "Gorizontal o‘qqa parallel to‘g‘ri chiziq bo‘ladi"
+  ],
+  "c": 1,
+  "e": "Mutlaq tenglikda aholining har 20% i daromadning 20% ini oladi, shuning uchun chiziq diagonalga mos keladi."
+ },
+ {
+  "q": "Jini koeffitsienti 0 ga teng bo‘lsa, bu nimani bildiradi?",
+  "options": [
+   "Barcha daromad bitta odamga tegishli ekanini",
+   "Aholining yarmi kambag‘allik chegarasidan past yashayotganini",
+   "Daromadlar mutlaq teng taqsimlanganini",
+   "Kambag‘allik butunlay bartaraf etilganini"
+  ],
+  "c": 2,
+  "e": "Jini 0 (mutlaq tenglik) va 1 (mutlaq tengsizlik) oralig‘ida o‘zgaradi."
+ },
+ {
+  "q": "Mutlaq kambag‘allik chegarasi nimaga asoslanib aniqlanadi?",
+  "options": [
+   "Mamlakatdagi mediana daromadning 50 yoki 60 foiziga to‘g‘ri keladigan miqdorga",
+   "Aholi jon boshiga to‘g‘ri keladigan o‘rtacha daromadning yarmiga teng miqdorga",
+   "Eng boy 10 foiz aholi daromadining ma’lum ulushiga teng miqdorga",
+   "Minimal iste’mol savatchasining (zarur tovarlar va xizmatlar) qiymatiga"
+  ],
+  "c": 3,
+  "e": "Kambag‘allik chegarasi minimal iste’mol savatchasi qiymati asosida belgilanadi; mediana daromad foizi nisbiy yondashuvga xos."
+ },
+ {
+  "q": "Nisbiy kambag‘allik qanday holat?",
+  "options": [
+   "Daromad mediana daromadning ma’lum foizidan (50–60%) past bo‘lgan holat",
+   "Daromad minimal iste’mol savatchasi qiymatidan past bo‘lgan, mutlaq o‘lchanadigan holat",
+   "Daromad kuniga bir necha dollarlik xalqaro chegaradan past bo‘lgan holat, ya’ni o‘ta qashshoqlik",
+   "Daromad o‘tgan yilga nisbatan kamaygan va oila xarajatlaridan oshmagan holat"
+  ],
+  "c": 0,
+  "e": "Nisbiy kambag‘allik mediana daromadga nisbatan o‘lchanadi va ijtimoiy chetlashishni aks ettiradi."
+ },
+ {
+  "q": "Manfiy daromad solig‘i tizimida past daromadli oilalar qanday holatda bo‘ladi?",
+  "options": [
+   "Boshqalar bilan bir xil stavkada soliq to‘laydi, so‘ngra to‘langan soliqning bir qismini qaytarib oladi",
+   "Soliq to‘lamaydi, aksincha transfert oladi; daromad oshgani sari transfert kamayadi",
+   "Soliqdan to‘liq ozod etiladi, lekin davlatdan hech qanday transfert olmaydi",
+   "Ishlab topilgan daromad oshgani sari davlatdan oladigan transfert ham oshib boradi"
+  ],
+  "c": 1,
+  "e": "T = t × Y – G: daromad kichik bo‘lsa T manfiy, ya’ni transfert; daromad oshgani sari u kamayadi."
+ },
+ {
+  "q": "Rouls tasvirlagan «bexabarlik pardasi» ortida odamlar qanday mezonni tanlaydi?",
+  "options": [
+   "Jamiyat a’zolari umumiy nafligi yig‘indisini maksimallashtirishni (utilitar mezon)",
+   "Davlat qayta taqsimlashga aralashmasligini va jarayonlar adolatini ta’minlashni",
+   "O‘rtacha daromadni maksimallashtirishni, tengsizlikka e’tibor bermasdan",
+   "Eng yomon holatdagi shaxs farovonligini maksimallashtirishni (maksimin)"
+  ],
+  "c": 3,
+  "e": "Rouls bo‘yicha pardasi ortidagi odamlar maksimin mezonini tanlaydi."
+ },
+ {
+  "q": "Nega utilitar hukumat daromadlarning to‘liq tengligini talab qilmaydi?",
+  "options": [
+   "Yuqori soliqlar ishlash rag‘batini pasaytirib, umumiy daromadni kamaytiradi («teshik chelak»)",
+   "Chegaraviy naflik daromad oshgani sari ortib boradi, shuning uchun boylar ko‘proq naflik oladi",
+   "Shaxslar nafligini taqqoslab bo‘lmaydi va davlat qayta taqsimlashga haqli emas",
+   "Daromadlar jamiyatga emas, ularni ishlab topgan shaxslarga tegishli"
+  ],
+  "c": 0,
+  "e": "Qayta taqsimlash rag‘batlarni buzib, bir qism naflikni yo‘qotadi (Okunning «teshik chelak» misoli)."
+ },
+ {
+  "q": "Bir yillik daromad ma’lumotlari hayotiy sikl tufayli tengsizlikni qanday ko‘rsatadi?",
+  "options": [
+   "Kamaytirib ko‘rsatadi, chunki yoshlar va pensionerlar daromadi umuman hisobga olinmaydi",
+   "To‘g‘ri ko‘rsatadi, chunki iste’mol har yili joriy daromadga aynan teng bo‘ladi",
+   "Oshirib ko‘rsatadi, chunki odamlar jamg‘arish va qarz olib iste’molni tekislaydi",
+   "Ta’sir qilmaydi, chunki daromad hayot davomida deyarli o‘zgarmay qoladi"
+  ],
+  "c": 2,
+  "e": "Daromad yoshlikda past, o‘rta yoshda yuqori, pensiyada yana past bo‘ladi, iste’mol esa tekislanadi."
+ },
+ {
+  "q": "Natura shaklidagi transfertlar (oziq-ovqat taloni, bepul tibbiy xizmat) pul daromadi sifatida hisobga olinmasa, kambag‘allik darajasi qanday ko‘rinadi?",
+  "options": [
+   "Haqiqatdagidan past; ularni hisobga olsak, kambag‘allik darajasi yanada oshadi",
+   "Haqiqatdagidan yuqori; ularni hisobga olsak, kambag‘allik darajasi pasayadi",
+   "To‘g‘ri aks etadi, chunki natura yordami turmush darajasiga ta’sir qilmaydi",
+   "O‘zgarmaydi, chunki kambag‘allik chegarasi ham shunga mos ravishda o‘zgaradi"
+  ],
+  "c": 1,
+  "e": "Natura transfertlari hisobga olinmagani uchun kambag‘allik darajasi to‘liq aks etmaydi va yuqori ko‘rinadi."
+ },
+ {
+  "q": "Libertarizm (R. Nozik) taqsimot adolatini nimaga qarab baholaydi?",
+  "options": [
+   "Daromad qanday yo‘l bilan (ixtiyoriy ayirboshlash, mehnat, meros) olinganiga",
+   "Eng yomon holatdagi shaxs farovonligi qanchalik oshganiga",
+   "Jamiyat a’zolarining umumiy nafligi qanchalik ko‘payganiga",
+   "Natijalar tengligi va kambag‘allar ulushining qanchalik kattaligiga"
+  ],
+  "c": 0,
+  "e": "Libertarlar uchun natijalar emas, jarayonlar muhim: adolatli yo‘l bilan olingan daromad adolatli."
+ },
+ {
+  "q": "T. Piketti nima uchun boylik konsentratsiyasi o‘sib borishi mumkin deb hisoblaydi?",
+  "options": [
+   "Iqtisodiy o‘sish sur’ati (g) kapital daromadliligidan (r) yuqori bo‘lsa",
+   "Ish haqi mulkdan olinadigan daromadlarga qaraganda tezroq o‘ssa",
+   "Kapital daromadliligi (r) iqtisodiy o‘sish sur’atidan (g) yuqori bo‘lsa",
+   "Davlat ijtimoiy transfertlarni muntazam oshirib borsa"
+  ],
+  "c": 2,
+  "e": "Pikettining r > g qoidasiga ko‘ra kapital daromadi o‘sishdan oshsa, boylik to‘planib boradi."
+ },
+ {
+  "q": "Uy xo‘jaliklari so‘rovlariga asoslangan Jini koeffitsienti haqiqiy tengsizlikni nima uchun kamroq ko‘rsatishi mumkin?",
+  "options": [
+   "Eng kambag‘al oilalar so‘rovlarda ishtirok etmagani uchun ularning daromadi hisobga olinmaydi",
+   "Eng boy oilalar so‘rovlarda kam ishtirok etgani uchun ularning daromadi to‘liq qamralmaydi",
+   "Norasmiy daromadlar so‘rovlarda ortiqcha hisoblanib, tengsizlik kamayib ketadi",
+   "Jini koeffitsienti ish haqini hisobga oladi, mulkdan daromadlar formulaga kirmaydi"
+  ],
+  "c": 1,
+  "e": "Eng boy oilalar so‘rovlarda kam qatnashadi, shuning uchun haqiqiy tengsizlik rasmiy ko‘rsatkichdan yuqori bo‘lishi mumkin."
+ },
+ {
+  "q": "Mamlakatda kvintillar bo‘yicha daromad ulushlari: 6%, 11%, 16%, 22% va 45%. Kvintil koeffitsienti qancha?",
+  "options": [
+   "0,13",
+   "39",
+   "4,1",
+   "7,5"
+  ],
+  "c": 3,
+  "e": "Kvintil koeffitsienti = eng boy 20% ulushi / eng kambag‘al 20% ulushi = 45 / 6 = 7,5."
+ },
+ {
+  "q": "Manfiy daromad solig‘ida T = t × Y – G; G = 900 ming so‘m, t = 30%. Oilaning bozor daromadi 1 000 ming so‘m bo‘lsa, u qancha transfert oladi?",
+  "options": [
+   "600 ming so‘m",
+   "300 ming so‘m",
+   "900 ming so‘m",
+   "1 200 ming so‘m"
+  ],
+  "c": 0,
+  "e": "T = 0,3 × 1 000 – 900 = –600, ya’ni oila 600 ming so‘m transfert oladi."
+ },
+ {
+  "q": "Kambag‘al oila ishlab topgan har bir qo‘shimcha so‘m uchun ijtimoiy nafaqa ham 1 so‘mga kamaysa, bu qanday ta’sir ko‘rsatadi?",
+  "options": [
+   "Ishlash rag‘bati kuchayadi, chunki oila nafaqaga qaramlikdan qutuladi",
+   "Oilaning jami daromadi ishlab topilgan har bir so‘m hisobiga 1 so‘mga oshadi",
+   "Chegaraviy soliq stavkasi nolga teng bo‘lib, rag‘batlar o‘zgarmaydi",
+   "Yashirin chegaraviy soliq stavkasi 100% bo‘lib, ishlashdan oilaning foydasi qolmaydi"
+  ],
+  "c": 3,
+  "e": "Nafaqaning 1 so‘mga kamayishi 100% li chegaraviy soliqqa teng («kambag‘allik tuzog‘i»)."
+ },
+ {
+  "q": "Hukumat kambag‘allarga pul o‘rniga oziq-ovqat taloni va uy-joy subsidiyasi beradi. Bu dastakning kamchiligi nima?",
+  "options": [
+   "Yordam pul ko‘rinishida bo‘lgani uchun noto‘g‘ri maqsadga sarflanishi mumkin",
+   "Oluvchilarning tanlov erkinligi cheklanadi va ma’muriy xarajatlar oshadi",
+   "Ishlab topilgan daromad ortgani sari yordam miqdori ham oshib boradi",
+   "Yordam kam ta’minlanmagan oilalarga ham to‘lanadi va byudjet xarajatlari oshadi"
+  ],
+  "c": 1,
+  "e": "Natura shaklidagi yordam aniq ehtiyojlarga yo‘naltiriladi, lekin tanlov erkinligini cheklaydi va ma’muriy xarajat talab qiladi."
+ },
+ {
+  "q": "O‘zbekistonda jismoniy shaxslar daromadiga yagona (proporsional) soliq stavkasi qo‘llanadi. Qayta taqsimlash funksiyasi asosan qanday amalga oshiriladi?",
+  "options": [
+   "Progressiv shkala orqali: boylardan yuqori stavkada soliq olinadi",
+   "Mulk va merosga yuqori soliq solish orqali",
+   "Xarajatlar orqali: nafaqalar va ijtimoiy xizmatlar yordamida",
+   "Daromad solig‘ini kam ta’minlanganlarga to‘liq qaytarish orqali"
+  ],
+  "c": 2,
+  "e": "Yagona stavka sharoitida qayta taqsimlash asosan nafaqalar va ijtimoiy xizmatlar xarajatlari orqali amalga oshiriladi."
+ }
+]

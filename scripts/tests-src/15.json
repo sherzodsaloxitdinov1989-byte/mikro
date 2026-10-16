@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Asosiy kapital nima?",
+  "options": [
+   "Bir ishlab chiqarish sikli davomida qiymatini mahsulotga to‘liq o‘tkazadigan kapital",
+   "Fizik kapitalni sotib olish uchun ishlatiladigan pul mablag‘lari va qimmatli qog‘ozlar",
+   "Ta’lim va tajriba orqali to‘plangan bilim va ko‘nikmalar majmui",
+   "Qiymatini amortizatsiya orqali qismlab, bir necha siklda o‘tkazadigan kapital"
+  ],
+  "c": 3,
+  "e": "Binolar, mashinalar va uskunalar asosiy kapitalga kiradi; ularning qiymati amortizatsiya orqali o‘tadi."
+ },
+ {
+  "q": "Yalpi investitsiya nimaga teng?",
+  "options": [
+   "Sof investitsiya va amortizatsiya ayirmasiga",
+   "Yil oxiridagi kapital zaxirasining qiymatiga",
+   "Sof investitsiya va amortizatsiya yig‘indisiga",
+   "Eskirgan kapitalni almashtirishga ketgan mablag‘ning o‘ziga"
+  ],
+  "c": 2,
+  "e": "Iyalpi = Isof + A: yalpi investitsiya kapital o‘sishi va eskirgan qismni almashtirishni qamrab oladi."
+ },
+ {
+  "q": "Fisher tenglamasiga ko‘ra real foiz stavkasi taxminan nimaga teng?",
+  "options": [
+   "Nominal foiz stavkasidan inflyatsiya darajasini ayirganga",
+   "Nominal foiz stavkasiga inflyatsiya darajasini qo‘shganga",
+   "Nominal foiz stavkasini inflyatsiya darajasiga ko‘paytirganga",
+   "Inflyatsiya darajasidan nominal foiz stavkasini ayirganga"
+  ],
+  "c": 0,
+  "e": "1 + i = (1 + r)(1 + π) dan r ≈ i – π kelib chiqadi."
+ },
+ {
+  "q": "Sof joriy qiymat (NPV) nima?",
+  "options": [
+   "Loyiha daromadlarining diskontlanmagan oddiy yig‘indisi va kapital xarajatlar farqi",
+   "Kelgusi daromadlar joriy qiymati va dastlabki investitsiya o‘rtasidagi farq",
+   "Loyihaning ichki daromadlilik darajasini ifodalovchi diskont stavkasi",
+   "Dastlabki investitsiya daromadlar hisobiga qoplanadigan vaqt"
+  ],
+  "c": 1,
+  "e": "NPV = –I0 + Σ Rt/(1 + r)^t."
+ },
+ {
+  "q": "Ichki daromad normasi (IRR) nima?",
+  "options": [
+   "Loyiha NPV si eng yuqori bo‘ladigan diskont stavkasi",
+   "Loyihaning NPV sini nolga tenglashtiradigan diskont stavkasi",
+   "Tijorat bankining loyihaga beradigan kredit stavkasi",
+   "Loyiha yillik foydasining dastlabki investitsiyaga nisbati"
+  ],
+  "c": 1,
+  "e": "IRR — 0 = –I0 + Σ Rt/(1 + IRR)^t tenglamasini qanoatlantiruvchi stavka."
+ },
+ {
+  "q": "Qoplash muddati mezonining asosiy kamchiligi nima?",
+  "options": [
+   "Diskont stavkasini tanlashni va kelgusi pul oqimlarini bashorat qilishni talab qiladi",
+   "Noodatiy pul oqimlarida bir nechta qiymat berishi mumkin",
+   "Pulning vaqt qiymatini va qoplashdan keyingi daromadlarni hisobga olmaydi",
+   "Loyiha masshtabini hisobga olmaydi"
+  ],
+  "c": 2,
+  "e": "Oddiy qoplash muddati faqat dastlabki investitsiya qoplanguncha bo‘lgan vaqtni o‘lchaydi."
+ },
+ {
+  "q": "Investitsiya tavakkalchiligini kamaytirishda diversifikatsiya nimani anglatadi?",
+  "options": [
+   "Xavfli loyihalar uchun diskont stavkasiga tavakkalchilik ustamasi qo‘shishni",
+   "Asosiy omillar (narx, hajm, xarajat) o‘zgarganda NPV qanday o‘zgarishini tekshirishni",
+   "Butun iqtisodiyotga ta’sir qiluvchi bozor tavakkalchiligini ham to‘liq yo‘q qilishni",
+   "Mablag‘ni mustaqil loyihalarga taqsimlab, firmaga xos tavakkalchilikni kamaytirishni"
+  ],
+  "c": 3,
+  "e": "Diversifikatsiya «barcha tuxumni bitta savatga qo‘ymaslik»dir, lekin bozor tavakkalchiligini yo‘q qilmaydi."
+ },
+ {
+  "q": "Muddatsiz obligatsiya (perpetuitet) qanday qimmatli qog‘oz?",
+  "options": [
+   "Nominalini qaytarmaydigan, lekin cheksiz muddat to‘lov beradigan obligatsiya",
+   "Kupon to‘lamasdan, muddati oxirida nominal qiymatni qaytaradigan obligatsiya",
+   "Nominal qiymati bozor foiz stavkasiga qarab har yili o‘zgarib turadigan obligatsiya",
+   "Egasiga firmani boshqarishda ishtirok etish huquqini beruvchi qimmatli qog‘oz"
+  ],
+  "c": 0,
+  "e": "Muddatsiz obligatsiya narxi P = C / r formulasi bilan topiladi."
+ },
+ {
+  "q": "Keyns nazariyasiga ko‘ra, foiz nima uchun to‘lanadi?",
+  "options": [
+   "Pulni naqd shaklda saqlashdan, ya’ni likvidlikdan voz kechgani uchun",
+   "Odamlar bugungi iste’molni ertangisidan afzal ko‘rgani uchun",
+   "Qarzga olingan kapital qo‘shimcha daromad keltirgani uchun",
+   "Qarz qaytarilmaslik xavfi mavjud bo‘lgani uchun"
+  ],
+  "c": 0,
+  "e": "Likvidlikdan voz kechish — Keyns tushuntirishi; boshqa javoblar boshqa nazariyalarga tegishli."
+ },
+ {
+  "q": "Nima uchun investitsiyaga talab chizig‘i pastga og‘ma bo‘ladi?",
+  "options": [
+   "Foiz stavkasi pasayganda jamg‘arma taklifi oshadi va investitsiya kamayadi",
+   "Foiz stavkasi pasayganda mavjud loyihalarning IRR i oshadi",
+   "Foiz stavkasi pasayganda firmalar amortizatsiya normasini oshiradi",
+   "Foiz stavkasi pasayganda IRR si pastroq bo‘lgan ko‘proq loyihalar foydali bo‘ladi"
+  ],
+  "c": 3,
+  "e": "IRR > r bo‘lgan loyihalar amalga oshiriladi; r pasaysa, shartga ko‘proq loyiha mos keladi."
+ },
+ {
+  "q": "Diskont stavkasi oshsa, kelgusida olinadigan 1 mln so‘mning joriy qiymati qanday o‘zgaradi?",
+  "options": [
+   "Oshadi, chunki jamg‘arish foydaliroq bo‘ladi",
+   "Kamayadi, chunki kelgusi summa kuchliroq diskontlanadi",
+   "O‘zgarmaydi, chunki nominal summa o‘zgarmagan",
+   "Dastlab oshadi, so‘ng nominal summaga tenglashadi"
+  ],
+  "c": 1,
+  "e": "PV = FV / (1 + r)^n: r qancha katta bo‘lsa, PV shuncha kichik."
+ },
+ {
+  "q": "Bozor foiz stavkasi oshsa, avval chiqarilgan obligatsiya narxi nima uchun pasayadi?",
+  "options": [
+   "Emitent obligatsiya nominal qiymatini kamaytirib qaytarishga majbur bo‘ladi",
+   "Emitent bozor stavkasi oshganda eski obligatsiya kuponlarini avtomatik kamaytirib boradi",
+   "Yangi obligatsiyalar yuqoriroq kupon beradi, eskisi esa kamroq jozibador bo‘lib qoladi",
+   "Obligatsiya muddati bozor stavkasi oshganda o‘z-o‘zidan uzayib ketadi"
+  ],
+  "c": 2,
+  "e": "Obligatsiya narxi va bozor foiz stavkasi teskari bog‘liq."
+ },
+ {
+  "q": "Nima uchun muddatsiz obligatsiya narxi foiz stavkasiga eng sezgir?",
+  "options": [
+   "Uning nominal qiymati bozor stavkasi oshganda shuncha foizga kamayib boradi",
+   "Kupon to‘lovi bozor stavkasi o‘zgarishiga qarab har yili qayta belgilanadi",
+   "To‘lovlar cheksiz uzoq kelajakka cho‘zilgani sababli diskontlashga sezgir",
+   "Uni davlat chiqaradi va narxi ma’muriy yo‘l bilan belgilanadi"
+  ],
+  "c": 2,
+  "e": "P = C / r: uzoq muddatli to‘lovlar diskont stavkasiga kuchliroq bog‘liq."
+ },
+ {
+  "q": "Inflyatsiya qanday qilib soliq yukini oshirishi mumkin?",
+  "options": [
+   "Amortizatsiya tarixiy qiymatda hisoblangani uchun real ajratmalar kamayadi",
+   "Foyda solig‘i stavkasi inflyatsiya darajasiga qarab avtomatik oshirib boriladi",
+   "Kapital tovarlar import bojlari inflyatsiya tufayli oshadi",
+   "Nominal foiz stavkasi real stavkadan past bo‘lib qoladi"
+  ],
+  "c": 0,
+  "e": "Inflyatsiya tarixiy qiymatga asoslangan amortizatsiyaning real qiymatini pasaytiradi."
+ },
+ {
+  "q": "Loyihaning ichki daromad normasi (IRR) 16%, kredit stavkasi esa 12%. Qanday qaror to‘g‘ri?",
+  "options": [
+   "Loyiha rad etiladi, chunki IRR kredit stavkasidan yuqori bo‘lsa xarajat oshadi",
+   "Qaror qoplash muddatiga qarab chiqariladi, IRR e’tiborga olinmaydi",
+   "Loyiha rad etiladi, chunki NPV manfiy bo‘ladi",
+   "Loyiha qabul qilinadi, chunki IRR kapital narxidan yuqori va NPV musbat"
+  ],
+  "c": 3,
+  "e": "IRR > r bo‘lsa, loyiha foydali va NPV > 0."
+ },
+ {
+  "q": "Firmada yalpi investitsiya 40 mlrd so‘m, amortizatsiya 55 mlrd so‘m. Kapital zaxirasi qanday o‘zgaradi?",
+  "options": [
+   "Sof investitsiya +15 mlrd so‘m, kapital zaxirasi ko‘payadi",
+   "Sof investitsiya –15 mlrd so‘m, kapital zaxirasi qisqaradi",
+   "Sof investitsiya 40 mlrd so‘m, kapital zaxirasi shuncha ko‘payadi",
+   "Sof investitsiya nolga teng, kapital zaxirasi o‘zgarmaydi"
+  ],
+  "c": 1,
+  "e": "Isof = 40 – 55 = –15: firma o‘z kapitalini «yeydi»."
+ },
+ {
+  "q": "Kelgusi 2 yildan keyin olinadigan 800 ming so‘mning bugungi qiymati qancha (bozor stavkasi 10%)?",
+  "options": [
+   "727 ming so‘m",
+   "968 ming so‘m",
+   "1 056 ming so‘m",
+   "661 ming so‘m"
+  ],
+  "c": 3,
+  "e": "PV = 800 / 1,1² = 800 / 1,21 ≈ 661,2 ming so‘m."
+ },
+ {
+  "q": "Muddatsiz obligatsiya yiliga 120 ming so‘m to‘laydi, bozor stavkasi 8%. Uning narxi qancha?",
+  "options": [
+   "9,6 ming so‘m",
+   "1 500 ming so‘m",
+   "111,1 ming so‘m",
+   "15 000 ming so‘m"
+  ],
+  "c": 1,
+  "e": "P = C / r = 120 / 0,08 = 1 500 ming so‘m."
+ },
+ {
+  "q": "Nominal foiz stavkasi 26%, inflyatsiya 10%. Aniq 1 + i = (1 + r)(1 + π) formulasi bo‘yicha real foiz qancha?",
+  "options": [
+   "14,5%",
+   "16,0%",
+   "36,0%",
+   "114,5%"
+  ],
+  "c": 0,
+  "e": "1,26 / 1,10 – 1 ≈ 0,145 ya’ni 14,5% (taxminiy formula 16% beradi)."
+ },
+ {
+  "q": "Investitsiyalar YaIMning 28 foizini tashkil etadi, YaIM esa 7 foizga o‘smoqda. ICOR qancha?",
+  "options": [
+   "0,25",
+   "21",
+   "4",
+   "196"
+  ],
+  "c": 2,
+  "e": "ICOR = 28 / 7 = 4."
+ }
+]

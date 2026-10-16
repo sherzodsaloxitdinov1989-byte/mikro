@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Tashqi samara (eksternaliya) nima?",
+  "options": [
+   "Davlat belgilagan narxning bozor muvozanatidan chetga chiqishi",
+   "Bir shaxs faoliyatining uchinchi shaxslarga kompensatsiyasiz ta’siri",
+   "Xaridor va sotuvchi o‘rtasidagi bitimdan ikkala tomon oladigan foyda",
+   "Chet davlatlar bilan savdo qilishdan olinadigan valyuta tushumlari"
+  ],
+  "c": 1,
+  "e": "Tashqi samara — bitimda ishtirok etmaydigan uchinchi shaxslarga kompensatsiyasiz ta’sir."
+ },
+ {
+  "q": "Salbiy tashqi samara mavjud bo‘lganda ijtimoiy xarajat qanday topiladi?",
+  "options": [
+   "Xususiy xarajatdan tashqi xarajat ayiriladi",
+   "Ishlab chiqaruvchining xususiy xarajatiga teng deb olinadi",
+   "Xususiy xarajat tashqi xarajatga ko‘paytiriladi",
+   "Xususiy xarajatga tashqi xarajat qo‘shiladi"
+  ],
+  "c": 3,
+  "e": "Ijtimoiy xarajat = xususiy xarajat + tashqi xarajat; shuning uchun u taklif chizig‘idan yuqorida joylashadi."
+ },
+ {
+  "q": "Tashqi samarani ichkilashtirish nimani anglatadi?",
+  "options": [
+   "Tashqi ta’sirni ishtirokchilar qaroriga kiritadigan rag‘batlarni yaratish",
+   "Tashqi samara yuzaga kelgan tarmoqni mamlakat tashqarisiga ko‘chirish",
+   "Zarar ko‘rganlarga kompensatsiyani byudjetdan to‘lashni to‘xtatish",
+   "Tovar ishlab chiqarishni davlat monopoliyasiga to‘liq o‘tkazish"
+  ],
+  "c": 0,
+  "e": "Ichkilashtirish — xaridor va sotuvchilarni tashqi ta’sirni o‘z qarorlarida hisobga olishga majbur qiladigan rag‘batlar yaratish."
+ },
+ {
+  "q": "Pigu solig‘i nima?",
+  "options": [
+   "Eng yuqori daromad oladigan fuqarolarga nisbatan qo‘llanadigan progressiv daromad solig‘i",
+   "Importga solinib, ichki ishlab chiqaruvchilarni raqobatdan himoya qiluvchi bojxona to‘lovi",
+   "Salbiy tashqi samara keltiruvchi faoliyatga solinadigan, zararli oqibatni tuzatuvchi soliq",
+   "Korxona foydasiga solinib, byudjet kamomadini qoplashga yo‘naltirilgan umumiy soliq"
+  ],
+  "c": 2,
+  "e": "Pigu solig‘i tashqi xarajatga teng miqdorda solinib, rag‘batlarni to‘g‘rilaydi."
+ },
+ {
+  "q": "Kouz teoremasiga ko‘ra, qanday sharoitda tomonlar tashqi samarani o‘zaro kelishuv bilan hal qila oladi?",
+  "options": [
+   "Davlat har ikki tomonga teng miqdorda subsidiya ajratib bersa",
+   "Mulk huquqlari zarar ko‘ruvchi tomonga berilgan bo‘lsa",
+   "Tranzaksiya xarajatlari bo‘lmasa va muzokara xarajatsiz bo‘lsa",
+   "Tashqi samaradan ko‘rilgan zarar tashqi foydadan kichik bo‘lsa"
+  ],
+  "c": 2,
+  "e": "Teorema sharti: xarajatsiz muzokara; shunda mulk huquqlarining dastlabki taqsimotidan qat’i nazar samarali natijaga erishiladi."
+ },
+ {
+  "q": "«Cap-and-trade» tizimi nimani bildiradi?",
+  "options": [
+   "Davlat umumiy ifloslanish chegarasini belgilaydi, firmalar ruxsatnomalarni o‘zaro sotadi",
+   "Davlat har bir firma uchun ishlab chiqarish texnologiyasini majburiy belgilaydi va nazorat qiladi",
+   "Davlat ifloslantiruvchi tovar narxiga qat’iy soliq stavkasini o‘rnatib, tushumni byudjetga yo‘naltiradi",
+   "Davlat ifloslanishni kamaytirgan firmalarga qat’iy miqdorda subsidiya to‘laydi"
+  ],
+  "c": 0,
+  "e": "Cap-and-trade — umumiy chegara (cap) belgilanib, ruxsatnomalar firmalar o‘rtasida savdo qilinadigan (trade) tizim."
+ },
+ {
+  "q": "«Ikki karra dividend» g‘oyasiga ko‘ra, Pigu solig‘i qanday foyda keltiradi?",
+  "options": [
+   "Ifloslanishni kamaytiradi va ayni paytda barcha tovarlar narxini sezilarli pasaytiradi",
+   "Ishlab chiqaruvchilarni ham, iste’molchilarni ham soliq yukidan ozod qiladi",
+   "Davlat byudjetini to‘ldiradi va tashqi samaraning o‘zgarmasdan qolishini ta’minlaydi",
+   "Rag‘batlarni to‘g‘rilaydi, tushumi esa boshqa buzuvchi soliqlarni kamaytiradi"
+  ],
+  "c": 3,
+  "e": "Birinchi dividend — samaradorlik, ikkinchisi — tushum hisobiga boshqa buzuvchi soliqlarni kamaytirish imkoniyati."
+ },
+ {
+  "q": "Texnologik tarqalish (technology spillover) nima?",
+  "options": [
+   "Yangi texnologiyani chet davlatga litsenziya asosida sotib yuborish",
+   "Bir firma yaratgan bilimlarning boshqa firmalarga ham tarqalishi",
+   "Firmaning ilmiy tadqiqotlar uchun davlatdan olgan grant mablag‘lari",
+   "Eski uskunalarning yangilari bilan almashtirilishidan ishlab chiqarish ortishi"
+  ],
+  "c": 1,
+  "e": "Texnologik tarqalish — ijobiy tashqi samara: yangi bilimlardan boshqa firmalar ham foydalanadi."
+ },
+ {
+  "q": "Salbiy tashqi samara mavjud bo‘lgan bozor muvozanatida tovar miqdori ijtimoiy optimumga nisbatan qanday bo‘ladi?",
+  "options": [
+   "Optimaldan ko‘p, chunki uchinchi shaxslarga zarar hisobga olinmaydi",
+   "Optimaldan kam, chunki ishlab chiqaruvchilar tashqi xarajatni ortiqcha hisobga oladi",
+   "Optimalga teng, chunki raqobat bozorida narx barcha xarajatni aks ettiradi",
+   "Optimaldan kam, chunki ijtimoiy xarajat chizig‘i taklif chizig‘idan pastda joylashadi"
+  ],
+  "c": 0,
+  "e": "Salbiy tashqi samarada QBOZOR > QOPTIMUM: bozor tovarni haddan tashqari ko‘p ishlab chiqaradi."
+ },
+ {
+  "q": "Nima uchun xususiy bozor ilmiy-tadqiqot ishlariga ijtimoiy jihatdan yetarli mablag‘ sarflamaydi?",
+  "options": [
+   "Ilmiy tadqiqotlar uchinchi shaxslarga zarar yetkazadi va firma jarimadan qo‘rqadi",
+   "Tadqiqot xarajatlari soliq imtiyozi bilan qoplangani uchun firmalar bu sohaga qiziqmaydi",
+   "Davlat ilmiy tadqiqotlarni moliyalashtirishni qonun bilan taqiqlab qo‘ygan",
+   "Bilimlar boshqa firmalarga ham tarqaladi, shu sababli foyda tadqiqotchiga to‘liq qolmaydi"
+  ],
+  "c": 3,
+  "e": "Texnologik tarqalish tufayli tadqiqot foydasining bir qismi boshqalarga o‘tadi, shuning uchun bozor ijobiy tashqi samarali tovarni kam ishlab chiqaradi."
+ },
+ {
+  "q": "Kouz teoremasi zavod va minglab aholi o‘rtasidagi ifloslanish muammosini amalda nima uchun hal qilmaydi?",
+  "options": [
+   "Aholi ifloslanishdan zarar ko‘rmaydi, shu sababli ular kelishuv tuzishga ehtiyoj sezmaydi",
+   "Muzokara tashkil etish qimmat, har bir aholi esa boshqalar kelishuvni moliyalashtirishini kutadi",
+   "Qonun zavod va aholi o‘rtasida har qanday xususiy kelishuv tuzilishini taqiqlab qo‘ygan",
+   "Ifloslanish zarari pul bilan hisoblanmagani uchun kompensatsiya miqdorini aniq belgilab bo‘lmaydi"
+  ],
+  "c": 1,
+  "e": "Tranzaksiya xarajatlari va ishtirokchilar ko‘pligi («chiptasiz yo‘lovchi») xususiy kelishuvni deyarli imkonsiz qiladi."
+ },
+ {
+  "q": "Nima uchun ifloslanishning optimal darajasi odatda nolga teng emas?",
+  "options": [
+   "Tartibga solinmagan firmalar ifloslanishni o‘zlari optimal darajagacha kamaytiradi",
+   "Ifloslanish oshgan sari chegaraviy zarar kamayadi, shu sababli nol daraja maqsadga muvofiq emas",
+   "Kamaytirishning ham xarajati bor; optimum MAC va MD tenglashgan nuqtada bo‘ladi",
+   "Sanoat ishlab chiqarishi ifloslanishsiz amalga oshishi texnologik jihatdan mumkin emas"
+  ],
+  "c": 2,
+  "e": "Optimal ifloslanish E* da MAC = MD bo‘ladi, chunki kamaytirish xarajatsiz emas."
+ },
+ {
+  "q": "Nima uchun Pigu solig‘i bir xil standartga qaraganda ifloslanishni kamaytirishning arzonroq usuli hisoblanadi?",
+  "options": [
+   "Soliq barcha firmalarni bir xil miqdorda kamaytirishga majbur qiladi",
+   "Soliq firmalardan kamaytirish xarajatlari haqida davlatga to‘liq axborot berishni talab qiladi",
+   "Soliq ifloslanish darajasini aniq belgilangan chegarada qat’iy ushlab turadi",
+   "Arzon kamaytiruvchi firma ko‘proq kamaytiradi va firmalarning MAC lari tenglashadi"
+  ],
+  "c": 3,
+  "e": "Soliq ostida har bir firma MAC = t gacha kamaytiradi, MAC lar tenglashadi va umumiy xarajat minimal bo‘ladi."
+ },
+ {
+  "q": "Pigu solig‘i va sotiladigan ruxsatnomalar bozori o‘rtasidagi asosiy farq qanday?",
+  "options": [
+   "Soliqda davlat narxni belgilaydi, ruxsatnomalar bozorida esa miqdorni belgilaydi",
+   "Soliqda davlat miqdorni belgilaydi, ruxsatnomalar bozorida esa narxni belgilaydi",
+   "Soliq firmalar MAC sini tenglashtiradi, ruxsatnomalar bozori esa tenglashtirmaydi",
+   "Soliq xavfli moddalarni to‘liq taqiqlaydi, ruxsatnomalar bozori esa taqiqlamaydi"
+  ],
+  "c": 0,
+  "e": "Soliqda narx davlat tomonidan, miqdor bozorda; ruxsatnomalarda miqdor davlat tomonidan, narx bozorda aniqlanadi."
+ },
+ {
+  "q": "Asalarichi va bog‘bon yagona firmaga birlashdi. Kouz mantig‘iga ko‘ra bu nimaga olib keladi?",
+  "options": [
+   "Ijobiy tashqi samara salbiyga aylanib, bozor muvozanati buziladi",
+   "Tashqi samara ichki samaraga aylanadi, ya’ni ichkilashtiriladi",
+   "Asalarichilik va bog‘dorchilikning ijtimoiy foydasi yo‘qoladi",
+   "Davlat Pigu solig‘ini joriy etishga majbur bo‘ladi"
+  ],
+  "c": 1,
+  "e": "Biznesni birlashtirish xususiy yechim bo‘lib, tashqi samarani firma ichidagi samaraga aylantiradi."
+ },
+ {
+  "q": "Ifloslanish miqdorini aniq nazorat qilish muhim (xavfli chegaradan oshmaslik kerak), kamaytirish xarajatlari esa noma’lum. Qaysi vosita afzal?",
+  "options": [
+   "Narxni belgilovchi Pigu solig‘i",
+   "Ifloslantiruvchi firmalar uchun soliq imtiyozlarini kengaytirish",
+   "Sotiladigan ifloslanish ruxsatnomalari bozori",
+   "Iste’molchilarning ixtiyoriy axloqiy majburiyatlariga tayanish"
+  ],
+  "c": 2,
+  "e": "Ruxsatnomalarda davlat miqdorni belgilaydi, shuning uchun ifloslanish darajasini aniq nazorat qilish mumkin (Vaysman)."
+ },
+ {
+  "q": "Davlat uy xo‘jaliklariga quyosh panellari o‘rnatish uchun subsidiya ajratdi. Bu qaysi vosita?",
+  "options": [
+   "Tartiblashtiruvchi subsidiya (ijobiy tashqi samara uchun)",
+   "Salbiy tashqi samarani cheklovchi Pigu solig‘i joriy etish",
+   "Ifloslanish huquqlari savdosi bozorini yaratish",
+   "Majburiy texnologik standartni qonun bilan joriy etish"
+  ],
+  "c": 0,
+  "e": "Qayta tiklanuvchi energiyaga subsidiya ijobiy tashqi samarani rag‘batlantiradigan tartiblashtiruvchi subsidiyadir."
+ },
+ {
+  "q": "Yuqori oqimdagi sug‘oruvchilar Amudaryo va Sirdaryo suvidan foydalanib, quyi oqimdagi aholi va ekotizimga zararni hisobga olmadi (Orol dengizi). Bu qaysi hodisa?",
+  "options": [
+   "Ishlab chiqarishdagi ijobiy tashqi samara",
+   "Texnologik tarqalish natijasidagi foyda",
+   "Ishlab chiqarishdagi salbiy tashqi samara",
+   "Iste’moldagi ijobiy tashqi samara"
+  ],
+  "c": 2,
+  "e": "Sug‘oruvchilar uchinchi shaxslarga yetkazilgan zararni hisobga olmagan — bu klassik salbiy tashqi samara."
+ },
+ {
+  "q": "Talab P = 120 – Q, xususiy chegaraviy xarajat P = 30 + Q (Q – ming t, P – ming so‘m/t). Har bir tonna ishlab chiqarishda tashqi zarar 20 ming so‘m. Ijtimoiy optimal miqdor (ming t) qancha?",
+  "options": [
+   "45",
+   "25",
+   "40",
+   "35"
+  ],
+  "c": 3,
+  "e": "Ijtimoiy xarajat 50 + Q: 120 – Q = 50 + Q ⇒ Q = 35 (bozor muvozanati esa 45)."
+ },
+ {
+  "q": "Zavod daryoni ifloslantirish huquqiga ega. Tozalash inshooti yiliga 40 mln so‘m turadi, quyi oqimdagi 4 ta baliqchilik xo‘jaligining har biri ifloslanishdan yiliga 18 mln so‘m zarar ko‘radi. Zavodni inshoot qurishga ko‘ndirish uchun kelishuvni tashkil etishga 40 mln so‘m sarflanishi kerak. Xo‘jaliklarning kelishuvdan sof yutug‘i qancha?",
+  "options": [
+   "32 mln so‘m",
+   "–8 mln so‘m",
+   "8 mln so‘m",
+   "–32 mln so‘m"
+  ],
+  "c": 1,
+  "e": "Zarar 4 × 18 = 72; zavodga 40 va kelishuvga 40 to‘lanadi: 72 – 40 – 40 = –8, kelishuv amalga oshmaydi."
+ }
+]

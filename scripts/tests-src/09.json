@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Narxni qabul qiluvchi firma deganda qanday firma tushuniladi?",
+  "options": [
+   "Bozor narxida xohlagan miqdorni sotadigan, narxga ta’sir qila olmaydigan firma",
+   "Narxni o‘z xohishiga ko‘ra belgilay oladigan, xaridorni yo‘qotmaydigan firma",
+   "Narxni raqobatchilar bilan kelishib belgilaydigan firma",
+   "Mahsulotini bozor narxidan past narxda sotishga majbur bo‘lgan davlat korxonasi"
+  ],
+  "c": 0,
+  "e": "Raqobatlashuvchi firma narxni bir so‘m oshirsa, barcha xaridorlarni yo‘qotadi, shuning uchun bozor narxini qabul qiladi."
+ },
+ {
+  "q": "Har qanday firma uchun o‘rtacha daromad (AR) nimaga teng?",
+  "options": [
+   "Chegaraviy xarajatga (MC)",
+   "Yalpi daromadga (TR)",
+   "Mahsulot narxiga (P)",
+   "O‘rtacha yalpi xarajatga (ATC)"
+  ],
+  "c": 2,
+  "e": "AR = TR/Q = (P × Q)/Q = P."
+ },
+ {
+  "q": "Chegaraviy daromad (MR) nimani bildiradi?",
+  "options": [
+   "Bir birlik mahsulotni sotishdan olinadigan o‘rtacha daromadni",
+   "Qo‘shimcha bir birlik sotishdan olinadigan qo‘shimcha daromadni",
+   "Mahsulotning bozor narxi bilan xarajat o‘rtasidagi farqni",
+   "Yalpi daromadning ishlab chiqarilgan mahsulot miqdoriga nisbatini"
+  ],
+  "c": 1,
+  "e": "MR = ΔTR/ΔQ – qo‘shimcha bir birlik sotishdan olinadigan qo‘shimcha tushum."
+ },
+ {
+  "q": "Zararsizlik nuqtasi qaysi tenglik bilan aniqlanadi?",
+  "options": [
+   "P = min AVC",
+   "P = min AFC",
+   "TR = FC",
+   "P = min ATC"
+  ],
+  "c": 3,
+  "e": "Bu narxda iqtisodiy foyda nolga teng, firma normal foyda oladi."
+ },
+ {
+  "q": "Raqobatlashuvchi firma qisqa muddatda qachon ishlab chiqarishni vaqtincha to‘xtatadi?",
+  "options": [
+   "Tushum doimiy xarajatlarni qoplamaganda (TR < FC)",
+   "Narx o‘rtacha yalpi xarajatdan past bo‘lganda (P < ATC)",
+   "Iqtisodiy foyda nolga teng bo‘lganda (P = ATC)",
+   "Tushum o‘zgaruvchan xarajatlarni qoplamasa (P < AVC)"
+  ],
+  "c": 3,
+  "e": "Yopilish sharti TR < VC, ya’ni P < AVC; P < ATC bo‘lsa ham, P > AVC bo‘lsa firma ishlayveradi."
+ },
+ {
+  "q": "Raqobatlashuvchi firmaning qisqa muddatli taklif chizig‘i qaysi?",
+  "options": [
+   "MC chizig‘ining ATC minimumidan yuqori qismi",
+   "MC chizig‘ining AVC minimumidan yuqori qismi",
+   "MC chizig‘ining butun uzunligi",
+   "ATC chizig‘ining AVC minimumidan yuqori qismi"
+  ],
+  "c": 1,
+  "e": "Firma P = MC bo‘yicha ishlab chiqaradi, P < min AVC bo‘lganda esa umuman ishlab chiqarmaydi."
+ },
+ {
+  "q": "Tarmoqning qisqa muddatli taklif chizig‘i qanday hosil bo‘ladi?",
+  "options": [
+   "Barcha firmalar taklif chiziqlarini vertikal bo‘yicha yig‘ish orqali",
+   "Eng samarali firmaning taklif chizig‘ini olish orqali",
+   "Firmalar taklif chiziqlarini gorizontal bo‘yicha yig‘ish orqali",
+   "Barcha firmalar taklif chiziqlarining o‘rtachasini olish orqali"
+  ],
+  "c": 2,
+  "e": "Har bir narxda firmalar taklif qiladigan miqdorlar qo‘shiladi; 1000 ta bir xil firma bo‘lsa, taklif 1000 marta katta."
+ },
+ {
+  "q": "Foydani maksimallashtirishning umumiy optimallik sharti qaysi?",
+  "options": [
+   "MR = MC",
+   "P = AR",
+   "TR = TC",
+   "MC = ATC"
+  ],
+  "c": 0,
+  "e": "Har qanday bozor tuzilmasida foyda MR = MC bo‘lgan hajmda maksimal bo‘ladi."
+ },
+ {
+  "q": "Alohida raqobatlashuvchi firma mahsulotiga talab chizig‘i nima uchun gorizontal?",
+  "options": [
+   "Firma mahsuloti bozorda o‘rinbosarsiz yagona tovar hisoblanadi",
+   "Firma narxga ta’sir qila olmaydi va xohlagan miqdorni sota oladi",
+   "Narx oshirilganda xaridorlarning ko‘pchiligi firmada qolishi mumkinligi sababli",
+   "Tarmoq talabi ham gorizontal chiziqdan iborat bo‘lgani uchun"
+  ],
+  "c": 1,
+  "e": "Firma talabi mutlaq elastik, tarmoq talabi esa odatdagidek pastga og‘ma."
+ },
+ {
+  "q": "Qaysi holatda raqobatlashuvchi firma foydani oshirish uchun ishlab chiqarishni ko‘paytirishi kerak?",
+  "options": [
+   "MR < MC bo‘lganda",
+   "MR = MC bo‘lganda",
+   "P < AVC bo‘lganda",
+   "MR > MC bo‘lganda"
+  ],
+  "c": 3,
+  "e": "MR > MC bo‘lsa, qo‘shimcha birlik foydani oshiradi."
+ },
+ {
+  "q": "Narx min AVC dan yuqori, ammo min ATC dan past. Firma nima uchun qisqa muddatda ishlab chiqarishni davom ettiradi?",
+  "options": [
+   "Tushum VC ni va FC ning bir qismini qoplaydi, zarar FC dan kichik",
+   "Tushum barcha xarajatlarni qoplab, firmaga iqtisodiy foyda beradi",
+   "Yopilganda doimiy xarajatlar nolga tushib, zarar sezilarli kamayadi",
+   "Zarar yopilganda ham, ishlaganda ham bir xil miqdorda bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Yopilsa firma baribir FC miqdorida zarar ko‘radi; ishlasa, zarar FC dan kichik."
+ },
+ {
+  "q": "Raqobatlashuvchi firma uchun nima uchun P = MR bo‘ladi?",
+  "options": [
+   "Firma narxni har bir qo‘shimcha birlik sotilganda pasaytirishga majbur bo‘ladi",
+   "Chegaraviy xarajat narxga teng bo‘lgani uchun, firma ko‘proq sotadi",
+   "Narx doimiy bo‘lgani uchun har bir qo‘shimcha birlik P ga teng tushum beradi",
+   "Firma mahsulotiga talab pastga og‘ma chiziq ko‘rinishida bo‘lgani uchun"
+  ],
+  "c": 2,
+  "e": "Doimiy narxda har bir birlik P qo‘shadi, shu sababli P = AR = MR (monopoliyada esa MR < P)."
+ },
+ {
+  "q": "Mini-golf maydoni qishda tushum xodimlar ish haqini va elektr energiyasini qoplamagani uchun yopiladi. Yopilish qarori uchun qaysi xarajatlar ahamiyatsiz?",
+  "options": [
+   "Xodimlar ish haqi va boshqa o‘zgaruvchan xarajatlar",
+   "Elektr energiyasi uchun to‘lovlar va kommunal xarajatlar",
+   "Yer va qurilmalarga sarflangan qaytarilmaydigan xarajatlar",
+   "Mahsulot sotishdan olinadigan tushum miqdori va uning dinamikasi"
+  ],
+  "c": 2,
+  "e": "Qaytarilmaydigan xarajatlar yopilish qaroriga ta’sir qilmaydi – faqat tushum va o‘zgaruvchan xarajatlar taqqoslanadi."
+ },
+ {
+  "q": "P = min AVC bo‘lganda raqobatlashuvchi firmaning zarari nimaga teng bo‘ladi?",
+  "options": [
+   "O‘zgaruvchan xarajatlarga",
+   "Nolga",
+   "Yalpi xarajatlarga",
+   "Doimiy xarajatlarga"
+  ],
+  "c": 3,
+  "e": "Tushum faqat o‘zgaruvchan xarajatlarni qoplaydi, shuning uchun zarar FC ga teng (ishlash va yopilish tengdir)."
+ },
+ {
+  "q": "Hosil mo‘l bo‘lgan yili pomidor narxi juda pasayib, dehqon hosilni yig‘ib olmadi. Bu qaysi holatga mos keladi?",
+  "options": [
+   "Narx hosilni yig‘ish xarajatlarini qoplamadi, bu yopilish nuqtasiga mos",
+   "Narx zararsizlik nuqtasiga tenglashdi, shu bois dehqon normal foyda oldi",
+   "Narx MC dan yuqori bo‘lgani uchun dehqon taklifni kengaytirdi",
+   "Bozorga kirish uchun yangi to‘siqlar paydo bo‘lgani sababli"
+  ],
+  "c": 0,
+  "e": "Narx o‘zgaruvchan xarajatlardan past bo‘lsa (P < AVC), ishlab chiqarish zararni oshiradi."
+ },
+ {
+  "q": "Tushlik paytida restoranda mijozlar kam, ammo u ochiq turadi. Qaysi shart bajarilsa, bu qaror oqilona bo‘ladi?",
+  "options": [
+   "Tushum ijara va uskunalar xarajatini ham to‘liq qoplasa",
+   "Tushum oziq-ovqat va qo‘shimcha ish haqini qoplasa",
+   "Tushum kunning boshqa vaqtlaridagi tushumga teng bo‘lsa",
+   "Restoranning iqtisodiy foydasi musbat bo‘lsa"
+  ],
+  "c": 1,
+  "e": "Qarorda faqat o‘zgaruvchan xarajatlar muhim; ijara va uskunalar qaytarilmaydigan xarajat."
+ },
+ {
+  "q": "Bozor narxi 10 ming so‘m. Firma P = MC bo‘yicha ishlab chiqarganda ATC = 12, AVC = 8 ming so‘m. Firma qanday qaror qabul qiladi?",
+  "options": [
+   "Darhol yopiladi, chunki narx o‘rtacha yalpi xarajatdan past",
+   "Ishlab chiqarishni davom ettiradi, chunki zarar FC dan kichik",
+   "Ishlab chiqarishni davom ettiradi, chunki iqtisodiy foyda musbat",
+   "Narxni 12 ming so‘mga ko‘taradi, chunki zararni qoplaydi"
+  ],
+  "c": 1,
+  "e": "min AVC < P < min ATC: firma zararni minimallashtirib ishlaydi; narxni qabul qiluvchi sifatida narxni o‘zgartira olmaydi."
+ },
+ {
+  "q": "Quyidagi bozorlardan qaysi biri mukammal raqobatga eng yaqin?",
+  "options": [
+   "Mobil aloqa xizmatlari bozori",
+   "Temir yo‘l infratuzilmasi xizmatlari bozori",
+   "Dehqon bozorida kartoshka savdosi",
+   "Restoranlar xizmatlari bozori"
+  ],
+  "c": 2,
+  "e": "Dehqon bozorida ko‘p sotuvchi, bir jinsli mahsulot, erkin kirish va tez narx taqqoslash mavjud."
+ },
+ {
+  "q": "Raqobatlashuvchi firma bozor narxi 14 mln so‘m bo‘lganda 10 birlik ishlab chiqaradi, bunda ATC = 9 mln so‘m. Foyda qancha?",
+  "options": [
+   "5 mln so‘m",
+   "90 mln so‘m",
+   "140 mln so‘m",
+   "50 mln so‘m"
+  ],
+  "c": 3,
+  "e": "Foyda = (P – ATC) × Q = (14 – 9) × 10 = 50; 140 – tushum, 90 – yalpi xarajat."
+ },
+ {
+  "q": "Raqobatlashuvchi firmaning chegaraviy xarajati MC = 4 + 2Q, bozor narxi P = 20. Foydani maksimallashtiruvchi hajm qancha?",
+  "options": [
+   "8 birlik",
+   "10 birlik",
+   "12 birlik",
+   "16 birlik"
+  ],
+  "c": 0,
+  "e": "P = MC ⇒ 20 = 4 + 2Q ⇒ Q = 8."
+ }
+]

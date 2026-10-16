@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Ijtimoiy (jamoat) ne’mat qanday ne’mat?",
+  "options": [
+   "Istisno qilinadigan va iste’molda raqobatlashuvchi ne’mat",
+   "Istisno qilinmaydigan, lekin iste’molda raqobatlashuvchi ne’mat",
+   "Istisno qilinadigan, lekin iste’molda raqobatlashmaydigan ne’mat",
+   "Istisno qilinmaydigan va iste’molda raqobatlashmaydigan ne’mat"
+  ],
+  "c": 3,
+  "e": "Sof ijtimoiy ne’mat ikki belgiga ega: istisno qilib bo‘lmaydi va iste’molda raqobatlashmaydi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri umumiy resursga misol bo‘ladi?",
+  "options": [
+   "Milliy mudofaa, ko‘cha yoritish va fundamental ilmiy bilimlar",
+   "Dengizdagi baliq va umumiy yaylovlar",
+   "Kabel televideniyesi, obuna xizmatlari va sport klublari",
+   "Non, kiyim-kechak, smartfon va maishiy texnika"
+  ],
+  "c": 1,
+  "e": "Umumiy resurslardan hamma foydalana oladi, lekin ular iste’molda raqobatlashuvchi (baliq, yaylov, yer osti suvlari)."
+ },
+ {
+  "q": "Chiptasiz yo‘lovchi (free rider) kim?",
+  "options": [
+   "Ne’mat uchun boshqalardan ko‘proq to‘lashga rozi bo‘lgan iste’molchi",
+   "Ne’matni ishlab chiqarib, uni arzon narxda sotuvchi tadbirkor",
+   "Ne’matdan foyda oladigan, lekin buning uchun haq to‘lamaydigan shaxs",
+   "Ne’matdan foydalanishdan davlat tomonidan chetlatilgan shaxs"
+  ],
+  "c": 2,
+  "e": "Chiptasiz yo‘lovchi boshqalar to‘lashini kutib, o‘zi to‘lamasdan ne’matdan foydalanadi."
+ },
+ {
+  "q": "Samuelson shartiga ko‘ra, ijtimoiy ne’matning optimal miqdorida qaysi tenglik bajariladi?",
+  "options": [
+   "Iste’molchilarning chegaraviy foydalari yig‘indisi chegaraviy xarajatga teng",
+   "Eng yuqori baho beruvchi iste’molchining chegaraviy foydasi chegaraviy xarajatga teng",
+   "Iste’molchilarning o‘rtacha foydasi o‘rtacha xarajatga teng",
+   "Iste’molchilar talab etgan miqdorlar yig‘indisi bozor narxiga teng"
+  ],
+  "c": 0,
+  "e": "Samuelson sharti: ΣMBi = MC, chunki barcha iste’molchilar bir xil miqdordan foydalanadi."
+ },
+ {
+  "q": "Qadrli ne’matlar (merit goods) qanday ne’matlar?",
+  "options": [
+   "Jamiyat qadrli deb bilib, davlat bepul yoki subsidiyalab ta’minlaydigan xususiy ne’matlar",
+   "Narxi juda yuqori bo‘lgani uchun boy aholi iste’mol qiladigan hashamatli va nodir tovarlar",
+   "Jamiyat iste’molini soliq va taqiqlar orqali cheklaydigan zararli ne’matlar",
+   "Istisno qilinmaydigan va raqobatlashmaydigan sof ijtimoiy ne’matlar"
+  ],
+  "c": 0,
+  "e": "Qadrli ne’matlar (maktab ta’limi, emlash) aslida xususiy ne’matlar, ammo davlat ularni subsidiya bilan ta’minlaydi."
+ },
+ {
+  "q": "Ne’matning «bo‘linmaslik» belgisi nimani bildiradi?",
+  "options": [
+   "Ne’mat bitta iste’molchi tomonidan to‘liq iste’mol qilinib, boshqalarga qolmaydi",
+   "Ne’matni ishlab chiqarish xarajatlarini bir necha kishi o‘rtasida bo‘lib bo‘lmaydi",
+   "Ne’matni alohida birliklarga bo‘lib, alohida shaxslarga sotib bo‘lmaydi",
+   "Ne’matdan foydalanish uchun a’zolik badali to‘lash majburiy bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Bo‘linmas ne’mat «hammaga birdaniga» ta’minlanadi; uning «bir porsiyasi»ni alohida sotib olib bo‘lmaydi."
+ },
+ {
+  "q": "Ijtimoiy tanlov nazariyasiga ko‘ra, «davlat kamchiliklari» nima?",
+  "options": [
+   "Davlat byudjeti xarajatlarining daromadlaridan oshib ketishi",
+   "Davlat aralashuvi oqibatida samaradorlikning pasayishi",
+   "Bozor mexanizmi samarasiz natija berganda aralashuv zarur bo‘lishi",
+   "Davlatning ijtimoiy ne’matlarni ta’minlay olmasligi"
+  ],
+  "c": 1,
+  "e": "Davlat kamchiliklari — aralashuv oqibatida samaradorlikning pasayishi (cheklangan axborot, rentani izlash, byurokratiya, korrupsiya)."
+ },
+ {
+  "q": "Ijtimoiy ne’mat uchun bozor talabi qanday topiladi?",
+  "options": [
+   "Har bir narxda iste’molchilar talab qilgan miqdorlar qo‘shiladi (gorizontal yig‘indi)",
+   "Iste’molchilar talab chiziqlarining o‘rtacha qiymati olinadi",
+   "Eng ko‘p to‘lashga tayyor iste’molchining talabi tanlanadi",
+   "Har bir miqdorda chegaraviy baholar qo‘shiladi (vertikal yig‘indi)"
+  ],
+  "c": 3,
+  "e": "Hamma bir xil miqdordan foydalangani uchun ularning chegaraviy foydalari vertikal qo‘shiladi."
+ },
+ {
+  "q": "Nima uchun xususiy bozor ijtimoiy ne’matlarni yetarli miqdorda ta’minlay olmaydi?",
+  "options": [
+   "Ijtimoiy ne’matlar iste’molchilar uchun hech qanday foyda keltirmaydi",
+   "Ijtimoiy ne’matlarni ishlab chiqarish xususiy ne’matlarga qaraganda juda qimmat turadi",
+   "Foydalanuvchilarni chetlatib bo‘lmagani uchun har kim boshqalar to‘lashini kutadi",
+   "Firmalar ijtimoiy ne’matlarni sotish huquqidan qonun bilan mahrum etilgan"
+  ],
+  "c": 2,
+  "e": "Istisno qilib bo‘lmagani sababli chiptasiz yo‘lovchi muammosi yuzaga keladi va hech kim to‘lamaydi."
+ },
+ {
+  "q": "Mankyuga ko‘ra, umumiy resurslar fojiasining asosiy sababi nima?",
+  "options": [
+   "Resurslarning mutlaq tanqisligi va aholi sonining tez kamayib borishi",
+   "Mulk huquqlarining yo‘qligi va boshqalarga zararni hisobga olmaslik",
+   "Davlat resursdan foydalanish uchun yuqori to‘lov belgilashi",
+   "Foydalanuvchilarning resursni xususiy mulk sifatida egallab olishi"
+  ],
+  "c": 1,
+  "e": "Mulk huquqlari yo‘q joyda har kim boshqalarga yetkazgan zararni e’tiborsiz qoldiradi; yechim — huquqlarni belgilash."
+ },
+ {
+  "q": "Ochiq kirishli ko‘lda baliqchi qayiqlar soni nima uchun ijtimoiy optimumdan ko‘p bo‘ladi?",
+  "options": [
+   "Yangi baliqchi chegaraviy ovlovni hisoblaydi va resurs rentasini to‘liq o‘zlashtiradi",
+   "Davlat baliq ovlash uchun litsenziya to‘lovini juda yuqori belgilaydi",
+   "Qayiqlar soni oshgan sari umumiy ovlov o‘zgarmas tezlikda ortib boradi",
+   "Yangi baliqchi o‘rtacha ovlovni hisoblaydi, boshqalar zararini e’tiborsiz qoldiradi"
+  ],
+  "c": 3,
+  "e": "Ochiq kirishda qayiqlar AP = c gacha ko‘payadi, optimum esa MP = c da; AP > MP bo‘lgani uchun qayiqlar ortiqcha."
+ },
+ {
+  "q": "R. Kouz XIX asr Angliyasidagi xususiy mayoqlar misoli bilan nimani ko‘rsatdi?",
+  "options": [
+   "Port yig‘imi kabi institutlar ijtimoiy ne’matni istisno qilinadigan qila olishini",
+   "Mayoqni davlat qurmasa, kemalar uchun xavfsiz yo‘l ta’minlanishi mumkin emasligini",
+   "Mayoq xususiy egalar qo‘lida bo‘lsa, kemalar undan foydalanishni to‘xtatishini",
+   "Mayoq nuridan foydalanishda kemalar o‘zaro raqobatlashishini"
+  ],
+  "c": 0,
+  "e": "Xususiy egalar port yig‘imi orqali haq olgan, ya’ni institutsional innovatsiya mayoqni klub ne’matiga aylantirgan."
+ },
+ {
+  "q": "Fer va Gechter tajribalariga ko‘ra, ijtimoiy ne’mat o‘yinida badallar yuqori saqlanishi uchun nima muhim?",
+  "options": [
+   "Ishtirokchilar o‘z badallarini bir-biridan yashirishi",
+   "Ishtirokchilarga chiptasiz yo‘lovchilarni o‘z hisobidan jazolash imkoniyati berilishi",
+   "Ishtirokchilarga umumiy fonddagi mablag‘ning barchasini o‘zlashtirib olishga ruxsat berilishi",
+   "Ishtirokchilar o‘rtasida muloqotning taqiqlanishi"
+  ],
+  "c": 1,
+  "e": "Jazolash imkoniyati ijtimoiy normalar va sanksiyalarning kuchini ko‘rsatadi: badallar yuqori darajada saqlanadi."
+ },
+ {
+  "q": "Rentani izlash nima uchun davlat kamchiliklari manbai hisoblanadi?",
+  "options": [
+   "Soliq to‘lovchilar byudjet xarajatlarini aniq nazorat qilib, ularni ko‘paytirishga to‘sqinlik qiladi",
+   "Davlat amaldorlari qarorlarni jamiyat manfaatini to‘liq hisobga olib qabul qiladi",
+   "Kichik tashkil etilgan guruhlar lobbi qiladi, xarajat esa tarqoq soliq to‘lovchilarga tushadi",
+   "Siyosatchilar uzoq muddatli rejalarga tayanib, saylov sikllariga e’tibor bermaydi"
+  ],
+  "c": 2,
+  "e": "Olson mantig‘i: foyda tor guruhga, xarajat esa tarqoq soliq to‘lovchilarga tushgani uchun lobbi samarali bo‘ladi."
+ },
+ {
+  "q": "Yo‘l bepul va tirband. Mankyu tasnifi bo‘yicha u qaysi turga kiradi?",
+  "options": [
+   "Umumiy resurs",
+   "Ijtimoiy ne’mat",
+   "Klub ne’mati",
+   "Xususiy ne’mat"
+  ],
+  "c": 0,
+  "e": "Bepul yo‘ldan chetlatib bo‘lmaydi, tirbandlikda esa qo‘shimcha avtomobil boshqalarni sekinlashtiradi — umumiy resurs."
+ },
+ {
+  "q": "Yaylovlarni ijaraga berish va foydalanish huquqlarini aniq belgilash umumiy resurslar fojiasining qaysi yechimiga misol?",
+  "options": [
+   "Tartiblashtiruvchi soliq stavkasini joriy etish",
+   "Sotiladigan kvotalar tizimini yaratish",
+   "Resursdan foydalanish uchun to‘lov joriy etish",
+   "Mulk va foydalanish huquqlarini belgilash"
+  ],
+  "c": 3,
+  "e": "Yaylovlarga huquqlarni aniq belgilash — Demsets va Mankyu ta’kidlagan «mulk huquqlarini belgilash» yechimi."
+ },
+ {
+  "q": "«Ochiq byudjet»da fuqarolarning mahalliy loyihalar uchun ovoz berishi qaysi muammoni yumshatadi?",
+  "options": [
+   "Ijtimoiy ne’matlarni ishlab chiqarishning yuqori tannarxi muammosini",
+   "Ijtimoiy ne’matlarga bo‘lgan afzalliklarni oshkor qilish muammosini",
+   "Tabiiy monopoliyalarning narx belgilash hokimiyati muammosini",
+   "Mahalliy byudjet daromadlarining yetishmasligi muammosini"
+  ],
+  "c": 1,
+  "e": "Ovoz berish Samuelson sharti uchun zarur bo‘lgan aholining chegaraviy baholari haqidagi axborotni qisman beradi."
+ },
+ {
+  "q": "Davlat ko‘ldagi umumiy ovlov chegarasini belgilab, baliq ovlash kvotalarini baliqchilarga sotmoqda. Bu 20-bobdagi qaysi vositaga mos keladi?",
+  "options": [
+   "Narx belgilovchi Pigu solig‘iga",
+   "Baliqchilarga tartiblashtiruvchi subsidiyaga",
+   "Majburiy texnologik standartlar joriy etishga",
+   "Ruxsatnomalar bozoriga (cap-and-trade)"
+  ],
+  "c": 3,
+  "e": "Sotiladigan kvotalar — ruxsatnomalar bozori: davlat umumiy miqdorni (chegarani) belgilaydi, narx bozorda aniqlanadi."
+ },
+ {
+  "q": "Ko‘cha yoritgichlari uchun chegaraviy foydalar: A guruh MBA = 90 – 3Q, B guruh MBB = 60 – 2Q (ming so‘m/oy); bitta yoritgichning chegaraviy xarajati 60 ming so‘m/oy. Samuelson sharti bo‘yicha optimal yoritgichlar soni qancha?",
+  "options": [
+   "18",
+   "10",
+   "30",
+   "12"
+  ],
+  "c": 0,
+  "e": "Vertikal yig‘indi 150 – 5Q = 60 ⇒ Q = 18 (10 — faqat A guruh moliyalashtirgan miqdor)."
+ },
+ {
+  "q": "Ko‘lda umumiy ovlov TP = 60n – n² tonna (n – qayiqlar soni), baliq narxi 1 mln so‘m/t, bir qayiqning mavsumiy xarajati 24 mln so‘m. Ochiq kirishda qayiqlar soni qancha bo‘ladi?",
+  "options": [
+   "18",
+   "24",
+   "36",
+   "30"
+  ],
+  "c": 2,
+  "e": "Ochiq kirishda AP = c: 60 – n = 24 ⇒ n = 36 (ijtimoiy optimum MP = 60 – 2n = 24 ⇒ n = 18)."
+ }
+]

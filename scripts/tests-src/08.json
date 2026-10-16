@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Yashirin (ichki) xarajatlar nima?",
+  "options": [
+   "Firma tashqi resurs egalariga pul to‘laydigan barcha xarajatlar yig‘indisi",
+   "Yil yakunida hisobot tuzilgandan keyin aniqlanadigan kutilmagan xarajatlar",
+   "Pul chiqmaydigan, ammo boy berilgan imkoniyat qiymatiga teng xarajatlar",
+   "Ishlab chiqarish hajmiga bog‘liq bo‘lmagan xarajatlar yig‘indisi"
+  ],
+  "c": 2,
+  "e": "Yashirin xarajatlarga tadbirkorning o‘z vaqti, o‘z kapitali va o‘z binosining muqobil xarajati kiradi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri oshkor (tashqi) xarajatga kiradi?",
+  "options": [
+   "Xom ashyo uchun to‘langan pul",
+   "Tadbirkorning o‘z ishiga sarflagan vaqtining qiymati",
+   "O‘z binosidan foydalanish uchun boy berilgan ijara haqi",
+   "O‘z kapitalini bankka qo‘ymagani uchun boy berilgan foiz"
+  ],
+  "c": 0,
+  "e": "Oshkor xarajatlar firmadan pul chiqishini talab qiladi: xom ashyo, ish haqi, ijara, elektr energiyasi, foizlar."
+ },
+ {
+  "q": "Buxgalteriya foydasi qanday hisoblanadi?",
+  "options": [
+   "Yalpi tushumdan yashirin xarajatlarni ayirib",
+   "Yalpi tushumdan oshkor va yashirin xarajatlarni ayirib",
+   "Yalpi tushumdan doimiy xarajatlarni ayirib",
+   "Yalpi tushumdan oshkor xarajatlarni ayirib"
+  ],
+  "c": 3,
+  "e": "Buxgalteriya foydasi = TR – oshkor xarajatlar; yashirin xarajatlar hisobga olinmaydi."
+ },
+ {
+  "q": "Normal foyda nima?",
+  "options": [
+   "Oshkor xarajatlar qoplangandan keyin tadbirkorda qoladigan barcha daromad",
+   "Tadbirkorni shu faoliyatda ushlab turish uchun zarur minimal daromad",
+   "Davlat tomonidan har bir tarmoq uchun belgilanadigan foyda me’yori",
+   "Yalpi tushumdan o‘zgaruvchan xarajatlarni ayirgandan qolgan daromad"
+  ],
+  "c": 1,
+  "e": "Normal foyda tadbirkorlik qobiliyati va kapitalning muqobil xarajatiga teng va iqtisodiy xarajatlar tarkibiga kiradi."
+ },
+ {
+  "q": "Qaytarilmaydigan (cho‘kkan) xarajatlar nima?",
+  "options": [
+   "Ishlab chiqarish hajmi oshganda o‘sib boradigan xarajatlar",
+   "Allaqachon sarflangan va qaytarib bo‘lmaydigan xarajatlar",
+   "Qarz va kreditlar bo‘yicha to‘lanadigan foiz xarajatlari",
+   "Bank hisobidan pul chiqishini talab qilmaydigan xarajatlar"
+  ],
+  "c": 1,
+  "e": "Masalan, reklama yoki litsenziya to‘lovi: ular qaror qabul qilishda hisobga olinmasligi kerak."
+ },
+ {
+  "q": "Chegaraviy xarajat (MC) nimani ko‘rsatadi?",
+  "options": [
+   "Mahsulot bir birligiga to‘g‘ri keladigan o‘rtacha yalpi xarajat miqdorini",
+   "Ishlab chiqarish hajmi nolga teng bo‘lgandagi xarajatni",
+   "Firma ishlab chiqarishni kengaytirganda oshgan doimiy xarajatni",
+   "Qo‘shimcha bir birlik ishlab chiqarilganda yalpi xarajatning o‘sishini"
+  ],
+  "c": 3,
+  "e": "MC = ΔTC/ΔQ: «yana bir birlik ishlab chiqarish qancha turadi?» savoliga javob beradi."
+ },
+ {
+  "q": "Samarali miqyos nima?",
+  "options": [
+   "O‘rtacha yalpi xarajat (ATC) minimal bo‘ladigan hajm",
+   "Chegaraviy xarajat nolga teng bo‘ladigan ishlab chiqarish hajmi",
+   "Yalpi tushum yalpi xarajatdan eng katta bo‘lgan ishlab chiqarish hajmi",
+   "Doimiy xarajatlar nolga tushadigan ishlab chiqarish hajmi"
+  ],
+  "c": 0,
+  "e": "Samarali miqyos – ATC eng past bo‘lgan hajm (limonad misolida 5–6 stakan)."
+ },
+ {
+  "q": "Qisqa muddatda firma hech narsa ishlab chiqarmasa ham qaysi xarajatni to‘laydi?",
+  "options": [
+   "Xom ashyo narxini",
+   "Ishlab chiqarish xodimlarining ish haqini",
+   "Bino ijarasi uchun to‘lovni",
+   "Mahsulotni tashish xarajatini"
+  ],
+  "c": 2,
+  "e": "Bino ijarasi doimiy xarajat (FC) bo‘lib, ishlab chiqarish hajmiga bog‘liq emas."
+ },
+ {
+  "q": "Chegaraviy xarajat o‘rtacha yalpi xarajatdan kichik bo‘lganda ATC qanday o‘zgaradi?",
+  "options": [
+   "Oshadi",
+   "O‘zgarmay qoladi",
+   "Minimumga yetadi",
+   "Kamayadi"
+  ],
+  "c": 3,
+  "e": "MC < ATC bo‘lsa, qo‘shimcha birlik o‘rtachadan arzon va o‘rtachani pasaytiradi."
+ },
+ {
+  "q": "Ishlab chiqarish hajmi oshgan sari o‘rtacha doimiy xarajat (AFC) nima uchun kamayadi?",
+  "options": [
+   "Doimiy xarajatlarning o‘zi hajm oshgani sari kamayib boradi",
+   "Doimiy xarajatlar tobora ko‘p birlikka taqsimlanadi",
+   "Chegaraviy mahsuldorlik hajm oshgani sari ortib boradi",
+   "O‘zgaruvchan xarajatlar doimiy xarajatlarga qo‘shiladi"
+  ],
+  "c": 1,
+  "e": "AFC = FC/Q: FC o‘zgarmaydi, Q ortadi, shuning uchun AFC doimiy kamayadi."
+ },
+ {
+  "q": "Iqtisodiy foyda musbat bo‘lsa, tarmoqda nima yuz beradi?",
+  "options": [
+   "Firmalar tarmoqdan chiqa boshlaydi",
+   "Normal foyda nolga tushib qoladi",
+   "Tarmoq yangi firmalarni jalb qiladi",
+   "Buxgalteriya foydasi iqtisodiy foydaga tenglashadi"
+  ],
+  "c": 2,
+  "e": "Musbat iqtisodiy foyda yangi firmalarni jalb qiladi, manfiy bo‘lsa firmalar tarmoqdan chiqadi."
+ },
+ {
+  "q": "Uzoq muddatli xarajatlar qisqa muddatlilardan nima uchun yuqori bo‘lmaydi?",
+  "options": [
+   "Firma har bir hajm uchun eng arzon zavod hajmini tanlay oladi",
+   "Uzoq muddatda doimiy xarajatlar o‘zgaruvchan xarajatlardan arzon bo‘ladi",
+   "Uzoq muddatda resurs narxlari pasayib ketadi",
+   "Uzoq muddatda firma ishlab chiqarish hajmini o‘zgartira olmaydi"
+  ],
+  "c": 0,
+  "e": "LRATC barcha SRATC chiziqlariga pastdan urinadigan qobiq: tanlov imkoniyatlari kengroq."
+ },
+ {
+  "q": "Ma’lum hajmdan keyin chegaraviy xarajatning ortib borishiga nima sabab bo‘ladi?",
+  "options": [
+   "Chegaraviy mahsuldorlikning kamayishi",
+   "Doimiy xarajatlarning oshishi",
+   "Masshtabdan ijobiy samara",
+   "O‘rtacha doimiy xarajatlarning doimiy kamayib borishi"
+  ],
+  "c": 0,
+  "e": "Doimiy omil band bo‘lgach, qo‘shimcha ishchi kam mahsulot beradi va MC oshadi."
+ },
+ {
+  "q": "MC = w / MPL formulasiga ko‘ra mehnatning chegaraviy mahsuloti maksimal bo‘lganda chegaraviy xarajat qanday bo‘ladi?",
+  "options": [
+   "Maksimal bo‘ladi",
+   "Nolga teng bo‘ladi",
+   "Ish haqiga teng bo‘ladi",
+   "Minimal bo‘ladi"
+  ],
+  "c": 3,
+  "e": "MPL va MC teskari bog‘liq: xarajat chiziqlari ishlab chiqarish chiziqlarining «teskari ko‘zgudagi aksi»."
+ },
+ {
+  "q": "Kompaniya muvaffaqiyatsiz loyihaga katta mablag‘ sarfladi va «shuncha pul sarflangan» degan bahona bilan uni davom ettirmoqchi. Bu qaysi xato?",
+  "options": [
+   "Yashirin xarajatlarni buxgalteriya hisobiga kiritmaslik",
+   "Qaytarilmaydigan xarajatlarni qarorda hisobga olish",
+   "Chegaraviy xarajatni o‘rtacha xarajat bilan almashtirish",
+   "Normal foydani iqtisodiy foyda deb hisoblash"
+  ],
+  "c": 1,
+  "e": "Sarflangan pul qaytmaydi; qaror faqat kelajakdagi chegaraviy xarajat va foydalarga tayanishi kerak."
+ },
+ {
+  "q": "Tadbirkor o‘z binosida do‘kon ochib, ijara to‘lamaydi. Iqtisodchi nuqtai nazaridan bu bino uchun xarajat bormi?",
+  "options": [
+   "Yo‘q: ijara uchun pul to‘lanmagani sababli xarajat vujudga kelmaydi",
+   "Bor: u buxgalteriya hisobida oshkor xarajat sifatida o‘z aksini topadi",
+   "Bor: binoni ijaraga berganda olinadigan ijara haqi yashirin xarajatdir",
+   "Yo‘q: bino qaytarilmaydigan xarajat hisoblanadi, shuning uchun hisobga olinmaydi"
+  ],
+  "c": 2,
+  "e": "O‘z binosi – boy berilgan imkoniyat; iqtisodchi uni yashirin xarajat sifatida hisoblaydi."
+ },
+ {
+  "q": "Elektr energiyasi tarifi oshsa, energiya o‘zgaruvchan xarajat bo‘lgan korxonada qaysi chiziqlar yuqoriga siljiydi?",
+  "options": [
+   "Faqat AFC chizig‘i",
+   "AFC va FC chiziqlari",
+   "Hech bir chiziq siljimaydi",
+   "AVC, ATC va MC chiziqlari"
+  ],
+  "c": 3,
+  "e": "Energiya o‘zgaruvchan xarajat, shuning uchun tarif oshganda AVC, ATC va MC yuqoriga siljiydi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri masshtabdan ijobiy samara manbai hisoblanadi?",
+  "options": [
+   "Ixtisoslashuv va yirik uskunalardan foydalanish",
+   "Boshqaruv tizimining tobora murakkablashuvi",
+   "Bo‘limlar o‘rtasida koordinatsiya muammolarining ko‘payishi",
+   "Ishchilar mehnat unumdorligining doimiy pasayishi"
+  ],
+  "c": 0,
+  "e": "Ixtisoslashuv va yirik uskunalar ishlab chiqarish oshganda LRATC ning kamayishiga olib keladi."
+ },
+ {
+  "q": "Tadbirkor yiliga 200 mln so‘m tushum oldi, oshkor xarajatlari 120 mln so‘m. U boshqa ishda yiliga 30 mln so‘m ishlashi va o‘z kapitalini bankka qo‘yib 20 mln so‘m foiz olishi mumkin edi. Iqtisodiy foyda qancha?",
+  "options": [
+   "50 mln so‘m",
+   "30 mln so‘m",
+   "60 mln so‘m",
+   "80 mln so‘m"
+  ],
+  "c": 1,
+  "e": "Iqtisodiy foyda = 200 – 120 – 30 – 20 = 30 mln so‘m; 80 – buxgalteriya foydasi."
+ },
+ {
+  "q": "6 birlik ishlab chiqarilganda yalpi xarajat 78 ming so‘m, 7 birlik ishlab chiqarilganda 93 ming so‘m. Yettinchi birlikning chegaraviy xarajati qancha?",
+  "options": [
+   "13,3 ming so‘m",
+   "13 ming so‘m",
+   "15 ming so‘m",
+   "93 ming so‘m"
+  ],
+  "c": 2,
+  "e": "MC = ΔTC/ΔQ = (93 – 78)/1 = 15; 13,3 – 7 birlikdagi o‘rtacha yalpi xarajat (93/7)."
+ }
+]

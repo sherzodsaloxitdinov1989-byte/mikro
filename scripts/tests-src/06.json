@@ -1,0 +1,222 @@
+[
+ {
+  "q": "F. Nayt bo‘yicha tavakkalchilik noaniqlikdan nimasi bilan farq qiladi?",
+  "options": [
+   "Tavakkalchilikda natijalar ham, ehtimollar ham noma’lum bo‘ladi",
+   "Tavakkalchilikda natijalar noma’lum, ehtimollar ma’lum bo‘ladi",
+   "Tavakkalchilik faqat moliyaviy yo‘qotishni bildiradi",
+   "Tavakkalchilikda natijalar va ehtimollar ma’lum bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Tavakkalchilikda natijalar va ehtimollar ma’lum (tanga tashlash), noaniqlikda esa ular noma’lum (yangi texnologiya muvaffaqiyati)."
+ },
+ {
+  "q": "Ob’ektiv ehtimol nimaga asoslanadi?",
+  "options": [
+   "Shaxsiy tajriba va intuitsiya asosidagi bahoga",
+   "Ko‘p marta takrorlangan hodisalar statistikasiga",
+   "Mutaxassislarning kelishilgan shaxsiy bahosiga",
+   "Tadbirkorning kelajakka oid kutishlariga"
+  ],
+  "c": 1,
+  "e": "Masalan, 20 yilda 4 marta qurg‘oqchilik bo‘lgan bo‘lsa, ob’ektiv ehtimol 4/20 = 0,2."
+ },
+ {
+  "q": "Tadbirkor shaxsiy tajribasiga tayanib yangi kafe muvaffaqiyatli bo‘lish ehtimolini 0,6 deb baholadi. Bu qanday ehtimol?",
+  "options": [
+   "Ob’ektiv ehtimol",
+   "Statistik ehtimol",
+   "Sub’ektiv ehtimol",
+   "Tizimli ehtimol"
+  ],
+  "c": 2,
+  "e": "Shaxsiy baho, tajriba va intuitsiyaga asoslangan ehtimol sub’ektiv ehtimol deyiladi."
+ },
+ {
+  "q": "Valyuta kursi va foiz stavkalarining o‘zgarishi tavakkalchilikning qaysi manbaiga kiradi?",
+  "options": [
+   "Bozor omillariga",
+   "Tabiiy-iqlim omillariga",
+   "Texnologik omillarga",
+   "Inson omiliga"
+  ],
+  "c": 0,
+  "e": "Talab, narxlar, valyuta kursi va foiz stavkalari o‘zgarishi bozor omillari hisoblanadi."
+ },
+ {
+  "q": "Loyiha 0,4 ehtimol bilan 100 mln so‘m, 0,6 ehtimol bilan 30 mln so‘m foyda keltiradi. Kutilayotgan foyda qancha?",
+  "options": [
+   "58 mln so‘m",
+   "65 mln so‘m",
+   "72 mln so‘m",
+   "130 mln so‘m"
+  ],
+  "c": 0,
+  "e": "E = 0,4 × 100 + 0,6 × 30 = 40 + 18 = 58 mln so‘m."
+ },
+ {
+  "q": "Loyihaning standart chetlanishi kattalashsa, bu nimani bildiradi?",
+  "options": [
+   "Kutilayotgan foyda oshib borayotganini",
+   "Tavakkalchilik darajasi pasayganini",
+   "Tavakkalchilik yuqori ekanini",
+   "Natijalar aniq oldindan ma’lum ekanini"
+  ],
+  "c": 2,
+  "e": "Standart chetlanish natijalarning kutilayotgan qiymatdan chetlanishini o‘lchaydi: u katta bo‘lsa, tavakkalchilik yuqori."
+ },
+ {
+  "q": "Variatsiya koeffitsienti (CV = σ / E(X)) nimani ko‘rsatadi?",
+  "options": [
+   "Natijalarning eng katta va eng kichik qiymatlari farqini",
+   "Daromad birligiga to‘g‘ri keladigan tavakkalchilikni",
+   "Loyiha natijalari ehtimollarining umumiy yig‘indisini",
+   "Kutilayotgan daromadning dispersiyaga nisbatini"
+  ],
+  "c": 1,
+  "e": "CV tavakkalchilikni nisbiy o‘lchaydi, shu sababli turli kattalikdagi loyihalarni taqqoslashga imkon beradi."
+ },
+ {
+  "q": "Import qiluvchi firma bank bilan valyutani kelajakda belgilangan kursda sotib olish bo‘yicha forvard shartnoma tuzdi. Bu qaysi usul?",
+  "options": [
+   "Diversifikatsiya",
+   "Tavakkalchilikni qo‘shish",
+   "Skrining",
+   "Xedjirlash"
+  ],
+  "c": 3,
+  "e": "Muddatli shartnomalar (forvard, fyuchers, opsion) orqali kurs o‘zgarishi tavakkalchiligidan himoyalanish xedjirlash deyiladi."
+ },
+ {
+  "q": "Tavakkalchilikdan qochuvchi shaxsning boylik naflik funksiyasi qanday shaklga ega?",
+  "options": [
+   "Chiziqli, chegaraviy naflik doimiy",
+   "Qavariq, boylikning chegaraviy nafligi ortadi",
+   "Gorizontal, boylik naflikka ta’sir qilmaydi",
+   "Botiq, boylikning chegaraviy nafligi kamayadi"
+  ],
+  "c": 3,
+  "e": "Botiq naflik funksiyasida U(E(W)) > EU: shaxs kafolatlangan daromadni tavakkalli daromaddan afzal ko‘radi."
+ },
+ {
+  "q": "U(E(W)) = EU tengligi qanday munosabatni bildiradi?",
+  "options": [
+   "Tavakkalchilikka befarqlikni",
+   "Tavakkalchilikdan qochishni",
+   "Tavakkalchilikka moyillikni",
+   "Tavakkalchilik mukofotining yo‘qligini ko‘rsatuvchi sug‘urta zarurligini"
+  ],
+  "c": 0,
+  "e": "Chiziqli naflik funksiyasida shaxs faqat kutilayotgan qiymatga qaraydi, ya’ni tavakkalchilikka befarq."
+ },
+ {
+  "q": "Tavakkalchilik mukofoti nima?",
+  "options": [
+   "Kutilayotgan qiymat bilan dispersiya o‘rtasidagi farq",
+   "Sug‘urta kompaniyasining ma’muriy xarajatlari",
+   "Kutilayotgan qiymat bilan aniqlik ekvivalenti farqi",
+   "Yutuq va yo‘qotish ehtimollari o‘rtasidagi farq"
+  ],
+  "c": 2,
+  "e": "Bu shaxs tavakkalchilikdan qutulish uchun voz kechishga tayyor bo‘lgan maksimal summa."
+ },
+ {
+  "q": "Soyabon va muzqaymoq sotuvchi firma yomg‘irli va quyoshli kunlarda daromadini barqarorlashtiradi. Bu nimaga misol?",
+  "options": [
+   "Xedjirlash shartnomasiga",
+   "Diversifikatsiyaga",
+   "Qayta sug‘urtalashga",
+   "Signal berishga"
+  ],
+  "c": 1,
+  "e": "Bir-biri bilan bog‘liqligi kuchsiz faoliyat turlari birga olib borilsa, daromad tebranishi kamayadi."
+ },
+ {
+  "q": "Qaysi tavakkalchilikni diversifikatsiya bilan yo‘qotib bo‘lmaydi?",
+  "options": [
+   "Bitta kompaniya rahbariyatining xatosi tavakkalchiligini",
+   "Bitta mahsulotning muvaffaqiyatsizligi tavakkalchiligini",
+   "Retsessiya kabi butun iqtisodiyotga xos tavakkalchilikni",
+   "Bitta fermerning hosilsizligi tavakkalchiligini"
+  ],
+  "c": 2,
+  "e": "Tizimli (bozor) tavakkalchilik barcha aktivlarga ta’sir qiladi; o‘ziga xos tavakkalchilik esa diversifikatsiya bilan kamayadi."
+ },
+ {
+  "q": "Sug‘urta kompaniyasi uchun umumiy tavakkalchilik kichik bo‘lishi nima bilan izohlanadi?",
+  "options": [
+   "Katta sonlar qonuniga ko‘ra yo‘qotishlarni bashorat qila olishi bilan",
+   "Barcha mijozlarning bir vaqtda zarar ko‘rishi ehtimoli yuqoriligi bilan",
+   "Sug‘urta mukofotining kutilayotgan zarardan ancha yuqori belgilanishi bilan",
+   "Mijozlar xavfi kompaniyaga umuman ma’lum bo‘lmasligi bilan"
+  ],
+  "c": 0,
+  "e": "Ko‘plab mustaqil tavakkalchiliklar qo‘shilganda, nechta hodisa yuz berishini taxminan aniq aytish mumkin."
+ },
+ {
+  "q": "Uy qiymati 200 mln so‘m, bir yilda yonish ehtimoli 5 foiz. «Adolatli» sug‘urta mukofoti qancha?",
+  "options": [
+   "5 mln so‘m",
+   "20 mln so‘m",
+   "190 mln so‘m",
+   "10 mln so‘m"
+  ],
+  "c": 3,
+  "e": "Adolatli mukofot kutilayotgan yo‘qotishga teng: 0,05 × 200 = 10 mln so‘m."
+ },
+ {
+  "q": "Teskari tanlov axborot asimmetriyasining qaysi turidan kelib chiqadi?",
+  "options": [
+   "Bitimdan keyingi yashirin harakatlardan",
+   "Bitimdan oldingi yashirin xususiyatlardan",
+   "Narxlar haqidagi ochiq axborotdan",
+   "Sheriklarning bir xil axborotga egaligidan"
+  ],
+  "c": 1,
+  "e": "Yashirin xususiyatlar (tovar sifati, sog‘liq) teskari tanlovga, yashirin harakatlar esa ma’naviy tavakkalchilikka olib keladi."
+ },
+ {
+  "q": "Akerlofning «limonlar» bozorida sifatli avtomobil egalari nima uchun bozorni tark etadi?",
+  "options": [
+   "O‘rtacha sifatga mos narx ular uchun juda past bo‘ladi",
+   "Xaridorlar ular avtomobillarining sifatini yuqori baholaydi",
+   "Davlat sifatli avtomobil savdosini cheklaydi",
+   "Sifatsiz avtomobillar narxi sifatlilarnikidan yuqori bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Xaridor sifatni bilmagani uchun o‘rtacha narx beradi; sifatli egalar chiqib ketadi va o‘rtacha sifat yana pasayadi."
+ },
+ {
+  "q": "To‘liq sug‘urtalangan haydovchi sug‘urtadan keyin ehtiyotsizroq haydaydigan bo‘ldi. Bu qanday muammo?",
+  "options": [
+   "Teskari tanlov muammosi",
+   "Tizimli tavakkalchilik muammosi",
+   "Ma’naviy tavakkalchilik",
+   "Diversifikatsiya muammosi"
+  ],
+  "c": 2,
+  "e": "Sug‘urtalanuvchining bitimdan keyingi harakatini sug‘urtachi kuzata olmaydi, bu ma’naviy tavakkalchilikdir."
+ },
+ {
+  "q": "Bozor signali samarali bo‘lishi uchun qanday shart bajarilishi kerak?",
+  "options": [
+   "U barcha ishtirokchilar uchun bir xil xarajatli bo‘lishi va hamma tomonidan qo‘llanishi kerak",
+   "U faqat axborotga ega bo‘lmagan tomon tomonidan qo‘llanishi va tekshirilishi kerak",
+   "U past sifatli tomon uchun yuqori sifatlilarnikidan arzonroq bo‘lishi kerak",
+   "Yuqori sifatli tomon uchun arzonroq, past sifatli uchun qimmatroq bo‘lishi kerak"
+  ],
+  "c": 3,
+  "e": "Aks holda past sifatli tomon ham signalni osongina taqlid qilar va u ishonchli axborot bermas edi."
+ },
+ {
+  "q": "Sug‘urta kompaniyasi turli franshizali polislar taklif qiladi, xavfi past mijozlar yuqori franshizali arzon polisni tanlaydi. Bu nima?",
+  "options": [
+   "Signal berish",
+   "Skrining",
+   "Xedjirlash",
+   "Tavakkalchilikni qo‘shish"
+  ],
+  "c": 1,
+  "e": "Axborotga ega bo‘lmagan tomon (sug‘urtachi) mijozlar tanlovi orqali yashirin axborotni aniqlaydi – bu skrining."
+ }
+]

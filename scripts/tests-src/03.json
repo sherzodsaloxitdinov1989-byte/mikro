@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Elastiklik koeffitsienti qanday topiladi?",
+  "options": [
+   "Bir o‘zgaruvchining mutlaq o‘zgarishini ikkinchisining mutlaq o‘zgarishiga bo‘lish orqali",
+   "Bir o‘zgaruvchining foizli o‘zgarishini ikkinchisining foizli o‘zgarishiga bo‘lish orqali",
+   "Ikki o‘zgaruvchining foizli o‘zgarishlarini bir-biriga qo‘shish orqali",
+   "Bir o‘zgaruvchining boshlang‘ich qiymatini ikkinchisining oxirgi qiymatiga bo‘lish orqali"
+  ],
+  "c": 1,
+  "e": "Elastiklik foizlar nisbati bo‘lgani uchun u o‘lchov birliklariga bog‘liq emas."
+ },
+ {
+  "q": "Talabning narx bo‘yicha elastikligi nimani ko‘rsatadi?",
+  "options": [
+   "Daromad 1 foizga o‘zgarganda talab miqdori necha foizga o‘zgarishini",
+   "Narx 1 foizga o‘zgarganda taklif miqdori necha foizga o‘zgarishini",
+   "Narx 1 so‘mga o‘zgarganda talab miqdori necha donaga o‘zgarishini",
+   "Narx 1 foizga o‘zgarganda talab miqdori necha foizga o‘zgarishini"
+  ],
+  "c": 3,
+  "e": "Talabning narx bo‘yicha elastikligi talab miqdori va narxning foizli o‘zgarishlari nisbatidir."
+ },
+ {
+  "q": "Talab noelastik bo‘lsa, narxning o‘zgarishiga talab miqdori qanday javob beradi?",
+  "options": [
+   "Talab miqdori narxga qaraganda kamroq foizga o‘zgaradi",
+   "Talab miqdori narxga qaraganda ko‘proq foizga o‘zgaradi",
+   "Talab miqdori narx bilan bir xil foizga o‘zgaradi",
+   "Talab miqdori narx o‘zgarganda umuman o‘zgarmaydi"
+  ],
+  "c": 0,
+  "e": "Noelastik talabda |E| < 1, ya’ni miqdorning foizli o‘zgarishi narxnikidan kichik."
+ },
+ {
+  "q": "Talab chizig‘i vertikal bo‘lsa, bu talabning qanday holatini bildiradi?",
+  "options": [
+   "Mutlaq elastik talab: narxning eng kichik oshishi miqdorni nolga tushiradi",
+   "Birlik elastik talab: miqdor narx bilan bir xil foizga o‘zgaradi",
+   "Mutlaq noelastik talab: narx o‘zgarsa ham miqdor o‘zgarmaydi",
+   "Elastik talab: miqdor narxdan ko‘proq foizga o‘zgaradi"
+  ],
+  "c": 2,
+  "e": "Vertikal talab chizig‘i abs(E) = 0 bo‘lgan mutlaq noelastik talabni ifodalaydi."
+ },
+ {
+  "q": "Yalpi tushum (TR) qanday aniqlanadi?",
+  "options": [
+   "Narxni sotilgan miqdorga ko‘paytirish orqali",
+   "Narxni sotilgan miqdorga bo‘lish orqali",
+   "Sotilgan miqdorni o‘rtacha xarajatga ko‘paytirish orqali",
+   "Narx bilan chegaraviy xarajat orasidagi farqni miqdorga ko‘paytirish orqali"
+  ],
+  "c": 0,
+  "e": "Yalpi tushum TR = P × Q."
+ },
+ {
+  "q": "Engel qonuniga ko‘ra, oilaning daromadi oshgani sari nima yuz beradi?",
+  "options": [
+   "Oziq-ovqatga xarajatlarning umumiy xarajatlardagi ulushi oshadi",
+   "Oziq-ovqatga xarajatlarning umumiy xarajatlardagi ulushi kamayadi",
+   "Oziq-ovqat uchun xarajatlarning mutlaq summasi tobora kamayib nolga tushadi",
+   "Hashamat tovarlariga xarajatlarning umumiy xarajatlardagi ulushi kamayadi"
+  ],
+  "c": 1,
+  "e": "Daromad o‘sishi bilan oziq-ovqat ulushi kamayadi, shuning uchun bu ulush farovonlik ko‘rsatkichidir."
+ },
+ {
+  "q": "Kesishgan elastiklik koeffitsienti musbat bo‘lsa, ikki tovar o‘rtasidagi bog‘liqlik qanday?",
+  "options": [
+   "Tovarlar to‘ldiruvchi: biri qimmatlashsa, ikkinchisiga talab kamayadi",
+   "Tovarlar o‘zaro mustaqil: biri qimmatlashsa, ikkinchisining talabi o‘zgarmaydi",
+   "Tovarlardan biri past kategoriyali: daromad oshganda uning talabi kamayadi",
+   "Tovarlar o‘rinbosar: biri qimmatlashsa, ikkinchisiga talab oshadi"
+  ],
+  "c": 3,
+  "e": "Musbat kesishgan elastiklik o‘rinbosar tovarlarni (mol va parranda go‘shti), manfiysi to‘ldiruvchilarni bildiradi."
+ },
+ {
+  "q": "Daromad bo‘yicha elastiklik manfiy (EI < 0) bo‘lgan tovar qanday ataladi?",
+  "options": [
+   "Birlamchi ehtiyoj tovari",
+   "Oliy kategoriyali tovar",
+   "Past kategoriyali tovar",
+   "Birlik elastik tovar"
+  ],
+  "c": 2,
+  "e": "Past kategoriyali tovarlarga daromad oshganda talab kamayadi, ya’ni EI < 0."
+ },
+ {
+  "q": "Elastiklikni hisoblashda nima uchun o‘rta nuqta usulidan foydalaniladi?",
+  "options": [
+   "Narx va miqdorni bir xil o‘lchov birligiga keltirib solishtirish uchun",
+   "Natijaning birdan katta chiqishini ta’minlash uchun",
+   "Uzluksiz funksiyalar uchun aniq hisoblash imkonini berish uchun",
+   "Natija o‘zgarish yo‘nalishiga bog‘liq bo‘lmasligi uchun"
+  ],
+  "c": 3,
+  "e": "Oddiy foizlar bilan hisoblaganda natija yo‘nalishga bog‘liq bo‘ladi, o‘rta nuqta usuli buni bartaraf etadi."
+ },
+ {
+  "q": "Chiziqli talab chizig‘ining yuqori qismida (yuqori narx, kichik miqdor) talab qanday bo‘ladi?",
+  "options": [
+   "Elastik, chunki narx o‘zgarishi foizda kichik, miqdor o‘zgarishi esa katta",
+   "Noelastik, chunki narx o‘zgarishi foizda katta, miqdor o‘zgarishi esa kichik",
+   "Birlik elastik, chunki qiyalik chiziq bo‘ylab bir xil",
+   "Mutlaq noelastik, chunki yuqori narxda xaridorlar kamayadi"
+  ],
+  "c": 0,
+  "e": "Yuqori narxda mutlaq o‘zgarish kichik foizni, kichik miqdorda esa katta foizni beradi, shu sababli talab elastik."
+ },
+ {
+  "q": "Nima uchun uzoq muddatda talab elastikroq bo‘ladi?",
+  "options": [
+   "Uzoq muddatda narx o‘zgarishlari iste’molchilar tomonidan sezilmay qoladi",
+   "Uzoq muddatda iste’molchilarning daromadi kamayib, talab pasayadi",
+   "Iste’molchilar o‘rinbosarlarga va tejamkor texnologiyalarga o‘tishga ulguradi",
+   "Uzoq muddatda sotuvchilar barcha narxlarni bir xil darajaga keltiradi"
+  ],
+  "c": 2,
+  "e": "Vaqt o‘tishi bilan odamlar iste’molni o‘zgartirish imkoniyatiga ega bo‘ladi, shuning uchun talab elastikroq."
+ },
+ {
+  "q": "Nima uchun hosildorlikning oshishi fermerlar yalpi tushumini kamaytirishi mumkin?",
+  "options": [
+   "Talab elastik bo‘lgani uchun narx pasayadi, ammo sotilgan miqdor yetarlicha oshmaydi",
+   "Talab noelastik bo‘lgani uchun narx keskin pasayadi va tushum kamayadi",
+   "Taklif kamayib, narx oshgani uchun xaridorlar kamroq sotib oladi",
+   "Narx o‘zgarmaydi, ammo ishlab chiqarish xarajatlari ancha oshadi"
+  ],
+  "c": 1,
+  "e": "Taklif oshganda noelastik talab sharoitida narx miqdor o‘sishidan ko‘proq pasayadi, tushum kamayadi."
+ },
+ {
+  "q": "Talab noelastik, taklif elastik bo‘lgan tovarga (masalan, sigaretga) soliq joriy qilinsa, soliq yukini asosan kim ko‘taradi?",
+  "options": [
+   "Sotuvchilar, chunki yuk kamroq elastik tomonga ko‘proq tushadi",
+   "Iste’molchilar, chunki yuk elastikroq tomonga ko‘proq tushadi",
+   "Iste’molchilar, chunki yuk kamroq elastik tomonga ko‘proq tushadi",
+   "Soliq yuki ikki tomon o‘rtasida teng taqsimlanadi, elastiklik rol o‘ynamaydi"
+  ],
+  "c": 2,
+  "e": "Soliq yuki bozorning kamroq elastik tomoniga ko‘proq tushadi, bu yerda talab noelastik."
+ },
+ {
+  "q": "1980-yillarda OPEK neft narxini yuqori darajada ushlab tura olmadi. Mankyu buni qanday izohlaydi?",
+  "options": [
+   "Uzoq muddatda talab va taklif elastikroq bo‘lib qoldi",
+   "Uzoq muddatda talab va taklif noelastikroq bo‘lib qoldi",
+   "Qisqa muddatda talab va taklif elastikroq bo‘lib qoldi",
+   "Neftga talab yaqin o‘rinbosarlari yo‘qligi sababli mutlaq noelastik bo‘ldi"
+  ],
+  "c": 0,
+  "e": "Uzoq muddatda tejamkor texnologiyalar va OPEKga a’zo bo‘lmagan ishlab chiqaruvchilar talab va taklifni elastikroq qildi."
+ },
+ {
+  "q": "Do‘kon egasi mahsulotiga talab elastik ekanini aniqladi. Yalpi tushumni oshirish uchun u nima qilishi kerak?",
+  "options": [
+   "Narxni oshirishi kerak, chunki miqdor narxdan kamroq foizga kamayadi",
+   "Narxni o‘zgartirmasligi kerak, chunki tushum narxga bog‘liq emas",
+   "Narxni oshirishi kerak, chunki yuqori narx sotuvchi tushumini oshiradi",
+   "Narxni pasaytirishi kerak, chunki miqdor narxdan ko‘proq foizga oshadi"
+  ],
+  "c": 3,
+  "e": "Elastik talabda narx pasayganda tushum oshadi, narx oshganda kamayadi."
+ },
+ {
+  "q": "Qaysi tovarga talab eng elastik bo‘lishi kutiladi?",
+  "options": [
+   "Umuman oziq-ovqat mahsulotlari",
+   "Vanilli muzqaymoq",
+   "Kundalik ovqatda ishlatiladigan tuz",
+   "Hayotiy zarur dori-darmon vositalari"
+  ],
+  "c": 1,
+  "e": "Bozor qanchalik tor belgilansa va o‘rinbosarlar qanchalik ko‘p bo‘lsa, talab shunchalik elastik bo‘ladi."
+ },
+ {
+  "q": "Daromad 5 foizga oshganda oilaning sut xaridi 2 foizga ko‘paydi. Sut daromad bo‘yicha qaysi tovar turiga kiradi?",
+  "options": [
+   "Oliy kategoriyali tovar, chunki EI > 1",
+   "Past kategoriyali tovar, chunki EI < 0",
+   "Mutlaq noelastik tovar, chunki EI = 0",
+   "Birlamchi ehtiyoj tovari, chunki 0 < EI < 1"
+  ],
+  "c": 3,
+  "e": "EI = 2/5 = 0,4, ya’ni 0 dan katta va 1 dan kichik: birlamchi ehtiyoj tovari."
+ },
+ {
+  "q": "Dehqon ertalab bozorga pomidor olib keldi. Kun davomida narx oshsa ham, bugungi taklif qanday bo‘ladi?",
+  "options": [
+   "Elastik, chunki dehqon qisqa muddatda ishlab chiqarishni kengaytira oladi",
+   "Mutlaq elastik, chunki narx oshsa taklif cheksiz ko‘payib ketadi",
+   "Mutlaq noelastik, chunki bir lahzali davrda miqdorni oshirib bo‘lmaydi",
+   "Birlik elastik, chunki taklif narx bilan bir xil foizga o‘zgaradi"
+  ],
+  "c": 2,
+  "e": "Bir lahzali davrda taklif mutlaq noelastik: taklif chizig‘i vertikal."
+ },
+ {
+  "q": "Narx 10 dan 14 ga oshdi va talab miqdori 100 dan 60 ga kamaydi. O‘rta nuqta usulida narx bo‘yicha elastiklikning mutlaq qiymati qancha?",
+  "options": [
+   "1,5",
+   "1,0",
+   "1,4",
+   "0,67"
+  ],
+  "c": 0,
+  "e": "%ΔQ = –40/80 = –50%, %ΔP = 4/12 ≈ 33,3%, |E| = 50/33,3 = 1,5."
+ },
+ {
+  "q": "Avtomobil narxi 10 foizga oshganda benzinga talab miqdori 4 foizga kamaydi. Kesishgan elastiklik koeffitsienti va uning ma’nosi qanday?",
+  "options": [
+   "+0,4: tovarlar o‘rinbosar",
+   "–0,4: tovarlar to‘ldiruvchi",
+   "–2,5: tovarlar o‘rinbosar",
+   "+2,5: tovarlar to‘ldiruvchi"
+  ],
+  "c": 1,
+  "e": "E = –4/10 = –0,4; manfiy ishora tovarlar to‘ldiruvchi ekanini bildiradi."
+ }
+]

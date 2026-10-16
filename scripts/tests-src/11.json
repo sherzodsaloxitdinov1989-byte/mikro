@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Sof monopoliya qanday bozor tuzilmasi?",
+  "options": [
+   "Ko‘plab sotuvchilar o‘xshash, lekin bir xil bo‘lmagan mahsulot sotadi",
+   "Yagona sotuvchi bor va mahsulotning yaqin o‘rinbosarlari yo‘q",
+   "Bir nechta yirik sotuvchi bir xil mahsulotni o‘zaro kelishib sotadi",
+   "Bozorda yagona xaridor bor va ko‘plab sotuvchilar uning talabini kutadi"
+  ],
+  "c": 1,
+  "e": "Sof monopoliyada tarmoqda bitta firma bo‘ladi va uning mahsulotiga yaqin o‘rinbosarlar mavjud emas."
+ },
+ {
+  "q": "Monopolist «narxni belgilovchi» (price maker) deyilganda nima nazarda tutiladi?",
+  "options": [
+   "U bozor narxini berilgan deb qabul qiladi va faqat hajmni tanlaydi",
+   "U narxni cheksiz oshira oladi, chunki talab unga ta’sir qilmaydi",
+   "U narxni davlat belgilab beradi, o‘zi esa hajmga ta’sir qilmaydi",
+   "U narxni o‘zi tanlaydi, ammo talab chizig‘i bilan cheklangan"
+  ],
+  "c": 3,
+  "e": "Monopolist narx tanlay oladi, ammo pastga og‘ma talab uni cheklaydi."
+ },
+ {
+  "q": "Patent tizimi monopoliyaning qaysi manbasiga kiradi va uning maqsadi nima?",
+  "options": [
+   "Davlat yaratgan monopoliya; innovatsiyalarni rag‘batlantirish",
+   "Monopol resurs; xom ashyo zaxirasini bitta firmada jamlash",
+   "Tabiiy monopoliya; ATC ning butun bozorda kamayishini ta’minlash",
+   "Strategik to‘siq; raqiblarni narx urushida mag‘lub etish"
+  ],
+  "c": 0,
+  "e": "Patent ixtirochiga mutlaq huquq berib, yuqori narx evaziga yangi kashfiyotlarni rag‘batlantiradi."
+ },
+ {
+  "q": "Qaysi holatda tarmoq tabiiy monopoliya hisoblanadi?",
+  "options": [
+   "Firma asosiy resursning ko‘p qismiga egalik qilganda",
+   "Davlat firmaga mutlaq huquq beruvchi litsenziya taqdim etganda",
+   "O‘rtacha xarajatlar butun bozor hajmida kamayib borganda",
+   "Firma reklama orqali brend sodiqligini yuksak darajaga ko‘targanda"
+  ],
+  "c": 2,
+  "e": "Katta doimiy va kichik chegaraviy xarajatlar tufayli bitta firma butun bozorni arzonroq ta’minlaydi."
+ },
+ {
+  "q": "Monopolistda chegaraviy tushum narxdan kichik (MR < P) bo‘lishining sababi nima?",
+  "options": [
+   "Monopolist qo‘shimcha birlikni doim o‘z xarajatidan arzon sotadi",
+   "Monopolist narxni o‘zgartirmaydi, shu sababli tushum o‘smaydi",
+   "Qo‘shimcha birlik sotilganda yalpi xarajat tushumdan tez oshadi",
+   "Ko‘proq sotish uchun narx barcha birliklar uchun pasayadi"
+  ],
+  "c": 3,
+  "e": "Narx samarasi tufayli avvalgi birliklardan ham tushum kamayadi, shuning uchun MR chizig‘i talabdan pastda joylashadi."
+ },
+ {
+  "q": "Chiziqli talab P = a – bQ bo‘lganda monopolistning MR chizig‘i talab chizig‘iga nisbatan qanday?",
+  "options": [
+   "Talab chizig‘i bilan ustma-ust tushadi: MR = a – bQ",
+   "Ikki baravar tikroq: MR = a – 2bQ",
+   "Ikki baravar yotiqroq: MR = a – 0,5bQ",
+   "Gorizontal: MR = a ga teng doimiy qiymat"
+  ],
+  "c": 1,
+  "e": "TR = aQ – bQ² dan MR = a – 2bQ kelib chiqadi."
+ },
+ {
+  "q": "Yangi dori patenti muddati tugagach, odatda bozorda nima yuz beradi?",
+  "options": [
+   "Asl dori narxi yanada oshadi, chunki raqobat cheklanadi",
+   "Dori bozori yopiladi, chunki foyda to‘liq yo‘qoladi",
+   "Generiklar paydo bo‘lib, narx MC ga yaqinlashadi",
+   "Narx o‘zgarmaydi, chunki barcha iste’molchilar brendga sodiq"
+  ],
+  "c": 2,
+  "e": "Raqobat kuchayib, narx pasayadi; asl ishlab chiqaruvchi esa brend sodiqligi hisobiga biroz yuqori narx saqlaydi."
+ },
+ {
+  "q": "Monopolistning taklif chizig‘i mavjud emas, chunki:",
+  "options": [
+   "Narx va miqdorni birga tanlaydi, qarori talab shakliga bog‘liq",
+   "U har doim narxni chegaraviy xarajatga tenglab, bozorga yetkazib beradi",
+   "U faqat talab chizig‘ining noelastik qismida ishlab chiqaradi",
+   "U ishlab chiqarish hajmini davlat buyrug‘i bilan belgilaydi"
+  ],
+  "c": 0,
+  "e": "Taklif chizig‘i narxni berilgan deb qabul qiluvchi firmalarga xos; monopolistda narx va miqdor birga tanlanadi."
+ },
+ {
+  "q": "Monopoliyaning sof yo‘qotishi (deadweight loss) nimadan kelib chiqadi?",
+  "options": [
+   "Monopolist foydasi iste’molchilardan unga o‘tgan yutuq bo‘lgani uchun",
+   "Monopolist samarali hajmdan ko‘p ishlab chiqarib, ortiqcha zaxira yaratgani uchun",
+   "Monopolist xarajatlari raqobatli firmaga qaraganda doim kam bo‘lgani uchun",
+   "Hajm samarali darajadan past bo‘lgani uchun foydali bitimlar amalga oshmaydi"
+  ],
+  "c": 3,
+  "e": "QM va QC orasidagi birliklar iste’molchilar uchun xarajatdan qimmat, ammo ishlab chiqarilmaydi."
+ },
+ {
+  "q": "Lerner indeksi talab elastikligi bilan qanday bog‘liq?",
+  "options": [
+   "To‘g‘ri proporsional: talab elastikroq bo‘lsa, L ham oshadi",
+   "Teskari: monopolist uchun L = 1/|E|",
+   "Bog‘liq emas: L faqat firma xarajatlariga bog‘liq",
+   "Kvadratik: L = |E|² ga teng bo‘ladi"
+  ],
+  "c": 1,
+  "e": "MR = MC sharti (P – MC)/P = 1/|E| ni beradi; talab elastikroq bo‘lsa ustama kichrayadi."
+ },
+ {
+  "q": "Bozorda ikkita firma bor: birining ulushi 60 foiz, ikkinchisiniki 40 foiz. Xirshman-Herfindal indeksi (HHI) qancha?",
+  "options": [
+   "5200",
+   "100",
+   "2400",
+   "10 000"
+  ],
+  "c": 0,
+  "e": "HHI = 60² + 40² = 3600 + 1600 = 5200."
+ },
+ {
+  "q": "Monopolistning talabi P = 100 – 2Q, MC = 20. Foydani maksimallashtiruvchi miqdor va narx qanday?",
+  "options": [
+   "Q = 40, P = 20",
+   "Q = 20, P = 20",
+   "Q = 20, P = 60",
+   "Q = 40, P = 60"
+  ],
+  "c": 2,
+  "e": "MR = 100 – 4Q = 20 dan Q = 20; narx talabdan P = 100 – 40 = 60."
+ },
+ {
+  "q": "Nima uchun monopolist talabning noelastik qismida ishlamaydi?",
+  "options": [
+   "Chunki noelastik talabda monopolist narxni pasaytirishga majbur bo‘ladi",
+   "Chunki |E| < 1 da MR manfiy, miqdorni kamaytirib foydani oshirish mumkin",
+   "Chunki noelastik qismda sof yo‘qotish nolga teng bo‘lib qoladi",
+   "Chunki bu qismda talab chizig‘i MC chizig‘idan yuqori joylashadi"
+  ],
+  "c": 1,
+  "e": "MR < 0 bo‘lsa, miqdorni kamaytirish tushumni oshiradi va xarajatni qisqartiradi."
+ },
+ {
+  "q": "Monopolistik raqobatda firmaning talab chizig‘i nima uchun pastga og‘ma?",
+  "options": [
+   "Bozorda faqat bitta sotuvchi qolgani va u narxni belgilagani uchun",
+   "Firmalar narx bo‘yicha o‘zaro kelishib, kartel tuzgani uchun",
+   "Tarmoqqa kirish va undan chiqish taqiqlangani uchun",
+   "Differensiatsiya tufayli firma ma’lum darajada monopolist"
+  ],
+  "c": 3,
+  "e": "Brend, dizayn, joylashuv kabi farqlar mijozlarni bog‘laydi, narx oshsa ham ayrimlari qoladi."
+ },
+ {
+  "q": "Monopolistik raqobatda «ortiqcha quvvat» nimani bildiradi?",
+  "options": [
+   "Firma min ATC dan katta hajmda ishlab chiqarib, zaxira to‘playdi",
+   "Firma o‘z quvvatining bir qismini davlatga bepul beradi",
+   "Firma min ATC dan chapda, samarali miqyosdan kichik hajmda ishlaydi",
+   "Firma talabdan ortiq mahsulotni doimo narxini tushirib sotib yuboradi"
+  ],
+  "c": 2,
+  "e": "Uzoq muddatli muvozanatda talab ATC ga urinadi, shuning uchun firma min ATC dan chapda ishlaydi."
+ },
+ {
+  "q": "Mahalliy sement ishlab chiqaruvchilar oldindan chiqarish hajmini kelishib oldi, biroq har biri yashirincha kvotadan ko‘p sotmoqda. Kartel nima uchun beqaror?",
+  "options": [
+   "Buzib ko‘proq sotish har bir a’zo uchun dominant strategiya",
+   "Kartel a’zolari uchun kelishuvga amal qilish dominant strategiya",
+   "Kartel ishlab chiqarishni oshirsa, foydasi doim kamayadi",
+   "Kartel faqat bitta firma ishtirokida tuzilishi mumkin"
+  ],
+  "c": 0,
+  "e": "Kelishuvni buzgan firma qisqa muddatda foydasini oshiradi, natijada mahbus dilemmasi yuzaga keladi."
+ },
+ {
+  "q": "Talab P = 90 – Q, MC = 0 bo‘lgan duopoliyada Kurno muvozanatida har bir firma qancha ishlab chiqaradi?",
+  "options": [
+   "45 birlik",
+   "30 birlik",
+   "22,5 birlik",
+   "60 birlik"
+  ],
+  "c": 1,
+  "e": "Reaksiya funksiyasi q1 = (90 – q2)/2; q1 = q2 bo‘lganda q = 30."
+ },
+ {
+  "q": "Monopsonist ishchilar sonini qaysi shart bo‘yicha tanlaydi?",
+  "options": [
+   "Ish haqi (W) chegaraviy daromad mahsulotiga (MRP) teng bo‘lganda",
+   "Chegaraviy tushum (MR) chegaraviy xarajatga (MC) teng bo‘lganda",
+   "Resursning chegaraviy xarajati (MFC) ish haqiga (W) teng bo‘lganda",
+   "Resursning chegaraviy xarajati (MFC) chegaraviy daromad mahsulotiga (MRP) teng bo‘lganda"
+  ],
+  "c": 3,
+  "e": "Qo‘shimcha ishchining xarajati (MFC) ish haqidan yuqori bo‘lgani uchun u MFC ni MRP ga tenglaydi."
+ },
+ {
+  "q": "Kichik shaharda yagona yirik zavod mehnat bozorida yagona ish beruvchi. Raqobatli bozorga nisbatan nima kutiladi?",
+  "options": [
+   "Bandlik ham, ish haqi ham raqobatli darajadan past bo‘ladi",
+   "Bandlik ham, ish haqi ham raqobatli darajadan yuqori bo‘ladi",
+   "Bandlik raqobatli darajadan past, ish haqi esa yuqori bo‘ladi",
+   "Bandlik oshadi, ish haqi esa raqobatli darajada qoladi"
+  ],
+  "c": 0,
+  "e": "Monopsonist xaridni kamaytirib narxni (ish haqini) pasaytiradi."
+ },
+ {
+  "q": "Nesh muvozanati nimani bildiradi?",
+  "options": [
+   "Barcha firmalar o‘zaro kelishib, birgalikdagi foydani maksimallashtiradi",
+   "Firmalar ishlab chiqarishni raqobatli darajadan ham ko‘paytirib yuboradi",
+   "Raqib strategiyasi berilganda hech bir firma strategiyasini o‘zgartirib foydasini oshira olmaydi",
+   "Bozorda faqat bitta firma qolib, boshqa firmalar tarmoqdan chiqib ketadi"
+  ],
+  "c": 2,
+  "e": "Kurno muvozanati Nesh muvozanatiga misol: har bir firma raqib hajmiga eng yaxshi javobni tanlagan."
+ }
+]

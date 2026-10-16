@@ -1,0 +1,222 @@
+[
+ {
+  "q": "Hosilaviy talab (derived demand) nimani anglatadi?",
+  "options": [
+   "Ish haqi oshganda firma mehnatga talabini kamaytirishi va bandlikni qisqartirishini",
+   "Uy xo‘jaliklarining omillarni sotishdan oladigan daromadi ish haqidan iborat bo‘lishini",
+   "Mehnatga talab ishchi ishlab chiqaradigan mahsulotga bo‘lgan talabdan kelib chiqishini",
+   "Mehnat taklifining ish haqi darajasiga bog‘liqligini"
+  ],
+  "c": 2,
+  "e": "Olma teruvchilarga talab olmaga talabdan kelib chiqadi — bu hosilaviy talab."
+ },
+ {
+  "q": "Mehnat sig‘imi qanday ko‘rsatkich?",
+  "options": [
+   "Mahsulot birligiga sarflangan mehnat miqdori, mehnat unumdorligiga teskari",
+   "Ish haqi fondining bir so‘miga to‘g‘ri keladigan mahsulot hajmi, ya’ni mehnat qaytimi",
+   "Bir xodim tomonidan vaqt birligida ishlab chiqarilgan mahsulot miqdori",
+   "Bir xodimga yoki ish haqi fondining bir so‘miga to‘g‘ri keladigan foyda"
+  ],
+  "c": 0,
+  "e": "Mehnat sig‘imi t = L / Q = 1 / WL, ya’ni unumdorlikka teskari ko‘rsatkichdir."
+ },
+ {
+  "q": "Iqtisodiy renta nima?",
+  "options": [
+   "Omilning eng yaxshi muqobil foydalanishdagi daromadi",
+   "Firma omil uchun to‘laydigan yalpi xarajatlar summasi",
+   "Ish haqining inflyatsiyaga tuzatilgan real qismi",
+   "Omil egasi oladigan to‘lovning minimal zarur to‘lovdan ortiq qismi"
+  ],
+  "c": 3,
+  "e": "Renta — omil daromadining transfer daromaddan ortiq qismidir."
+ },
+ {
+  "q": "Mehnatning chegaraviy daromadliligi (MRP) nimani ifodalaydi?",
+  "options": [
+   "Qo‘shimcha ishchi yollashdan ishlab chiqarilgan mahsulot miqdorining o‘sishini",
+   "Qo‘shimcha ishchi yollashdan firma tushumining o‘sishini, MRP = MR × MPL",
+   "Qo‘shimcha ishchini yollashning yalpi xarajatlarga qo‘shgan hissasini",
+   "Ish haqining mehnat unumdorligiga nisbatini"
+  ],
+  "c": 1,
+  "e": "MRP — qo‘shimcha ishchi keltiradigan tushum: chegaraviy tushum bilan chegaraviy mahsulot ko‘paytmasi."
+ },
+ {
+  "q": "Transfer daromad deb nimaga aytiladi?",
+  "options": [
+   "Minimal ish haqidan yuqori to‘lanadigan qo‘shimcha haqqa",
+   "Omilning eng yaxshi muqobil foydalanishdagi daromadiga, ya’ni imkoniyat xarajatiga",
+   "Mehnat migrantlari yurtiga jo‘natadigan pul o‘tkazmalariga",
+   "Kasaba uyushmasi jamoaviy shartnoma asosida oladigan to‘lovga"
+  ],
+  "c": 1,
+  "e": "Transfer daromad omilni shu foydalanishda ushlab turish uchun zarur bo‘lgan minimal to‘lovdir."
+ },
+ {
+  "q": "Kompensatsiyalovchi farq nima?",
+  "options": [
+   "Ta’lim, malaka va tajriba orqali to‘plangan bilimlar uchun to‘lanadigan ustama",
+   "Firma unumdorlikni oshirish maqsadida ataylab muvozanatdan yuqori to‘laydigan ish haqi",
+   "Diplom orqali yuqori qobiliyatni ko‘rsatgan xodimga beriladigan mukofot",
+   "Ishning xavf, og‘irlik yoki noqulay vaqt kabi nopul jihatlari uchun qo‘shimcha haq"
+  ],
+  "c": 3,
+  "e": "Shaxtyorlar yoki tungi smena ishchilari ishning noqulayliklari uchun ko‘proq oladi."
+ },
+ {
+  "q": "Mehnat bozorida monopsoniya nimani bildiradi?",
+  "options": [
+   "Bozorda yagona yoki dominant ish beruvchi (xaridor) mavjudligini",
+   "Bozorda yagona sotuvchi sifatida kasaba uyushmasi mavjudligini",
+   "Ko‘plab firmalar ishchilarni jalb qilish uchun raqobatlashishini",
+   "Davlat tomonidan eng kam ish haqi belgilanishini"
+  ],
+  "c": 0,
+  "e": "Monopsoniya — yagona yoki dominant xaridorli bozor, masalan kichik shaharchadagi yagona yirik korxona."
+ },
+ {
+  "q": "Ish haqi tabaqalanishini izohlovchi signal berish nazariyasiga ko‘ra, ta’lim nima vazifani bajaradi?",
+  "options": [
+   "Ishning xavf va noqulayliklari uchun qo‘shimcha haq olish huquqini beradi",
+   "Firmaga kadrlar qo‘nimsizligini kamaytirish va sadoqatni oshirish imkonini beradi",
+   "Ish beruvchiga yuqori qobiliyat haqida signal vazifasini ham bajaradi",
+   "Xodimni kasaba uyushmasining jamoaviy shartnomasi himoyasi ostiga oladi"
+  ],
+  "c": 2,
+  "e": "Spens modeliga ko‘ra, diplom ish beruvchi uchun yuqori qobiliyat signalidir."
+ },
+ {
+  "q": "Nima uchun yuqori ish haqi darajasida individual mehnat taklifi chizig‘i orqaga egilishi mumkin?",
+  "options": [
+   "Almashtirish samarasi daromad samarasidan ustun kelib, dam olish qimmatlashadi",
+   "Ish haqi oshgani sari dam olish past ne’mat bo‘lib qoladi va mehnatga ehtiyoj kamayadi",
+   "Daromad samarasi almashtirish samarasidan ustun kelib, inson ko‘proq dam olishni tanlaydi",
+   "Ish haqi oshganda yangi ishchilar bozorga kirib, har bir kishining ish vaqtini qisqartiradi"
+  ],
+  "c": 2,
+  "e": "Boyigan inson dam olishni (normal ne’mat) ko‘proq xohlagani uchun kamroq ishlaydi."
+ },
+ {
+  "q": "Raqobatli mehnat bozorida muvozanatdan yuqori minimal ish haqi belgilansa, nima yuz beradi?",
+  "options": [
+   "Mehnatga talab kamayadi, taklif oshadi va ishsizlik paydo bo‘ladi",
+   "Mehnatga talab oshadi, taklif kamayadi va ishchilar taqchilligi yuzaga keladi",
+   "Bandlik o‘zgarmaydi, faqat firmalar foydasi kamayadi",
+   "Ish haqi va bandlik bir vaqtda oshadi"
+  ],
+  "c": 0,
+  "e": "Minimal ish haqi narx tagi vazifasini bajaradi: ortiqcha mehnat taklifi, ya’ni ishsizlik yuzaga keladi."
+ },
+ {
+  "q": "Nima uchun monopsoniyada raqobatli darajadagi minimal ish haqi bandlikni oshirishi mumkin?",
+  "options": [
+   "Wmin mehnatga talabni o‘ngga siljitib, MRP chizig‘ini yuqoriga ko‘taradi va tushumni oshiradi",
+   "Wmin ostida MRC gorizontal bo‘ladi, monopsonist esa boshqalarning ish haqini oshirmaydi",
+   "Wmin mehnat taklifini kamaytirib, qolgan ishchilarning unumdorligini oshiradi",
+   "Wmin monopsonistning foydasini oshirib, yangi ish o‘rinlari ochishga imkon beradi"
+  ],
+  "c": 1,
+  "e": "Monopsonistda MRC > W edi; Wmin bu bog‘liqlikni yo‘qotadi va bandlik raqobatli darajaga yetadi."
+ },
+ {
+  "q": "Nima uchun bozor hokimiyatiga ega monopolist raqobatlashuvchi firmaga qaraganda kamroq ishchi yollaydi?",
+  "options": [
+   "Monopolist mehnatning chegaraviy mahsulotini pasaytiruvchi texnologiyadan foydalanadi",
+   "Monopolist ishchilarga raqobatli darajadan yuqori ish haqi to‘lashga majbur bo‘ladi",
+   "MR > P bo‘lgani uchun qo‘shimcha ishchi tushumni kamaytiradi",
+   "MR < P bo‘lgani uchun MRP < VMPL va mehnatga talab past bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Narxni tushirib sotish kerakligi sababli MR < P, demak MRP = MR × MPL < VMPL."
+ },
+ {
+  "q": "Ikki tomonlama monopoliyada (monopsonist ish beruvchi va kasaba uyushmasi) ish haqi qanday aniqlanadi?",
+  "options": [
+   "Monopsonist xohlagan WM darajasida",
+   "Kasaba uyushmasi xohlagan WU dan yuqori darajada",
+   "Nazariya bo‘yicha aniq raqobatli ish haqiga teng darajada",
+   "WM va WU oralig‘ida tomonlarning muzokara kuchiga qarab"
+  ],
+  "c": 3,
+  "e": "Natija nazariyada aniq belgilanmaydi: ish tashlashga bardosh va muqobil ish joylari kabi muzokara kuchi hal qiladi."
+ },
+ {
+  "q": "Qaysi holat mehnatga talabni elastikroq qiladi?",
+  "options": [
+   "Mahsulotga talabning noelastik bo‘lishi",
+   "Mehnatni kapital (mashinalar) bilan oson almashtirish imkoniyati",
+   "Mehnat xarajatlarining umumiy xarajatlardagi ulushi juda kichikligi",
+   "Firmaning texnologiyani o‘zgartirishga vaqti yo‘qligi"
+  ],
+  "c": 1,
+  "e": "Marshall–Xiks qoidasi: almashtirish oson bo‘lsa, talab elastik bo‘ladi."
+ },
+ {
+  "q": "Firma ish haqini ataylab muvozanatdan yuqori to‘laydi, chunki bu kadrlar qo‘nimsizligini kamaytiradi va unumdorlikni oshiradi. Bu qaysi tushunchaga mos?",
+  "options": [
+   "Samarali ish haqi",
+   "Kompensatsiyalovchi farq",
+   "Iqtisodiy renta",
+   "Monopsoniya ustamasi"
+  ],
+  "c": 0,
+  "e": "Genri Ford 1914-yilda shu sabab ish haqini oshirgan: qo‘nimsizlik keskin kamaygan."
+ },
+ {
+  "q": "Kasaba uyushmasi kasbga kirishni cheklaydi (uzoq shogirdlik, litsenziyalar). Raqobatli bozorda natija qanday?",
+  "options": [
+   "Taklif o‘ngga siljiydi, ish haqi pasayadi, bandlik oshadi",
+   "Talab o‘ngga siljiydi, ish haqi ham, bandlik ham oshadi",
+   "Taklif chapga siljiydi, ish haqi oshadi, bandlik kamayadi",
+   "Taklif chapga siljiydi, ish haqi ham, bandlik ham pasayadi"
+  ],
+  "c": 2,
+  "e": "Eksklyuziv modelda taklif kamayadi: ish haqi oshadi, lekin bandlik qisqaradi."
+ },
+ {
+  "q": "Migratsiya natijasida raqobatli mehnat bozorida mehnat taklifi ko‘paydi (talab o‘zgarmadi). Ish haqi va bandlik qanday o‘zgaradi?",
+  "options": [
+   "Ish haqi pasayadi, bandlik oshadi",
+   "Ish haqi oshadi, bandlik oshadi",
+   "Ish haqi oshadi, bandlik kamayadi",
+   "Ish haqi pasayadi, bandlik kamayadi"
+  ],
+  "c": 0,
+  "e": "Taklif o‘ngga siljiydi: kamayuvchi MPL tufayli muvozanat ish haqi tushadi, bandlik esa oshadi."
+ },
+ {
+  "q": "Mashhur futbolchi yiliga 50 mln dollar oladi; muqobil ishda esa 1 mln dollar topgan bo‘lardi. Uning iqtisodiy rentasi qancha?",
+  "options": [
+   "50 mln dollar",
+   "1 mln dollar (transfer daromad)",
+   "49 mln dollar",
+   "51 mln dollar"
+  ],
+  "c": 2,
+  "e": "Renta = umumiy daromad – transfer daromad = 50 – 1 = 49 mln dollar."
+ },
+ {
+  "q": "Raqobatlashuvchi firma mahsulot narxi P = 8 dollar, ish haqi W = 300 dollar. Ketma-ket yollanadigan ishchilarning chegaraviy mahsuloti: 80, 60, 45, 30, 20. Firma nechta ishchi yollaydi?",
+  "options": [
+   "2 ta ishchi",
+   "4 ta ishchi",
+   "5 ta ishchi, chunki MPL musbat qoladi",
+   "3 ta ishchi"
+  ],
+  "c": 3,
+  "e": "VMPL = 640, 480, 360, 240, 160. VMPL ≥ 300 faqat dastlabki uchta ishchi uchun bajariladi."
+ },
+ {
+  "q": "Mehnatga talab LD = 900 – 40W, mehnat taklifi LS = 100 + 60W (W – ming so‘m/soat, L – ming kishi). Muvozanatni toping.",
+  "options": [
+   "W = 10 ming so‘m, L = 500 ming kishi",
+   "W = 8 ming so‘m, L = 580 ming kishi",
+   "W = 8 ming so‘m, L = 900 ming kishi",
+   "W = 6 ming so‘m, L = 660 ming kishi"
+  ],
+  "c": 1,
+  "e": "900 – 40W = 100 + 60W ⇒ W = 8; L = 900 – 320 = 580."
+ }
+]
