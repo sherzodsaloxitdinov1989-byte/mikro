@@ -194,7 +194,7 @@ function drawList(body, data, reload) {
   body.replaceChildren(
     h("div", { class: "row between wrap" },
       h("div", {}, h("p", { class: "muted small" }, "Topshiriqni shu yerda yarating: shart, kimga berilishi (ta'lim shakli / guruh), muddat, ball va AI tekshiruv mezonlari. Talabalar “Vazifalar” bo'limida ko'radi va ishini yuklaydi.")),
-      h("div", { class: "row wrap" }, pendingAll > 0 && h("span", { class: "badge badge-warn" }, `${pendingAll} ta baholanmagan`), h("button", { class: "btn", onclick: () => openBuilder(null, data, reload) }, "＋ Yangi topshiriq"))),
+      h("div", { class: "row wrap" }, pendingAll > 0 && h("span", { class: "badge badge-warn" }, `${pendingAll} ta baholanmagan`), h("button", { class: "btn ghost", onclick: () => openImport(data, reload) }, "📥 Fayldan yaratish"), h("button", { class: "btn", onclick: () => openBuilder(null, data, reload) }, "＋ Yangi topshiriq"))),
     data.tasks.length
       ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
           h("thead", {}, h("tr", {}, ["Topshiriq", "Kimga", "Muddat", "Ball", "Topshirilgan", "Holati", ""].map((t) => h("th", {}, t)))),
@@ -230,6 +230,110 @@ function drawList(body, data, reload) {
                 } }, "🗑"))))))))
       : emptyState("📝", "Hali topshiriq yaratilmagan", "“Yangi topshiriq” tugmasi orqali birinchi topshiriqni yarating.")
   );
+}
+
+/** Fayl (Word, PDF, matn) yuklab, undan topshiriqlar loyihasini olish; o'qituvchi ko'rib chiqib, tanlanganlarini yaratadi. */
+function openImport(data, reload) {
+  const forms = COURSE.studyForms || [];
+  const fileInput = h("input", { type: "file", accept: ".docx,.pdf,.txt,.md" });
+  const status = h("p", { class: "small muted" }, "Topshiriqlar yozilgan Word (.docx), PDF yoki matn (.txt) faylni yuklang. AI undagi topshiriqlarni ajratib beradi, siz ko'rib chiqib tahrirlaysiz va yaratasiz.");
+  const draftsBox = h("div", { class: "stack" });
+  const settings = h("div", { class: "stack hidden" });
+  const create = h("button", { class: "btn hidden", disabled: true }, "Tanlanganlarni yaratish");
+  const due = h("input", { type: "date" });
+  const defMax = h("input", { type: "number", min: 1, max: 100, step: 0.5, value: 10, style: { maxWidth: "110px" } });
+  const mode = h("select", {}, Object.entries(MODES).map(([k, v]) => h("option", { value: k }, v)));
+  const aiOn = h("input", { type: "checkbox", checked: true });
+  const published = h("input", { type: "checkbox" });
+  const formBoxes = forms.map((f) => ({ f, box: h("input", { type: "checkbox", value: f.key }) }));
+  let drafts = [];
+
+  const pick = async () => {
+    const f = fileInput.files[0];
+    if (!f) return;
+    if (f.size > 15 * 1024 * 1024) return toast("Fayl juda katta (15 MB gacha)", "error");
+    fileInput.disabled = true;
+    status.textContent = "⏳ Fayl o'qilmoqda…";
+    try {
+      const text = await extractText(f);
+      if (text.length < 30) throw new Error("Fayldan matn ajratib bo'lmadi. Word (.docx), matnli PDF yoki .txt fayl yuklang (skanerlangan rasm PDF o'qilmaydi).");
+      status.textContent = "🤖 Topshiriqlar ajratilmoqda… (10–60 soniya)";
+      const res = await api.post("admin/tasks/import", { text, subject: SUBJECT_KEY, fileName: f.name });
+      drafts = res.tasks.map((t) => ({ ...t, on: true }));
+      status.textContent = `${drafts.length} ta topshiriq topildi${res.ai ? "" : " (AI ulanmagan: matn sarlavhalar bo'yicha bo'lindi — tekshirib, kerak bo'lsa tahrirlang)"}. Keraksizini olib tashlang, matnini tahrirlang.`;
+      drawDrafts();
+      settings.classList.remove("hidden");
+      create.classList.remove("hidden");
+    } catch (ex) {
+      status.textContent = ex.message;
+      toast(ex.message, "error");
+    } finally {
+      fileInput.disabled = false;
+    }
+  };
+  fileInput.addEventListener("change", pick);
+
+  const drawDrafts = () => {
+    draftsBox.replaceChildren(...drafts.map((d, i) =>
+      h("div", { class: "card stack" },
+        h("div", { class: "row wrap" },
+          h("input", { type: "checkbox", checked: d.on, onchange: (e) => ((d.on = e.target.checked), refresh()) }),
+          h("input", { type: "text", class: "grow", maxlength: 150, value: d.title, oninput: (e) => (d.title = e.target.value) }),
+          h("label", { class: "row small muted" }, "Ball: ", h("input", { type: "number", min: 0, max: 100, step: 0.5, value: d.max || "", placeholder: "—", style: { maxWidth: "80px" }, oninput: (e) => (d.max = Number(e.target.value)) }))),
+        h("textarea", { rows: 5, maxlength: 8000, oninput: (e) => (d.description = e.target.value) }, d.description),
+        (d.reference || d.rubric) && h("details", { class: "small" }, h("summary", {}, "Javob / ko'rsatma (talabaga ko'rinmaydi)"),
+          d.rubric && h("label", { class: "field" }, h("span", {}, "AI uchun ko'rsatma"), h("textarea", { rows: 2, oninput: (e) => (d.rubric = e.target.value) }, d.rubric)),
+          d.reference && h("label", { class: "field" }, h("span", {}, "To'g'ri javob / yechim"), h("textarea", { rows: 3, oninput: (e) => (d.reference = e.target.value) }, d.reference))))));
+    refresh();
+  };
+  const refresh = () => {
+    const n = drafts.filter((d) => d.on).length;
+    create.disabled = !n;
+    create.textContent = `Tanlanganlarni yaratish (${n})`;
+  };
+
+  settings.append(
+    h("div", { class: "card stack" },
+      h("b", {}, "Hammasi uchun umumiy sozlamalar"),
+      h("p", { class: "small muted" }, "Ta'lim shakli tanlanmasa — hamma talabaga. Keyin har bir topshiriqni “Tahrirlash” orqali o'zgartirish mumkin."),
+      h("div", { class: "row wrap" }, formBoxes.map(({ f, box }) => chk(box, `${f.icon || ""} ${f.name}`))),
+      h("div", { class: "row wrap" },
+        h("label", { class: "field" }, h("span", {}, "Muddat"), due),
+        h("label", { class: "field" }, h("span", {}, "Ball (ko'rsatilmaganlar uchun)"), defMax),
+        h("label", { class: "field" }, h("span", {}, "Talaba nima yuboradi"), mode)),
+      chk(aiOn, "AI tekshiruvi yoqilgan"),
+      chk(published, h("b", {}, "Darhol nashr etilsin"), h("span", { class: "muted small" }, " (belgilanmasa — qoralama, talabalar ko'rmaydi)"))));
+
+  const close = modal("📥 Fayldan topshiriqlar yaratish", h("div", { class: "stack" },
+    h("label", { class: "field" }, h("span", {}, "Fayl"), fileInput),
+    status,
+    draftsBox,
+    settings,
+    h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => close() }, "Bekor qilish"), create)), { wide: true });
+
+  create.addEventListener("click", async () => {
+    const chosen = drafts.filter((d) => d.on);
+    if (chosen.some((d) => d.title.trim().length < 3 || d.description.trim().length < 10)) return toast("Har bir topshiriqda nom va shart bo'lishi kerak", "warn");
+    create.disabled = true;
+    let ok = 0;
+    for (const d of chosen) {
+      try {
+        await api.post("admin/tasks", {
+          subject: SUBJECT_KEY, title: d.title, description: d.description, max: d.max > 0 ? d.max : Number(defMax.value) || 10, due: due.value, semester: 0, mode: mode.value,
+          allowLate: true, aiEnabled: aiOn.checked, published: published.checked,
+          forms: formBoxes.filter((x) => x.box.checked).map((x) => x.f.key),
+          groups: SUBJECT_KEY === "mikro" ? [] : [...(subjectByKey(SUBJECT_KEY)?.groups || [])],
+          rubric: d.rubric, reference: d.reference,
+        });
+        ok++;
+      } catch (ex) {
+        toast(`“${d.title.slice(0, 40)}”: ${ex.message}`, "error");
+      }
+    }
+    if (ok) toast(`${ok} ta topshiriq yaratildi${published.checked ? "" : " (qoralama)"}`, "ok");
+    close();
+    reload();
+  });
 }
 
 function openBuilder(task, data, reload) {

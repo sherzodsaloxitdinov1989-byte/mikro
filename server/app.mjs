@@ -1159,6 +1159,39 @@ async function adminTasks(req) {
 
 const taskCtx = () => ({ formKeys: (COURSE.studyForms || []).map((f) => f.key), groups: COURSE.groups || [] });
 
+/** Yuklangan fayl matnidan topshiriqlar loyihasini yaratadi (saqlamaydi: o'qituvchi ko'rib chiqib, keyin yaratadi). */
+async function importTasks(req) {
+  const teacher = await requireTeacher(req);
+  const b = await body(req);
+  const text = typeof b.text === "string" ? b.text.trim() : "";
+  if (text.length < 30) throw new HttpError(400, "Fayldan matn ajratib bo'lmadi. Word (.docx), PDF yoki matn (.txt) fayl yuklang.");
+  const lim = await bump(`ratelimit/taskimport/${teacher.id}/${new Date().toISOString().slice(0, 10)}`, 86_400_000, 60);
+  if (!lim.ok) throw new HttpError(429, "Bugungi import limiti tugadi");
+  const subject = SUBJECTS.some((x) => x.key === b.subject) ? b.subject : SUBJECTS[0].key;
+  let tasks = null;
+  let ai = false;
+  if (aiEnabled()) {
+    for (let attempt = 0; attempt < 2 && !tasks; attempt++) {
+      try {
+        const raw = await completeText({
+          system: "Sen OTM o'qituvchisining yordamchisisan. Hujjat mazmunini o'zgartirma, o'zingdan qo'shma. Javobni faqat berilgan JSON sxemasiga mos qaytar.",
+          messages: [{ role: "user", content: taskLib.importPrompt(text, subject) }],
+          maxTokens: 12000,
+          effort: "medium",
+          format: { type: "json_schema", schema: taskLib.IMPORT_SCHEMA },
+        });
+        tasks = taskLib.parseImport(raw);
+      } catch (e) {
+        console.error("Topshiriq importi xatosi:", e);
+      }
+    }
+    ai = Boolean(tasks);
+  }
+  if (!tasks) tasks = taskLib.splitImport(text, str(b.fileName, 200));
+  if (!tasks.length) throw new HttpError(400, "Fayldan topshiriq ajratib bo'lmadi");
+  return json({ tasks, ai });
+}
+
 async function createTask(req) {
   const teacher = await requireTeacher(req);
   const r = taskLib.normalizeTask(await body(req), taskCtx());
@@ -2629,6 +2662,7 @@ const routes = [
   ["GET", /^tasks\/([\w-]+)\/file$/, myTaskFile],
   ["GET", /^admin\/tasks$/, adminTasks],
   ["POST", /^admin\/tasks$/, createTask],
+  ["POST", /^admin\/tasks\/import$/, importTasks],
   ["PUT", /^admin\/tasks\/([\w-]+)$/, updateTask],
   ["DELETE", /^admin\/tasks\/([\w-]+)$/, deleteTask],
   ["GET", /^admin\/tasks\/([\w-]+)\/submissions$/, adminTaskSubs],

@@ -87,6 +87,7 @@ export async function extractText(file) {
   try {
     if (name.endsWith(".pdf")) return (await pdfText(await file.arrayBuffer())).trim();
     if (name.endsWith(".docx")) return (await docxText(await file.arrayBuffer())).trim();
+    if (/\.(txt|md)$/.test(name)) return (await file.text()).trim();
   } catch (e) {
     console.warn("Matn ajratilmadi:", e);
   }
