@@ -66,8 +66,13 @@ export async function render(el) {
 
 // ---------------- Talaba: bitta bosqich ----------------
 
-export function reviewView(ai, criteria) {
+const STATUS = { done: ["✅", "To'liq"], partial: ["🟡", "Qisman"], missing: ["❌", "Yo'q"] };
+const itemList = (title, items, labels) =>
+  items?.length > 0 && h("div", {}, h("b", {}, title), h("ul", { class: "clean" }, items.map((i) => h("li", {}, `${STATUS[i.status][0]} `, h("b", {}, `${labels?.[i.n - 1] ? labels[i.n - 1].slice(0, 90) + (labels[i.n - 1].length > 90 ? "…" : "") : i.n + "-band"}`), ` — ${STATUS[i.status][1]}.`, i.note ? ` ${i.note}` : ""))));
+
+export function reviewView(ai, criteria, stage) {
   if (!ai) return null;
+  const parts = stage ? String(stage.result || "").split(/\s+\+\s+/).map((x) => x.trim()).filter(Boolean) : null;
   return h("div", { class: "stack" },
     ai.estimated && h("div", { class: "alert alert-warn small" }, "AI kaliti ulanmagan: baho avtomatik qoidalar asosida taxminiy hisoblangan. Hisob-kitoblar va izchillikni o'qituvchi tekshiradi."),
     h("div", { class: "row between wrap" },
@@ -75,10 +80,17 @@ export function reviewView(ai, criteria) {
       h("span", { class: "muted small" }, fmtDate(ai.at))),
     h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
     ai.summary && h("p", {}, ai.summary),
+    ai.copiedSample && h("div", { class: "alert alert-warn small" }, "⚠️ Namunadagi raqamlar/ma'lumotlar ko'chirilgan ko'rinadi. O'z sub'ektingiz ma'lumotlaridan foydalaning."),
+    itemList("📋 Vazifalar bo'yicha", ai.tasks, stage?.tasks),
+    itemList("📦 Talab qilingan natija qismlari", ai.parts, parts),
+    ai.checks?.length > 0 && h("div", {}, h("b", {}, "🧮 Hisob-kitoblarni qayta tekshirish"), h("div", { class: "table-wrap" }, h("table", { class: "table" },
+      h("thead", {}, h("tr", {}, ["Nima", "Talaba", "To'g'ri", ""].map((x) => h("th", {}, x)))),
+      h("tbody", {}, ai.checks.map((c) => h("tr", {}, h("td", {}, c.what), h("td", {}, c.student), h("td", {}, c.correct), h("td", {}, c.ok ? "✅" : "❌"))))))),
     ai.consistency && h("div", { class: "alert alert-info small" }, h("b", {}, "🔗 Oldingi bosqichlar bilan izchillik: "), ai.consistency),
     ai.strengths?.length > 0 && h("div", {}, h("b", {}, "✅ Yaxshi tomonlari"), h("ul", {}, ai.strengths.map((x) => h("li", {}, x)))),
     ai.mistakes?.length > 0 && h("div", {}, h("b", {}, "⚠️ Kamchiliklar"), h("ul", {}, ai.mistakes.map((x) => h("li", {}, x)))),
-    ai.recommendations?.length > 0 && h("div", {}, h("b", {}, "💡 Tavsiyalar"), h("ul", {}, ai.recommendations.map((x) => h("li", {}, x)))));
+    ai.recommendations?.length > 0 && h("div", {}, h("b", {}, "💡 Tavsiyalar"), h("ul", {}, ai.recommendations.map((x) => h("li", {}, x)))),
+    ai.adjustments?.length > 0 && h("details", { class: "small muted" }, h("summary", {}, "Tizim tuzatgan ballar"), h("ul", {}, ai.adjustments.map((x) => h("li", {}, x)))));
 }
 
 async function uploadFile(no, file, onProgress) {
@@ -145,7 +157,7 @@ export async function renderStage(el, noParam) {
   const drawAi = (rec) => {
     const stale = rec?.ai && rec.ai.forSubmittedAt !== rec.submittedAt;
     aiBox.replaceChildren(
-      rec?.ai ? h("div", { class: "stack" }, stale && h("div", { class: "alert alert-warn small" }, "Bu tekshiruv oldingi variantga tegishli. Yangi variantni qayta tekshiring."), reviewView(rec.ai, res.criteria)) : h("p", { class: "muted small" }, "Hisobotni yuborgach, “AI bilan tekshirish” tugmasi orqali baho va tavsiyalar oling. AI oldingi bosqichlaringiz bilan izchillikni ham tekshiradi."));
+      rec?.ai ? h("div", { class: "stack" }, stale && h("div", { class: "alert alert-warn small" }, "Bu tekshiruv oldingi variantga tegishli. Yangi variantni qayta tekshiring."), reviewView(rec.ai, res.criteria, st)) : h("p", { class: "muted small" }, "Hisobotni yuborgach, “AI bilan tekshirish” tugmasi orqali baho va tavsiyalar oling. AI oldingi bosqichlaringiz bilan izchillikni ham tekshiradi."));
   };
   drawAi(sub);
 
@@ -328,7 +340,7 @@ export async function teacherView(el) {
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/assignment/${it.userId}/${it.no}/file`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
       it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q (faqat fayl)."),
       prior.length > 0 && h("details", {}, h("summary", {}, `🔗 Oldingi bog'liq bosqichlar (${prior.map((p) => p.no).join(", ")}) — izchillikni tekshirish uchun`), prior.map((p) => h("div", { class: "card" }, h("b", {}, `${p.no}-bosqich`), h("p", { class: "pre-wrap small" }, (p.text || "(matn yo'q, faqat fayl)").slice(0, 4000))))),
-      it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, data.criteria)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
+      it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, data.criteria, st)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
       h("div", { class: "row wrap grade-form" },
         h("label", { class: "field" }, h("span", {}, `Ball (0–${fmtScore(max)})`), score),
         it.ai && h("button", { class: "btn ghost small", onclick: () => (score.value = it.ai.suggested) }, `AI taklifi: ${fmtScore(it.ai.suggested)}`),
