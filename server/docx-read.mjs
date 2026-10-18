@@ -146,5 +146,17 @@ export async function readDocx(input, { withImages = false } = {}) {
     .replace(/\n{3,}/g, "\n\n")
     .trim();
   images.sort((a, b) => a.n - b.n);
-  return { text, images, imageCount: seen.size, chartCount: charts, skipped };
+  const core = dec.decode((await entryBytes(bytes, zip, "docProps/core.xml")) || new Uint8Array());
+  const app = dec.decode((await entryBytes(bytes, zip, "docProps/app.xml")) || new Uint8Array());
+  const tag = (x, re) => (re.exec(x)?.[1] ? unesc(re.exec(x)[1]).trim() : "");
+  const totalTimeRaw = tag(app, /<TotalTime>([^<]*)</);
+  const meta = {
+    creator: tag(core, /<dc:creator>([^<]*)</),
+    lastModifiedBy: tag(core, /<cp:lastModifiedBy>([^<]*)</),
+    created: tag(core, /<dcterms:created[^>]*>([^<]*)</),
+    modified: tag(core, /<dcterms:modified[^>]*>([^<]*)</),
+    application: tag(app, /<Application>([^<]*)</),
+    totalTime: totalTimeRaw === "" ? null : Number(totalTimeRaw),
+  };
+  return { text, images, imageCount: seen.size, chartCount: charts, skipped, meta };
 }

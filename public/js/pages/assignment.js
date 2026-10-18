@@ -69,16 +69,30 @@ const STATUS = { done: ["✅", "To'liq"], partial: ["🟡", "Qisman"], missing: 
 const itemList = (title, items, labels) =>
   items?.length > 0 && h("div", {}, h("b", {}, title), h("ul", { class: "clean" }, items.map((i) => h("li", {}, `${STATUS[i.status][0]} `, h("b", {}, `${labels?.[i.n - 1] ? labels[i.n - 1].slice(0, 90) + (labels[i.n - 1].length > 90 ? "…" : "") : i.n + "-band"}`), ` — ${STATUS[i.status][1]}.`, i.note ? ` ${i.note}` : ""))));
 
+const VERDICT = { original: ["✅", "O'z ijodi ko'rinadi", "alert-info"], suspicious: ["⚠️", "Shubhali: AI yordami yoki ko'chirish ehtimoli bor", "alert-warn"], likely: ["🚫", "AI tomonidan tayyorlangan yoki ko'chirilgan bo'lishi ehtimoli yuqori", "alert-warn"] };
+
+function originalityView(o) {
+  if (!o) return null;
+  const [icon, label, cls] = VERDICT[o.verdict] || VERDICT.original;
+  return h("div", { class: `alert ${cls} small stack` },
+    h("div", {}, h("b", {}, `${icon} O'z ijodi tekshiruvi: ${label}`), ` · AI ehtimoli: ${o.likelihood}%${o.similarPct >= 50 ? ` · boshqa ish bilan o'xshashlik: ${o.similarPct}%` : ""}${o.estimated ? " (taxminiy: AI kaliti ulanmagan)" : ""}`),
+    o.notes?.length > 0 && h("div", {}, h("b", {}, o.notes.join(" "))),
+    o.similarTo && h("div", {}, `O'xshash ish: ${o.similarTo.name || "—"} (${o.similarTo.group || "—"})`),
+    o.signs?.length > 0 && h("ul", {}, o.signs.map((x) => h("li", {}, x))),
+    h("div", { class: "muted" }, "Bu ehtimoliy baho, qat'iy dalil emas. Yakuniy qarorni o'qituvchi qabul qiladi."));
+}
+
 export function reviewView(ai, criteria, stage) {
   if (!ai) return null;
   const parts = stage ? String(stage.result || "").split(/\s+\+\s+/).map((x) => x.trim()).filter(Boolean) : null;
   return h("div", { class: "stack" },
     ai.estimated && h("div", { class: "alert alert-warn small" }, "AI kaliti ulanmagan: baho avtomatik qoidalar asosida taxminiy hisoblangan. Hisob-kitoblar va izchillikni o'qituvchi tekshiradi."),
     h("div", { class: "row between wrap" },
-      h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
+      h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), ai.percentRaw != null && ai.percentRaw !== ai.percent && h("span", { class: "muted small" }, `(o'z ijodi pasaytirishigacha ${ai.percentRaw}%) `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
       h("span", { class: "muted small" }, fmtDate(ai.at))),
     h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
     ai.summary && h("p", {}, ai.summary),
+    originalityView(ai.originality),
     ai.copiedSample && h("div", { class: "alert alert-warn small" }, "⚠️ Namunadagi raqamlar/ma'lumotlar ko'chirilgan ko'rinadi. O'z sub'ektingiz ma'lumotlaridan foydalaning."),
     itemList("📋 Vazifalar bo'yicha", ai.tasks, stage?.tasks),
     itemList("📦 Talab qilingan natija qismlari", ai.parts, parts),

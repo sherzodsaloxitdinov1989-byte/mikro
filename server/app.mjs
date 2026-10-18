@@ -14,6 +14,7 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
+import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
@@ -733,12 +734,12 @@ function stageParam(no, form) {
   return stage;
 }
 
-const assignView = (rec) => rec;
+const assignView = (rec) => hideSimilar(rec);
 
 async function myAssignment(req) {
   const user = await requireUser(req);
   const items = await getMany(`assign/${user.id}/`);
-  return json({ form: formKeyOf(user), items, now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
+  return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
 }
 
 async function assignUploadInit(req, no) {
@@ -806,7 +807,7 @@ async function assignSubmit(req, no) {
     }
     if (prev?.file && prev.file.uploadId !== uploadId) await deleteAssignFile(user.id, stage.no, prev.file);
     text = doc.text.slice(0, 40000);
-    media = { images: doc.imageCount, charts: doc.chartCount, skipped: doc.skipped };
+    media = { images: doc.imageCount, charts: doc.chartCount, skipped: doc.skipped, meta: doc.meta };
     file = { name, size, mime: str(f.mime, 100), uploadId, chunks };
   }
   if (!file) throw new HttpError(400, "Hisobotni Word (.docx) faylida yuklang");
@@ -829,6 +830,13 @@ async function assignSubmit(req, no) {
   };
   await db().set(key, rec);
   return json(assignView(rec));
+}
+
+/** O'z ijodi: AI bahosi + qoidaviy belgilar + boshqa talabalar ishiga o'xshashlik → ball koeffitsiyenti. */
+function applyOriginality(review, { text, meta, others }) {
+  const orig = combineOriginality({ ai: review.originality, heur: heuristics(text, meta), sim: similarity(text, others) });
+  const percentRaw = percentOf(review.scores);
+  return { orig, percentRaw, percent: Math.round(percentRaw * orig.factor) };
 }
 
 async function assignReview(req, no) {
@@ -875,8 +883,9 @@ async function assignReview(req, no) {
   }
   if (!review) review = demoAssignReview(input);
   review = finalizeReview(review, input);
-  const percent = percentOf(review.scores);
-  rec.ai = { ...review, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
+  const others = (await getMany("assign/")).filter((o) => o.no === stage.no && o.form === form && o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
+  const { orig, percentRaw, percent } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
+  rec.ai = { ...review, originality: orig, percentRaw, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
@@ -972,7 +981,7 @@ async function myTasks(req) {
   if (user.role !== "student") return json({ tasks: [], now: new Date().toISOString(), aiEnabled: aiEnabled() });
   const aud = taskAudience(user);
   const all = (await getMany("task/")).filter((t) => taskLib.forStudent(t, aud));
-  const tasks = await Promise.all(all.map(async (t) => ({ ...taskLib.studentView(t), sub: (await db().get(tsubKey(t.id, user.id))) || null })));
+  const tasks = await Promise.all(all.map(async (t) => ({ ...taskLib.studentView(t), sub: hideSimilar((await db().get(tsubKey(t.id, user.id))) || null) })));
   tasks.sort((a, b) => (a.due || "9999").localeCompare(b.due || "9999") || a.createdAt.localeCompare(b.createdAt));
   return json({ tasks, now: new Date().toISOString(), aiEnabled: aiEnabled() });
 }
@@ -1049,7 +1058,7 @@ async function taskSubmit(req, id) {
     resubmitted: Boolean(prev?.teacher),
   };
   await db().set(key, rec);
-  return json(rec);
+  return json(hideSimilar(rec));
 }
 
 async function taskReview(req, id) {
@@ -1083,12 +1092,15 @@ async function taskReview(req, id) {
     }
   }
   if (!review) review = taskLib.demoReview(input);
-  const percent = taskLib.percentOf(review.scores, task.criteria);
-  rec.ai = { ...review, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
+  const others = (await getMany(`tasksub/${id}/`)).filter((o) => o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
+  const percentRaw = taskLib.percentOf(review.scores, task.criteria);
+  const orig = combineOriginality({ ai: review.originality, heur: heuristics(rec.text), sim: similarity(rec.text, others) });
+  const percent = Math.round(percentRaw * orig.factor);
+  rec.ai = { ...review, originality: orig, percentRaw, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
-  return json(rec);
+  return json(hideSimilar(rec));
 }
 
 async function sendTaskFile(tid, uid) {
