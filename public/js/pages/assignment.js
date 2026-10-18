@@ -350,9 +350,10 @@ export async function teacherView(el) {
       .sort((a, b) => (a.group || "").localeCompare(b.group || "") || a.name.localeCompare(b.name));
     table.replaceChildren(
       h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, h("th", {}, "Talaba"), h("th", {}, "Guruh"), A.stages.map((s) => h("th", { class: "center", title: s.title }, s.no)), h("th", { class: "center" }, `Jami / ${A.total}`))),
-        h("tbody", {}, list.map((u) =>
+        h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "Talaba"), h("th", {}, "Guruh"), A.stages.map((s) => h("th", { class: "center", title: s.title }, s.no)), h("th", { class: "center" }, `Jami / ${A.total}`))),
+        h("tbody", {}, list.map((u, idx) =>
           h("tr", {},
+            h("td", { class: "center muted" }, `${idx + 1}.`),
             h("td", {}, u.name),
             h("td", {}, u.group || "—", u.studyForm && h("div", { class: "muted small" }, formByKey(u.studyForm)?.name || "")),
             A.stages.map((s) => {
@@ -387,11 +388,11 @@ export async function teacherView(el) {
   const search = h("input", { type: "search", placeholder: "Qidirish: ism yoki email", oninput: (e) => ((q = e.target.value), draw()) });
   const csv = () =>
     downloadFile(`topshiriq-ballari-${curForm}.csv`, toCSV([
-      ["Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no, curForm))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
-        ...allRows.filter((u) => formOf(u) === curForm).map((u) => {
+      ["№", "Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no, curForm))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
+        ...allRows.filter((u) => formOf(u) === curForm).map((u, i) => {
           const its = subsOf(u);
           const m = new Map(its.map((i) => [i.no, i]));
-          return [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its, curForm)];
+          return [i + 1, u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its, curForm)];
         })]));
 
   const pending = data.items.filter((i) => i.teacher?.score == null || i.resubmitted).length;
@@ -401,7 +402,27 @@ export async function teacherView(el) {
     formTabs,
     h("div", { class: "row between wrap" },
       h("div", { class: "row wrap" }, sel, search),
-      h("div", { class: "row wrap" }, h("span", { class: "badge badge-warn" }, `${pending} ta baholanmagan`), h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"))),
+      h("div", { class: "row wrap" }, h("span", { class: "badge badge-warn" }, `${pending} ta baholanmagan`), h("button", { class: "btn ghost", onclick: async (e) => {
+        const todo = data.items.filter((i) => (i.form || "kunduzgi") === curForm && (i.text || "").trim().length >= 60 && (!i.ai || i.ai.forSubmittedAt !== i.submittedAt));
+        if (!todo.length) return toast("Qayta tekshiriladigan yangi ish yo'q: barcha ishlar AI tekshiruvidan o'tgan", "ok");
+        if (!confirm(`${todo.length} ta ish AI bilan tekshiriladi (har biri ~30 soniya). Davom etilsinmi?`)) return;
+        const btn = e.target;
+        btn.disabled = true;
+        let done = 0, failed = 0;
+        for (const it of todo) {
+          btn.textContent = `🤖 ${done + failed + 1}/${todo.length}…`;
+          try {
+            Object.assign(it, await api.post(`admin/assignment/${it.userId}/${it.no}/review`, {}));
+            done++;
+          } catch (ex) {
+            failed++;
+          }
+        }
+        btn.disabled = false;
+        btn.textContent = "🤖 Yangi ishlarni AI bilan tekshirish";
+        toast(`Tekshirildi: ${done}${failed ? `, xato: ${failed}` : ""}`, failed ? "warn" : "ok");
+        draw();
+      } }, "🤖 Yangi ishlarni AI bilan tekshirish"), h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"))),
     note,
     table);
   draw();
@@ -419,7 +440,23 @@ export async function teacherView(el) {
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/assignment/${it.userId}/${it.no}/file`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
       it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q."),
       prior.length > 0 && h("details", {}, h("summary", {}, `🔗 Oldingi bog'liq bosqichlar (${prior.map((p) => p.no).join(", ")}) — izchillikni tekshirish uchun`), prior.map((p) => h("div", { class: "card" }, h("b", {}, `${p.no}-bosqich`), h("p", { class: "pre-wrap small" }, (p.text || "(matn yo'q, faqat fayl)").slice(0, 4000))))),
-      it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, data.criteria, st)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
+      h("div", { class: "row between wrap" }, h("h4", {}, "🤖 AI tekshiruvi"), h("button", { class: "btn ghost small", onclick: async (e) => {
+        const btn = e.target;
+        btn.disabled = true;
+        btn.textContent = "🤖 Tekshirilmoqda… (10–60 soniya)";
+        try {
+          Object.assign(it, await api.post(`admin/assignment/${it.userId}/${it.no}/review`, {}));
+          by.set(`${it.userId}/${it.no}`, it);
+          toast("AI tekshiruvi yangilandi", "ok");
+          close();
+          openModal(u, it, redraw);
+        } catch (ex) {
+          toast(ex.message, "error");
+          btn.disabled = false;
+          btn.textContent = "🤖 AI bilan qayta tekshirish";
+        }
+      } }, it.ai ? "🤖 AI bilan qayta tekshirish" : "🤖 AI bilan tekshirish")),
+      it.ai ? h("div", { class: "card" }, reviewView(it.ai, data.criteria, st)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
       h("div", { class: "row wrap grade-form" },
         h("label", { class: "field" }, h("span", {}, `Ball (0–${fmtScore(max)})`), score),
         it.ai && h("button", { class: "btn ghost small", onclick: () => (score.value = it.ai.suggested) }, `AI taklifi: ${fmtScore(it.ai.suggested)}`),

@@ -840,7 +840,20 @@ function applyOriginality(review, { text, meta, others }) {
 }
 
 async function assignReview(req, no) {
-  const user = await requireUser(req);
+  return doAssignReview(await requireUser(req), no, { limited: true });
+}
+
+/** O'qituvchi talabaning bosqichini AI bilan qayta tekshiradi (talabaning kunlik limiti sarflanmaydi). */
+async function adminAssignReview(req, uid, no) {
+  const teacher = await requireTeacher(req);
+  const owner = await db().get(userKey(uid));
+  if (!owner || owner.role !== "student") throw new HttpError(404, "Talaba topilmadi");
+  const lim = await bump(`ratelimit/adminassignreview/${teacher.id}/${new Date().toISOString().slice(0, 10)}`, 86_400_000, 300);
+  if (!lim.ok) throw new HttpError(429, "Bugungi AI tekshiruvlar limiti tugadi");
+  return doAssignReview(owner, no, { limited: false });
+}
+
+async function doAssignReview(user, no, { limited }) {
   const form = formKeyOf(user);
   const stage = stageParam(no, form);
   const key = assignKey(user.id, stage.no);
@@ -850,7 +863,7 @@ async function assignReview(req, no) {
   const day = new Date().toISOString().slice(0, 10);
   const quotaKey = `assignquota/${user.id}/${day}`;
   const quota = (await db().get(quotaKey)) || { n: 0 };
-  if (quota.n >= ASSIGN_DAILY_AI) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${ASSIGN_DAILY_AI} ta) tugadi — ertaga qayta urinib ko'ring`);
+  if (limited && quota.n >= ASSIGN_DAILY_AI) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${ASSIGN_DAILY_AI} ta) tugadi — ertaga qayta urinib ko'ring`);
 
   const prior = [];
   for (const n of contextStages(stage.no, form)) prior.push({ no: n, sub: await db().get(assignKey(user.id, n)) });
@@ -2630,6 +2643,7 @@ const routes = [
   ["GET", /^admin\/assignment$/, adminAssignment],
   ["GET", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/file$/, adminAssignFile],
   ["PUT", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/grade$/, gradeAssignment],
+  ["POST", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/review$/, adminAssignReview],
   ["POST", /^practice\/([\w-]+)\/review$/, practiceReview],
   ["GET", /^practice\/reviews$/, myPracticeReviews],
   ["GET", /^admin\/practice-reviews$/, adminPracticeReviews],

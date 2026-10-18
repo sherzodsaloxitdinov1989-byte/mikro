@@ -326,11 +326,12 @@ async function openSubmissions(body, id, listData, reloadList) {
     const rows = res.students.filter((s) => !groupFilter || s.group === groupFilter).sort((a, b) => (a.group || "").localeCompare(b.group || "") || a.name.localeCompare(b.name));
     table.replaceChildren(
       h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["Talaba", "Guruh", "Holati", "Yuborilgan", `Ball / ${fmtScore(task.max)}`, "AI taklifi", ""].map((c) => h("th", {}, c)))),
-        h("tbody", {}, rows.map((s) => {
+        h("thead", {}, h("tr", {}, ["№", "Talaba", "Guruh", "Holati", "Yuborilgan", `Ball / ${fmtScore(task.max)}`, "AI taklifi", ""].map((c) => h("th", {}, c)))),
+        h("tbody", {}, rows.map((s, idx) => {
           const it = by.get(s.id);
           const graded = it?.teacher?.score != null && !it.resubmitted;
           return h("tr", {},
+            h("td", { class: "center muted" }, `${idx + 1}.`),
             h("td", {}, s.name, h("div", { class: "muted small" }, formByKey(s.studyForm)?.name || "")),
             h("td", {}, s.group || "—"),
             h("td", {}, it ? h("span", { class: `badge ${graded ? "badge-ok" : "badge-warn"}` }, graded ? "Baholangan" : it.resubmitted ? "Qayta yuborilgan" : it.late ? "Kech · baholanmagan" : "Baholanmagan") : h("span", { class: "badge" }, "Topshirmagan")),

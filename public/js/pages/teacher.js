@@ -700,10 +700,11 @@ async function students(el) {
   const draw = () => {
     const rows = list.filter((u) => (!q.group || u.group === q.group) && (!q.form || u.studyForm === q.form) && (!q.text || `${u.name} ${u.email}`.toLowerCase().includes(q.text)));
     tbody.replaceChildren(
-      ...rows.map((u) =>
+      ...rows.map((u, idx) =>
         h(
           "tr",
           {},
+          h("td", { class: "center muted" }, `${idx + 1}.`),
           h("td", {}, u.name),
           h("td", {}, u.email),
           h("td", {}, u.group || "—", u.studyForm && h("div", { class: "muted small" }, formByKey(u.studyForm)?.name || "")),
@@ -740,7 +741,7 @@ async function students(el) {
         )
       )
     );
-    if (!rows.length) tbody.append(h("tr", {}, h("td", { colspan: 7, class: "muted center" }, "Talabalar topilmadi")));
+    if (!rows.length) tbody.append(h("tr", {}, h("td", { colspan: 8, class: "muted center" }, "Talabalar topilmadi")));
   };
 
   const bulkGroup = h("select", {}, h("option", { value: "" }, "Guruhni tanlang"), groups.map((g) => h("option", { value: g }, g)));
@@ -775,7 +776,7 @@ async function students(el) {
         h("span", { class: "muted small" }, `Jami: ${list.length} talaba`),
         h("button", { class: "btn ghost", onclick: () => downloadFile("oquvchilar.csv", toCSV([["F.I.Sh.", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...list.map((u) => [u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
       ),
-      h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "F.I.Sh."), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
+      h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "F.I.Sh."), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
     ),
     teachers.length > 0 && h("div", { class: "card" }, h("h3", {}, `O'qituvchilar (${teachers.length})`), h("ul", {}, teachers.map((t) => h("li", {}, `${t.name} — ${t.email}${t.college ? ` (${t.college})` : ""}`))))
   );
