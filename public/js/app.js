@@ -112,7 +112,7 @@ function renderNav() {
   // O'qituvchi uchun fan almashtirgich: tanlangan fan mavzulari, testlari va materiallari bilan ishlaydi (sahifa qayta yuklanadi)
   const switcher = isTeacher && SUBJECTS.filter((s) => s.hasContent).length > 1
     ? h("select", { class: "subject-switch", title: "Fan", "aria-label": "Fan", onchange: (e) => {
-        try { localStorage.setItem("tt.subject", e.target.value); } catch {}
+        try { localStorage.setItem("tt.subject", e.target.value); sessionStorage.setItem("tt.subject-picked", "1"); } catch {}
         location.reload();
       } }, SUBJECTS.filter((s) => s.hasContent).map((s) => h("option", { value: s.key, selected: s.key === SUBJECT_KEY }, `${s.icon} ${s.title}`)))
     : null;

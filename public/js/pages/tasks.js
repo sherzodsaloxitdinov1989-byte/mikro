@@ -181,6 +181,7 @@ const audienceText = (t) => {
 export async function teacherView(el) {
   mount(el, loading());
   const data = await api.get("admin/tasks");
+  data.tasks = data.tasks.filter((t) => (t.subject || "mikro") === SUBJECT_KEY); // faqat tanlangan fan topshiriqlari
   const body = h("div", { class: "stack" });
   mount(el, body);
   const list = () => drawList(body, data, () => teacherView(el));

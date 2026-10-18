@@ -17,7 +17,7 @@ import { teacherView as ratingView } from "./rating.js";
 import { teacherView as securityView } from "./security.js";
 import { view as testbankView } from "./testbank.js";
 import { teacherView as tasksView } from "./tasks.js";
-import { formByKey } from "../../data/course.js";
+import { formByKey, SUBJECTS, subjectOfGroup, subjectByKey } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
 
 const COHORTS = { experimental: "Tajriba (TG)", control: "Nazorat (NG)", unassigned: "Belgilanmagan" };
@@ -33,11 +33,11 @@ const SECTIONS = [
   { key: "practice", icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
   COURSE.features.lab && { key: "labs", icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
   { key: "tasks", icon: "🗂️", title: "Topshiriq yaratish", group: "class", desc: "Platformaning o'zida yangi topshiriq yarating: shart, kimga beriladi, muddat, ball va AI mezonlari. Talabalar ishlarini baholang." },
-  { key: "assignment", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
+  { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
-  { key: "rating", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
+  { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
-  { key: "forms", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
+  { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "testbank", icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
@@ -46,7 +46,7 @@ const SECTIONS = [
   { key: "videos", icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter(Boolean);
+].filter((x) => x && (!x.only || x.only === SUBJECT_KEY)); // fanga xos bo'limlar faqat o'z fanida ko'rinadi
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {
@@ -61,18 +61,71 @@ function rememberSection(key) {
   } catch {}
 }
 const sectionHref = (key) => `#/teacher/${key}`;
+const inSubject = (group) => subjectOfGroup(group).key === SUBJECT_KEY;
+const ownTopic = (id) => TOPICS.some((t) => t.id === id);
+const SUBJECT_PICKED = "tt.subject-picked";
+
+function pickSubject(key) {
+  try {
+    localStorage.setItem("tt.subject", key);
+    sessionStorage.setItem(SUBJECT_PICKED, "1");
+  } catch {}
+  location.hash = "#/teacher";
+  location.reload();
+}
+
+/** O'qituvchi paneliga kirishda fanni tanlash: har bir fan alohida bo'lim sifatida. */
+async function subjectsView(el) {
+  const users = await api.get("admin/students");
+  const students = users.filter((u) => u.role === "student");
+  const list = SUBJECTS.filter((s) => s.hasContent);
+  mount(
+    el,
+    h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "Fanni tanlang"), h("p", { class: "muted" }, "Har bir fan alohida: o'z talabalari, mavzulari, testlari, topshiriqlari va baholash bo'limlari. Istalgan paytda boshqa fanga o'tishingiz mumkin."))),
+    h("div", { class: "grid cols-2" }, list.map((s) => {
+      const mine = students.filter((u) => subjectOfGroup(u.group).key === s.key);
+      const groups = s.groups.length ? s.groups : [...new Set(mine.map((u) => u.group).filter(Boolean))].sort();
+      return h("button", { class: `card subject-card ${s.key === SUBJECT_KEY ? "current" : ""}`, type: "button", onclick: () => pickSubject(s.key), style: { textAlign: "left", cursor: "pointer", font: "inherit", color: "inherit" } },
+        h("div", { class: "row between wrap" }, h("h2", {}, `${s.icon} ${s.title}`), s.key === SUBJECT_KEY && h("span", { class: "badge badge-ok" }, "Hozirgi fan")),
+        h("p", { class: "muted" }, `${s.direction}${s.semester ? ` · ${s.semester.no}-semestr` : " · 3–4-semestr"}`),
+        h("div", { class: "row wrap" }, groups.map((g) => h("span", { class: "chip chip-soft" }, g))),
+        h("p", { class: "small" }, `${mine.length} nafar talaba ro'yxatdan o'tgan`),
+        h("span", { class: "btn small" }, s.key === SUBJECT_KEY ? "Panelni ochish →" : "Shu fan paneliga o'tish →"));
+    }))
+  );
+}
+
+/** Panel tepasida: hozirgi fan va boshqa fanga o'tish tugmalari. */
+function subjectBar() {
+  const list = SUBJECTS.filter((s) => s.hasContent);
+  if (list.length < 2) return null;
+  const cur = subjectByKey(SUBJECT_KEY);
+  return h("div", { class: "subject-bar" },
+    h("span", { class: "muted small" }, "Fan:"),
+    h("div", { class: "segmented" }, list.map((s) => h("button", { class: `seg ${s.key === SUBJECT_KEY ? "active" : ""}`, type: "button", title: s.direction, onclick: () => s.key !== SUBJECT_KEY && pickSubject(s.key) }, `${s.icon} ${s.title}`))),
+    h("span", { class: "muted small" }, `Hozir ${cur.title} fani bilan ishlayapsiz`),
+    h("a", { class: "small", href: "#/teacher/subjects" }, "Fanlar sahifasi"));
+}
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, testbank: testbankView, tasks: tasksView };
-  const view = views[tab || ""];
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, testbank: testbankView, tasks: tasksView, subjects: subjectsView };
+  let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
+  // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
+  const picked = (() => { try { return sessionStorage.getItem(SUBJECT_PICKED); } catch { return "1"; } })();
+  if (!tab && !picked && SUBJECTS.filter((s) => s.hasContent).length > 1) {
+    mount(el, h("div", { class: "role-banner teacher" }, h("b", {}, "👩‍🏫 O'qituvchi paneli")), content);
+    mount(content, loading());
+    return subjectsView(content);
+  }
   const sec = SECTIONS.find((x) => x.key === tab);
   if (sec) {
     rememberSection(sec.key);
     const g = GROUPS.find(([k]) => k === sec.group);
     mount(
       el,
+      subjectBar(),
       h("div", { class: "tp-head", style: { "--hue": g[2] } },
         h("a", { class: "btn ghost small tp-back", href: "#/teacher" }, "← Barcha bo'limlar"),
         h("div", { class: "tp-title" }, h("span", { class: "tp-icon" }, sec.icon), h("div", {}, h("small", { class: "muted" }, g[1]), h("h1", {}, sec.title)))),
@@ -82,8 +135,10 @@ export async function render(el, tab = "", param) {
       })),
       content
     );
+  } else if (tab === "subjects") {
+    mount(el, h("div", { class: "page-head" }, h("h1", {}, "O'qituvchi paneli"), h("a", { class: "btn", href: "#/teacher" }, "← Panelga qaytish")), content);
   } else {
-    mount(el, h("div", { class: "page-head" }, h("h1", {}, "O'qituvchi paneli"), h("a", { class: "btn", href: "#/qr" }, "📱 Kirish QR-kodi")), content);
+    mount(el, subjectBar(), h("div", { class: "page-head" }, h("h1", {}, `${subjectByKey(SUBJECT_KEY).icon} ${subjectByKey(SUBJECT_KEY).title} — o'qituvchi paneli`), h("a", { class: "btn", href: "#/qr" }, "📱 Kirish QR-kodi")), content);
   }
   mount(content, loading());
   await view(content, param);
@@ -139,6 +194,15 @@ function gallery(o) {
 
 async function overview(el) {
   const o = await api.get("admin/overview");
+  // Ko'rsatkichlar tanlangan fan bo'yicha hisoblanadi (umumiy hisoblagich emas)
+  const [stu, prs, sst] = await Promise.all([api.get("admin/students"), api.get("admin/practice-reviews").catch(() => ({ reviews: [] })), api.get("admin/self-study").catch(() => [])]);
+  o.students = stu.filter((u) => u.role === "student" && inSubject(u.group)).length;
+  const own = prs.reviews.filter((r) => ownTopic(r.topicId));
+  o.practiceReviews = own.length;
+  o.avgPracticeScore = own.length ? Math.round((own.reduce((n, r) => n + (r.teacher?.grade ?? r.total ?? 0), 0) / own.length) * 10) / 10 : null;
+  const ownSs = sst.filter((i) => ownTopic(String(i.taskId).split("-")[0]));
+  o.selfStudySubmissions = ownSs.length;
+  o.ungraded = ownSs.filter((i) => i.grade == null || i.resubmitted).length;
   const card = (icon, value, label, href) => h(href ? "a" : "div", { class: "card stat-card", href }, h("div", { class: "stat-icon" }, icon), h("b", {}, value), h("span", { class: "muted small" }, label));
   mount(
     el,
@@ -622,7 +686,7 @@ async function videosManager(el) {
 
 async function students(el) {
   const users = await api.get("admin/students");
-  const list = users.filter((u) => u.role === "student");
+  const list = users.filter((u) => u.role === "student" && inSubject(u.group)); // faqat tanlangan fan talabalari
   const teachers = users.filter((u) => u.role === "teacher");
   const groups = [...new Set(list.map((u) => u.group).filter(Boolean))].sort();
   const q = { text: "", group: "", form: "" };
@@ -720,7 +784,7 @@ async function students(el) {
 // ---------------- Mustaqil ishlar ----------------
 
 async function selfStudy(el) {
-  const items = await api.get("admin/self-study");
+  const items = (await api.get("admin/self-study")).filter((i) => ownTopic(String(i.taskId).split("-")[0]));
   if (!items.length) return mount(el, emptyState("🧩", "Hali mustaqil ishlar topshirilmagan"));
   let onlyPending = true;
   const list = h("div", { class: "stack" });
@@ -851,7 +915,9 @@ async function formsView(el) {
 // ---------------- Amaliy mashg'ulotlar: AI tekshiruvlari ----------------
 
 async function practiceReviews(el) {
-  const { reviews, criteria } = await api.get("admin/practice-reviews");
+  const res = await api.get("admin/practice-reviews");
+  const criteria = res.criteria;
+  const reviews = res.reviews.filter((r) => ownTopic(r.topicId)); // faqat tanlangan fan mavzulari
   if (!reviews.length) return mount(el, emptyState("🤖", "Hali AI tekshiruvlari yo'q", "Talabalar mavzu oxiridagi amaliy mashg'ulotni bajarib, “AI bilan tekshirish” tugmasini bosganda natijalar shu yerda chiqadi."));
   const topicSel = h("select", {}, h("option", { value: "" }, "Barcha mavzular"), TOPICS.filter((t) => t.practice).map((t) => h("option", { value: t.id }, `${t.num}. ${t.title}`)));
   const groupSel = h("select", {}, h("option", { value: "" }, "Barcha guruhlar"), [...new Set(reviews.map((r) => r.user?.group).filter(Boolean))].map((g) => h("option", { value: g }, g)));

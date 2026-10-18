@@ -392,3 +392,9 @@
 
 /* O'qituvchi fan almashtirgichi (menyuda) */
 .subject-switch { font: inherit; font-size: 0.85rem; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); max-width: 190px; }
+
+/* O'qituvchi paneli: fan tanlash va fan paneli */
+.subject-card { display: block; width: 100%; border: 2px solid var(--border); transition: border-color .15s, transform .15s; }
+.subject-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+.subject-card.current { border-color: var(--primary); }
+.subject-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px 12px; margin-bottom: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
