@@ -3,6 +3,7 @@ import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } fr
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
+import { Report, saveBlobAs } from "../pdf-report.js";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
@@ -24,6 +25,60 @@ function statusBadge(sub, form) {
   return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
 }
 
+// ---------------- Talaba: natija varaqasini PDF qilib yuklab olish ----------------
+
+async function resultPdf(res, user) {
+  const form = res.form;
+  const A = assignmentFor(form);
+  const subs = Object.fromEntries(res.items.map((s) => [s.no, s]));
+  const graded = (no) => subs[no]?.teacher?.score != null && !subs[no].resubmitted;
+  const total = totalScore(res.items, form);
+  const all = A.stages.every((s) => graded(s.no));
+  const r = new Report();
+  r.text(`${COURSE.brand} · ${COURSE.title}`, { size: 22, color: "#5b6b6e", gap: 6 });
+  r.text("Topshiriq natijalari varaqasi", { size: 44, weight: 700, gap: 8 });
+  r.text(`${A.semester}-semestr · ${A.title}`, { size: 24, color: "#5b6b6e", gap: 16 });
+  r.rule();
+  r.text(`Talaba: ${user.name}`, { size: 28, weight: 600, gap: 4 });
+  r.text(`Guruh: ${user.group || "—"} · Ta'lim shakli: ${formByKey(form)?.title || form} · Sana: ${new Date().toLocaleDateString("uz-UZ")}`, { size: 22, color: "#5b6b6e", gap: 18 });
+  r.box(130, "#e8f4f2", (c, y) => {
+    c.font = `700 64px ${"sans-serif"}`;
+    c.fillStyle = "#0e6b62";
+    c.textBaseline = "top";
+    c.fillText(`${fmtScore(total)} / ${A.total}`, r.x0 + 30, y + 24);
+    c.font = "400 24px sans-serif";
+    c.fillStyle = "#1c2b2e";
+    c.fillText(all ? "Umumiy ball (barcha bosqichlar baholangan)" : "Umumiy ball (ba'zi bosqichlar hali baholanmagan)", r.x0 + 400, y + 48);
+  });
+  r.text("Bosqichlar bo'yicha ballar", { size: 30, weight: 700, gap: 8 });
+  const wd = [0.08, 0.5, 0.19, 0.23];
+  r.row(["№", "Bosqich", "Ball", "Holat"], wd, { weight: 700, fill: "#eef3f4" });
+  for (const st of A.stages) {
+    const sub = subs[st.no];
+    r.row([String(st.no), st.title, graded(st.no) ? `${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(st.no, form))}` : "—", !sub ? "Topshirilmagan" : graded(st.no) ? (sub.late ? "Baholangan (kech)" : "Baholangan") : "Tekshirilmoqda"], wd);
+  }
+  r.y += 10;
+  for (const g of A.groups) {
+    const raw = g.stages.reduce((n, no) => n + (subs[no]?.teacher?.score || 0), 0);
+    r.text(`${g.stages[0]}–${g.stages[g.stages.length - 1]}-bosqichlar: ${fmtScore(Math.min(g.max, raw))} / ${g.max} ball (muddat: ${fmtDue(g.due)})`, { size: 22, color: "#3a4a4d", gap: 4 });
+  }
+  r.y += 14;
+  r.rule();
+  r.text("O'qituvchi izohlari", { size: 30, weight: 700, gap: 10 });
+  let any = false;
+  for (const st of A.stages) {
+    const sub = subs[st.no];
+    if (!graded(st.no)) continue;
+    any = true;
+    r.text(`${st.no}-bosqich. ${st.title} — ${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(st.no, form))} ball`, { size: 25, weight: 700, gap: 4 });
+    r.text(sub.teacher.comment?.trim() || "Izoh qoldirilmagan.", { size: 24, color: sub.teacher.comment?.trim() ? "#1c2b2e" : "#7a8a8d", x: r.x0 + 24, width: r.width - 24, gap: 6 });
+    r.text(`${sub.teacher.by || "O'qituvchi"} · ${fmtDate(sub.teacher.at)}`, { size: 20, color: "#7a8a8d", x: r.x0 + 24, gap: 20 });
+  }
+  if (!any) r.text("Hali baholangan bosqich yo'q.", { color: "#7a8a8d" });
+  r.footer(`${COURSE.brand} · ${user.name}`);
+  return r.toPdf();
+}
+
 // ---------------- Talaba: bosqichlar ro'yxati ----------------
 
 export async function render(el) {
@@ -42,7 +97,21 @@ export async function render(el) {
     h("div", { class: "card accent" },
       h("div", { class: "row between wrap" },
         h("div", {}, h("h3", {}, A.title), A.intro.map((p) => h("p", { class: "small" }, p))),
-        h("div", { class: "stat-card" }, h("b", {}, `${fmtScore(total)} / ${A.total}`), h("span", { class: "muted small" }, `o'qituvchi qo'ygan ball · ${done}/${A.stages.length} bosqich topshirildi`)))),
+        h("div", { class: "stat-card" }, h("b", {}, `${fmtScore(total)} / ${A.total}`), h("span", { class: "muted small" }, `o'qituvchi qo'ygan ball · ${done}/${A.stages.length} bosqich topshirildi`),
+          res.items.some((s) => s.teacher?.score != null && !s.resubmitted) && h("button", { class: "btn small", onclick: async (e) => {
+            const btn = e.target;
+            btn.disabled = true;
+            try {
+              const u = session.user || {};
+              saveBlobAs(await resultPdf(res, u), `topshiriq-natija-${(u.name || "talaba").replace(/[^\w]+/g, "_")}.pdf`);
+              toast("PDF tayyor", "ok");
+            } catch (ex) {
+              console.error("PDF xatosi:", ex);
+              toast("PDF yaratib bo'lmadi", "error");
+            } finally {
+              btn.disabled = false;
+            }
+          } }, "📄 Natijani PDF qilib yuklab olish")))),
     h("div", { class: "alert alert-info" }, h("b", {}, "Eslatma: "), "bosqichlar o'zaro bog'liq — hammasi 1-bosqichda tanlagan tadbirkorlik sub'ektingizga tegishli, keyingi bosqichlardagi raqamlar oldingilariga mos bo'lishi kerak. AI tekshiruv ham shu izchillikni tekshiradi. Har bir bosqichni alohida yuklang."),
     A.groups.map((g) =>
       h("section", { class: "card" },
