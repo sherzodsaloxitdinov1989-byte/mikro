@@ -73,7 +73,7 @@ export function sampleOverlap(stage, text) {
   return { total: sample.size, hit: hit.length, ratio: sample.size ? hit.length / sample.size : 0 };
 }
 
-export function reviewPrompt({ stage, text, prior, user, form, hasFile }) {
+export function reviewPrompt({ stage, text, prior, user, form, images = [], media = null }) {
   const A = assignmentFor(form);
   const g = groupOf(stage.no, form);
   const deps = stage.dependsOn.length ? stage.dependsOn.map((n) => `${n}-bosqich`).join(", ") : "yo'q (bu bosqich boshlang'ich)";
@@ -110,7 +110,9 @@ TALABANING OLDINGI BOSQICHLARI (izchillikni shular bilan solishtir):
 ${priorText || "(yo'q)"}
 
 TIZIMNING AVTOMATIK TEKSHIRUVI: namuna jadvali/tahlilidagi ${ov.total} ta xarakterli raqamdan ${ov.hit} tasi talaba matnida aynan uchraydi (${Math.round(ov.ratio * 100)}%).${ov.ratio >= 0.4 && ov.hit >= 4 ? " Bu namunadan ko'chirilganlik ehtimolini ko'rsatadi — albatta tekshir." : ""}
-${hasFile ? "Talaba hisobot faylini ham yuklagan, lekin sen faqat quyidagi matnni ko'rasan: grafik/rasmlar matnda bo'lmasligi mumkin — buning uchun jazolama, faqat matnda ko'ringan narsani baho." : ""}
+HISOBOT WORD FAYLDAN OLINGAN. Matnda rasmlar o'z o'rnida [RASM n] belgisi bilan, Word diagrammalari esa [DIAGRAMMA ...: ma'lumotlari] ko'rinishida berilgan.
+${images.length ? `Hisobotdagi ${images.length} ta rasm (${images.map((n) => "RASM " + n).join(", ")}) so'rov oxirida ilova qilingan. Ularni albatta ko'r: grafik/chizmalarning o'qlari va nomlari, egri chiziqlar shakli va joylashuvi, muhim nuqtalar (kesishish, optimum), yozuvlar va raqamlar matndagi hisob-kitoblarga mos kelishini tekshir. Rasm jadval yoki hisobning skrinshoti bo'lsa, undagi raqamlarni ham o'qib tekshir. Grafikdagi xato (noto'g'ri egri chiziq, belgilanmagan o'qlar, mos kelmaydigan qiymat) "mistakes" ga yozilsin.` : "Hisobotda AI ko'ra oladigan rasm yo'q."}
+${media?.skipped ? `${media.skipped} ta rasm AI uchun yaroqsiz formatda yoki katta: ularni baholay olmaysan — buning uchun jazolama, faqat shu haqda eslat.` : ""}
 
 TALABA ${stage.no}-BOSQICH HISOBOTI (talaba: ${user.name}):
 <<<HISOBOT BOSHI

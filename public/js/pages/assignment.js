@@ -4,7 +4,6 @@ import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
-import { extractText } from "../doctext.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 const fmtDue = (iso) => {
@@ -111,6 +110,7 @@ export async function saveBlob(path, name) {
   setTimeout(() => (URL.revokeObjectURL(a.href), a.remove()), 500);
 }
 
+const mediaNote = (s) => (s?.media ? ` · ${s.media.images} ta rasm, ${s.media.charts} ta diagramma topildi` : "");
 const sizeLabel = (n) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.ceil(n / 1024)} KB`);
 
 export async function renderStage(el, noParam) {
@@ -128,9 +128,8 @@ export async function renderStage(el, noParam) {
   const late = now > deadlineOf(no, form);
 
   let picked = null;
-  const text = h("textarea", { rows: 14, placeholder: "Hisobot matni: sub'ekt tavsifi, jadvallar (| bilan ajratib), hisob-kitoblar, grafik izohi va xulosa. Fayl yuklasangiz, matn avtomatik to'ldiriladi.", maxlength: 30000 }, sub?.text || "");
-  const fileInput = h("input", { type: "file", accept: ".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.webp" });
-  const fileNote = h("p", { class: "small muted" }, sub?.file ? `Yuklangan fayl: ${sub.file.name} (${sizeLabel(sub.file.size)})` : "Fayl hali yuklanmagan.");
+  const fileInput = h("input", { type: "file", accept: ".docx" });
+  const fileNote = h("p", { class: "small muted" }, sub?.file ? `Yuklangan fayl: ${sub.file.name} (${sizeLabel(sub.file.size)})${mediaNote(sub)}` : "Fayl hali yuklanmagan.");
   const prog = h("div", { class: "hidden small muted" });
   const aiBox = h("div", { class: "stack" });
 
@@ -143,15 +142,12 @@ export async function renderStage(el, noParam) {
       fileInput.value = "";
       return toast("Fayl juda katta (eng ko'pi 12 MB)", "error");
     }
-    fileNote.textContent = `Tanlandi: ${f.name} (${sizeLabel(f.size)})`;
-    if (/\.(pdf|docx)$/i.test(f.name)) {
-      fileNote.textContent += " · matn ajratilmoqda…";
-      const t = await extractText(f);
-      if (t && (!text.value.trim() || confirm("Hisobot matni faylingizdagi matn bilan almashtirilsinmi?"))) text.value = t.slice(0, 30000);
-      fileNote.textContent = `Tanlandi: ${f.name} (${sizeLabel(f.size)})${t ? ` · ${t.length} belgi matn ajratildi` : " · matn ajratib bo'lmadi — hisobot matnini qo'lda kiriting"}`;
-    } else {
-      fileNote.textContent += " · bu fayl turidan matn ajratilmaydi: AI tekshiruvi uchun asosiy jadval va hisob-kitoblarni matn sifatida yozing.";
+    if (!/\.docx$/i.test(f.name)) {
+      picked = null;
+      fileInput.value = "";
+      return toast("Faqat Word (.docx) fayl yuklanadi. Hisobotni Word'da saqlang.", "error");
     }
+    fileNote.textContent = `Tanlandi: ${f.name} (${sizeLabel(f.size)})`;
   });
 
   const drawAi = (rec) => {
@@ -171,7 +167,7 @@ export async function renderStage(el, noParam) {
         file = await uploadFile(no, picked, (p) => (prog.textContent = `Yuklanmoqda… ${Math.round(p * 100)}%`));
         prog.classList.add("hidden");
       }
-      const rec = await api.post(`assignment/${no}/submit`, { text: text.value, file });
+      const rec = await api.post(`assignment/${no}/submit`, { file });
       toast(rec.late ? "Yuborildi (muddatdan keyin)" : "Hisobot yuborildi!", rec.late ? "warn" : "ok");
       location.hash = `#/assignment/${no}`;
       await renderStage(el, no);
@@ -233,10 +229,10 @@ export async function renderStage(el, noParam) {
     h("div", { class: "card stack" },
       h("h3", {}, "📤 Hisobotni yuklash"),
       sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts}${sub.late ? " · kech" : ""}`),
-      h("label", { class: "field" }, h("span", {}, "Hisobot fayli (PDF, Word, Excel yoki rasm; 12 MB gacha)"), fileInput),
+      h("label", { class: "field" }, h("span", {}, "Hisobot fayli — faqat Word (.docx), 12 MB gacha. Jadval, formula, rasm va grafiklarni shu faylga joylang"), fileInput),
       fileNote,
       sub?.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`assignment/${no}/file`, sub.file.name) }, "⬇ Yuklangan faylni yuklab olish"),
-      h("label", { class: "field" }, h("span", {}, "Hisobot matni (AI tekshiruv va o'qituvchi uchun)"), text),
+      sub?.text && h("details", { class: "small" }, h("summary", {}, "Fayldan o'qilgan matn (AI shuni va rasmlarni ko'radi)"), h("p", { class: "pre-wrap" }, sub.text.slice(0, 6000))),
       prog,
       h("div", { class: "row end" }, submitBtn)),
     h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi va izchillik"), reviewBtn), aiBox),
@@ -338,7 +334,7 @@ export async function teacherView(el) {
     const close = modal(`${u.name} — ${it.no}-bosqich`, h("div", { class: "stack" },
       h("p", { class: "muted small" }, `${st.title} · guruh ${u.group || "—"} · yuborilgan: ${fmtDate(it.submittedAt)} · urinish: ${it.attempts}${it.late ? " · ⏰ KECH" : ""}`),
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/assignment/${it.userId}/${it.no}/file`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
-      it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q (faqat fayl)."),
+      it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q."),
       prior.length > 0 && h("details", {}, h("summary", {}, `🔗 Oldingi bog'liq bosqichlar (${prior.map((p) => p.no).join(", ")}) — izchillikni tekshirish uchun`), prior.map((p) => h("div", { class: "card" }, h("b", {}, `${p.no}-bosqich`), h("p", { class: "pre-wrap small" }, (p.text || "(matn yo'q, faqat fayl)").slice(0, 4000))))),
       it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, data.criteria, st)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
       h("div", { class: "row wrap grade-form" },

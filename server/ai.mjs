@@ -37,8 +37,23 @@ function claudeClient() {
   return client;
 }
 
-function claudeParams({ system, messages, maxTokens, effort, format }) {
-  const params = { model: claudeModel(), max_tokens: maxTokens, system, messages };
+/** Rasmlarni oxirgi foydalanuvchi xabariga qo'shadi (Claude: base64 blok). */
+function claudeMessages(messages, images) {
+  if (!images?.length) return messages;
+  const out = messages.map((m) => ({ ...m }));
+  const last = out[out.length - 1];
+  last.content = [
+    { type: "text", text: last.content },
+    ...images.flatMap((im) => [
+      { type: "text", text: `[RASM ${im.n}]` },
+      { type: "image", source: { type: "base64", media_type: im.mime, data: Buffer.from(im.data).toString("base64") } },
+    ]),
+  ];
+  return out;
+}
+
+function claudeParams({ system, messages, maxTokens, effort, format, images }) {
+  const params = { model: claudeModel(), max_tokens: maxTokens, system, messages: claudeMessages(messages, images) };
   if (!/haiku/.test(claudeModel())) params.output_config = { effort };
   if (format) params.output_config = { ...(params.output_config || {}), format };
   if (FALLBACK_MODELS.has(claudeModel())) {
@@ -79,9 +94,12 @@ async function claudeComplete(opts) {
 const geminiUrl = () => `${process.env.GEMINI_API_BASE || "https://generativelanguage.googleapis.com/v1beta"}/models`;
 const RETRYABLE = new Set([404, 429, 500, 503]);
 
-function geminiBody({ system, messages, maxTokens, format }) {
+function geminiBody({ system, messages, maxTokens, format, images }) {
   const body = {
-    contents: messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
+    contents: messages.map((m, i) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }, ...(i === messages.length - 1 && images?.length ? images.flatMap((im) => [{ text: `[RASM ${im.n}]` }, { inlineData: { mimeType: im.mime, data: Buffer.from(im.data).toString("base64") } }]) : [])],
+    })),
     generationConfig: { maxOutputTokens: maxTokens },
   };
   if (system) body.systemInstruction = { parts: [{ text: system }] };
@@ -171,8 +189,8 @@ export function streamText({ system, messages, maxTokens = 2000, effort = "low",
   return provider() === "gemini" ? geminiStream(opts) : claudeStream(opts);
 }
 
-export async function completeText({ system, messages, maxTokens = 1000, effort = "low", format }) {
-  const opts = { system, messages, maxTokens, effort, format };
+export async function completeText({ system, messages, maxTokens = 1000, effort = "low", format, images }) {
+  const opts = { system, messages, maxTokens, effort, format, images };
   return provider() === "gemini" ? geminiComplete(opts) : claudeComplete(opts);
 }
 
