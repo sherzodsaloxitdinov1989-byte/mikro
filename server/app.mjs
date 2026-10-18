@@ -2525,6 +2525,57 @@ async function videoAddLink(req, topicId) {
   return json(meta, 201);
 }
 
+const VIDEO_SCRIPT_SCHEMA = {
+  type: "object",
+  properties: { slides: { type: "array", items: { type: "object", properties: { n: { type: "integer" }, narration: { type: "string" } }, required: ["n", "narration"], additionalProperties: false } } },
+  required: ["slides"],
+  additionalProperties: false,
+};
+
+/** Video dars ssenariysi: har bir slayd uchun diktor matni (AI). Kalit bo'lmasa — slayd matnidan. */
+async function videoScript(req) {
+  const teacher = await requireTeacher(req);
+  const b = await body(req);
+  const topic = findTopic(String(b.topicId || ""));
+  const slides = (Array.isArray(b.slides) ? b.slides : []).slice(0, 80).map((x, i) => ({ n: Number(x?.n) || i + 1, text: str(x?.text, 1500) }));
+  if (!topic || !slides.length) throw new HttpError(400, "Mavzu yoki slaydlar topilmadi");
+  const lim = await bump(`ratelimit/videoscript/${teacher.id}/${new Date().toISOString().slice(0, 10)}`, 86_400_000, 40);
+  if (!lim.ok) throw new HttpError(429, "Bugungi ssenariy limiti tugadi");
+  const fallback = () => slides.map((s) => ({ n: s.n, narration: s.text.replace(/\s+/g, " ").trim() }));
+  let out = null;
+  if (aiEnabled()) {
+    const c = courseOf(topic.subject || SUBJECTS[0].key);
+    const prompt = `Sen "${c.title}" fanidan (${c.domain}) tajribali o'qituvchisan. "${topic.title}" mavzusi bo'yicha video dars uchun har bir slaydga diktor matnini yoz: o'qituvchi slaydni ko'rsatib, jonli, tushunarli o'zbek tilida (lotin) tushuntiradi.
+
+QOIDALAR:
+1. Har slayd uchun 45–90 so'zlik, ovoz chiqarib o'qishga qulay matn (faqat sarlavhali slaydlar uchun 20–40 so'z). Bir xil gaplarni takrorlama.
+2. Birinchi slaydda salomlashib, mavzuni tanishtir; oxirgi slaydda qisqa xulosa qil va xayrlash.
+3. Slayddagi ma'lumotlarga tayan, ularni sodda tushuntir va qisqa misol bilan boyit. Slaydda yo'q aniq statistika, sana yoki raqamni o'ylab topma.
+4. Formulalar va belgilarni (Q, P, %, =) so'z bilan ayt ("talab hajmi", "foiz", "teng"). Markdown, emoji, ro'yxat belgilari va "slayd raqami" so'zlarini ishlatma.
+5. Natija: har bir slayd n raqami bilan, tartib o'zgarmasin.
+
+SLAYDLAR:
+${slides.map((s) => `[${s.n}] ${s.text || "(matn yo'q — faqat rasm)"}`).join("\n")}`;
+    for (let attempt = 0; attempt < 2 && !out; attempt++) {
+      try {
+        const raw = await completeText({ system: "Sen o'qituvchisan. Javobni faqat berilgan JSON sxemasiga mos qaytar.", messages: [{ role: "user", content: prompt }], maxTokens: 14000, effort: "medium", format: { type: "json_schema", schema: VIDEO_SCRIPT_SCHEMA } });
+        let obj = null;
+        try {
+          obj = JSON.parse(raw);
+        } catch {
+          const m = String(raw).match(/\{[\s\S]*\}/);
+          if (m) obj = JSON.parse(m[0]);
+        }
+        const map = new Map((obj?.slides || []).map((x) => [Number(x.n), str(x.narration, 1500)]));
+        if (map.size) out = slides.map((s) => ({ n: s.n, narration: map.get(s.n) || s.text }));
+      } catch (e) {
+        console.error("Video ssenariysi xatosi:", e);
+      }
+    }
+  }
+  return json({ slides: out || fallback(), ai: Boolean(out) });
+}
+
 async function videoInit(req, topicId) {
   await requireTeacher(req);
   if (!topicIdOk(topicId)) throw new HttpError(400, "Mavzu noto'g'ri");
@@ -2661,6 +2712,7 @@ const routes = [
   ["POST", /^tasks\/([\w-]+)\/review$/, taskReview],
   ["GET", /^tasks\/([\w-]+)\/file$/, myTaskFile],
   ["GET", /^admin\/tasks$/, adminTasks],
+  ["POST", /^admin\/video-script$/, videoScript],
   ["POST", /^admin\/tasks$/, createTask],
   ["POST", /^admin\/tasks\/import$/, importTasks],
   ["PUT", /^admin\/tasks\/([\w-]+)$/, updateTask],

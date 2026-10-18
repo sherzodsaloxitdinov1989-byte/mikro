@@ -294,6 +294,12 @@ function pdfViewer(meta) {
   return viewer;
 }
 
+/** Taqdimot PDF'ini ochadi (video studiya uchun): { pdf, lib }. */
+export async function openSlidesPdf(meta, onProgress) {
+  const [lib, data] = await Promise.all([loadPdfJs(), fetchFile(meta, onProgress)]);
+  return lib.getDocument({ data: data.slice() }).promise;
+}
+
 /** PDF fayldagi sahifalar sonini aniqlaydi (yuklashdan oldin, o'qituvchi uchun). */
 export async function countPdfPages(file) {
   try {

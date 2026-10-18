@@ -123,10 +123,12 @@ export function videoPoster(file) {
 }
 
 /** O'qituvchi: video faylni bo'laklab yuklash. */
-export async function uploadVideo(topicId, file, { title, description, onProgress } = {}) {
+export async function uploadVideo(topicId, file, { title, description, onProgress, duration: knownDuration } = {}) {
   if (!session.isTeacher) throw new Error("Faqat o'qituvchi yuklay oladi");
   const init = await api.post(`admin/videos/${topicId}/init`, { name: file.name, size: file.size, mime: file.type });
-  const { poster, duration } = await videoPoster(file);
+  const probe = await videoPoster(file);
+  const poster = probe.poster;
+  const duration = knownDuration || probe.duration;
   let done = 0;
   const queue = Array.from({ length: init.chunks }, (_, i) => i);
   const worker = async () => {

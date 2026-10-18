@@ -8,6 +8,7 @@ import { reviewView } from "../practice-ui.js";
 import { analyze, pct, fmt as fmtN, LAB_SECTIONS } from "../finance.js";
 import { slideViewer, uploadSlides, fmtSize } from "../slides.js";
 import { allVideos, videoCard, uploadVideo, invalidateVideos } from "../media.js";
+import { openVideoStudio } from "../video-studio.js";
 import { audioUrl, audioInfo, chunkText, ttsInfo, resetTtsInfo } from "../narrator.js";
 import { buildScenes } from "../lesson-player.js";
 import { bookParagraphs } from "../audiobook.js";
@@ -661,7 +662,7 @@ async function videosManager(el) {
     return h(
       "div",
       { class: "card vm-row" },
-      h("div", { class: "row between wrap" }, h("div", {}, h("div", { class: "eyebrow" }, `${t.num}-mavzu`), h("h3", {}, t.title)), h("div", { class: "row wrap" }, h("button", { class: "btn small", onclick: addLink }, "🔗 YouTube / havola"), h("button", { class: "btn small ghost", onclick: () => fileInput.click() }, "📤 Video fayl"), fileInput)),
+      h("div", { class: "row between wrap" }, h("div", {}, h("div", { class: "eyebrow" }, `${t.num}-mavzu`), h("h3", {}, t.title)), h("div", { class: "row wrap" }, h("button", { class: "btn small", onclick: () => openVideoStudio(t, (v) => ((byTopic[t.id] ||= []).push(v), drawList())) }, "🎬 Video dars yaratish"), h("button", { class: "btn small ghost", onclick: addLink }, "🔗 YouTube / havola"), h("button", { class: "btn small ghost", onclick: () => fileInput.click() }, "📤 Video fayl"), fileInput)),
       bar,
       list
     );
@@ -669,7 +670,7 @@ async function videosManager(el) {
 
   mount(
     el,
-    h("div", { class: "alert alert-info" }, h("b", {}, "Har bir mavzuga bir nechta video dars qo'shing. "), "Eng qulayi — videoni YouTube'ga joylab, havolasini qo'shish. Kichik videolarni (MP4/WebM, 80 MB gacha) to'g'ridan-to'g'ri yuklash ham mumkin: muqova rasmi va davomiylik avtomatik aniqlanadi. Videolar mavzu sahifasida va “Mediateka”da chiqadi."),
+    h("div", { class: "alert alert-info" }, h("b", {}, "Har bir mavzuga bir nechta video dars qo'shing. "), "“🎬 Video dars yaratish” — mavzu taqdimoti va AI ovozi asosida platformaning o'zida video yaratadi. Yoki videoni YouTube'ga joylab, havolasini qo'shing. Kichik videolarni (MP4/WebM, 80 MB gacha) to'g'ridan-to'g'ri yuklash ham mumkin: muqova rasmi va davomiylik avtomatik aniqlanadi. Videolar mavzu sahifasida va “Mediateka”da chiqadi."),
     h("div", { class: "stack" }, TOPICS.map(row))
   );
 }
