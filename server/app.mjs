@@ -4,7 +4,7 @@ import { db, getMany, getEntries, hit, peekHit, resetHit } from "./store.mjs";
 import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret, generatedSecretValue } from "./auth.mjs";
 import crypto from "node:crypto";
 import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.mjs";
-import { computeGame, certificateStatus } from "../public/js/gamification.js";
+import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS } from "../public/data/course.js";
@@ -1921,25 +1921,34 @@ const shortName = (name) => {
   const [first, ...rest] = String(name || "").trim().split(/\s+/);
   return rest.length ? `${first} ${rest[0][0]}.` : first || "Talaba";
 };
-let ratingCache = { at: 0, rows: null };
+const subjectCtxs = new Map();
+/** Fan konteksti (mavzular, darajalar, nishonlar, sertifikat talablari) — pasport va sertifikat har fan uchun alohida hisoblanadi. */
+const ctxOfSubject = (key) => {
+  if (!subjectCtxs.has(key)) subjectCtxs.set(key, makeContext(TOPICS_ALL[key] || TOPICS, courseOf(key)));
+  return subjectCtxs.get(key);
+};
+const subjectKeyOf = (user) => (user?.role === "student" ? subjectOfGroup(user.group).key : SUBJECTS[0].key);
+const ratingCaches = new Map();
 
-async function ratingRows() {
-  if (ratingCache.rows && Date.now() - ratingCache.at < 5 * 60_000) return ratingCache.rows;
-  const users = (await getMany("user/")).filter((u) => isMainUser(u));
+async function ratingRows(subject = SUBJECTS[0].key) {
+  const cached = ratingCaches.get(subject);
+  if (cached && Date.now() - cached.at < 5 * 60_000) return cached.rows;
+  const ctx = ctxOfSubject(subject);
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
   const ev = await evidenceMap();
   const rows = await Promise.all(
     users.map(async (u) => {
-      const game = computeGame(ev(u.id));
+      const game = computeGame(ev(u.id), new Date(), ctx);
       return { id: u.id, name: shortName(u.name), group: u.group || "", college: u.college || "", collegeKey: normCollege(u.college), hidden: Boolean(u.hideFromRating), xp: game.xp, level: game.level.name, icon: game.level.icon, streak: game.stats.streak, badges: game.badges.filter((b) => b.earned).length };
     })
   );
-  ratingCache = { at: Date.now(), rows };
+  ratingCaches.set(subject, { at: Date.now(), rows });
   return rows;
 }
 
 async function leaderboard(req) {
   const user = await requireUser(req);
-  const rows = await ratingRows();
+  const rows = await ratingRows(subjectKeyOf(user));
   const pick = (filter) => {
     const list = rows.filter(filter).sort((a, b) => b.xp - a.xp);
     const meIdx = list.findIndex((r) => r.id === user.id);
@@ -1962,16 +1971,19 @@ async function issueCertificate(req) {
   if (user.role !== "student") throw new HttpError(403, "Sertifikat faqat talabalarga beriladi");
   const existing = await db().get(`certuser/${user.id}`);
   if (existing) return json(await db().get(`cert/${existing.code}`));
-  const game = computeGame(await evidenceFor(user.id));
-  const status = certificateStatus(game);
+  const subject = subjectKeyOf(user);
+  const ctx = ctxOfSubject(subject);
+  const course = courseOf(subject);
+  const game = computeGame(await evidenceFor(user.id), new Date(), ctx);
+  const status = certificateStatus(game, ctx);
   if (!status.eligible) throw new HttpError(400, "Sertifikat shartlari hali bajarilmagan");
-  const code = `${COURSE.certPrefix}-${crypto.randomBytes(4).toString("hex").toUpperCase()}`;
+  const code = `${course.certPrefix}-${crypto.randomBytes(4).toString("hex").toUpperCase()}`;
   const cert = {
     code,
     name: user.name,
     college: user.college || "",
     group: user.group || "",
-    course: COURSE.title,
+    course: course.title,
     issuedAt: new Date().toISOString(),
     stats: { xp: game.xp, level: game.level.name, levelIcon: game.level.icon, topicsDone: game.stats.topicsDone, solved: game.stats.solved, bestLab: game.stats.bestLab, badges: game.badges.filter((b) => b.earned).length },
   };

@@ -130,6 +130,7 @@ export const SUBJECTS = [
       description: "“Tadbirkorlik asoslari” fani bo'yicha interaktiv ta'lim platformasi: darslik, audio va animatsion darslar, taqdimotlar, testlar va amaliy topshiriqlar.",
       source: "Saloxitdinov Sh.F. Tadbirkorlik asoslari: darslik. – Toshkent: O‘zMU Jizzax filiali, 2026.",
       passportName: "Tadbirkor pasporti",
+      certPrefix: "TA",
       program: "O‘zMU Jizzax filiali, «Iqtisodiyot va turizm» kafedrasi. Fan 5 ECTS kredit (150 soat): auditoriya 60 soat (30 soat bob, 30 soat amaliy mashg‘ulot), mustaqil ta’lim 90 soat; 15 ta bob (7-semestr, 2026–2027 o‘quv yili). Fanning o‘ziga xosligi — vertikal loyiha: har bir talaba bitta biznes g‘oyani tanlab, semestr davomida uni biznes-rejaga aylantiradi.",
       outcomes: [
         "Tadbirkorlik tafakkurini namoyon etib, kundalik muammolardan biznes imkoniyat va g‘oya yaratadi, uni MVP va “Acid Test” orqali kam xarajat bilan bozorda sinaydi.",

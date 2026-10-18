@@ -3,7 +3,7 @@ import { h, mount, toast, loading, fmtLongDate } from "../ui.js";
 import { api, session } from "../api.js";
 import { loadGame, progressState } from "../progress.js";
 import { XP_RULES, LEVELS, certificateStatus } from "../gamification.js";
-import { COURSE } from "../../data/course.js";
+import { COURSE } from "../../data/topics.js";
 
 const SOURCES = [
   ["topics", "📚 Mavzular"],

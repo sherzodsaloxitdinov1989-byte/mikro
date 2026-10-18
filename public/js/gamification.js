@@ -1,16 +1,25 @@
 // Talaba pasporti: XP ballari, darajalar, mavzu muhrlari, nishonlar va kunlik seriya.
 // Bu modul DOM'ga bog'liq emas — brauzerda ham, serverda (reyting, sertifikat) ham bir xil hisoblaydi.
 // Daraja nomlari fanga moslab public/data/course.js faylida (COURSE.levels) o'zgartiriladi.
-import { TOPICS } from "../data/topics.js";
-import { COURSE } from "../data/course.js";
+// Brauzerda — joriy foydalanuvchi fani (topics.js: TOPICS, COURSE), serverda — asosiy fan; boshqa fan uchun makeContext(topics, course) beriladi.
+import { TOPICS, COURSE } from "../data/topics.js";
 
 const LEVEL_XP = [0, 120, 320, 650, 1050, 1600, 2300, 3200];
-export const LEVELS = COURSE.levels.slice(0, LEVEL_XP.length).map(([name, icon], i) => ({ min: LEVEL_XP[i], name, icon }));
 const lab = COURSE.features.lab;
-const practiceTotal = () => TOPICS.reduce((s, t) => s + (t.practice?.tasks.length || 0), 0);
-/** Sertifikat uchun talablar: mavzularning ~75% i, masalalarning yarmi (ko'pi bilan 30 ta). */
-export const CERT_TOPICS = Math.max(1, Math.ceil(TOPICS.length * 0.75));
-export const CERT_SOLVED = Math.min(30, Math.floor(practiceTotal() / 2));
+
+/** Fan konteksti: mavzular, darajalar, nishonlar va sertifikat talablari (fanga bog'liq hamma narsa shu yerda). */
+export function makeContext(topics, course) {
+  const levels = course.levels.slice(0, LEVEL_XP.length).map(([name, icon], i) => ({ min: LEVEL_XP[i], name, icon }));
+  const practiceTotal = topics.reduce((s, t) => s + (t.practice?.tasks.length || 0), 0);
+  return {
+    topics,
+    levels,
+    // Sertifikat uchun talablar: mavzularning ~75% i, masalalarning yarmi (ko'pi bilan 30 ta).
+    certTopics: Math.max(1, Math.ceil(topics.length * 0.75)),
+    certSolved: Math.min(30, Math.floor(practiceTotal / 2)),
+    badges: badgesFor(topics.length, Boolean(course.features?.lab)),
+  };
+}
 
 export const XP_RULES = [
   ["Mavzu nazariyasini o'qish", 20],
@@ -66,11 +75,11 @@ function topicPart(t, topic) {
   return { xp, pct: Math.round((parts.filter(Boolean).length / parts.length) * 100), quiz: t.quiz ?? null, methodsDone, solved };
 }
 
-export function levelOf(xp) {
+export function levelOf(xp, levels = LEVELS) {
   let i = 0;
-  while (i + 1 < LEVELS.length && xp >= LEVELS[i + 1].min) i++;
-  const cur = LEVELS[i];
-  const next = LEVELS[i + 1] || null;
+  while (i + 1 < levels.length && xp >= levels[i + 1].min) i++;
+  const cur = levels[i];
+  const next = levels[i + 1] || null;
   return { index: i, ...cur, next, toNext: next ? next.min - xp : 0, pct: next ? Math.round(((xp - cur.min) / (next.min - cur.min)) * 100) : 100 };
 }
 
@@ -78,9 +87,9 @@ export function levelOf(xp) {
  * Barcha ko'rsatkichlar. evidence: { progress, selfStudy, labs }.
  * Faqat progress berilsa (mehmon yoki tezkor hisob), qolgan qismlar 0 deb olinadi.
  */
-export function computeGame(evidence = {}, today = new Date()) {
+export function computeGame(evidence = {}, today = new Date(), ctx = DEFAULT) {
   const progress = evidence.progress || {};
-  const topics = TOPICS.map((topic) => ({ id: topic.id, num: topic.num, title: topic.title, icon: topic.icon, ...topicPart(progress.topics?.[topic.id], topic) }));
+  const topics = ctx.topics.map((topic) => ({ id: topic.id, num: topic.num, title: topic.title, icon: topic.icon, ...topicPart(progress.topics?.[topic.id], topic) }));
   const bySource = { topics: topics.reduce((s, t) => s + t.xp, 0) };
 
   const graded = (evidence.selfStudy || []).filter((x) => Number.isFinite(x.grade));
@@ -110,14 +119,16 @@ export function computeGame(evidence = {}, today = new Date()) {
     longest,
     activeDays: Object.keys(progress.activity || {}).length,
   };
-  const badges = BADGES.map((b) => ({ ...b, earned: b.test(stats), progress: b.progress ? Math.min(1, b.progress(stats)) : null }));
-  return { xp, level: levelOf(xp), bySource, topics, stats, badges };
+  const badges = ctx.badges.map((b) => ({ ...b, earned: b.test(stats), progress: b.progress ? Math.min(1, b.progress(stats)) : null }));
+  return { xp, level: levelOf(xp, ctx.levels), bySource, topics, stats, badges };
 }
 
-export const BADGES = [
+/** Nishonlar ro'yxati (mavzular soni va laboratoriyaga qarab). */
+export function badgesFor(topicCount, lab) {
+  return [
   { id: "first-step", icon: "👣", title: "Birinchi qadam", text: "Birinchi mavzuni boshlang", test: (s) => s.topicsStarted >= 1 },
   { id: "five-topics", icon: "🗂️", title: "Izchil o'quvchi", text: "5 ta mavzuni to'liq o'zlashtiring", test: (s) => s.topicsDone >= 5, progress: (s) => s.topicsDone / 5 },
-  { id: "all-topics", icon: "🏆", title: "To'liq kurs", text: `${TOPICS.length} ta mavzuning barchasini o'zlashtiring`, test: (s) => s.topicsDone >= TOPICS.length, progress: (s) => s.topicsDone / TOPICS.length },
+  { id: "all-topics", icon: "🏆", title: "To'liq kurs", text: `${topicCount} ta mavzuning barchasini o'zlashtiring`, test: (s) => s.topicsDone >= topicCount, progress: (s) => s.topicsDone / topicCount },
   { id: "perfect", icon: "💯", title: "Bilimdon", text: "Testda 100% natija oling", test: (s) => s.perfectQuizzes >= 1 },
   { id: "perfect5", icon: "🧠", title: "Mutaxassis", text: "5 ta testda 100% natija", test: (s) => s.perfectQuizzes >= 5, progress: (s) => s.perfectQuizzes / 5 },
   { id: "methods", icon: "🧩", title: "Faol ishtirokchi", text: "15 ta interaktiv metodni bajaring", test: (s) => s.methodsDone >= 15, progress: (s) => s.methodsDone / 15 },
@@ -135,13 +146,22 @@ export const BADGES = [
   { id: "streak3", icon: "🔥", title: "Uch kunlik seriya", text: "3 kun ketma-ket o'qing", test: (s) => s.longest >= 3, progress: (s) => s.longest / 3 },
   { id: "streak7", icon: "⚡", title: "Haftalik marafon", text: "7 kun ketma-ket o'qing", test: (s) => s.longest >= 7, progress: (s) => s.longest / 7 },
 ];
+}
+
 
 /** Sertifikat olish shartlari. */
-export function certificateStatus(game) {
+export function certificateStatus(game, ctx = DEFAULT) {
   const req = [
-    [`${TOPICS.length} ta mavzudan kamida ${CERT_TOPICS} tasi to'liq o'zlashtirilgan`, game.stats.topicsDone >= CERT_TOPICS, `${game.stats.topicsDone}/${CERT_TOPICS}`],
-    ...(CERT_SOLVED ? [[`Amaliy mashg'ulotlarda kamida ${CERT_SOLVED} ta masala to'g'ri yechilgan`, game.stats.solved >= CERT_SOLVED, `${game.stats.solved}/${CERT_SOLVED}`]] : []),
-    [`“${LEVELS[3].name}” darajasiga erishilgan`, game.level.index >= 3, game.level.name],
+    [`${ctx.topics.length} ta mavzudan kamida ${ctx.certTopics} tasi to'liq o'zlashtirilgan`, game.stats.topicsDone >= ctx.certTopics, `${game.stats.topicsDone}/${ctx.certTopics}`],
+    ...(ctx.certSolved ? [[`Amaliy mashg'ulotlarda kamida ${ctx.certSolved} ta masala to'g'ri yechilgan`, game.stats.solved >= ctx.certSolved, `${game.stats.solved}/${ctx.certSolved}`]] : []),
+    [`“${ctx.levels[3].name}” darajasiga erishilgan`, game.level.index >= 3, game.level.name],
   ];
   return { eligible: req.every((r) => r[1]), req };
 }
+
+// Standart kontekst (brauzerda — joriy fan; serverda — asosiy fan) va oldingi nomlar bilan mosligi uchun
+const DEFAULT = makeContext(TOPICS, COURSE);
+export const LEVELS = DEFAULT.levels;
+export const CERT_TOPICS = DEFAULT.certTopics;
+export const CERT_SOLVED = DEFAULT.certSolved;
+export const BADGES = DEFAULT.badges;

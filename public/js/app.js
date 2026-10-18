@@ -107,7 +107,7 @@ function renderNav() {
     }
   }
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
-  else if (user && !ownSubject) items.push(["#/passport", "Talaba pasporti", "🛂"]);
+  else if (user && (!ownSubject || ownSubject.hasContent)) items.push(["#/passport", ownSubject ? COURSE.passportName : "Talaba pasporti", "🛂"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
   // O'qituvchi uchun fan almashtirgich: tanlangan fan mavzulari, testlari va materiallari bilan ishlaydi (sahifa qayta yuklanadi)
   const switcher = isTeacher && SUBJECTS.filter((s) => s.hasContent).length > 1
@@ -155,7 +155,7 @@ async function route() {
     const su = subjectOfGroup(session.user.group);
     const other = su.key !== SUBJECTS[0].key;
     const closed = !su.hasContent && (path === "/" || path === "" || /^\/(topics|practice|lab|media|self-study|updates)(\/|$)/.test(path));
-    if (closed || (other && /^\/(assignment|rating|lab|updates|passport)(\/|$)/.test(path))) {
+    if (closed || (other && /^\/(assignment|rating|lab|updates)(\/|$)/.test(path))) {
       location.hash = "#/fan";
       return;
     }
