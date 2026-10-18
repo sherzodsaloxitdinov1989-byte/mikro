@@ -169,14 +169,11 @@ export async function openVideoStudio(topic, onCreated) {
     cv.height = H;
     const ctx = cv.getContext("2d");
     const ac = new (window.AudioContext || window.webkitAudioContext)();
-    const dest = ac.createMediaStreamDestination();
     const stream = cv.captureStream(25);
-    dest.stream.getAudioTracks().forEach((t) => stream.addTrack(t));
-    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 700_000, audioBitsPerSecond: 64_000 });
+    let rec = null;
     const chunks = [];
-    rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
-    const stopped = new Promise((r) => (rec.onstop = r));
-    recording = { cancel: () => ((cancelled = true), progress.textContent = "To'xtatilmoqda…") };
+    let stopped = null;
+    recording = { cancel: () => ((cancelled = true), (progress.textContent = "To'xtatilmoqda…")) };
     let elapsed = 0;
     try {
       // 1) Ovozlarni tayyorlash (keshlanadi: bir xil matn qayta yaratilmaydi)
@@ -199,6 +196,12 @@ export async function openVideoStudio(topic, onCreated) {
         audios.push(buf);
       }
       if (cancelled) throw new Error("Bekor qilindi");
+      // Ovoz yo'li faqat ovoz bo'lganda qo'shiladi (bo'sh ovoz yo'li yozuvni to'xtatib qo'yishi mumkin)
+      const dest = audios.some(Boolean) ? ac.createMediaStreamDestination() : null;
+      dest?.stream.getAudioTracks().forEach((t) => stream.addTrack(t));
+      rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 700_000, audioBitsPerSecond: 64_000 });
+      rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+      stopped = new Promise((r) => (rec.onstop = r));
       // 2) Yozib olish (real vaqtda): oyna ochiq turishi kerak
       if (ac.state === "suspended") await ac.resume();
       rec.start(1000);
@@ -277,7 +280,7 @@ export async function openVideoStudio(topic, onCreated) {
           } }, "⬆ Mavzuga joylash")));
       progress.textContent = "✅ Video tayyor. Ko'rib chiqing va mavzuga joylang.";
     } catch (e) {
-      if (rec.state !== "inactive") rec.stop();
+      if (rec && rec.state !== "inactive") rec.stop();
       progress.textContent = e.message === "Bekor qilindi" ? "Bekor qilindi." : `⚠️ ${e.message}`;
       if (e.message !== "Bekor qilindi") toast(e.message, "error");
     } finally {
