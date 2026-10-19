@@ -33,25 +33,25 @@ const GROUPS = [
   ["live", "🎮 Interaktiv dars", 280],
 ];
 const SECTIONS = [
-  { key: "practice", icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
-  COURSE.features.lab && { key: "labs", icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
+  { key: "practice", needsContent: true, icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
+  COURSE.features.lab && { key: "labs", needsContent: true, icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
   { key: "tasks", icon: "🗂️", title: "Topshiriq yaratish", group: "class", desc: "Platformaning o'zida yangi topshiriq yarating: shart, kimga beriladi, muddat, ball va AI mezonlari. Talabalar ishlarini baholang." },
   { key: "meets", icon: "📹", title: "Jonli darslar (Meet)", group: "live", desc: "Google Meet orqali onlayn dars jadvali: vaqt, havola va kimga ko'rinishi. Talaba o'z guruhining darsini ko'radi va qo'shiladi." },
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
-  { key: "self-study", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
+  { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", only: "tadbirkorlik", icon: "🔐", title: "Talabalar ro'yxati (shifr)", group: "class", desc: "141-23 va 142-23 guruhlari: F.I.Sh. va shifr ro'yxatini yuklash. Talaba faqat ro'yxat va shifr bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
-  { key: "testbank", icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
-  { key: "items", icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
-  { key: "slides", icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
-  { key: "videos", icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
-  { key: "voices", icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
-  { key: "live", icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter((x) => x && (!x.only || x.only === SUBJECT_KEY)); // fanga xos bo'limlar faqat o'z fanida ko'rinadi
+  { key: "testbank", needsContent: true, icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
+  { key: "items", needsContent: true, icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
+  { key: "slides", needsContent: true, icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
+  { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
+  { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
+  { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
+].filter((x) => x && (!x.only || x.only === SUBJECT_KEY) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {
@@ -83,7 +83,7 @@ function pickSubject(key) {
 async function subjectsView(el) {
   const users = await api.get("admin/students");
   const students = users.filter((u) => u.role === "student");
-  const list = SUBJECTS.filter((s) => s.hasContent);
+  const list = SUBJECTS;
   mount(
     el,
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "Fanni tanlang"), h("p", { class: "muted" }, "Har bir fan alohida: o'z talabalari, mavzulari, testlari, topshiriqlari va baholash bo'limlari. Istalgan paytda boshqa fanga o'tishingiz mumkin."))),
@@ -92,7 +92,7 @@ async function subjectsView(el) {
       const groups = s.groups.length ? s.groups : [...new Set(mine.map((u) => u.group).filter(Boolean))].sort();
       return h("button", { class: `card subject-card ${s.key === SUBJECT_KEY ? "current" : ""}`, type: "button", onclick: () => pickSubject(s.key), style: { textAlign: "left", cursor: "pointer", font: "inherit", color: "inherit" } },
         h("div", { class: "row between wrap" }, h("h2", {}, `${s.icon} ${s.title}`), s.key === SUBJECT_KEY && h("span", { class: "badge badge-ok" }, "Hozirgi fan")),
-        h("p", { class: "muted" }, `${s.direction}${s.semester ? ` · ${s.semester.no}-semestr` : " · 3–4-semestr"}`),
+        h("p", { class: "muted" }, `${s.direction}${s.semester ? ` · ${s.semester.no}-semestr` : s.hasContent ? " · 3–4-semestr" : " · darslik hali yuklanmagan"}`),
         h("div", { class: "row wrap" }, groups.map((g) => h("span", { class: "chip chip-soft" }, g))),
         h("p", { class: "small" }, `${mine.length} nafar talaba ro'yxatdan o'tgan`),
         h("span", { class: "btn small" }, s.key === SUBJECT_KEY ? "Panelni ochish →" : "Shu fan paneliga o'tish →"));
@@ -102,7 +102,7 @@ async function subjectsView(el) {
 
 /** Panel tepasida: hozirgi fan va boshqa fanga o'tish tugmalari. */
 function subjectBar() {
-  const list = SUBJECTS.filter((s) => s.hasContent);
+  const list = SUBJECTS;
   if (list.length < 2) return null;
   const cur = subjectByKey(SUBJECT_KEY);
   return h("div", { class: "subject-bar" },
@@ -119,7 +119,7 @@ export async function render(el, tab = "", param) {
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
   const picked = (() => { try { return sessionStorage.getItem(SUBJECT_PICKED); } catch { return "1"; } })();
-  if (!tab && !picked && SUBJECTS.filter((s) => s.hasContent).length > 1) {
+  if (!tab && !picked && SUBJECTS.length > 1) {
     mount(el, h("div", { class: "role-banner teacher" }, h("b", {}, "👩‍🏫 O'qituvchi paneli")), content);
     mount(content, loading());
     return subjectsView(content);
@@ -165,7 +165,7 @@ function gallery(o) {
       h("span", { class: "tp-card-go", "aria-hidden": "true" }, "→"));
   };
   let n = 0;
-  const groups = GROUPS.map(([gk, gl, hue]) => h("section", { class: "tp-group", "data-group": gk },
+  const groups = GROUPS.filter(([gk]) => SECTIONS.some((x) => x.group === gk)).map(([gk, gl, hue]) => h("section", { class: "tp-group", "data-group": gk },
     h("h2", { class: "tp-group-title", style: { "--hue": hue } }, gl),
     h("div", { class: "tp-grid" }, SECTIONS.filter((x) => x.group === gk).map((x) => card(x, n++)))));
   const empty = h("p", { class: "muted hidden" }, "Bunday bo'lim topilmadi.");
