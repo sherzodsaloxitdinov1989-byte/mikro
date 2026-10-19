@@ -22,28 +22,55 @@
   },
   {
    "type": "formula",
+   "title": "Samaralar ta’rifi",
+   "sub": "4.1. Narx o‘zgarishining ikki samarasi",
+   "items": [
+    {
+     "name": "Kompensatsiya summasi",
+     "formula": "Δm = m′ − m = x_{1}Δp_{1}",
+     "note": "m′ = p_{1}′x_{1} + p_{2}x_{2}: avvalgi to‘plamni sotib olish"
+    },
+    {
+     "name": "Almashtirish samarasi",
+     "formula": "Δx_{1}^{s} = x_{1}(p_{1}′, m′) − x_{1}(p_{1}, m)",
+     "note": "xarid qobiliyati o‘zgarmas; narx pasayganda Δx_{1}^{s} ≥ 0"
+    },
+    {
+     "name": "Daromad samarasi",
+     "formula": "Δx_{1}^{n} = x_{1}(p_{1}′, m) − x_{1}(p_{1}′, m′)",
+     "note": "narxlar yangi, daromad m′ dan m ga o‘zgaradi"
+    },
+    {
+     "name": "Manfiy almashtirish qonuni",
+     "formula": "(Δx_{1}^{s})/(Δp_{1}) ≤ 0",
+     "note": "optimal tanlovdan kelib chiqadi, qo‘shimcha faraz kerak emas"
+    }
+   ]
+  },
+  {
+   "type": "formula",
    "title": "Slutskiy tenglamasi",
    "sub": "4.2. Slutskiy tenglamasi",
    "items": [
     {
      "name": "Slutskiy identifikatsiyasi",
-     "formula": "Δx₁ = Δx₁ˢ + Δx₁ⁿ",
+     "formula": "Δx_{1} = Δx_{1}^{s} + Δx_{1}^{n}",
      "note": "umumiy samara = almashtirish + daromad samarasi"
     },
     {
-     "name": "Kompensatsiya summasi",
-     "formula": "Δm = x₁·Δp₁",
-     "note": "avvalgi to‘plamni sotib olish uchun daromad o‘zgarishi"
+     "name": "Daromad samarasi",
+     "formula": "Δx_{1}^{n} = −(Δx_{1}^{m})/(Δm)·x_{1}Δp_{1}",
+     "note": "daromad −Δm = −x_{1}Δp_{1} ga o‘zgaradi"
     },
     {
      "name": "Slutskiy tenglamasi",
-     "formula": "∂x₁/∂p₁ = ∂x₁ˢ/∂p₁ − x₁·∂x₁/∂m",
-     "note": "almashtirish samarasi har doim ≤ 0"
+     "formula": "(Δx_{1})/(Δp_{1}) = (Δx_{1}^{s})/(Δp_{1}) − x_{1}(Δx_{1}^{m})/(Δm)",
+     "note": "birinchi qo‘shiluvchi (almashtirish samarasi) ≤ 0"
     },
     {
-     "name": "Elastiklik ko‘rinishi",
-     "formula": "ε₁₁ = ε₁₁ˢ − s₁·η₁",
-     "note": "s₁ = p₁x₁/m – tovarning byudjetdagi ulushi"
+     "name": "Hosilalar ko‘rinishi",
+     "formula": "(∂x_{1}(p,m))/(∂p_{1}) = (∂x_{1}^{s})/(∂p_{1}) − x_{1}(∂x_{1}(p,m))/(∂m)",
+     "note": "cheksiz kichik o‘zgarishlar uchun"
     }
    ]
   },
@@ -96,12 +123,34 @@
    "title": "Amaliy misol 4.1: sutga talab",
    "sub": "4.2. Slutskiy tenglamasi",
    "steps": [
-    "Talab x₁ = 10 + m/(10p₁); m = 120, p₁: 3 → 2 ming so‘m",
-    "Dastlab: x₁ = 10 + 120/30 = 14 litr",
-    "Δm = 14·(−1) = −14, ya’ni m′ = 106",
-    "Almashtirish: 10 + 106/20 = 15,3, samara 1,3 litr",
-    "Yakuniy talab 10 + 120/20 = 16; daromad samarasi 0,7 litr",
+    "Talab x_{1} = 10 + (m)/(10p_{1}); m = 120, p_{1}: 3 → 2 ming so‘m",
+    "Dastlab: x_{1} = 10 + (120)/(30) = 14 litr",
+    "Δm = x_{1}Δp_{1} = 14·(−1) = −14, ya’ni m′ = 106",
+    "Almashtirish: x_{1}(2; 106) = 10 + (106)/(20) = 15,3; Δx_{1}^{s} = 1,3 litr",
+    "Yakuniy talab 10 + (120)/(20) = 16; daromad samarasi Δx_{1}^{n} = 0,7 litr",
     "Umumiy samara 2 = 1,3 + 0,7 – sut normal tovar"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Elastiklik ko‘rinishi",
+   "sub": "4.2. Slutskiy tenglamasi",
+   "items": [
+    {
+     "name": "Slutskiy (elastiklik)",
+     "formula": "ε_{11} = ε_{11}^{s} − s_{1}η_{1}",
+     "note": "s_{1} = (p_{1}x_{1})/(m) – byudjet ulushi; η_{1} – daromad elastikligi"
+    },
+    {
+     "name": "Giffen sharti",
+     "formula": "ε_{11} > 0 ⇒ s_{1}|η_{1}| > |ε_{11}^{s}|",
+     "note": "tovar byudjetda katta ulush va kuchli past sifatli bo‘lishi kerak"
+    },
+    {
+     "name": "Misol 4.3: oziq-ovqat",
+     "formula": "ε_{11} = −0,2 − 0,45·0,6 = −0,47",
+     "note": "s_{1} = 0,45; η_{1} = 0,6; ε_{11}^{s} = −0,2"
+    }
    ]
   },
   {
@@ -143,40 +192,50 @@
    "items": [
     {
      "name": "Xarajatlarni minimallashtirish",
-     "formula": "min p₁x₁ + p₂x₂,  u(x₁, x₂) = ū",
-     "note": "yechimi – Xiks talabi h₁(p₁, p₂, ū)"
+     "formula": "min_{x_{1},x_{2}} (p_{1}x_{1} + p_{2}x_{2}),  u(x_{1}, x_{2}) = ū",
+     "note": "yechimi – Xiks talabi h_{1}(p, ū); minimum – e(p, ū)"
     },
     {
      "name": "Shepard lemmasi",
-     "formula": "∂e/∂p₁ = h₁(p, ū)",
+     "formula": "(∂e(p,ū))/(∂p_{1}) = h_{1}(p,ū)",
      "note": "e(p, ū) – naflilikka erishishning minimal xarajati"
     },
     {
      "name": "Slutskiy tenglamasi (dual)",
-     "formula": "∂x₁/∂p₁ = ∂h₁/∂p₁ − x₁·∂x₁/∂m",
+     "formula": "(∂x_{1})/(∂p_{1}) = (∂h_{1})/(∂p_{1}) − x_{1}(∂x_{1})/(∂m)",
      "note": "Xiks talabi uchun talab qonuni har doim bajariladi"
+    },
+    {
+     "name": "Misol 4.4: Xiks samarasi",
+     "formula": "x_{1}^{h} = √(8) ≈ 2,83;  2,83 − 2 = 0,83",
+     "note": "u = x_{1}x_{2} = 8, p_{1} = p_{2} = 1; Slutskiy samarasi 1,0 dan kichik"
     }
    ]
   },
   {
    "type": "formula",
-   "title": "Zaxira daromad samarasi",
+   "title": "Zaxira daromad samarasi va mehnat",
    "sub": "4.4. Boshlang‘ich zaxira va mehnat taklifi",
    "items": [
     {
      "name": "Zaxiradan daromad",
-     "formula": "m = p₁ω₁ + p₂ω₂",
+     "formula": "m = p_{1}ω_{1} + p_{2}ω_{2}",
      "note": "narx o‘zgarsa, pul daromadi ham o‘zgaradi"
     },
     {
      "name": "Uchinchi qo‘shiluvchi",
-     "formula": "Δx₁/Δp₁ = Δx₁ˢ/Δp₁ + (ω₁ − x₁)·Δx₁ᵐ/Δm",
-     "note": "(ω₁ − x₁) – sof taklif; sof sotuvchi narx oshganda yutadi"
+     "formula": "(Δx_{1})/(Δp_{1}) = (Δx_{1}^{s})/(Δp_{1}) + (ω_{1} − x_{1})(Δx_{1}^{m})/(Δm)",
+     "note": "(ω_{1} − x_{1}) – sof taklif; sof sotuvchi narx oshganda yutadi"
     },
     {
      "name": "Vaqt va mehnat",
      "formula": "L + R = T̄;  pC + wR = M + wT̄",
      "note": "bo‘sh vaqtning narxi – ish haqi w"
+    },
+    {
+     "name": "Bo‘sh vaqt uchun Slutskiy",
+     "formula": "(ΔR)/(Δw) = (ΔR^{s})/(Δw) + (T̄ − R)(ΔR^{m})/(Δm)",
+     "note": "T̄ − R = L – ishlangan soatlar; almashtirish samarasi < 0"
     }
    ]
   },
@@ -192,11 +251,11 @@
    "title": "Amaliy misol 4.5: mehnat taklifi",
    "sub": "4.4. Boshlang‘ich zaxira va mehnat taklifi",
    "steps": [
-    "u = C⁰˒⁵R⁰˒⁵; w = 25, M = 100 ming so‘m, p = 1, T̄ = 16 soat",
+    "u = C^{0,5}R^{0,5}; w = 25, M = 100 ming so‘m, p = 1, T̄ = 16 soat",
     "To‘liq daromad F = M + wT̄ = 100 + 25·16 = 500",
-    "Kobb–Duglas: R = 0,5F/w = 250/25 = 10 soat, L = 6 soat",
+    "Kobb–Duglas: R = (0,5F)/(w) = (250)/(25) = 10 soat, L = 6 soat",
     "Iste’mol C = 0,5·500 = 250",
-    "w = 30 da: F = 580, R = 290/30 ≈ 9,67, L ≈ 6,33 soat",
+    "w = 30 da: F = 580, R = (290)/(30) ≈ 9,67, L ≈ 6,33 soat",
     "Mehnat taklifi oshdi: almashtirish samarasi ustun"
    ]
   },
@@ -206,19 +265,24 @@
    "sub": "4.5. Vaqtlararo tanlov",
    "items": [
     {
+     "name": "Vaqtlararo byudjet",
+     "formula": "c_{2} = m_{2} + (1+r)(m_{1} − c_{1})",
+     "note": "m_{1} − c_{1} – birinchi davrdagi jamg‘arma"
+    },
+    {
      "name": "Kelajakdagi qiymat ko‘rinishi",
-     "formula": "(1+r)c₁ + c₂ = (1+r)m₁ + m₂",
-     "note": "c₂ = m₂ + (1+r)(m₁ − c₁)"
+     "formula": "(1+r)c_{1} + c_{2} = (1+r)m_{1} + m_{2}",
+     "note": "byudjet chizig‘i zaxira nuqtasi (m_{1}, m_{2}) dan o‘tadi"
     },
     {
      "name": "Joriy qiymat ko‘rinishi",
-     "formula": "c₁ + c₂/(1+r) = m₁ + m₂/(1+r)",
+     "formula": "c_{1} + (c_{2})/(1+r) = m_{1} + (m_{2})/(1+r)",
      "note": "og‘ishi −(1+r): foiz – vaqt bo‘yicha nisbiy narx"
     },
     {
-     "name": "Eyler tenglamasi",
-     "formula": "u′(c₁) = β(1+r)·u′(c₂)",
-     "note": "β(1+r) = 1 bo‘lsa, iste’mol tekislanadi: c₁ = c₂"
+     "name": "Naflilik va Eyler tenglamasi",
+     "formula": "U = u(c_{1}) + βu(c_{2}),  u′(c_{1}) = β(1+r)u′(c_{2})",
+     "note": "0 < β < 1; β(1+r) = 1 bo‘lsa, iste’mol tekislanadi: c_{1} = c_{2}"
     }
    ]
   },
@@ -238,7 +302,7 @@
     "Qarz oluvchi qarz oluvchi bo‘lib qolsa, ahvoli albatta yomonlashadi",
     "Jamg‘arma uchun samaralar qarama-qarshi: foiz oshsa, jamg‘arma ortishi ham, kamayishi ham mumkin",
     "Real foiz: 1 + ρ = (1+r)/(1+π), taxminan ρ ≈ r − π",
-    "Depozit 18%, inflatsiya 10%: real daromad taxminan 8%, aniq 1,18/1,10 − 1 = 7,3%"
+    "Depozit 18%, inflatsiya 10%: real daromad taxminan 8%, aniq (1,18)/(1,10) − 1 = 7,3%"
    ]
   },
   {
@@ -247,24 +311,46 @@
    "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
    "items": [
     {
-     "name": "Bir yillik diskontlash",
-     "formula": "PV = M/(1+r)",
-     "note": "bir yildan keyingi 1 so‘mning bugungi qiymati 1/(1+r)"
+     "name": "Joriy qiymat",
+     "formula": "PV = (M_{t})/((1+r)^{t})",
+     "note": "t = 1 da PV = (M_{1})/(1+r); 1/(1+r)^{t} – diskont omili"
     },
     {
-     "name": "t yildan keyingi to‘lov",
-     "formula": "PV = Mₜ/(1+r)ᵗ",
-     "note": "1/(1+r)ᵗ – diskont omili"
+     "name": "To‘lovlar oqimi",
+     "formula": "PV = Σ_{t=0}^{T} (M_{t})/((1+r)^{t})",
+     "note": "M_{0}, M_{1}, …, M_{T} oqimining joriy qiymati"
+    },
+    {
+     "name": "Annuitet",
+     "formula": "PV = (x)/(r)[1 − (1)/((1+r)^{T})]",
+     "note": "T yil davomida har yili x to‘lanadi"
     },
     {
      "name": "Perpetuitet",
-     "formula": "PV = x/r",
-     "note": "o‘suvchi perpetuitet (g < r): PV = x/(r − g)"
+     "formula": "PV = (x)/(r);  PV = (x)/(r − g)",
+     "note": "cheksiz oqim; ikkinchisi – o‘suvchi perpetuitet (g < r)"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Obligatsiya va sof joriy qiymat",
+   "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
+   "items": [
+    {
+     "name": "Kuponli obligatsiya",
+     "formula": "PV = Σ_{t=1}^{T} (C)/((1+r)^{t}) + (F)/((1+r)^{T})",
+     "note": "C – yillik kupon, F – nominal qiymat"
     },
     {
      "name": "Sof joriy qiymat",
-     "formula": "NPV = −I₀ + ∑ CFₜ/(1+r)ᵗ",
-     "note": "NPV > 0 bo‘lsa, loyiha qabul qilinadi"
+     "formula": "NPV = −I_{0} + Σ_{t=1}^{T} (CF_{t})/((1+r)^{t})",
+     "note": "NPV > 0 bo‘lsa, loyiha qabul qilinadi; NPV = 0 dagi r – IRR"
+    },
+    {
+     "name": "Misol 4.7: ta’lim NPV",
+     "formula": "NPV = 67,56 − 90,86 = −23,3 mln so‘m",
+     "note": "xarajat 48 + (48)/(1,12); daromad (15)/(0,12)(1 − 1,12^{−10}) = 84,75, so‘ng (84,75)/(1,12^{2})"
     }
    ]
   },
@@ -274,10 +360,10 @@
    "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
    "steps": [
     "Nominal 1 mln so‘m, kupon 14% (140 ming), muddati 3 yil, bozor stavkasi 16%",
-    "1-yil: 140/1,16 = 120,69 ming so‘m",
-    "2-yil: 140/1,16² = 104,04 ming so‘m",
-    "3-yil: 1140/1,16³ = 730,35 ming so‘m",
-    "PV = 955,08 ming so‘m",
+    "1-yil: (140)/(1,16) = 120,69 ming so‘m",
+    "2-yil: (140)/(1,16^{2}) = 104,04 ming so‘m",
+    "3-yil: (1 140)/(1,16^{3}) = 730,35 ming so‘m",
+    "PV = 120,69 + 104,04 + 730,35 = 955,08 ming so‘m",
     "Kupon bozor stavkasidan past – obligatsiya diskont bilan sotiladi"
    ]
   },
@@ -316,8 +402,8 @@
     "a) Real stavka 0: umrbod daromad 60·40 = 2400 mln so‘m",
     "2400 mln 60 yilga taqsimlanadi: yillik iste’mol 40 mln",
     "Ish yillarida jamg‘arma 20 mln; pensiya boshida 20·40 = 800 mln",
-    "b) Stavka 3%: joriy qiymat 60·23,11 ≈ 1 386,7 mln so‘m",
-    "Iste’mol c = 1386,7/27,68 ≈ 50,1 mln so‘m – foiz iste’molni oshiradi"
+    "b) Stavka 3%: a_{40} = (1 − 1,03^{−40})/(0,03) = 23,11; 60·23,11 ≈ 1 386,7 mln so‘m",
+    "c·a_{60} = 1 386,7, a_{60} = 27,68 ⇒ c ≈ 50,1 mln so‘m – foiz iste’molni oshiradi"
    ]
   },
   {
@@ -330,7 +416,7 @@
    ],
    "rows": [
     [
-     "1. x = 0,02m/p, m = 5000, p: 10 → 8",
+     "1. x = (0,02m)/(p), m = 5000, p: 10 → 8",
      "almashtirish 2,45; daromad 0,05"
     ],
     [
@@ -339,11 +425,11 @@
     ],
     [
      "4. Ijara 2 mln, r = 16%, doimiy",
-     "PV = 2/0,16 = 12,5 mln so‘m"
+     "PV = (2)/(0,16) = 12,5 mln so‘m"
     ],
     [
      "4. Ijara yiliga 5% o‘sadi",
-     "PV = 2/(0,16 − 0,05) = 18,18 mln so‘m"
+     "PV = (2)/(0,16 − 0,05) = 18,18 mln so‘m"
     ]
    ],
    "note": "1-masalada byudjet ulushi kichik bo‘lgani uchun daromad samarasi juda kichik"
@@ -353,11 +439,11 @@
    "title": "2-masala: optimal iste’mol va jamg‘arma",
    "sub": "4.8. Yechib ko‘rsatilgan masalalar",
    "steps": [
-    "U = ln c₁ + 0,9 ln c₂; m₁ = 100, m₂ = 50, r = 0,1",
-    "Boylik: W = 100 + 50/1,1 = 145,45",
-    "Ulushlar 1/1,9 va 0,9/1,9: c₁ = W/1,9 = 76,56",
-    "c₂/1,1 = 0,9W/1,9 = 68,90, ya’ni c₂ = 75,79",
-    "Jamg‘arma s = 100 − 76,56 = 23,44",
+    "U = ln c_{1} + 0,9 ln c_{2}; m_{1} = 100, m_{2} = 50, r = 0,1",
+    "Boylik: W = 100 + (50)/(1,1) = 145,45",
+    "Ulushlar (1)/(1,9) va (0,9)/(1,9): c_{1} = (W)/(1,9) = 76,56",
+    "(c_{2})/(1,1) = (0,9W)/(1,9) = 68,90, ya’ni c_{2} = 75,79",
+    "Jamg‘arma s = m_{1} − c_{1} = 100 − 76,56 = 23,44",
     "Tekshirish: 50 + 1,1·23,44 = 75,78"
    ]
   },
@@ -368,7 +454,7 @@
    "bullets": [
     "Narx o‘zgarishi almashtirish va daromad samaralariga ajraladi; almashtirish samarasi narxga teskari",
     "Slutskiy tenglamasi normal, past sifatli va Giffen tovarlarini farqlaydi",
-    "Xiks naflilikni, Slutskiy xarid qobiliyatini saqlaydi; Shepard lemmasi: ∂e/∂p₁ = h₁",
+    "Xiks naflilikni, Slutskiy xarid qobiliyatini saqlaydi; Shepard lemmasi: (∂e)/(∂p_{1}) = h_{1}",
     "Zaxira bilan Slutskiy tenglamasi mehnat taklifini tushuntiradi; taklif chizig‘i orqaga qayrilishi mumkin",
     "Vaqtlararo tanlovda foiz – nisbiy narx; joriy qiymat va NPV loyihalarni baholaydi"
    ]
