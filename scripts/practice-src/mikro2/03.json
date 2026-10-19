@@ -1,0 +1,35 @@
+{
+ "goal": "«Iste’molchi tanlovi va talab» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "concepts": [
+  "talab funksiyasi",
+  "nol darajali bir jinslilik",
+  "normal tovar",
+  "past sifatli tovar",
+  "daromad-iste’mol chizig‘i",
+  "Engel chizig‘i"
+ ],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 3-bob",
+ "tasks": [],
+ "open": [
+  "Esse/munozara: Engel qonuni va O‘zbekistonda oziq-ovqat xavfsizligi.",
+  "Esse/munozara: Raqamli platformalarda tarmoq samaralari va bozor konsentratsiyasi.",
+  "Esse/munozara: Inflatsiyani o‘lchash: iste’mol narxlari indeksining cheklovlari va ularni bartaraf etish yo‘llari.",
+  "Esse/munozara: Narx elastikligi va soliq siyosati: qaysi tovarlarga aktsiz solish maqsadga muvofiq?",
+  "Esse/munozara: Dinamik narx belgilash: samaradorlikmi yoki adolatsizlikmi?",
+  "Mustaqil ish: (MT-5) Elastiklik koeffitsienti yordamida bozor talabini baholash. Biror tovar (masalan, benzin, un, mobil internet) uchun rasmiy statistika yoki savdo tarmog‘i ma’lumotlari asosida narx va iste’mol hajmi dinamikasini to‘plang, yoy elastikligini hisoblang va natijalarni 3.7-rasmdagi xalqaro baholar bilan solishtiring.",
+  "Mustaqil ish: (MT-13) Talab elastikligi turlari. Narx, daromad va kesishgan elastiklikka uchtadan real misol topib, ularning qiymatlarini taxminiy baholang va iqtisodiy talqin qiling. Natijani",
+  "Mustaqil ish: 3-jadval shaklida rasmiylashtiring. 3. (MT-10) Iste’molchining bozordagi harakati. O‘zbekistondagi raqamli platformalardan birini (taksi, yetkazib berish, marketpleys) tanlab, undagi tarmoq samaralarini tahlil qiling. Platformaning narx siyosati ikki tomonlama bozor nazariyasiga mos keladimi?",
+  "Mustaqil ish: O‘z oilangizning uch oylik xarajatlari bo‘yicha WARP bajarilishini tekshiring (ikki tovar guruhi va ularning o‘rtacha narxlari asosida)."
+ ],
+ "refs": [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+ ]
+}

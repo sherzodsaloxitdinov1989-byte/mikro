@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Afzal ko‘rishning to‘liqlik aksiomasi nimani anglatadi?",
+  "options": [
+   "Iste’molchi har doim ko‘proq tovarni afzal ko‘radi",
+   "Iste’molchi o‘rtacha to‘plamni afzal ko‘radi",
+   "Iste’molchi istalgan ikki to‘plamni taqqoslay oladi",
+   "Har qanday to‘plam o‘zi kabi yaxshi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 2,
+  "q": "Agar X ≽Y va Y ≽Z bo‘lsa, X ≽Z – bu qaysi aksioma?",
+  "options": [
+   "Tranzitivlik",
+   "To‘liqlik",
+   "Refleksivlik",
+   "Qavariqlik"
+  ],
+  "c": 0
+ },
+ {
+  "n": 3,
+  "q": "“Pul nasosi” argumenti qaysi aksiomaning buzilishi oqibatlarini ko‘rsatadi?",
+  "options": [
+   "Monotonlik",
+   "Tranzitivlik",
+   "Refleksivlik",
+   "Uzluksizlik"
+  ],
+  "c": 1
+ },
+ {
+  "n": 4,
+  "q": "Monoton afzal ko‘rishlarda befarqlik chiziqlari:",
+  "options": [
+   "Musbat og‘ishga ega",
+   "Vertikal",
+   "Manfiy og‘ishga ega",
+   "Gorizontal"
+  ],
+  "c": 2
+ },
+ {
+  "n": 5,
+  "q": "Mukammal to‘ldiruvchilar uchun befarqlik chiziqlari qanday shaklga ega?",
+  "options": [
+   "L shaklida",
+   "To‘g‘ri chiziq",
+   "Halqa",
+   "Musbat og‘ishli egri chiziq"
+  ],
+  "c": 0
+ },
+ {
+  "n": 6,
+  "q": "Agar x2 – antine’mat bo‘lsa, befarqlik chiziqlari:",
+  "options": [
+   "Manfiy og‘ishga ega bo‘ladi",
+   "Vertikal bo‘ladi",
+   "Koordinata boshidan o‘tadi",
+   "Musbat og‘ishga ega bo‘ladi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 7,
+  "q": "Agar x2 – neytral ne’mat bo‘lsa, befarqlik chiziqlari:",
+  "options": [
+   "Gorizontal",
+   "Vertikal",
+   "L shaklida",
+   "45° burchakli"
+  ],
+  "c": 1
+ },
+ {
+  "n": 8,
+  "q": "Qavariqlik farazining iqtisodiy ma’nosi:",
+  "options": [
+   "Iste’molchi faqat bitta tovarni iste’mol qiladi",
+   "Iste’molchi xilma-xillikni afzal ko‘radi",
+   "Ko‘proq tovar har doim yomonroq",
+   "Narxlar o‘zgarmas"
+  ],
+  "c": 1
+ },
+ {
+  "n": 9,
+  "q": "Chekli almashtirish normasi geometrik jihatdan nimaga teng?",
+  "options": [
+   "Byudjet chizig‘ining og‘ishiga",
+   "Talab chizig‘ining og‘ishiga",
+   "Engel chizig‘ining og‘ishiga",
+   "Befarqlik chizig‘ining og‘ishiga"
+  ],
+  "c": 3
+ },
+ {
+  "n": 10,
+  "q": "u=x1x2 uchun MRS❑12 teng:",
+  "options": [
+   "−x1/x2",
+   "−1",
+   "−x2/x1",
+   "x1 x2"
+  ],
+  "c": 2
+ },
+ {
+  "n": 11,
+  "q": "u=3 x1+2 x2 uchun MRS❑12 teng:",
+  "options": [
+   "−1,5",
+   "−2/3",
+   "−6",
+   "−5"
+  ],
+  "c": 0
+ },
+ {
+  "n": 12,
+  "q": "Ordinal naflilik nazariyasiga ko‘ra:",
+  "options": [
+   "Naflilikni aniq birliklarda o‘lchash mumkin",
+   "Naflilik har doim pulda o‘lchanadi",
+   "Faqat to‘plamlarning tartibi muhim, naflilik sonlari o‘zi ma’noga ega emas",
+   "Naflilik funksiyasi yagona"
+  ],
+  "c": 2
+ },
+ {
+  "n": 13,
+  "q": "Quyidagilardan qaysi biri u=x1x2 ning monoton almashtirishi EMAS?",
+  "options": [
+   "",
+   "",
+   "",
+   "v=ln x1+ln x2 v=−x1 x2 A) B) C) D) v=(x1 x2) A) B) C) D) v=2 x1 x2+7"
+  ],
+  "c": 1
+ },
+ {
+  "n": 14,
+  "q": "Chekli naflilik – bu:",
+  "options": [
+   "Barcha birliklardan olingan umumiy qoniqish",
+   "Tovar narxining o‘zgarishi",
+   "O‘rtacha naflilik",
+   "Tovar iste’molini bir birlikka oshirganda umumiy naflilikning o‘zgarishi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 15,
+  "q": "Umumiy naflilik maksimal bo‘lganda chekli naflilik:",
+  "options": [
+   "Maksimal",
+   "Manfiy cheksiz",
+   "Nolga teng",
+   "Birga teng"
+  ],
+  "c": 2
+ },
+ {
+  "n": 16,
+  "q": "MR S12 va chekli nafliliklar o‘rtasidagi bog‘liqlik:",
+  "options": [
+   "MR S12=MU 1⋅MU 2",
+   "MR S12=−MU 2/MU 1",
+   "MR S12=MU 1+MU 2",
+   "MR S12=−MU 1/MU 2"
+  ],
+  "c": 3
+ },
+ {
+  "n": 17,
+  "q": "Gossenning ikkinchi qonuni:",
+  "options": [
+   "MU 1=MU 2",
+   "p1=p2",
+   "MU 1/ p1=MU 2/ p2",
+   "MU 1⋅p1=MU 2⋅p2"
+  ],
+  "c": 2
+ },
+ {
+  "n": 18,
+  "q": "Silliq qavariq afzal ko‘rishlarda ichki optimum sharti:",
+  "options": [
+   "|MRS )=p2/ p1",
+   "MRS=0",
+   "|MRS )=p1/ p2",
+   "MU 1=p1"
+  ],
+  "c": 2
+ },
+ {
+  "n": 19,
+  "q": "u=x1 0,3 x2 0,7, m=1000, p1=10 bo‘lsa, x1* teng:",
+  "options": [
+   "70",
+   "100",
+   "30",
+   "300"
+  ],
+  "c": 2
+ },
+ {
+  "n": 20,
+  "q": "Kobb–Duglas iste’molchisining asosiy xususiyati:",
+  "options": [
+   "Faqat arzon tovarni sotib oladi",
+   "Tovarlarni qat’iy nisbatda sotib oladi",
+   "Daromad oshganda bir tovar iste’moli o‘zgarmaydi",
+   "Daromadining doimiy ulushini har bir tovarga sarflaydi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 21,
+  "q": "u=min{x1, x2}, p1=2, p2=3, m=100 bo‘lsa, optimal x1:",
+  "options": [
+   "20",
+   "50",
+   "33,3",
+   "10"
+  ],
+  "c": 0
+ },
+ {
+  "n": 22,
+  "q": "u=x1+x2, p1=2, p2=5, m=100 bo‘lsa, optimal to‘plam:",
+  "options": [
+   "(0;20)",
+   "(25;10)",
+   "(50;0)",
+   "(20;12)"
+  ],
+  "c": 2
+ },
+ {
+  "n": 23,
+  "q": "Lagranj ko‘paytuvchisi λ iste’molchi masalasida nimani bildiradi?",
+  "options": [
+   "Pulning (daromadning) chekli nafliligini",
+   "Tovar narxini",
+   "Byudjet chizig‘ining og‘ishini",
+   "Umumiy naflilikni"
+  ],
+  "c": 0
+ },
+ {
+  "n": 24,
+  "q": "u=20 ln x1+x2, p1=4, p2=1, m=100 bo‘lsa, x1*:",
+  "options": [
+   "20",
+   "25",
+   "80",
+   "5"
+  ],
+  "c": 3
+ },
+ {
+  "n": 25,
+  "q": "Kvazichiziqli afzal ko‘rishda (ichki yechimda) daromad ortsa, x1 ga talab:",
+  "options": [
+   "Proporsional ortadi",
+   "O‘zgarmaydi",
+   "Kamayadi",
+   "Nolga tenglashadi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 26,
+  "q": "Bir xil tushum olinganda iste’molchi uchun qaysi soliq kamroq og‘ir?",
+  "options": [
+   "Miqdoriy soliq",
+   "Daromad (paushal) solig‘i",
+   "Ikkalasi bir xil",
+   "Advalor soliq"
+  ],
+  "c": 1
+ },
+ {
+  "n": 27,
+  "q": "“Suv va olmos paradoksi” qaysi tushuncha orqali yechiladi?",
+  "options": [
+   "Umumiy naflilik",
+   "Muqobil xarajat",
+   "Chekli naflilik",
+   "Pareto samaradorlik"
+  ],
+  "c": 2
+ },
+ {
+  "n": 28,
+  "q": "Krujka bilan o‘tkazilgan tajribada egalarining sotish narxi xaridorlarning to‘lashga tayyorligidan ancha yuqori bo‘lgan. Bu hodisa:",
+  "options": [
+   "Freyming samarasi",
+   "Mulkchilik samarasi",
+   "Giffen paradoksi",
+   "Daromad samarasi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 29,
+  "q": "“Turtki” (nudge) konsepsiyasi mualliflari:",
+  "options": [
+   "J. Nesh va R. Zelten",
+   "J. Akerlof va M. Spens",
+   "V. Pareto va F. Ejvort",
+   "R. Tayler va K. Sanstayn"
+  ],
+  "c": 3
+ },
+ {
+  "n": 30,
+  "q": "Befarqlik chiziqlari kartasi va naflilik funksiyasi o‘rtasidagi bog‘liqlik:",
+  "options": [
+   "Befarqlik chiziqlari – byudjet chiziqlari to‘plami",
+   "Befarqlik chiziqlari – naflilik funksiyasi sirtining gorizontallari",
+   "Naflilik funksiyasi befarqlik chizig‘ining hosilasi",
+   "Ular o‘rtasida bog‘liqlik yo‘q Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: “Innovatsion rivojlanish nashriyot-matbaa uyi”, 2021. – 5-bob. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – New York: W.W. Norton, 2014. – Ch. 3–5. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 3. 4. Nicholson W., Snyder C. Microeconomic Theory: Basic Principles and Extensions. 12th ed. – Cengage, 2017. – Ch. 3–4. 5. Mas-Colell A., Whinston M.D., Green J.R. Microeconomic Theory. – Oxford University Press, 1995. – Ch. 1–3. 6. Jehle G.A., Reny P.J. Advanced Microeconomic Theory. 3rd ed. – Pearson, 2011. – Ch. 1. 7. Kahneman D. Thinking, Fast and Slow. – New York: Farrar, Straus and Giroux, 2011. 8. Thaler R.H., Sunstein C.R. Nudge: Improving Decisions about Health, Wealth, and Happiness. – Yale University Press, 2008."
+  ],
+  "c": 1
+ }
+]

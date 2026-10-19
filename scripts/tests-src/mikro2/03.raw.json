@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Marshall talab funksiyasi qaysi o‘zgaruvchilarga bog‘liq?",
+  "options": [
+   "Faqat o‘z narxiga",
+   "Naflilik darajasiga",
+   "Narxlar va daromadga",
+   "Faqat daromadga"
+  ],
+  "c": 2
+ },
+ {
+  "n": 2,
+  "q": "Talab funksiyasining nol darajali bir jinsliligi nimani bildiradi?",
+  "options": [
+   "Narx nolga teng bo‘lganda talab cheksiz",
+   "Daromad ikki baravar oshsa, talab ikki baravar oshadi",
+   "Talab narxga bog‘liq emas",
+   "Barcha narxlar va daromad bir xil marta o‘zgarsa, talab o‘zgarmaydi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 3,
+  "q": "Daromad oshganda talabi kamayadigan tovar:",
+  "options": [
+   "Normal tovar",
+   "Past sifatli tovar",
+   "Hashamatli tovar 100",
+   "O‘rinbosar tovar"
+  ],
+  "c": 1
+ },
+ {
+  "n": 4,
+  "q": "Engel chizig‘i qaysi ikki o‘zgaruvchi orasidagi bog‘liqlikni ko‘rsatadi?",
+  "options": [
+   "Tovar miqdori va daromad",
+   "Tovar miqdori va narx",
+   "Ikki tovar narxlari",
+   "Naflilik va narx"
+  ],
+  "c": 0
+ },
+ {
+  "n": 5,
+  "q": "Engel qonuniga ko‘ra daromad oshgan sari:",
+  "options": [
+   "Oziq-ovqatga sarflanadigan mutlaq summa kamayadi",
+   "Oziq-ovqatga sarflanadigan ulush ortadi",
+   "Oziq-ovqatga sarflanadigan ulush kamayadi",
+   "Barcha tovarlar ulushi o‘zgarmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 6,
+  "q": "Gomotetik afzal ko‘rishda Engel chizig‘i:",
+  "options": [
+   "Vertikal chiziq",
+   "Gorizontal chiziq",
+   "Koordinata boshidan chiquvchi to‘g‘ri chiziq",
+   "Parabola"
+  ],
+  "c": 2
+ },
+ {
+  "n": 7,
+  "q": "Kvazichiziqli afzal ko‘rishda (yetarli daromadda) x1 uchun Engel chizig‘i:",
+  "options": [
+   "Gorizontal",
+   "Koordinata boshidan chiquvchi to‘g‘ri chiziq",
+   "Vertikal",
+   "Manfiy og‘ishli"
+  ],
+  "c": 2
+ },
+ {
+  "n": 8,
+  "q": "Narx pasayganda talabi kamayadigan tovar:",
+  "options": [
+   "Giffen tovari",
+   "Normal tovar",
+   "Hashamatli tovar",
+   "O‘rinbosar tovar"
+  ],
+  "c": 0
+ },
+ {
+  "n": 9,
+  "q": "Har qanday Giffen tovari:",
+  "options": [
+   "Hashamatli tovar hisoblanadi",
+   "Past sifatli tovar hisoblanadi",
+   "Normal tovar hisoblanadi",
+   "Mustaqil tovar hisoblanadi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 10,
+  "q": "Agar p2 oshganda x1 ga talab ortsa, tovarlar:",
+  "options": [
+   "O‘rinbosarlar",
+   "To‘ldiruvchilar",
+   "Mustaqil",
+   "Giffen tovarlari"
+  ],
+  "c": 0
+ },
+ {
+  "n": 11,
+  "q": "Teskari talab funksiyasi p1(x1) ning balandligi (ikkinchi tovar – pul bo‘lganda) nimaga teng?",
+  "options": [
+   "|MRS ) ga – chekli to‘lashga tayyorlikka",
+   "Chekli xarajatga",
+   "O‘rtacha xarajatga",
+   "Umumiy naflilikka"
+  ],
+  "c": 0
+ },
+ {
+  "n": 12,
+  "q": "u=x1 0,4 x2 0,6, m=2000 bo‘lsa, x1 ga talab funksiyasi:",
+  "options": [
+   "1200/ p1",
+   "2000/ p1",
+   "0,4/ p1",
+   "800/ p1"
+  ],
+  "c": 3
+ },
+ {
+  "n": 13,
+  "q": "Agar narx 10 foizga oshganda talab 25 foizga kamaysa, talab:",
+  "options": [
+   "Noelastik",
+   "Elastik (|ε )=2,5)",
+   "Birlik elastik",
+   "Mutlaq noelastik"
+  ],
+  "c": 1
+ },
+ {
+  "n": 14,
+  "q": "Chiziqli talab chizig‘ining o‘rta nuqtasida elastiklik:",
+  "options": [
+   "|ε )=0",
+   "|ε )=1",
+   "|ε )=∞",
+   "|ε )=0,5"
+  ],
+  "c": 1
+ },
+ {
+  "n": 15,
+  "q": "Noelastik talabda narx oshsa, umumiy tushum:",
+  "options": [
+   "Kamayadi",
+   "Ortadi",
+   "O‘zgarmaydi",
+   "Nolga tenglashadi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 16,
+  "q": "Chekli tushum formulasi:",
+  "options": [
+   "MR=p (1+|ε ))",
+   "MR=p (1−1/|ε ))",
+   "MR=p/|ε )",
+   "MR=p⋅|ε )"
+  ],
+  "c": 1
+ },
+ {
+  "n": 17,
+  "q": "Elastiklik −2, narx 50 bo‘lsa, chekli tushum:",
+  "options": [
+   "100",
+   "50",
+   "75",
+   "25"
+  ],
+  "c": 3
+ },
+ {
+  "n": 18,
+  "q": "q=100−2 p uchun tushumni maksimallashtiruvchi narx:",
+  "options": [
+   "25",
+   "50",
+   "20",
+   "10"
+  ],
+  "c": 0
+ },
+ {
+  "n": 19,
+  "q": "Daromad elastikligi η=1,8 bo‘lgan tovar:",
+  "options": [
+   "Zaruriy tovar",
+   "Past sifatli tovar",
+   "Giffen tovari",
+   "Hashamatli tovar"
+  ],
+  "c": 3
+ },
+ {
+  "n": 20,
+  "q": "Kesishgan elastiklik manfiy bo‘lsa, tovarlar:",
+  "options": [
+   "O‘rinbosarlar",
+   "Mustaqil",
+   "To‘ldiruvchilar",
+   "Past sifatli"
+  ],
+  "c": 2
+ },
+ {
+  "n": 21,
+  "q": "Qaysi omil talab elastikligini oshiradi?",
+  "options": [
+   "Tovarning hayotiy zarurligi",
+   "Yaqin o‘rinbosarlarning ko‘pligi",
+   "Byudjetdagi kichik ulush",
+   "Qisqa vaqt oralig‘i"
+  ],
+  "c": 1
+ },
+ {
+  "n": 22,
+  "q": "Talab funksiyasi q=A p",
+  "options": [
+   "Narx oshgan sari ortadi",
+   "O‘rta nuqtada −1",
+   "Nolga teng",
+   "Barcha nuqtalarda −0,7 −0,7 bo‘lsa, narx elastikligi:"
+  ],
+  "c": 3
+ },
+ {
+  "n": 23,
+  "q": "Aniqlangan afzal ko‘rish nazariyasi muallifi:",
+  "options": [
+   "E. Slutskiy",
+   "J. Xiks",
+   "P. Samuelson",
+   "A. Marshall"
+  ],
+  "c": 2
+ },
+ {
+  "n": 24,
+  "q": "WARP ga ko‘ra, agar X to‘g‘ridan-to‘g‘ri Y dan afzal deb aniqlangan bo‘lsa:",
+  "options": [
+   "Y hech qachon X dan to‘g‘ridan-to‘g‘ri afzal deb aniqlanmasligi kerak",
+   "Y har doim X dan arzon bo‘lishi kerak",
+   "X va Y befarq bo‘lishi kerak",
+   "Y har doim tanlanishi kerak"
+  ],
+  "c": 0
+ },
+ {
+  "n": 25,
+  "q": "Laspeyres narx indeksi:",
+  "options": [
+   "Joriy davr to‘plamini joriy va bazis narxlarda baholash nisbati",
+   "Joriy va bazis daromadlar nisbati",
+   "Bazis davr to‘plamini joriy va bazis narxlarda baholash nisbati",
+   "Nominal va real daromadlar ayirmasi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 26,
+  "q": "Agar daromad indeksi Laspeyres narx indeksidan katta bo‘lsa:",
+  "options": [
+   "Iste’molchining ahvoli yomonlashgan",
+   "Iste’molchining ahvoli yaxshilangan",
+   "Hech narsa deyish mumkin emas",
+   "Inflatsiya yuz bermagan"
+  ],
+  "c": 1
+ },
+ {
+  "n": 27,
+  "q": "INI turmush qiymatining oshishini oshirib ko‘rsatishining asosiy sababi:",
+  "options": [
+   "Daromadlarni hisobga olmasligi",
+   "Paashe formulasidan foydalanishi",
+   "Iste’molchilarning nisbatan arzonlashgan tovarlarga o‘tishini hisobga olmasligi",
+   "Faqat oziq-ovqatni hisobga olishi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 28,
+  "q": "Boshqalar ko‘proq sotib olgani sari tovarga individual talabning ortishi:",
+  "options": [
+   "Snob samarasi",
+   "Veblen samarasi",
+   "Ko‘pchilikka ergashish samarasi",
+   "Giffen samarasi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 29,
+  "q": "Snob samarasi mavjud bo‘lganda bozor talabi:",
+  "options": [
+   "Elastikroq bo‘ladi",
+   "Gorizontal bo‘ladi",
+   "Noelastikroq bo‘ladi",
+   "O‘zgarmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 30,
+  "q": "Elastikliklar uchun bir jinslilikdan kelib chiqadigan munosabat:",
+  "options": [
+   "ε11+ε12+η1=0",
+   "ε11+ε12+η1=1",
+   "ε11=η1",
+   "ε12=−ε11 Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: 2021. – 5-bob (5.4–5.9), 8-bob. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 6–7, 15. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 2, 4. 4. Mankiw N.G. Principles of Microeconomics. 9th ed. – Cengage, 2021. – Ch. 5. 5. Nicholson W., Snyder C. Microeconomic Theory. 12th ed. – Cengage, 2017. – Ch. 5–6. 6. Samuelson P.A. A Note on the Pure Theory of Consumer’s Behaviour // Economica. – 1938. – Vol. 5, No. 17. – P. 61–71. 7. Leibenstein H. Bandwagon, Snob, and Veblen Effects in the Theory of Consumers’ Demand // Quarterly Journal of Economics. – 1950. – Vol. 64, No. 2. – P. 183–207. 8. Jensen R.T., Miller N.H. Giffen Behavior and Subsistence Consumption // American Economic Review. – 2008. – Vol. 98, No. 4. – P. 1553–1577. 9. Rochet J.-C., Tirole J. Platform Competition in Two-Sided Markets // Journal of the European Economic Association. – 2003. – Vol. 1, No. 4. – P. 990–1029."
+  ],
+  "c": 0
+ }
+]

@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""scripts/practice-src/tb/NN.json dagi amaliy mashg'ulotlarni tekshiradi va public/data/tb/practice-auto.js ga yozadi.
+"""scripts/practice-src/<fan>/NN.json dagi amaliy mashg'ulotlarni tekshiradi va public/data/<fan>/practice-auto.js ga yozadi.
 
     python3 scripts/apply-practice.py --subject tb
+    python3 scripts/apply-practice.py --subject mikro2
 """
 import json, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-if not ("--subject" in sys.argv and sys.argv[sys.argv.index("--subject") + 1] == "tb"):
-    sys.exit("Foydalanish: python3 scripts/apply-practice.py --subject tb")
-SRC = ROOT / "scripts" / "practice-src" / "tb"
-OUT = ROOT / "public" / "data" / "tb" / "practice-auto.js"
-layers = json.loads((lambda s: s[s.index("{") : s.rindex("}") + 1])((ROOT / "public/data/tb/layers-auto.js").read_text(encoding="utf-8")))
+if "--subject" not in sys.argv:
+    sys.exit("Foydalanish: python3 scripts/apply-practice.py --subject tb|mikro2")
+SUBJ = sys.argv[sys.argv.index("--subject") + 1]
+SRC = ROOT / "scripts" / "practice-src" / SUBJ
+OUT = ROOT / "public" / "data" / SUBJ / "practice-auto.js"
+layers = json.loads((lambda s: s[s.index("{") : s.rindex("}") + 1])((ROOT / f"public/data/{SUBJ}/layers-auto.js").read_text(encoding="utf-8")))
 
 errs, out = [], {}
 for num in sorted(layers, key=int):
@@ -46,8 +48,8 @@ if errs:
     print("\n".join(errs))
     sys.exit(1)
 OUT.write_text(
-    "// Avtomatik yaratilgan (scripts/apply-practice.py --subject tb): amaliy mashg'ulotlar — masalalar (sonli javob bilan) va ochiq topshiriqlar.\n"
-    "// Manba: scripts/practice-src/tb/NN.json. Himoyalangan ma'lumot (yechimlar): kirmagan foydalanuvchida bo'sh bo'ladi.\n"
+    f"// Avtomatik yaratilgan (scripts/apply-practice.py --subject {SUBJ}): amaliy mashg'ulotlar — masalalar (sonli javob bilan) va ochiq topshiriqlar.\n"
+    f"// Manba: scripts/practice-src/{SUBJ}/NN.json. Himoyalangan ma'lumot (yechimlar): kirmagan foydalanuvchida bo'sh bo'ladi.\n"
     "export const AUTO_PRACTICE = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n",
     encoding="utf-8",
 )

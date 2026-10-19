@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Mikroiqtisodiyotning o‘rganish obyekti hisoblanmaydi:",
+  "options": [
+   "Alohida firmaning ishlab chiqarish hajmi",
+   "Uy xo‘jaligining iste’mol tanlovi",
+   "Tarmoq bozorida narxning shakllanishi",
+   "Mamlakatdagi umumiy inflatsiya darajasi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 2,
+  "q": "Muqobil xarajat – bu:",
+  "options": [
+   "Firmaning barcha pul xarajatlari yig‘indisi",
+   "Tovarni ishlab chiqarishga ketgan o‘rtacha xarajat",
+   "Davlat tomonidan belgilangan minimal narx",
+   "Tanlangan variant uchun voz kechilgan eng yaxshi muqobil variantning qiymati"
+  ],
+  "c": 3
+ },
+ {
+  "n": 3,
+  "q": "Quyidagilardan qaysi biri normativ mulohaza hisoblanadi?",
+  "options": [
+   "Aktsiz oshirilsa, sigaret iste’moli kamayadi",
+   "Talab elastik bo‘lsa, narx pasayganda tushum ortadi",
+   "Taklif ortsa, muvozanat narxi pasayadi",
+   "Davlat kam ta’minlangan oilalarga kommunal subsidiya berishi kerak"
+  ],
+  "c": 3
+ },
+ {
+  "n": 4,
+  "q": "Iqtisodiy modelda ekzogen o‘zgaruvchi – bu:",
+  "options": [
+   "Model tenglamalarini yechish natijasida topiladigan kattalik",
+   "Faqat vaqt bo‘yicha o‘zgaradigan kattalik",
+   "Har doim nolga teng bo‘lgan kattalik",
+   "Model tashqarisida aniqlanib, modelga tayyor holda kiritiladigan kattalik"
+  ],
+  "c": 3
+ },
+ {
+  "n": 5,
+  "q": "Kvartiralar bozori modelida ichki aylanadagi kvartiralar narxi qanday o‘zgaruvchi hisoblanadi?",
+  "options": [
+   "Endogen",
+   "Ekzogen",
+   "Tasodifiy",
+   "Nominal"
+  ],
+  "c": 0
+ },
+ {
+  "n": 6,
+  "q": "Ceteris paribus farazi nimani anglatadi?",
+  "options": [
+   "Barcha omillar bir vaqtda o‘zgaradi",
+   "Narxlar har doim muvozanatda bo‘ladi",
+   "Iste’molchilar ratsional emas",
+   "Boshqa barcha sharoitlar o‘zgarmagan holda"
+  ],
+  "c": 3
+ },
+ {
+  "n": 7,
+  "q": "Rezervatsion narx – bu:",
+  "options": [
+   "Sotuvchi tovarni sotishga rozi bo‘lgan minimal narx",
+   "Davlat belgilagan narx",
+   "Bozorda o‘rnatilgan muvozanat narxi",
+   "Iste’molchi tovar uchun to‘lashga tayyor bo‘lgan maksimal narx"
+  ],
+  "c": 3
+ },
+ {
+  "n": 8,
+  "q": "Qisqa muddatda kvartiralar taklifi vertikal bo‘lsa, mulk egalariga solinadigan soliq:",
+  "options": [
+   "To‘liq ijarachilarga o‘tkaziladi",
+   "Teng taqsimlanadi",
+   "Ijara narxini soliq miqdoriga oshiradi",
+   "To‘liq mulk egalari zimmasiga tushadi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 9,
+  "q": "Agar ijara kvartiralarining bir qismi ularning ijarachilariga sotilsa, Varian modeliga ko‘ra ijara narxi:",
+  "options": [
+   "Keskin ko‘tariladi",
+   "O‘zgarmaydi, chunki talab ham, taklif ham bir xil miqdorda kamayadi",
+   "Keskin pasayadi",
+   "Nolga tenglashadi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 10,
+  "q": "Pareto samarali taqsimot deganda tushuniladi:",
+  "options": [
+   "Barcha a’zolar teng ulush oladigan taqsimot",
+   "Davlat tomonidan belgilangan taqsimot",
+   "Hech kimning ahvolini yomonlashtirmasdan kimningdir ahvolini yaxshilash mumkin bo‘lmagan taqsimot",
+   "Eng ko‘p foyda keltiradigan taqsimot"
+  ],
+  "c": 2
+ },
+ {
+  "n": 11,
+  "q": "Quyidagi kvartira taqsimlash usullaridan qaysi biri, umuman olganda, Pareto samarali emas?",
+  "options": [
+   "Raqobatli bozor",
+   "Diskriminatsiyalovchi monopolist",
+   "Ijara narxining yuqori chegarasini belgilash",
+   "Rezervatsion narxi eng yuqori bo‘lganlarga auksion orqali berish"
+  ],
+  "c": 2
+ },
+ {
+  "n": 12,
+  "q": "Qd=120−4 P, Qs=−30+6 P bo‘lsa, muvozanat narxi teng:",
+  "options": [
+   "12",
+   "18",
+   "15",
+   "20"
+  ],
+  "c": 2
+ },
+ {
+  "n": 13,
+  "q": "Muvozanat narxidan past belgilangan narxning yuqori chegarasi bozorda nimaga olib keladi?",
+  "options": [
+   "Taqchillikka",
+   "Ortiqcha mahsulotga",
+   "Muvozanatga",
+   "Taklifning ortishiga"
+  ],
+  "c": 0
+ },
+ {
+  "n": 14,
+  "q": "Byudjet chizig‘i tenglamasi qaysi javobda to‘g‘ri berilgan?",
+  "options": [
+   "p1 x1−p2 x2=m",
+   "p1 x1+ p2 x2=m",
+   "x1/ p1+x2/ p2=m",
+   "p1 p2=m x1 x2"
+  ],
+  "c": 1
+ },
+ {
+  "n": 15,
+  "q": "Byudjet chizig‘ining og‘ishi teng:",
+  "options": [
+   "−p2/ p1",
+   "−p1/ p2",
+   "m/ p1",
+   "−m/ p2"
+  ],
+  "c": 1
+ },
+ {
+  "n": 16,
+  "q": "Byudjet chizig‘ining vertikal o‘qni (x2) kesish nuqtasi:",
+  "options": [
+   "m/ p1",
+   "p1/ p2",
+   "m⋅p2",
+   "m/ p2"
+  ],
+  "c": 3
+ },
+ {
+  "n": 17,
+  "q": "Iste’molchi daromadi oshganda (narxlar o‘zgarmas) byudjet chizig‘i:",
+  "options": [
+   "Parallel ravishda tashqariga siljiydi",
+   "Vertikal kesish nuqtasi atrofida buriladi",
+   "Ichkariga siljiydi",
+   "O‘zgarmaydi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 18,
+  "q": "Birinchi tovar narxi oshganda byudjet chizig‘i:",
+  "options": [
+   "Parallel tashqariga siljiydi",
+   "Gorizontal kesish nuqtasi atrofida tashqariga buriladi",
+   "O‘zgarmaydi",
+   "Vertikal kesish nuqtasi atrofida ichkariga buriladi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 19,
+  "q": "Barcha narxlar va daromad uch baravar oshsa, byudjet chizig‘i:",
+  "options": [
+   "Uch baravar tashqariga siljiydi",
+   "Uch baravar ichkariga siljiydi",
+   "Keskinlashadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 20,
+  "q": "Narxi 1 ga teng deb olingan tovar qanday ataladi?",
+  "options": [
+   "Numerar",
+   "Kompozit tovar",
+   "Giffen tovari",
+   "Jamoat ne’mati"
+  ],
+  "c": 0
+ },
+ {
+  "n": 21,
+  "q": "m=1500, p1=10, p2=25 bo‘lsa, birinchi tovarning maksimal miqdori:",
+  "options": [
+   "60",
+   "25",
+   "150",
+   "1 500"
+  ],
+  "c": 2
+ },
+ {
+  "n": 22,
+  "q": "Bir martalik (paushal) soliq byudjet chizig‘ini qanday o‘zgartiradi?",
+  "options": [
+   "Parallel ichkariga siljitadi",
+   "Og‘ishini keskinlashtiradi",
+   "Og‘ishini yassilashtiradi",
+   "O‘zgartirmaydi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 23,
+  "q": "Birinchi tovarga miqdoriy subsidiya s berilganda byudjet chizig‘i tenglamasi:",
+  "options": [
+   "(p1+s)x1+ p2x2=m",
+   "p1 x1+ p2 x2=m−s",
+   "p1 x1+( p2−s) x2=m",
+   "(p1−s)x1+ p2x2=m"
+  ],
+  "c": 3
+ },
+ {
+  "n": 24,
+  "q": "Me’yorlash (ratsionlash) natijasida byudjet to‘plami:",
+  "options": [
+   "Qisqaradi: x1>´x1 bo‘lgan qismi kesib tashlanadi",
+   "Kengayadi",
+   "O‘zgarmaydi",
+   "Faqat vertikal o‘q bo‘yicha qisqaradi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 25,
+  "q": "Blokli (pog‘onali) tarif sharoitida byudjet chizig‘i:",
+  "options": [
+   "Siniq chiziq ko‘rinishiga ega",
+   "Har doim to‘g‘ri chiziq",
+   "Vertikal chiziq",
+   "Gorizontal chiziq"
+  ],
+  "c": 0
+ },
+ {
+  "n": 26,
+  "q": "Boshlang‘ich zaxira (ω1,ω2) mavjud bo‘lsa, byudjet chizig‘i har doim:",
+  "options": [
+   "Koordinata boshidan o‘tadi",
+   "Vertikal o‘qqa parallel bo‘ladi",
+   "Zaxira nuqtasidan o‘tadi",
+   "Gorizontal o‘qqa parallel bo‘ladi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 27,
+  "q": "Talabning “zinapoyasimon” egri chizig‘i qanday hosil qilinadi?",
+  "options": [
+   "Sotuvchilarning xarajatlarini o‘sish tartibida joylashtirish orqali",
+   "Davlat narxlarini jamlash orqali",
+   "Muvozanat narxlarini o‘rtachalash orqali",
+   "Iste’molchilarning rezervatsion narxlarini kamayish tartibida joylashtirish orqali"
+  ],
+  "c": 3
+ },
+ {
+  "n": 28,
+  "q": "Chekli tahlil bo‘yicha optimal faoliyat darajasi qayerda bo‘ladi?",
+  "options": [
+   "Umumiy naf maksimal bo‘lgan nuqtada",
+   "Umumiy xarajat minimal bo‘lgan nuqtada",
+   "O‘rtacha xarajat maksimal bo‘lgan nuqtada",
+   "Chekli naf chekli xarajatga teng bo‘lgan nuqtada"
+  ],
+  "c": 3
+ },
+ {
+  "n": 29,
+  "q": "“Iqtisodiyot – maqsadlar va muqobil qo‘llanishga ega cheklangan vositalar o‘rtasidagi munosabat sifatida inson xatti-harakatini o‘rganuvchi fan” degan ta’rif muallifi:",
+  "options": [
+   "A. Marshall",
+   "L. Robbins",
+   "J.M. Keyns",
+   "K. Marks"
+  ],
+  "c": 1
+ },
+ {
+  "n": 30,
+  "q": "Vaqt cheklovini hisobga olgan holda “vaqtni taqsimlash nazariyasi”ni ishlab chiqqan Nobel mukofoti sohibi:",
+  "options": [
+   "P. Samuelson",
+   "G. Bekker",
+   "M. Fridmen",
+   "J. Nesh Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: “Innovatsion rivojlanish nashriyot-matbaa uyi”, 2021. – 296 b. 2. Bakiyeva I.A., Xadjayev X.S., Muxitdinova M.Z., Fayziyev Sh.Sh. Mikroiqtisodiyot. O‘quv qo‘llanma. – T.: O‘zbekiston faylasuflari milliy jamiyati nashriyoti, 2017. – 436 b. 3. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – New York: W.W. Norton & Company, 2014. – Ch. 1–2. 4. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 1– 2. 5. Mankiw N.G. Principles of Microeconomics. 9th ed. – Cengage Learning, 2021. – Ch. 1–2. 6. Nicholson W., Snyder C. Microeconomic Theory: Basic Principles and Extensions. 12th ed. – Cengage Learning, 2017. – Ch. 1. 7. Robbins L. An Essay on the Nature and Significance of Economic Science. – London: Macmillan, 1932. 8. Нуреев Р.М. Курс микроэкономики. – М.: Норма, 2008."
+  ],
+  "c": 1
+ }
+]

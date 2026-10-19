@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Bozor talabi individual talablardan qanday hosil qilinadi?",
+  "options": [
+   "Har bir narxda individual miqdorlarni qo‘shish orqali (gorizontal yig‘indi)",
+   "Har bir miqdorda individual narxlarni qo‘shish orqali (vertikal yig‘indi)",
+   "Individual talab funksiyalarini bir-biriga ko‘paytirish orqali",
+   "Bozordagi eng katta individual talabni namuna qilib olish orqali"
+  ],
+  "c": 0,
+  "e": "Bozor talabi grafikda individual talab chiziqlarini gorizontal qo‘shish bilan hosil bo‘ladi: har bir narxda miqdorlar qo‘shiladi."
+ },
+ {
+  "q": "Narx pasayganda yangi iste’molchilarning bozorga kirishi qanday chegaradagi o‘zgarish hisoblanadi?",
+  "options": [
+   "Intensiv chegaradagi o‘zgarish",
+   "Ekstensiv chegaradagi o‘zgarish",
+   "Daromad samarasi tufayli yuz beradigan o‘zgarish",
+   "Giffen samarasi tufayli yuz beradigan o‘zgarish"
+  ],
+  "c": 1,
+  "e": "Narx rezervatsion narxdan pastga tushganda yangi iste’molchilar kiradi – bu ekstensiv chegara, intensiv chegara esa mavjud xaridorlarning ko‘proq sotib olishidir."
+ },
+ {
+  "q": "Talab va taklif bir vaqtda ortganda muvozanat miqdori qanday o‘zgaradi?",
+  "options": [
+   "Albatta kamayadi",
+   "O‘zgarishsiz qoladi",
+   "Albatta ortadi",
+   "Siljishlar kattaligiga qarab kamayishi ham mumkin"
+  ],
+  "c": 2,
+  "e": "7.1-jadvalga ko‘ra, ikkala chiziq o‘ngga siljiganda miqdor ortadi, narx yo‘nalishi esa noaniq (“?”) qoladi."
+ },
+ {
+  "q": "O‘rgimchak to‘ri modelida tebranishlar so‘nib, bozor muvozanatga yaqinlashishi uchun nima kerak?",
+  "options": [
+   "Talab chizig‘i taklif chizig‘idan tikroq bo‘lishi kerak",
+   "Talab va taklif chiziqlari o‘zaro parallel bo‘lishi kerak",
+   "Taklif chizig‘i gorizontal (narx o‘zgarmas) bo‘lishi kerak",
+   "Taklif chizig‘i talab chizig‘idan tikroq bo‘lishi kerak"
+  ],
+  "c": 3,
+  "e": "Matnga ko‘ra, taklif chizig‘i talab chizig‘idan tikroq bo‘lsa tebranishlar so‘nadi, aks holda kuchayib boradi."
+ },
+ {
+  "q": "Chekli mahsuldorlikning kamayish qonuni qachon amal qiladi?",
+  "options": [
+   "Barcha ishlab chiqarish omillari bir vaqtda o‘zgarganda",
+   "Faqat barcha omillar o‘zgaradigan uzoq muddatda",
+   "Kamida bitta omil o‘zgarmas bo‘lganda",
+   "Texnologik taraqqiyot yuz berib, texnologiya yangilanganda"
+  ],
+  "c": 2,
+  "e": "Qonun boshqa omillar o‘zgarmas bo‘lganda bitta omil sarfini oshirish chekli mahsulotni kamaytirishini bildiradi (qisqa muddat)."
+ },
+ {
+  "q": "MPL > APL bo‘lsa, mehnatning o‘rtacha mahsuloti (APL) qanday o‘zgaradi?",
+  "options": [
+   "O‘sadi",
+   "Kamayadi",
+   "O‘zgarmaydi",
+   "Nolga teng bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Chekli mahsulot o‘rtachadan yuqori bo‘lsa, qo‘shilgan birlik o‘rtacha ko‘rsatkichni yuqoriga tortadi; 7.2-jadvalda L=1→3 da APL ortadi."
+ },
+ {
+  "q": "Umumiy mahsulot (TP) maksimal bo‘lganda qaysi tenglik bajariladi?",
+  "options": [
+   "MPL = APL",
+   "APL = 0",
+   "MPL o‘zining maksimumiga erishadi",
+   "MPL = 0"
+  ],
+  "c": 3,
+  "e": "MPL – TP ning hosilasi, shuning uchun TP maksimumida MPL=0 (7.2-jadvalda L=7 da MPL=2, L=8 da −1)."
+ },
+ {
+  "q": "Ratsional firma ishlab chiqarishning qaysi bosqichida faoliyat yuritadi?",
+  "options": [
+   "I bosqichda (APL ortadi, MPL > APL)",
+   "II bosqichda (APL kamayadi, MPL > 0)",
+   "III bosqichda (TP kamayadi, MPL < 0)",
+   "Narxlarga qarab istalgan bosqichda"
+  ],
+  "c": 1,
+  "e": "Ratsional firma APL kamayadigan, lekin MPL musbat bo‘lgan II bosqichda ishlaydi."
+ },
+ {
+  "q": "Texnik almashtirishning chekli normasi (MRTS_LK) nimaga teng?",
+  "options": [
+   "MPK / MPL",
+   "MPL / MPK",
+   "w / r (har doim)",
+   "APL / APK"
+  ],
+  "c": 1,
+  "e": "MRTS izokvanta og‘ishining moduli bo‘lib, omillar chekli mahsulotlari nisbati MPL/MPK ga teng."
+ },
+ {
+  "q": "Q = A·K^0,4·L^0,7 ishlab chiqarish funksiyasi qanday masshtab samarasiga ega?",
+  "options": [
+   "O‘zgarmas masshtab samarasi",
+   "Kamayuvchi masshtab samarasi",
+   "Masshtab samarasini aniqlab bo‘lmaydi",
+   "O‘suvchi masshtab samarasi"
+  ],
+  "c": 3,
+  "e": "Daraja ko‘rsatkichlari yig‘indisi 0,4 + 0,7 = 1,1 > 1, demak masshtab samarasi o‘suvchi."
+ },
+ {
+  "q": "Leontyev ishlab chiqarish funksiyasi qaysi ko‘rinishga ega?",
+  "options": [
+   "Q = min{a·K, b·L}",
+   "Q = a·K + b·L",
+   "Q = A·K^α·L^β",
+   "Q = K / L"
+  ],
+  "c": 0,
+  "e": "Leontyev funksiyasi omillari qat’iy to‘ldiruvchi bo‘lgan texnologiyani ifodalaydi: Q=min{aK, bL}."
+ },
+ {
+  "q": "Izokostaning og‘ishi (K vertikal, L gorizontal o‘qda) nimaga teng?",
+  "options": [
+   "−r / w",
+   "−MPL / MPK",
+   "−w / r",
+   "−C / r"
+  ],
+  "c": 2,
+  "e": "Izokosta C=wL+rK tenglamasidan K=C/r−(w/r)L, ya’ni og‘ishi −w/r."
+ },
+ {
+  "q": "Xarajatlarni minimallashtirish sharti qaysi?",
+  "options": [
+   "MPL = MPK",
+   "w = r",
+   "MPL · w = MPK · r",
+   "MPL / w = MPK / r"
+  ],
+  "c": 3,
+  "e": "Minimumda izokvanta og‘ishi izokosta og‘ishiga teng: MPL/MPK = w/r, ya’ni har pul birligiga to‘g‘ri keladigan chekli mahsulot tenglashadi."
+ },
+ {
+  "q": "Ish haqi oshganda (boshqa sharoitlar o‘zgarmas) firma xarajatlarni minimallashtirish uchun nima qiladi?",
+  "options": [
+   "Kapitalni mehnat bilan almashtiradi",
+   "Mehnatni kapital bilan almashtiradi",
+   "Omillar nisbatini o‘zgartirmaydi",
+   "Ishlab chiqarishni darhol to‘xtatadi"
+  ],
+  "c": 1,
+  "e": "Mehnat nisbatan qimmatlashganda omillar nisbati kapital foydasiga siljiydi, ya’ni mehnat kapitalga almashtiriladi."
+ },
+ {
+  "q": "Iqtisodiy foyda qanday aniqlanadi?",
+  "options": [
+   "Tushum − aniq xarajatlar",
+   "Tushum − doimiy xarajatlar",
+   "Tushum − aniq xarajatlar − yashirin xarajatlar",
+   "Tushum − to‘langan soliqlar"
+  ],
+  "c": 2,
+  "e": "Iqtisodiy foyda buxgalteriya foydasidan yashirin (muqobil) xarajatlar qiymatiga kam bo‘ladi."
+ },
+ {
+  "q": "Qaror qabul qilishda qaysi xarajatlar hisobga olinmasligi kerak?",
+  "options": [
+   "Qaytmaydigan (sunk) xarajatlar",
+   "O‘zgaruvchan xarajatlar",
+   "Muqobil xarajatlar",
+   "Chekli xarajatlar"
+  ],
+  "c": 0,
+  "e": "Qaytmaydigan xarajatlarni qaytarib bo‘lmaydi, shuning uchun ular kelgusi qarorga ta’sir qilmasligi kerak."
+ },
+ {
+  "q": "MC chizig‘i ATC chizig‘ini qayerda kesib o‘tadi?",
+  "options": [
+   "ATC ning maksimumida",
+   "AFC ning minimumida",
+   "ATC ning minimumida",
+   "Ular hech qachon kesishmaydi"
+  ],
+  "c": 2,
+  "e": "MC o‘rtacha xarajatdan past bo‘lsa ATC kamayadi, yuqori bo‘lsa ortadi, demak MC ATC ni uning minimumida kesadi."
+ },
+ {
+  "q": "TC = 100 + 10Q + Q² bo‘lsa, chekli xarajat (MC) qanday ifodalanadi?",
+  "options": [
+   "MC = 10 + Q",
+   "MC = 100/Q + 10 + Q",
+   "MC = 2Q",
+   "MC = 10 + 2Q"
+  ],
+  "c": 3,
+  "e": "MC = dTC/dQ = 10 + 2Q (doimiy xarajat 100 hosilada yo‘qoladi)."
+ },
+ {
+  "q": "Uzoq muddatli o‘rtacha xarajat (LAC) chizig‘i qanday hosil bo‘ladi?",
+  "options": [
+   "Qisqa muddatli chekli xarajatlarning yig‘indisi",
+   "Qisqa muddatli o‘rtacha xarajat chiziqlarining o‘rovchisi",
+   "Doimiy xarajatlar chizig‘ining davomi sifatida, har doim gorizontal",
+   "Qisqa muddatli o‘zgaruvchan xarajatlar chizig‘ining aynan o‘zi"
+  ],
+  "c": 1,
+  "e": "LAC har bir chiqarish hajmida eng kam o‘rtacha xarajatni beruvchi qisqa muddatli ATC chiziqlarining o‘rovchisidir."
+ },
+ {
+  "q": "Minimal samarali masshtab bozor hajmiga yaqin bo‘lsa, tarmoqda nima yuzaga keladi?",
+  "options": [
+   "Tabiiy monopoliya",
+   "Mukammal raqobat",
+   "Monopolistik raqobat",
+   "Firmalar soni cheksiz ko‘payadi"
+  ],
+  "c": 0,
+  "e": "Bozor hajmi bitta-ikkita firma minimal samarali masshtabga erishishiga yetsagina, tarmoq tabiiy monopoliyaga aylanadi."
+ },
+ {
+  "q": "Foydani maksimallashtirishning umumiy sharti qaysi?",
+  "options": [
+   "TR = TC",
+   "MR = MC",
+   "P = ATC",
+   "MR = 0"
+  ],
+  "c": 1,
+  "e": "Foyda chekli tushum chekli xarajatga teng bo‘lganda maksimal bo‘ladi."
+ },
+ {
+  "q": "Mukammal raqobat sharoitida firma uchun chekli tushum (MR) va narx (P) o‘rtasida qanday munosabat bor?",
+  "options": [
+   "MR < P",
+   "MR > P",
+   "MR = P",
+   "MR = 0"
+  ],
+  "c": 2,
+  "e": "Raqobatli firma narxni berilgan deb oladi, shuning uchun har bir qo‘shimcha birlik tushumi narxga teng."
+ },
+ {
+  "q": "Raqobatli firma qisqa muddatda ishlab chiqarishni qachon to‘xtatadi?",
+  "options": [
+   "P < min ATC bo‘lsa",
+   "P < MC bo‘lsa",
+   "Iqtisodiy foyda manfiy bo‘lsa",
+   "P < min AVC bo‘lsa"
+  ],
+  "c": 3,
+  "e": "Narx o‘zgaruvchan xarajatni ham qoplamasa, ishlab chiqarmaslik doimiy xarajat hajmidagi zarar bilan cheklanadi va foydaliroq bo‘ladi."
+ },
+ {
+  "q": "TC = 100 + 10Q + Q² bo‘lgan raqobatli firma narx 50 bo‘lganda qancha ishlab chiqaradi?",
+  "options": [
+   "20",
+   "25",
+   "10",
+   "40"
+  ],
+  "c": 0,
+  "e": "P=MC shartidan 50 = 10 + 2Q, bundan Q = 20."
+ },
+ {
+  "q": "Raqobatli firmaning qisqa muddatli taklif chizig‘i qaysi?",
+  "options": [
+   "MC ning min ATC dan pastdagi qismi",
+   "Butun ATC chizig‘i",
+   "Butun AVC chizig‘i",
+   "MC ning min AVC dan yuqoridagi qismi"
+  ],
+  "c": 3,
+  "e": "Firma P=MC bo‘yicha ishlab chiqaradi va faqat P ≥ min AVC bo‘lganda, shuning uchun taklif MC ning min AVC dan yuqoridagi qismidir."
+ },
+ {
+  "q": "Raqobatli firma uchun mehnatga talab sharti qaysi?",
+  "options": [
+   "p · MPL = w",
+   "MPL = w",
+   "p = w",
+   "APL = w"
+  ],
+  "c": 0,
+  "e": "Mehnatning chekli tushum mahsuloti (p·MPL) ish haqiga teng bo‘lguncha firma ishchi yollaydi."
+ },
+ {
+  "q": "Raqobatli tarmoqning uzoq muddatli muvozanatida qaysi shart bajariladi?",
+  "options": [
+   "P > min LAC, firmalar musbat iqtisodiy foyda oladi",
+   "P = LMC = min LAC, iqtisodiy foyda nolga teng",
+   "P = MR > MC, firmalar tarmoqqa kirishda davom etadi",
+   "P < min LAC, firmalar zarar ko‘rib tarmoqqa kiradi"
+  ],
+  "c": 1,
+  "e": "Erkin kirish-chiqish tufayli iqtisodiy foyda nolga tushadi va narx LAC ning minimumiga teng bo‘ladi."
+ },
+ {
+  "q": "Doimiy xarajatli tarmoqda talab oshsa, uzoq muddatda nima yuz beradi?",
+  "options": [
+   "Narx oshadi, firmalar soni o‘zgarmaydi",
+   "Narx pasayadi, firmalar soni ortadi",
+   "Narx o‘zgarmaydi, firmalar soni ortadi",
+   "Narx o‘zgarmaydi, firmalar soni kamayadi"
+  ],
+  "c": 2,
+  "e": "Uzoq muddatli taklif gorizontal bo‘lgani uchun narx o‘zgarmaydi, qo‘shimcha talab yangi firmalar kirishi bilan qondiriladi."
+ },
+ {
+  "q": "LAC = q² − 10q + 40 bo‘lsa, uzoq muddatli muvozanat narxi qancha?",
+  "options": [
+   "5",
+   "25",
+   "15",
+   "40"
+  ],
+  "c": 2,
+  "e": "LAC minimumi q=5 da, P = 25 − 50 + 40 = 15."
+ },
+ {
+  "q": "Noyob resurs egasiga to‘lanadigan, uning muqobil qiymatidan ortiq summa nima deyiladi?",
+  "options": [
+   "Normal foyda",
+   "Iqtisodiy renta",
+   "Buxgalteriya foydasi",
+   "Qaytmaydigan xarajat"
+  ],
+  "c": 1,
+  "e": "Iqtisodiy renta – noyob resurs egasi muqobil qiymatdan ortiq oladigan to‘lov."
+ }
+]

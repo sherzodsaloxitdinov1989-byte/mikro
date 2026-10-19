@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Ejvort qutisida Pareto samarali taqsimotlar to‘plami:",
+  "options": [
+   "Byudjet chizig‘i",
+   "Engel chizig‘i",
+   "Shartnoma chizig‘i",
+   "Narx-iste’mol chizig‘i"
+  ],
+  "c": 2
+ },
+ {
+  "n": 2,
+  "q": "Ayirboshlash samaradorligi sharti:",
+  "options": [
+   "M RT S x=M RT S y",
+   "MRS=M RT",
+   "MR Sx y A=MR Sx y",
+   "p=M C"
+  ],
+  "c": 2
+ },
+ {
+  "n": 3,
+  "q": "Farovonlik iqtisodiyotining birinchi teoremasi:",
+  "options": [
+   "Har qanday taqsimot adolatli",
+   "Raqobatli muvozanat Pareto samarali",
+   "Monopoliya Pareto samarali",
+   "Davlat aralashuvi har doim zarur"
+  ],
+  "c": 1
+ },
+ {
+  "n": 4,
+  "q": "Farovonlikning ikkinchi teoremasi qanday imkoniyat beradi?",
+  "options": [
+   "Narx nazoratini oqlash",
+   "Samaradorlik va adolat masalalarini ajratish",
+   "Tashqi samaralarni bartaraf etish",
+   "Monopoliyalarni tartibga solish"
+  ],
+  "c": 1
+ },
+ {
+  "n": 5,
+  "q": "Mahsulot tarkibi samaradorligi sharti:",
+  "options": [
+   "MRS A=MRS B",
+   "M PL=M PK",
+   "MR=M C",
+   "MR Sx y=M RT x y"
+  ],
+  "c": 3
+ },
+ {
+  "n": 6,
+  "q": "Rouls ijtimoiy farovonlik funksiyasi:",
+  "options": [
+   "W =U A+U B",
+   "W =U A⋅U B",
+   "W =min{U A ,U B}",
+   "W =max {U A ,U B}"
+  ],
+  "c": 2
+ },
+ {
+  "n": 7,
+  "q": "Errou teoremasi nimani isbotlaydi?",
+  "options": [
+   "Raqobatli muvozanatning mavjudligini",
+   "Pigu solig‘ining samaradorligini",
+   "Bir qator oqilona shartlarni qanoatlantiruvchi jamoaviy tanlov qoidasi mavjud emasligini",
+   "Jamoat ne’matlarining samarali hajmini"
+  ],
+  "c": 2
+ },
+ {
+  "n": 8,
+  "q": "Salbiy tashqi samara mavjud bo‘lganda raqobatli bozor:",
+  "options": [
+   "Kam ishlab chiqaradi",
+   "Samarali hajmda ishlab chiqaradi",
+   "Ishlab chiqarmaydi",
+   "Ortiqcha ishlab chiqaradi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 9,
+  "q": "Chekli ijtimoiy xarajat:",
+  "options": [
+   "M SC=M PC −M EC",
+   "M SC=M EC",
+   "M SC=M PC ⋅M EC",
+   "M SC=M PC+M EC"
+  ],
+  "c": 3
+ },
+ {
+  "n": 10,
+  "q": "Emlash qaysi turdagi tashqi samaraga misol?",
+  "options": [
+   "Salbiy ishlab chiqarish tashqi samarasi",
+   "Salbiy iste’mol tashqi samarasi",
+   "Ijobiy iste’mol tashqi samarasi",
+   "Pul tashqi samarasi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 11,
+  "q": "Pigu solig‘i qanday belgilanadi?",
+  "options": [
+   "Chekli xususiy xarajatga teng",
+   "Optimal hajmdagi chekli tashqi xarajatga teng",
+   "O‘rtacha xarajatga teng",
+   "Bozor narxiga teng"
+  ],
+  "c": 1
+ },
+ {
+  "n": 12,
+  "q": "P=120−Q, M PC=Q, M EC=0,5Q bo‘lsa, ijtimoiy optimal hajm:",
+  "options": [
+   "60",
+   "40",
+   "80",
+   "48"
+  ],
+  "c": 3
+ },
+ {
+  "n": 13,
+  "q": "Xarajat-samarali chiqindilarni kamaytirish sharti:",
+  "options": [
+   "Barcha firmalar bir xil miqdorda kamaytiradi",
+   "Barcha firmalarning chekli tozalash xarajatlari teng",
+   "Eng yirik firma ko‘proq kamaytiradi",
+   "Tozalash xarajatlari nolga teng"
+  ],
+  "c": 1
+ },
+ {
+  "n": 14,
+  "q": "Ruxsatnomalar savdosining asosiy afzalligi:",
+  "options": [
+   "Davlatga M EC ni bilish talab qilinmasligi va natija noaniqligi",
+   "Umumiy hajmga minimal xarajat bilan erishish va natijani kafolatlash",
+   "Barcha firmalar bir xil kamaytirishi",
+   "Hech qanday nazorat talab qilinmasligi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 15,
+  "q": "Kouz teoremasining asosiy sharti:",
+  "options": [
+   "Davlat soliqlarining mavjudligi",
+   "Tomonlar sonining ko‘pligi",
+   "Mukammal raqobat",
+   "Tranzaksion xarajatlarning nolga tengligi va mulkiy huquqlarning aniqligi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 16,
+  "q": "Kouz teoremasiga ko‘ra mulkiy huquqlarning taqsimlanishi nimaga ta’sir qiladi?",
+  "options": [
+   "Samaradorlikka",
+   "Ishlab chiqarish hajmiga",
+   "Hech narsaga",
+   "Faqat daromad taqsimotiga"
+  ],
+  "c": 3
+ },
+ {
+  "n": 17,
+  "q": "“Ijtimoiy xarajatlar muammosi” (1960) maqolasi muallifi:",
+  "options": [
+   "A. Pigu",
+   "R. Kouz",
+   "G. Xardin",
+   "P. Samuelson"
+  ],
+  "c": 1
+ },
+ {
+  "n": 18,
+  "q": "Umumiy resurs qanday xususiyatlarga ega?",
+  "options": [
+   "Raqobatli, istisno qilinmaydi",
+   "Raqobatsiz, istisno qilinmaydi",
+   "Raqobatli, istisno qilinadi",
+   "Raqobatsiz, istisno qilinadi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 19,
+  "q": "Ochiq kirishli baliq ovida qayiqlar soni qaysi shartdan aniqlanadi?",
+  "options": [
+   "Chekli mahsulot = qayiq xarajati",
+   "Umumiy mahsulot maksimal",
+   "Chekli mahsulot nolga teng",
+   "O‘rtacha mahsulot = qayiq xarajati"
+  ],
+  "c": 3
+ },
+ {
+  "n": 20,
+  "q": "Umumiy resurslarni jamoaviy boshqarish tamoyillarini ishlab chiqqan Nobel mukofoti sovrindori:",
+  "options": [
+   "G. Xardin",
+   "R. Kouz",
+   "E. Ostrom",
+   "K. Errou"
+  ],
+  "c": 2
+ },
+ {
+  "n": 21,
+  "q": "Sof jamoat ne’mati:",
+  "options": [
+   "Raqobatli va istisno qilinadigan",
+   "Raqobatli va istisno qilinmaydigan",
+   "Raqobatsiz va istisno qilinmaydigan",
+   "Raqobatsiz va istisno qilinadigan"
+  ],
+  "c": 2
+ },
+ {
+  "n": 22,
+  "q": "Qaysi biri sof jamoat ne’matiga misol?",
+  "options": [
+   "Kabel televideniyesi",
+   "Milliy mudofaa",
+   "Baliq zaxirasi",
+   "Avtomobil"
+  ],
+  "c": 1
+ },
+ {
+  "n": 23,
+  "q": "Jamoat ne’matining samarali hajmi sharti (Samuelson):",
+  "options": [
+   "MR Si=MC har bir iste’molchi uchun",
+   "∑MR Si=MC",
+   "∑M Ci=MRS",
+   "MRS=0"
+  ],
+  "c": 1
+ },
+ {
+  "n": 24,
+  "q": "Jamoat ne’mati uchun bozor talabi individual talablardan qanday hosil qilinadi?",
+  "options": [
+   "Gorizontal qo‘shish",
+   "Vertikal qo‘shish",
+   "Ko‘paytirish",
+   "Eng kattasini olish"
+  ],
+  "c": 1
+ },
+ {
+  "n": 25,
+  "q": "Haq to‘lamasdan jamoat ne’matidan foydalanishga intilish:",
+  "options": [
+   "Tekinxo‘rlik muammosi",
+   "G‘olib la’nati",
+   "Renta izlash",
+   "Kouz muammosi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 26,
+  "q": "Har bir iste’molchiga uning chekli baholashiga teng shaxsiy narx belgilash:",
+  "options": [
+   "Lindal narxlari",
+   "Pigu narxlari",
+   "Ramsi narxlari",
+   "Valras narxlari"
+  ],
+  "c": 0
+ },
+ {
+  "n": 27,
+  "q": "MR S1=50−G, MR S2=40−G, MR S3=30−G, MC=60 bo‘lsa, G*:",
+  "options": [
+   "30",
+   "40",
+   "20",
+   "10"
+  ],
+  "c": 2
+ },
+ {
+  "n": 28,
+  "q": "Ko‘pchilik ovoz bilan qaror qabul qilishda bir cho‘qqili afzal ko‘rishlarda tanlanadigan variant:",
+  "options": [
+   "Mediana saylovchi afzal ko‘rgan variant",
+   "O‘rtacha baholashga mos variant",
+   "Eng boy saylovchi afzal ko‘rgan variant",
+   "Tasodifiy variant"
+  ],
+  "c": 0
+ },
+ {
+  "n": 29,
+  "q": "Orol dengizi fojiasi iqtisodiy jihatdan qaysi muammoning namunasi?",
+  "options": [
+   "Monopol narx belgilash",
+   "Giffen paradoksi",
+   "Assimetrik axborot",
+   "Umumiy resursdan ortiqcha foydalanish va salbiy tashqi samara"
+  ],
+  "c": 3
+ },
+ {
+  "n": 30,
+  "q": "Kondorse paradoksi nimani ko‘rsatadi?",
+  "options": [
+   "Individual afzal ko‘rishlar notranzitivligini",
+   "Ko‘pchilik ovoz bilan jamlangan afzal ko‘rishlar notranzitiv bo‘lishi mumkinligini",
+   "Raqobatli muvozanat samarasizligini",
+   "Soliqlarning DWL yaratishini Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: 2021. – 4, 9, 10- boblar. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 32–37. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 16, 18. 4. Mankiw N.G. Principles of Microeconomics. 9th ed. – Cengage, 2021. – Ch. 10– 11. 5. Coase R.H. The Problem of Social Cost // Journal of Law and Economics. – 1960. – Vol. 3. – P. 1–44. 6. Hardin G. The Tragedy of the Commons // Science. – 1968. – Vol. 162, No. 3859. – P. 1243–1248. 7. Ostrom E. Governing the Commons: The Evolution of Institutions for Collective Action. – Cambridge University Press, 1990. 8. Samuelson P.A. The Pure Theory of Public Expenditure // Review of Economics and Statistics. – 1954. – Vol. 36, No. 4. – P. 387–389. 9. Arrow K.J. Social Choice and Individual Values. – New York: Wiley, 1951. 10.Pigou A.C. The Economics of Welfare. – London: Macmillan, 1920."
+  ],
+  "c": 1
+ }
+]

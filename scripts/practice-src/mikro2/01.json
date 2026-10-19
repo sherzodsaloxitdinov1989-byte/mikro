@@ -1,0 +1,35 @@
+{
+ "goal": "«Fanning predmeti va o‘rganish usullari. bozor va byudjet cheklovi» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "concepts": [
+  "mikroiqtisodiyot",
+  "cheklangan resurslar",
+  "muqobil xarajat",
+  "pozitiv tahlil",
+  "normativ tahlil",
+  "iqtisodiy model"
+ ],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 1-bob",
+ "tasks": [],
+ "open": [
+  "Esse/munozara: Iqtisodiy modellar reallikni soddalashtiradi: bu ularning kuchimi yoki zaifligimi?",
+  "Esse/munozara: Narx nazorati qachon oqlanishi mumkin? Uy-joy ijarasi misolida.",
+  "Esse/munozara: Bozor narxlari axborot uzatish tizimi sifatida: F. fon Hayek g‘oyasining raqamli iqtisodiyotdagi ahamiyati.",
+  "Esse/munozara: Pozitiv va normativ iqtisodiyot chegarasi: soliq siyosati bo‘yicha munozaralar misolida.",
+  "Esse/munozara: Ma’lumotlarga asoslangan iqtisodiy siyosat: O‘zbekistonda statistik ma’lumotlarning sifati va ochiqligi.",
+  "Mustaqil ish: (MT-4) Bozor iqtisodiyotida talab va taklifning ahamiyati. O‘zingiz yashaydigan hududdagi biror mahsulot bozorini (go‘sht, sabzavot, qurilish materiallari) tanlang. Oxirgi uch yildagi narx dinamikasini rasmiy statistika (www.stat.uz) asosida tahlil qiling va narx o‘zgarishiga talab yoki taklif omillaridan qaysi biri ko‘proq ta’sir qilganini asoslang.",
+  "Mustaqil ish: (MT-12) Bozor muvozanati va uning ahamiyati. Qd=200−5 P, Qs=−40+7 P bo‘lgan bozor uchun muvozanatni toping. Narxning yuqori chegarasi 15 va quyi chegarasi 25 bo‘lgan holatlarni grafikda tasvirlab, oqibatlarini tahlil qiling.",
+  "Mustaqil ish: (MT-14) Byudjet chegarasi va byudjet chizig‘i. O‘zingizning (yoki oilangizning) bir oylik xarajatlarini ikki guruhga – “oziq-ovqat” va “boshqa xarajatlar”ga ajrating. Byudjet chizig‘ini quring va oziq-ovqat narxlari 10 foizga oshganda u qanday o‘zgarishini ko‘rsating.",
+  "Mustaqil ish: Mobil aloqa operatorlaridan birining tarif rejasini (abonent to‘lovi + paket + paketdan ortiq trafik narxi) tanlang va unga mos siniq byudjet chizig‘ini chizing."
+ ],
+ "refs": [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+ ]
+}

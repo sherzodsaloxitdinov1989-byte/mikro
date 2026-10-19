@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Ejvort qutisida Pareto samarali taqsimotlar to‘plami qanday ataladi?",
+  "options": [
+   "Byudjet chizig‘i",
+   "Engel chizig‘i",
+   "Shartnoma chizig‘i",
+   "Narx–iste’mol chizig‘i"
+  ],
+  "c": 2,
+  "e": "Befarqlik chiziqlari urinadigan barcha nuqtalar to‘plami shartnoma chizig‘i bo‘lib, u Pareto samarali taqsimotlardir."
+ },
+ {
+  "q": "Ayirboshlash samaradorligi sharti qaysi?",
+  "options": [
+   "MRSᴬ(x,y) = MRSᴮ(x,y)",
+   "MRTS_x(L,K) = MRTS_y(L,K)",
+   "MRS(x,y) = MRT(x,y)",
+   "p = MC"
+  ],
+  "c": 0,
+  "e": "Ayirboshlash davom etib, ikki iste’molchining almashtirish normalari tenglashganda samaradorlikka erishiladi."
+ },
+ {
+  "q": "Farovonlik iqtisodiyotining birinchi teoremasi nimani ifodalaydi?",
+  "options": [
+   "Har qanday taqsimot adolatli hisoblanadi",
+   "Monopoliya sharoitidagi muvozanat Pareto samarali bo‘ladi",
+   "Davlat aralashuvi har doim zarur bo‘ladi",
+   "Har qanday raqobatli muvozanat Pareto samarali bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Birinchi teoremaga ko‘ra (tashqi samaralarsiz, monoton afzal ko‘rishlarda) raqobatli muvozanat Pareto samarali."
+ },
+ {
+  "q": "Farovonlikning ikkinchi teoremasi qanday imkoniyat beradi?",
+  "options": [
+   "Narx nazoratini iqtisodiy jihatdan oqlash",
+   "Samaradorlik va adolat masalalarini bir-biridan ajratish",
+   "Tashqi samaralarni to‘liq bartaraf etish",
+   "Monopoliyalarni samarali tartibga solish"
+  ],
+  "c": 1,
+  "e": "Boshlang‘ich zaxiralarni qayta taqsimlab, narxlarni bozorga qo‘yib berish orqali istalgan Pareto samarali nuqtaga erishiladi."
+ },
+ {
+  "q": "Mahsulot tarkibi samaradorligi sharti qaysi?",
+  "options": [
+   "MRSᴬ(x,y) = MRSᴮ(x,y)",
+   "MRS(x,y) = MRT(x,y)",
+   "MRTS_x(L,K) = MRTS_y(L,K)",
+   "MR = MC"
+  ],
+  "c": 1,
+  "e": "Iste’molchilarning tovarlarni almashtirishga tayyorligi texnologik almashtirish imkoniyatiga (MRT) teng bo‘lishi kerak."
+ },
+ {
+  "q": "Rouls ijtimoiy farovonlik funksiyasi qaysi ko‘rinishga ega?",
+  "options": [
+   "W = Uᴬ + Uᴮ",
+   "W = Uᴬ · Uᴮ",
+   "W = min{Uᴬ, Uᴮ}",
+   "W = max{Uᴬ, Uᴮ}"
+  ],
+  "c": 2,
+  "e": "Rouls bo‘yicha eng kam ta’minlangan a’zoning ahvoli maksimallashtiriladi, ya’ni W = min{Uᴬ, Uᴮ}."
+ },
+ {
+  "q": "Errouning imkonsizlik teoremasi nimani isbotlaydi?",
+  "options": [
+   "Raqobatli muvozanat mavjudligini qat’iy matematik shaklda",
+   "Pigu solig‘i tashqi samarani to‘liq bartaraf etishini",
+   "Jamoat ne’matlarining samarali hajmi aniq mavjudligini",
+   "Bir qator oqilona shartlarni qanoatlantiradigan jamoaviy tanlov qoidasi mavjud emasligini"
+  ],
+  "c": 3,
+  "e": "Uch va undan ortiq muqobilda to‘rt shartni (diktatorsiz ham) qanoatlantiruvchi ijtimoiy tanlov qoidasi yo‘q."
+ },
+ {
+  "q": "Salbiy tashqi samara mavjud bo‘lganda raqobatli bozor qanday hajmda ishlab chiqaradi?",
+  "options": [
+   "Ijtimoiy optimumdan ortiqcha hajmda",
+   "Ijtimoiy optimumdan kam hajmda",
+   "Aynan ijtimoiy optimal hajmda",
+   "Umuman ishlab chiqarmaydi"
+  ],
+  "c": 0,
+  "e": "Xususiy xarajat ijtimoiy xarajatdan past bo‘lgani uchun bozor ortiqcha ishlab chiqaradi."
+ },
+ {
+  "q": "Chekli ijtimoiy xarajat (MSC) qanday aniqlanadi?",
+  "options": [
+   "MSC = MPC − MEC",
+   "MSC = MPC · MEC",
+   "MSC = MPC + MEC",
+   "MSC = MEC"
+  ],
+  "c": 2,
+  "e": "Chekli ijtimoiy xarajat chekli xususiy xarajat va chekli tashqi xarajat yig‘indisiga teng."
+ },
+ {
+  "q": "Emlash qaysi turdagi tashqi samaraga misol bo‘ladi?",
+  "options": [
+   "Salbiy ishlab chiqarish tashqi samarasi",
+   "Ijobiy iste’mol tashqi samarasi",
+   "Salbiy iste’mol tashqi samarasi",
+   "Pul tashqi samarasi"
+  ],
+  "c": 1,
+  "e": "Emlangan kishi boshqalarning kasallanish xavfini kamaytiradi, ya’ni iste’moldan ijobiy tashqi samara paydo bo‘ladi."
+ },
+ {
+  "q": "Pigu solig‘i qanday miqdorda belgilanadi?",
+  "options": [
+   "Optimal hajmdagi chekli tashqi xarajatga teng miqdorda",
+   "Chekli xususiy xarajatga teng miqdorda",
+   "O‘rtacha xarajatga teng miqdorda",
+   "Bozor narxiga teng miqdorda"
+  ],
+  "c": 0,
+  "e": "Pigu solig‘i tashqi xarajatni ichkilashtirish uchun optimal hajmdagi MEC ga tenglashtiriladi."
+ },
+ {
+  "q": "P = 120 − Q, MPC = Q, MEC = 0,5Q bo‘lsa, ijtimoiy optimal hajm qancha?",
+  "options": [
+   "40",
+   "60",
+   "80",
+   "48"
+  ],
+  "c": 3,
+  "e": "MSC = 1,5Q bo‘lgani uchun 120 − Q = 1,5Q, bundan Q* = 48 (bozor muvozanati esa 60)."
+ },
+ {
+  "q": "Chiqindilarni xarajat jihatidan samarali kamaytirish sharti qaysi?",
+  "options": [
+   "Barcha firmalar chiqindini bir xil miqdorda kamaytirishi",
+   "Eng yirik firma chiqindini ko‘proq kamaytirishi",
+   "Tozalash xarajatlarining nolga teng bo‘lishi",
+   "Barcha firmalarning chekli tozalash xarajatlari tenglashishi"
+  ],
+  "c": 3,
+  "e": "Umumiy kamaytirish eng arzon bo‘lishi uchun firmalarning chekli tozalash xarajatlari o‘zaro teng bo‘lishi kerak."
+ },
+ {
+  "q": "Ruxsatnomalar savdosining asosiy afzalligi nimada?",
+  "options": [
+   "Davlat MEC ni bilishi talab qilinmasligi va natijaning noaniqligida",
+   "Umumiy hajmga minimal xarajat bilan erishish va natijani kafolatlashda",
+   "Barcha firmalar chiqindini bir xil miqdorda kamaytirishida",
+   "Hech qanday nazorat talab qilinmasligida"
+  ],
+  "c": 1,
+  "e": "Ruxsatnomalar umumiy chegarani kafolatlaydi, savdo esa kamaytirishni chekli xarajati past firmalarga yuklaydi."
+ },
+ {
+  "q": "Kouz teoremasining asosiy sharti qaysi?",
+  "options": [
+   "Tranzaksion xarajatlarning nolga tengligi va mulkiy huquqlarning aniq belgilanganligi",
+   "Davlat soliqlarining mavjudligi",
+   "Ishtirokchi tomonlar sonining ko‘pligi",
+   "Mukammal raqobat bozorining mavjudligi"
+  ],
+  "c": 0,
+  "e": "Kouz teoremasi tranzaksion xarajatlar nol va mulkiy huquqlar aniq bo‘lganda tomonlar kelishib samarali natijaga erishishini aytadi."
+ },
+ {
+  "q": "Kouz teoremasiga ko‘ra mulkiy huquqlarning boshlang‘ich taqsimlanishi nimaga ta’sir qiladi?",
+  "options": [
+   "Natijaning samaradorligiga",
+   "Ishlab chiqarish hajmiga",
+   "Faqat daromadlar taqsimotiga",
+   "Hech narsaga ta’sir qilmaydi"
+  ],
+  "c": 2,
+  "e": "Huquqlar kimga berilishidan qat’i nazar samarali hajmga erishiladi, faqat daromadlar taqsimoti o‘zgaradi."
+ },
+ {
+  "q": "“Ijtimoiy xarajatlar muammosi” (1960) maqolasi muallifi kim?",
+  "options": [
+   "A. Pigu",
+   "R. Kouz",
+   "G. Xardin",
+   "P. Samuelson"
+  ],
+  "c": 1,
+  "e": "Ushbu maqola (The Problem of Social Cost, 1960) R. Kouzga tegishli."
+ },
+ {
+  "q": "Umumiy resurs qanday xususiyatlarga ega?",
+  "options": [
+   "Raqobatsiz va istisno qilinmaydigan",
+   "Raqobatli va istisno qilinadigan",
+   "Raqobatsiz va istisno qilinadigan",
+   "Raqobatli va istisno qilinmaydigan"
+  ],
+  "c": 3,
+  "e": "Umumiy resursdan foydalanish raqobatli, lekin undan foydalanishdan boshqalarni chetlatib bo‘lmaydi."
+ },
+ {
+  "q": "Ochiq kirishli baliq ovida qayiqlar soni qaysi shartdan aniqlanadi?",
+  "options": [
+   "Chekli mahsulot qayiq xarajatiga tenglashganda",
+   "Umumiy mahsulot maksimal bo‘lganda",
+   "O‘rtacha mahsulot qayiq xarajatiga tenglashganda",
+   "Chekli mahsulot nolga teng bo‘lganda"
+  ],
+  "c": 2,
+  "e": "Ochiq kirishda foyda nolga tushguncha kirish davom etadi, ya’ni AP = qayiq xarajati."
+ },
+ {
+  "q": "Umumiy resurslarni jamoaviy boshqarish tamoyillarini ishlab chiqqan Nobel mukofoti sovrindori kim?",
+  "options": [
+   "E. Ostrom",
+   "G. Xardin",
+   "R. Kouz",
+   "K. Errou"
+  ],
+  "c": 0,
+  "e": "Elinor Ostrom umumiy resurslarni jamoalar o‘zi boshqarishining tamoyillarini ishlab chiqdi."
+ },
+ {
+  "q": "Sof jamoat ne’mati qaysi xususiyatlarga ega?",
+  "options": [
+   "Raqobatli va istisno qilinmaydigan",
+   "Raqobatli va istisno qilinadigan",
+   "Raqobatsiz va istisno qilinmaydigan",
+   "Raqobatsiz va istisno qilinadigan"
+  ],
+  "c": 2,
+  "e": "Sof jamoat ne’mati iste’molda raqobatsiz va undan foydalanishdan boshqalarni chetlatib bo‘lmaydi."
+ },
+ {
+  "q": "Qaysi biri sof jamoat ne’matiga misol bo‘ladi?",
+  "options": [
+   "Milliy mudofaa",
+   "Kabel televideniyesi",
+   "Baliq zaxirasi",
+   "Xususiy avtomobil"
+  ],
+  "c": 0,
+  "e": "Milliy mudofaadan barcha fuqarolar raqobatsiz va istisnosiz foydalanadi."
+ },
+ {
+  "q": "Jamoat ne’matining samarali hajmi sharti (Samuelson) qaysi?",
+  "options": [
+   "MRSᵢ = MC har bir iste’molchi uchun alohida",
+   "∑MRSᵢ = MC",
+   "∑MCᵢ = MRS",
+   "MRS = 0"
+  ],
+  "c": 1,
+  "e": "Samuelson sharti: iste’molchilarning chekli almashtirish normalari yig‘indisi chekli xarajatga teng."
+ },
+ {
+  "q": "Jamoat ne’mati uchun bozor talabi individual talablardan qanday hosil qilinadi?",
+  "options": [
+   "Gorizontal qo‘shish orqali",
+   "Ko‘paytirish orqali",
+   "Eng kattasini tanlash orqali",
+   "Vertikal qo‘shish orqali"
+  ],
+  "c": 3,
+  "e": "Ne’mat hamma uchun bir xil hajmda bo‘lgani uchun baholashlar (narxlar) vertikal yig‘iladi."
+ },
+ {
+  "q": "Haq to‘lamasdan jamoat ne’matidan foydalanishga intilish nima deyiladi?",
+  "options": [
+   "Tekinxo‘rlik muammosi",
+   "G‘olib la’nati",
+   "Renta izlash",
+   "Kouz muammosi"
+  ],
+  "c": 0,
+  "e": "Istisno qilib bo‘lmagani uchun har kim to‘lamasdan foydalanishga intiladi — bu tekinxo‘rlik muammosi."
+ },
+ {
+  "q": "Har bir iste’molchiga uning chekli baholashiga teng shaxsiy narx belgilash qanday ataladi?",
+  "options": [
+   "Pigu narxlari",
+   "Ramsi narxlari",
+   "Lindal narxlari",
+   "Valras narxlari"
+  ],
+  "c": 2,
+  "e": "Lindal narxlarida har bir iste’molchi o‘zining chekli baholashiga teng to‘lov to‘laydi."
+ },
+ {
+  "q": "MRS₁ = 50 − G, MRS₂ = 40 − G, MRS₃ = 30 − G, MC = 60 bo‘lsa, jamoat ne’matining samarali hajmi G* qancha?",
+  "options": [
+   "10",
+   "30",
+   "40",
+   "20"
+  ],
+  "c": 3,
+  "e": "∑MRS = 120 − 3G = 60 bo‘lgani uchun G* = 20."
+ },
+ {
+  "q": "Ko‘pchilik ovoz bilan qaror qabul qilishda bir cho‘qqili afzal ko‘rishlarda qaysi variant tanlanadi?",
+  "options": [
+   "O‘rtacha baholashga mos keladigan variant",
+   "Mediana saylovchi afzal ko‘rgan variant",
+   "Eng boy saylovchi afzal ko‘rgan variant",
+   "Tasodifiy tanlangan variant"
+  ],
+  "c": 1,
+  "e": "Bir cho‘qqili afzal ko‘rishlarda ko‘pchilik ovozi mediana saylovchining variantini tanlaydi."
+ },
+ {
+  "q": "Orol dengizi fojiasi iqtisodiy jihatdan qaysi muammoning namunasi?",
+  "options": [
+   "Umumiy resursdan ortiqcha foydalanish va salbiy tashqi samara",
+   "Monopol narx belgilash muammosi",
+   "Giffen paradoksi",
+   "Assimetrik axborot muammosi"
+  ],
+  "c": 0,
+  "e": "Orolga quyiladigan suvdan ortiqcha foydalanish umumiy resurs muammosi va salbiy tashqi samaraga misol."
+ },
+ {
+  "q": "Kondorse paradoksi nimani ko‘rsatadi?",
+  "options": [
+   "Individual afzal ko‘rishlar doim notranzitiv ekanligini",
+   "Ko‘pchilik ovoz bilan jamlangan afzal ko‘rishlar notranzitiv bo‘lishi mumkinligini",
+   "Raqobatli muvozanat samarasizligini",
+   "Soliqlar o‘lik yuk (DWL) yaratishini"
+  ],
+  "c": 1,
+  "e": "Jadvaldagi misolda A>B, B>C, lekin C>A bo‘lib, ijtimoiy afzal ko‘rish notranzitiv chiqadi."
+ }
+]

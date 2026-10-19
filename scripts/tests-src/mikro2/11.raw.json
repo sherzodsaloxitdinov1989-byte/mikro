@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Assimetrik axborot nazariyasi uchun 2001-yilda Nobel mukofoti olgan olimlar:",
+  "options": [
+   "J. Nesh, R. Zelten, J. Harsanyi",
+   "J. Akerlof, M. Spens, J. Stiglits",
+   "O. Xart, B. Xolmstrem",
+   "L. Gurvich, E. Maskin, R. Mayerson"
+  ],
+  "c": 1
+ },
+ {
+  "n": 2,
+  "q": "Bitimdan oldin mavjud bo‘lgan yashirin xususiyat qaysi muammoni keltirib chiqaradi?",
+  "options": [
+   "Axloqiy risk",
+   "Noxush tanlov",
+   "Tekinxo‘rlik",
+   "Umumiylar tragediyasi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 3,
+  "q": "Bitimdan keyingi kuzatilmaydigan harakatlar bilan bog‘liq muammo:",
+  "options": [
+   "Noxush tanlov",
+   "Signal berish",
+   "Skrining",
+   "Axloqiy (subyektiv) risk"
+  ],
+  "c": 3
+ },
+ {
+  "n": 4,
+  "q": "“Limonlar bozori” modelining asosiy xulosasi:",
+  "options": [
+   "Sifatli tovarlar narxi oshadi",
+   "Sifatsiz tovarlar sifatlilarini bozordan siqib chiqaradi",
+   "Bozor har doim samarali",
+   "Xaridorlar sotuvchilardan ko‘proq biladi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 5,
+  "q": "11.2-jadval misolida xaridorlar barcha avtomobillar uchun to‘lashga tayyor narx:",
+  "options": [
+   "100 mln so‘m",
+   "75 mln so‘m",
+   "50 mln so‘m",
+   "80 mln so‘m"
+  ],
+  "c": 1
+ },
+ {
+  "n": 6,
+  "q": "Sug‘urta bozorida noxush tanlovni bartaraf etishning keng tarqalgan davlat vositasi:",
+  "options": [
+   "Narxning yuqori chegarasi",
+   "Import tarifi",
+   "Majburiy sug‘urta",
+   "Pigu solig‘i"
+  ],
+  "c": 2
+ },
+ {
+  "n": 7,
+  "q": "Kredit ratsionlash nazariyasi mualliflari:",
+  "options": [
+   "J. Akerlof va R. Shiller",
+   "M. Spens va K. Errou",
+   "J. Stiglits va E. Vays",
+   "M. Rotshild va B. Grinvald"
+  ],
+  "c": 2
+ },
+ {
+  "n": 8,
+  "q": "Bank foiz stavkasini ma’lum darajadan oshirmasligining sababi:",
+  "options": [
+   "Davlat cheklovi",
+   "Kreditga talab yo‘qligi",
+   "Raqobatchilar bosimi",
+   "Yuqori stavkada xatarli qarz oluvchilar ulushi ortib, bankning kutilgan daromadi kamayadi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 9,
+  "q": "Spens modelida signal ishonchli bo‘lishi uchun:",
+  "options": [
+   "Signal hamma uchun bepul bo‘lishi kerak",
+   "Signal unumdorlikni albatta oshirishi kerak",
+   "Signal xarajati yuqori sifatli turlar uchun pastroq bo‘lishi kerak",
+   "Signal faqat davlat tomonidan berilishi kerak"
+  ],
+  "c": 2
+ },
+ {
+  "n": 10,
+  "q": "Spens modelida (unumdorlik 200 va 400, xarajat 80y va 40y) ajratuvchi",
+  "options": [
+   "muvozanat uchun y *: A) y *<2,5 *:",
+   "2,5< y *<5 *:",
+   "y *>5 *:",
+   "y *=0 *:"
+  ],
+  "c": 1
+ },
+ {
+  "n": 11,
+  "q": "Har ikki tur bir xil signalni tanlagan muvozanat:",
+  "options": [
+   "Birlashtiruvchi muvozanat",
+   "Ajratuvchi muvozanat",
+   "Nesh muvozanati emas",
+   "Kurno muvozanati"
+  ],
+  "c": 0
+ },
+ {
+  "n": 12,
+  "q": "Tovar kafolati nima uchun sifat signali bo‘la oladi?",
+  "options": [
+   "Kafolat davlat tomonidan beriladi",
+   "Kafolat tovar narxini pasaytiradi",
+   "Kafolat barcha tovarlarga bir xil",
+   "Sifatsiz tovar uchun kafolat ishlab chiqaruvchiga qimmatga tushadi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 13,
+  "q": "Axborotsiz tomon shartnomalar menyusini taklif qilib, ishtirokchilarni o‘z- o‘zini tanlashga undashi:",
+  "options": [
+   "Signal berish",
+   "Monitoring",
+   "Skrining",
+   "Arbitraj"
+  ],
+  "c": 2
+ },
+ {
+  "n": 14,
+  "q": "Sug‘urtada zararning birinchi qismini sug‘urtalangan o‘zi qoplashi:",
+  "options": [
+   "Bonus-malus",
+   "Kafolat",
+   "Franshiza",
+   "Ko-sug‘urta"
+  ],
+  "c": 2
+ },
+ {
+  "n": 15,
+  "q": "To‘liq sug‘urtalangan shaxsning ehtiyotkorlikni kamaytirishi:",
+  "options": [
+   "Noxush tanlov",
+   "Signal berish",
+   "Tekinxo‘rlik",
+   "Axloqiy risk"
+  ],
+  "c": 3
+ },
+ {
+  "n": 16,
+  "q": "Axloqiy riskning asosiy oqibati:",
+  "options": [
+   "Bozorning to‘liq yemirilishi",
+   "Narxlarning tushishi",
+   "Tovar sifatining oshishi",
+   "Riskdan himoya va rag‘bat o‘rtasidagi ziddiyat"
+  ],
+  "c": 3
+ },
+ {
+  "n": 17,
+  "q": "“Juda katta, shuning uchun bankrot bo‘lmaydi” muammosi qaysi turdagi muammo?",
+  "options": [
+   "Noxush tanlov",
+   "Axloqiy risk",
+   "Tashqi samara",
+   "Monopsoniya"
+  ],
+  "c": 1
+ },
+ {
+  "n": 18,
+  "q": "Prinsipal–agent munosabatiga misol:",
+  "options": [
+   "Aksiyadorlar va menejerlar",
+   "Ikki raqobatchi firma",
+   "Iste’molchi va do‘kon",
+   "Ikki davlat"
+  ],
+  "c": 0
+ },
+ {
+  "n": 19,
+  "q": "Agent shartnomani qabul qilishi uchun bajarilishi kerak bo‘lgan shart:",
+  "options": [
+   "Rag‘bat muvofiqligi sharti",
+   "Pareto sharti",
+   "Ishtirok sharti",
+   "Samuelson sharti"
+  ],
+  "c": 2
+ },
+ {
+  "n": 20,
+  "q": "Riskka neytral agent uchun samarali shartnoma:",
+  "options": [
+   "Qat’iy ish haqi",
+   "Mahsulotni teng bo‘lish",
+   "Har qanday shartnoma",
+   "Agentga chekli mahsulotning to‘liq egaligini beruvchi shartnoma (masalan, qat’iy ijara)"
+  ],
+  "c": 3
+ },
+ {
+  "n": 21,
+  "q": "f(x )=10 x, c (x )=x 2 bo‘lsa, samarali harakat:",
+  "options": [
+   "10",
+   "2,5",
+   "25",
+   "5"
+  ],
+  "c": 3
+ },
+ {
+  "n": 22,
+  "q": "Yuqoridagi modelda agent mahsulotning 50% ini olsa, harakat:",
+  "options": [
+   "2,5",
+   "5",
+   "10",
+   "0"
+  ],
+  "c": 0
+ },
+ {
+  "n": 23,
+  "q": "Harakat kuzatilmaganda qat’iy ish haqi:",
+  "options": [
+   "Samarali harakatni ta’minlaydi",
+   "Harakatga rag‘bat bermaydi",
+   "Agentni riskka majburlaydi",
+   "Prinsipal daromadini maksimallashtiradi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 24,
+  "q": "Samaradorlik ish haqi nazariyasi mualliflari:",
+  "options": [
+   "A. Berli va G. Minz",
+   "M. Jensen va U. Mekling",
+   "K. Shapiro va J. Stiglits",
+   "G. Bekker va T. Shuls"
+  ],
+  "c": 2
+ },
+ {
+  "n": 25,
+  "q": "Samaradorlik ish haqi modelida ishsizlik:",
+  "options": [
+   "Mavjud emas",
+   "Faqat ixtiyoriy",
+   "Ishdan qochish uchun jazo vazifasini bajaradi",
+   "Minimal ish haqi natijasi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 26,
+  "q": "Mexanizm dizayni nazariyasi uchun Nobel mukofoti olgan olimlar:",
+  "options": [
+   "J. Akerlof, M. Spens, J. Stiglits",
+   "R. Kouz, O. Uilyamson",
+   "D. Kaneman, V. Smit",
+   "L. Gurvich, E. Maskin, R. Mayerson"
+  ],
+  "c": 3
+ },
+ {
+  "n": 27,
+  "q": "Oshkor qilish tamoyiliga ko‘ra:",
+  "options": [
+   "Axborot har doim yashirilishi kerak",
+   "Faqat davlat axborotga ega bo‘lishi kerak",
+   "Mexanizmlar har doim samarasiz",
+   "Har qanday mexanizm natijasiga haqqoniy axborot berish optimal bo‘lgan to‘g‘ridan-to‘g‘ri mexanizm orqali erishish mumkin"
+  ],
+  "c": 3
+ },
+ {
+  "n": 28,
+  "q": "Rag‘bat va risk taqsimoti o‘rtasidagi murosa nazariyasi uchun Nobel mukofoti olgan olim:",
+  "options": [
+   "E. Ostrom",
+   "R. Kouz",
+   "J. Tirol",
+   "B. Xolmstrem"
+  ],
+  "c": 3
+ },
+ {
+  "n": 29,
+  "q": "Kredit tarixini to‘plovchi tashkilotlar qaysi muammoni yumshatadi?",
+  "options": [
+   "Monopoliyani",
+   "Tashqi samaralarni",
+   "Jamoat ne’matlari muammosini",
+   "Kredit bozoridagi noxush tanlovni"
+  ],
+  "c": 3
+ },
+ {
+  "n": 30,
+  "q": "60% sifatli (xaridor uchun 110), 40% sifatsiz (xaridor uchun 60) avtomobillar bozorida xaridorning kutilgan baholashi:",
+  "options": [
+   "85",
+   "90",
+   "110",
+   "60 Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: 2021. – 10-bob. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 38. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 17. 4. Akerlof G.A. The Market for “Lemons”: Quality Uncertainty and the Market Mechanism // Quarterly Journal of Economics. – 1970. – Vol. 84, No. 3. – P. 488– 500. 5. Spence M. Job Market Signaling // Quarterly Journal of Economics. – 1973. – Vol. 87, No. 3. – P. 355–374. 6. Stiglitz J.E., Weiss A. Credit Rationing in Markets with Imperfect Information // American Economic Review. – 1981. – Vol. 71, No. 3. – P. 393–410. 7. Rothschild M., Stiglitz J. Equilibrium in Competitive Insurance Markets // Quarterly Journal of Economics. – 1976. – Vol. 90, No. 4. – P. 629–649. 8. Shapiro C., Stiglitz J.E. Equilibrium Unemployment as a Worker Discipline Device // American Economic Review. – 1984. – Vol. 74, No. 3. – P. 433–444. 9. Holmström B. Moral Hazard and Observability // Bell Journal of Economics. – 1979. – Vol. 10, No. 1. – P. 74–91. 10.Bolton P., Dewatripont M. Contract Theory. – MIT Press, 2005. 11.Robert H. Jerry II, Douglas S. Richmond. Understanding Insurance Law. 5th ed. – LexisNexis, 2012."
+  ],
+  "c": 1
+ }
+]

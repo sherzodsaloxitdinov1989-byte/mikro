@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Iste’molchi ortiqchaligi grafikda qaysi yuzaga teng?",
+  "options": [
+   "Taklif chizig‘i va narx chizig‘i orasidagi yuza",
+   "Talab chizig‘i ostidagi butun yuza",
+   "Narx va miqdor ko‘paytmasiga teng to‘rtburchak yuzasi",
+   "Talab chizig‘i va narx chizig‘i orasidagi yuza"
+  ],
+  "c": 3,
+  "e": "Iste’molchi ortiqchaligi talab chizig‘i va bozor narxi chizig‘i bilan chegaralangan yuzaga teng."
+ },
+ {
+  "q": "Rezervatsion narxlari 10, 8 va 6 bo‘lgan iste’molchi narx 5 bo‘lganda qancha ortiqchalik oladi?",
+  "options": [
+   "9",
+   "24",
+   "15",
+   "3"
+  ],
+  "c": 0,
+  "e": "CS = (10−5)+(8−5)+(6−5) = 5+3+1 = 9."
+ },
+ {
+  "q": "Qaysi afzal ko‘rishda iste’molchi ortiqchaligi farovonlikning aniq o‘lchovi bo‘ladi?",
+  "options": [
+   "Kobb–Duglas (u = x₁^0,5·x₂^0,5)",
+   "Mukammal to‘ldiruvchilar (u = min{x₁, x₂})",
+   "Kvazichiziqli (u = v(x) + y)",
+   "Leksikografik (tartiblangan) afzal ko‘rish"
+  ],
+  "c": 2,
+  "e": "Kvazichiziqli afzal ko‘rishda daromad samarasi yo‘q, shuning uchun iste’molchi ortiqchaligi aniq farovonlik o‘lchovidir."
+ },
+ {
+  "q": "Kompensatsiyalovchi variatsiya (CV) qaysi narxlarda va qaysi naflilik darajasiga nisbatan o‘lchanadi?",
+  "options": [
+   "Eski narxlarda, yangi naflilik darajasiga nisbatan",
+   "Yangi narxlarda, dastlabki naflilik darajasiga nisbatan",
+   "O‘rtacha narxlarda, o‘rtacha naflilik darajasiga nisbatan",
+   "Jahon narxlarida, dastlabki naflilik darajasiga nisbatan"
+  ],
+  "c": 1,
+  "e": "CV yangi narxlarda o‘lchanadi va iste’molchini dastlabki naflilik darajasiga qaytarish uchun kerak bo‘lgan pulni bildiradi."
+ },
+ {
+  "q": "Ekvivalent variatsiya (EV) narx oshgan holatda qaysi formula bilan ifodalanadi (e – xarajatlar funksiyasi, m – daromad, p⁰ – eski, p¹ – yangi narxlar, u⁰ va u¹ – dastlabki va yangi naflilik)?",
+  "options": [
+   "EV = m − e(p⁰, u¹)",
+   "EV = e(p¹, u⁰) − m",
+   "EV = e(p¹, u¹) − m",
+   "EV = m − e(p¹, u⁰)"
+  ],
+  "c": 0,
+  "e": "EV eski narxlarda o‘lchanadi: dastlabki daromad bilan eski narxlarda yangi naflilikka erishish xarajati farqi (m − e(p⁰, u¹))."
+ },
+ {
+  "q": "Normal tovar narxi oshganda EV, |ΔCS| va CV orasida qanday munosabat to‘g‘ri?",
+  "options": [
+   "CV ≤ |ΔCS| ≤ EV",
+   "|ΔCS| > CV > EV",
+   "CV = EV > |ΔCS|",
+   "EV ≤ |ΔCS| ≤ CV"
+  ],
+  "c": 3,
+  "e": "Normal tovar narxi oshganda har doim EV ≤ |ΔCS| ≤ CV bo‘ladi, narx pasayganda tartib teskari."
+ },
+ {
+  "q": "Ishlab chiqaruvchi ortiqchaligi qisqa muddatda nimaga teng?",
+  "options": [
+   "Faqat iqtisodiy foydaga",
+   "Foyda va doimiy xarajatlar yig‘indisiga",
+   "Umumiy tushumga",
+   "O‘zgaruvchan xarajatlarga"
+  ],
+  "c": 1,
+  "e": "PS = TR − TVC = π + TFC, ya’ni qisqa muddatda foyda va doimiy xarajatlar yig‘indisi."
+ },
+ {
+  "q": "Tashqi samaralar va bozor kuchi bo‘lmaganda raqobatli muvozanatda umumiy ortiqcha qanday bo‘ladi?",
+  "options": [
+   "Minimal",
+   "Nolga teng",
+   "Maksimal",
+   "Iste’molchi ortiqchaligiga teng"
+  ],
+  "c": 2,
+  "e": "Raqobatli muvozanat miqdorida PD(q) > PS(q) bo‘lgan barcha birliklar ishlab chiqariladi, shuning uchun umumiy ortiqcha maksimal bo‘ladi."
+ },
+ {
+  "q": "“O‘lik yuk” yo‘qotishi (DWL) – bu:",
+  "options": [
+   "hech kimga tegmaydigan, jamiyat uchun butunlay yo‘qolgan farovonlik",
+   "ishlab chiqaruvchilardan iste’molchilarga o‘tgan pul summasi",
+   "davlat tomonidan yig‘ilgan soliq tushumining umumiy miqdori",
+   "davlat subsidiyasi hisobiga iste’molchilar olgan qo‘shimcha yutuq"
+  ],
+  "c": 0,
+  "e": "DWL – muvozanatdan chetlanishda umumiy ortiqchaning kamayishi bo‘lib, uni hech kim olmaydi."
+ },
+ {
+  "q": "Narxning yuqori chegarasi muvozanat narxidan past belgilansa, nima yuz beradi?",
+  "options": [
+   "Ortiqcha mahsulot yuzaga keladi va zaxiralar o‘sadi",
+   "Umumiy ortiqcha oshadi, chunki iste’molchilar arzonroq to‘laydi",
+   "Ishlab chiqaruvchi ortiqchaligi oshadi, chunki sotuv hajmi ortadi",
+   "Taqchillik va “o‘lik yuk” yo‘qotishi yuzaga keladi"
+  ],
+  "c": 3,
+  "e": "Past narx chegarasida Qd > Qs bo‘ladi (taqchillik), umumiy ortiqcha kamayib DWL paydo bo‘ladi."
+ },
+ {
+  "q": "Talab P = 9 − Q, taklif P = 1 + Q bo‘lgan bozorda narxning yuqori chegarasi Pmax = 3 bo‘lsa, “o‘lik yuk” yo‘qotishi (DWL) nechaga teng?",
+  "options": [
+   "2",
+   "4",
+   "8",
+   "1"
+  ],
+  "c": 1,
+  "e": "Q = 2 da 2 ta birlik ishlab chiqarilmaydi: DWL = 0,5·2·(7−5) + 0,5·2·(5−3) = 2 + 2 = 4 mlrd so‘m."
+ },
+ {
+  "q": "Kafolatlangan minimal narx va ortiqcha mahsulotni davlat xaridi kimlarga eng ko‘p foyda keltiradi?",
+  "options": [
+   "Iste’molchilarga",
+   "Soliq to‘lovchilarga",
+   "Ishlab chiqaruvchilarga",
+   "Importchilarga"
+  ],
+  "c": 2,
+  "e": "Pmin = 7 da ishlab chiqaruvchi ortiqchaligi 10 mlrd so‘mga oshadi, iste’molchilar va soliq to‘lovchilar esa yo‘qotadi."
+ },
+ {
+  "q": "Soliq yukining katta qismini kim ko‘taradi?",
+  "options": [
+   "Bozorning noelastikroq tomoni",
+   "Bozorning elastikroq tomoni",
+   "Har doim xaridor tomoni",
+   "Soliqni rasmiy to‘lovchi tomon"
+  ],
+  "c": 0,
+  "e": "Tovardan voz kechishi qiyin bo‘lgan, ya’ni noelastikroq tomon soliq yukining katta qismini ko‘taradi."
+ },
+ {
+  "q": "Talab elastikligi −1, taklif elastikligi 3 bo‘lsa, soliq yukining qancha qismi xaridorga tushadi?",
+  "options": [
+   "25%",
+   "50%",
+   "100%",
+   "75%"
+  ],
+  "c": 3,
+  "e": "Xaridor ulushi = εS/(εS + |εD|) = 3/(3+1) = 0,75."
+ },
+ {
+  "q": "Soliq stavkasi ikki baravar oshsa, DWL taxminan qanday o‘zgaradi?",
+  "options": [
+   "Ikki baravar oshadi",
+   "To‘rt baravar oshadi",
+   "O‘zgarmaydi",
+   "Ikki baravar kamayadi"
+  ],
+  "c": 1,
+  "e": "DWL soliq stavkasining kvadratiga proporsional, shuning uchun stavka ikki baravar oshsa, DWL to‘rt baravar oshadi."
+ },
+ {
+  "q": "Ramsi qoidasiga ko‘ra optimal soliq stavkalari talab elastikligiga qanday bog‘liq?",
+  "options": [
+   "Talab elastikligiga teskari proporsional",
+   "Talab elastikligiga to‘g‘ri proporsional",
+   "Barcha tovarlar uchun bir xil bo‘ladi",
+   "Faqat hashamatli tovarlarga solinadi"
+  ],
+  "c": 0,
+  "e": "Ramsi qoidasiga ko‘ra optimal soliq stavkalari talab elastikligiga teskari proporsional bo‘lishi kerak."
+ },
+ {
+  "q": "Talab P = 9 − Q, taklif P = 1 + Q bo‘lgan bozorda t = 2 miqdoriy soliq joriy etilsa, DWL nechaga teng?",
+  "options": [
+   "2",
+   "4",
+   "1",
+   "6"
+  ],
+  "c": 2,
+  "e": "Q 4 dan 3 ga kamayadi: DWL = 0,5·t·ΔQ = 0,5·2·1 = 1 mlrd so‘m."
+ },
+ {
+  "q": "Subsidiya natijasida nima yuz beradi?",
+  "options": [
+   "Faqat iste’molchi yutadi, ishlab chiqaruvchi yutmaydi",
+   "Umumiy ortiqcha ortadi, chunki ishlab chiqarish hajmi oshadi",
+   "“O‘lik yuk” yo‘qotishi yuzaga kelmaydi, chunki hamma yutadi",
+   "Iste’molchi ham, ishlab chiqaruvchi ham yutadi, lekin davlat xarajati ularning yutug‘idan katta"
+  ],
+  "c": 3,
+  "e": "Subsidiyada CS va PS 4,5 dan oshadi (jami 9), davlat xarajati 10 bo‘ladi, shuning uchun umumiy ortiqcha 1 ga kamayadi."
+ },
+ {
+  "q": "Import tarifi joriy etilganda iste’molchilarning yo‘qotishi qaysi yuzalar yig‘indisiga teng?",
+  "options": [
+   "A",
+   "A+B+C+D",
+   "B+D",
+   "C"
+  ],
+  "c": 1,
+  "e": "Tarifda iste’molchilar A+B+C+D yo‘qotadi: A ichki ishlab chiqaruvchilarga, C davlatga o‘tadi."
+ },
+ {
+  "q": "Import tarifining sof yo‘qotishi (DWL) qaysi yuzalar yig‘indisiga teng?",
+  "options": [
+   "B+D",
+   "A+C",
+   "A",
+   "C"
+  ],
+  "c": 0,
+  "e": "Sof yo‘qotish: iste’molchilar yo‘qotishi A+B+C+D dan A va C ayirilgach, B+D qoladi."
+ },
+ {
+  "q": "Import kvotasida tarif tushumiga mos C yuza kimga tegadi?",
+  "options": [
+   "Davlat byudjetiga",
+   "Ichki ishlab chiqaruvchilarga",
+   "Import litsenziyalari egalariga",
+   "Iste’molchilarga"
+  ],
+  "c": 2,
+  "e": "Kvotada C to‘rtburchak davlatga emas, import litsenziyasi egalariga (yoki xorijiy eksportchilarga) tegadi."
+ },
+ {
+  "q": "“Renta izlash” (rent-seeking) tushunchasini kim kiritgan?",
+  "options": [
+   "A. Marshall",
+   "J. Xiks",
+   "F. Ramsi",
+   "A. Kryuger"
+  ],
+  "c": 3,
+  "e": "A. Kryuger (1974) litsenziya olish uchun resurs sarflash hodisasini renta izlash deb atagan."
+ },
+ {
+  "q": "Minimal ish haqining bandlikka ta’siri bo‘yicha mashhur empirik tadqiqot (Nyu-Jersi, 1994) mualliflari kimlar?",
+  "options": [
+   "J. Akerlof va M. Spens",
+   "D. Kard va A. Kryuger",
+   "D. Kaneman va A. Tverski",
+   "K. Errou va J. Debre"
+  ],
+  "c": 1,
+  "e": "D. Kard va A. Kryuger (1994) Nyu-Jersida minimal ish haqi oshganda restoranlarda bandlik kamaymaganini ko‘rsatgan."
+ },
+ {
+  "q": "Iste’molchi ortiqchaligi tushunchasini birinchi bo‘lib kim kiritgan?",
+  "options": [
+   "A. Marshall",
+   "V. Pareto",
+   "A. Smit",
+   "L. Valras"
+  ],
+  "c": 0,
+  "e": "Iste’molchi ortiqchaligini Alfred Marshall (1890) taklif qilgan."
+ },
+ {
+  "q": "Xarajat-foyda tahlilida ko‘p yillik foyda va xarajatlar qanday taqqoslanadi?",
+  "options": [
+   "Barcha yillar bo‘yicha oddiy yig‘indi olib",
+   "Faqat loyihaning birinchi yili ma’lumotlari bo‘yicha",
+   "Ijtimoiy diskont stavkasi bilan joriy qiymatga keltirib",
+   "Inflatsiyani hisobga olmay, nominal qiymatlarni qo‘shib"
+  ],
+  "c": 2,
+  "e": "Ko‘p yillik loyihalarda NPV formulasi bo‘yicha kelajak qiymatlar diskontlanib bugungiga keltiriladi."
+ },
+ {
+  "q": "Talab Qd = 100 − 2P, taklif Qs = 3P − 50 bo‘lsa, muvozanat narxi nechaga teng?",
+  "options": [
+   "25",
+   "40",
+   "20",
+   "30"
+  ],
+  "c": 3,
+  "e": "100 − 2P = 3P − 50 ⇒ 5P = 150 ⇒ P* = 30."
+ },
+ {
+  "q": "Kvazichiziqli naflilikda CV, EV va ΔCS o‘zaro qanday bo‘ladi?",
+  "options": [
+   "O‘zaro teng bo‘ladi",
+   "CV > EV bo‘ladi",
+   "EV > CV bo‘ladi",
+   "Hisoblab bo‘lmaydi"
+  ],
+  "c": 0,
+  "e": "Kvazichiziqli afzal ko‘rishda daromad samarasi yo‘q, shuning uchun uchala o‘lchov teng."
+ },
+ {
+  "q": "Muvozanat narxidan yuqori belgilangan narxning quyi chegarasi qanday oqibatga olib keladi?",
+  "options": [
+   "Taqchillik yuzaga keladi",
+   "Ortiqcha mahsulot yuzaga keladi",
+   "Muvozanat o‘zgarishsiz qoladi",
+   "Iste’molchi ortiqchaligi oshadi"
+  ],
+  "c": 1,
+  "e": "Pmin = 7 da Qs = 6 > Qd = 2, ya’ni ortiqcha mahsulot paydo bo‘ladi."
+ },
+ {
+  "q": "Soliq tushumi stavkaga dastlab o‘suvchi, keyin kamayuvchi bog‘liqligini ko‘rsatuvchi chiziq qanday ataladi?",
+  "options": [
+   "Lorens egri chizig‘i",
+   "Engel egri chizig‘i",
+   "Laffer egri chizig‘i",
+   "Fillips egri chizig‘i"
+  ],
+  "c": 2,
+  "e": "Laffer egri chizig‘i bo‘yicha soliq tushumi R = t·Q(t) dastlab o‘sadi, so‘ng soliq bazasi qisqargani sababli kamayadi."
+ },
+ {
+  "q": "Taklif mutlaq noelastik (vertikal) bo‘lsa, soliq yuki kimga tushadi?",
+  "options": [
+   "To‘liq iste’molchiga tushadi",
+   "To‘liq ishlab chiqaruvchiga tushadi",
+   "Xaridor va sotuvchi o‘rtasida teng taqsimlanadi",
+   "Soliq yuki yuzaga kelmaydi, davlatga qaytadi"
+  ],
+  "c": 1,
+  "e": "Taklif noelastik bo‘lsa, xaridor ulushi εS/(εS+|εD|) = 0 bo‘lib, yuk to‘liq ishlab chiqaruvchiga tushadi."
+ }
+]

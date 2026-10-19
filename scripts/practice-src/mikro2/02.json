@@ -1,0 +1,35 @@
+{
+ "goal": "«Afzal ko‘rish, naflilik va tanlov» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "concepts": [
+  "afzal ko‘rish munosabati",
+  "to‘liqlik",
+  "refleksivlik",
+  "tranzitivlik",
+  "monotonlik",
+  "qavariqlik"
+ ],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 2-bob",
+ "tasks": [],
+ "open": [
+  "Esse/munozara: Inson ratsionalmi? Neoklassik va xulq-atvor iqtisodiyoti qarashlarini solishtiring.",
+  "Esse/munozara: “Turtki” siyosati: erkin tanlovga hurmatmi yoki yashirin manipulyatsiyami?",
+  "Esse/munozara: Naqd pul yoki natural yordam: ijtimoiy himoya tizimini qanday loyihalash kerak?",
+  "Esse/munozara: Reklama afzal ko‘rishlarni o‘zgartiradimi yoki faqat axborot beradimi?",
+  "Esse/munozara: Baxt iqtisodiyoti: daromad va qoniqish o‘rtasidagi bog‘liqlik (Isterlin paradoksi).",
+  "Mustaqil ish: (MT-6) Naflilik va chekli naflilik, chekli naflilikning kamayish qonuni. O‘zingiz kundalik iste’mol qiladigan tovar (choy, non, mobil internet) uchun",
+  "Mustaqil ish: 4-jadvalga o‘xshash umumiy va chekli naflilik jadvalini tuzing (sub’ektiv baholar asosida). Gossenning birinchi va ikkinchi qonunlarini o‘z tanlovingiz misolida tahlil qiling. 2. u=x1 0,4 x2 0,6, p1=20, p2=30, m=600 bo‘lsin. Optimal to‘plamni Lagranj usulida toping, MRS ni optimum nuqtada hisoblang va natijani grafikda tasvirlang.",
+  "Mustaqil ish: u=min{2 x1, x2} uchun talab funksiyalarini keltirib chiqaring. p1=4, p2=2, m=80 bo‘lganda optimal to‘plamni toping.",
+  "Mustaqil ish: Guruhingizdagi 10 nafar talaba o‘rtasida “mulkchilik samarasi” bo‘yicha kichik tajriba o‘tkazing (masalan, ruchka yoki daftar bilan) va natijalarni neoklassik nazariya bilan solishtiring."
+ ],
+ "refs": [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+ ]
+}

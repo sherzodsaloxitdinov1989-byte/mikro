@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Marshall talab funksiyasi qaysi o‘zgaruvchilarga bog‘liq?",
+  "options": [
+   "Faqat tovarning o‘z narxiga bog‘liq bo‘ladi",
+   "Faqat iste’molchining daromadiga bog‘liq bo‘ladi",
+   "Ikkala tovar narxlariga va iste’molchi daromadiga",
+   "Faqat iste’molchi erishgan naflilik darajasiga"
+  ],
+  "c": 2,
+  "e": "Marshall talab funksiyasi optimal miqdorni narxlar va daromadning funksiyasi sifatida ifodalaydi: x₁* = x₁(p₁, p₂, m)."
+ },
+ {
+  "q": "Talab funksiyasining nol darajali bir jinsliligi nimani bildiradi?",
+  "options": [
+   "Barcha narxlar va daromad bir xil marta o‘zgarsa, talab o‘zgarmaydi",
+   "Narx nolga teng bo‘lganda talab cheksiz katta bo‘ladi",
+   "Daromad ikki baravar oshsa, talab ham ikki baravar oshadi",
+   "Talab tovarning o‘z narxiga umuman bog‘liq bo‘lmaydi"
+  ],
+  "c": 0,
+  "e": "Barcha narxlar va daromad t marta o‘zgarganda byudjet to‘plami o‘zgarmaydi, shuning uchun optimal tanlov ham o‘zgarmaydi."
+ },
+ {
+  "q": "Daromad oshganda talabi kamayadigan tovar qanday ataladi?",
+  "options": [
+   "Normal tovar",
+   "Hashamatli tovar",
+   "O‘rinbosar tovar",
+   "Past sifatli tovar"
+  ],
+  "c": 3,
+  "e": "Past sifatli tovarlar uchun daromad elastikligi η<0, ya’ni daromad oshganda talab kamayadi."
+ },
+ {
+  "q": "Engel chizig‘i qaysi ikki o‘zgaruvchi orasidagi bog‘liqlikni ko‘rsatadi?",
+  "options": [
+   "Tovar miqdori va uning narxi",
+   "Tovar miqdori va iste’molchi daromadi",
+   "Ikki tovarning narxlari o‘rtasidagi nisbat",
+   "Umumiy naflilik va tovar narxi"
+  ],
+  "c": 1,
+  "e": "Engel chizig‘ida gorizontal o‘qda x₁, vertikal o‘qda daromad m tasvirlanadi."
+ },
+ {
+  "q": "Engel qonuniga ko‘ra daromad oshgan sari oziq-ovqatga sarflanadigan:",
+  "options": [
+   "Xarajat ulushi kamayadi",
+   "Mutlaq summa kamayadi",
+   "Xarajat ulushi ortadi",
+   "Xarajat ulushi o‘zgarishsiz qoladi"
+  ],
+  "c": 0,
+  "e": "Engel qonuniga ko‘ra daromad oshgani sari oziq-ovqatga sarflanadigan ulush kamayadi (oziq-ovqat zaruriy tovar)."
+ },
+ {
+  "q": "Gomotetik afzal ko‘rishda Engel chizig‘i qanday ko‘rinishda bo‘ladi?",
+  "options": [
+   "Vertikal chiziq",
+   "Gorizontal chiziq",
+   "Yuqoriga qavariq parabola",
+   "Koordinata boshidan chiquvchi to‘g‘ri chiziq"
+  ],
+  "c": 3,
+  "e": "Gomotetik afzal ko‘rishlarda daromad-iste’mol chizig‘i va Engel chiziqlari koordinata boshidan chiquvchi to‘g‘ri chiziqlardir."
+ },
+ {
+  "q": "Kvazichiziqli afzal ko‘rishda (yetarlicha yuqori daromadda) x₁ uchun Engel chizig‘i qanday?",
+  "options": [
+   "Gorizontal chiziq",
+   "Koordinata boshidan chiquvchi to‘g‘ri chiziq",
+   "Vertikal chiziq",
+   "Manfiy og‘ishli egri chiziq"
+  ],
+  "c": 2,
+  "e": "Kvazichiziqli afzal ko‘rishda ma’lum daromad darajasidan keyin x₁ o‘zgarmaydi, shuning uchun Engel chizig‘i vertikal."
+ },
+ {
+  "q": "Narx pasayganda talabi kamayadigan tovar qanday ataladi?",
+  "options": [
+   "Oddiy (normal) tovar",
+   "Giffen tovari",
+   "Hashamatli tovar",
+   "Mukammal o‘rinbosar tovar"
+  ],
+  "c": 1,
+  "e": "Nazariy jihatdan narx pasayganda talab kamayadigan tovar Giffen tovari deyiladi."
+ },
+ {
+  "q": "Har qanday Giffen tovari qanday tovar hisoblanadi?",
+  "options": [
+   "Hashamatli tovar",
+   "Normal tovar",
+   "Mustaqil tovar",
+   "Past sifatli tovar"
+  ],
+  "c": 3,
+  "e": "Giffen tovarida daromad samarasi o‘rinbosarlik samarasidan kuchli bo‘lishi uchun tovar past sifatli bo‘lishi shart."
+ },
+ {
+  "q": "Agar p₂ oshganda x₁ ga talab ortsa, bu tovarlar:",
+  "options": [
+   "O‘rinbosarlar",
+   "To‘ldiruvchilar",
+   "Mustaqil tovarlar",
+   "Giffen tovarlari"
+  ],
+  "c": 0,
+  "e": "O‘rinbosarlar uchun kesishgan elastiklik ε₁₂>0, ya’ni boshqa tovar narxi oshganda talab ortadi."
+ },
+ {
+  "q": "Ikkinchi tovar pul bo‘lganda (p₂=1) teskari talab funksiyasi p₁(x₁) ning balandligi nimaga teng?",
+  "options": [
+   "Chekli xarajatga",
+   "O‘rtacha xarajatga",
+   "|MRS| ga, ya’ni chekli to‘lashga tayyorlikka",
+   "Umumiy naflilikka"
+  ],
+  "c": 2,
+  "e": "Optimumda |MRS| = p₁/p₂, p₂=1 bo‘lganda p₁(x₁) = |MRS|, ya’ni chekli birlik uchun to‘lashga tayyorlik."
+ },
+ {
+  "q": "u = x₁^0,4·x₂^0,6 va m = 2000 bo‘lsa, x₁ ga talab funksiyasi qanday?",
+  "options": [
+   "1200/p₁",
+   "800/p₁",
+   "2000/p₁",
+   "0,4/p₁"
+  ],
+  "c": 1,
+  "e": "Kobb–Duglasda x₁ = c·m/p₁ = 0,4·2000/p₁ = 800/p₁."
+ },
+ {
+  "q": "Narx 10 foizga oshganda talab 25 foizga kamaysa, talab:",
+  "options": [
+   "Noelastik (|ε| = 0,4)",
+   "Birlik elastik (|ε| = 1)",
+   "Mutlaq noelastik (|ε| = 0)",
+   "Elastik (|ε| = 2,5)"
+  ],
+  "c": 3,
+  "e": "|ε| = 25/10 = 2,5 > 1, demak talab elastik."
+ },
+ {
+  "q": "Chiziqli talab chizig‘ining o‘rta nuqtasida elastiklik:",
+  "options": [
+   "|ε| = 1",
+   "|ε| = 0",
+   "|ε| = ∞",
+   "|ε| = 0,5"
+  ],
+  "c": 0,
+  "e": "Chiziqli talab chizig‘ining o‘rta nuqtasida talab birlik elastik bo‘ladi, tushum maksimal."
+ },
+ {
+  "q": "Noelastik talabda narx oshsa, umumiy tushum:",
+  "options": [
+   "Kamayadi",
+   "O‘zgarishsiz qoladi",
+   "Ortadi",
+   "Nolga tenglashadi"
+  ],
+  "c": 2,
+  "e": "Noelastik talabda narx oshganda miqdor nisbatan kam kamayadi, shuning uchun tushum ortadi."
+ },
+ {
+  "q": "Chekli tushum (MR) va elastiklik orasidagi bog‘liqlik formulasi qaysi?",
+  "options": [
+   "MR = p·(1 + |ε|)",
+   "MR = p·(1 − 1/|ε|)",
+   "MR = p / |ε|",
+   "MR = p·|ε|"
+  ],
+  "c": 1,
+  "e": "MR = dR/dq = p + q·dp/dq = p(1 + 1/ε) = p(1 − 1/|ε|)."
+ },
+ {
+  "q": "Talab elastikligi −2, narx 50 bo‘lsa, chekli tushum qancha?",
+  "options": [
+   "50",
+   "75",
+   "100",
+   "25"
+  ],
+  "c": 3,
+  "e": "MR = 50·(1 − 1/2) = 25."
+ },
+ {
+  "q": "q = 100 − 2p talab funksiyasi uchun tushumni maksimallashtiruvchi narx:",
+  "options": [
+   "25",
+   "20",
+   "50",
+   "10"
+  ],
+  "c": 0,
+  "e": "R = 100p − 2p², R′ = 100 − 4p = 0, p = 25 (shu nuqtada |ε| = 1)."
+ },
+ {
+  "q": "Daromad bo‘yicha elastiklik η = 1,8 bo‘lgan tovar:",
+  "options": [
+   "Zaruriy tovar",
+   "Past sifatli tovar",
+   "Hashamatli tovar",
+   "Giffen tovari"
+  ],
+  "c": 2,
+  "e": "η>1 bo‘lgan normal tovarlar hashamatli tovarlardir."
+ },
+ {
+  "q": "Kesishgan elastiklik manfiy bo‘lsa, tovarlar:",
+  "options": [
+   "O‘rinbosarlar",
+   "To‘ldiruvchilar",
+   "Mustaqil tovarlar",
+   "Past sifatli tovarlar"
+  ],
+  "c": 1,
+  "e": "To‘ldiruvchilar uchun ε₁₂<0: boshqa tovar narxi oshganda talab kamayadi."
+ },
+ {
+  "q": "Quyidagi omillardan qaysi biri talab elastikligini oshiradi?",
+  "options": [
+   "Tovarning hayotiy zarurligi",
+   "Byudjetdagi kichik ulushi",
+   "Qisqa vaqt oralig‘i",
+   "Yaqin o‘rinbosarlarning ko‘pligi"
+  ],
+  "c": 3,
+  "e": "Yaqin o‘rinbosar ko‘p bo‘lsa, narx oshganda iste’molchilar boshqa tovarga o‘tadi va talab elastikroq bo‘ladi."
+ },
+ {
+  "q": "Talab funksiyasi q = A·p^(−0,7) bo‘lsa, narx bo‘yicha elastiklik:",
+  "options": [
+   "Barcha nuqtalarda −0,7",
+   "Narx oshgan sari ortib boradi",
+   "O‘rta nuqtada −1 ga teng",
+   "Barcha nuqtalarda nolga teng"
+  ],
+  "c": 0,
+  "e": "Doimiy elastiklikli q = A·p^ε funksiyada daraja ko‘rsatkichi elastiklikka teng: ε = −0,7."
+ },
+ {
+  "q": "Aniqlangan afzal ko‘rish nazariyasining muallifi kim?",
+  "options": [
+   "E. Slutskiy",
+   "J. Xiks",
+   "P. Samuelson",
+   "A. Marshall"
+  ],
+  "c": 2,
+  "e": "Aniqlangan afzal ko‘rish nazariyasi P. Samuelson (1938) nomi bilan bog‘liq."
+ },
+ {
+  "q": "WARP ga ko‘ra, agar X to‘plam Y dan to‘g‘ridan-to‘g‘ri afzal deb aniqlangan bo‘lsa:",
+  "options": [
+   "Y har doim X dan arzon bo‘lishi kerak",
+   "Y hech qachon X dan to‘g‘ridan-to‘g‘ri afzal deb aniqlanmasligi kerak",
+   "X va Y iste’molchi uchun befarq bo‘lishi kerak",
+   "Y har doim X o‘rniga tanlanishi kerak"
+  ],
+  "c": 1,
+  "e": "Aksioma tanlovlarning ziddiyatsizligini talab qiladi: X afzal deb aniqlangan bo‘lsa, Y ni X dan afzal deb aniqlab bo‘lmaydi."
+ },
+ {
+  "q": "Laspeyres narx indeksi nimani ifodalaydi?",
+  "options": [
+   "Joriy davr to‘plamining joriy va bazis narxlardagi qiymatlari nisbatini",
+   "Joriy va bazis davr daromadlari nisbatini",
+   "Nominal va real daromadlar orasidagi ayirmani",
+   "Bazis davr to‘plamining joriy va bazis narxlardagi qiymatlari nisbatini"
+  ],
+  "c": 3,
+  "e": "Laspeyres indeksi bazis davr to‘plamini joriy narxlarda qayta baholaydi: Lp = p^t·x^b / p^b·x^b."
+ },
+ {
+  "q": "Daromad indeksi (M) Laspeyres narx indeksidan katta bo‘lsa:",
+  "options": [
+   "Iste’molchining ahvoli yaxshilangan",
+   "Iste’molchining ahvoli yomonlashgan",
+   "Ahvoli haqida hech narsa deyish mumkin emas",
+   "Narxlar umuman o‘zgarmagan"
+  ],
+  "c": 0,
+  "e": "M > Lp bo‘lsa, iste’molchi joriy davrda bazis to‘plamni sotib olishi mumkin, lekin boshqasini tanlagan — ahvoli yaxshilangan."
+ },
+ {
+  "q": "INI turmush qiymati oshishini oshirib ko‘rsatishining asosiy sababi nima?",
+  "options": [
+   "Daromadlar o‘zgarishini hisobga olmasligi",
+   "Iste’molchilarning nisbatan arzonlashgan tovarlarga o‘tishini hisobga olmasligi",
+   "Hisoblashda Paashe formulasidan foydalanishi",
+   "Faqat oziq-ovqat tovarlarini hisobga olishi"
+  ],
+  "c": 1,
+  "e": "Laspeyres indeksi qimmatlashgan tovarlardan arzonlashganlariga o‘tishni hisobga olmaydi (almashtirish xatosi)."
+ },
+ {
+  "q": "Boshqalar ko‘proq sotib olgani sari tovarga individual talab ortishi qanday ataladi?",
+  "options": [
+   "Snob samarasi",
+   "Veblen samarasi",
+   "Ko‘pchilikka ergashish samarasi",
+   "Giffen samarasi"
+  ],
+  "c": 2,
+  "e": "Ko‘pchilikka ergashish samarasida boshqalar ko‘p sotib olsa, tovar nafi ortadi."
+ },
+ {
+  "q": "Snob samarasi mavjud bo‘lganda bozor talabi individual talab chiziqlariga nisbatan:",
+  "options": [
+   "Elastikroq bo‘ladi",
+   "Gorizontal bo‘ladi",
+   "Aynan bir xil bo‘ladi",
+   "Noelastikroq bo‘ladi"
+  ],
+  "c": 3,
+  "e": "Narx pasayib iste’molchilar soni ortsa, tovarning noyobligi kamayadi va bozor talabi noelastikroq bo‘ladi."
+ },
+ {
+  "q": "Bir jinslilikdan (Eyler teoremasi) elastikliklar uchun qanday munosabat kelib chiqadi?",
+  "options": [
+   "ε₁₁ + ε₁₂ + η₁ = 0",
+   "ε₁₁ + ε₁₂ + η₁ = 1",
+   "ε₁₁ = η₁",
+   "ε₁₂ = −ε₁₁"
+  ],
+  "c": 0,
+  "e": "Nol darajali bir jinslilikdan ε₁₁ + ε₁₂ + η₁ = 0 kelib chiqadi."
+ }
+]

@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Narx o‘zgarishining nisbiy narxlar o‘zgarishi tufayli yuzaga keladigan qismi qanday ataladi?",
+  "options": [
+   "Almashtirish samarasi",
+   "Daromad samarasi",
+   "Zaxira samarasi",
+   "Tarmoq samarasi"
+  ],
+  "c": 0,
+  "e": "Nisbiy narxning o‘zgarishi tufayli iste’molchi tovarlarni bir-biri bilan almashtiradi, bu almashtirish samarasidir."
+ },
+ {
+  "q": "Slutskiy kompensatsiyasida nima o‘zgarmas saqlanadi?",
+  "options": [
+   "Iste’molchi erishgan naflilik darajasi",
+   "Iste’molchining nominal daromadi",
+   "Iste’molchining xarid qobiliyati (avvalgi to‘plamni sotib olish imkoniyati)",
+   "Ikkinchi tovar iste’moli miqdori"
+  ],
+  "c": 2,
+  "e": "Slutskiyda daromad shunday o‘zgartiriladiki, avvalgi to‘plamni sotib olish imkoniyati saqlanadi."
+ },
+ {
+  "q": "Xiks kompensatsiyasida nima o‘zgarmas saqlanadi?",
+  "options": [
+   "Iste’molchining xarid qobiliyati",
+   "Iste’molchining nominal daromadi",
+   "Tovarlar narxlari nisbati",
+   "Iste’molchi erishgan naflilik darajasi"
+  ],
+  "c": 3,
+  "e": "Xiks bo‘yicha daromad naflilik darajasi (befarqlik egri chizig‘i) o‘zgarmaydigan qilib o‘zgartiriladi."
+ },
+ {
+  "q": "Xarid qobiliyatini saqlash uchun zarur bo‘lgan daromad o‘zgarishi qaysi ifodaga teng?",
+  "options": [
+   "Δm = p₁·Δx₁",
+   "Δm = x₁·Δp₁",
+   "Δm = Δp₁ / x₁",
+   "Δm = m·Δp₁"
+  ],
+  "c": 1,
+  "e": "Avvalgi x₁ miqdorni yangi narxda sotib olish uchun daromad x₁·Δp₁ ga o‘zgarishi kerak."
+ },
+ {
+  "q": "Narx pasayganda almashtirish samarasining ishorasi qanday bo‘ladi?",
+  "options": [
+   "Har doim manfiy: talab kamayadi",
+   "Har doim musbat yoki nol: talab ortadi",
+   "Tovar turiga (normal yoki past sifatli) bog‘liq",
+   "Har doim nolga teng bo‘ladi"
+  ],
+  "c": 1,
+  "e": "Almashtirish samarasi tovar turiga bog‘liq emas: narx pasayganda u talabni oshiradi yoki o‘zgartirmaydi."
+ },
+ {
+  "q": "Slutskiy tenglamasi qaysi ko‘rinishga ega?",
+  "options": [
+   "∂x₁/∂p₁ = ∂x₁ˢ/∂p₁ − x₁·∂x₁/∂m",
+   "∂x₁/∂p₁ = ∂x₁ˢ/∂p₁ + x₁·∂x₁/∂m",
+   "∂x₁/∂p₁ = x₁·∂x₁/∂m",
+   "∂x₁/∂p₁ = ∂x₁/∂m"
+  ],
+  "c": 0,
+  "e": "Umumiy samara almashtirish samarasi va daromad samarasi (−x₁·∂x₁/∂m) yig‘indisidir."
+ },
+ {
+  "q": "Normal tovar narxi pasayganda daromad samarasi qanday ta’sir qiladi?",
+  "options": [
+   "Talabni kamaytiradi",
+   "Nolga teng bo‘ladi",
+   "Har doim almashtirish samarasidan katta bo‘ladi",
+   "Talabni oshiradi"
+  ],
+  "c": 3,
+  "e": "Normal tovarda daromad oshsa talab ortadi, narx pasayishi esa real daromadni oshiradi."
+ },
+ {
+  "q": "Giffen tovari uchun quyidagilardan qaysi biri to‘g‘ri?",
+  "options": [
+   "Ikkala samara bir yo‘nalishda ta’sir qiladi",
+   "Almashtirish samarasi nolga teng bo‘ladi",
+   "Daromad samarasi almashtirish samarasidan kuchli va unga qarama-qarshi yo‘nalgan",
+   "Daromad samarasi nolga teng bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Giffen tovarida past sifatli tovarning kuchli daromad samarasi almashtirish samarasini bosib ketadi."
+ },
+ {
+  "q": "Mukammal to‘ldiruvchi tovarlar uchun almashtirish samarasi qanday?",
+  "options": [
+   "Nolga teng",
+   "Cheksiz katta",
+   "Daromad samarasiga teng",
+   "Har doim manfiy cheksiz"
+  ],
+  "c": 0,
+  "e": "To‘ldiruvchilarda tovarlar qat’iy nisbatda iste’mol qilinadi, shuning uchun almashtirish bo‘lmaydi."
+ },
+ {
+  "q": "Kvazichiziqli afzal ko‘rishda (ichki yechimda) daromad samarasi qanday?",
+  "options": [
+   "Almashtirish samarasiga teng",
+   "Manfiy bo‘ladi",
+   "Cheksiz katta bo‘ladi",
+   "Nolga teng"
+  ],
+  "c": 3,
+  "e": "Kvazichiziqli naflilikda talab daromadga bog‘liq emas (∂x₁/∂m = 0), demak daromad samarasi nol."
+ },
+ {
+  "q": "x₁ = 10 + m/(10·p₁), m = 120, p₁ narxi 3 dan 2 ga tushdi. Slutskiy bo‘yicha almashtirish samarasi qancha?",
+  "options": [
+   "0,7",
+   "1,3",
+   "2,0",
+   "1,0"
+  ],
+  "c": 1,
+  "e": "Avval x₁ = 14; kompensatsiyalangan daromad 120 + 14·(2−3) = 106 da x₁ = 15,3, demak samara 15,3 − 14 = 1,3."
+ },
+ {
+  "q": "Slutskiy tenglamasining elastiklik ko‘rinishi qaysi?",
+  "options": [
+   "ε₁₁ = ε₁₁ˢ + η₁",
+   "ε₁₁ = s₁·η₁",
+   "ε₁₁ = ε₁₁ˢ − s₁·η₁",
+   "ε₁₁ = ε₁₁ˢ · η₁"
+  ],
+  "c": 2,
+  "e": "Elastiklik shaklida daromad samarasi xarajat ulushi s₁ va daromad bo‘yicha elastiklik η₁ ko‘paytmasi sifatida ayriladi."
+ },
+ {
+  "q": "Normal tovar uchun kompensatsiyalangan talab chizig‘i oddiy talab chizig‘iga nisbatan qanday joylashadi?",
+  "options": [
+   "Yotiqroq (elastikroq)",
+   "Ular bir-biri bilan ustma-ust tushadi",
+   "Musbat og‘ishga ega bo‘ladi",
+   "Tikroq (noelastikroq)"
+  ],
+  "c": 3,
+  "e": "Kompensatsiyalangan talab daromad samarasini o‘z ichiga olmaydi, shuning uchun normal tovarda u tikroq bo‘ladi."
+ },
+ {
+  "q": "Shepard lemmasiga ko‘ra qaysi tenglik to‘g‘ri?",
+  "options": [
+   "∂e(p,u)/∂p₁ = h₁(p,u)",
+   "∂v(p,m)/∂m = x₁",
+   "∂e/∂u = p₁",
+   "∂x₁/∂m = h₁"
+  ],
+  "c": 0,
+  "e": "Xarajat funksiyasidan narx bo‘yicha olingan hosila Xiks (kompensatsiyalangan) talabni beradi."
+ },
+ {
+  "q": "Boshlang‘ich zaxira (ω₁) ga ega iste’molchi uchun Slutskiy tenglamasida daromad samarasi oldidagi ko‘paytuvchi qanday?",
+  "options": [
+   "x₁",
+   "ω₁",
+   "(ω₁ − x₁)",
+   "m"
+  ],
+  "c": 2,
+  "e": "Zaxirali iste’molchida daromad samarasi sof xaridor yoki sotuvchi bo‘lishiga qarab (ω₁ − x₁) ko‘paytuvchi bilan beriladi."
+ },
+ {
+  "q": "Mehnat taklifi modelida bo‘sh vaqtning narxi nimaga teng?",
+  "options": [
+   "Iste’mol tovarlari narxiga",
+   "Ish haqi stavkasiga",
+   "Foiz stavkasiga",
+   "Nolga"
+  ],
+  "c": 1,
+  "e": "Bir soat bo‘sh vaqt uchun iste’molchi bir soatlik ish haqidan voz kechadi, ya’ni bo‘sh vaqt narxi ish haqi stavkasidir."
+ },
+ {
+  "q": "Mehnat taklifi chizig‘ining orqaga qayrilishiga nima sabab bo‘ladi?",
+  "options": [
+   "Yuqori ish haqida daromad samarasining almashtirish samarasidan kuchliroq bo‘lishi",
+   "Almashtirish samarasining umuman bo‘lmasligi",
+   "Bo‘sh vaqtning past sifatli tovar bo‘lishi",
+   "Ish haqi stavkasining pasayishi"
+  ],
+  "c": 0,
+  "e": "Ish haqi yuqori bo‘lganda bo‘sh vaqt normal tovar sifatida ko‘proq talab qilinadi va daromad samarasi ustun keladi."
+ },
+ {
+  "q": "Qo‘shimcha ish uchun oshirilgan stavka mehnat taklifiga qaysi samara orqali ta’sir qiladi?",
+  "options": [
+   "Faqat daromad samarasi orqali",
+   "Zaxira samarasi orqali",
+   "Bu stavka mehnat taklifiga ta’sir qilmaydi",
+   "Sof almashtirish samarasi orqali"
+  ],
+  "c": 3,
+  "e": "Oshirilgan stavka faqat qo‘shimcha soatlar narxini o‘zgartiradi, daromad samarasi deyarli yo‘q, shuning uchun sof almashtirish samarasi ishlaydi."
+ },
+ {
+  "q": "Vaqtlararo byudjet chizig‘ining og‘ishi nimaga teng?",
+  "options": [
+   "−r",
+   "−1/r",
+   "−(1 + r)",
+   "−(1 − r)"
+  ],
+  "c": 2,
+  "e": "Bugungi bir birlik iste’molni kechiktirish ertaga (1 + r) birlik beradi, shuning uchun og‘ish −(1 + r)."
+ },
+ {
+  "q": "Vaqtlararo byudjet cheklovining joriy qiymat ko‘rinishi qaysi?",
+  "options": [
+   "c₁ + c₂ = m₁ + m₂",
+   "c₁ + c₂/(1 + r) = m₁ + m₂/(1 + r)",
+   "(1 + r)·c₁ + c₂ = m₁",
+   "c₁ − c₂ = r·(m₁ − m₂)"
+  ],
+  "c": 1,
+  "e": "Iste’mol va daromadning joriy qiymatlari 1/(1 + r) bilan diskontlanib tenglashtiriladi."
+ },
+ {
+  "q": "Foiz stavkasi oshganda jamg‘aruvchi iste’molchi bilan nima bo‘ladi?",
+  "options": [
+   "Jamg‘aruvchi bo‘lib qoladi va uning ahvoli yaxshilanadi",
+   "Albatta qarz oluvchiga aylanadi",
+   "Uning ahvoli yomonlashadi",
+   "Jamg‘armasini nolga tushiradi"
+  ],
+  "c": 0,
+  "e": "Jamg‘aruvchi avvalgi tanlovini saqlay oladi va yuqori foiz hisobiga yuqoriroq befarqlik egri chizig‘iga o‘tadi."
+ },
+ {
+  "q": "Nominal stavka 18 foiz, inflatsiya 10 foiz bo‘lsa, aniq real foiz stavkasi qancha?",
+  "options": [
+   "8 foiz",
+   "28 foiz",
+   "Taxminan 7,3 foiz",
+   "1,8 foiz"
+  ],
+  "c": 2,
+  "e": "Aniq formula bo‘yicha (1,18/1,10) − 1 ≈ 0,0727, ya’ni taxminan 7,3 foiz."
+ },
+ {
+  "q": "1 yildan keyingi 1 100 so‘mning 10 foizli stavkadagi joriy qiymati qancha?",
+  "options": [
+   "1 210 so‘m",
+   "1 000 so‘m",
+   "990 so‘m",
+   "1 100 so‘m"
+  ],
+  "c": 1,
+  "e": "Joriy qiymat = 1 100/(1 + 0,10) = 1 000 so‘m."
+ },
+ {
+  "q": "Har yili 2 mln so‘m beradigan perpetuitetning 16 foizli stavkadagi joriy qiymati qancha?",
+  "options": [
+   "32 mln so‘m",
+   "2,32 mln so‘m",
+   "16 mln so‘m",
+   "12,5 mln so‘m"
+  ],
+  "c": 3,
+  "e": "Perpetuitet joriy qiymati PV = 2/0,16 = 12,5 mln so‘m."
+ },
+ {
+  "q": "Bozor foiz stavkasi oshganda obligatsiyalar narxi qanday o‘zgaradi?",
+  "options": [
+   "Pasayadi",
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Nominal qiymatga tenglashadi"
+  ],
+  "c": 0,
+  "e": "Kelajakdagi to‘lovlar yuqori stavkada diskontlanadi, shuning uchun obligatsiyaning joriy qiymati kamayadi."
+ },
+ {
+  "q": "Kupon stavkasi bozor stavkasiga teng bo‘lsa, obligatsiya qanday narxda sotiladi?",
+  "options": [
+   "Nominal qiymatidan arzon",
+   "Nominal qiymatidan qimmat",
+   "Nominal qiymatida",
+   "Bunday obligatsiya sotilmaydi"
+  ],
+  "c": 2,
+  "e": "Kupon va bozor stavkalari teng bo‘lsa, to‘lovlarning joriy qiymati nominalga teng bo‘ladi."
+ },
+ {
+  "q": "Investitsiya loyihasi qachon qabul qilinadi?",
+  "options": [
+   "NPV noldan kichik bo‘lsa",
+   "Sof joriy qiymat (NPV) noldan katta bo‘lsa",
+   "IRR diskont stavkasidan kichik bo‘lsa",
+   "Boshlang‘ich investitsiya nolga teng bo‘lsa"
+  ],
+  "c": 1,
+  "e": "NPV > 0 bo‘lsa, loyiha daromadlari xarajatlarni diskontlangan holda qoplaydi va loyiha qabul qilinadi."
+ },
+ {
+  "q": "U = u(c₁) + β·u(c₂) uchun Eyler tenglamasi qaysi?",
+  "options": [
+   "u′(c₁) = u′(c₂)",
+   "u(c₁) = β·u(c₂)",
+   "c₁ = (1 + r)·c₂",
+   "u′(c₁) = β·(1 + r)·u′(c₂)"
+  ],
+  "c": 3,
+  "e": "Optimumda bugungi iste’molning chekli nafi ertangi chekli nafning β(1 + r) ga ko‘paytirilganiga teng bo‘ladi."
+ },
+ {
+  "q": "“Foiz nazariyasi” (1930) asarida vaqtlararo tanlov modelini ishlab chiqqan olim kim?",
+  "options": [
+   "J. Xiks",
+   "I. Fisher",
+   "E. Slutskiy",
+   "J.M. Keyns"
+  ],
+  "c": 1,
+  "e": "Bob adabiyotlarida Fisher I. “The Theory of Interest” (1930) vaqtlararo tanlov modelining muallifi sifatida keltiriladi."
+ },
+ {
+  "q": "Yaqin kelajakni kuchli, uzoq kelajakni esa kuchsizroq diskontlash qanday ataladi?",
+  "options": [
+   "Eksponensial diskontlash",
+   "Fisher samarasi",
+   "Giperbolik diskontlash",
+   "Zaxira samarasi"
+  ],
+  "c": 2,
+  "e": "Giperbolik diskontlash (Laibson) yaqin kelajakka nisbatan kuchliroq, uzoq kelajakka nisbatan kuchsizroq diskont qo‘llaydi."
+ }
+]

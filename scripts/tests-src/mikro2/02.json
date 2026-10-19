@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Afzal ko‘rishning to‘liqlik aksiomasi nimani anglatadi?",
+  "options": [
+   "Iste’molchi har doim tovarning ko‘prog‘ini kamrog‘idan afzal ko‘radi",
+   "Iste’molchi ekstremal to‘plamlardan ko‘ra o‘rtacha to‘plamni afzal ko‘radi",
+   "Iste’molchi istalgan ikki iste’mol to‘plamini bir-biri bilan taqqoslay oladi",
+   "Har qanday iste’mol to‘plami iste’molchi uchun o‘zi bilan teng yaxshi hisoblanadi"
+  ],
+  "c": 2,
+  "e": "To‘liqlik aksiomasiga ko‘ra iste’molchi istalgan ikki to‘plam o‘rtasida X ≽ Y yoki Y ≽ X munosabatini bildira oladi."
+ },
+ {
+  "q": "Agar X ≽ Y va Y ≽ Z bo‘lsa, X ≽ Z bo‘lishi qaysi aksiomaning mazmuni?",
+  "options": [
+   "Tranzitivlik",
+   "To‘liqlik",
+   "Refleksivlik",
+   "Qavariqlik"
+  ],
+  "c": 0,
+  "e": "Afzal ko‘rishlarning zanjir bo‘ylab uzatilishi tranzitivlik aksiomasi deyiladi."
+ },
+ {
+  "q": "“Pul nasosi” argumenti qaysi aksiomaning buzilishi oqibatlarini ko‘rsatadi?",
+  "options": [
+   "Monotonlik",
+   "Refleksivlik",
+   "Uzluksizlik",
+   "Tranzitivlik"
+  ],
+  "c": 3,
+  "e": "Tranzitivligi buzilgan iste’molchi ketma-ket ayirboshlashlarda pulini yo‘qotib boraveradi – bu “pul nasosi” misolidir."
+ },
+ {
+  "q": "Monoton afzal ko‘rishlarda befarqlik chiziqlari qanday og‘ishga ega bo‘ladi?",
+  "options": [
+   "Musbat og‘ishga ega (yuqoriga ko‘tariluvchi)",
+   "Manfiy og‘ishga ega (pastga tushuvchi)",
+   "Vertikal joylashadi",
+   "Gorizontal joylashadi"
+  ],
+  "c": 1,
+  "e": "Ko‘proq tovar yaxshiroq bo‘lgani uchun bir tovar kamayganda ikkinchisi ko‘payishi kerak, ya’ni chiziq manfiy og‘ishga ega."
+ },
+ {
+  "q": "Mukammal to‘ldiruvchilar uchun befarqlik chiziqlari qanday shaklga ega?",
+  "options": [
+   "Manfiy og‘ishli to‘g‘ri chiziq",
+   "Koordinata boshiga qavariq silliq egri chiziq",
+   "Musbat og‘ishli egri chiziq",
+   "L shaklida (burchak shaklida)"
+  ],
+  "c": 3,
+  "e": "Mukammal to‘ldiruvchilarda tovarlar qat’iy nisbatda iste’mol qilinadi, shuning uchun chiziqlar L shaklida bo‘ladi."
+ },
+ {
+  "q": "Agar x₂ antine’mat bo‘lsa, befarqlik chiziqlari qanday og‘ishga ega bo‘ladi?",
+  "options": [
+   "Manfiy og‘ishga ega bo‘ladi",
+   "Vertikal bo‘ladi",
+   "Musbat og‘ishga ega bo‘ladi",
+   "Koordinata boshidan o‘tuvchi nurlar bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Antine’matning ko‘payishi naflilikni kamaytiradi, uni qoplash uchun x₁ ham ko‘payishi kerak, shuning uchun og‘ish musbat."
+ },
+ {
+  "q": "Agar x₂ neytral ne’mat bo‘lsa, befarqlik chiziqlari qanday ko‘rinishda bo‘ladi?",
+  "options": [
+   "Vertikal chiziqlar",
+   "Gorizontal chiziqlar",
+   "L shaklidagi chiziqlar",
+   "45° burchakli to‘g‘ri chiziqlar"
+  ],
+  "c": 0,
+  "e": "Naflilik x₂ ga bog‘liq bo‘lmagani uchun faqat x₁ naflilikni belgilaydi va chiziqlar vertikal bo‘ladi."
+ },
+ {
+  "q": "Qavariqlik farazining iqtisodiy ma’nosi qanday?",
+  "options": [
+   "Iste’molchi o‘z daromadini faqat bitta tovarga sarflaydi",
+   "Iste’molchi xilma-xillikni, ya’ni tovarlar aralashmasini afzal ko‘radi",
+   "Tovarning ko‘p miqdori iste’molchi uchun har doim yomonroq bo‘ladi",
+   "Iste’molchi uchun tovar narxlari o‘zgarmas bo‘lib qoladi"
+  ],
+  "c": 1,
+  "e": "Qavariq afzal ko‘rishlarda o‘rtacha (aralash) to‘plam ekstremal to‘plamlardan kam yaxshi emas, ya’ni xilma-xillik afzal."
+ },
+ {
+  "q": "Chekli almashtirish normasi (MRS) geometrik jihatdan nimaga teng?",
+  "options": [
+   "Byudjet chizig‘ining og‘ishiga",
+   "Talab chizig‘ining og‘ishiga",
+   "Befarqlik chizig‘ining og‘ishiga (urinmasining burchak koeffitsiyentiga)",
+   "Engel chizig‘ining og‘ishiga"
+  ],
+  "c": 2,
+  "e": "MRS befarqlik chizig‘ining berilgan nuqtadagi og‘ishini ifodalaydi."
+ },
+ {
+  "q": "u = x₁·x₂ naflilik funksiyasi uchun MRS₁₂ nimaga teng?",
+  "options": [
+   "−x₁/x₂",
+   "−1",
+   "x₁·x₂",
+   "−x₂/x₁"
+  ],
+  "c": 3,
+  "e": "MRS₁₂ = −MU₁/MU₂ = −x₂/x₁, chunki MU₁ = x₂, MU₂ = x₁."
+ },
+ {
+  "q": "u = 3x₁ + 2x₂ naflilik funksiyasi uchun MRS₁₂ nimaga teng?",
+  "options": [
+   "−2/3",
+   "−1,5",
+   "−6",
+   "−5"
+  ],
+  "c": 1,
+  "e": "Mukammal o‘rinbosarlarda MRS₁₂ = −a/b = −3/2 = −1,5."
+ },
+ {
+  "q": "Ordinal naflilik nazariyasiga ko‘ra naflilik qanday talqin qilinadi?",
+  "options": [
+   "Faqat to‘plamlarning tartibi (qaysi biri afzalligi) muhim, naflilik sonlarining o‘zi ma’noga ega emas",
+   "Naflilikni aniq birliklarda (yutillarda) o‘lchash va qo‘shish mumkin",
+   "Naflilik har doim pul birligida o‘lchanadi va taqqoslanadi",
+   "Berilgan afzal ko‘rishni faqat yagona naflilik funksiyasi ifodalaydi"
+  ],
+  "c": 0,
+  "e": "Ordinal yondashuvda faqat afzal ko‘rish tartibi muhim, shuning uchun naflilik funksiyasi yagona emas."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri u = x₁·x₂ ning monoton almashtirishi EMAS?",
+  "options": [
+   "v = ln x₁ + ln x₂",
+   "v = (x₁·x₂)²",
+   "v = 2·x₁·x₂ + 7",
+   "v = −x₁·x₂"
+  ],
+  "c": 3,
+  "e": "Monoton almashtirish tartibni saqlaydi, v = −x₁·x₂ esa tartibni teskarisiga o‘zgartiradi (kamayuvchi funksiya)."
+ },
+ {
+  "q": "Chekli naflilik nima?",
+  "options": [
+   "Tovar iste’molini bir birlikka oshirganda umumiy naflilikning o‘zgarishi",
+   "Barcha iste’mol qilingan birliklardan olingan umumiy qoniqish",
+   "Umumiy naflilikning iste’mol qilingan birliklar soniga nisbati",
+   "Tovar narxining bir birlikka o‘zgarishidan kelib chiqadigan talab o‘zgarishi"
+  ],
+  "c": 0,
+  "e": "Chekli naflilik MU = ΔTU/ΔQ – iste’mol bir birlikka ortganda umumiy naflilik o‘zgarishi."
+ },
+ {
+  "q": "Umumiy naflilik maksimal bo‘lgan nuqtada chekli naflilik nimaga teng?",
+  "options": [
+   "Maksimal qiymatga teng",
+   "Birga teng",
+   "Nolga teng",
+   "Manfiy cheksizlikka teng"
+  ],
+  "c": 2,
+  "e": "Umumiy naflilik maksimumida qo‘shimcha birlik uni oshirmaydi, ya’ni MU = 0."
+ },
+ {
+  "q": "MRS₁₂ va chekli nafliliklar o‘rtasida qanday bog‘liqlik mavjud?",
+  "options": [
+   "MRS₁₂ = −MU₂/MU₁",
+   "MRS₁₂ = −MU₁/MU₂",
+   "MRS₁₂ = MU₁ + MU₂",
+   "MRS₁₂ = MU₁·MU₂"
+  ],
+  "c": 1,
+  "e": "Befarqlik chizig‘i bo‘ylab MU₁·dx₁ + MU₂·dx₂ = 0, bundan MRS₁₂ = dx₂/dx₁ = −MU₁/MU₂."
+ },
+ {
+  "q": "Gossenning ikkinchi qonuni qaysi tenglik bilan ifodalanadi?",
+  "options": [
+   "MU₁ = MU₂",
+   "MU₁/p₁ = MU₂/p₂",
+   "MU₁·p₁ = MU₂·p₂",
+   "p₁ = p₂"
+  ],
+  "c": 1,
+  "e": "Optimumda har bir tovarga sarflangan oxirgi pul birligining nafi tenglashadi: MU₁/p₁ = MU₂/p₂."
+ },
+ {
+  "q": "Silliq qavariq afzal ko‘rishlarda ichki optimum sharti qaysi?",
+  "options": [
+   "|MRS| = p₂/p₁",
+   "MRS = 0",
+   "MU₁ = p₁",
+   "|MRS| = p₁/p₂"
+  ],
+  "c": 3,
+  "e": "Optimumda befarqlik chizig‘i og‘ishi byudjet chizig‘i og‘ishiga teng: |MRS| = p₁/p₂."
+ },
+ {
+  "q": "u = x₁^0,3·x₂^0,7, m = 1000, p₁ = 10 bo‘lsa, x₁* nimaga teng?",
+  "options": [
+   "30",
+   "70",
+   "100",
+   "300"
+  ],
+  "c": 0,
+  "e": "Kobb–Duglasda x₁* = a·m/p₁ = 0,3·1000/10 = 30."
+ },
+ {
+  "q": "Kobb–Duglas iste’molchisining asosiy xususiyati qanday?",
+  "options": [
+   "Faqat eng arzon tovarni sotib oladi, qolganlarini olmaydi",
+   "Tovarlarni narxlardan qat’i nazar qat’iy nisbatda sotib oladi",
+   "Daromadining doimiy ulushini har bir tovarga sarflaydi",
+   "Daromad oshganda birinchi tovar iste’moli o‘zgarmay qoladi"
+  ],
+  "c": 2,
+  "e": "Kobb–Duglasda tovarga sarf ulushi a (yoki 1−a) bo‘lib, narx va daromadga bog‘liq emas."
+ },
+ {
+  "q": "u = min{x₁, x₂}, p₁ = 2, p₂ = 3, m = 100 bo‘lsa, optimal x₁ nimaga teng?",
+  "options": [
+   "50",
+   "33,3",
+   "10",
+   "20"
+  ],
+  "c": 3,
+  "e": "Optimumda x₁ = x₂ = x, 2x + 3x = 100, bundan x = 20."
+ },
+ {
+  "q": "u = x₁ + x₂, p₁ = 2, p₂ = 5, m = 100 bo‘lsa, optimal to‘plam qaysi?",
+  "options": [
+   "(0; 20)",
+   "(50; 0)",
+   "(25; 10)",
+   "(20; 12)"
+  ],
+  "c": 1,
+  "e": "Mukammal o‘rinbosarlarda |MRS| = 1 > p₁/p₂ = 0,4, shuning uchun hamma pul arzonroq x₁ ga sarflanadi: 100/2 = 50."
+ },
+ {
+  "q": "Lagranj ko‘paytuvchisi λ iste’molchi masalasida nimani bildiradi?",
+  "options": [
+   "Tovar narxini",
+   "Byudjet chizig‘ining og‘ishini",
+   "Pulning (daromadning) chekli nafliligini",
+   "Umumiy nafliligini"
+  ],
+  "c": 2,
+  "e": "Optimumda λ = MU₁/p₁ = MU₂/p₂, ya’ni daromadning bir birligi keltiradigan qo‘shimcha naflilik."
+ },
+ {
+  "q": "u = 20·ln x₁ + x₂, p₁ = 4, p₂ = 1, m = 100 bo‘lsa, x₁* nimaga teng?",
+  "options": [
+   "5",
+   "20",
+   "25",
+   "80"
+  ],
+  "c": 0,
+  "e": "MU₁/p₁ = 20/(4x₁) = MU₂/p₂ = 1, bundan x₁* = 5 (x₂ = 100 − 20 = 80)."
+ },
+ {
+  "q": "Kvazichiziqli afzal ko‘rishda (ichki yechimda) daromad ortsa, x₁ ga talab qanday o‘zgaradi?",
+  "options": [
+   "Daromadga proporsional ortadi",
+   "Kamayadi",
+   "O‘zgarmaydi",
+   "Nolga tenglashadi"
+  ],
+  "c": 2,
+  "e": "Kvazichiziqli holatda x₁ optimumi faqat narxlarga bog‘liq, daromad ortishi faqat x₂ ga ketadi."
+ },
+ {
+  "q": "Bir xil soliq tushumi olinganda iste’molchi uchun qaysi soliq kamroq og‘ir bo‘ladi?",
+  "options": [
+   "Miqdoriy soliq",
+   "Advalor soliq",
+   "Ikkalasi iste’molchiga bir xil ta’sir qiladi",
+   "Daromad (paushal) solig‘i"
+  ],
+  "c": 3,
+  "e": "Paushal soliq narxlarni buzmaydi, iste’molchi yuqoriroq befarqlik chizig‘iga erisha oladi, shuning uchun u kamroq og‘ir."
+ },
+ {
+  "q": "“Suv va olmos paradoksi” qaysi tushuncha orqali yechiladi?",
+  "options": [
+   "Umumiy naflilik",
+   "Chekli naflilik",
+   "Muqobil xarajat",
+   "Pareto samaradorlik"
+  ],
+  "c": 1,
+  "e": "Suvning umumiy nafi katta, ammo mo‘lligi tufayli chekli nafi past; narxni chekli naflilik belgilaydi."
+ },
+ {
+  "q": "Krujka bilan o‘tkazilgan tajribada egalarining sotish narxi xaridorlarning to‘lashga tayyorligidan ancha yuqori bo‘lgan. Bu hodisa qanday ataladi?",
+  "options": [
+   "Mulkchilik samarasi",
+   "Freyming samarasi",
+   "Giffen paradoksi",
+   "Daromad samarasi"
+  ],
+  "c": 0,
+  "e": "Narsaga egalik qilish uning qadrini oshiradi – bu mulkchilik (endowment) samarasi."
+ },
+ {
+  "q": "“Turtki” (nudge) konsepsiyasining mualliflari kimlar?",
+  "options": [
+   "J. Nesh va R. Zelten",
+   "R. Tayler va K. Sanstayn",
+   "J. Akerlof va M. Spens",
+   "V. Pareto va F. Ejvort"
+  ],
+  "c": 1,
+  "e": "“Nudge” kitobi mualliflari – Richard Tayler va Kass Sanstayn."
+ },
+ {
+  "q": "Befarqlik chiziqlari kartasi va naflilik funksiyasi o‘rtasida qanday bog‘liqlik bor?",
+  "options": [
+   "Befarqlik chiziqlari – byudjet chiziqlari to‘plamidir",
+   "Naflilik funksiyasi befarqlik chizig‘ining hosilasidir",
+   "Ular o‘rtasida bevosita bog‘liqlik mavjud emas",
+   "Befarqlik chiziqlari – naflilik funksiyasi sirtining gorizontallari (teng sath chiziqlari)"
+  ],
+  "c": 3,
+  "e": "Befarqlik chizig‘i u(x₁, x₂) = const tenglama bilan beriladi, ya’ni naflilik sirtining teng sath chizig‘idir."
+ }
+]

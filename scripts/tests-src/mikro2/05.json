@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Aktivning daromadliligi formulasi:",
+  "options": [
+   "(D + p₁ − p₀)/p₀",
+   "(D + p₀ − p₁)/p₁",
+   "D/p₁",
+   "(p₀ − p₁)/D"
+  ],
+  "c": 0,
+  "e": "Daromadlilik dividend va narx o‘zgarishining boshlang‘ich narxga nisbati sifatida hisoblanadi."
+ },
+ {
+  "q": "Noaniqlik bo‘lmaganda arbitraj yo‘qligi sharti nimani talab qiladi?",
+  "options": [
+   "Barcha aktivlar narxi o‘zaro teng bo‘lishini",
+   "Barcha aktivlar daromadliligi foiz stavkasiga teng bo‘lishini",
+   "Barcha aktivlar dividendi nolga teng bo‘lishini",
+   "Barcha aktivlar narxi vaqt o‘tishi bilan o‘zgarmasligini"
+  ],
+  "c": 1,
+  "e": "Aks holda arbitrajchi arzon daromadlilikdagi aktivni sotib, yuqorisini olib, risksiz foyda ko‘rgan bo‘lardi."
+ },
+ {
+  "q": "Bir yildan keyin 132 ga sotiladigan, dividend bermaydigan aktivning 10% stavkadagi bugungi narxi:",
+  "options": [
+   "132",
+   "145,2",
+   "120",
+   "118,8"
+  ],
+  "c": 2,
+  "e": "p₀ = 132/(1 + 0,10) = 120."
+ },
+ {
+  "q": "Hotelling qoidasiga ko‘ra tugaydigan resurs narxi:",
+  "options": [
+   "O‘zgarmay qoladi",
+   "Inflatsiya sur’atida pasayadi",
+   "Qazib olish xarajatiga teng bo‘ladi",
+   "Foiz stavkasi sur’atida o‘sadi"
+  ],
+  "c": 3,
+  "e": "Arbitraj sharti bo‘yicha resurs narxi (rentasi) foiz stavkasiga teng sur’atda oshadi."
+ },
+ {
+  "q": "O‘rmonni kesishning optimal vaqti sharti:",
+  "options": [
+   "F(T)·F′(T) = r",
+   "F′(T)/F(T) = r",
+   "F′(T) = 0",
+   "F(T)/T = r"
+  ],
+  "c": 1,
+  "e": "Daraxt qiymatining o‘sish sur’ati foiz stavkasiga tenglashganda kesish optimal bo‘ladi."
+ },
+ {
+  "q": "Sankt-Peterburg paradoksi nimani ko‘rsatadi?",
+  "options": [
+   "Odamlar doimo riskni sevishini",
+   "Ehtimolliklar ob’ektiv emasligini",
+   "Odamlar kutilgan qiymatni emas, kutilgan naflilikni maksimallashtirishini",
+   "Kutilgan qiymat har doim chekli bo‘lishini"
+  ],
+  "c": 2,
+  "e": "Cheksiz kutilgan qiymatga qaramay odamlar o‘yinga cheklangan summa to‘laydi, demak ular naflilikni baholaydi."
+ },
+ {
+  "q": "Kutilgan naflilik formulasi:",
+  "options": [
+   "EU = u(Σπᵢ·wᵢ)",
+   "EU = Σu(wᵢ)",
+   "EU = max u(wᵢ)",
+   "EU = Σπᵢ·u(wᵢ)"
+  ],
+  "c": 3,
+  "e": "Kutilgan naflilik — har bir holat nafliligining ehtimollik bo‘yicha o‘rtacha qiymati."
+ },
+ {
+  "q": "Fon Neyman–Morgenshtern naflilik funksiyasi qanday almashtirishga nisbatan invariant?",
+  "options": [
+   "Musbat chiziqli almashtirishga",
+   "Har qanday monoton almashtirishga",
+   "Faqat logarifmlashga",
+   "Hech qanday almashtirishga"
+  ],
+  "c": 0,
+  "e": "Kutilgan naflilik funksiyasi aniqligi au + b (a > 0) ko‘rinishidagi chiziqli almashtirishgacha saqlanadi."
+ },
+ {
+  "q": "Alle paradoksi qaysi aksiomaning buzilishini ko‘rsatadi?",
+  "options": [
+   "To‘liqlik aksiomasining",
+   "Refleksivlik aksiomasining",
+   "Mustaqillik aksiomasining",
+   "Monotonlik aksiomasining"
+  ],
+  "c": 2,
+  "e": "Alle tajribasida tanlovlar mustaqillik aksiomasiga zid keladi."
+ },
+ {
+  "q": "Riskdan qochuvchi iste’molchining naflilik funksiyasi:",
+  "options": [
+   "Qavariq",
+   "Chiziqli",
+   "Pog‘onali",
+   "Botiq"
+  ],
+  "c": 3,
+  "e": "Riskdan qochish naflilikning kamayuvchi o‘sishini, ya’ni botiq funksiyani bildiradi."
+ },
+ {
+  "q": "Riskdan qochuvchi uchun qaysi tengsizlik to‘g‘ri?",
+  "options": [
+   "u(E(w)) > E(u(w))",
+   "u(E(w)) < E(u(w))",
+   "u(E(w)) = E(u(w))",
+   "E(w) < CE"
+  ],
+  "c": 0,
+  "e": "Botiq funksiya uchun Iensen tengsizligiga ko‘ra kutilgan boylikning nafliligi kutilgan nafillikdan katta."
+ },
+ {
+  "q": "u = √w; lotereya: 50% — 9, 50% — 1. Ishonchli ekvivalent:",
+  "options": [
+   "5",
+   "4",
+   "2,5",
+   "3"
+  ],
+  "c": 1,
+  "e": "EU = 0,5·3 + 0,5·1 = 2, demak CE = 2² = 4."
+ },
+ {
+  "q": "Risk mukofoti:",
+  "options": [
+   "CE − E(w)",
+   "E(u(w)) − u(E(w))",
+   "σ²",
+   "E(w) − CE"
+  ],
+  "c": 3,
+  "e": "Risk mukofoti — kutilgan boylik va ishonchli ekvivalent o‘rtasidagi farq."
+ },
+ {
+  "q": "Errou–Pratt absolyut riskdan qochish koeffitsienti:",
+  "options": [
+   "−u″(w)/u′(w)",
+   "u′(w)/u″(w)",
+   "−w·u′(w)",
+   "u″(w)"
+  ],
+  "c": 0,
+  "e": "Absolyut riskdan qochish koeffitsienti A(w) = −u″(w)/u′(w)."
+ },
+ {
+  "q": "u = ln w uchun nisbiy riskdan qochish koeffitsienti:",
+  "options": [
+   "1/w",
+   "1",
+   "0",
+   "w"
+  ],
+  "c": 1,
+  "e": "R(w) = −w·u″/u′ = w·(1/w²)/(1/w) = 1."
+ },
+ {
+  "q": "Adolatli sug‘urta mukofoti stavkasi:",
+  "options": [
+   "Zarar miqdoriga teng",
+   "Nolga teng",
+   "Zarar ehtimoliga teng (γ = π)",
+   "Foiz stavkasiga teng bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Adolatli sug‘urtada kompaniyaning kutilgan foydasi nol, shuning uchun mukofot stavkasi zarar ehtimoliga teng."
+ },
+ {
+  "q": "Adolatli mukofotda riskdan qochuvchi iste’molchi:",
+  "options": [
+   "To‘liq sug‘urta qiladi",
+   "Sug‘urta qilmaydi",
+   "Qisman sug‘urta qiladi",
+   "Zarardan ortiq sug‘urta qiladi"
+  ],
+  "c": 0,
+  "e": "Adolatli mukofotda to‘liq sug‘urta boylikni barcha holatda tenglashtirib, nafillikni maksimallashtiradi."
+ },
+ {
+  "q": "Sug‘urta kompaniyasining riskka neytral harakat qila olishining asosiy sababi:",
+  "options": [
+   "Davlatning to‘liq kafolati",
+   "Katta sonlar qonuni (riskni birlashtirish)",
+   "Yuqori foiz stavkalari mavjudligi",
+   "Mijozlarning riskni yoqtirishi"
+  ],
+  "c": 1,
+  "e": "Ko‘p mustaqil risklar birlashtirilganda umumiy zarar o‘rtachaga yaqinlashadi."
+ },
+ {
+  "q": "Diversifikatsiya qaysi riskni yo‘qota olmaydi?",
+  "options": [
+   "Idiosinkratik (o‘ziga xos) riskni",
+   "Alohida kompaniya riskini",
+   "Sistematik (bozor) riskni",
+   "Tarmoqqa xos riskni"
+  ],
+  "c": 2,
+  "e": "Diversifikatsiya faqat o‘ziga xos riskni kamaytiradi, bozor riski qoladi."
+ },
+ {
+  "q": "O‘rtacha–dispersiya modelida byudjet chizig‘ining og‘ishi:",
+  "options": [
+   "rₘ/r_f",
+   "σₘ/(rₘ − r_f)",
+   "r_f·σₘ/(rₘ − r_f)",
+   "(rₘ − r_f)/σₘ"
+  ],
+  "c": 3,
+  "e": "Byudjet chizig‘i og‘ishi — risk birligiga to‘g‘ri keladigan qo‘shimcha daromadlilik (rₘ − r_f)/σₘ."
+ },
+ {
+  "q": "Beta koeffitsienti:",
+  "options": [
+   "cov(rᵢ, rₘ)/σₘ",
+   "cov(rᵢ, rₘ)/σₘ²",
+   "rᵢ/rₘ",
+   "cov(rᵢ, rₘ)"
+  ],
+  "c": 1,
+  "e": "Beta — aktiv va bozor daromadliligining kovariatsiyasini bozor dispersiyasiga nisbati."
+ },
+ {
+  "q": "CAPM tenglamasi:",
+  "options": [
+   "rᵢ = rₘ + βᵢ(r_f − rₘ)",
+   "rᵢ = βᵢ·rₘ",
+   "rᵢ = r_f − βᵢ·rₘ",
+   "rᵢ = r_f + βᵢ(rₘ − r_f)"
+  ],
+  "c": 3,
+  "e": "CAPM: daromadlilik risksiz stavka va beta bo‘yicha o‘lchangan bozor risk mukofotining yig‘indisi."
+ },
+ {
+  "q": "r_f = 10%, rₘ = 18%, β = 1,5 bo‘lsa, talab qilinadigan daromadlilik:",
+  "options": [
+   "22%",
+   "27,5%",
+   "18,0%",
+   "15,0%"
+  ],
+  "c": 0,
+  "e": "r = 10 + 1,5·(18 − 10) = 22%."
+ },
+ {
+  "q": "SML dan yuqorida joylashgan aktiv:",
+  "options": [
+   "Qimmat baholangan",
+   "To‘g‘ri baholangan",
+   "Arzon baholangan",
+   "Risksiz"
+  ],
+  "c": 2,
+  "e": "SML dan yuqoridagi aktiv riskiga nisbatan ko‘proq daromad beradi, ya’ni arzon baholangan."
+ },
+ {
+  "q": "Portfel nazariyasi asoschisi (1952):",
+  "options": [
+   "J. Tobin (1958)",
+   "U. Sharp (1964)",
+   "Y. Fama (1970)",
+   "G. Markovits"
+  ],
+  "c": 3,
+  "e": "Markovits 1952 yilda «Portfel tanlash» maqolasida portfel nazariyasini yaratgan."
+ },
+ {
+  "q": "Istiqbol nazariyasi mualliflari:",
+  "options": [
+   "J. fon Neyman va O. Morgenshtern",
+   "D. Kaneman va A. Tverski",
+   "K. Errou va J. Pratt",
+   "R. Tayler va K. Sanstayn"
+  ],
+  "c": 1,
+  "e": "Istiqbol nazariyasini 1979 yilda Kaneman va Tverski taklif qilgan."
+ },
+ {
+  "q": "Istiqbol nazariyasiga ko‘ra yo‘qotishlar sohasida odamlar:",
+  "options": [
+   "Riskni sevishga moyil",
+   "Riskdan qochishga moyil",
+   "Riskka neytral",
+   "Qaror qabul qilmaydi"
+  ],
+  "c": 0,
+  "e": "Yo‘qotishlar sohasida qiymat funksiyasi qavariq bo‘lib, odamlar riskka boradi."
+ },
+ {
+  "q": "Yo‘qotishdan qochish koeffitsientining tajribada aniqlangan taxminiy qiymati:",
+  "options": [
+   "0,4–0,6",
+   "1,0–1,2",
+   "2–2,5",
+   "8–10"
+  ],
+  "c": 2,
+  "e": "Tajribalarda yo‘qotish xuddi shunday daromaddan taxminan 2–2,5 marta kuchliroq his qilinadi."
+ },
+ {
+  "q": "Investorlarning narxi oshgan aksiyalarni erta sotib, tushganlarini uzoq ushlab turishi:",
+  "options": [
+   "Mulkchilik samarasi",
+   "Dispozitsiya samarasi",
+   "Haddan tashqari ishonch samarasi",
+   "Giffen samarasi"
+  ],
+  "c": 1,
+  "e": "Bu xulq dispozitsiya samarasi deb ataladi."
+ },
+ {
+  "q": "Qaysi naflilik funksiyasi doimiy absolyut riskdan qochishni (CARA) ifodalaydi?",
+  "options": [
+   "ln w (logarifmik)",
+   "√w (kvadrat ildiz)",
+   "−e^(−aw)",
+   "a + b·w (chiziqli)"
+  ],
+  "c": 2,
+  "e": "u = −e^(−aw) uchun −u″/u′ = a, ya’ni doimiy."
+ }
+]

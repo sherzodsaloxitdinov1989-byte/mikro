@@ -24,6 +24,12 @@ const LOADERS = {
     practice: () => import("./tb/practice-auto.js").then((m) => m.AUTO_PRACTICE),
     meta: () => import("./tb/meta.js"),
   },
+  mikro2: {
+    book: () => import("./mikro2/book.js").then((m) => m.BOOK),
+    layers: () => import("./mikro2/layers-auto.js").then((m) => m.AUTO),
+    practice: () => import("./mikro2/practice-auto.js").then((m) => m.AUTO_PRACTICE),
+    meta: () => import("./mikro2/meta.js"),
+  },
 };
 
 const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";

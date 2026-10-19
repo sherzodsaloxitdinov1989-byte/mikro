@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Aktivning daromadliligi formulasi:",
+  "options": [
+   "(D+ p1−p0)/ p0",
+   "p1/ p0",
+   "D/ p1",
+   "(p0−p1)/D"
+  ],
+  "c": 0
+ },
+ {
+  "n": 2,
+  "q": "Noaniqlik bo‘lmaganda arbitraj yo‘qligi sharti nimani talab qiladi?",
+  "options": [
+   "Barcha aktivlar daromadliligi foiz stavkasiga teng bo‘lishini",
+   "Barcha aktivlar narxi teng bo‘lishini",
+   "Dividendlar nolga teng bo‘lishini",
+   "Aktiv narxlari o‘zgarmasligini"
+  ],
+  "c": 0
+ },
+ {
+  "n": 3,
+  "q": "Bir yildan keyin 132 ga sotiladigan, dividend bermaydigan aktivning 10% stavkadagi bugungi narxi:",
+  "options": [
+   "120",
+   "132",
+   "145,2",
+   "118,8"
+  ],
+  "c": 0
+ },
+ {
+  "n": 4,
+  "q": "Hotelling qoidasiga ko‘ra tugaydigan resurs narxi:",
+  "options": [
+   "O‘zgarmaydi",
+   "Inflatsiya sur’atida pasayadi",
+   "Qazib olish xarajatiga teng bo‘ladi",
+   "Foiz stavkasi sur’atida o‘sadi"
+  ],
+  "c": 3
+ },
+ {
+  "n": 5,
+  "q": "O‘rmonni kesishning optimal vaqti sharti:",
+  "options": [
+   "F (T )=r",
+   "F ′ (T )/F (T )=r",
+   "F ′ (T )=0",
+   "F (T )/T=r"
+  ],
+  "c": 1
+ },
+ {
+  "n": 6,
+  "q": "Sankt-Peterburg paradoksi nimani ko‘rsatadi?",
+  "options": [
+   "Odamlar kutilgan qiymatni emas, kutilgan naflilikni maksimallashtirishini",
+   "Odamlar riskni sevishini",
+   "Ehtimolliklar ob’ektiv emasligini",
+   "Kutilgan qiymat har doim chekli ekanini"
+  ],
+  "c": 0
+ },
+ {
+  "n": 7,
+  "q": "Kutilgan naflilik formulasi:",
+  "options": [
+   "EU=∑πiu (wi)",
+   "EU=u (∑πiwi)",
+   "EU=∑u (wi)",
+   "EU=max u (wi)"
+  ],
+  "c": 0
+ },
+ {
+  "n": 8,
+  "q": "Fon Neyman–Morgenshtern naflilik funksiyasi qanday almashtirishga nisbatan invariant?",
+  "options": [
+   "Har qanday monoton almashtirishga",
+   "Faqat logarifmlashga",
+   "Hech qanday almashtirishga",
+   "Musbat chiziqli almashtirishga"
+  ],
+  "c": 3
+ },
+ {
+  "n": 9,
+  "q": "Alle paradoksi qaysi aksiomaning buzilishini ko‘rsatadi?",
+  "options": [
+   "To‘liqlik aksiomasining",
+   "Mustaqillik aksiomasining",
+   "Refleksivlik aksiomasining",
+   "Monotonlik aksiomasining"
+  ],
+  "c": 1
+ },
+ {
+  "n": 10,
+  "q": "Riskdan qochuvchi iste’molchining naflilik funksiyasi:",
+  "options": [
+   "Qavariq",
+   "Botiq",
+   "Chiziqli",
+   "Pog‘onali"
+  ],
+  "c": 1
+ },
+ {
+  "n": 11,
+  "q": "Riskdan qochuvchi uchun qaysi tengsizlik to‘g‘ri?",
+  "options": [
+   "u (E (w ))<E (u (w ))",
+   "u (E (w ))=E (u (w ))",
+   "E (w )<C E",
+   "u (E (w ))>E (u (w ))"
+  ],
+  "c": 3
+ },
+ {
+  "n": 12,
+  "q": "u=√w; lotereya 50% – 9, 50% – 1. Ishonchli ekvivalent:",
+  "options": [
+   "4",
+   "5",
+   "2",
+   "3"
+  ],
+  "c": 0
+ },
+ {
+  "n": 13,
+  "q": "Risk mukofoti:",
+  "options": [
+   "C E−E (w )",
+   "E (u (w ))−u (E (w ))",
+   "σ 2",
+   "E (w )−C E"
+  ],
+  "c": 3
+ },
+ {
+  "n": 14,
+  "q": "Errou–Pratt absolyut riskdan qochish koeffitsienti:",
+  "options": [
+   "u′ (w )/u″ (w )",
+   "−w u′ (w )",
+   "−u″ (w )/u′ (w )",
+   "u″ (w )"
+  ],
+  "c": 2
+ },
+ {
+  "n": 15,
+  "q": "u=ln w uchun nisbiy riskdan qochish koeffitsienti:",
+  "options": [
+   "1/w",
+   "0",
+   "1",
+   "w"
+  ],
+  "c": 2
+ },
+ {
+  "n": 16,
+  "q": "Adolatli sug‘urta mukofoti stavkasi:",
+  "options": [
+   "Zarar miqdoriga teng",
+   "Nolga teng",
+   "Zarar ehtimoliga teng (γ=π)",
+   "Foiz stavkasiga teng"
+  ],
+  "c": 2
+ },
+ {
+  "n": 17,
+  "q": "Adolatli mukofotda riskdan qochuvchi iste’molchi:",
+  "options": [
+   "To‘liq sug‘urta qiladi",
+   "Sug‘urta qilmaydi",
+   "Qisman sug‘urta qiladi",
+   "Zarardan ortiq sug‘urta qiladi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 18,
+  "q": "Sug‘urta kompaniyasining riskka neytral harakat qila olishining asosiy sababi:",
+  "options": [
+   "Davlat kafolati",
+   "Yuqori foiz stavkalari",
+   "Katta sonlar qonuni (riskni birlashtirish)",
+   "Mijozlarning riskni sevishi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 19,
+  "q": "Diversifikatsiya qaysi riskni yo‘qota olmaydi?",
+  "options": [
+   "O‘ziga xos riskni",
+   "Idiosinkratik riskni",
+   "Alohida kompaniya riskini",
+   "Sistematik (bozor) riskini"
+  ],
+  "c": 3
+ },
+ {
+  "n": 20,
+  "q": "O‘rtacha–dispersiya modelida byudjet chizig‘ining og‘ishi:",
+  "options": [
+   "",
+   "",
+   "",
+   "rm/rfσ m/(rm−rf ) rf ⋅σ m (rm−rf )/σm"
+  ],
+  "c": 3
+ },
+ {
+  "n": 21,
+  "q": "Beta koeffitsienti:",
+  "options": [
+   "σi/σ m",
+   "ri/rm",
+   "cov (ri,rm)",
+   "cov (ri,rm)/σ m"
+  ],
+  "c": 3
+ },
+ {
+  "n": 22,
+  "q": "CAPM tenglamasi:",
+  "options": [
+   "",
+   "",
+   "",
+   "ri=rm+βirf ri=rf +βi(rm−rf ) ri=βirm ri=rf −βirm"
+  ],
+  "c": 1
+ },
+ {
+  "n": 23,
+  "q": "rf=10%, rm=18%, β=1,5 bo‘lsa, talab qilinadigan daromadlilik:",
+  "options": [
+   "22%",
+   "27%",
+   "18%",
+   "15%"
+  ],
+  "c": 0
+ },
+ {
+  "n": 24,
+  "q": "SML dan yuqorida joylashgan aktiv:",
+  "options": [
+   "Qimmat baholangan",
+   "To‘g‘ri baholangan",
+   "Arzon baholangan",
+   "Risksiz"
+  ],
+  "c": 2
+ },
+ {
+  "n": 25,
+  "q": "Portfel nazariyasi asoschisi (1952):",
+  "options": [
+   "G. Markovits",
+   "J. Tobin",
+   "U. Sharp",
+   "Y. Fama"
+  ],
+  "c": 0
+ },
+ {
+  "n": 26,
+  "q": "Istiqbol nazariyasi mualliflari:",
+  "options": [
+   "J. fon Neyman va O. Morgenshtern",
+   "D. Kaneman va A. Tverski",
+   "K. Errou va J. Pratt",
+   "R. Tayler va K. Sanstayn"
+  ],
+  "c": 1
+ },
+ {
+  "n": 27,
+  "q": "Istiqbol nazariyasiga ko‘ra yo‘qotishlar sohasida odamlar:",
+  "options": [
+   "Riskdan qochishga moyil",
+   "Riskka neytral",
+   "Riskni sevishga moyil",
+   "Qaror qabul qilmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 28,
+  "q": "Yo‘qotishdan qochish koeffitsientining tajribada aniqlangan taxminiy qiymati:",
+  "options": [
+   "2–2,5",
+   "0,5",
+   "1",
+   "10"
+  ],
+  "c": 0
+ },
+ {
+  "n": 29,
+  "q": "Investorlarning narxi oshgan aksiyalarni erta sotib, tushganlarini uzoq ushlab turishi:",
+  "options": [
+   "Mulkchilik samarasi",
+   "Snob samarasi",
+   "Dispozitsiya samarasi",
+   "Giffen samarasi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 30,
+  "q": "Qaysi naflilik funksiyasi doimiy absolyut riskdan qochishni (CAR",
+  "options": [
+   "ifodalaydi? A) ln w",
+   "−e −aw",
+   "√w",
+   "a+b w Adabiyotlar 1. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 11–13. 2. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 5, 15. 3. Nicholson W., Snyder C. Microeconomic Theory. 12th ed. – Cengage, 2017. – Ch. 7. 4. Mas-Colell A., Whinston M.D., Green J.R. Microeconomic Theory. – Oxford University Press, 1995. – Ch. 6. 5. Doff R. Risk Management for Insurers. 3rd ed. – Risk Books, 2015. 6. Kahneman D., Tversky A. Prospect Theory: An Analysis of Decision under Risk // Econometrica. – 1979. – Vol. 47, No. 2. – P. 263–291. 7. Markowitz H. Portfolio Selection // Journal of Finance. – 1952. – Vol. 7, No. 1. – P. 77–91. 8. Hotelling H. The Economics of Exhaustible Resources // Journal of Political Economy. – 1931. – Vol. 39, No. 2. – P. 137–175. 9. Sharpe W.F. Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk // Journal of Finance. – 1964. – Vol. 19, No. 3. – P. 425–442."
+  ],
+  "c": 1
+ }
+]

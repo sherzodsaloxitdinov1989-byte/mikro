@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Assimetrik axborot nazariyasi uchun 2001-yilda Nobel mukofotini olgan olimlar:",
+  "options": [
+   "J. Akerlof, M. Spens, J. Stiglits",
+   "J. Nesh, R. Zelten, J. Harsanyi",
+   "O. Xart, B. Xolmstrem",
+   "L. Gurvich, E. Maskin, R. Mayerson"
+  ],
+  "c": 0,
+  "e": "Akerlof, Spens va Stiglits assimetrik axborot nazariyasi uchun 2001-yilda Nobel mukofotiga sazovor bo‘lgan."
+ },
+ {
+  "q": "Bitimdan oldin mavjud bo‘lgan yashirin xususiyat qaysi muammoni keltirib chiqaradi?",
+  "options": [
+   "Axloqiy risk",
+   "Tekinxo‘rlik",
+   "Noxush tanlov",
+   "Umumiylar tragediyasi"
+  ],
+  "c": 2,
+  "e": "Yashirin xususiyat bitimdan oldin paydo bo‘ladi va noxush tanlovga olib keladi (11.1-jadval)."
+ },
+ {
+  "q": "Bitimdan keyingi kuzatilmaydigan harakatlar bilan bog‘liq muammo:",
+  "options": [
+   "Axloqiy (subyektiv) risk",
+   "Noxush tanlov",
+   "Signal berish",
+   "Skrining"
+  ],
+  "c": 0,
+  "e": "Yashirin harakat bitimdan keyin paydo bo‘ladi va axloqiy (subyektiv) riskni yuzaga keltiradi."
+ },
+ {
+  "q": "“Limonlar bozori” modelining asosiy xulosasi:",
+  "options": [
+   "Sifatli tovarlar narxi doimo oshib boradi",
+   "Xaridorlar sotuvchilarga qaraganda ko‘proq biladi",
+   "Bozor har doim samarali natijaga erishadi",
+   "Sifatsiz tovarlar sifatlilarini bozordan siqib chiqaradi"
+  ],
+  "c": 3,
+  "e": "Assimetrik axborotda sifatsiz tovarlar sifatlilarini siqib chiqaradi (noxush tanlov)."
+ },
+ {
+  "q": "11.2-jadval misolida (50% sifatli – xaridor uchun 100, 50% sifatsiz – 50) xaridorlar barcha avtomobillar uchun to‘lashga tayyor narx:",
+  "options": [
+   "100 mln so‘m",
+   "50 mln so‘m",
+   "80 mln so‘m",
+   "75 mln so‘m"
+  ],
+  "c": 3,
+  "e": "Kutilgan qiymat 0,5·100 + 0,5·50 = 75 mln so‘m."
+ },
+ {
+  "q": "Sug‘urta bozorida noxush tanlovni bartaraf etishning keng tarqalgan davlat vositasi:",
+  "options": [
+   "Narxning yuqori chegarasi",
+   "Majburiy sug‘urta",
+   "Import tarifi",
+   "Pigu solig‘i"
+  ],
+  "c": 1,
+  "e": "Majburiy sug‘urtada barcha risk guruhlari bozorda qoladi."
+ },
+ {
+  "q": "Kredit ratsionlash nazariyasining mualliflari:",
+  "options": [
+   "J. Akerlof va R. Shiller",
+   "M. Spens va K. Errou",
+   "M. Rotshild va B. Grinvald",
+   "J. Stiglits va E. Vays"
+  ],
+  "c": 3,
+  "e": "Stiglits va Vays (1981) kredit ratsionlashni asoslab berdi."
+ },
+ {
+  "q": "Bank foiz stavkasini ma’lum darajadan oshirmasligining sababi:",
+  "options": [
+   "Davlat stavkaga qat’iy yuqori chegara qo‘yib, uni oshirishni taqiqlagani uchun",
+   "Yuqori stavkada kreditga talab butunlay yo‘qolib, bank mijozsiz qolishi sababli",
+   "Bank raqobatchilarining stavkani doimo pasaytirishga majburlab turishi sababli",
+   "Yuqori stavkada xatarli qarz oluvchilar ulushi ortib, bankning kutilgan daromadi kamayadi"
+  ],
+  "c": 3,
+  "e": "Stavka oshganda ehtiyotkor qarz oluvchilar ketadi, xatarlilari qoladi va bankning kutilgan daromadi kamayadi."
+ },
+ {
+  "q": "Spens modelida signal ishonchli bo‘lishi uchun:",
+  "options": [
+   "Signal xarajati yuqori sifatli turlar uchun pastroq bo‘lishi kerak",
+   "Signal barcha ishtirokchilar uchun mutlaqo bepul bo‘lishi kerak",
+   "Signal ishchining unumdorligini albatta oshirishi shart bo‘lishi kerak",
+   "Signal faqat davlat organi tomonidan rasman berilishi shart bo‘lishi kerak"
+  ],
+  "c": 0,
+  "e": "Signal xarajati turlar uchun turlicha (yuqori sifatlilar uchun arzonroq) bo‘lsagina u axborot beradi."
+ },
+ {
+  "q": "Spens modelida (unumdorlik 200 va 400 mln, ta’lim xarajati 80y va 40y) ajratuvchi muvozanat uchun talab qilinadigan ta’lim darajasi y* oralig‘i:",
+  "options": [
+   "y* < 2,5",
+   "y* > 5",
+   "y* = 0",
+   "2,5 < y* < 5"
+  ],
+  "c": 3,
+  "e": "Past unumdor uchun y* > 2,5, yuqori unumdor uchun y* < 5 bo‘lishi kerak."
+ },
+ {
+  "q": "Har ikki tur bir xil signalni tanlagan muvozanat:",
+  "options": [
+   "Ajratuvchi muvozanat",
+   "Kurno muvozanati",
+   "Birlashtiruvchi muvozanat",
+   "Nesh muvozanati bo‘lmagan holat"
+  ],
+  "c": 2,
+  "e": "Birlashtiruvchi muvozanatda ikkala guruh bir xil signalni tanlaydi va firma ularni farqlay olmaydi."
+ },
+ {
+  "q": "Tovar kafolati nima uchun sifat signali bo‘la oladi?",
+  "options": [
+   "Kafolat har doim davlat tomonidan beriladi",
+   "Kafolat tovar narxini doimo pasaytiradi",
+   "Kafolat barcha tovarlarga bir xil shartda beriladi",
+   "Sifatsiz tovar uchun kafolat ishlab chiqaruvchiga qimmatga tushadi"
+  ],
+  "c": 3,
+  "e": "Sifatsiz tovar uchun kafolat ko‘p ta’mirlash tufayli qimmatga tushadi, shuning uchun u ishonchli signal."
+ },
+ {
+  "q": "Axborotsiz tomon shartnomalar menyusini taklif qilib, ishtirokchilarni o‘z-o‘zini tanlashga undashi:",
+  "options": [
+   "Signal berish",
+   "Skrining",
+   "Monitoring",
+   "Arbitraj"
+  ],
+  "c": 1,
+  "e": "Skriningda axborotsiz tomon shartnomalar to‘plamini taklif qilib, o‘z-o‘zini tanlashga majbur qiladi."
+ },
+ {
+  "q": "Sug‘urtada zararning birinchi qismini sug‘urtalangan shaxsning o‘zi qoplashi:",
+  "options": [
+   "Bonus-malus",
+   "Ko-sug‘urta",
+   "Kafolat",
+   "Franshiza"
+  ],
+  "c": 3,
+  "e": "Franshiza – zararning birinchi qismini sug‘urtalangan o‘zi qoplashi (11.5-jadval)."
+ },
+ {
+  "q": "To‘liq sug‘urtalangan shaxsning ehtiyotkorlikni kamaytirishi:",
+  "options": [
+   "Noxush tanlov",
+   "Signal berish",
+   "Tekinxo‘rlik",
+   "Axloqiy risk"
+  ],
+  "c": 3,
+  "e": "Bitimdan keyin kuzatilmaydigan ehtiyotsizlik axloqiy riskdir."
+ },
+ {
+  "q": "Axloqiy riskning asosiy oqibati:",
+  "options": [
+   "Riskdan himoya va rag‘bat o‘rtasidagi ziddiyat",
+   "Bozorning to‘liq yemirilib, yo‘qolib ketishi",
+   "Bozordagi barcha narxlarning keskin tushishi",
+   "Tovar sifatining sezilarli darajada oshishi"
+  ],
+  "c": 0,
+  "e": "To‘liq sug‘urta riskni taqsimlaydi, lekin ehtiyotkorlikka rag‘batni yo‘qotadi."
+ },
+ {
+  "q": "“Juda katta, shuning uchun bankrot bo‘lmaydi” muammosi qaysi turdagi muammo?",
+  "options": [
+   "Noxush tanlov",
+   "Tashqi samara",
+   "Axloqiy risk",
+   "Monopsoniya"
+  ],
+  "c": 2,
+  "e": "Davlat qutqaradi degan kutish menejerlarni xatarli strategiyalarga undaydi – bu axloqiy risk."
+ },
+ {
+  "q": "Prinsipal–agent munosabatiga misol:",
+  "options": [
+   "Ikki raqobatchi firma",
+   "Aksiyadorlar va menejerlar",
+   "Iste’molchi va do‘kon",
+   "Ikki davlat"
+  ],
+  "c": 1,
+  "e": "Aksiyadorlar (prinsipal) menejerlarni (agent) o‘z manfaatlari yo‘lida harakat qilish uchun yollaydi."
+ },
+ {
+  "q": "Agent shartnomani qabul qilishi uchun bajarilishi kerak bo‘lgan shart:",
+  "options": [
+   "Rag‘bat muvofiqligi sharti",
+   "Pareto sharti",
+   "Samuelson sharti",
+   "Ishtirok sharti"
+  ],
+  "c": 3,
+  "e": "Ishtirok sharti: agent muqobil imkoniyatlaridan kam bo‘lmagan naflilik olishi kerak."
+ },
+ {
+  "q": "Riskka neytral agent uchun samarali shartnoma:",
+  "options": [
+   "Harakatdan qat’i nazar, agentga qat’iy ish haqi to‘lashni nazarda tutuvchi shartnoma",
+   "Agent va prinsipal mahsulotni teng bo‘lishuvchi (50:50) ulushli shartnoma",
+   "Agentga chekli mahsulotning to‘liq egaligini beruvchi shartnoma (masalan, qat’iy ijara)",
+   "Prinsipal o‘z xohlagan har qanday shartnomani bir tomonlama belgilashi"
+  ],
+  "c": 2,
+  "e": "Samarali shartnomalarda agent chekli mahsulotning to‘liq egasi bo‘ladi (ijara, ishbay haq)."
+ },
+ {
+  "q": "f(x) = 10x, c(x) = x² bo‘lsa, samarali harakat darajasi:",
+  "options": [
+   "2,5",
+   "10",
+   "5",
+   "25"
+  ],
+  "c": 2,
+  "e": "f′(x) = c′(x): 10 = 2x, demak x* = 5."
+ },
+ {
+  "q": "Yuqoridagi modelda (f(x) = 10x, c(x) = x²) agent mahsulotning 50% ini olsa, tanlaydigan harakat:",
+  "options": [
+   "5",
+   "0",
+   "10",
+   "2,5"
+  ],
+  "c": 3,
+  "e": "Agent 5x − x² ni maksimallashtiradi: 5 = 2x, x = 2,5."
+ },
+ {
+  "q": "Harakat kuzatilmaganda qat’iy ish haqi:",
+  "options": [
+   "Samarali harakatni ta’minlaydi",
+   "Prinsipal daromadini maksimallashtiradi",
+   "Harakatga rag‘bat bermaydi",
+   "Agentni riskka majburlaydi"
+  ],
+  "c": 2,
+  "e": "Qat’iy ish haqi harakatga bog‘liq emas, shuning uchun harakatga rag‘bat bermaydi."
+ },
+ {
+  "q": "Samaradorlik ish haqi nazariyasining mualliflari:",
+  "options": [
+   "A. Berli va G. Minz",
+   "K. Shapiro va J. Stiglits",
+   "M. Jensen va U. Mekling",
+   "G. Bekker va T. Shuls"
+  ],
+  "c": 1,
+  "e": "Samaradorlik ish haqi nazariyasi K. Shapiro va J. Stiglits (1984) nomi bilan bog‘liq."
+ },
+ {
+  "q": "Samaradorlik ish haqi modelida ishsizlik:",
+  "options": [
+   "Umuman mavjud bo‘lmaydi",
+   "Faqat ixtiyoriy ishsizlikdan iborat bo‘ladi",
+   "Minimal ish haqining natijasi hisoblanadi",
+   "Ishdan qochish uchun jazo vazifasini bajaradi"
+  ],
+  "c": 3,
+  "e": "Ishsizlik ishdan haydalishni real yo‘qotishga aylantirib, ishdan qochishga ‘jazo’ vazifasini bajaradi."
+ },
+ {
+  "q": "Mexanizm dizayni nazariyasi uchun 2007-yilda Nobel mukofoti olgan olimlar:",
+  "options": [
+   "J. Akerlof, M. Spens, J. Stiglits",
+   "R. Kouz, O. Uilyamson",
+   "D. Kaneman, V. Smit",
+   "L. Gurvich, E. Maskin, R. Mayerson"
+  ],
+  "c": 3,
+  "e": "Gurvich, Maskin va Mayerson mexanizm dizayni uchun 2007-yilda Nobel mukofotiga sazovor bo‘lgan."
+ },
+ {
+  "q": "Oshkor qilish tamoyiliga ko‘ra:",
+  "options": [
+   "Mexanizm samarali bo‘lishi uchun ishtirokchilar axborotni har doim yashirishi kerak",
+   "Har qanday mexanizm natijasiga haqqoniy axborot berish optimal bo‘lgan to‘g‘ridan-to‘g‘ri mexanizm orqali erishish mumkin",
+   "Mexanizm samarali ishlashi uchun faqat davlat shaxsiy axborotga ega bo‘lishi kerak",
+   "Shaxsiy axborot mavjud bo‘lsa, istalgan mexanizm har doim samarasiz bo‘lib qoladi"
+  ],
+  "c": 1,
+  "e": "Oshkor qilish tamoyili: har qanday mexanizm natijasiga haqqoniy axborot berish optimal bo‘lgan to‘g‘ridan-to‘g‘ri mexanizm orqali ham erishiladi."
+ },
+ {
+  "q": "Rag‘bat va risk taqsimoti o‘rtasidagi murosa nazariyasi uchun Nobel mukofoti olgan olim:",
+  "options": [
+   "E. Ostrom",
+   "B. Xolmstrem",
+   "R. Kouz",
+   "J. Tirol"
+  ],
+  "c": 1,
+  "e": "Bengt Xolmstrem (Nobel, 2016) rag‘bat va risk taqsimoti o‘rtasidagi murosa nazariyasini ishlab chiqqan."
+ },
+ {
+  "q": "Kredit tarixini to‘plovchi tashkilotlar qaysi muammoni yumshatadi?",
+  "options": [
+   "Monopoliyani",
+   "Kredit bozoridagi noxush tanlovni",
+   "Tashqi samaralarni",
+   "Jamoat ne’matlari muammosini"
+  ],
+  "c": 1,
+  "e": "Kredit-axborot markazi qarz oluvchilar haqidagi axborotni banklarga berib, assimetrik axborotni kamaytiradi."
+ },
+ {
+  "q": "Avtomobil bozorida 60% sifatli (xaridor uchun 110) va 40% sifatsiz (xaridor uchun 60) avtomobil bor. Xaridorning kutilgan baholashi:",
+  "options": [
+   "110",
+   "90",
+   "85",
+   "60"
+  ],
+  "c": 1,
+  "e": "0,6·110 + 0,4·60 = 66 + 24 = 90."
+ }
+]

@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Quyidagilardan qaysi biri mikroiqtisodiyotning o‘rganish obyekti hisoblanmaydi?",
+  "options": [
+   "Mamlakatdagi umumiy inflatsiya darajasi",
+   "Alohida firmaning ishlab chiqarish hajmi",
+   "Uy xo‘jaligining iste’mol tanlovi",
+   "Tarmoq bozorida narxning shakllanishi"
+  ],
+  "c": 0,
+  "e": "Mikroiqtisodiyot alohida agentlar va tarmoq bozorlarini o‘rganadi, umumiy inflatsiya esa makroiqtisodiyot predmetidir."
+ },
+ {
+  "q": "Muqobil xarajat – bu:",
+  "options": [
+   "Firmaning ishlab chiqarish uchun to‘lagan barcha pul xarajatlari yig‘indisi",
+   "Tanlangan variant uchun voz kechilgan eng yaxshi muqobil variantning qiymati",
+   "Tovar birligini ishlab chiqarishga ketgan o‘rtacha xarajat miqdori",
+   "Davlat tomonidan tovar uchun belgilangan eng past narx darajasi"
+  ],
+  "c": 1,
+  "e": "Muqobil xarajat tanlov tufayli voz kechilgan eng yaxshi muqobilning qiymatidir."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri normativ mulohaza hisoblanadi?",
+  "options": [
+   "Aktsiz oshirilsa, sigaret iste’moli kamayadi",
+   "Talab elastik bo‘lsa, narx pasayganda tushum ortadi",
+   "Davlat kam ta’minlangan oilalarga kommunal subsidiya berishi kerak",
+   "Taklif ortsa, muvozanat narxi pasayadi"
+  ],
+  "c": 2,
+  "e": "Normativ mulohaza «qanday bo‘lishi kerak» degan baho beradi, qolganlari esa tekshirib bo‘ladigan pozitiv bayonotlardir."
+ },
+ {
+  "q": "Iqtisodiy modelda ekzogen o‘zgaruvchi – bu:",
+  "options": [
+   "Model tenglamalarini yechish natijasida topiladigan kattalik",
+   "Faqat vaqt o‘tishi bilan o‘zgaradigan har qanday kattalik",
+   "Model doirasida har doim nolga teng bo‘lgan kattalik",
+   "Model tashqarisida aniqlanib, modelga tayyor holda kiritiladigan kattalik"
+  ],
+  "c": 3,
+  "e": "Ekzogen o‘zgaruvchi modeldan tashqarida beriladi, endogen o‘zgaruvchi esa model ichida aniqlanadi."
+ },
+ {
+  "q": "Kvartiralar bozori modelida ichki aylanadagi kvartiralar narxi qanday o‘zgaruvchi hisoblanadi?",
+  "options": [
+   "Ekzogen",
+   "Endogen",
+   "Tasodifiy",
+   "Nominal"
+  ],
+  "c": 1,
+  "e": "Ichki aylanadagi ijara narxi model ichida talab va taklif tenglashuvidan aniqlanadi, shuning uchun endogendir."
+ },
+ {
+  "q": "Ceteris paribus farazi nimani anglatadi?",
+  "options": [
+   "Barcha omillar bir vaqtning o‘zida o‘zgaradi",
+   "Narxlar har doim muvozanat holatida bo‘ladi",
+   "Iste’molchilar o‘z qarorlarida ratsional emas",
+   "Boshqa barcha sharoitlar o‘zgarmagan holda"
+  ],
+  "c": 3,
+  "e": "Ceteris paribus – boshqa omillar o‘zgarmas deb olinib, faqat bitta omilning ta’siri o‘rganilishini bildiradi."
+ },
+ {
+  "q": "Rezervatsion narx – bu:",
+  "options": [
+   "Iste’molchi tovar uchun to‘lashga tayyor bo‘lgan maksimal narx",
+   "Sotuvchi tovarni sotishga rozi bo‘lgan minimal narx",
+   "Davlat tomonidan belgilangan narx",
+   "Bozorda o‘rnatilgan muvozanat narxi"
+  ],
+  "c": 0,
+  "e": "Rezervatsion narx – iste’molchi to‘lashga rozi bo‘lgan eng yuqori narx."
+ },
+ {
+  "q": "Qisqa muddatda kvartiralar taklifi vertikal bo‘lsa, mulk egalariga solinadigan soliq:",
+  "options": [
+   "To‘liq ijarachilarga o‘tkaziladi",
+   "Mulk egalari va ijarachilar o‘rtasida teng taqsimlanadi",
+   "To‘liq mulk egalari zimmasiga tushadi",
+   "Ijara narxini soliq miqdoriga oshiradi"
+  ],
+  "c": 2,
+  "e": "Taklif mutlaqo noelastik bo‘lsa, ijara narxi o‘zgarmaydi va soliq yukini butunlay mulk egalari ko‘taradi."
+ },
+ {
+  "q": "Agar ijara kvartiralarining bir qismi ularning ijarachilariga sotilsa, Varian modeliga ko‘ra ijara narxi:",
+  "options": [
+   "Keskin ko‘tariladi",
+   "Keskin pasayadi",
+   "Nolga tenglashadi",
+   "O‘zgarmaydi, chunki talab ham, taklif ham bir xil miqdorda kamayadi"
+  ],
+  "c": 3,
+  "e": "Sotib olgan ijarachilar talabdan chiqadi, kvartiralar esa taklifdan chiqadi, shu sababli muvozanat narxi o‘zgarmaydi."
+ },
+ {
+  "q": "Pareto samarali taqsimot deganda tushuniladi:",
+  "options": [
+   "Hech kimning ahvolini yomonlashtirmasdan kimningdir ahvolini yaxshilash mumkin bo‘lmagan taqsimot",
+   "Barcha a’zolar teng ulush oladigan taqsimot",
+   "Davlat tomonidan belgilangan taqsimot",
+   "Eng ko‘p foyda keltiradigan taqsimot"
+  ],
+  "c": 0,
+  "e": "Pareto samaradorligi – birovni yomonlashtirmay turib boshqasini yaxshilash imkoni qolmagan holatdir."
+ },
+ {
+  "q": "Quyidagi kvartira taqsimlash usullaridan qaysi biri, umuman olganda, Pareto samarali emas?",
+  "options": [
+   "Raqobatli bozor",
+   "Ijara narxining yuqori chegarasini belgilash",
+   "Diskriminatsiyalovchi monopolist",
+   "Rezervatsion narxi eng yuqori bo‘lganlarga auksion orqali berish"
+  ],
+  "c": 1,
+  "e": "Narx chegarasi kvartiralarni talabi eng yuqori bo‘lmaganlarga ham tushishiga olib keladi, shu sababli savdodan yutuq imkoni qoladi."
+ },
+ {
+  "q": "Qd = 120 − 4P va Qs = −30 + 6P bo‘lsa, muvozanat narxi teng:",
+  "options": [
+   "12",
+   "18",
+   "15",
+   "20"
+  ],
+  "c": 2,
+  "e": "120 − 4P = −30 + 6P tenglamadan 150 = 10P, ya’ni P = 15."
+ },
+ {
+  "q": "Muvozanat narxidan past belgilangan narxning yuqori chegarasi bozorda nimaga olib keladi?",
+  "options": [
+   "Taqchillikka",
+   "Ortiqcha mahsulotga",
+   "Muvozanatga",
+   "Taklifning ortishiga"
+  ],
+  "c": 0,
+  "e": "Narx muvozanatdan past bo‘lsa, talab miqdori taklif miqdoridan oshib, taqchillik yuzaga keladi."
+ },
+ {
+  "q": "Byudjet chizig‘i tenglamasi qaysi javobda to‘g‘ri berilgan?",
+  "options": [
+   "p₁·x₁ − p₂·x₂ = m",
+   "x₁/p₁ + x₂/p₂ = m",
+   "p₁·x₁ + p₂·x₂ = m",
+   "p₁·p₂ = m·x₁·x₂"
+  ],
+  "c": 2,
+  "e": "Byudjet chizig‘i bo‘yicha ikki tovarga sarflangan xarajatlar yig‘indisi daromadga teng bo‘ladi."
+ },
+ {
+  "q": "Byudjet chizig‘ining og‘ishi teng:",
+  "options": [
+   "−p₂/p₁",
+   "m/p₁",
+   "−m/p₂",
+   "−p₁/p₂"
+  ],
+  "c": 3,
+  "e": "x₂ = m/p₂ − (p₁/p₂)·x₁ tenglamadan og‘ish −p₁/p₂ ekani ko‘rinadi."
+ },
+ {
+  "q": "Byudjet chizig‘ining vertikal o‘qni (x₂) kesish nuqtasi:",
+  "options": [
+   "m/p₁",
+   "m/p₂",
+   "p₁/p₂",
+   "m·p₂"
+  ],
+  "c": 1,
+  "e": "Barcha daromad ikkinchi tovarga sarflansa, x₂ = m/p₂ bo‘ladi."
+ },
+ {
+  "q": "Iste’molchi daromadi oshganda (narxlar o‘zgarmas) byudjet chizig‘i:",
+  "options": [
+   "Vertikal kesish nuqtasi atrofida buriladi",
+   "Parallel ravishda ichkariga siljiydi",
+   "Parallel ravishda tashqariga siljiydi",
+   "Hech qanday o‘zgarishga uchramaydi"
+  ],
+  "c": 2,
+  "e": "Daromad oshsa, og‘ish −p₁/p₂ o‘zgarmaydi, ikkala kesish nuqtasi esa oshadi, ya’ni chiziq parallel siljiydi."
+ },
+ {
+  "q": "Birinchi tovar narxi oshganda byudjet chizig‘i:",
+  "options": [
+   "Vertikal kesish nuqtasi atrofida ichkariga buriladi",
+   "Parallel ravishda tashqariga siljiydi",
+   "Gorizontal kesish nuqtasi atrofida tashqariga buriladi",
+   "O‘zgarishsiz qoladi"
+  ],
+  "c": 0,
+  "e": "p₁ oshsa, m/p₁ kamayadi, m/p₂ esa o‘zgarmaydi, chiziq vertikal kesish nuqtasi atrofida ichkariga buriladi."
+ },
+ {
+  "q": "Barcha narxlar va daromad uch baravar oshsa, byudjet chizig‘i:",
+  "options": [
+   "Uch baravar tashqariga siljiydi",
+   "Uch baravar ichkariga siljiydi",
+   "Keskinlashadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 3,
+  "e": "Narxlar va daromad bir xil nisbatda oshsa, m/p₁ va m/p₂ hamda og‘ish o‘zgarmaydi."
+ },
+ {
+  "q": "Narxi 1 ga teng deb olingan tovar qanday ataladi?",
+  "options": [
+   "Kompozit tovar",
+   "Numerar",
+   "Giffen tovari",
+   "Jamoat ne’mati"
+  ],
+  "c": 1,
+  "e": "Narxi 1 ga tenglashtirilgan tovar numerar deyiladi."
+ },
+ {
+  "q": "m = 1500, p₁ = 10, p₂ = 25 bo‘lsa, birinchi tovarning maksimal miqdori:",
+  "options": [
+   "60",
+   "25",
+   "150",
+   "1500"
+  ],
+  "c": 2,
+  "e": "x₁ maksimal = m/p₁ = 1500/10 = 150."
+ },
+ {
+  "q": "Bir martalik (paushal) soliq byudjet chizig‘ini qanday o‘zgartiradi?",
+  "options": [
+   "Og‘ishini keskinlashtiradi",
+   "Og‘ishini yassilashtiradi",
+   "Hech qanday o‘zgartirmaydi",
+   "Parallel ichkariga siljitadi"
+  ],
+  "c": 3,
+  "e": "Paushal soliq daromadni kamaytiradi (m − T), narxlar o‘zgarmagani uchun chiziq parallel ichkariga siljiydi."
+ },
+ {
+  "q": "Birinchi tovarga miqdoriy subsidiya s berilganda byudjet chizig‘i tenglamasi:",
+  "options": [
+   "(p₁ − s)·x₁ + p₂·x₂ = m",
+   "(p₁ + s)·x₁ + p₂·x₂ = m",
+   "p₁·x₁ + p₂·x₂ = m − s",
+   "p₁·x₁ + (p₂ − s)·x₂ = m"
+  ],
+  "c": 0,
+  "e": "Miqdoriy subsidiya birinchi tovarning samarali narxini p₁ − s ga tushiradi."
+ },
+ {
+  "q": "Me’yorlash (ratsionlash) natijasida byudjet to‘plami:",
+  "options": [
+   "Kengayadi: x₁ > x̄₁ qismi qo‘shiladi",
+   "Qisqaradi: x₁ > x̄₁ bo‘lgan qismi kesib tashlanadi",
+   "Deyarli o‘zgarishsiz qoladi",
+   "Faqat vertikal o‘q bo‘yicha qisqaradi"
+  ],
+  "c": 1,
+  "e": "Me’yor x̄₁ dan ortiq iste’molni taqiqlaydi, shu sababli byudjet to‘plamining o‘ng qismi kesib tashlanadi."
+ },
+ {
+  "q": "Blokli (pog‘onali) tarif sharoitida byudjet chizig‘i:",
+  "options": [
+   "Har doim to‘g‘ri chiziq bo‘ladi",
+   "Vertikal chiziq bo‘ladi",
+   "Gorizontal chiziq bo‘ladi",
+   "Siniq chiziq ko‘rinishiga ega"
+  ],
+  "c": 3,
+  "e": "Iste’mol hajmiga qarab narx o‘zgargani uchun og‘ish ham o‘zgaradi va chiziq siniq bo‘ladi."
+ },
+ {
+  "q": "Boshlang‘ich zaxira (ω₁, ω₂) mavjud bo‘lsa, byudjet chizig‘i har doim:",
+  "options": [
+   "Koordinata boshidan o‘tadi",
+   "Vertikal o‘qqa parallel bo‘ladi",
+   "Zaxira nuqtasidan o‘tadi",
+   "Gorizontal o‘qqa parallel bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Zaxira to‘plami har doim sotib olinishi mumkin, shuning uchun (ω₁, ω₂) nuqta byudjet chizig‘ida yotadi."
+ },
+ {
+  "q": "Talabning “zinapoyasimon” egri chizig‘i qanday hosil qilinadi?",
+  "options": [
+   "Iste’molchilarning rezervatsion narxlarini kamayish tartibida joylashtirish orqali",
+   "Sotuvchilarning xarajatlarini o‘sish tartibida joylashtirish orqali",
+   "Davlat belgilagan narxlarni bir joyga jamlash orqali",
+   "Turli bozorlardagi muvozanat narxlarini o‘rtachalash orqali"
+  ],
+  "c": 0,
+  "e": "Rezervatsion narxlar kamayish tartibida tizilsa, talabning zinapoyasimon egri chizig‘i hosil bo‘ladi."
+ },
+ {
+  "q": "Chekli tahlil bo‘yicha optimal faoliyat darajasi qayerda bo‘ladi?",
+  "options": [
+   "Umumiy naf maksimal bo‘lgan nuqtada",
+   "Chekli naf chekli xarajatga teng bo‘lgan nuqtada",
+   "Umumiy xarajat minimal bo‘lgan nuqtada",
+   "O‘rtacha xarajat maksimal bo‘lgan nuqtada"
+  ],
+  "c": 1,
+  "e": "Optimumda qo‘shimcha birlikning naf va xarajati tenglashadi, MB = MC."
+ },
+ {
+  "q": "“Iqtisodiyot – maqsadlar va muqobil qo‘llanishga ega cheklangan vositalar o‘rtasidagi munosabat sifatida inson xatti-harakatini o‘rganuvchi fan” degan ta’rif muallifi:",
+  "options": [
+   "A. Marshall",
+   "J.M. Keyns",
+   "L. Robbins",
+   "K. Marks"
+  ],
+  "c": 2,
+  "e": "Bu mashhur ta’rifni L. Robbins 1932 yilgi asarida bergan."
+ },
+ {
+  "q": "Vaqt cheklovini hisobga olgan holda “vaqtni taqsimlash nazariyasi”ni ishlab chiqqan Nobel mukofoti sohibi:",
+  "options": [
+   "P. Samuelson",
+   "M. Fridmen",
+   "J. Nesh",
+   "G. Bekker"
+  ],
+  "c": 3,
+  "e": "Vaqtni taqsimlash nazariyasi Nobel mukofoti sohibi G. Bekker nomi bilan bog‘liq."
+ }
+]

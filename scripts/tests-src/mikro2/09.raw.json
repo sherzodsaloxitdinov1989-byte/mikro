@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "O‘yinlar nazariyasiga asos solgan kitob mualliflari:",
+  "options": [
+   "J. Nesh va R. Zelten",
+   "J. fon Neyman va O. Morgenshtern",
+   "A. Kurno va J. Bertran",
+   "T. Shelling va R. Auman"
+  ],
+  "c": 1
+ },
+ {
+  "n": 2,
+  "q": "O‘yinning uchta asosiy unsuri:",
+  "options": [
+   "O‘yinchilar, strategiyalar, yutuqlar",
+   "Narx, miqdor, xarajat",
+   "Talab, taklif, muvozanat",
+   "Firmalar, iste’molchilar, davlat"
+  ],
+  "c": 0
+ },
+ {
+  "n": 3,
+  "q": "Raqib qanday strategiya tanlashidan qat’i nazar eng yaxshi natija beradigan strategiya:",
+  "options": [
+   "Maksimin strategiya",
+   "Aralash strategiya",
+   "Dominant strategiya",
+   "Trigger strategiya"
+  ],
+  "c": 2
+ },
+ {
+  "n": 4,
+  "q": "Nesh muvozanatida:",
+  "options": [
+   "Hech bir o‘yinchi strategiyasini bir tomonlama o‘zgartirib yutug‘ini oshira olmaydi",
+   "Barcha o‘yinchilar maksimal yutuq oladi",
+   "Natija har doim Pareto samarali",
+   "O‘yinchilar majburiy kelishuv tuzadi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 5,
+  "q": "Har qanday dominant strategiyalar muvozanati:",
+  "options": [
+   "Nesh muvozanati hisoblanadi",
+   "Nesh muvozanati emas",
+   "Aralash strategiyalar muvozanati",
+   "Pareto samarasiz bo‘lishi shart"
+  ],
+  "c": 0
+ },
+ {
+  "n": 6,
+  "q": "Mahbus dilemmasida Nesh muvozanati:",
+  "options": [
+   "Pareto samarali",
+   "Mavjud emas",
+   "Pareto samarasiz",
+   "Har doim hamkorlik"
+  ],
+  "c": 2
+ },
+ {
+  "n": 7,
+  "q": "Reklama o‘yinida (9.2-jadval) A firma uchun dominant strategiya:",
+  "options": [
+   "Reklama qilmaslik",
+   "Aralash strategiya",
+   "Dominant strategiya yo‘q",
+   "Reklama qilish"
+  ],
+  "c": 3
+ },
+ {
+  "n": 8,
+  "q": "Mumkin bo‘lgan eng yomon natijani maksimallashtiruvchi strategiya:",
+  "options": [
+   "Maksimin strategiyasi",
+   "Dominant strategiya",
+   "Nesh strategiyasi",
+   "Qasdma-qasd strategiyasi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 9,
+  "q": "Mahsulot tanlash o‘yinida (9.4-jadval) nechta sof Nesh muvozanati bor?",
+  "options": [
+   "Ikkita",
+   "Bitta",
+   "Uchta",
+   "Yo‘q"
+  ],
+  "c": 0
+ },
+ {
+  "n": 10,
+  "q": "“Tangalar” o‘yinida sof strategiyalarda Nesh muvozanati:",
+  "options": [
+   "Bitta",
+   "Ikkita",
+   "Mavjud emas",
+   "To‘rtta"
+  ],
+  "c": 2
+ },
+ {
+  "n": 11,
+  "q": "“Tangalar” o‘yinida aralash muvozanatda har bir o‘yinchi “Gerb”ni qanday ehtimol bilan tanlaydi?",
+  "options": [
+   "1/3",
+   "1/4",
+   "1",
+   "1/2"
+  ],
+  "c": 3
+ },
+ {
+  "n": 12,
+  "q": "Aralash strategiyalarda muvozanat topishning asosiy tamoyili:",
+  "options": [
+   "Har bir o‘yinchi raqibini o‘z strategiyalari o‘rtasida befarq qiladigan ehtimollikni tanlaydi",
+   "Har bir o‘yinchi o‘z yutug‘ini maksimallashtiruvchi sof strategiyani tanlaydi",
+   "Ehtimolliklar har doim teng",
+   "Eng yomon natija minimallashtiriladi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 13,
+  "q": "Nesh teoremasiga ko‘ra har qanday chekli o‘yin:",
+  "options": [
+   "Sof strategiyalarda yagona muvozanatga ega",
+   "Dominant strategiya muvozanatiga ega",
+   "Pareto samarali muvozanatga ega",
+   "Aralash strategiyalarda kamida bitta Nesh muvozanatiga ega"
+  ],
+  "c": 3
+ },
+ {
+  "n": 14,
+  "q": "Chekli marta takrorlanadigan mahbus dilemmasida teskari induksiya natijasi:",
+  "options": [
+   "Barcha davrlarda hamkorlik",
+   "Oxirgi davrda hamkorlik",
+   "Navbatma-navbat hamkorlik",
+   "Barcha davrlarda aldash"
+  ],
+  "c": 3
+ },
+ {
+  "n": 15,
+  "q": "Cheksiz takrorlanadigan o‘yinda hamkorlik ehtimoli qachon yuqori?",
+  "options": [
+   "O‘yinchilar kelajakni yuqori qadrlaganda (δ katta)",
+   "Diskont omili kichik bo‘lganda",
+   "O‘yin oxiri ma’lum bo‘lganda",
+   "O‘yinchilar soni ko‘p bo‘lganda"
+  ],
+  "c": 0
+ },
+ {
+  "n": 16,
+  "q": "Hamkorlik 100, aldash 200, o‘zaro aldash 20 bo‘lsa, trigger strategiyasida minimal δ:",
+  "options": [
+   "0,5",
+   "0,56",
+   "0,8",
+   "0,25"
+  ],
+  "c": 1
+ },
+ {
+  "n": 17,
+  "q": "Akselrod turnirlarida g‘olib chiqqan strategiya:",
+  "options": [
+   "Doimo aldash",
+   "Doimo hamkorlik",
+   "Tasodifiy",
+   "Qasdma-qasd"
+  ],
+  "c": 3
+ },
+ {
+  "n": 18,
+  "q": "“Qasdma-qasd” strategiyasining birinchi davrdagi harakati:",
+  "options": [
+   "Aldash",
+   "Hamkorlik",
+   "Tasodifiy tanlov",
+   "O‘yinni tark etish"
+  ],
+  "c": 1
+ },
+ {
+  "n": 19,
+  "q": "Ketma-ket o‘yinlar qaysi usulda yechiladi?",
+  "options": [
+   "Ostiga chizish usuli",
+   "Befarqlik tamoyili",
+   "Teskari induksiya",
+   "Lagranj usuli"
+  ],
+  "c": 2
+ },
+ {
+  "n": 20,
+  "q": "Qism o‘yin bo‘yicha mukammal muvozanat tushunchasini kiritgan:",
+  "options": [
+   "R. Zelten",
+   "J. Nesh",
+   "J. Harsanyi",
+   "R. Akselrod"
+  ],
+  "c": 0
+ },
+ {
+  "n": 21,
+  "q": "Bozorga kirish o‘yinida (9.4-rasm) qism o‘yin bo‘yicha mukammal muvozanat:",
+  "options": [
+   "(Kirmaslik, Narx urushi)",
+   "(Kirish, Narx urushi)",
+   "(Kirmaslik, Moslashish)",
+   "(Kirish, Moslashish)"
+  ],
+  "c": 3
+ },
+ {
+  "n": 22,
+  "q": "Tahdidni ishonchli qilish usuli:",
+  "options": [
+   "Tahdidni ko‘p marta takrorlash",
+   "Yutuqlarni yashirish",
+   "Qaytarib bo‘lmaydigan strategik majburiyat olish",
+   "Aralash strategiya qo‘llash"
+  ],
+  "c": 2
+ },
+ {
+  "n": 23,
+  "q": "“Ziddiyat strategiyasi” (1960) kitobi muallifi, Nobel mukofoti sovrindori:",
+  "options": [
+   "R. Mayerson",
+   "J. Tirol",
+   "P. Milgrom",
+   "T. Shelling"
+  ],
+  "c": 3
+ },
+ {
+  "n": 24,
+  "q": "Ultimatum o‘yini tajribalarida odatiy takliflar:",
+  "options": [
+   "Minimal mumkin bo‘lgan summa",
+   "Umumiy summaning 40–50 foizi",
+   "Umumiy summaning 90 foizi",
+   "Nolga teng"
+  ],
+  "c": 1
+ },
+ {
+  "n": 25,
+  "q": "Ikkinchi narx (Vikri) yopiq auksionida dominant strategiya:",
+  "options": [
+   "Baholashdan past taklif qilish",
+   "Haqiqiy baholashni taklif qilish",
+   "Baholashdan yuqori taklif qilish",
+   "Taklif bermaslik"
+  ],
+  "c": 1
+ },
+ {
+  "n": 26,
+  "q": "Vikri auksionida baholashlar 120, 100, 90 bo‘lsa, g‘olib qancha to‘laydi?",
+  "options": [
+   "120",
+   "100",
+   "90",
+   "110"
+  ],
+  "c": 1
+ },
+ {
+  "n": 27,
+  "q": "Umumiy qiymatli auksionda qiymatni eng ko‘p oshirib baholagan ishtirokchining yutib, ortiqcha to‘lashi:",
+  "options": [
+   "Bertran paradoksi",
+   "G‘olib la’nati",
+   "Mahbus dilemmasi",
+   "Daromadlar ekvivalentligi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 28,
+  "q": "Kartel a’zolari o‘rtasidagi munosabat qaysi o‘yinga mos keladi?",
+  "options": [
+   "Tangalar o‘yiniga",
+   "Mahbus dilemmasiga",
+   "Muvofiqlashtirish o‘yiniga",
+   "Nol summali o‘yinga"
+  ],
+  "c": 1
+ },
+ {
+  "n": 29,
+  "q": "Shaxmat qaysi turdagi o‘yinga kiradi?",
+  "options": [
+   "Noldan farqli summali, bir vaqtdagi",
+   "Kooperativ o‘yin",
+   "To‘liq bo‘lmagan axborotli o‘yin",
+   "Nol summali, ketma-ket, to‘liq axborotli"
+  ],
+  "c": 3
+ },
+ {
+  "n": 30,
+  "q": "Ko‘p kishilik mahbus dilemmasining tabiiy resurslardan foydalanishdagi ko‘rinishi:",
+  "options": [
+   "Umumiylar tragediyasi",
+   "G‘olib la’nati",
+   "Giffen paradoksi",
+   "Laffer samarasi Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: 2021. – 2-bob. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 29–30, 18. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 13. 4. Gibbons R. Game Theory for Applied Economists. – Princeton University Press, 1992. 5. Osborne M.J. An Introduction to Game Theory. – Oxford University Press, 2004. 6. Dixit A., Skeath S., McAdams D. Games of Strategy. 5th ed. – W.W. Norton, 2020. 7. Axelrod R. The Evolution of Cooperation. – New York: Basic Books, 1984. 8. Schelling T.C. The Strategy of Conflict. – Harvard University Press, 1960. 9. Nash J. Equilibrium Points in n-Person Games // Proceedings of the National Academy of Sciences. – 1950. – Vol. 36, No. 1. – P. 48–49. 10.Milgrom P. Putting Auction Theory to Work. – Cambridge University Press, 2004."
+  ],
+  "c": 0
+ }
+]

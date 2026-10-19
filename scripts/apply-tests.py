@@ -3,16 +3,19 @@
 
     python3 scripts/apply-tests.py              # asosiy fan
     python3 scripts/apply-tests.py --subject tb # Tadbirkorlik asoslari (scripts/tests-src/tb/NN.json)
+    python3 scripts/apply-tests.py --subject mikro2 # Mikroiqtisodiyot-2 (20–30 ta test bobiga)
 """
-import json, re, sys
+import json, math, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# Fan: standart — asosiy fan (Mikroiqtisodiyot); "--subject tb" — Tadbirkorlik asoslari
-TB = "--subject" in sys.argv and sys.argv[sys.argv.index("--subject") + 1] == "tb"
-AUTO = ROOT / "public" / "data" / ("tb/layers-auto.js" if TB else "layers-auto.js")
-SRC = ROOT / "scripts" / "tests-src" / ("tb" if TB else "")
-KEYS_OUT = ROOT / "server" / ("quiz-keys-tb.mjs" if TB else "quiz-keys.mjs")
+# Fan: standart — asosiy fan (Mikroiqtisodiyot); "--subject tb" / "--subject mikro2" — boshqa fanlar (papka nomi)
+SUBJ = sys.argv[sys.argv.index("--subject") + 1] if "--subject" in sys.argv else ""
+AUTO = ROOT / "public" / "data" / (f"{SUBJ}/layers-auto.js" if SUBJ else "layers-auto.js")
+SRC = ROOT / "scripts" / "tests-src" / SUBJ
+KEYS_OUT = ROOT / "server" / (f"quiz-keys-{SUBJ}.mjs" if SUBJ else "quiz-keys.mjs")
+# Savollar soni: asosiy fan va tb — aynan 20; mikro2 — 20 dan 30 gacha (darslikdagi testlar)
+N_MIN, N_MAX = (20, 30) if SUBJ == "mikro2" else (20, 20)
 BAD = re.compile(r"hammasi to.g.ri|hech biri|barcha javoblar|yuqoridagilarning|a va b ", re.I)
 
 text = AUTO.read_text(encoding="utf-8")
@@ -39,10 +42,11 @@ for num in sorted(d, key=int):
         if t["q"] in seen: errs.append(f"{w}: takroriy savol")
         seen.add(t["q"])
         if len(o[t["c"]]) > max(len(x) for j, x in enumerate(o) if j != t["c"]): longest += 1
-    if len(tests) != 20: errs.append(f"{f.name}: {len(tests)} ta (20 kerak)")
+    if not N_MIN <= len(tests) <= N_MAX: errs.append(f"{f.name}: {len(tests)} ta ({N_MIN}" + (f"–{N_MAX}" if N_MAX != N_MIN else "") + " kerak)")
     cs = [t["c"] for t in tests]
-    if max(cs.count(x) for x in range(4)) > 8: errs.append(f"{f.name}: c taqsimoti notekis {[cs.count(x) for x in range(4)]}")
-    if longest > 8: errs.append(f"{f.name}: to'g'ri javob {longest} ta savolda eng uzun")
+    cap = math.ceil(len(tests) * 0.4)
+    if max(cs.count(x) for x in range(4)) > cap: errs.append(f"{f.name}: c taqsimoti notekis {[cs.count(x) for x in range(4)]}")
+    if longest > cap: errs.append(f"{f.name}: to'g'ri javob {longest} ta savolda eng uzun")
     # Mijozga (brauzerga) faqat savol va variantlar beriladi; to'g'ri javob kaliti va izoh faqat serverda (server/quiz-keys.mjs).
     d[num]["tests"] = [{"q": t["q"], "options": t["options"]} for t in tests]
     keys[num] = [{"c": t["c"], **({"e": t["e"]} if t.get("e") else {})} for t in tests]
@@ -50,7 +54,7 @@ if errs:
     print("\n".join(errs)); sys.exit(1)
 AUTO.write_text(head + json.dumps(d, ensure_ascii=False, indent=1) + tail, encoding="utf-8")
 KEYS_OUT.write_text(
-    "// Avtomatik yaratilgan (scripts/apply-tests.py" + (" --subject tb" if TB else "") + "): test javob kalitlari — FAQAT server. Brauzerga yuborilmaydi.\n"
+    "// Avtomatik yaratilgan (scripts/apply-tests.py" + (f" --subject {SUBJ}" if SUBJ else "") + "): test javob kalitlari — FAQAT server. Brauzerga yuborilmaydi.\n"
     "export const KEYS = " + json.dumps(keys, ensure_ascii=False, indent=1) + ";\n",
     encoding="utf-8",
 )

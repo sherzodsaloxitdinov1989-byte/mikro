@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Sof monopoliyaning asosiy belgisi:",
+  "options": [
+   "Ko‘p sonli kichik firmalar, har biri narxni qabul qiladi",
+   "Yaqin o‘rinbosari bo‘lmagan mahsulotning yagona sotuvchisi",
+   "Bir-biridan farqlanadigan mahsulotlar taklif qiladigan firmalar",
+   "Erkin kirish va chiqish sharoitida faoliyat yuritish"
+  ],
+  "c": 1,
+  "e": "Sof monopoliyada yaqin o‘rinbosarsiz mahsulotni yagona firma taklif qiladi va kirish to‘siqlar bilan cheklangan."
+ },
+ {
+  "q": "Monopolist uchun chiziqli talabda (P=a−bQ) chekli tushum:",
+  "options": [
+   "MR=a−bQ",
+   "MR=a",
+   "MR=2a−bQ",
+   "MR=a−2bQ"
+  ],
+  "c": 3,
+  "e": "Chiziqli talabda MR=a−2bQ, ya’ni talab chizig‘idan ikki baravar tik."
+ },
+ {
+  "q": "Monopolistning foydani maksimallashtirish sharti:",
+  "options": [
+   "P=MC",
+   "P=AC",
+   "MR=0",
+   "MR=MC"
+  ],
+  "c": 3,
+  "e": "Monopolist MR=MC shartidan hajmni tanlaydi, narxni esa talab chizig‘idan aniqlaydi."
+ },
+ {
+  "q": "Ustama qoidasi:",
+  "options": [
+   "(P−MC)/P=1/|ε|",
+   "(P−MC)/P=|ε|",
+   "P=MC·|ε|",
+   "P−MC=|ε|"
+  ],
+  "c": 0,
+  "e": "MR=MC dan p(1−1/|ε|)=MC, ya’ni (p−MC)/p=1/|ε| – ustama elastiklikka teskari bog‘liq."
+ },
+ {
+  "q": "Talab elastikligi −2, MC=50 bo‘lsa, monopol narx:",
+  "options": [
+   "100",
+   "75",
+   "25",
+   "150"
+  ],
+  "c": 0,
+  "e": "p=MC/(1−1/|ε|)=50/(1−0,5)=100."
+ },
+ {
+  "q": "Monopolist talab chizig‘ining qaysi qismida ishlab chiqaradi?",
+  "options": [
+   "Faqat noelastik qismida (|ε|<1)",
+   "Birlik elastiklik nuqtasida har doim",
+   "Elastik qismida (|ε|>1)",
+   "Talab chizig‘ining istalgan qismida"
+  ],
+  "c": 2,
+  "e": "Noelastik qismda (|ε|<1) MR<0 bo‘lgani uchun monopolist u yerda ishlab chiqarmaydi."
+ },
+ {
+  "q": "Lerner indeksi mukammal raqobatda:",
+  "options": [
+   "1 ga teng",
+   "Cheksizga teng",
+   "0 ga teng",
+   "|ε| ga teng"
+  ],
+  "c": 2,
+  "e": "Mukammal raqobatda P=MC, shuning uchun L=0."
+ },
+ {
+  "q": "P=100−2Q, MC=20 bo‘lsa, monopol hajm:",
+  "options": [
+   "40",
+   "30",
+   "20",
+   "10"
+  ],
+  "c": 2,
+  "e": "MR=100−4Q=20 dan Q=20 (40 – raqobatli hajm)."
+ },
+ {
+  "q": "Monopoliyaning “o‘lik yuk” yo‘qotishi nimadan kelib chiqadi?",
+  "options": [
+   "Monopol foydaning mavjudligining o‘zidan va uning kattaligidan",
+   "Ishlab chiqarish hajmining samarali darajadan kam bo‘lishidan",
+   "Monopolist to‘laydigan soliqlar miqdoridan va ularning o‘sishidan",
+   "Raqobat kuchliligi sababli narxlarning pasayishidan"
+  ],
+  "c": 1,
+  "e": "Qm va Qc orasidagi birliklar xarajatidan qimmatroq baholanadi, lekin monopolist ularni ishlab chiqarmaydi."
+ },
+ {
+  "q": "Monopol foyda olish yoki saqlab qolish uchun lobbichilik va boshqa xarajatlar:",
+  "options": [
+   "X-samarasizlik",
+   "Renta izlash",
+   "Paketli sotish",
+   "Narx yetakchiligi"
+  ],
+  "c": 1,
+  "e": "Renta izlash – monopol foydani olish yoki saqlash uchun lobbichilik va huquqiy kurashga sarflanadigan resurslar."
+ },
+ {
+  "q": "Tabiiy monopoliyada P=MC narx belgilansa:",
+  "options": [
+   "Firma maksimal iqtisodiy foyda oladi va subsidiya kerak bo‘lmaydi",
+   "Firma zarar ko‘radi va subsidiya talab etiladi",
+   "Ijtimoiy yo‘qotish (DWL) eng yuqori darajaga yetadi",
+   "Iste’molchilar monopol narx tufayli zarar ko‘radi"
+  ],
+  "c": 1,
+  "e": "MC<AC bo‘lgani uchun P=MC da firma zarar ko‘radi; allokativ samaradorlik bor, lekin subsidiya kerak."
+ },
+ {
+  "q": "Narx diskriminatsiyasi uchun zarur bo‘lmagan shart:",
+  "options": [
+   "Firmada bozor kuchi borligi",
+   "Iste’molchilarni guruhlarga ajratish imkoniyati",
+   "Qayta sotishning (arbitrajning) cheklanganligi",
+   "Firmaning xarajatlari doimiy bo‘lishi"
+  ],
+  "c": 3,
+  "e": "Diskriminatsiya uchun bozor kuchi, iste’molchilarni ajratish va arbitrajni cheklash kerak; xarajatlar doimiyligi shart emas."
+ },
+ {
+  "q": "Birinchi darajali narx diskriminatsiyasida:",
+  "options": [
+   "Hajm monopol hajmga teng bo‘ladi",
+   "Hajm raqobatli hajmga teng, DWL yo‘q",
+   "Iste’molchi ortiqchaligi maksimal bo‘ladi",
+   "DWL maksimal bo‘ladi"
+  ],
+  "c": 1,
+  "e": "Har bir birlik rezerv narxda sotilgani uchun hajm raqobatli darajada, DWL yo‘q, ortiqcha esa monopolistga o‘tadi."
+ },
+ {
+  "q": "Uchinchi darajali diskriminatsiyada yuqori narx qaysi guruhga belgilanadi?",
+  "options": [
+   "Talabi elastikroq guruhga",
+   "Ko‘proq sotib oladigan guruhga",
+   "Talabi noelastikroq guruhga",
+   "Barcha guruhlarga bir xil narx"
+  ],
+  "c": 2,
+  "e": "Ustama qoidasiga ko‘ra narx elastiklikka teskari bog‘liq, shuning uchun noelastikroq guruhga yuqori narx belgilanadi."
+ },
+ {
+  "q": "Ikki qismli tarifda (bir xil iste’molchilar) optimal foydalanish narxi:",
+  "options": [
+   "Chekli xarajatga teng",
+   "Monopol narxga teng",
+   "Nolga teng",
+   "O‘rtacha xarajatga teng"
+  ],
+  "c": 0,
+  "e": "Foydalanish narxi MC ga teng bo‘lsa samaradorlik saqlanadi, abonent to‘lovi esa xarajatlarni qoplaydi."
+ },
+ {
+  "q": "Hajmga qarab turli narxlar (ulgurji chegirmalar, blokli tariflar):",
+  "options": [
+   "Birinchi darajali narx diskriminatsiyasi",
+   "Ikkinchi darajali diskriminatsiya",
+   "Uchinchi darajali narx diskriminatsiyasi",
+   "Paketli sotish (bundling)"
+  ],
+  "c": 1,
+  "e": "Hajmga bog‘liq narxlar (blokli tariflar, ulgurji chegirmalar) ikkinchi darajali diskriminatsiyaga kiradi."
+ },
+ {
+  "q": "Monopolistik raqobatda uzoq muddatli muvozanat:",
+  "options": [
+   "P=MC=min AC, ortiqcha quvvat yo‘q",
+   "P>AC, iqtisodiy foyda mavjud",
+   "P<AC, firmalar zarar ko‘radi",
+   "P=AC>MC, ortiqcha quvvat mavjud"
+  ],
+  "c": 3,
+  "e": "Erkin kirish foydani nolga tushiradi (P=AC), lekin talab pasayuvchi bo‘lgani uchun P>MC va quvvat to‘liq ishlatilmaydi."
+ },
+ {
+  "q": "Monopolistik raqobat nazariyasi mualliflari:",
+  "options": [
+   "A. Kurno va J. Bertran (oligopoliya modellari)",
+   "G. Shtakelberg va P. Suizi (yetakchilik modellari)",
+   "A. Lerner va A. Pigu (bozor kuchi va tashqi ta’sir)",
+   "E. Chemberlin va J. Robinson"
+  ],
+  "c": 3,
+  "e": "Monopolistik raqobat nazariyasini E. Chemberlin (1933) va J. Robinson yaratgan."
+ },
+ {
+  "q": "Kurno modelida (P=10−Q, c=1) har bir firmaning muvozanat hajmi:",
+  "options": [
+   "3",
+   "4,5",
+   "2,25",
+   "6"
+  ],
+  "c": 0,
+  "e": "Duopoliyada q=(a−c)/3b=(10−1)/3=3."
+ },
+ {
+  "q": "Bertran paradoksiga ko‘ra bir jinsli mahsulot ishlab chiqaruvchi ikki firma:",
+  "options": [
+   "Monopol narx belgilaydi va foydani teng bo‘lishadi",
+   "Narxni chekli xarajatga tenglashtiradi",
+   "Kurno narxini, ya’ni MC dan yuqori narxni belgilaydi",
+   "Kelishib, hajmni cheklaydi va foydani oshiradi"
+  ],
+  "c": 1,
+  "e": "Narx bo‘yicha raqobatda har bir firma raqibdan pastroq narx qo‘yadi, natijada P=MC va foyda nolga teng."
+ },
+ {
+  "q": "Shtakelberg modelida lider firma:",
+  "options": [
+   "Izdosh bilan bir vaqtda qaror qabul qiladi va hajmni tanlaydi",
+   "Narxni chekli xarajatga tenglashtirib, foydani nolga tushiradi",
+   "Izdosh bilan kartel tuzib, umumiy foydani maksimallashtiradi",
+   "Izdoshning reaksiya funksiyasini hisobga olib, birinchi bo‘lib hajmni tanlaydi"
+  ],
+  "c": 3,
+  "e": "Lider hajmni birinchi tanlaydi va izdoshning reaksiya funksiyasini hisobga oladi."
+ },
+ {
+  "q": "n firmali Kurno modelida n→∞ bo‘lganda narx:",
+  "options": [
+   "Chekli xarajatga yaqinlashadi",
+   "Monopol narxga yaqinlashib boradi",
+   "Nolga tushib, firmalar zarar ko‘radi",
+   "Cheksiz o‘sib boradi"
+  ],
+  "c": 0,
+  "e": "Firmalar soni ortgani sayin Kurno narxi raqobatli narx (P=MC) ga yaqinlashadi."
+ },
+ {
+  "q": "Kartel beqarorligining asosiy sababi:",
+  "options": [
+   "Talabning juda elastik bo‘lishi va kelishuvga to‘sqinlik qilishi",
+   "Davlat subsidiyalarining kartel a’zolariga berilishi",
+   "Firmalarning doimiy ravishda zarar ko‘rib turishi",
+   "Har bir a’zoda kelishuvni buzib, hajmni oshirish rag‘bati mavjudligi"
+  ],
+  "c": 3,
+  "e": "Kvotani buzgan a’zo monopol narxda qo‘shimcha sotib foydasini oshiradi, shuning uchun kartel beqaror."
+ },
+ {
+  "q": "Dominant firma modelida dominant firma qaysi talabga duch keladi?",
+  "options": [
+   "Qoldiq talabga: bozor talabi minus kichik firmalar taklifi",
+   "Butun bozor talabiga, kichik firmalarni hisobga olmasdan",
+   "Gorizontal (mukammal elastik) talabga",
+   "Faqat kichik firmalar talabiga"
+  ],
+  "c": 0,
+  "e": "Kichik firmalar narxni qabul qilib taklif beradi, dominant firma esa bozor talabidan shu taklifni ayirib qolgan qoldiq talabga ega."
+ },
+ {
+  "q": "Sinuvchi talab chizig‘i modeli nimani tushuntiradi?",
+  "options": [
+   "Monopoliyada DWL ni",
+   "Kartel tuzilishini",
+   "Oligopoliyada narxlarning barqarorligini",
+   "Narx diskriminatsiyasini"
+  ],
+  "c": 2,
+  "e": "Raqiblar narx oshirishga ergashmaydi, pasaytirishga ergashadi, shuning uchun oligopoliyada narx barqaror."
+ },
+ {
+  "q": "Herfindal–Hirshman indeksi:",
+  "options": [
+   "Eng yirik 4 firma bozor ulushlari yig‘indisi",
+   "Barcha firmalar bozor ulushlari kvadratlarining yig‘indisi",
+   "Narx va chekli xarajat orasidagi nisbat",
+   "Bozordagi firmalar soniga teskari miqdor"
+  ],
+  "c": 1,
+  "e": "HHI – firmalar bozor ulushlari (foizda) kvadratlarining yig‘indisi."
+ },
+ {
+  "q": "Bozor ulushlari 50, 30, 20 foiz bo‘lsa, HHI:",
+  "options": [
+   "10 000",
+   "100",
+   "3 800",
+   "2 500"
+  ],
+  "c": 2,
+  "e": "HHI=50²+30²+20²=2500+900+400=3800."
+ },
+ {
+  "q": "Monopsoniya – bu:",
+  "options": [
+   "Bozorda yagona sotuvchi mavjud bo‘lgan holat",
+   "Bozorda ikkita sotuvchi bo‘lgan holat",
+   "Bozorda yagona xaridor mavjud bo‘lgan holat",
+   "Sotuvchilar o‘zaro kelishgan holat"
+  ],
+  "c": 2,
+  "e": "Monopsoniyada bozorda yagona xaridor bo‘ladi (monopoliyada – yagona sotuvchi)."
+ },
+ {
+  "q": "Paketli sotish qachon ayniqsa foydali?",
+  "options": [
+   "Iste’molchilarning tovarlarni baholashlari teskari korrelyatsiyalangan bo‘lsa",
+   "Barcha iste’molchilar tovarlarni bir xil baholasa",
+   "Tovarlar bir-biriga mukammal o‘rinbosar bo‘lsa",
+   "Ishlab chiqarish xarajatlari juda yuqori bo‘lsa"
+  ],
+  "c": 0,
+  "e": "Baholar teskari korrelyatsiyalangan bo‘lsa, paket narxi iste’molchi ortiqchaligini ko‘proq olishga imkon beradi."
+ },
+ {
+  "q": "“Jazodan ozod qilish” (leniency) dasturining maqsadi:",
+  "options": [
+   "Kartel a’zolari o‘rtasida ishonchsizlik yaratib, kartellarni fosh qilish",
+   "Monopoliyalarni davlat tomonidan subsidiyalash",
+   "Narx diskriminatsiyasini rag‘batlantirish va yoyish",
+   "Firmalar qo‘shilishini tezlashtirish va kuchaytirish"
+  ],
+  "c": 0,
+  "e": "Birinchi bo‘lib xabar bergan a’zo jazodan ozod bo‘ladi, bu kartel ichida ishonchni buzadi."
+ }
+]

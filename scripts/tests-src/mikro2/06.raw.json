@@ -1,0 +1,332 @@
+[
+ {
+  "n": 1,
+  "q": "Iste’molchi ortiqchaligi grafikda:",
+  "options": [
+   "Taklif chizig‘i va narx chizig‘i orasidagi yuza",
+   "Talab chizig‘i ostidagi to‘liq yuza",
+   "Narx va miqdor ko‘paytmasi",
+   "Talab chizig‘i va narx chizig‘i orasidagi yuza"
+  ],
+  "c": 3
+ },
+ {
+  "n": 2,
+  "q": "Rezervatsion narxlari 10, 8, 6 bo‘lgan iste’molchi narx 5 bo‘lganda qancha ortiqchalik oladi?",
+  "options": [
+   "24",
+   "15",
+   "9",
+   "3"
+  ],
+  "c": 2
+ },
+ {
+  "n": 3,
+  "q": "Qaysi afzal ko‘rishda iste’molchi ortiqchaligi aniq farovonlik o‘lchovi?",
+  "options": [
+   "Kobb–Duglas",
+   "Mukammal to‘ldiruvchilar",
+   "Har qanday",
+   "Kvazichiziqli"
+  ],
+  "c": 3
+ },
+ {
+  "n": 4,
+  "q": "Kompensatsiyalovchi variatsiya qaysi narxlarda o‘lchanadi?",
+  "options": [
+   "Yangi narxlarda, dastlabki naflilik darajasiga nisbatan",
+   "Eski narxlarda, yangi naflilik darajasiga nisbatan",
+   "O‘rtacha narxlarda",
+   "Jahon narxlarida"
+  ],
+  "c": 0
+ },
+ {
+  "n": 5,
+  "q": "Ekvivalent variatsiya:",
+  "options": [
+   "e ( p 1,u 0)−m",
+   "m−e ( p 0,u 1)",
+   "e ( p 1,u 1)−m",
+   "m−e ( p 1,u 0)"
+  ],
+  "c": 1
+ },
+ {
+  "n": 6,
+  "q": "Normal tovar narxi oshganda to‘g‘ri munosabat:",
+  "options": [
+   "C V ≤|ΔC S )≤EV",
+   "C V =EV har doim",
+   "|ΔC S )>C V",
+   "EV ≤|ΔC S )≤C V"
+  ],
+  "c": 3
+ },
+ {
+  "n": 7,
+  "q": "Ishlab chiqaruvchi ortiqchaligi qisqa muddatda nimaga teng?",
+  "options": [
+   "Faqat foydaga",
+   "Umumiy tushumga",
+   "O‘zgaruvchan xarajatlarga",
+   "Foyda va doimiy xarajatlar yig‘indisiga"
+  ],
+  "c": 3
+ },
+ {
+  "n": 8,
+  "q": "Raqobatli muvozanatda umumiy ortiqcha:",
+  "options": [
+   "Minimal",
+   "Nolga teng",
+   "Maksimal",
+   "Iste’molchi ortiqchaligiga teng"
+  ],
+  "c": 2
+ },
+ {
+  "n": 9,
+  "q": "“O‘lik yuk” yo‘qotishi – bu:",
+  "options": [
+   "Soliq tushumi",
+   "Ishlab chiqaruvchilardan iste’molchilarga o‘tgan summa",
+   "Davlat subsidiyasi",
+   "Hech kimga tegmaydigan, jamiyat uchun yo‘qolgan farovonlik"
+  ],
+  "c": 3
+ },
+ {
+  "n": 10,
+  "q": "Muvozanatdan past narxning yuqori chegarasi:",
+  "options": [
+   "Taqchillik va DWL ga olib keladi",
+   "Ortiqcha mahsulotga olib keladi",
+   "Umumiy ortiqchani oshiradi",
+   "Ishlab chiqaruvchi ortiqchaligini oshiradi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 11,
+  "q": "P=9−Q, P=1+Q bozorida Pma x=3 bo‘lsa, DWL:",
+  "options": [
+   "4",
+   "2",
+   "8",
+   "1"
+  ],
+  "c": 0
+ },
+ {
+  "n": 12,
+  "q": "Kafolatlangan minimal narx va ortiqcha mahsulotni davlat xaridi kimga eng ko‘p foyda keltiradi?",
+  "options": [
+   "Ishlab chiqaruvchilarga",
+   "Iste’molchilarga",
+   "Soliq to‘lovchilarga",
+   "Importchilarga"
+  ],
+  "c": 0
+ },
+ {
+  "n": 13,
+  "q": "Soliq yukining katta qismini kim ko‘taradi?",
+  "options": [
+   "Bozorning elastikroq tomoni",
+   "Bozorning noelastikroq tomoni",
+   "Har doim xaridor",
+   "Soliqni rasman to‘lovchi tomon"
+  ],
+  "c": 1
+ },
+ {
+  "n": 14,
+  "q": "Talab elastikligi −1, taklif elastikligi 3 bo‘lsa, soliqning qancha qismi xaridorga tushadi?",
+  "options": [
+   "25%",
+   "50%",
+   "100%",
+   "75%"
+  ],
+  "c": 3
+ },
+ {
+  "n": 15,
+  "q": "Soliq stavkasi ikki baravar oshsa, DWL taxminan:",
+  "options": [
+   "To‘rt baravar oshadi",
+   "Ikki baravar oshadi",
+   "O‘zgarmaydi",
+   "Ikki baravar kamayadi"
+  ],
+  "c": 0
+ },
+ {
+  "n": 16,
+  "q": "Ramsi qoidasiga ko‘ra optimal soliq stavkalari:",
+  "options": [
+   "Talab elastikligiga to‘g‘ri proporsional",
+   "Barcha tovarlar uchun bir xil",
+   "Faqat hashamatli tovarlarga solinadi",
+   "Talab elastikligiga teskari proporsional"
+  ],
+  "c": 3
+ },
+ {
+  "n": 17,
+  "q": "P=9−Q, P=1+Q bozorida t=2 soliqdan DWL:",
+  "options": [
+   "2",
+   "4",
+   "1",
+   "6"
+  ],
+  "c": 2
+ },
+ {
+  "n": 18,
+  "q": "Subsidiya natijasida:",
+  "options": [
+   "Faqat iste’molchi yutadi",
+   "Umumiy ortiqcha ortadi",
+   "Iste’molchi va ishlab chiqaruvchi yutadi, lekin davlat xarajati ularning yutug‘idan katta",
+   "DWL yuzaga kelmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 19,
+  "q": "Import tarifida iste’molchilarning yo‘qotishi:",
+  "options": [
+   "A",
+   "A+B+C+D",
+   "B+D",
+   "C"
+  ],
+  "c": 1
+ },
+ {
+  "n": 20,
+  "q": "Import tarifining sof yo‘qotishi (DWL):",
+  "options": [
+   "B+D",
+   "A+C",
+   "C",
+   "A"
+  ],
+  "c": 0
+ },
+ {
+  "n": 21,
+  "q": "Import kvotasida tarif tushumiga mos C yuza kimga tegadi?",
+  "options": [
+   "Import litsenziyasi egalariga",
+   "Davlat byudjetiga",
+   "Ichki ishlab chiqaruvchilarga",
+   "Iste’molchilarga"
+  ],
+  "c": 0
+ },
+ {
+  "n": 22,
+  "q": "“Renta izlash” tushunchasini kiritgan iqtisodchi:",
+  "options": [
+   "A. Marshall",
+   "J. Xiks",
+   "A. Kryuger",
+   "F. Ramsi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 23,
+  "q": "Minimal ish haqining bandlikka ta’siri bo‘yicha mashhur empirik tadqiqot mualliflari:",
+  "options": [
+   "J. Akerlof va M. Spens",
+   "D. Kaneman va A. Tverski",
+   "K. Errou va J. Debre",
+   "D. Kard va A. Kryuger"
+  ],
+  "c": 3
+ },
+ {
+  "n": 24,
+  "q": "Iste’molchi ortiqchaligi tushunchasini birinchi bo‘lib kiritgan:",
+  "options": [
+   "V. Pareto",
+   "A. Smit",
+   "A. Marshall",
+   "L. Valras"
+  ],
+  "c": 2
+ },
+ {
+  "n": 25,
+  "q": "Xarajat-foyda tahlilida ko‘p yillik foyda va xarajatlar qanday taqqoslanadi?",
+  "options": [
+   "Joriy qiymatga keltirib (diskontlab)",
+   "Oddiy yig‘indi orqali",
+   "Faqat birinchi yil bo‘yicha",
+   "Inflatsiyani hisobga olmasdan"
+  ],
+  "c": 0
+ },
+ {
+  "n": 26,
+  "q": "Qd=100−2 P, Qs=3 P−50 bo‘lsa, muvozanat narxi:",
+  "options": [
+   "25",
+   "30",
+   "40",
+   "20"
+  ],
+  "c": 1
+ },
+ {
+  "n": 27,
+  "q": "Kvazichiziqli naflilikda CV, EV va ΔC S:",
+  "options": [
+   "C V >EV",
+   "EV >C V",
+   "O‘zaro teng",
+   "Hisoblab bo‘lmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "n": 28,
+  "q": "Muvozanat narxidan yuqori belgilangan narxning quyi chegarasi:",
+  "options": [
+   "Taqchillikka olib keladi",
+   "Ortiqcha mahsulotga olib keladi",
+   "Muvozanatni o‘zgartirmaydi",
+   "Iste’molchi ortiqchaligini oshiradi"
+  ],
+  "c": 1
+ },
+ {
+  "n": 29,
+  "q": "Soliq tushumi soliq stavkasiga dastlab o‘suvchi, keyin kamayuvchi bog‘liqlikda bo‘lishini ko‘rsatuvchi chiziq:",
+  "options": [
+   "Lorens egri chizig‘i",
+   "Laffer egri chizig‘i",
+   "Engel egri chizig‘i",
+   "Fillips egri chizig‘i"
+  ],
+  "c": 1
+ },
+ {
+  "n": 30,
+  "q": "Taklif mutlaq noelastik (vertikal) bo‘lsa, soliq yuki:",
+  "options": [
+   "To‘liq ishlab chiqaruvchiga tushadi",
+   "To‘liq iste’molchiga tushadi",
+   "Teng taqsimlanadi",
+   "Davlatga qaytadi Adabiyotlar 1. Salimov B.T., Yusupov M.S. Mikroiqtisodiyot-2. Darslik. – T.: 2021. – 3.6, 8.4. 2. Varian H.R. Intermediate Microeconomics: A Modern Approach. 9th ed. – W.W. Norton, 2014. – Ch. 14, 16. 3. Pindyck R.S., Rubinfeld D.L. Microeconomics. 9th ed. – Pearson, 2018. – Ch. 4, 9. 4. Mankiw N.G. Principles of Microeconomics. 9th ed. – Cengage, 2021. – Ch. 6–9. 5. Nicholson W., Snyder C. Microeconomic Theory. 12th ed. – Cengage, 2017. – Ch. 5, 12. 6. Willig R.D. Consumer’s Surplus Without Apology // American Economic Review. – 1976. – Vol. 66, No. 4. – P. 589–597. 7. Card D., Krueger A.B. Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania // American Economic Review. – 1994. – Vol. 84, No. 4. – P. 772–793. 8. Krueger A.O. The Political Economy of the Rent-Seeking Society // American Economic Review. – 1974. – Vol. 64, No. 3. – P. 291–303."
+  ],
+  "c": 0
+ }
+]

@@ -1,0 +1,332 @@
+[
+ {
+  "q": "O‘yinlar nazariyasiga asos solgan “O‘yinlar nazariyasi va iqtisodiy xulq” (1944) kitobining mualliflari:",
+  "options": [
+   "J. Nesh va R. Zelten",
+   "J. fon Neyman va O. Morgenshtern",
+   "A. Kurno va J. Bertran",
+   "T. Shelling va R. Auman"
+  ],
+  "c": 1,
+  "e": "Kitob 1944-yilda J. fon Neyman va O. Morgenshtern tomonidan yozilgan va nazariyaga asos solgan."
+ },
+ {
+  "q": "O‘yin qaysi uchta unsur bilan beriladi?",
+  "options": [
+   "Narx, ishlab chiqarish miqdori va xarajatlar funksiyasi",
+   "Talab, taklif va bozor muvozanati holati",
+   "Firmalar, iste’molchilar va davlat tartibga solishi",
+   "O‘yinchilar, ularning strategiyalari to‘plami va strategiyalar kombinatsiyasiga mos yutuqlar"
+  ],
+  "c": 3,
+  "e": "Ta’rifga ko‘ra o‘yin o‘yinchilar, strategiyalar to‘plami va yutuqlar bilan beriladi."
+ },
+ {
+  "q": "Raqib qanday strategiya tanlashidan qat’i nazar eng yaxshi natija beradigan strategiya:",
+  "options": [
+   "Dominant strategiya",
+   "Maksimin strategiya",
+   "Aralash strategiya",
+   "Trigger strategiya"
+  ],
+  "c": 0,
+  "e": "Raqibning har qanday strategiyasiga nisbatan boshqalaridan yaxshiroq natija beruvchi strategiya dominant deyiladi."
+ },
+ {
+  "q": "Nesh muvozanatida:",
+  "options": [
+   "barcha o‘yinchilar o‘zi uchun mumkin bo‘lgan maksimal yutuqni oladi",
+   "natija har doim Pareto samarali bo‘ladi va jamoaviy foyda eng yuqori bo‘ladi",
+   "raqiblar strategiyasini o‘zgartirmasa, hech bir o‘yinchi o‘z strategiyasini bir tomonlama o‘zgartirib yutug‘ini oshira olmaydi",
+   "o‘yinchilar o‘zaro majburiy kelishuv tuzib, strategiyalarni oldindan belgilaydi"
+  ],
+  "c": 2,
+  "e": "Nesh muvozanatida har bir strategiya boshqalarning tanloviga eng yaxshi javob bo‘ladi."
+ },
+ {
+  "q": "Har qanday dominant strategiyalar muvozanati:",
+  "options": [
+   "Nesh muvozanati bo‘la olmaydi",
+   "faqat aralash strategiyalardagi muvozanatdir",
+   "Nesh muvozanati hisoblanadi",
+   "har doim Pareto samarasiz bo‘ladi"
+  ],
+  "c": 2,
+  "e": "9.3-jadvalga ko‘ra har qanday dominant strategiya muvozanati Nesh muvozanatidir, teskarisi esa to‘g‘ri emas."
+ },
+ {
+  "q": "Mahbus dilemmasida Nesh muvozanati:",
+  "options": [
+   "Pareto samarasiz",
+   "Pareto samarali",
+   "sof strategiyalarda mavjud emas",
+   "ikkala o‘yinchi hamkorlik qilishidan iborat"
+  ],
+  "c": 0,
+  "e": "Muvozanatda (bo‘yniga olish) har biri 6 yil oladi, hamkorlikda esa 3 yil olardi."
+ },
+ {
+  "q": "Reklama o‘yinida (9.2-jadval) A firma uchun dominant strategiya:",
+  "options": [
+   "Reklama qilmaslik",
+   "Aralash strategiya qo‘llash",
+   "Dominant strategiya mavjud emas",
+   "Reklama qilish"
+  ],
+  "c": 3,
+  "e": "B nima qilishidan qat’i nazar, reklama qilganda A ko‘proq oladi (10>6 va 15>10)."
+ },
+ {
+  "q": "Mumkin bo‘lgan eng yomon natijani maksimallashtiruvchi strategiya:",
+  "options": [
+   "Dominant strategiya",
+   "Maksimin strategiyasi",
+   "Nesh strategiyasi",
+   "Qasdma-qasd strategiyasi"
+  ],
+  "c": 1,
+  "e": "Maksimin strategiyasi eng yomon natijalar ichidan eng yaxshisini tanlashni anglatadi."
+ },
+ {
+  "q": "Mahsulot tanlash o‘yinida (9.4-jadval) nechta sof strategiyalardagi Nesh muvozanati bor?",
+  "options": [
+   "Ikkita",
+   "Bitta",
+   "Uchta",
+   "Muvozanat yo‘q"
+  ],
+  "c": 0,
+  "e": "(Qarsildoq, Shirin) va (Shirin, Qarsildoq) — ikkita Nesh muvozanati."
+ },
+ {
+  "q": "“Tangalar” o‘yinida sof strategiyalarda Nesh muvozanati nechta?",
+  "options": [
+   "Bitta",
+   "Ikkita",
+   "Mavjud emas",
+   "To‘rtta"
+  ],
+  "c": 2,
+  "e": "Istalgan katakda kimdir strategiyasini o‘zgartirishni xohlaydi, shuning uchun sof muvozanat yo‘q."
+ },
+ {
+  "q": "“Tangalar” o‘yinida aralash muvozanatda har bir o‘yinchi “Gerb”ni qanday ehtimol bilan tanlaydi?",
+  "options": [
+   "1/3",
+   "1/2",
+   "1/4",
+   "1"
+  ],
+  "c": 1,
+  "e": "Befarqlik shartidan q=1/2 va p=1/2 kelib chiqadi."
+ },
+ {
+  "q": "Aralash strategiyalarda muvozanat topishning asosiy tamoyili:",
+  "options": [
+   "har bir o‘yinchi o‘z yutug‘ini maksimallashtiruvchi bitta sof strategiyani tanlaydi",
+   "ehtimolliklar barcha strategiyalar uchun har doim teng olinadi",
+   "o‘yinchi eng yomon natijani minimallashtiruvchi strategiyani tanlaydi",
+   "har bir o‘yinchi raqibini o‘z strategiyalari o‘rtasida befarq qiladigan ehtimollikni tanlaydi"
+  ],
+  "c": 3,
+  "e": "Matnga ko‘ra o‘yinchi aralashtirishga tayyor bo‘lishi uchun strategiyalari orasida befarq bo‘lishi kerak."
+ },
+ {
+  "q": "Nesh teoremasiga ko‘ra, o‘yinchilar va strategiyalar soni chekli bo‘lgan har qanday o‘yin:",
+  "options": [
+   "sof strategiyalarda yagona Nesh muvozanatiga ega",
+   "dominant strategiyalar muvozanatiga ega",
+   "Pareto samarali muvozanatga ega",
+   "aralash strategiyalarda kamida bitta Nesh muvozanatiga ega"
+  ],
+  "c": 3,
+  "e": "Nesh teoremasi (1950) aralash strategiyalarda kamida bitta muvozanat mavjudligini kafolatlaydi."
+ },
+ {
+  "q": "Chekli marta takrorlanadigan mahbus dilemmasida teskari induksiya natijasi:",
+  "options": [
+   "Barcha davrlarda aldash",
+   "Barcha davrlarda hamkorlik",
+   "Faqat oxirgi davrda hamkorlik",
+   "Navbatma-navbat hamkorlik va aldash"
+  ],
+  "c": 0,
+  "e": "Oxirgi davrdan boshlab orqaga qarab aldash mantiqi barcha davrlarga tarqaladi."
+ },
+ {
+  "q": "Cheksiz takrorlanadigan o‘yinda hamkorlik ehtimoli qachon yuqori bo‘ladi?",
+  "options": [
+   "Diskont omili δ kichik bo‘lganda",
+   "O‘yinning oxiri aniq ma’lum bo‘lganda",
+   "O‘yinchilar kelajakni yuqori qadrlaganda (δ katta)",
+   "O‘yinchilar soni ko‘p bo‘lganda"
+  ],
+  "c": 2,
+  "e": "Yetarlicha sabrli (δ yuqori) o‘yinchilar uchun hamkorlik Nesh muvozanati bo‘ladi."
+ },
+ {
+  "q": "Trigger strategiyasida hamkorlik yutug‘i 100, bir tomonlama aldash 200, o‘zaro aldash 20 bo‘lsa, hamkorlik barqaror bo‘ladigan minimal δ qancha?",
+  "options": [
+   "0,50",
+   "0,56",
+   "0,80",
+   "0,25"
+  ],
+  "c": 1,
+  "e": "δ ≥ (200−100)/(200−20) = 100/180 ≈ 0,56."
+ },
+ {
+  "q": "Akselrod turnirlarida g‘olib chiqqan strategiya:",
+  "options": [
+   "Qasdma-qasd",
+   "Doimo aldash",
+   "Doimo hamkorlik",
+   "Tasodifiy tanlash"
+  ],
+  "c": 0,
+  "e": "Rapoport taklif qilgan eng sodda “qasdma-qasd” strategiyasi turnirda g‘olib bo‘ldi."
+ },
+ {
+  "q": "“Qasdma-qasd” strategiyasida birinchi davrdagi harakat:",
+  "options": [
+   "Aldash",
+   "Tasodifiy tanlov",
+   "O‘yinni tark etish",
+   "Hamkorlik"
+  ],
+  "c": 3,
+  "e": "Strategiya birinchi davrda hamkorlik qilishni, keyin raqibning oldingi harakatini takrorlashni buyuradi."
+ },
+ {
+  "q": "Ketma-ket o‘yinlar qaysi usulda yechiladi?",
+  "options": [
+   "Ostiga chizish usuli",
+   "Befarqlik tamoyili",
+   "Teskari induksiya",
+   "Lagranj ko‘paytuvchilari usuli"
+  ],
+  "c": 2,
+  "e": "Ketma-ket o‘yinda avval oxirgi qarorlar tahlil qilinadi, so‘ng oldingilari."
+ },
+ {
+  "q": "Qism o‘yin bo‘yicha mukammal muvozanat tushunchasini 1965-yilda kiritgan olim:",
+  "options": [
+   "J. Nesh",
+   "R. Zelten",
+   "J. Harsanyi",
+   "R. Akselrod"
+  ],
+  "c": 1,
+  "e": "Zelten (1965) ishonchsiz tahdidlarga asoslangan muvozanatlarni chiqarish uchun bu tushunchani kiritgan."
+ },
+ {
+  "q": "Bozorga kirish o‘yinida (9.4-rasm) qism o‘yin bo‘yicha mukammal muvozanat:",
+  "options": [
+   "(Kirmaslik, Narx urushi)",
+   "(Kirish, Narx urushi)",
+   "(Kirmaslik, Moslashish)",
+   "(Kirish, Moslashish)"
+  ],
+  "c": 3,
+  "e": "Kirgan K ga M moslashadi (50>20), buni bilgan K kiradi (20>0)."
+ },
+ {
+  "q": "Mavjud firma tahdidini ishonchli qilishning usuli:",
+  "options": [
+   "qaytarib bo‘lmaydigan strategik majburiyat olish",
+   "tahdidni raqibga ko‘p marta takrorlab e’lon qilish",
+   "o‘z yutuqlarini raqibdan yashirib turish",
+   "aralash strategiyani tasodifiy ravishda qo‘llash"
+  ],
+  "c": 0,
+  "e": "Quvvatni oldindan kengaytirish kabi qaytmas harakat tahdidni ishonchli qiladi."
+ },
+ {
+  "q": "“Ziddiyat strategiyasi” (1960) kitobi muallifi, Nobel mukofoti sovrindori:",
+  "options": [
+   "R. Mayerson",
+   "T. Shelling",
+   "J. Tirol",
+   "P. Milgrom"
+  ],
+  "c": 1,
+  "e": "Tomas Shelling (Nobel, 2005) strategik majburiyat g‘oyasini shu kitobda rivojlantirgan."
+ },
+ {
+  "q": "Ultimatum o‘yini tajribalarida birinchi o‘yinchining odatiy takliflari:",
+  "options": [
+   "minimal mumkin bo‘lgan summa",
+   "umumiy summaning taxminan 90 foizi",
+   "umumiy summaning 40–50 foizi",
+   "nolga teng summa"
+  ],
+  "c": 2,
+  "e": "Tajribalarda odatiy takliflar 40–50 foiz, 20 foizdan pastlari ko‘pincha rad etiladi."
+ },
+ {
+  "q": "Ikkinchi narx (Vikri) yopiq auksionida dominant strategiya:",
+  "options": [
+   "Haqiqiy baholashni taklif qilish",
+   "Baholashdan past taklif qilish",
+   "Baholashdan yuqori taklif qilish",
+   "Taklif bermasdan kuzatib turish"
+  ],
+  "c": 0,
+  "e": "G‘olib to‘laydigan narx o‘z taklifiga bog‘liq emas, shuning uchun haqiqiy baholash dominant."
+ },
+ {
+  "q": "Vikri auksionida ishtirokchilarning baholashlari 120, 100 va 90 bo‘lsa, g‘olib qancha to‘laydi?",
+  "options": [
+   "120",
+   "100",
+   "90",
+   "110"
+  ],
+  "c": 1,
+  "e": "Eng yuqori taklif (120) yutadi, lekin ikkinchi eng yuqori taklifni — 100 ni to‘laydi."
+ },
+ {
+  "q": "Umumiy qiymatli auksionda qiymatni eng ko‘p oshirib baholagan ishtirokchining yutib, ortiqcha to‘lashi:",
+  "options": [
+   "Bertran paradoksi",
+   "Mahbus dilemmasi",
+   "Daromadlar ekvivalentligi",
+   "G‘olib la’nati"
+  ],
+  "c": 3,
+  "e": "Neft koni kabi holda eng optimist baholagan ishtirokchi yutadi va ko‘pincha ortiqcha to‘laydi."
+ },
+ {
+  "q": "Kartel a’zolari o‘rtasidagi munosabat qaysi o‘yinga mos keladi?",
+  "options": [
+   "Tangalar o‘yiniga",
+   "Muvofiqlashtirish o‘yiniga",
+   "Mahbus dilemmasiga",
+   "Nol summali o‘yinga"
+  ],
+  "c": 2,
+  "e": "Kvotaga rioya qilish — hamkorlik, ko‘proq ishlab chiqarish — aldash: kartel buziladi."
+ },
+ {
+  "q": "Shaxmat qaysi turdagi o‘yinga kiradi?",
+  "options": [
+   "Nol summali, ketma-ket, to‘liq axborotli",
+   "Noldan farqli summali, bir vaqtdagi",
+   "Kooperativ, to‘liq bo‘lmagan axborotli",
+   "Noldan farqli summali, takrorlanadigan"
+  ],
+  "c": 0,
+  "e": "9.1-jadvalda shaxmat nol summali o‘yin sifatida keltirilgan; yurishlar navbatma-navbat va ochiq."
+ },
+ {
+  "q": "Ko‘p kishilik mahbus dilemmasining tabiiy resurslardan foydalanishdagi ko‘rinishi:",
+  "options": [
+   "G‘olib la’nati",
+   "Umumiylar tragediyasi",
+   "Giffen paradoksi",
+   "Laffer samarasi"
+  ],
+  "c": 1,
+  "e": "Umumiy resurslarda baliq ovini cheklamaslik resurs tugashiga, ya’ni “umumiylar tragediyasi”ga olib keladi."
+ }
+]
