@@ -66,13 +66,20 @@ th, td { border: 1px solid #cbd5e1; padding: 9px 14px; text-align: left } th { b
 table.tc { font-size: 21px } table.tc th, table.tc td { padding: 5px 12px }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px } .cols > div { background: #f8fafc; border-top: 6px solid #1d4ed8; border-radius: 8px; padding: 14px 22px } .cols h3 { margin: 0 0 8px; font-size: 27px; color: #1d4ed8 } .cols li { font-size: 24px }
 .body .fig { height: 430px; padding: 0 } .body .fig img { max-height: 420px }
+sub, sup { font-size: .68em; line-height: 0 }
+.g1 code { font-style: italic }
 .note { margin-top: 18px; font-size: 22px; color: #334155; background: #eef2ff; border-radius: 8px; padding: 10px 16px }
 `;
 
 // Brauzer ichida ishlaydigan quruvchi: bob HTML → slaydlar HTML
 function build(data) {
   const { topic, layer, brand, course } = data;
-  const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  // Formula yozuvi: x_{1} → pastki indeks, x^{2} → daraja (slayd rejalarida)
+  const esc = (s) => {
+    let t = String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    for (let i = 0; i < 3; i++) t = t.replace(/_\{([^{}]*)\}/g, "<sub>$1</sub>").replace(/\^\{([^{}]*)\}/g, "<sup>$1</sup>");
+    return t;
+  };
   const short = (s, n) => (s.length <= n ? s : s.slice(0, s.lastIndexOf(" ", n)).replace(/[,;:–-]$/, "") + "…");
   const sentences = (t) => t.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+(?=[A-ZА-Я«“O‘G‘]|\d)/).filter((s) => s.length > 20);
   const slides = [];
