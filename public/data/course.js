@@ -161,18 +161,23 @@ export const SUBJECTS = [
     },
   },
   {
-    // Magistratura bo'limi: fan darsligi hali biriktirilmagan (hasContent: false) — talabaga fan sahifasi, o'qituvchi topshiriqlari va guruh reytingi ko'rinadi.
-    key: "magistratura",
-    title: "Magistratura",
-    icon: "🎓",
-    direction: "Magistratura bo'limi",
+    // Magistratura bo'limi: «Mikroiqtisodiyot-2». Darslik hali biriktirilmagan (hasContent: false) — talabaga fan sahifasi,
+    // o'qituvchi topshiriqlari, jonli darslar va guruh reytingi ko'rinadi. Darslik yuklangach hasContent: true va dir: "mikro2" qilinadi.
+    key: "mikro2",
+    title: "Mikroiqtisodiyot-2",
+    icon: "📈",
+    direction: "Magistratura",
     form: "magistratura",
     groups: ["M31-26"],
     hasContent: false,
     dir: "",
     idPrefix: "m",
     slides: "slides",
-    description: "Magistratura talabalari uchun alohida bo'lim: o'qituvchi topshiriqlari, jonli darslar va guruh reytingi.",
+    description: "Mikroiqtisodiyot fanining magistratura darajasidagi davomi: ilg'or mikroiqtisodiy tahlil. M31-26 guruhi uchun o'qituvchi topshiriqlari, jonli darslar va guruh reytingi.",
+    course: {
+      title: "Mikroiqtisodiyot-2",
+      domain: "mikroiqtisodiyot (magistratura, ilg'or daraja)",
+    },
   },
 ];
 /** Guruhga biriktirilgan fan; biriktirilmagan guruh — asosiy fan. */
