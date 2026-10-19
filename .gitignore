@@ -14,3 +14,4 @@ manbalar/*.pdf
 # Talabalar shifrlari (shaxsiy ma'lumot) — gitga qo'shilmaydi
 *shifr*.xlsx
 *shifr*.csv
+scripts/__pycache__/

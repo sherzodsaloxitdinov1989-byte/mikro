@@ -636,3 +636,9 @@ body.secure-blur main { filter: blur(26px); pointer-events: none; }
 
 /* Telefonda uzun segmentli tanlovlar (reyting: guruh / muassasa / hamma) ekrandan chiqib ketmasin */
 .segmented { max-width: 100%; flex-wrap: wrap; }
+
+/* Formulalar (Mikroiqtisodiyot-2): indeks/daraja bilan, kitob matnida */
+.book-text .fx { font-family: "Cambria Math", "STIX Two Math", "Latin Modern Math", "Times New Roman", serif; font-style: italic; white-space: nowrap; }
+.book-text .fx sub, .book-text .fx sup { font-size: 0.72em; line-height: 0; }
+.book-text p.formula { font-family: inherit; font-size: 1.05rem; text-align: center; padding: 10px 12px; overflow-x: auto; }
+.book-text p.formula .fx { white-space: normal; }
