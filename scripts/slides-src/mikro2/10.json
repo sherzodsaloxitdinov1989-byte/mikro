@@ -40,9 +40,9 @@
      "note": "raqobatli bozorda uchala shart avtomatik bajariladi"
     },
     {
-     "name": "Valras qonuni",
-     "formula": "pₓ·zₓ + p_y·z_y = 0",
-     "note": "ortiqcha talablar yig‘indisi nol; faqat nisbiy narxlar aniqlanadi"
+     "name": "Utilitar va Rouls funksiyalari",
+     "formula": "W = Uᴬ + Uᴮ;  W = min{Uᴬ, Uᴮ}",
+     "note": "Errou teoremasi: ovoz berish qoidasi barcha shartni qanoatlantirmaydi"
     }
    ]
   },
@@ -112,17 +112,6 @@
      "Samaradorlik va adolat masalalarini ajratadi"
     ]
    }
-  },
-  {
-   "type": "bullets",
-   "title": "Ijtimoiy farovonlik va Errou teoremasi",
-   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
-   "bullets": [
-    "Utilitar (Bentam): W = Uᴬ + Uᴮ; Rouls: W = min{Uᴬ, Uᴮ}",
-    "Pareto mezoni samarali taqsimotlar orasida tanlov qilmaydi — farovonlik funksiyasi kerak",
-    "Kondorse paradoksi: ko‘pchilik ovozi bilan ijtimoiy afzal ko‘rish notranzitiv bo‘lib qoladi",
-    "Errou teoremasi: 3 va undan ortiq muqobilda barcha shartni qanoatlantiruvchi ovoz berish qoidasi yo‘q"
-   ]
   },
   {
    "type": "bullets",
@@ -269,6 +258,13 @@
    ]
   },
   {
+   "type": "figure",
+   "title": "Ochiq kirish va ijtimoiy optimum",
+   "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
+   "img": "image97.png",
+   "caption": "10.7-rasm. Umumiylar tragediyasi: ochiq kirish va ijtimoiy optimum"
+  },
+  {
    "type": "bullets",
    "title": "Ostrom tamoyillari va Orol fojiasi",
    "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
@@ -293,12 +289,12 @@
     [
      "Raqobatli",
      "Xususiy ne’mat: oziq-ovqat, avtomobil, uy-joy",
-     "Umumiy resurs: baliq zaxirasi, yaylov, sug‘orish suvi"
+     "Umumiy resurs: baliq, yaylov, sug‘orish suvi"
     ],
     [
      "Raqobatsiz",
-     "Klub ne’mati: kabel televideniyesi, onlayn obunalar",
-     "Sof jamoat ne’mati: mudofaa, mayoq, ko‘cha yoritilishi"
+     "Klub ne’mati: kabel TV, onlayn obunalar",
+     "Jamoat ne’mati: mudofaa, mayoq, yoritish"
     ]
    ],
    "note": "Sof jamoat ne’mati — raqobatsiz va istisno qilinmaydigan ne’mat"
@@ -326,9 +322,16 @@
     {
      "name": "Lindal narxlari",
      "formula": "tᵢ = MRSᵢ(G*),  ∑tᵢ = MC",
-     "note": "har bir iste’molchiga shaxsiy ulush"
+     "note": "shaxsiy ulush; boshqa mexanizmlar: davlat, Klark–Groves, ovoz berish"
     }
    ]
+  },
+  {
+   "type": "figure",
+   "title": "Jamoat ne’matining samarali hajmi",
+   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
+   "img": "image98.png",
+   "caption": "10.8-rasm. Jamoat ne’matining samarali hajmi: individual baholashlarni vertikal qo‘shish"
   },
   {
    "type": "steps",
@@ -340,18 +343,6 @@
     "Ixtiyoriy moliyalashtirish: A uchun 6 − 0,6G = 5 → G ≈ 1,7",
     "B uchun MRSᴮ(0) = 4 < 5 — u hissa qo‘shmaydi, A ning yoritgichidan tekin foydalanadi",
     "Natija: 1–2 ta yoritgich — samarali miqdordan ancha kam"
-   ]
-  },
-  {
-   "type": "bullets",
-   "title": "Jamoat ne’matlarini ta’minlash mexanizmlari",
-   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
-   "bullets": [
-    "Davlat: soliq hisobidan moliyalashtirish; ammo haqiqiy baholashlar noma’lum",
-    "Lindal narxlari: shaxsiy ulush; muammo — baholashni kamaytirib ko‘rsatish",
-    "Klark–Groves mexanizmi: haqqoniy oshkor qilish dominant strategiyaga aylanadi",
-    "Ovoz berish: bir cho‘qqili afzal ko‘rishda mediana saylovchi varianti tanlanadi (Blek)",
-    "Xayriya, homiylik, reklama, hashar va mahalla — norasmiy institutlar"
    ]
   },
   {

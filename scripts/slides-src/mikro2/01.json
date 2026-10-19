@@ -1,0 +1,431 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Mikroiqtisodiyot nimani o‘rganadi",
+   "sub": "1.1. Mikroiqtisodiyotning predmeti, maqsadi va vazifalari",
+   "bullets": [
+    "Ehtiyojlar cheksiz, resurslar (yer, mehnat, kapital, vaqt, axborot) cheklangan",
+    "Mikroiqtisodiyot – alohida subyektlarning qarorlari va ularning bozordagi o‘zaro ta’siri haqidagi fan",
+    "Jamiyat 3 savolga javob topadi: nimani, qanday va kim uchun ishlab chiqarish",
+    "Bozorda bu savollarga narxlar tizimi javob beradi (A. Smitning “ko‘rinmas qo‘li”)",
+    "Fanning maqsadi – bozor subyektlari faoliyatini o‘rganish bo‘yicha bilim va ko‘nikma hosil qilish"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Mikro va makroiqtisodiyot",
+   "sub": "1.1. Mikroiqtisodiyotning predmeti, maqsadi va vazifalari",
+   "head": [
+    "Mezon",
+    "Mikroiqtisodiyot",
+    "Makroiqtisodiyot"
+   ],
+   "rows": [
+    [
+     "Tahlil obyekti",
+     "Uy xo‘jaligi, firma, alohida bozor",
+     "Milliy iqtisodiyot butunligicha"
+    ],
+    [
+     "Asosiy savol",
+     "Narx qanday shakllanadi?",
+     "Iqtisodiyot nega o‘sadi yoki tanazzulga uchraydi?"
+    ],
+    [
+     "O‘zgaruvchilar",
+     "Nisbiy narxlar, miqdor, xarajat, foyda",
+     "YaIM, narx darajasi, ishsizlik"
+    ],
+    [
+     "Davlat siyosati",
+     "Soliq, subsidiya, antimonopol",
+     "Pul-kredit va fiskal siyosat"
+    ],
+    [
+     "Misol",
+     "Jizzaxda go‘sht narxining o‘zgarishi",
+     "O‘zbekistonda inflatsiya o‘zgarishi"
+    ]
+   ],
+   "note": "Mikro – “daraxtlar”, makro – “o‘rmon”; makro ko‘rsatkichlar mikroqarorlar yig‘indisidir"
+  },
+  {
+   "type": "steps",
+   "title": "Muqobil xarajat – tanlovning narxi",
+   "sub": "1.1. Mikroiqtisodiyotning predmeti, maqsadi va vazifalari",
+   "steps": [
+    "Muqobil xarajat – voz kechilgan eng yaxshi variantning qiymati",
+    "Misol: fermerda 10 ga yer; paxta 6 mln, g‘alla 4,5 mln so‘m/ga",
+    "Butun yerga g‘alla eksa: buxgalteriya daromadi 10·4,5 = 45 mln so‘m",
+    "Voz kechilgan paxta daromadi (muqobil xarajat): 10·6 = 60 mln so‘m",
+    "Iqtisodiy natija: 45 − 60 = −15 mln so‘m (iqtisodiy zarar)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Tahlil usullari",
+   "sub": "1.2. Mikroiqtisodiy tahlil usullari va modellari",
+   "bullets": [
+    "Induksiya: ayrim faktlardan umumiy xulosaga; deduksiya: nazariyadan aniq hodisaga",
+    "Tahlil – murakkab hodisani qismlarga ajratish; sintez – qismlarni yaxlitlash",
+    "Laboratoriya tajribasi kam: tadqiqot sikli – kuzatish, model, bashorat, tekshirish",
+    "Qiyosiy statika: ekzogen o‘zgarganda endogen muvozanat qanday o‘zgaradi",
+    "Ceteris paribus – boshqa sharoitlar o‘zgarmas deb olinadi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Pozitiv va normativ tahlil",
+   "sub": "1.2. Mikroiqtisodiy tahlil usullari va modellari",
+   "left": {
+    "head": "Pozitiv: “nima bor, nima bo‘ladi?”",
+    "items": [
+     "Faktlar bilan tekshirish mumkin",
+     "Minimal ish haqi oshsa, yoshlar bandligi kamayishi mumkin",
+     "Import boji pasaysa, ichki narxlar pasayadi"
+    ]
+   },
+   "right": {
+    "head": "Normativ: “nima qilish kerak?”",
+    "items": [
+     "Qiymat mulohazalariga (adolat, tenglik) tayanadi",
+     "Minimal ish haqini oshirish kerak, chunki u adolatli",
+     "Mahalliy ishlab chiqaruvchini himoya qilish uchun bojni saqlash kerak"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Iqtisodiy model va chekli tahlil",
+   "sub": "1.2. Mikroiqtisodiy tahlil usullari va modellari",
+   "items": [
+    {
+     "name": "Ekzogen o‘zgaruvchilar",
+     "formula": "daromad, soliq stavkasi, ob-havo",
+     "note": "Model tashqarisida beriladi"
+    },
+    {
+     "name": "Endogen o‘zgaruvchilar",
+     "formula": "muvozanat narxi p*, miqdori Q*",
+     "note": "Model ichida aniqlanadi"
+    },
+    {
+     "name": "Optimum sharti",
+     "formula": "MB(x*) = MC(x*)",
+     "note": "Chekli naf = chekli xarajat; MB > MC bo‘lsa kengaytirish kerak"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Talab egri chizig‘ini qurish",
+   "sub": "1.3. Bozor modeli: optimallashtirish va muvozanat tamoyillari",
+   "img": "image3.png",
+   "caption": "1.3-rasm. Rezervatsion narxlar asosida talab egri chizig‘ini qurish"
+  },
+  {
+   "type": "bullets",
+   "title": "Muvozanat va qiyosiy statika",
+   "sub": "1.3. Bozor modeli: optimallashtirish va muvozanat tamoyillari",
+   "bullets": [
+    "Rezervatsion narx – xaridor to‘lashga tayyor maksimal narx; kamayish tartibida talab zinapoyasi hosil bo‘ladi",
+    "Qisqa muddatda kvartiralar soni S o‘zgarmas: taklif vertikal, muvozanat D(p*) = S",
+    "p* dan yuqori narxda bo‘sh joy qoladi, pastda taqchillik – narx p* ga intiladi",
+    "Taklif ortsa narx pasayadi; kondominiumga o‘tishda narx o‘zgarmaydi",
+    "Mulk egalariga soliq: qisqa muddatda narx o‘zgarmaydi, yuk egalariga tushadi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Pareto samaradorlik: taqsimlash usullari",
+   "sub": "1.3. Bozor modeli: optimallashtirish va muvozanat tamoyillari",
+   "head": [
+    "Usul",
+    "Ijaraga berilgan",
+    "Pareto samaradormi?"
+   ],
+   "rows": [
+    [
+     "Raqobatli bozor",
+     "S (barchasi)",
+     "Ha"
+    ],
+    [
+     "Diskriminatsiyalovchi monopolist",
+     "S (barchasi)",
+     "Ha"
+    ],
+    [
+     "Oddiy monopolist",
+     "S dan kam bo‘lishi mumkin",
+     "Yo‘q (bo‘sh kvartiralar)"
+    ],
+    [
+     "Ijara narxini nazorat qilish",
+     "S (barchasi)",
+     "Umuman olganda, yo‘q"
+    ]
+   ],
+   "note": "Pareto samarali: hech kimni yomonlashtirmay birovni yaxshilab bo‘lmaydi. Adolat haqida hech narsa demaydi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 1.2: muvozanat va narx nazorati",
+   "sub": "1.3. Bozor modeli: optimallashtirish va muvozanat tamoyillari",
+   "steps": [
+    "Berilgan: Qd = 120 − 4P, Qs = −30 + 6P (P – ming so‘m, Q – tonna)",
+    "Muvozanat: 120 − 4P = −30 + 6P ⇒ 10P = 150 ⇒ P* = 15 ming so‘m",
+    "Muvozanat miqdori: Q* = 120 − 60 = 60 tonna",
+    "Pmin = 18 bo‘lsa: Qd = 120 − 72 = 48 t, Qs = −30 + 108 = 78 t",
+    "Ortiqcha mahsulot 78 − 48 = 30 t; davlat sotib olsa, xarajat 30·18 = 540 mln so‘m"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Byudjet cheklovi",
+   "sub": "1.4. Byudjet cheklovi",
+   "items": [
+    {
+     "name": "Byudjet cheklovi",
+     "formula": "p₁·x₁ + p₂·x₂ ≤ m",
+     "note": "Byudjet to‘plami – sotib olish mumkin bo‘lgan barcha to‘plamlar"
+    },
+    {
+     "name": "Byudjet chizig‘i",
+     "formula": "x₂ = m/p₂ − (p₁/p₂)·x₁",
+     "note": "Kesishish nuqtalari m/p₂ va m/p₁"
+    },
+    {
+     "name": "Og‘ish",
+     "formula": "Δx₂/Δx₁ = −p₁/p₂",
+     "note": "Nisbiy narx – birinchi tovarning muqobil xarajati"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Byudjet to‘plami va byudjet chizig‘i",
+   "sub": "1.4. Byudjet cheklovi",
+   "img": "image7.png",
+   "caption": "1.7-rasm. Byudjet to‘plami va byudjet chizig‘i"
+  },
+  {
+   "type": "table",
+   "title": "Byudjet chizig‘ining o‘zgarishi",
+   "sub": "1.4. Byudjet cheklovi",
+   "head": [
+    "O‘zgarish",
+    "Og‘ish −p₁/p₂",
+    "Grafikdagi natija"
+   ],
+   "rows": [
+    [
+     "m ortadi (kamayadi)",
+     "o‘zgarmaydi",
+     "Parallel tashqariga (ichkariga) siljish"
+    ],
+    [
+     "p₁ ortadi",
+     "keskinlashadi",
+     "Vertikal kesish atrofida ichkariga burilish"
+    ],
+    [
+     "p₂ ortadi",
+     "yassilashadi",
+     "Gorizontal kesish atrofida ichkariga burilish"
+    ],
+    [
+     "p₁, p₂, m bir xil t marta",
+     "o‘zgarmaydi",
+     "Chiziq o‘zgarmaydi"
+    ],
+    [
+     "Miqdoriy soliq t / subsidiya s",
+     "p₁+t (p₁−s) bo‘yicha",
+     "Keskinlashadi / yassilashadi"
+    ],
+    [
+     "Bir martalik soliq T",
+     "o‘zgarmaydi",
+     "m − T: parallel ichkariga siljish"
+    ]
+   ],
+   "note": "Me’yorlash (x₁ ≤ x̄₁) byudjet to‘plamining bir qismini “kesib tashlaydi”"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 1.3: byudjet chizig‘i",
+   "sub": "1.4. Byudjet cheklovi",
+   "steps": [
+    "m = 1500, p₁ = 10 (internet, GB), p₂ = 25 (oziq-ovqat, kg), ming so‘m",
+    "a) 10x₁ + 25x₂ = 1500; x₁max = 150 GB, x₂max = 60 kg; og‘ish −10/25 = −0,4",
+    "b) Chegirma: p₁′ = 8; x₁max = 1500/8 = 187,5; og‘ish −0,32 – chiziq tashqariga buriladi",
+    "c) Nafaqa 300: m′ = 1800; x₁max = 180, x₂max = 72",
+    "Chegirma chiziqni buradi, pul nafaqasi esa parallel siljitadi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Byudjet cheklovining umumlashmalari",
+   "sub": "1.5. Byudjet cheklovining umumlashmalari",
+   "items": [
+    {
+     "name": "n ta tovar",
+     "formula": "∑ pᵢ·xᵢ ≤ m  (i = 1…n)",
+     "note": "Vektor ko‘rinishida p·x ≤ m"
+    },
+    {
+     "name": "Boshlang‘ich zaxira (ω₁, ω₂)",
+     "formula": "p₁·x₁ + p₂·x₂ = p₁·ω₁ + p₂·ω₂",
+     "note": "Chiziq zaxira nuqtasidan o‘tadi, narx o‘zgarganda shu nuqta atrofida buriladi"
+    },
+    {
+     "name": "Pul va vaqt cheklovi",
+     "formula": "p₁·x₁ + p₂·x₂ ≤ m;  t₁·x₁ + t₂·x₂ ≤ T",
+     "note": "Haqiqiy to‘plam ikki cheklov kesishmasi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 1.4: safarning to‘liq xarajati",
+   "sub": "1.5. Byudjet cheklovining umumlashmalari",
+   "steps": [
+    "To‘liq xarajat = pul xarajati + vaqtning muqobil xarajati",
+    "Vaqt 150 ming so‘m/soat: poyezd 120+3·150 = 570; taksi 400+2·150 = 700",
+    "Avtobus 70 + 4,5·150 = 745 ming so‘m – eng qimmat; poyezd tanlanadi",
+    "Vaqt 300 ming so‘m/soat bo‘lsa: poyezd 1 020, taksi 1 000, avtobus 1 420",
+    "Daromadi yuqorilar vaqtni qimmat baholab, tezroq xizmatni tanlaydi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Mikroiqtisodiy fikr bosqichlari",
+   "sub": "1.6. Mikroiqtisodiy fikrning rivojlanish bosqichlari",
+   "head": [
+    "Bosqich",
+    "Davr",
+    "Vakillar va g‘oya"
+   ],
+   "rows": [
+    [
+     "Klassik",
+     "XVIII a. oxiri – XIX a. o‘rtalari",
+     "A. Smit, Rikardo, Kurno (1838: talab funksiyasi)"
+    ],
+    [
+     "Marjinalistik",
+     "1870-yillar",
+     "Jevons, Menger, Valras: chekli naflilik"
+    ],
+    [
+     "Neoklassik",
+     "1890–1930-yillar",
+     "Marshall, Pareto, Slutskiy (1915)"
+    ],
+    [
+     "Formallashtirish",
+     "1940–1960-yillar",
+     "Samuelson, fon Neyman, Nesh (1950)"
+    ],
+    [
+     "Zamonaviy",
+     "1970-yillardan hozirgacha",
+     "Axborot, shartnomalar, xulq-atvor iqtisodiyoti"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Zamonaviy bosqich va Nobel sovrindorlari",
+   "sub": "1.6. Mikroiqtisodiy fikrning rivojlanish bosqichlari",
+   "bullets": [
+    "Mukammal bozor farazidan voz kechildi: assimetrik axborot (Akerlof, Spens, Stiglits – 2001)",
+    "Shartnomalar nazariyasi (Xart, Xolmstrem – 2016), mexanizm dizayni (2007)",
+    "Xulq-atvor iqtisodiyoti (Kaneman – 2002, Tayler – 2017), umumiy resurslar (Ostrom – 2009)",
+    "Auksionlar nazariyasi (Milgrom, Uilson – 2020), bozor kuchi (Tirol – 2014)",
+    "Varian: yaxshi model sodda va tahlil qilinadigan, ayni vaqtda real hodisani tushuntiradigan bo‘lishi kerak"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Chiziqli talab funksiyasini baholash",
+   "sub": "1.7. Bozorni empirik tahlil qilish: talab funksiyasini baholash",
+   "items": [
+    {
+     "name": "Model",
+     "formula": "Q = a + b·P + ε",
+     "note": "ε – tasodifiy xato; EKKU xato kvadratlari yig‘indisini minimallashtiradi"
+    },
+    {
+     "name": "EKKU koeffitsientlari",
+     "formula": "b̂ = ∑(Pᵢ−P̄)(Qᵢ−Q̄) / ∑(Pᵢ−P̄)²;  â = Q̄ − b̂·P̄",
+     "note": "Olma bozori, 10 hafta (shartli): P̄ = 12,5; Q̄ = 74,6"
+    },
+    {
+     "name": "Natija",
+     "formula": "Q̂ = 122,6 − 3,84·P,  R² ≈ 0,995",
+     "note": "b̂ = −317/82,5 ≈ −3,84: narx 1 ming so‘m oshsa, sotuv 3,84 t kamayadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Elastiklikni hisoblash va identifikatsiya",
+   "sub": "1.7. Bozorni empirik tahlil qilish: talab funksiyasini baholash",
+   "steps": [
+    "O‘rtacha nuqtada: εP = b̂·P̄/Q̄ = −3,84·12,5/74,6 ≈ −0,64",
+    "Talab noelastik: narx 1% oshsa, sotuv 0,64% kamayadi, tushum ortadi",
+    "R² = 0,995 – o‘zgarishning 99,5% narx bilan izohlanadi (real ma’lumotda odatda past)",
+    "Identifikatsiya muammosi: oddiy regressiya muvozanat nuqtalarini baholab qo‘yishi mumkin",
+    "Yechim: instrumental o‘zgaruvchilar kabi ilg‘or usullar"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Talab funksiyasining shakllari",
+   "sub": "1.7. Bozorni empirik tahlil qilish: talab funksiyasini baholash",
+   "head": [
+    "Model",
+    "Tenglama",
+    "Elastiklik"
+   ],
+   "rows": [
+    [
+     "Chiziqli",
+     "Q = a + bP",
+     "b·P/Q, nuqtaga bog‘liq"
+    ],
+    [
+     "Log-log",
+     "lnQ = α + β·lnP",
+     "β, doimiy"
+    ],
+    [
+     "Log-chiziqli",
+     "lnQ = α + β·P",
+     "β·P"
+    ],
+    [
+     "Chiziqli-log",
+     "Q = α + β·lnP",
+     "β/Q"
+    ]
+   ],
+   "note": "Log-log modelda lnQ = α + β·lnP + γ·lnm: β – narx, γ – daromad bo‘yicha elastiklik"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Mikroiqtisodiyot cheklangan resurslarda subyektlar qarorlarini o‘rganadi; tanlov narxi – muqobil xarajat",
+    "Model ikki tamoyilga tayanadi: optimallashtirish va muvozanat; ekzogen va endogen o‘zgaruvchilar farqlanadi",
+    "Raqobatli bozor Pareto samarali; oddiy monopoliya va narx nazorati – umuman olganda, samarasiz",
+    "Byudjet chizig‘ining og‘ishi −p₁/p₂ – nisbiy narx; daromad uni siljitadi, narx buradi",
+    "Talab funksiyasi EKKU bilan baholanadi; log-log modelda koeffitsient elastiklikni beradi"
+   ]
+  }
+ ]
+}

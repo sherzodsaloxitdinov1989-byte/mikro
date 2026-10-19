@@ -1,0 +1,439 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Assimetrik axborot nima?",
+   "sub": "11.1. Axborot iqtisodiyoti: assimetrik axborot tushunchasi",
+   "bullets": [
+    "Mukammal raqobatda hamma sifat va narxlar haqida to‘liq axborotga ega deb faraz qilinadi",
+    "Real bozorda bir tomon ikkinchisidan ko‘proq biladi: sotuvchi, sug‘urtalanuvchi, nomzod, menejer",
+    "Assimetrik axborot – bitim ishtirokchilaridan biri ko‘proq axborotga ega bo‘lgan vaziyat",
+    "Akerlof, Spens va Stiglits 2001-yilda shu nazariya uchun Nobel mukofotini olgan"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Assimetrik axborotning ikki turi",
+   "sub": "11.1. Axborot iqtisodiyoti: assimetrik axborot tushunchasi",
+   "head": [
+    "Belgi",
+    "Yashirin xususiyat",
+    "Yashirin harakat"
+   ],
+   "rows": [
+    [
+     "Nima yashirin?",
+     "Tovar yoki ishtirokchi turi",
+     "Bitimdan keyingi xatti-harakat"
+    ],
+    [
+     "Qachon paydo bo‘ladi?",
+     "Bitim tuzilishidan oldin",
+     "Bitim tuzilgandan keyin"
+    ],
+    [
+     "Asosiy muammo",
+     "Noxush tanlov",
+     "Axloqiy (subyektiv) risk"
+    ],
+    [
+     "Misollar",
+     "Ishlatilgan avtomobil, sug‘urta, kredit",
+     "Sug‘urtalangan mulkka beparvolik, ishdan qochish"
+    ],
+    [
+     "Hal qilish usullari",
+     "Signal berish, skrining, kafolat, obro‘",
+     "Monitoring, rag‘bat shartnomasi, franshiza"
+    ]
+   ],
+   "note": "11.1-jadval"
+  },
+  {
+   "type": "table",
+   "title": "Akerlof modeli: ishlatilgan avtomobillar",
+   "sub": "11.2. “Limonlar bozori”: noxush tanlov",
+   "head": [
+    "Avtomobil turi",
+    "Ulushi",
+    "Sotuvchi uchun (mln)",
+    "Xaridor uchun (mln)"
+   ],
+   "rows": [
+    [
+     "Sifatli (“shaftoli”)",
+     "50%",
+     "80",
+     "100"
+    ],
+    [
+     "Sifatsiz (“limon”)",
+     "50%",
+     "40",
+     "50"
+    ]
+   ],
+   "note": "Xaridor sifatni bilmaydi: to‘laydi 0,5·100 + 0,5·50 = 75 < 80. Sifatlilar chiqib ketadi, faqat “limonlar” 50 dan sotiladi"
+  },
+  {
+   "type": "figure",
+   "title": "“Limonlar bozori”ning yemirilishi",
+   "sub": "11.2. “Limonlar bozori”: noxush tanlov",
+   "img": "image99.png",
+   "caption": "11.1-rasm. “Limonlar bozori”ning bosqichma-bosqich yemirilishi"
+  },
+  {
+   "type": "bullets",
+   "title": "Noxush tanlov boshqa bozorlarda",
+   "sub": "11.2. “Limonlar bozori”: noxush tanlov",
+   "bullets": [
+    "Uzluksiz sifatda: sotuvchi uchun q, xaridor uchun 1,5q; o‘rtacha qiymat 0,75p < p – narx p = 0 gacha tushadi",
+    "Sug‘urta: o‘rtacha mukofot past riskli mijozlarni chiqaradi – “o‘lim spirali”; yechim – majburiy sug‘urta",
+    "Kredit: yuqori stavka ehtiyotkor qarz oluvchilarni chiqaradi – kredit ratsionlash (Stiglits, Vays)",
+    "Mehnat: bir xil ish haqida eng malakali xodimlar ketadi"
+   ],
+   "note": "Noxush tanlov: sifatsiz tovar sifatlisini siqib chiqaradi (Greshem qonuniga o‘xshash)"
+  },
+  {
+   "type": "formula",
+   "title": "Spens modeli: ajratuvchi muvozanat",
+   "sub": "11.3. Signal berish",
+   "items": [
+    {
+     "name": "Qoida",
+     "formula": "y < y* → 200;  y ≥ y* → 400",
+     "note": "Unumdorlik: 400 va 200 mln; xarajat 40 va 80 mln/yil"
+    },
+    {
+     "name": "Past unumdor o‘qimaydi",
+     "formula": "200 > 400 − 80y*  ⇒  y* > 2,5",
+     "note": "Past guruh uchun signal juda qimmat"
+    },
+    {
+     "name": "Yuqori unumdor o‘qiydi",
+     "formula": "400 − 40y* > 200  ⇒  y* < 5",
+     "note": "Ajratuvchi muvozanat: 2,5 < y* < 5"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Signal berish: ajratuvchi muvozanat",
+   "sub": "11.3. Signal berish",
+   "img": "image101.png",
+   "caption": "11.3-rasm. Spensning signal berish modeli: ajratuvchi muvozanat (y*=3,6)"
+  },
+  {
+   "type": "bullets",
+   "title": "Skrining: Rotshild–Stiglits modeli",
+   "sub": "11.4. Skrining va boshqa mexanizmlar",
+   "bullets": [
+    "Signalda axborotli tomon harakat qiladi; skriningda axborotsiz tomon shartnomalar menyusini taklif qiladi",
+    "Sug‘urtachi ikki polis beradi: to‘liq qoplama va yuqori mukofot; katta franshiza va past mukofot",
+    "Yuqori riskli mijoz birinchisini, past riskli mijoz ikkinchisini tanlaydi – o‘z-o‘zini tanlash",
+    "Shart: har bir tur o‘z shartnomasini boshqasidan afzal ko‘rishi (rag‘bat muvofiqligi)",
+    "Davlat: majburiy ishtirok, axborotni oshkor qilish, litsenziyalash, kredit byurolari"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Skrining mexanizmlariga misollar",
+   "sub": "11.4. Skrining va boshqa mexanizmlar",
+   "head": [
+    "Soha",
+    "Axborotsiz tomon",
+    "Skrining vositasi",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "Sug‘urta",
+     "Sug‘urtachi",
+     "Franshizali polislar menyusi",
+     "Risk turlari bo‘yicha tanlash"
+    ],
+    [
+     "Kredit",
+     "Bank",
+     "Garov, turli muddat va stavka",
+     "Ishonchlilar past stavka oladi"
+    ],
+    [
+     "Mehnat",
+     "Ish beruvchi",
+     "Sinov muddati, bonusli ish haqi",
+     "Qobiliyatlilar bonusni tanlaydi"
+    ],
+    [
+     "Aviatashuvlar",
+     "Aviakompaniya",
+     "Arzon va moslashuvchan chiptalar",
+     "Yo‘lovchilar ajraladi"
+    ]
+   ],
+   "note": "11.4-jadval"
+  },
+  {
+   "type": "formula",
+   "title": "Axloqiy risk modeli: do‘kon va yong‘in",
+   "sub": "11.5. Axloqiy risk (subyektiv risk)",
+   "items": [
+    {
+     "name": "Yong‘in ehtimoli",
+     "formula": "π(e) = 0,3·e^(−0,25e)",
+     "note": "Ehtiyotkorlik birligi 25 ming, zarar 1 000 ming so‘m"
+    },
+    {
+     "name": "Sug‘urtasiz optimum",
+     "formula": "min 1000·π(e) + 25e  ⇒  e* = 4·ln3 ≈ 4,4",
+     "note": "Chekli xarajat = zararning chekli kamayishi; π = 0,1"
+    },
+    {
+     "name": "To‘liq sug‘urta",
+     "formula": "e = 0;  π = 0,3;  kutilgan zarar 300 ming",
+     "note": "Ehtiyotkorlikka rag‘bat yo‘q, mukofot oshadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Axloqiy risk va ehtiyotkorlik",
+   "sub": "11.5. Axloqiy risk (subyektiv risk)",
+   "img": "image102.png",
+   "caption": "11.4-rasm. Axloqiy risk: sug‘urta va ehtiyotkorlik darajasi"
+  },
+  {
+   "type": "formula",
+   "title": "Prinsipal–agent: asosiy model",
+   "sub": "11.6. Prinsipal–agent muammosi",
+   "items": [
+    {
+     "name": "Mahsulot va xarajat",
+     "formula": "f(x) = 10x;  c(x) = x²;  ū = 5",
+     "note": "Prinsipal faqat natijani kuzatadi, harakatni emas"
+    },
+    {
+     "name": "Samarali harakat",
+     "formula": "f′(x) = c′(x):  10 = 2x  ⇒  x* = 5",
+     "note": "Ortiqcha: 50 − 25 = 25"
+    },
+    {
+     "name": "Ishtirok sharti",
+     "formula": "s − c(x) ≥ ū",
+     "note": "Agent muqobil imkoniyatdan kam olmasligi kerak"
+    },
+    {
+     "name": "Rag‘bat muvofiqligi",
+     "formula": "Agent uchun x* eng foydali tanlov",
+     "note": "Prinsipal xohlagan harakat tanlanadi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Rag‘batlantiruvchi shartnomalar qiyosi",
+   "sub": "11.6. Prinsipal–agent muammosi",
+   "head": [
+    "Shartnoma",
+    "To‘lov qoidasi",
+    "Harakat",
+    "Prinsipal daromadi"
+   ],
+   "rows": [
+    [
+     "Ijara (renta)",
+     "Agent R = 20 to‘laydi, mahsulot uniki",
+     "5 (samarali)",
+     "20"
+    ],
+    [
+     "Ishbay haq",
+     "s = y − 20",
+     "5 (samarali)",
+     "20"
+    ],
+    [
+     "Qat’iy ish haqi",
+     "s = 5",
+     "0 (samarasiz)",
+     "−5"
+    ],
+    [
+     "Mahsulotni teng bo‘lish",
+     "s = 0,5y",
+     "2,5 (samarasiz)",
+     "12,5"
+    ]
+   ],
+   "note": "Samarali shartnomada agent chekli mahsulotning to‘liq egasi: ds/dx = f′(x)"
+  },
+  {
+   "type": "compare",
+   "title": "Amaliy misol 11.1: yer ijarasi",
+   "sub": "11.6. Prinsipal–agent muammosi",
+   "left": {
+    "head": "(a) Qat’iy ijara R",
+    "items": [
+     "Ijarachi 10x − x² − R ni maksimallashtiradi: x = 5",
+     "Ishtirok sharti: 25 − R ≥ 5, R = 20",
+     "Yer egasi 20 mln oladi"
+    ]
+   },
+   "right": {
+    "head": "(b) Hosilni teng bo‘lish",
+    "items": [
+     "Ijarachi 5x − x² ni maksimallashtiradi: x = 2,5",
+     "Ijarachi daromadi 6,25 ≥ 5",
+     "Yer egasi 0,5·25 = 12,5 mln oladi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Samaradorlik ish haqi",
+   "sub": "11.6. Prinsipal–agent muammosi",
+   "img": "image104.png",
+   "caption": "11.6-rasm. Shapiro–Stiglits samaradorlik ish haqi modeli"
+  },
+  {
+   "type": "bullets",
+   "title": "Mexanizm dizayni",
+   "sub": "11.7. Mexanizm dizayni",
+   "bullets": [
+    "Teskari savol: ishtirokchilar shaxsiy axborotga ega bo‘lsa, kerakli natija uchun qanday qoidalar loyihalanadi?",
+    "Gurvich, Maskin va Mayerson 2007-yilda Nobel mukofotini olgan",
+    "Oshkor qilish tamoyili: natijaga ishtirokchilar haqqoniy axborot beradigan mexanizm orqali ham erishiladi",
+    "Misollar: Vikri auksioni, Klark–Groves mexanizmi (rag‘bat muvofiq)",
+    "Amaliyot: chastota auksionlari, davlat xaridlari, elektr bozorlari, qabul algoritmlari"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Axborot muammolari va yechimlari",
+   "sub": "11.7. Mexanizm dizayni",
+   "head": [
+    "Muammo",
+    "Bozor yechimi",
+    "Davlat/institut yechimi"
+   ],
+   "rows": [
+    [
+     "Noxush tanlov (tovar sifati)",
+     "Kafolat, brend, reyting",
+     "Sifat standartlari, “limon qonunlari”"
+    ],
+    [
+     "Noxush tanlov (sug‘urta)",
+     "Franshizali polislar menyusi",
+     "Majburiy sug‘urta"
+    ],
+    [
+     "Noxush tanlov (kredit)",
+     "Garov, kredit skoring",
+     "Kredit byurolari, kafolat fondlari"
+    ],
+    [
+     "Axloqiy risk (sug‘urta)",
+     "Franshiza, bonus-malus",
+     "Xavfsizlik talablari"
+    ],
+    [
+     "Prinsipal–agent",
+     "Rag‘batlantiruvchi shartnomalar",
+     "Korporativ boshqaruv qoidalari"
+    ]
+   ],
+   "note": "11.7-jadval"
+  },
+  {
+   "type": "table",
+   "title": "Raqamli texnologiyalar va axborot",
+   "sub": "11.8. Raqamli davrda axborot iqtisodiyoti",
+   "head": [
+    "Muammo",
+    "Raqamli yechim",
+    "Yangi xavflar"
+   ],
+   "rows": [
+    [
+     "Tovar sifati noaniqligi",
+     "Reyting, sharhlar, VIN-tarix",
+     "Soxta sharhlar, reyting inflatsiyasi"
+    ],
+    [
+     "Qarz oluvchi ishonchliligi",
+     "Kredit skoring, muqobil ma’lumot",
+     "Algoritmik kamsitish"
+    ],
+    [
+     "Kuzatilmaydigan harakat",
+     "Telematika, GPS, monitoring",
+     "Shaxsiy hayot daxlsizligi"
+    ],
+    [
+     "Iste’molchi afzalliklari",
+     "Shaxsiylashtirilgan takliflar",
+     "Narx diskriminatsiyasi, manipulyatsiya"
+    ]
+   ],
+   "note": "11.8-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Axborotning yangi assimetriyasi",
+   "sub": "11.8. Raqamli davrda axborot iqtisodiyoti",
+   "bullets": [
+    "Reytinglar obro‘ mexanizmining raqamli ko‘rinishi; “limonlar” muammosini yumshatadi",
+    "Muqobil ma’lumotlar (mobil, kommunal to‘lovlar) kredit tarixsizlarni moliyaga jalb qiladi",
+    "Telematika yashirin harakatni kuzatadi: ehtiyotkor haydovchi past mukofot to‘laydi",
+    "Endi firma iste’molchi haqida uning o‘zidan ko‘proq biladi: shaxsiy narxlar, “qorong‘i naqshlar”",
+    "Iste’molchini himoya qilish va ma’lumotlarni tartibga solish ahamiyati ortadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "1-masala: avtomobillar bozori",
+   "sub": "11.9. Yechib ko‘rsatilgan masalalar",
+   "bullets": [
+    "60% sifatli (sotuvchi 90, xaridor 110) va 40% sifatsiz (40 va 60); xaridorlar riskka neytral",
+    "Hamma sotilsa: 0,6·110 + 0,4·60 = 90 mln – sifatli egalar (90) befarq, barchasi sotiladi",
+    "Sifatlilar ulushi 50% bo‘lsa: 0,5·110 + 0,5·60 = 85 < 90",
+    "Sifatlilar chiqadi, faqat sifatsizlar 60 dan sotiladi – bozor yemiriladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "2- va 3-masalalar",
+   "sub": "11.9. Yechib ko‘rsatilgan masalalar",
+   "items": [
+    {
+     "name": "2-masala (Spens)",
+     "formula": "Past: 100 > 300 − 50y* ⇒ y* > 4",
+     "note": "Yuqori: 300 − 25y* > 100 ⇒ y* < 8; demak 4 < y* < 8"
+    },
+    {
+     "name": "3-masala: samarali x",
+     "formula": "f = 20x, c = 2x²:  20 = 4x ⇒ x* = 5",
+     "note": "Ortiqcha 100 − 50 = 50; ijara R = 50 − 10 = 40"
+    },
+    {
+     "name": "3-masala: 40% ulush",
+     "formula": "0,4·20x − 2x²:  8 = 4x ⇒ x = 2",
+     "note": "Mahsulot 40 (samarali holatda 100)"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "11.9. Yechib ko‘rsatilgan masalalar",
+   "bullets": [
+    "Yashirin xususiyat noxush tanlovga, yashirin harakat axloqiy riskka olib keladi",
+    "“Limonlar bozori”da sifatsiz tovar sifatlisini siqib chiqaradi; bozor yemirilishi mumkin",
+    "Signal berish va skrining axborot assimetriyasini kamaytiradi; signal xarajati turlar uchun turlicha bo‘lishi shart",
+    "Axloqiy riskda sug‘urta va rag‘bat ziddiyati bor; franshiza va monitoring uni yumshatadi",
+    "Samarali shartnomada agent chekli mahsulotga ega; samaradorlik ish haqi ishdan qochishni to‘xtatadi"
+   ]
+  }
+ ]
+}

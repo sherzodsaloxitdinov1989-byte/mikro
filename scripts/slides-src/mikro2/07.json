@@ -1,0 +1,415 @@
+{
+ "slides": [
+  {
+   "type": "formula",
+   "title": "Bozor talabi: gorizontal qo‘shish",
+   "sub": "7.1. Individual talabdan bozor talabiga",
+   "items": [
+    {
+     "name": "Bozor talabi",
+     "formula": "X₁ = ∑ x₁ⁱ(p₁, p₂, mᵢ)",
+     "note": "n ta iste’molchining talabi yig‘iladi; grafikda har bir narxda miqdorlar qo‘shiladi"
+    },
+    {
+     "name": "Amaliy misol 7.1",
+     "formula": "x₁ = 5 − 0,5p;  x₂ = 6 − p",
+     "note": "p ≥ 6: X = 5 − 0,5p;  p < 6: X = 11 − 1,5p (p = 6 da talab chizig‘i sinadi)"
+    },
+    {
+     "name": "Diqqat",
+     "formula": "miqdorlar qo‘shiladi, narxlar emas",
+     "note": "Teskari talab funksiyalarini qo‘shish noto‘g‘ri"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Bozor talabining xususiyatlari",
+   "sub": "7.1. Individual talabdan bozor talabiga",
+   "bullets": [
+    "Iste’molchilar ko‘p bo‘lganda bozor talabi silliq va manfiy og‘ishli bo‘ladi",
+    "Intensiv chegara: tovarni sotib olayotganlar narx pasayganda ko‘proq sotib oladi",
+    "Ekstensiv chegara: narx rezervatsion narxdan tushgach, yangi iste’molchilar bozorga kiradi",
+    "Vakil iste’molchi: afzal ko‘rishlar gomotetik bo‘lsa (Gorman sharti), talab faqat umumiy daromadga bog‘liq",
+    "Tarmoq tushumi R = pX(p): elastik sohada narx pasayishi bilan ortadi, noelastik sohada kamayadi"
+   ],
+   "note": "Ko‘p bozorlarda (avtomobil, muzlatgich) asosiy o‘zgarish ekstensiv chegarada yuz beradi"
+  },
+  {
+   "type": "table",
+   "title": "Qiyosiy statika: muvozanatga ta’sir",
+   "sub": "7.2. Bozor muvozanati",
+   "head": [
+    "Hodisa",
+    "Siljish",
+    "Narx",
+    "Miqdor"
+   ],
+   "rows": [
+    [
+     "Daromad oshdi (normal tovar)",
+     "D o‘ngga",
+     "↑",
+     "↑"
+    ],
+    [
+     "Resurs narxi oshdi",
+     "S chapga",
+     "↑",
+     "↓"
+    ],
+    [
+     "Yangi texnologiya",
+     "S o‘ngga",
+     "↓",
+     "↑"
+    ],
+    [
+     "Talab va taklif bir vaqtda o‘sdi",
+     "ikkalasi o‘ngga",
+     "?",
+     "↑"
+    ],
+    [
+     "Talab o‘sdi, taklif qisqardi",
+     "D o‘ngga, S chapga",
+     "↑",
+     "?"
+    ]
+   ],
+   "note": "Muvozanat narxi D(p*) = S(p*) tenglamasidan topiladi; “?” uchun siljishlar kattaligi kerak"
+  },
+  {
+   "type": "figure",
+   "title": "O‘rgimchak to‘ri modeli",
+   "sub": "7.2. Bozor muvozanati",
+   "img": "image63.png",
+   "caption": "7.2-rasm. O‘rgimchak to‘ri modeli: barqaror va beqaror holatlar"
+  },
+  {
+   "type": "bullets",
+   "title": "Ishlab chiqarish funksiyasi va qisqa muddat",
+   "sub": "7.3. Texnologiya va ishlab chiqarish funksiyasi",
+   "bullets": [
+    "Ishlab chiqarish funksiyasi: omillar kombinatsiyasidan olinadigan maksimal mahsulot Q = f(K, L)",
+    "Qisqa muddat: kamida bitta omil (odatda kapital) o‘zgarmas; uzoq muddatda barcha omillar o‘zgaradi",
+    "TPL = f(K̄, L);  APL = TPL/L;  MPL = ΔTPL/ΔL = ∂f/∂L",
+    "Kamayish qonuni: 3-ishchidan keyin MPL kamayadi (tikuvchilik sexi: 19 → 15 → 10 → 6 → 2)",
+    "MPL > APL bo‘lsa APL o‘sadi; MPL = 0 da TP maksimal; ratsional firma II bosqichda ishlaydi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Umumiy, o‘rtacha va chekli mahsulot",
+   "sub": "7.3. Texnologiya va ishlab chiqarish funksiyasi",
+   "img": "image64.png",
+   "caption": "7.3-rasm. Umumiy, o‘rtacha va chekli mahsulot; ishlab chiqarish bosqichlari"
+  },
+  {
+   "type": "formula",
+   "title": "Izokvanta, MRTS va masshtab samarasi",
+   "sub": "7.3. Texnologiya va ishlab chiqarish funksiyasi",
+   "items": [
+    {
+     "name": "MRTS",
+     "formula": "MRTS = −ΔK/ΔL = MPL / MPK",
+     "note": "Izokvanta og‘ishi; qavariq texnologiyada MRTS kamayib boradi"
+    },
+    {
+     "name": "Kobb–Duglas",
+     "formula": "Q = A·Kᵅ·Lᵝ",
+     "note": "α + β = 1 o‘zgarmas, > 1 o‘suvchi, < 1 kamayuvchi masshtab samarasi"
+    },
+    {
+     "name": "Amaliy misol 7.2 (K = 16, L = 25)",
+     "formula": "Q = 10·K⁰˙⁵·L⁰˙⁵ = 200",
+     "note": "MPL = 4; MPK = 6,25; MRTS = 0,64; 0,5 + 0,5 = 1 — o‘zgarmas masshtab samarasi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Izokosta va optimal omillar kombinatsiyasi",
+   "sub": "7.4. Xarajatlarni minimallashtirish",
+   "items": [
+    {
+     "name": "Izokosta",
+     "formula": "C = wL + rK;  K = C/r − (w/r)·L",
+     "note": "Og‘ishi −w/r — omillarning nisbiy narxi"
+    },
+    {
+     "name": "Optimum sharti",
+     "formula": "MRTS = MPL/MPK = w/r  ⇔  MPL/w = MPK/r",
+     "note": "Oxirgi so‘mdan olinadigan qo‘shimcha mahsulot omillar bo‘yicha teng"
+    },
+    {
+     "name": "Amaliy misol 7.3 (w = 40, r = 10)",
+     "formula": "K = 4L;  L* = Q/20;  K* = Q/5",
+     "note": "Q = 10√K·√L = 20L bo‘lgani uchun C(Q) = 2Q + 2Q = 4Q (ming so‘m)"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Xarajatlarni minimallashtiruvchi kombinatsiya",
+   "sub": "7.4. Xarajatlarni minimallashtirish",
+   "img": "image66.png",
+   "caption": "7.5-rasm. Xarajatlarni minimallashtiruvchi omillar kombinatsiyasi"
+  },
+  {
+   "type": "table",
+   "title": "Xarajatlarning tasnifi",
+   "sub": "7.5. Xarajatlar turlari",
+   "head": [
+    "Xarajat turi",
+    "Ta’rifi",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Doimiy (FC)",
+     "Hajmga bog‘liq emas (qisqa muddatda)",
+     "Bino ijarasi, qo‘riqlash"
+    ],
+    [
+     "O‘zgaruvchan (VC)",
+     "Hajm bilan o‘zgaradi",
+     "Xomashyo, elektr energiyasi"
+    ],
+    [
+     "Kvazidoimiy",
+     "Hajmga bog‘liq emas, Q = 0 da yo‘q",
+     "Isitish, uskunani ishga tushirish"
+    ],
+    [
+     "Qaytmaydigan (sunk)",
+     "Qilingan, qaytarib bo‘lmaydi",
+     "Maxsus uskuna, reklama"
+    ]
+   ],
+   "note": "Iqtisodiy foyda = tushum − aniq xarajatlar − yashirin xarajatlar; qaytmaydigan xarajat qarorda hisobga olinmaydi"
+  },
+  {
+   "type": "formula",
+   "title": "Qisqa muddatli xarajat egri chiziqlari",
+   "sub": "7.5. Xarajatlar turlari",
+   "items": [
+    {
+     "name": "Xarajatlar",
+     "formula": "TC = FC + VC;  ATC = AFC + AVC",
+     "note": "MC = ΔTC/ΔQ = dVC/dQ; MC chizig‘i U shaklida, AVC va ATC ni minimumida kesadi"
+    },
+    {
+     "name": "Mehnat orqali",
+     "formula": "MC = w/MPL;  AVC = w/APL",
+     "note": "MPL o‘sganda MC kamayadi, MPL kamayganda MC o‘sadi"
+    },
+    {
+     "name": "Amaliy misol 7.4 (K = 16)",
+     "formula": "SRTC = 160 + Q²/40",
+     "note": "SAC = 160/Q + Q/40; Q = 80 da SACmin = 4 = LAC; Q = 120 da SAC = 4,33 > 4"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Firmaning maqsadi: MR = MC",
+   "sub": "7.6. Foydani maksimallashtirish",
+   "bullets": [
+    "Neoklassik faraz: firma iqtisodiy foydani maksimallashtiradi, π(Q) = TR(Q) − TC(Q)",
+    "Birinchi tartibli shart: dπ/dQ = MR − MC = 0, ya’ni MR = MC",
+    "Ikkinchi tartibli shart: MC chizig‘i MR ni pastdan yuqoriga kesadi (MC′ > MR′)",
+    "MR > MC bo‘lsa hajmni oshirish, MR < MC bo‘lsa kamaytirish kerak",
+    "Raqobatli firma uchun MR = p; monopolist uchun MR = p(1 − 1/|ε|) < p"
+   ],
+   "note": "Tabiiy tanlanish argumenti: foydani maksimallashtirmaydigan firmalar bozordan siqib chiqariladi"
+  },
+  {
+   "type": "formula",
+   "title": "Omillar talabi nuqtai nazaridan",
+   "sub": "7.6. Foydani maksimallashtirish",
+   "items": [
+    {
+     "name": "Chekli mahsulot qiymati",
+     "formula": "VMPL = p·MPL",
+     "note": "Qo‘shimcha ishchining qo‘shimcha tushumi; mehnatga talab chizig‘i"
+    },
+    {
+     "name": "Optimal yollash",
+     "formula": "p·MPL = w;  p·MPK = r",
+     "note": "Ish haqi oshsa, ishchilar kamayadi; mahsulot narxi oshsa — ko‘payadi"
+    },
+    {
+     "name": "WAPM xulosasi",
+     "formula": "p ↑  ⇒  taklif kamaymaydi",
+     "note": "Omil narxi oshsa, unga talab ortmaydi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Qisqa muddatda ishlab chiqarish qarori",
+   "sub": "7.7. Raqobatli firmaning taklifi",
+   "bullets": [
+    "Mukammal raqobat: ko‘p sotuvchi, bir jinsli mahsulot, erkin kirish-chiqish, to‘liq axborot",
+    "Firma narx qabul qiluvchi: talab gorizontal, MR = AR = p; optimum sharti p = MC",
+    "Ishlab chiqarish faqat p ≥ AVC bo‘lganda maqsadga muvofiq (to‘xtatsa ham zarar −FC)",
+    "To‘xtatish nuqtasi: p = min AVC; zararsizlik nuqtasi: p = min ATC (foyda nol)",
+    "Taklif chizig‘i — MC ning min AVC dan yuqoridagi qismi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Amaliy misol 7.5: raqobatli firma foydasi",
+   "sub": "7.7. Raqobatli firmaning taklifi",
+   "head": [
+    "Narx p",
+    "Optimal Q*",
+    "Foyda π (mln so‘m)",
+    "Qaror"
+   ],
+   "rows": [
+    [
+     "32",
+     "≈ 11,71",
+     "170,7",
+     "Ishlab chiqarish"
+    ],
+    [
+     "25",
+     "≈ 10,77",
+     "≈ 92,0",
+     "Ishlab chiqarish"
+    ],
+    [
+     "13",
+     "≈ 8,65",
+     "−25,5",
+     "Zarar < FC = 60: davom ettirish"
+    ]
+   ],
+   "note": "MC = 20 − 6Q + 0,6Q² = p;  min AVC = 8,75 (Q = 7,5): p < 8,75 da to‘xtatish; zararsizlik narxi ≈ 15,85"
+  },
+  {
+   "type": "bullets",
+   "title": "Tarmoq taklifi va uzoq muddatli muvozanat",
+   "sub": "7.8. Tarmoq taklifi va uzoq muddatli muvozanat",
+   "bullets": [
+    "Qisqa muddatda tarmoq taklifi n ta firma taklif chiziqlarining gorizontal yig‘indisi",
+    "Foyda bo‘lsa firmalar kiradi, narx tushadi; zarar bo‘lsa chiqadi, narx oshadi — foyda nolga teng bo‘lguncha",
+    "Uzoq muddatli muvozanat: p = LMC = min LAC, iqtisodiy foyda nol",
+    "Talab ortganda narx min LAC ga qaytadi; tarmoq hajmi va firmalar soni ortadi",
+    "Uzoq muddatli taklif (LS): doimiy xarajatli — gorizontal, o‘suvchi — musbat, kamayuvchi — manfiy og‘ishli"
+   ],
+   "note": "Iqtisodiy renta: noyob resurs egasiga muqobil qiymatdan ortiq to‘lov (Rikardo)"
+  },
+  {
+   "type": "formula",
+   "title": "Amaliy misol 7.6: uzoq muddatli muvozanat",
+   "sub": "7.8. Tarmoq taklifi va uzoq muddatli muvozanat",
+   "items": [
+    {
+     "name": "Firma darajasi (LTC = q³ − 10q² + 40q)",
+     "formula": "LAC = q² − 10q + 40;  q* = 5",
+     "note": "LACmin = 15; tekshirish: LMC = 75 − 100 + 40 = 15"
+    },
+    {
+     "name": "Talab Q = 1000 − 20P",
+     "formula": "P* = 15;  Q = 700;  n = 140",
+     "note": "Firmalar soni n = 700/5"
+    },
+    {
+     "name": "Talab Q = 1300 − 20P",
+     "formula": "P = 15;  Q = 1000;  n = 200",
+     "note": "Talab o‘sishi narxni emas, firmalar sonini oshiradi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Chiziqli dasturlash: yem aralashmasi",
+   "sub": "7.9. Xarajatlarni minimallashtirishning amaliy masalasi: chiziqli dasturlash",
+   "bullets": [
+    "Real texnologiya ko‘pincha qat’iy nisbatli (Leontyev) jarayonlar to‘plami; masala chiziqli dasturlash bilan yechiladi",
+    "Usulni L. Kantorovich (1939) va T. Kupmans ishlab chiqqan, ikkalasi 1975-yilda Nobel olgan",
+    "Makkajo‘xori: 0,1 kg oqsil, 3 ming kkal, narxi 3; kunjara: 0,4 kg oqsil, 2 ming kkal, narxi 6",
+    "Me’yor: kamida 1,2 kg oqsil va 24 ming kkal energiya",
+    "Masala: min C = 3x + 6y;  0,1x + 0,4y ≥ 1,2;  3x + 2y ≥ 24;  x, y ≥ 0"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Burchak nuqtalari va soya narxlar",
+   "sub": "7.9. Xarajatlarni minimallashtirishning amaliy masalasi: chiziqli dasturlash",
+   "head": [
+    "Nuqta (x; y)",
+    "Xarajat C (ming so‘m)",
+    "Izoh"
+   ],
+   "rows": [
+    [
+     "(0; 12)",
+     "72",
+     "x = 0 da"
+    ],
+    [
+     "(12; 0)",
+     "36",
+     "y = 0 da"
+    ],
+    [
+     "(7,2; 1,2)",
+     "28,8",
+     "Optimum: ikkala cheklov bog‘lovchi"
+    ]
+   ],
+   "note": "Soya narxlar: oqsil u = 12, energiya v = 0,6; tekshirish: 1,2·12 + 24·0,6 = 28,8. Oqsil +0,1 kg → xarajat +1,2"
+  },
+  {
+   "type": "formula",
+   "title": "Masalalar: xarajatlar va omillar",
+   "sub": "7.10. Yechib ko‘rsatilgan masalalar",
+   "items": [
+    {
+     "name": "1-masala: TC = 100 + 10Q + Q², p = 50",
+     "formula": "MC = 10 + 2Q;  Q* = 20;  π = 300",
+     "note": "To‘xtatish narxi 10; ATC min: Q = 10, zararsizlik narxi 30"
+    },
+    {
+     "name": "2-masala: Q = K⁰˙²⁵·L⁰˙⁷⁵, w = 30, r = 10",
+     "formula": "MRTS = 3K/L = w/r = 3  ⇒  K = L = 100",
+     "note": "Q = 100 uchun xarajat C = 30·100 + 10·100 = 4 000"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Masalalar: tarmoq va mehnat talabi",
+   "sub": "7.10. Yechib ko‘rsatilgan masalalar",
+   "items": [
+    {
+     "name": "3-masala: 100 firma, q = P/2 − 5, Q = 2000 − 50P",
+     "formula": "QS = 50P − 500;  P* = 25;  Q* = 750",
+     "note": "Har bir firma q = 7,5 ishlab chiqaradi"
+    },
+    {
+     "name": "4-masala: p = 5, Q = 60L − L², w = 150",
+     "formula": "p·MPL = 5(60 − 2L) = 150  ⇒  L* = 15",
+     "note": "VMPL = w tengligidan 15 ishchi yollanadi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Bozor talabi individual talablarning gorizontal yig‘indisi; muvozanat D(p) = S(p) dan topiladi",
+    "Qisqa muddatda chekli mahsuldorlik kamayadi; xarajatlar minimal bo‘lganda MRTS = w/r",
+    "Qaytmaydigan xarajatlar qarorda hisobga olinmaydi; MC chizig‘i AVC va ATC ni minimumida kesadi",
+    "Foyda MR = MC da maksimal; raqobatli firma taklifi — MC ning min AVC dan yuqori qismi",
+    "Uzoq muddatli muvozanatda p = LMC = min LAC, iqtisodiy foyda nolga teng"
+   ]
+  }
+ ]
+}

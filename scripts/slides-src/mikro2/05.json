@@ -19,7 +19,7 @@
    "items": [
     {
      "name": "Aktivning daromadliligi",
-     "formula": "r_A = (D + p₁ − p₀) / p₀",
+     "formula": "rA = (D + p₁ − p₀) / p₀",
      "note": "D – joriy daromad, p₀ – bugungi, p₁ – kutilayotgan narx"
     },
     {
@@ -42,7 +42,7 @@
     "Uy-joy: tejalgan (yashirin) ijara joriy daromad hisoblanadi: (T + Δp) / p = r",
     "Misol: narx 800 mln, ijara 48 mln, o‘sish 8% (64 mln): (48+64)/800 = 14%",
     "Depozit 18% bersa, uy sotib olish ijaraga yashashdan kam foydali",
-    "Soliq: arbitraj soliqdan keyingi daromadlilikka tegishli, r_obl = (1 − t)·r_dep",
+    "Soliq: arbitraj soliqdan keyingi daromadlilikka tegishli, robl = (1 − t)·rdep",
     "Pufak: narx qayta sotish umidida o‘sadi (lola maniyasi 1637, dot-com 2000)"
    ]
   },
@@ -53,7 +53,7 @@
    "items": [
     {
      "name": "Hotelling qoidasi",
-     "formula": "p_{t+1} = (1 + r)·p_t",
+     "formula": "pₜ₊₁ = (1 + r)·pₜ",
      "note": "tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi"
     },
     {
@@ -75,12 +75,12 @@
    "items": [
     {
      "name": "Sug‘urtasiz holat (Bobur)",
-     "formula": "C_g = 35,  C_b = 25",
+     "formula": "Cg = 35,  Cb = 25",
      "note": "boylik 35 mln, o‘g‘irlanish ehtimoli 1%, zarar 10 mln"
     },
     {
      "name": "Sug‘urta bilan",
-     "formula": "C_g = 35 − γK,  C_b = 25 + K − γK",
+     "formula": "Cg = 35 − γK,  Cb = 25 + K − γK",
      "note": "K – qoplama, γ – mukofot stavkasi"
     },
     {
@@ -155,12 +155,12 @@
     },
     {
      "name": "Absolyut riskdan qochish (Errou–Pratt)",
-     "formula": "r_A(w) = −u″(w) / u′(w)",
-     "note": "nisbiy: r_R(w) = −w·u″(w) / u′(w)"
+     "formula": "rA(w) = −u″(w) / u′(w)",
+     "note": "nisbiy: rR(w) = −w·u″(w) / u′(w)"
     },
     {
      "name": "Risk mukofoti (kichik risklar)",
-     "formula": "RP ≈ ½·r_A·σ²",
+     "formula": "RP ≈ ½·rA·σ²",
      "note": "riskdan qochish darajasi va dispersiyaga proporsional"
     }
    ]
@@ -172,17 +172,17 @@
    "items": [
     {
      "name": "Optimum sharti",
-     "formula": "π·u′(C_b) / ((1 − π)·u′(C_g)) = γ / (1 − γ)",
+     "formula": "π·u′(Cb) / ((1 − π)·u′(Cg)) = γ / (1 − γ)",
      "note": "befarqlik chizig‘i og‘ishi byudjet og‘ishiga teng"
     },
     {
      "name": "Adolatli sug‘urta",
-     "formula": "γ = π  ⇒  C_b = C_g",
+     "formula": "γ = π  ⇒  Cb = Cg",
      "note": "riskdan qochuvchi to‘liq sug‘urta qiladi"
     },
     {
      "name": "Teng ulushli portfel riski",
-     "formula": "σ_p² = σ²/n + (1 − 1/n)·ρσ²",
+     "formula": "σp² = σ²/n + (1 − 1/n)·ρσ²",
      "note": "o‘ziga xos risk yo‘qoladi, sistematik risk qoladi"
     }
    ]
@@ -207,22 +207,22 @@
    "items": [
     {
      "name": "Portfel daromadi va riski",
-     "formula": "r_x = x·r_m + (1 − x)·r_f,  σ_x = x·σ_m",
+     "formula": "rx = x·rm + (1 − x)·rf,  σx = x·σm",
      "note": "x – riskli aktivga qo‘yilgan ulush"
     },
     {
      "name": "Byudjet chizig‘i",
-     "formula": "r_x = r_f + [(r_m − r_f)/σ_m]·σ_x",
+     "formula": "rx = rf + [(rm − rf)/σm]·σx",
      "note": "og‘ish – riskning narxi (Sharp nisbati)"
     },
     {
      "name": "Beta koeffitsienti",
-     "formula": "β_i = cov(r_i, r_m) / σ_m²",
+     "formula": "βi = cov(ri, rm) / σm²",
      "note": "sistematik riskning o‘lchovi"
     },
     {
      "name": "CAPM (SML)",
-     "formula": "r_i = r_f + β_i·(r_m − r_f)",
+     "formula": "ri = rf + βi·(rm − rf)",
      "note": "daromadlilik faqat sistematik riskka bog‘liq"
     }
    ]
@@ -239,7 +239,7 @@
    "title": "Amaliy misol 5.3: CAPM",
    "sub": "5.5. Riskli aktivlar bozori",
    "steps": [
-    "Berilgan: r_f = 10%, r_m = 18%, bozor mukofoti 8%",
+    "Berilgan: rf = 10%, rm = 18%, bozor mukofoti 8%",
     "Sement (β = 1,5): 10 + 1,5·8 = 22%",
     "Oziq-ovqat (β = 0,6): 10 + 0,6·8 = 14,8%",
     "Kutilayotgan daromad 17% > 14,8% – aksiya SML dan yuqorida",
@@ -336,7 +336,7 @@
     "3-masala: u = ln w, w = 100, o‘yin ±36 (ehtimol 50%)",
     "EU = 0,5·ln 136 + 0,5·ln 64 = 4,5358; CE = e^4,5358 = 93,30",
     "RP = 100 − 93,30 = 6,70; taxminiy: 0,5·0,01·1296 = 6,48",
-    "4-masala: U = μ − 2σ², r_f = 0,08, r_m = 0,16, σ_m = 0,2",
+    "4-masala: U = μ − 2σ², rf = 0,08, rm = 0,16, σm = 0,2",
     "U = 0,08 + 0,08x − 0,08x²; dU/dx = 0 ⇒ x* = 0,5 (daromad 12%, risk 10%)"
    ]
   },
@@ -349,7 +349,7 @@
     "Hotelling qoidasiga ko‘ra tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi",
     "Noaniqlikda tanlov EU = ∑ πᵢu(wᵢ) bilan tahlil qilinadi; botiq naflilik – riskdan qochish",
     "Adolatli sug‘urtada riskdan qochuvchi to‘liq sug‘urta qiladi; diversifikatsiya o‘ziga xos riskni yo‘qotadi",
-    "CAPM: r_i = r_f + β_i(r_m − r_f); istiqbol nazariyasi yo‘qotishdan qochishni tushuntiradi"
+    "CAPM: ri = rf + βi(rm − rf); istiqbol nazariyasi yo‘qotishdan qochishni tushuntiradi"
    ]
   }
  ]
