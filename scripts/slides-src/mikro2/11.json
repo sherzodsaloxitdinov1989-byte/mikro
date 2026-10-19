@@ -83,6 +83,28 @@
    "caption": "11.1-rasm. “Limonlar bozori”ning bosqichma-bosqich yemirilishi"
   },
   {
+   "type": "formula",
+   "title": "Limonlar bozori: hisob-kitob",
+   "sub": "11.2. “Limonlar bozori”: noxush tanlov",
+   "items": [
+    {
+     "name": "Xaridorning kutilgan qiymati",
+     "formula": "0,5·100 + 0,5·50 = 75 < 80",
+     "note": "75 mln sifatli egalar uchun (80) kam: ular bozordan chiqadi"
+    },
+    {
+     "name": "Uzluksiz sifat: o‘rtacha sifat",
+     "formula": "q ≤ p  ⇒  q̄ = (p)/(2)",
+     "note": "q ∈ [0; 1] tekis taqsimlangan; faqat q ≤ p sotuvga chiqadi"
+    },
+    {
+     "name": "Xaridorning to‘lovi",
+     "formula": "1,5·(p)/(2) = 0,75p < p",
+     "note": "Narx tushadi, jarayon p = 0 gacha davom etadi – bozor yemiriladi"
+    }
+   ]
+  },
+  {
    "type": "bullets",
    "title": "Noxush tanlov boshqa bozorlarda",
    "sub": "11.2. “Limonlar bozori”: noxush tanlov",
@@ -101,18 +123,23 @@
    "items": [
     {
      "name": "Qoida",
-     "formula": "y < y* → 200;  y ≥ y* → 400",
+     "formula": "y < y^{*} → 200;  y ≥ y^{*} → 400",
      "note": "Unumdorlik: 400 va 200 mln; xarajat 40 va 80 mln/yil"
     },
     {
      "name": "Past unumdor o‘qimaydi",
-     "formula": "200 > 400 − 80y*  ⇒  y* > 2,5",
+     "formula": "200 > 400 − 80y^{*}  ⇒  y^{*} > 2,5",
      "note": "Past guruh uchun signal juda qimmat"
     },
     {
      "name": "Yuqori unumdor o‘qiydi",
-     "formula": "400 − 40y* > 200  ⇒  y* < 5",
-     "note": "Ajratuvchi muvozanat: 2,5 < y* < 5"
+     "formula": "400 − 40y^{*} > 200  ⇒  y^{*} < 5",
+     "note": "Ajratuvchi muvozanat: 2,5 < y^{*} < 5"
+    },
+    {
+     "name": "Ajratuvchi muvozanat",
+     "formula": "2,5 < y^{*} < 5",
+     "note": "Yuqori unumdorlar o‘qiydi, past unumdorlar y = 0 ni tanlaydi"
     }
    ]
   },
@@ -180,13 +207,18 @@
    "items": [
     {
      "name": "Yong‘in ehtimoli",
-     "formula": "π(e) = 0,3·e^(−0,25e)",
+     "formula": "π(e) = 0,3·e^{−0,25e}",
      "note": "Ehtiyotkorlik birligi 25 ming, zarar 1 000 ming so‘m"
     },
     {
-     "name": "Sug‘urtasiz optimum",
-     "formula": "min 1000·π(e) + 25e  ⇒  e* = 4·ln3 ≈ 4,4",
-     "note": "Chekli xarajat = zararning chekli kamayishi; π = 0,1"
+     "name": "Sug‘urtasiz ega: maqsad",
+     "formula": "min_{e} [1000·π(e) + 25e]",
+     "note": "Chekli xarajat = zararning chekli kamayishi"
+    },
+    {
+     "name": "Birinchi tartibli shart",
+     "formula": "75e^{−0,25e} = 25  ⇒  e^{*} = 4ln3 ≈ 4,4",
+     "note": "Bunda π(e^{*}) = 0,1"
     },
     {
      "name": "To‘liq sug‘urta",
@@ -209,12 +241,12 @@
    "items": [
     {
      "name": "Mahsulot va xarajat",
-     "formula": "f(x) = 10x;  c(x) = x²;  ū = 5",
+     "formula": "f(x) = 10x;  c(x) = x^{2};  ū = 5",
      "note": "Prinsipal faqat natijani kuzatadi, harakatni emas"
     },
     {
      "name": "Samarali harakat",
-     "formula": "f′(x) = c′(x):  10 = 2x  ⇒  x* = 5",
+     "formula": "f′(x) = c′(x):  10 = 2x  ⇒  x^{*} = 5",
      "note": "Ortiqcha: 50 − 25 = 25"
     },
     {
@@ -224,7 +256,7 @@
     },
     {
      "name": "Rag‘bat muvofiqligi",
-     "formula": "Agent uchun x* eng foydali tanlov",
+     "formula": "Agent uchun x^{*} eng foydali tanlov",
      "note": "Prinsipal xohlagan harakat tanlanadi"
     }
    ]
@@ -265,7 +297,34 @@
      "12,5"
     ]
    ],
-   "note": "Samarali shartnomada agent chekli mahsulotning to‘liq egasi: ds/dx = f′(x)"
+   "note": "Samarali shartnomada agent chekli mahsulotning to‘liq egasi: (ds)/(dx) = f′(x)"
+  },
+  {
+   "type": "formula",
+   "title": "Shartnomalar: agent va prinsipal hisobi",
+   "sub": "11.6. Prinsipal–agent muammosi",
+   "items": [
+    {
+     "name": "Ijara (renta)",
+     "formula": "R = f(x^{*}) − c(x^{*}) − ū = 50 − 25 − 5 = 20",
+     "note": "Agent butun mahsulotni oladi, x^{*} = 5; prinsipal daromadi 20"
+    },
+    {
+     "name": "Ishbay haq",
+     "formula": "s = y − 20;  (ds)/(dx) = f′(x)",
+     "note": "Agent chekli mahsulotga to‘liq ega, x = 5 tanlaydi"
+    },
+    {
+     "name": "Ulushli shartnoma",
+     "formula": "s = αy:  max_{x} [α·10x − x^{2}]  ⇒  x = 5α",
+     "note": "α = 0,5 da x = 2,5 < 5; prinsipal daromadi 12,5"
+    },
+    {
+     "name": "Qat’iy ish haqi",
+     "formula": "s = 5  ⇒  x = 0;  f(0) − s = −5",
+     "note": "Harakat kuzatilmasa, rag‘bat yo‘q"
+    }
+   ]
   },
   {
    "type": "compare",
@@ -274,16 +333,16 @@
    "left": {
     "head": "(a) Qat’iy ijara R",
     "items": [
-     "Ijarachi 10x − x² − R ni maksimallashtiradi: x = 5",
-     "Ishtirok sharti: 25 − R ≥ 5, R = 20",
+     "Ijarachi 10x − x^{2} − R ni maksimallashtiradi: x = 5",
+     "Ishtirok sharti: 25 − R ≥ 5  ⇒  R = 20",
      "Yer egasi 20 mln oladi"
     ]
    },
    "right": {
     "head": "(b) Hosilni teng bo‘lish",
     "items": [
-     "Ijarachi 5x − x² ni maksimallashtiradi: x = 2,5",
-     "Ijarachi daromadi 6,25 ≥ 5",
+     "Ijarachi 5x − x^{2} ni maksimallashtiradi: x = 2,5",
+     "Ijarachi daromadi 12,5 − 6,25 = 6,25 ≥ 5",
      "Yer egasi 0,5·25 = 12,5 mln oladi"
     ]
    }
@@ -408,17 +467,17 @@
    "items": [
     {
      "name": "2-masala (Spens)",
-     "formula": "Past: 100 > 300 − 50y* ⇒ y* > 4",
-     "note": "Yuqori: 300 − 25y* > 100 ⇒ y* < 8; demak 4 < y* < 8"
+     "formula": "Past: 100 > 300 − 50y^{*} ⇒ y^{*} > 4",
+     "note": "Yuqori: 300 − 25y^{*} > 100 ⇒ y^{*} < 8; demak 4 < y^{*} < 8"
     },
     {
      "name": "3-masala: samarali x",
-     "formula": "f = 20x, c = 2x²:  20 = 4x ⇒ x* = 5",
+     "formula": "f = 20x, c = 2x^{2}:  20 = 4x ⇒ x^{*} = 5",
      "note": "Ortiqcha 100 − 50 = 50; ijara R = 50 − 10 = 40"
     },
     {
      "name": "3-masala: 40% ulush",
-     "formula": "0,4·20x − 2x²:  8 = 4x ⇒ x = 2",
+     "formula": "0,4·20x − 2x^{2}:  8 = 4x ⇒ x = 2",
      "note": "Mahsulot 40 (samarali holatda 100)"
     }
    ]

@@ -8,7 +8,7 @@
     "Qisman muvozanat bitta bozorni ajratib o‘rganadi, umumiy muvozanat esa barcha bozorlarni birga",
     "Boshlovchi: L. Valras (1874); qat’iy shakl: K. Errou va J. Debre (1954)",
     "Ejvort qutisi: ikki iste’molchi, ikki tovar, faqat zaxiralar ayirboshlanadi",
-    "Shartnoma chizig‘i: MRS A = MRS B — Pareto samarali taqsimotlar to‘plami",
+    "Shartnoma chizig‘i: MRS_{xy}^{A} = MRS_{xy}^{B} — Pareto samarali taqsimotlar to‘plami",
     "Tashqi samara va jamoat ne’matlari — bozor “muvaffaqiyatsizliklari”"
    ]
   },
@@ -26,23 +26,45 @@
    "items": [
     {
      "name": "Ayirboshlash samaradorligi",
-     "formula": "MRSᴬ = MRSᴮ",
+     "formula": "MRS_{xy}^{A} = MRS_{xy}^{B}",
      "note": "tovarlar iste’molchilar o‘rtasida samarali taqsimlangan"
     },
     {
      "name": "Ishlab chiqarish samaradorligi",
-     "formula": "MRTS(x) = MRTS(y)",
+     "formula": "MRTS_{LK}^{x} = MRTS_{LK}^{y}",
      "note": "omillar tarmoqlar o‘rtasida samarali taqsimlangan"
     },
     {
      "name": "Mahsulot tarkibi samaradorligi",
-     "formula": "MRS = MRT = MCₓ / MC_y",
+     "formula": "MRS_{xy} = MRT_{xy} = (MC_{x})/(MC_{y})",
      "note": "raqobatli bozorda uchala shart avtomatik bajariladi"
     },
     {
-     "name": "Utilitar va Rouls funksiyalari",
-     "formula": "W = Uᴬ + Uᴮ;  W = min{Uᴬ, Uᴮ}",
-     "note": "Errou teoremasi: ovoz berish qoidasi barcha shartni qanoatlantirmaydi"
+     "name": "Ijtimoiy farovonlik funksiyalari",
+     "formula": "W = U_{A} + U_{B};  W = min{U_{A}, U_{B}};  W = Σa_{i}U_{i}",
+     "note": "utilitar, Rouls va Bergson–Samuelson; Errou teoremasi: qoida barcha shartni qanoatlantirmaydi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Raqobatli (Valras) muvozanat",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "items": [
+    {
+     "name": "Muvozanat sharti",
+     "formula": "MRS_{xy}^{A} = (p_{x})/(p_{y}) = MRS_{xy}^{B}",
+     "note": "ikkala iste’molchi bir xil narx chizig‘iga urinadi; muvozanat Pareto samarali"
+    },
+    {
+     "name": "Valras qonuni",
+     "formula": "p_{x}z_{x} + p_{y}z_{y} = 0",
+     "note": "z — ortiqcha talab; n − 1 bozor muvozanatda bo‘lsa, oxirgisi ham muvozanatda"
+    },
+    {
+     "name": "Kobb–Duglas talabi (10.1-misol)",
+     "formula": "x_{i} = (0,5m_{i})/(p_{x})",
+     "note": "m_{A} = 8p_{x} + 1,5, m_{B} = 2p_{x} + 6,5; 0,5(10p_{x} + 8) = 10p_{x} ⇒ p_{x} = 0,8"
     }
    ]
   },
@@ -83,12 +105,12 @@
     ],
     [
      "Naflilik: oldin → keyin",
-     "√12 = 3,46 → 4,42",
-     "√13 = 3,61 → 4,53",
+     "√12 = 3,46 → √19,5 = 4,42",
+     "√13 = 3,61 → √20,5 = 4,53",
      "—"
     ]
    ],
-   "note": "u = x⁰,⁵·y⁰,⁵, p_y = 1; x bozori muvozanatidan pₓ = 0,8; ikkalasining nafliligi oshdi"
+   "note": "u = x^{0,5}·y^{0,5}, p_{y} = 1; x bozori muvozanatidan p_{x} = 0,8; ikkalasining nafliligi oshdi"
   },
   {
    "type": "compare",
@@ -126,6 +148,28 @@
    ]
   },
   {
+   "type": "formula",
+   "title": "Chekli ijtimoiy xarajat va naf",
+   "sub": "10.2. Tashqi samaralar",
+   "items": [
+    {
+     "name": "Salbiy tashqi samara",
+     "formula": "MSC = MPC + MEC",
+     "note": "MEC — chekli tashqi xarajat; bozor: D = MPC (Q_{m}), optimum: D = MSC (Q^{*})"
+    },
+    {
+     "name": "Ijobiy tashqi samara",
+     "formula": "MSB = MPB + MEB",
+     "note": "MEB — chekli tashqi naf; bozor faoliyatni kam miqdorda ta’minlaydi"
+    },
+    {
+     "name": "Bozor samarasizligi",
+     "formula": "Q_{m} > Q^{*}  (MEC > 0);  Q_{m} < Q^{*}  (MEB > 0)",
+     "note": "salbiy: ortiqcha ishlab chiqarish; ijobiy: kam ishlab chiqarish; DWL paydo bo‘ladi"
+    }
+   ]
+  },
+  {
    "type": "figure",
    "title": "Salbiy tashqi samara",
    "sub": "10.2. Tashqi samaralar",
@@ -138,9 +182,9 @@
    "sub": "10.2. Tashqi samaralar",
    "steps": [
     "Berilgan: P = 120 − Q, MPC = Q, MEC = 0,5Q (ming tonna; ming so‘m/tonna)",
-    "Bozor: 120 − Q = Q → Qm = 60, Pm = 60",
-    "MSC = MPC + MEC = 1,5Q; optimum: 120 − Q = 1,5Q → Q* = 48, P* = 72",
-    "Qm = 60 da MSC = 90, talab bo‘yicha baho = 60",
+    "Bozor: 120 − Q = Q ⇒ Q_{m} = 60, P_{m} = 60",
+    "MSC = MPC + MEC = 1,5Q; optimum: 120 − Q = 1,5Q ⇒ Q^{*} = 48, P^{*} = 72",
+    "Q_{m} = 60 da MSC = 90, talab bo‘yicha baho = 60",
     "DWL = 0,5·(60 − 48)·(90 − 60) = 180 mln so‘m",
     "Bozor 12 ming tonna ortiqcha sement ishlab chiqaradi"
    ]
@@ -151,24 +195,19 @@
    "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
    "items": [
     {
-     "name": "Chekli ijtimoiy xarajat",
-     "formula": "MSC = MPC + MEC",
-     "note": "salbiy tashqi samarada optimum: D = MSC"
-    },
-    {
      "name": "Pigu solig‘i",
-     "formula": "t* = MEC(Q*)",
-     "note": "xususiy xarajatni ijtimoiy xarajatga tenglashtiradi (ichkilashtirish)"
+     "formula": "t^{*} = MEC(Q^{*})",
+     "note": "MPC + t = MSC optimum nuqtada: xususiy xarajat ijtimoiyga tenglashadi (ichkilashtirish)"
     },
     {
      "name": "Pigu subsidiyasi",
-     "formula": "s* = MEB(Q*)",
+     "formula": "s^{*} = MEB(Q^{*})",
      "note": "ijobiy tashqi samarada: ta’lim granti, emlash"
     },
     {
-     "name": "10.2-misolda",
-     "formula": "t* = MEC(48) = 24",
-     "note": "120 − Q = Q + 24 → Q = 48; tushum 24·48 = 1152 mln so‘m"
+     "name": "10.2-misolda soliq",
+     "formula": "t^{*} = MEC(48) = 24",
+     "note": "120 − Q = Q + 24 ⇒ Q = 48; tushum 24·48 = 1152 mln so‘m"
     }
    ]
   },
@@ -194,6 +233,28 @@
      "Shiftga eng kam xarajat bilan erishiladi"
     ]
    }
+  },
+  {
+   "type": "formula",
+   "title": "Xarajat-samaradorlik sharti",
+   "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
+   "items": [
+    {
+     "name": "Chekli tozalash xarajatlari tengligi",
+     "formula": "MAC_{1} = MAC_{2} = ⋯ = MAC_{n}",
+     "note": "berilgan kamaytirishga minimal xarajat bilan erishish sharti"
+    },
+    {
+     "name": "Soliq yoki ruxsatnoma bilan",
+     "formula": "MAC_{i} = t  yoki  MAC_{i} = p",
+     "note": "har bir firma shu darajagacha tozalaydi; bir xil standart bu shartni bajarmaydi"
+    },
+    {
+     "name": "10.3-misol",
+     "formula": "TAC_{1} = 0,25a_{1}^{2},  TAC_{2} = 0,75a_{2}^{2}",
+     "note": "MAC_{1} = 0,5a_{1}, MAC_{2} = 1,5a_{2}"
+    }
+   ]
   },
   {
    "type": "table",
@@ -231,7 +292,7 @@
      "p = 37,5"
     ]
    ],
-   "note": "MAC₁ = 0,5a₁, MAC₂ = 1,5a₂; MAC₁ = MAC₂ → tejash 625 ming so‘m (25%)"
+   "note": "MAC_{1} = 0,5a_{1}, MAC_{2} = 1,5a_{2}; MAC_{1} = MAC_{2} ⇒ tejash 625 ming so‘m (25%)"
   },
   {
    "type": "bullets",
@@ -252,8 +313,8 @@
    "bullets": [
     "Umumiy resurs: foydalanishdan cheklash qiyin, lekin foydalanish miqdorni kamaytiradi",
     "G. Xardin (1968): har kim yaylovga sigir qo‘shadi, zararni boshqalar bilan bo‘lishadi",
-    "Baliq ovi: F(n) = 120n − 3n², xarajat c = 36; ochiq kirishda 120 − 3n = 36 → n = 28",
-    "Optimum: F′(n) = 120 − 6n = 36 → n* = 14; ochiq kirishda renta 0, optimumda 588",
+    "Baliq ovi: F(n) = 120n − 3n^{2}, xarajat c = 36; ochiq kirishda 120 − 3n = 36 ⇒ n = 28",
+    "Optimum: F′(n) = 120 − 6n = 36 ⇒ n^{*} = 14; ochiq kirishda renta 0, optimumda 588",
     "Usullar: xususiylashtirish, davlat boshqaruvi (kvota, litsenziya), ITQ"
    ]
   },
@@ -263,6 +324,28 @@
    "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
    "img": "image97.png",
    "caption": "10.7-rasm. Umumiylar tragediyasi: ochiq kirish va ijtimoiy optimum"
+  },
+  {
+   "type": "formula",
+   "title": "Baliq ovlash modeli",
+   "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
+   "items": [
+    {
+     "name": "Ochiq kirish",
+     "formula": "(F(n))/(n) = 120 − 3n = 36 ⇒ n = 28",
+     "note": "qayiqlar o‘rtacha daromad xarajatga tenglashguncha kiradi"
+    },
+    {
+     "name": "Ijtimoiy optimum",
+     "formula": "F′(n) = 120 − 6n = 36 ⇒ n^{*} = 14",
+     "note": "chekli mahsulot xarajatga teng bo‘lganda"
+    },
+    {
+     "name": "Sof renta",
+     "formula": "F(28) − 28·36 = 0;  F(14) − 14·36 = 588",
+     "note": "1008 − 1008 = 0 va 1092 − 504 = 588: ochiq kirishda renta yo‘qoladi"
+    }
+   ]
   },
   {
    "type": "bullets",
@@ -306,22 +389,22 @@
    "items": [
     {
      "name": "Jamoat ne’mati (Samuelson, 1954)",
-     "formula": "∑ MRSᵢ = MC",
+     "formula": "Σ_{i=1}^{n}MRS_{i} = MC",
      "note": "individual talablar vertikal qo‘shiladi (10.8-rasm)"
     },
     {
      "name": "Xususiy ne’mat",
-     "formula": "MRSᵢ = MC",
+     "formula": "MRS_{i} = MC",
      "note": "har bir iste’molchi uchun alohida; talablar gorizontal qo‘shiladi"
     },
     {
-     "name": "Tekinxo‘rlik",
-     "formula": "MRSᵢ = MC (ixtiyoriy)",
+     "name": "Tekinxo‘rlik (ixtiyoriy moliyalashtirish)",
+     "formula": "MRS_{i} = MC",
      "note": "boshqalarga naf hisobga olinmaydi — ne’mat kam ta’minlanadi"
     },
     {
      "name": "Lindal narxlari",
-     "formula": "tᵢ = MRSᵢ(G*),  ∑tᵢ = MC",
+     "formula": "t_{i} = MRS_{i}(G^{*}),  Σt_{i} = MC",
      "note": "shaxsiy ulush; boshqa mexanizmlar: davlat, Klark–Groves, ovoz berish"
     }
    ]
@@ -338,11 +421,12 @@
    "title": "Amaliy misol 10.5: ko‘cha yoritgichlari",
    "sub": "10.5. Jamiyat (jamoat) ne’matlari",
    "steps": [
-    "Berilgan: MRSᴬ = 6 − 0,6G, MRSᴮ = 4 − 0,5G, bir yoritgich narxi 5 mln so‘m",
-    "Samarali miqdor: 10 − 1,1G = 5 → G* ≈ 4,5 (amalda 4–5 ta)",
-    "Ixtiyoriy moliyalashtirish: A uchun 6 − 0,6G = 5 → G ≈ 1,7",
-    "B uchun MRSᴮ(0) = 4 < 5 — u hissa qo‘shmaydi, A ning yoritgichidan tekin foydalanadi",
-    "Natija: 1–2 ta yoritgich — samarali miqdordan ancha kam"
+    "Berilgan: MRS_{A} = 6 − 0,6G, MRS_{B} = 4 − 0,5G, bir yoritgich narxi 5 mln so‘m",
+    "Samarali miqdor: 10 − 1,1G = 5 ⇒ G^{*} ≈ 4,5 (amalda 4–5 ta)",
+    "Ixtiyoriy moliyalashtirish: A uchun 6 − 0,6G = 5 ⇒ G ≈ 1,7",
+    "B uchun MRS_{B}(0) = 4 < 5 — u hissa qo‘shmaydi, A ning yoritgichidan tekin foydalanadi",
+    "Natija: 1–2 ta yoritgich — samarali miqdordan ancha kam",
+    "Lindal ulushlari: A uchun 3,27, B uchun 1,73 mln so‘m (yig‘indisi 5)"
    ]
   },
   {
@@ -363,7 +447,7 @@
    "bullets": [
     "V. Nordxaus (Nobel, 2018): DICE modeli — integratsiyalashgan baholash modellari",
     "Uglerodning ijtimoiy qiymati — bir tonna CO₂ kelajakdagi zararining joriy qiymati",
-    "Bu aslida global Pigu solig‘ining optimal darajasi: t* = MEC",
+    "Bu aslida global Pigu solig‘ining optimal darajasi: t^{*} = MEC",
     "Vositalar: uglerod solig‘i, emissiyalar savdosi, Parij kelishuvi (2015)",
     "“Iqlim klublari”: qo‘shilmaganlarga import bojlari — tekinxo‘rlikka qarshi mexanizm"
    ]
@@ -380,21 +464,21 @@
    "rows": [
     [
      "1: MPC = 10 + Q, P = 100 − Q, MEC = 20",
-     "Bozor: Q = 45; optimum: 100 − Q = 30 + Q",
-     "Q* = 35, P* = 65, t = 20, DWL = 100"
+     "Bozor: Q_{m} = 45; optimum: 100 − Q = 30 + Q",
+     "Q^{*} = 35, P^{*} = 65, t = 20, DWL = 100"
     ],
     [
-     "2: MRS = 50−G, 40−G, 30−G; MC = 60",
-     "∑MRS = 120 − 3G = 60",
-     "G* = 20; t = 30, 20, 10"
+     "2: MRS_{i} = 50−G, 40−G, 30−G; MC = 60",
+     "Σ_{i}MRS_{i} = 120 − 3G = 60",
+     "G^{*} = 20; t_{i} = 30, 20, 10"
     ],
     [
-     "3: MAC₁ = 2a₁, MAC₂ = 4a₂; jami 60",
-     "2a₁ = 4a₂, a₁ + a₂ = 60",
-     "a₁ = 40, a₂ = 20; t = 80"
+     "3: MAC_{1} = 2a_{1}, MAC_{2} = 4a_{2}; jami 60",
+     "2a_{1} = 4a_{2}, a_{1} + a_{2} = 60",
+     "a_{1} = 40, a_{2} = 20; t = 80"
     ]
    ],
-   "note": "Pigu solig‘i t = MEC; Lindal narxlari yig‘indisi MC ga teng; t = MAC"
+   "note": "Pigu solig‘i t = MEC; Lindal narxlari: Σt_{i} = MC; t = MAC"
   },
   {
    "type": "bullets",
@@ -405,7 +489,7 @@
     "Salbiy tashqi samarada bozor ortiqcha, ijobiy tashqi samarada kam ishlab chiqaradi",
     "Pigu solig‘i va ruxsatnomalar savdosi tashqi samarani ichkilashtiradi; xarajat-samaradorlik sharti: MAC lar teng",
     "Kouz teoremasi: huquqlar aniq va tranzaksion xarajat nol bo‘lsa, muzokara samarali; umumiylarda Ostrom tamoyillari",
-    "Jamoat ne’mati: ∑MRSᵢ = MC; tekinxo‘rlik tufayli bozor kam ta’minlaydi"
+    "Jamoat ne’mati: Σ_{i}MRS_{i} = MC; tekinxo‘rlik tufayli bozor kam ta’minlaydi"
    ]
   }
  ]

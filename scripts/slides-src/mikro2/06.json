@@ -19,18 +19,23 @@
    "items": [
     {
      "name": "Diskret tovar",
-     "formula": "CS = ∑(rᵢ − p) = ∑rᵢ − p·n",
-     "note": "rᵢ – rezervatsion narxlar; ∑rᵢ – yalpi iste’molchi ortiqchaligi"
+     "formula": "CS = Σ_{i=1}^{n} (r_{i} − p) = Σ_{i=1}^{n} r_{i} − p·n",
+     "note": "r_{i} – rezervatsion narxlar; Σr_{i} – yalpi iste’molchi ortiqchaligi"
     },
     {
      "name": "Uzluksiz talab",
-     "formula": "CS = ∫₀^q* P(q)dq − p·q*",
-     "note": "P(q) – teskari talab funksiyasi"
+     "formula": "CS = ∫_{0}^{q^{*}} P(q)dq − p·q^{*} = ∫_{p}^{p̄} D(t)dt",
+     "note": "P(q) – teskari talab funksiyasi; p̄ – talab nolga teng narx"
     },
     {
      "name": "Kvazichiziqli naflilik",
-     "formula": "u = v(x) + y,  v′(x) = p",
+     "formula": "u = v(x) + y,  v′(x) = p,  v(x^{*}) − p·x^{*} = CS",
      "note": "Daromad samarasi yo‘q – CS aniq farovonlik o‘lchovi"
+    },
+    {
+     "name": "Narx oshganda ΔCS",
+     "formula": "R = (p_{1} − p_{0})·q_{1};  ΔCS = −(R + T)",
+     "note": "R – ortiqcha to‘lov (to‘rtburchak); T – yo‘qotilgan uchburchak"
     }
    ]
   },
@@ -47,9 +52,9 @@
    "sub": "6.1. Iste’molchi ortiqchaligi",
    "steps": [
     "Talab Q = 200 − 40P; yo‘l haqi 2 dan 2,5 ming so‘mga oshdi",
-    "P=2 da Q₀=120; P=2,5 da Q₁=100; talab nolga teng narx 5",
-    "CS₀ = 0,5·120·(5−2) = 180; CS₁ = 0,5·100·2,5 = 125 mln so‘m",
-    "ΔCS = −55 mln so‘m: R = 50 (tashuvchiga o‘tgan), T = 5 (yo‘qotilgan qatnov)",
+    "P = 2 da Q_{0} = 120; P = 2,5 da Q_{1} = 100; talab nolga teng narx p̄ = 5",
+    "CS_{0} = 0,5·120·(5 − 2) = 180; CS_{1} = 0,5·100·2,5 = 125 mln so‘m",
+    "ΔCS = −55 mln so‘m: R = 0,5·100 = 50 (tashuvchiga o‘tgan), T = 0,5·0,5·20 = 5",
     "Tashuvchi tushumi 240 → 250 mln so‘m: atigi 10 mln so‘mga oshdi"
    ]
   },
@@ -60,12 +65,12 @@
    "items": [
     {
      "name": "Kompensatsiyalovchi variatsiya",
-     "formula": "CV = e(p¹, u⁰) − m",
+     "formula": "CV = e(p^{1}, u^{0}) − m",
      "note": "Yangi narxlarda: dastlabki naflilikni tiklash uchun kerak summa"
     },
     {
      "name": "Ekvivalent variatsiya",
-     "formula": "EV = m − e(p⁰, u¹)",
+     "formula": "EV = m − e(p^{0}, u^{1})",
      "note": "Eski narxlarda: o‘zgarishga teng kuchli daromad o‘zgarishi"
     },
     {
@@ -77,14 +82,14 @@
   },
   {
    "type": "steps",
-   "title": "Amaliy misol 6.2: u = x₁x₂",
+   "title": "Amaliy misol 6.2: u = x_{1}x_{2}",
    "sub": "6.2. Kompensatsiyalovchi va ekvivalent variatsiya",
    "steps": [
-    "m = 100 ming so‘m, p₂ = 1; p₁ 1 dan 2 ga oshdi",
-    "Dastlab x₁ = x₂ = 50, u₀ = 2500; keyin x₁ = 25, x₂ = 50, u₁ = 1250",
-    "e(p₁, p₂, u) = 2√(p₁p₂u)",
-    "CV = 2√5000 − 100 = 41,42; EV = 100 − 2√1250 = 29,29",
-    "ΔCS = −50·ln 2 = −34,66: EV (29,29) < |ΔCS| (34,66) < CV (41,42)"
+    "m = 100 ming so‘m, p_{2} = 1; p_{1} 1 dan 2 ga oshdi; x_{1} = m/(2p_{1})",
+    "Dastlab x_{1} = x_{2} = 50, u^{0} = 2 500; keyin x_{1} = 25, x_{2} = 50, u^{1} = 1 250",
+    "e(p_{1}, p_{2}, u) = 2√(p_{1}p_{2}u)",
+    "CV = 2√(5 000) − 100 = 41,42; EV = 100 − 2√(1 250) = 29,29",
+    "ΔCS = −∫_{1}^{2} (50)/(p) dp = −50·ln 2 = −34,66: EV < |ΔCS| < CV"
    ]
   },
   {
@@ -93,9 +98,9 @@
    "sub": "6.3. Ishlab chiqaruvchi ortiqchaligi",
    "items": [
     {
-     "name": "Ta’rif",
-     "formula": "PS = narx chizig‘i va taklif chizig‘i orasidagi yuza",
-     "note": "Olingan summa bilan sotishga rozi minimal summa farqi"
+     "name": "Ta’rif (integral)",
+     "formula": "PS = p·q^{*} − ∫_{0}^{q^{*}} S^{-1}(q)dq",
+     "note": "Narx chizig‘i va taklif chizig‘i orasidagi yuza; S^{-1} – teskari taklif"
     },
     {
      "name": "Foyda bilan bog‘liqligi",
@@ -118,12 +123,12 @@
    "items": [
     {
      "name": "Umumiy ortiqcha",
-     "formula": "TS = CS + PS = ∫₀^q [P_D(t) − P_S(t)]dt",
+     "formula": "TS = CS + PS = ∫_{0}^{q} [P_{D}(t) − P_{S}(t)]dt",
      "note": "Iste’molchi baholashi va ishlab chiqarish xarajati farqi"
     },
     {
      "name": "Maksimum sharti",
-     "formula": "P_D(q) > P_S(q)",
+     "formula": "P_{D}(q) > P_{S}(q)",
      "note": "Aynan raqobatli muvozanat miqdorida bajariladi"
     }
    ]
@@ -141,14 +146,36 @@
    ]
   },
   {
+   "type": "formula",
+   "title": "Shartli bozor: muvozanat va soliq",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "items": [
+    {
+     "name": "Talab va taklif",
+     "formula": "P = 9 − Q,  P = 1 + Q ⇒ Q^{*} = 4, P^{*} = 5",
+     "note": "P – ming so‘m/kg, Q – ming tonna"
+    },
+    {
+     "name": "Muvozanat ortiqchaligi",
+     "formula": "CS = PS = 0,5·4·4 = 8;  TS = 16",
+     "note": "Mlrd so‘m; CS = 0,5·4·(9 − 5), PS = 0,5·4·(5 − 1)"
+    },
+    {
+     "name": "Miqdoriy soliq t = 2",
+     "formula": "9 − Q = 3 + Q ⇒ Q_{t} = 3, P_{b} = 6, P_{s} = P_{b} − t = 4",
+     "note": "Taklif chizig‘i P = 3 + Q ga siljiydi; yuk teng taqsimlanadi"
+    }
+   ]
+  },
+  {
    "type": "table",
    "title": "Narx chegaralari oqibatlari",
    "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
    "head": [
     "Ko‘rsatkich",
     "Muvozanat",
-    "Pmax = 3",
-    "Pmin = 7"
+    "P_{max} = 3",
+    "P_{min} = 7"
    ],
    "rows": [
     [
@@ -176,7 +203,7 @@
      "–8"
     ]
    ],
-   "note": "Talab P=9−Q, taklif P=1+Q; Q*=4, P*=5 (mlrd so‘m). Pmax da DWL = 4"
+   "note": "Talab P = 9 − Q, taklif P = 1 + Q; Q^{*} = 4, P^{*} = 5 (mlrd so‘m). P_{max} da DWL = 4"
   },
   {
    "type": "table",
@@ -214,7 +241,7 @@
      "–1"
     ]
    ],
-   "note": "Qt=3, Pb=6, Ps=4: yuk teng taqsimlandi; DWL = 1 mlrd so‘m"
+   "note": "Q_{t} = 3, P_{b} = 6, P_{s} = 4: yuk teng taqsimlandi; DWL = 1 mlrd so‘m"
   },
   {
    "type": "formula",
@@ -223,18 +250,40 @@
    "items": [
     {
      "name": "Xaridor ulushi",
-     "formula": "ΔP_b / t = ε_S / (ε_S + |ε_D|)",
+     "formula": "(ΔP_{b})/(t) = (ε_{S})/(ε_{S} + |ε_{D}|)",
      "note": "Noelastikroq tomon yukning ko‘p qismini ko‘taradi"
     },
     {
      "name": "Sotuvchi ulushi",
-     "formula": "|ΔP_s| / t = |ε_D| / (ε_S + |ε_D|)",
+     "formula": "(|ΔP_{s}|)/(t) = (|ε_{D}|)/(ε_{S} + |ε_{D}|)",
      "note": "Soliq kimdan undirilishi taqsimotga ta’sir qilmaydi"
     },
     {
      "name": "Xarberger formulasi",
-     "formula": "DWL ≈ ½·t·ΔQ",
-     "note": "DWL stavkaning kvadratiga va elastiklikka proporsional"
+     "formula": "DWL ≈ (1)/(2)·t·ΔQ = (1)/(2)·(ε_{S}|ε_{D}|)/(ε_{S} + |ε_{D}|)·(Q)/(P)·t^{2}",
+     "note": "DWL stavka kvadratiga va elastiklikka proporsional"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Subsidiya: s = 2",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "items": [
+    {
+     "name": "Yangi muvozanat",
+     "formula": "P = Q − 1 ⇒ Q = 5, P_{b} = 4, P_{s} = 6",
+     "note": "Subsidiya – teskari soliq: taklif chizig‘i pastga siljiydi"
+    },
+    {
+     "name": "Ortiqchaliklar",
+     "formula": "CS = PS = 12,5;  davlat xarajati = s·Q = 10",
+     "note": "Mlrd so‘m"
+    },
+    {
+     "name": "Umumiy ortiqcha va DWL",
+     "formula": "TS = 12,5 + 12,5 − 10 = 15;  DWL = 16 − 15 = 1",
+     "note": "Qo‘shimcha 1 ming tonna xarajati uning qiymatidan yuqori"
     }
    ]
   },
@@ -250,11 +299,11 @@
    "title": "Amaliy misol 6.3: import tarifi",
    "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
    "steps": [
-    "P = 9 − Q, P = 0,5 + Q; Pw = 2, boj t = 1,2",
-    "Q₁ = 1,5; Q₂ = 2,7; Q₃ = 5,8; Q₄ = 7",
-    "A = 2,52; B = 0,72; C = 3,72; D = 0,72",
-    "Iste’molchilar yo‘qotishi 7,68; ishlab chiqaruvchilar yutug‘i 2,52",
-    "Tarif tushumi 3,72; sof yo‘qotish B + D = 1,44 mlrd so‘m"
+    "P = 9 − Q, P = 0,5 + Q; P_{w} = 2, boj t = 1,2",
+    "Q_{1} = 1,5; Q_{2} = 2,7; Q_{3} = 5,8; Q_{4} = 7",
+    "A = (1,5 + 2,7)/2·1,2 = 2,52; B = 0,5·1,2·1,2 = 0,72; C = (5,8 − 2,7)·1,2 = 3,72; D = 0,72",
+    "Iste’molchilar yo‘qotishi A + B + C + D = 7,68; ishlab chiqaruvchilar yutug‘i A = 2,52",
+    "Tarif tushumi C = 3,72; sof yo‘qotish B + D = 1,44 mlrd so‘m"
    ]
   },
   {
@@ -264,8 +313,13 @@
    "items": [
     {
      "name": "Sof joriy qiymat",
-     "formula": "NPV = ∑ (ΔCSₜ + ΔPSₜ − Cₜ) / (1 + r)ᵗ",
+     "formula": "NPV = Σ_{t=0}^{T} (ΔCS_{t} + ΔPS_{t} − C_{t})/((1 + r)^{t})",
      "note": "Foyda – ortiqchaliklar ortishi; xarajat – muqobil qiymat"
+    },
+    {
+     "name": "Annuitetning joriy qiymati",
+     "formula": "PV = A·(1 − (1 + r)^{-T})/(r)",
+     "note": "A – yillik foyda; T – xizmat muddati, r – diskont stavkasi"
     }
    ]
   },
@@ -276,9 +330,31 @@
    "steps": [
     "Qurilish 120 mlrd so‘m, 30 yil; xarajat 40 → 10 ming so‘m",
     "Qatnovlar kuniga 6 → 10 ming; r = 10%",
-    "ΔCS = (40−10)·(6+10)/2 = 240 mln so‘m kuniga",
-    "Yillik: 240·365 = 87,6 mlrd; annuitet 87,6·9,427 = 825,8 mlrd",
+    "ΔCS = (40 − 10)·(6 + 10)/2 = 240 mln so‘m kuniga",
+    "Yillik: 240·365 = 87,6 mlrd; annuitet 87,6·(1 − 1,1^{-30})/0,1 = 87,6·9,427 = 825,8 mlrd",
     "NPV = 825,8 − 120 ≫ 0 – loyiha foydali"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Tarif islohoti: modelning formulalari",
+   "sub": "6.8. Amaliy tahlil: tarif islohotining farovonlikka ta’siri",
+   "items": [
+    {
+     "name": "Talab funksiyalari",
+     "formula": "q_{1} = 0,25 − 0,00015p;  q_{2} = 0,40 − 0,00020p",
+     "note": "q_{1} – kam ta’minlangan (40 ming xonadon); q_{2} – boshqalar (60 ming)"
+    },
+    {
+     "name": "CS yo‘qotishi (xonadon)",
+     "formula": "ΔCS = (1 000 − 600)·(q(600) + q(1 000))/2",
+     "note": "Kam ta’minlangan: 52; boshqa: 96 ming so‘m"
+    },
+    {
+     "name": "Subsidiya tejami",
+     "formula": "400·(40·160 + 60·280) = 400·23 200 = 9 280",
+     "note": "Mln so‘m; kompensatsiya 960 ni chegirsak – 8 320"
+    }
    ]
   },
   {
@@ -317,7 +393,7 @@
      "1 440"
     ]
    ],
-   "note": "Tarif 600 → 1 000 so‘m (chekli xarajat); subsidiya tejami 9 280 mln so‘m"
+   "note": "Tarif 600 → 1 000 so‘m (chekli xarajat); ΔCS = 400·(0,160 + 0,100)/2 = 52 ming so‘m/xonadon"
   },
   {
    "type": "bullets",
@@ -336,10 +412,10 @@
    "title": "1–2-masalalar: soliq va CV",
    "sub": "6.7. Yechib ko‘rsatilgan masalalar",
    "steps": [
-    "Q = 100−2P, Q = 3P−50: P* = 30, Q* = 40; CS = 400, PS = 266,7",
-    "t = 10: Pb = 36, Ps = 26, Qt = 28; tushum 280, DWL = 60",
-    "Yukning 60% xaridorga tushdi (talab noelastikroq)",
-    "u = 20√x + y, p 2 → 4: x = 100/p², ΔCS = −100·(1/2 − 1/4) = −25",
+    "Q = 100 − 2P, Q = 3P − 50: P^{*} = 30, Q^{*} = 40; CS = 400, PS = 266,7",
+    "t = 10: P_{b} = 36, P_{s} = 26, Q_{t} = 28; tushum 280, DWL = 0,5·10·12 = 60",
+    "Yukning 6/10 = 60% xaridorga tushdi (talab noelastikroq)",
+    "u = 20√x + y, p 2 → 4: x = 100/p^{2}, ΔCS = −∫_{2}^{4} 100p^{-2}dp = −25",
     "Kvazichiziqli naflilikda daromad samarasi yo‘q: CV = EV = 25"
    ]
   },
@@ -348,8 +424,8 @@
    "title": "3-masala: elastiklik va soliq yuki",
    "sub": "6.7. Yechib ko‘rsatilgan masalalar",
    "bullets": [
-    "Berilgan: talab elastikligi −0,5, taklif elastikligi 1,5, aktsiz 1 000 so‘m",
-    "ΔP_b = t·ε_S/(ε_S + |ε_D|) = 1 000 · 1,5/2 = 750 so‘m",
+    "Berilgan: ε_{D} = −0,5, ε_{S} = 1,5, aktsiz t = 1 000 so‘m",
+    "ΔP_{b} = t·(ε_{S})/(ε_{S} + |ε_{D}|) = 1 000·(1,5)/(1,5 + 0,5) = 750 so‘m",
     "Sotuvchi narxi 250 so‘mga kamayadi",
     "Yukning 75% i xaridorga tushadi – talab noelastikroq"
    ]
