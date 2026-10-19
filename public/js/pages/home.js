@@ -1,4 +1,4 @@
-import { h, mount } from "../ui.js";
+import { h, mount, toast } from "../ui.js";
 import { session } from "../api.js";
 import { COURSE, TOPICS } from "../../data/topics.js";
 const LAB = COURSE.features.lab;
@@ -124,6 +124,7 @@ export async function render(el) {
     !user &&
       h("div", { class: "card hero-card accent" }, h("div", { class: "row between wrap" }, h("div", {}, h("h3", {}, "Profilingizni yarating"), h("p", { class: "muted small" }, "Email va parol orqali ro'yxatdan o'ting: progressingiz saqlanadi, AI tekshiruv, mustaqil ta'lim va reyting ochiladi.")), h("div", { class: "row" }, h("a", { href: "#/register", class: "btn" }, "Ro'yxatdan o'tish"), h("a", { href: "#/login", class: "btn ghost" }, "Kirish")))),
     !user && (COURSE.studyForms || []).length > 0 && h("section", { class: "stack" }, h("h2", { class: "section-title" }, "Bakalavriat ta'lim shakllari"), h("div", { class: "grid cols-2" }, COURSE.studyForms.map((f) => h("a", { class: "card feature-card", href: `#/register?form=${f.key}` }, h("div", { class: "stat-icon" }, f.icon || "🎓"), h("h3", {}, f.title), h("p", { class: "muted small" }, `Guruhlar: ${f.groups.join(", ")}`), h("span", { class: "btn small" }, "Ro'yxatdan o'tish →"))))),
+    inviteCard(user),
     h("h2", { class: "section-title" }, "Platforma imkoniyatlari"),
     h("section", { class: "grid cols-3" }, features.map(([icon, title, text, href]) => h("a", { href, class: "card feature tilt" }, h("div", { class: "feature-icon" }, icon), h("h3", {}, title), h("p", { class: "muted small" }, text)))),
     h(
@@ -143,4 +144,32 @@ export async function render(el) {
       )
     )
   );
+}
+
+/** Asosiy oynada: saytga taklif havolasi (nusxalash, ulashish, QR-kod). Manzil joriy domendan olinadi. */
+function inviteCard(user) {
+  const url = `${location.origin}/`;
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      toast("Havola nusxalandi", "ok");
+    } catch {
+      input.select();
+      toast("Havolani belgilab nusxalang (Ctrl+C)", "warn");
+    }
+  };
+  const input = h("input", { type: "text", readonly: true, value: url, class: "grow", "aria-label": "Sayt taklif havolasi", onfocus: (e) => e.target.select() });
+  const text = `${COURSE.brand} — “${COURSE.title}” interaktiv ta'lim platformasi`;
+  return h("section", { class: "card hero-card invite-card" },
+    h("div", { class: "row between wrap" },
+      h("div", {},
+        h("div", { class: "eyebrow" }, "🔗 Sayt taklif havolasi"),
+        h("h3", {}, user?.role === "teacher" ? "Talabalarga havolani yuboring" : "Guruhdoshlaringizni taklif qiling"),
+        h("p", { class: "muted small" }, "Havolani bosib ochgan kishi ro'yxatdan o'tadi yoki tizimga kiradi. Telefon kamerasi bilan kirish uchun QR-kod ham bor.")),
+      h("div", { class: "row wrap", style: { flex: "1 1 360px", justifyContent: "flex-end" } },
+        input,
+        h("button", { class: "btn", onclick: copy }, "📋 Nusxalash"),
+        h("a", { class: "btn ghost", href: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, target: "_blank", rel: "noopener noreferrer" }, "✈️ Telegram"),
+        navigator.share && h("button", { class: "btn ghost", onclick: () => navigator.share({ title: COURSE.brand, text, url }).catch(() => {}) }, "📤 Ulashish"),
+        h("a", { class: "btn ghost", href: "#/qr" }, "📱 QR-kod"))));
 }
