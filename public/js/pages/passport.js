@@ -39,7 +39,7 @@ export async function render(el) {
           { class: "pp-fields" },
           h("div", {}, h("dt", {}, "Muassasa"), h("dd", {}, user.college || "—")),
           h("div", {}, h("dt", {}, "Guruh"), h("dd", {}, user.group || "—")),
-          h("div", {}, h("dt", {}, "Respondent kodi"), h("dd", {}, user.code || "—")),
+          user.idNumber ? h("div", {}, h("dt", {}, "Identifikatsiya raqami"), h("dd", {}, user.idNumber)) : h("div", {}, h("dt", {}, "Respondent kodi"), h("dd", {}, user.code || "—")),
           h("div", {}, h("dt", {}, "Faol kunlar"), h("dd", {}, String(game.stats.activeDays)))
         )
       ),

@@ -40,7 +40,7 @@ async function resultPdf(res, user) {
   r.text(`${A.semester}-semestr · ${A.title}`, { size: 24, color: "#5b6b6e", gap: 16 });
   r.rule();
   r.text(`Talaba: ${user.name}`, { size: 28, weight: 600, gap: 4 });
-  r.text(`Guruh: ${user.group || "—"} · Ta'lim shakli: ${formByKey(form)?.title || form} · Sana: ${new Date().toLocaleDateString("uz-UZ")}`, { size: 22, color: "#5b6b6e", gap: 18 });
+  r.text(`${user.idNumber ? `ID raqami: ${user.idNumber} · ` : ""}Guruh: ${user.group || "—"} · Ta'lim shakli: ${formByKey(form)?.title || form} · Sana: ${new Date().toLocaleDateString("uz-UZ")}`, { size: 22, color: "#5b6b6e", gap: 18 });
   r.box(130, "#e8f4f2", (c, y) => {
     c.font = `700 64px ${"sans-serif"}`;
     c.fillStyle = "#0e6b62";
@@ -346,7 +346,7 @@ export async function teacherView(el) {
   const draw = () => {
     const list = rows
       .filter((u) => !groupFilter || u.group === groupFilter)
-      .filter((u) => !q || `${u.name} ${u.email}`.toLowerCase().includes(q.toLowerCase()))
+      .filter((u) => !q || `${u.name} ${u.email} ${u.idNumber || ""}`.toLowerCase().includes(q.toLowerCase()))
       .sort((a, b) => (a.group || "").localeCompare(b.group || "") || a.name.localeCompare(b.name));
     table.replaceChildren(
       h("table", { class: "table" },
@@ -354,7 +354,7 @@ export async function teacherView(el) {
         h("tbody", {}, list.map((u, idx) =>
           h("tr", {},
             h("td", { class: "center muted" }, `${idx + 1}.`),
-            h("td", {}, u.name),
+            h("td", {}, u.name, u.idNumber && h("div", { class: "muted small" }, `ID: ${u.idNumber}`)),
             h("td", {}, u.group || "—", u.studyForm && h("div", { class: "muted small" }, formByKey(u.studyForm)?.name || "")),
             A.stages.map((s) => {
               const it = by.get(`${u.id}/${s.no}`);
@@ -388,11 +388,11 @@ export async function teacherView(el) {
   const search = h("input", { type: "search", placeholder: "Qidirish: ism yoki email", oninput: (e) => ((q = e.target.value), draw()) });
   const csv = () =>
     downloadFile(`topshiriq-ballari-${curForm}.csv`, toCSV([
-      ["№", "Talaba", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no, curForm))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
+      ["№", "Talaba", "ID raqami", "Email", "Ta'lim shakli", "Guruh", ...A.stages.map((s) => `${s.no}-bosqich (${fmtScore(stageMax(s.no, curForm))})`), ...A.groups.map((g) => `${g.stages[0]}–${g.stages[g.stages.length - 1]} guruh (${g.max})`), `Jami (${A.total})`],
         ...allRows.filter((u) => formOf(u) === curForm).map((u, i) => {
           const its = subsOf(u);
           const m = new Map(its.map((i) => [i.no, i]));
-          return [i + 1, u.name, u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its, curForm)];
+          return [i + 1, u.name, u.idNumber || "", u.email, formByKey(u.studyForm)?.name || "", u.group, ...A.stages.map((s) => m.get(s.no)?.teacher?.score ?? (m.get(s.no) ? "tekshirilmagan" : "")), ...A.groups.map((g) => Math.min(g.max, g.stages.reduce((n, no) => n + (m.get(no)?.teacher?.score || 0), 0))), totalScore(its, curForm)];
         })]));
 
   const pending = data.items.filter((i) => i.teacher?.score == null || i.resubmitted).length;

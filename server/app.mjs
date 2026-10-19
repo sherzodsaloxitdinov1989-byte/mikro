@@ -204,7 +204,7 @@ async function claimRoster(req, group, shifr, typedName, userId) {
     throw new HttpError(403, "Shifr yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. Shifrni va ismingizni ro'yxatdagidek kiriting.");
   }
   if (entry.claimedBy && entry.claimedBy !== userId) throw new HttpError(409, "Bu shifr bilan allaqachon profil yaratilgan. Parolingizni unutgan bo'lsangiz «Parolni unutdingizmi?» dan foydalaning yoki o'qituvchiga murojaat qiling.");
-  return { roster, entry };
+  return { roster, entry, digits: shifrDigits(shifr) };
 }
 
 async function finishClaim(roster, entry, userId) {
@@ -319,7 +319,7 @@ async function register(req) {
     ...(await hashPassword(password)),
   };
   if (role === "student") user.code = await nextCode();
-  if (claim) user.rosterOk = true;
+  if (claim) Object.assign(user, { rosterOk: true, idNumber: claim.digits });
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
   if (claim) await finishClaim(claim.roster, claim.entry, user.id);
@@ -366,6 +366,7 @@ async function login(req) {
       const claim = await claimRoster(req, user.group, b.shifr, user.name, user.id);
       await finishClaim(claim.roster, claim.entry, user.id);
       user.rosterOk = true;
+      user.idNumber = claim.digits;
       user.name = claim.entry.name;
       await db().set(userKey(user.id), user);
     }
