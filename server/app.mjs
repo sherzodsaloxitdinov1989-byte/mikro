@@ -1742,7 +1742,7 @@ async function allEvidence(req) {
 // ---------- AI ovozi (Gemini TTS) ----------
 // Har bir (matn, ovoz, uslub) bir marta yaratiladi va MP3 sifatida keshlanadi; keyin hamma uchun keshdan beriladi.
 
-const TTS_DAILY = { student: 300, teacher: 3000 };
+const TTS_DAILY = { student: 300, teacher: 10000 }; // o'qituvchi: video darslar uchun ko'p ovoz kerak
 const ttsMetaKey = (k) => `ttsmeta/${k}`;
 const ttsBinKey = (k) => `ttsbin/${k}`;
 const ttsUrl = (k, format = "mp3") => `/api/tts/audio/${k}.${format}`;

@@ -198,8 +198,24 @@ export async function openVideoStudio(topic, onCreated) {
         let buf = null;
         if (text && ttsOn) {
           progress.textContent = `🔊 Ovoz tayyorlanmoqda: ${i + 1}/${slides.length}…`;
+          // Gemini limiti (daqiqalik) tugasa — kutib, qayta uriniladi; kunlik limit tugasa — to'xtatiladi (tayyorlangan ovozlar keshda qoladi)
+          let r = null;
+          for (let attempt = 0; !r; attempt++) {
+            if (cancelled) throw new Error("Bekor qilindi");
+            try {
+              r = await api.post("tts", { text, voice: voice.value, style: "narrator" });
+            } catch (e) {
+              if (e.status !== 429 || e.data?.daily || attempt >= 8) {
+                throw new Error(`${i + 1}-slayd ovozi yaratilmadi: ${e.data?.daily ? "AI ovozining bugungi limiti tugadi. Ertaga davom ettiring — tayyorlangan ovozlar saqlanadi va qayta sarflanmaydi." : e.message}`);
+              }
+              const wait = Math.min(90, Math.max(10, Number(e.data?.retryAfter) || 25));
+              for (let t = wait; t > 0 && !cancelled; t--) {
+                progress.textContent = `⏳ AI ovozi limiti: ${t} soniyadan keyin davom etadi (${i + 1}/${slides.length}-slayd)…`;
+                await new Promise((res) => setTimeout(res, 1000));
+              }
+            }
+          }
           try {
-            const r = await api.post("tts", { text, voice: voice.value, style: "narrator" });
             const res = await fetch(r.url, { credentials: "include" });
             if (!res.ok) throw new Error("Ovoz fayli olinmadi");
             buf = await ac.decodeAudioData(await res.arrayBuffer());
