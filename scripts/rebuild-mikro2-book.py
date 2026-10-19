@@ -43,10 +43,14 @@ MISSING = set()
 
 OCC = {}
 OVR = {}
+CUR = [0]
 
 
 def fx_text(i):
-    t = OVR.get(i, FX.get(i.split("#")[0]))
+    fid = i.split("#")[0]
+    t = OVR.get(i, FX.get((CUR[0], fid)))
+    if t is None:
+        t = next((v for (c, f), v in FX.items() if f == fid), None)
     if t is None:
         MISSING.add(i.split("#")[0])
         return "⟦" + i + "⟧"
@@ -269,7 +273,8 @@ class Sect:
 def main():
     src = Path(sys.argv[1])
     for f in sorted(FDIR.glob("ch[0-9]*.json")):
-        FX.update(json.loads(f.read_text(encoding="utf-8"))["f"])
+        n = int(re.search(r"ch(\d+)", f.name).group(1))
+        FX.update({(n, k): v for k, v in json.loads(f.read_text(encoding="utf-8"))["f"].items()})
     ov = FDIR / "overrides.json"
     if ov.exists():
         OVR.update(json.loads(ov.read_text(encoding="utf-8")))
@@ -293,6 +298,7 @@ def main():
             if style == "Heading 1":
                 m = CH_RE.match(txt)
                 if m:
+                    CUR[0] = ROMAN[m.group(1)]
                     cur = chapters.setdefault(ROMAN[m.group(1)], {"secs": [], "q": [], "name": None, "pre": []})
                     mode = "ch"
                 elif txt.upper().startswith("SO‘Z BOSHI"):
