@@ -61,7 +61,7 @@ export const COURSE = {
   // so'ng shu shakldagi guruhini tanlaydi. Bo'sh ro'yxat bo'lsa, guruh nomi erkin yoziladi.
   studyForms: [
     { key: "kunduzgi", name: "Kunduzgi", title: "Bakalavriat — kunduzgi ta'lim", icon: "🏫", groups: ["331-25", "332-25", "333-25", "334-25", "141-23", "142-23"] },
-    { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25"] },
+    { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25", "845-25", "846-25", "847-25", "848-25"] },
   ],
 
   // Semestrlar (2-bosqich, 2026–2027 o'quv yili): darslik mavzulari semestrlarga bo'lingan.
