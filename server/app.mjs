@@ -2428,7 +2428,16 @@ async function recalcRating(req) {
 
 // ---------- Himoya hodisalari: test/topshiriq paytida ekran surati yoki oynadan chiqish ----------
 
-const SEC_TYPES = { screenshot: "Ekran surati urinishi", leave: "Oynadan chiqish" };
+// Har bir hodisa turi: nomi, buzilgan qoida va og'irligi (1 — yengil, 3 — jiddiy)
+const SEC_TYPES = {
+  screenshot: { label: "Ekran surati olishga urinish", rule: "Test va topshiriqlarning ekran suratini olish taqiqlanadi", weight: 3 },
+  print: { label: "Bosib chiqarish / PDF'ga saqlash urinishi", rule: "Platforma materiallarini bosib chiqarish va PDF qilish taqiqlanadi", weight: 3 },
+  source: { label: "Sahifa manbasi / dasturchi vositalarini ochish", rule: "Sahifa kodini ochish va dasturchi vositalaridan foydalanish taqiqlanadi", weight: 3 },
+  save: { label: "Sahifani saqlashga urinish (Ctrl+S)", rule: "Platforma materiallarini saqlab olish taqiqlanadi", weight: 2 },
+  copy: { label: "Matnni nusxalash / kesib olish urinishi", rule: "Darslik va topshiriq matnini nusxalash mualliflik huquqi bilan taqiqlanadi", weight: 2 },
+  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1 },
+  contextmenu: { label: "O'ng tugma (kontekst menyu)", rule: "Sahifada o'ng tugma bilan nusxalash va saqlash taqiqlanadi", weight: 1 },
+};
 
 async function securityEvent(req) {
   const user = await requireUser(req);
@@ -2437,10 +2446,10 @@ async function securityEvent(req) {
   const type = str(b.type, 20);
   if (!SEC_TYPES[type]) throw new HttpError(400, "Hodisa turi noto'g'ri");
   const day = new Date().toISOString().slice(0, 10);
-  const lim = await bump(`ratelimit/sec/${user.id}/${day}`, 86_400_000, 300);
+  const lim = await bump(`ratelimit/sec/${user.id}/${day}`, 86_400_000, 600);
   if (!lim.ok) return json({ ok: true });
   const at = new Date().toISOString();
-  await db().set(`secevent/${user.id}/${at}-${newId().slice(0, 6)}`, { userId: user.id, name: user.name, group: user.group || "", form: formKeyOf(user), type, page: str(b.page, 80), at });
+  await db().set(`secevent/${user.id}/${at}-${newId().slice(0, 6)}`, { userId: user.id, name: user.name, group: user.group || "", form: formKeyOf(user), idNumber: user.idNumber || "", type, detail: str(b.detail, 160), action: str(b.action, 200), page: str(b.page, 80), at });
   return json({ ok: true });
 }
 
@@ -2449,11 +2458,13 @@ async function adminSecurity(req) {
   const events = (await getEntries("secevent/")).map(([, v]) => v).sort((a, b) => b.at.localeCompare(a.at));
   const by = new Map();
   for (const e of events) {
-    const r = by.get(e.userId) || { userId: e.userId, name: e.name, group: e.group, form: e.form, screenshot: 0, leave: 0, last: e.at };
-    r[e.type]++;
+    const r = by.get(e.userId) || { userId: e.userId, name: e.name, group: e.group, form: e.form, idNumber: e.idNumber || "", counts: {}, score: 0, total: 0, last: e.at };
+    r.counts[e.type] = (r.counts[e.type] || 0) + 1;
+    r.score += SEC_TYPES[e.type]?.weight || 1;
+    r.total++;
     by.set(e.userId, r);
   }
-  return json({ types: SEC_TYPES, students: [...by.values()].sort((a, b) => b.screenshot * 5 + b.leave - (a.screenshot * 5 + a.leave)), recent: events.slice(0, 200) });
+  return json({ types: SEC_TYPES, students: [...by.values()].sort((a, b) => b.score - a.score || b.total - a.total), recent: events.slice(0, 500) });
 }
 
 // ---------- Sozlamalar va diagnostika ----------

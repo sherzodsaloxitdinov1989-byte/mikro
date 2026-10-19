@@ -2,6 +2,7 @@
 // sudrash, saqlash/bosib chiqarish tugmalari o'chiriladi; talaba ekranida ism-familiyasi bilan xira belgi (watermark) ko'rinadi.
 // O'qituvchi (muallif) uchun cheklovlar ishlamaydi.
 import { session } from "./api.js";
+import { report } from "./secure.js";
 
 const editable = (el) => Boolean(el?.closest?.("input, textarea, select, [contenteditable=true], .allow-copy"));
 const active = () => document.documentElement.dataset.role !== "teacher";
@@ -22,6 +23,7 @@ export function initContentGuard() {
   const block = (e) => {
     if (!active() || editable(e.target)) return;
     e.preventDefault();
+    if (e.type === "contextmenu") report("contextmenu", "O'ng tugma bosildi (kontekst menyu ochishga urinish)");
   };
   document.addEventListener("contextmenu", block, true);
   document.addEventListener("dragstart", block, true);
@@ -34,11 +36,21 @@ export function initContentGuard() {
       if (!active() || editable(e.target)) return;
       e.preventDefault();
       e.clipboardData?.setData("text/plain", NOTICE);
+      report("copy", type === "copy" ? "Matnni nusxalashga urindi (Ctrl+C)" : "Matnni kesib olishga urindi (Ctrl+X)");
     }, true);
   }
   document.addEventListener("keydown", (e) => {
     if (!active() || editable(e.target)) return;
-    if ((e.ctrlKey || e.metaKey) && ["s", "p", "u"].includes(e.key.toLowerCase())) e.preventDefault();
+    const k = String(e.key || "").toLowerCase();
+    const mod = e.ctrlKey || e.metaKey;
+    if (mod && ["s", "p", "u"].includes(k)) {
+      e.preventDefault();
+      if (k === "s") report("save", "Sahifani saqlashga urindi (Ctrl+S)");
+      else if (k === "p") report("print", "Bosib chiqarishga urindi (Ctrl+P)");
+      else report("source", "Sahifa manbasini ochishga urindi (Ctrl+U)");
+    } else if (k === "f12" || (mod && e.shiftKey && ["i", "j", "c"].includes(k))) {
+      report("source", `Dasturchi vositalarini ochishga urindi (${k === "f12" ? "F12" : `Ctrl+Shift+${k.toUpperCase()}`})`);
+    }
   }, true);
   window.addEventListener("tt:auth", watermark);
   watermark();

@@ -1,18 +1,73 @@
-// O'qituvchi paneli: test va topshiriqlar paytida qayd etilgan himoya hodisalari (ekran surati urinishi, oynadan chiqish).
-import { h, mount, loading, fmtDate, emptyState } from "../ui.js";
+// O'qituvchi paneli: himoya hodisalari — qaysi talaba, qaysi amalni bajarayotganida, qanday qoidani buzgani.
+import { h, mount, loading, fmtDate, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
+import { toCSV } from "../stats.js";
 import { formByKey } from "../../data/course.js";
+
+const ICON = { screenshot: "📸", print: "🖨️", source: "🧑‍💻", save: "💾", copy: "📋", leave: "🪟", contextmenu: "🖱️" };
+const SEVERITY = { 3: ["Jiddiy", "badge-warn"], 2: ["O'rtacha", "badge-warn"], 1: ["Yengil", ""] };
 
 export async function teacherView(el) {
   mount(el, loading());
   const d = await api.get("admin/security");
-  if (!d.students.length) return mount(el, emptyState("🛡️", "Hodisalar yo'q", "Test va topshiriq sahifalarida ekran surati urinishi yoki oynadan chiqish qayd etilmagan."));
+  if (!d.recent.length) return mount(el, emptyState("🛡️", "Hodisalar yo'q", "Platformada ekran surati, nusxalash, bosib chiqarish yoki oynadan chiqish urinishlari qayd etilmagan."));
+  const types = d.types;
+  let fType = "";
+  let q = "";
+  const list = h("div", { class: "card table-wrap" });
+  const summary = h("div", { class: "card table-wrap" });
+
+  const chips = (counts) => Object.entries(counts).sort((a, b) => (types[b[0]]?.weight || 0) - (types[a[0]]?.weight || 0)).map(([t, n]) => h("span", { class: "chip chip-soft", title: types[t]?.label || t }, `${ICON[t] || "•"} ${n}`));
+
+  const drawSummary = () => {
+    const rows = d.students.filter((s) => !q || `${s.name} ${s.idNumber} ${s.group}`.toLowerCase().includes(q));
+    summary.replaceChildren(
+      h("h3", {}, "Talabalar bo'yicha (og'irlik bo'yicha tartiblangan)"),
+      h("table", { class: "table" },
+        h("thead", {}, h("tr", {}, ["№", "Talaba", "Guruh", "Qoidabuzarliklar", "Jami", "Oxirgi"].map((x) => h("th", {}, x)))),
+        h("tbody", {}, rows.map((s, i) => h("tr", {},
+          h("td", { class: "center muted" }, `${i + 1}.`),
+          h("td", {}, s.name, s.idNumber && h("div", { class: "muted small" }, `ID: ${s.idNumber}`)),
+          h("td", {}, s.group || "—", h("div", { class: "muted small" }, formByKey(s.form)?.name || "")),
+          h("td", {}, h("div", { class: "row wrap", style: { gap: "4px" } }, chips(s.counts))),
+          h("td", { class: "center" }, h("b", {}, s.total)),
+          h("td", { class: "small" }, fmtDate(s.last)))))));
+  };
+
+  const drawList = () => {
+    const rows = d.recent.filter((e) => (!fType || e.type === fType) && (!q || `${e.name} ${e.idNumber || ""} ${e.group} ${e.action || ""}`.toLowerCase().includes(q)));
+    list.replaceChildren(
+      h("h3", {}, `Hodisalar jurnali (${rows.length})`),
+      rows.length
+        ? h("table", { class: "table" },
+            h("thead", {}, h("tr", {}, ["Vaqt", "Talaba", "Qaysi amalni bajarayotgan edi", "Nima qildi", "Buzilgan qoida", ""].map((x) => h("th", {}, x)))),
+            h("tbody", {}, rows.map((e) => {
+              const t = types[e.type] || { label: e.type, rule: "", weight: 1 };
+              const [sev, cls] = SEVERITY[t.weight] || SEVERITY[1];
+              return h("tr", {},
+                h("td", { class: "small" }, fmtDate(e.at)),
+                h("td", {}, e.name, h("div", { class: "muted small" }, `${e.group || "—"}${e.idNumber ? ` · ID: ${e.idNumber}` : ""}`)),
+                h("td", { class: "small" }, e.action || h("span", { class: "muted" }, e.page || "—")),
+                h("td", { class: "small" }, h("b", {}, `${ICON[e.type] || ""} ${t.label}`), e.detail && h("div", { class: "muted" }, e.detail)),
+                h("td", { class: "small" }, t.rule),
+                h("td", {}, h("span", { class: `badge ${cls}` }, sev)));
+            })))
+        : h("p", { class: "muted" }, "Tanlangan filtr bo'yicha hodisa yo'q."));
+  };
+
+  const draw = () => (drawSummary(), drawList());
+  const typeSel = h("select", { onchange: (e) => ((fType = e.target.value), draw()) }, h("option", { value: "" }, "Barcha qoidabuzarliklar"), Object.entries(types).map(([k, v]) => h("option", { value: k }, `${ICON[k] || ""} ${v.label}`)));
+  const search = h("input", { type: "search", placeholder: "Qidirish: talaba, guruh, ID yoki amal", oninput: (e) => ((q = e.target.value.toLowerCase()), draw()) });
+  const csv = () =>
+    downloadFile("himoya-hodisalari.csv", toCSV([
+      ["Vaqt", "Talaba", "ID raqami", "Guruh", "Amal (nima qilayotgan edi)", "Hodisa", "Tafsilot", "Buzilgan qoida", "Og'irligi"],
+      ...d.recent.map((e) => [fmtDate(e.at), e.name, e.idNumber || "", e.group || "", e.action || e.page || "", types[e.type]?.label || e.type, e.detail || "", types[e.type]?.rule || "", types[e.type]?.weight || ""]),
+    ]));
+
   mount(el,
-    h("div", { class: "alert alert-info small" }, "Test va topshiriq sahifalarida talaba ekran surati olishga urinsa yoki oynadan chiqsa, sahifa yashiriladi va hodisa shu yerda qayd etiladi. «Oynadan chiqish» ba'zan tasodifiy bo'lishi mumkin (xabarnoma, boshqa oyna) — takroriy holatlarga e'tibor bering."),
-    h("div", { class: "card table-wrap" }, h("h3", {}, "Talabalar bo'yicha"),
-      h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "Talaba"), h("th", {}, "Guruh"), h("th", { class: "center" }, "Ekran surati urinishi"), h("th", { class: "center" }, "Oynadan chiqish"), h("th", {}, "Oxirgi"))),
-        h("tbody", {}, d.students.map((s, i) => h("tr", {}, h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, s.name), h("td", {}, s.group || "—", h("div", { class: "muted small" }, formByKey(s.form)?.name || "")), h("td", { class: "center" }, s.screenshot ? h("b", { style: { color: "var(--danger, #c0392b)" } }, s.screenshot) : 0), h("td", { class: "center" }, s.leave), h("td", {}, fmtDate(s.last))))))),
-    h("details", { class: "card" }, h("summary", {}, h("b", {}, `So'nggi hodisalar (${d.recent.length})`)),
-      h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Vaqt"), h("th", {}, "Talaba"), h("th", {}, "Hodisa"), h("th", {}, "Sahifa"))),
-        h("tbody", {}, d.recent.map((e) => h("tr", {}, h("td", {}, fmtDate(e.at)), h("td", {}, `${e.name} (${e.group || "—"})`), h("td", {}, d.types[e.type] || e.type), h("td", { class: "muted small" }, e.page)))))));
+    h("div", { class: "alert alert-info small" }, "Talaba test, topshiriq yoki darslik sahifasida taqiqlangan amal bajarsa (ekran surati, nusxalash, bosib chiqarish, dasturchi vositalari, oynadan chiqish), hodisa shu yerda qayd etiladi: kim, nima qilayotganida, qaysi qoidani buzgani. «Oynadan chiqish» ba'zan tasodifiy bo'lishi mumkin (xabarnoma, bosh qismga o'tish), shuning uchun faqat takroriy yoki jiddiy hodisalarga e'tibor bering."),
+    h("div", { class: "row between wrap" }, h("div", { class: "row wrap" }, typeSel, search), h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)")),
+    summary,
+    list);
+  draw();
 }

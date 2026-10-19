@@ -9,6 +9,7 @@ import { session, api } from "./api.js";
 
 let routeSecure = false;
 let zoneVisible = false;
+let currentZone = "";
 let shield = null;
 let suppressUntil = 0; // fayl tanlash oynasi va tizim dialoglari ochilganda oyna fokusi yo'qolishi — qoidabuzarlik emas
 const lastSent = {};
@@ -16,11 +17,31 @@ const lastSent = {};
 const active = () => session.user && session.user.role !== "teacher" && (routeSecure || zoneVisible);
 const pageName = () => (location.hash || "#/").split("?")[0].slice(0, 80);
 
-function report(type) {
+/** Talaba shu paytda nima qilayotgani (o'qituvchiga qayd etiladi): sahifa va ko'rinib turgan bo'lim bo'yicha. */
+function describeAction() {
+  const hash = (location.hash || "#/").split("?")[0];
+  const title = (document.querySelector("#main h1")?.textContent || "").trim().slice(0, 90);
+  let m;
+  if ((m = hash.match(/^#\/assignment\/(\d+)/))) return `Topshiriq (20 ball): ${m[1]}-bosqich sahifasi${title ? ` — ${title}` : ""}`;
+  if (hash === "#/assignment") return "Topshiriq (20 ball) sahifasi";
+  if (/^#\/tasks\/[\w-]+/.test(hash)) return `Vazifa: ${title || "topshiriq sahifasi"}`;
+  if (hash === "#/tasks") return "Vazifalar ro'yxati";
+  if (/^#\/practice\//.test(hash)) return `Amaliy mashg'ulot: ${title || ""}`.trim();
+  if (/^#\/live\/play/.test(hash)) return "Jonli viktorina";
+  if (/^#\/topics\/[\w-]+/.test(hash)) {
+    const zone = { quiz: "Mavzu testi", practice: "Amaliy bo'lim", self: "Mustaqil ish" }[currentZone] || "Darslik o'qish";
+    return `${zone}${title ? `: ${title}` : ""}`;
+  }
+  if (/^#\/selfstudy|^#\/self-study/.test(hash)) return "Mustaqil ta'lim";
+  return title ? `Sahifa: ${title}` : `Sahifa: ${hash}`;
+}
+
+export function report(type, detail = "") {
+  if (!session.user || session.user.role === "teacher") return;
   const now = Date.now();
   if (now - (lastSent[type] || 0) < 4000) return;
   lastSent[type] = now;
-  fetch("/api/security/event", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${session.token}` }, body: JSON.stringify({ type, page: pageName() }), keepalive: true }).catch(() => {});
+  fetch("/api/security/event", { method: "POST", headers: { "content-type": "application/json", authorization: `Bearer ${session.token}` }, body: JSON.stringify({ type, detail, action: describeAction(), page: pageName() }), keepalive: true }).catch(() => {});
 }
 
 function showShield(reason) {
@@ -44,11 +65,11 @@ function hideShield() {
   document.body.classList.remove("secure-blur");
 }
 
-function trigger(type, reason) {
+function trigger(type, reason, detail = "") {
   if (!active()) return;
   if (type === "leave" && Date.now() < suppressUntil) return;
   showShield(reason);
-  report(type);
+  report(type, detail);
 }
 
 /** Bo'limlar (test, amaliyot) ko'rinib turganda himoya yoqiladi: mavzu sahifasida. */
@@ -59,6 +80,7 @@ function watchZones() {
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
     zoneVisible = seen.size > 0;
+    currentZone = [...seen].map((n) => n.dataset?.chapter).find(Boolean) || "";
     if (!zoneVisible && !routeSecure) hideShield();
   }, { threshold: [0, 0.01] });
   const attach = () => main.querySelectorAll("[data-chapter='quiz'], [data-chapter='practice'], [data-chapter='self'], [data-secure]").forEach((n) => { if (!n.__secureWatched) { n.__secureWatched = true; io.observe(n); } });
@@ -79,8 +101,8 @@ export function initSecureMode() {
     if (e.target?.closest?.("input[type=file], label")?.querySelector?.("input[type=file]") || e.target?.matches?.("input[type=file]")) suppressUntil = Date.now() + 120_000;
   }, true);
   window.addEventListener("focus", () => { suppressUntil = Math.min(suppressUntil, Date.now() + 1500); });
-  window.addEventListener("blur", () => trigger("leave", "Oyna fokusini yo'qotdi (boshqa ilova yoki suratga olish dasturi ochilgan bo'lishi mumkin)."));
-  document.addEventListener("visibilitychange", () => document.hidden && trigger("leave", "Sahifadan chiqdingiz."));
+  window.addEventListener("blur", () => trigger("leave", "Oyna fokusini yo'qotdi (boshqa ilova yoki suratga olish dasturi ochilgan bo'lishi mumkin).", "Oyna fokusini yo'qotdi: boshqa ilovaga o'tdi yoki suratga olish dasturi ochildi"));
+  document.addEventListener("visibilitychange", () => document.hidden && trigger("leave", "Sahifadan chiqdingiz.", "Brauzer yorlig'ini almashtirdi yoki oynani yashirdi"));
   const shot = (e) => {
     const k = String(e.key || "");
     const printScreen = k === "PrintScreen" || e.code === "PrintScreen";
@@ -88,10 +110,11 @@ export function initSecureMode() {
     if (!printScreen && !combo) return;
     if (!active()) return;
     try { navigator.clipboard?.writeText(" "); } catch {}
-    trigger("screenshot", "Ekran surati olishga urinish aniqlandi.");
+    const keys = printScreen ? "PrintScreen tugmasi" : `${e.metaKey ? "Win/Cmd" : "Ctrl"}+Shift+${k.toUpperCase()}`;
+    trigger("screenshot", "Ekran surati olishga urinish aniqlandi.", `Bosilgan tugmalar: ${keys}`);
   };
   window.addEventListener("keydown", shot, true);
   window.addEventListener("keyup", shot, true);
-  window.addEventListener("beforeprint", () => trigger("screenshot", "Bosib chiqarish taqiqlangan."));
+  window.addEventListener("beforeprint", () => trigger("print", "Bosib chiqarish taqiqlangan.", "Bosib chiqarish / PDF'ga saqlash oynasi ochildi"));
   watchZones();
 }
