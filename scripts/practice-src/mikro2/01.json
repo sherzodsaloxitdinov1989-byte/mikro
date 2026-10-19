@@ -1,35 +1,163 @@
 {
- "goal": "«Fanning predmeti va o‘rganish usullari. bozor va byudjet cheklovi» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Iqtisodiy model, ekzogen va endogen o‘zgaruvchilar tushunchalarini mustahkamlash; bozor muvozanati va narx nazoratini tahlil qilish, byudjet chizig‘ini qurish va uning o‘zgarishlarini baholash ko‘nikmalarini shakllantirish.",
  "concepts": [
-  "mikroiqtisodiyot",
-  "cheklangan resurslar",
-  "muqobil xarajat",
-  "pozitiv tahlil",
-  "normativ tahlil",
-  "iqtisodiy model"
+  "Cheklangan resurslar va muqobil xarajat",
+  "Pozitiv va normativ tahlil",
+  "Iqtisodiy model: ekzogen va endogen o‘zgaruvchilar, ceteris paribus",
+  "Rezervatsion narx va Pareto samaradorlik",
+  "Byudjet to‘plami va byudjet chizig‘i",
+  "Miqdoriy soliq, subsidiya va blokli tarif"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 1-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 1-bob; I-ilova (A1), V-ilova (V.1)",
+ "tasks": [
+  {
+   "id": "mm1-p1",
+   "title": "Bozor muvozanati va narxning yuqori chegarasi",
+   "text": "Bozorda talab funksiyasi Qd = 300 − 6P, taklif funksiyasi Qs = 4P − 50 (P — narx, ming so‘m; Q — dona). Muvozanat narx va miqdorni toping. Davlat narxning yuqori chegarasini P = 30 ming so‘m qilib belgilasa, bozorda qancha birlik taqchillik yuzaga keladi?",
+   "fields": [
+    {
+     "label": "Muvozanat narxi",
+     "value": 35,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Muvozanat miqdori",
+     "value": 90,
+     "unit": "dona"
+    },
+    {
+     "label": "Taqchillik hajmi",
+     "value": 50,
+     "unit": "dona"
+    }
+   ],
+   "solution": "Qd = Qs: 300 − 6P = 4P − 50 → 350 = 10P → P* = 35. Q* = 300 − 6·35 = 90 (Qs = 4·35 − 50 = 90). P = 30 da: Qd = 300 − 180 = 120, Qs = 4·30 − 50 = 70. Taqchillik = 120 − 70 = 50.",
+   "formula": "Qd = Qs; taqchillik = Qd(Pmax) − Qs(Pmax)",
+   "note": "Narx muvozanatdan past belgilangani uchun talab taklifdan oshadi: iste’molchilar ko‘proq xohlaydi, ishlab chiqaruvchilar kamroq taklif qiladi."
+  },
+  {
+   "id": "mm1-p2",
+   "title": "Byudjet chizig‘i va narx o‘zgarishi",
+   "text": "Iste’molchining daromadi m = 2 400 ming so‘m, birinchi tovar narxi p1 = 30 ming so‘m, ikkinchisiniki p2 = 40 ming so‘m. Byudjet chizig‘ining koordinata o‘qlari bilan kesishish nuqtalarini (x1 max, x2 max) va og‘ishini toping. Keyin p2 = 60 ming so‘mga oshsa, ikkinchi tovar bo‘yicha maksimal miqdor va yangi og‘ish qanday bo‘ladi?",
+   "fields": [
+    {
+     "label": "x1 max (dastlab)",
+     "value": 80,
+     "unit": "birlik"
+    },
+    {
+     "label": "x2 max (dastlab)",
+     "value": 60,
+     "unit": "birlik"
+    },
+    {
+     "label": "x2 max (p2=60 da)",
+     "value": 40,
+     "unit": "birlik"
+    },
+    {
+     "label": "Yangi og‘ish",
+     "value": -0.5,
+     "unit": ""
+    }
+   ],
+   "solution": "Byudjet chizig‘i: 30x1 + 40x2 = 2400. x1 max = 2400/30 = 80, x2 max = 2400/40 = 60, og‘ish = −p1/p2 = −30/40 = −0,75. p2 = 60 da: x2 max = 2400/60 = 40, og‘ish = −30/60 = −0,5; x1 max = 80 o‘zgarmaydi, chiziq gorizontal o‘q kesishish nuqtasi atrofida ichkariga buriladi.",
+   "formula": "p1x1 + p2x2 = m; og‘ish = −p1/p2",
+   "note": "Bir tovar narxi oshganda byudjet chizig‘i parallel siljimaydi, balki narxi o‘zgarmagan tovar o‘qidagi nuqta atrofida buriladi."
+  },
+  {
+   "id": "mm1-p3",
+   "title": "Blokli tarif: siniq byudjet chizig‘i",
+   "text": "Iste’molchi birinchi tovarning dastlabki 10 birligini 20 so‘mdan, keyingi birliklarini 30 so‘mdan sotib oladi. Ikkinchi tovar narxi p2 = 10 so‘m, daromad m = 600 so‘m. Byudjet chizig‘ining sinish nuqtasi koordinatalarini (x1, x2) va birinchi tovarning maksimal miqdorini toping.",
+   "fields": [
+    {
+     "label": "Sinish nuqtasida x1",
+     "value": 10,
+     "unit": "birlik"
+    },
+    {
+     "label": "Sinish nuqtasida x2",
+     "value": 40,
+     "unit": "birlik"
+    },
+    {
+     "label": "x1 max",
+     "value": 23.33,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "x1 ≤ 10: 20x1 + 10x2 = 600. x1 = 10 da 200 so‘m sarflanadi, x2 = (600 − 200)/10 = 40 → sinish nuqtasi (10; 40). x1 > 10: 200 + 30(x1 − 10) + 10x2 = 600, ya’ni 30x1 + 10x2 = 700. x2 = 0 da x1 max = 700/30 ≈ 23,33.",
+   "formula": "x1 ≤ 10: 20x1 + 10x2 = m; x1 > 10: 200 + 30(x1 − 10) + 10x2 = m",
+   "note": "Tarif chekli narxni 20 dan 30 ga oshirgani uchun chiziq sinish nuqtasidan keyin tikroq bo‘ladi (og‘ish −2 dan −3 ga o‘tadi)."
+  },
+  {
+   "id": "mm1-p4",
+   "title": "Miqdoriy soliq va paushal subsidiya",
+   "text": "Iste’molchining daromadi 2 400 ming so‘m, narxlar p1 = 40 va p2 = 60 ming so‘m. Birinchi tovarga 10 ming so‘m miqdoriy soliq joriy etildi va bir vaqtda iste’molchiga 300 ming so‘m paushal subsidiya berildi. Yangi byudjet chizig‘ida p1 ning yangi qiymatini, daromadni hamda x1 max va x2 max ni toping.",
+   "fields": [
+    {
+     "label": "Yangi p1",
+     "value": 50,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Yangi daromad",
+     "value": 2700,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "x1 max",
+     "value": 54,
+     "unit": "birlik"
+    },
+    {
+     "label": "x2 max",
+     "value": 45,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "Soliqdan keyin iste’molchi uchun p1 = 40 + 10 = 50, subsidiya bilan daromad m = 2400 + 300 = 2700. Yangi byudjet chizig‘i: 50x1 + 60x2 = 2700. x1 max = 2700/50 = 54, x2 max = 2700/60 = 45. Dastlabki chiziqda x1 max = 60, x2 max = 40 edi.",
+   "formula": "(p1 + t)x1 + p2x2 = m + S",
+   "note": "Miqdoriy soliq birinchi tovar bo‘yicha og‘ishni tikroq qiladi, paushal subsidiya esa chiziqni og‘ishini o‘zgartirmay parallel tashqariga siljitadi."
+  },
+  {
+   "id": "mm1-p5",
+   "title": "Kvartiralar bozori: rezervatsion narx",
+   "text": "Kvartiralar bozorida 100 ta kvartira bor. 300 nafar talabaning rezervatsion narxlari 500 dan 2 000 ming so‘mgacha bir tekis taqsimlangan. Raqobatli muvozanat narxini toping. Barcha kvartiralar bitta egaga tegishli bo‘lsa, u yagona narx belgilab nechta kvartirani ijaraga beradi va tushumi qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "Raqobatli narx",
+     "value": 1500,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Monopolist ijaraga beradigan kvartiralar",
+     "value": 100,
+     "unit": "dona"
+    },
+    {
+     "label": "Monopolist tushumi",
+     "value": 150000,
+     "unit": "ming so‘m"
+    }
+   ],
+   "solution": "Rezervatsion narxi p dan yuqori talabalar soni: Qd(p) = 300·(2000 − p)/1500 = 400 − 0,2p. Raqobat: Qd = 100 → 400 − 0,2p = 100 → p* = 1500. Monopolist: tushum p(400 − 0,2p) p = 1000 da maksimal bo‘lardi (talab 200), ammo kvartiralar atigi 100 ta, shu sababli sotish p ≥ 1500 da mumkin. Demak narx 1500, 100 ta kvartira beriladi, tushum = 1500·100 = 150 000.",
+   "formula": "Qd(p) = 300·(2000 − p)/1500; Qd = 100",
+   "note": "Taklif cheklangan (vertikal) bo‘lgani uchun monopolist ham raqobatli narxni belgilaydi va barcha kvartiralarni ijaraga beradi."
+  }
+ ],
  "open": [
-  "Esse/munozara: Iqtisodiy modellar reallikni soddalashtiradi: bu ularning kuchimi yoki zaifligimi?",
-  "Esse/munozara: Narx nazorati qachon oqlanishi mumkin? Uy-joy ijarasi misolida.",
-  "Esse/munozara: Bozor narxlari axborot uzatish tizimi sifatida: F. fon Hayek g‘oyasining raqamli iqtisodiyotdagi ahamiyati.",
-  "Esse/munozara: Pozitiv va normativ iqtisodiyot chegarasi: soliq siyosati bo‘yicha munozaralar misolida.",
-  "Esse/munozara: Ma’lumotlarga asoslangan iqtisodiy siyosat: O‘zbekistonda statistik ma’lumotlarning sifati va ochiqligi.",
-  "Mustaqil ish: (MT-4) Bozor iqtisodiyotida talab va taklifning ahamiyati. O‘zingiz yashaydigan hududdagi biror mahsulot bozorini (go‘sht, sabzavot, qurilish materiallari) tanlang. Oxirgi uch yildagi narx dinamikasini rasmiy statistika (www.stat.uz) asosida tahlil qiling va narx o‘zgarishiga talab yoki taklif omillaridan qaysi biri ko‘proq ta’sir qilganini asoslang.",
-  "Mustaqil ish: (MT-12) Bozor muvozanati va uning ahamiyati. Qd=200−5 P, Qs=−40+7 P bo‘lgan bozor uchun muvozanatni toping. Narxning yuqori chegarasi 15 va quyi chegarasi 25 bo‘lgan holatlarni grafikda tasvirlab, oqibatlarini tahlil qiling.",
-  "Mustaqil ish: (MT-14) Byudjet chegarasi va byudjet chizig‘i. O‘zingizning (yoki oilangizning) bir oylik xarajatlarini ikki guruhga – “oziq-ovqat” va “boshqa xarajatlar”ga ajrating. Byudjet chizig‘ini quring va oziq-ovqat narxlari 10 foizga oshganda u qanday o‘zgarishini ko‘rsating.",
-  "Mustaqil ish: Mobil aloqa operatorlaridan birining tarif rejasini (abonent to‘lovi + paket + paketdan ortiq trafik narxi) tanlang va unga mos siniq byudjet chizig‘ini chizing."
+  "Kvartiralar bozori modelida qaysi o‘zgaruvchilar ekzogen, qaysilari endogen? Modelni O‘zbekistonning biror shahri uchun moslashtiring. Nima uchun Pareto samaradorlik adolat mezoni bo‘la olmaydi?",
+  "Mobil operatorlarning paketli tariflari (abonent to‘lovi + paket + paketdan ortiq trafik narxi) byudjet to‘plamini qanday o‘zgartiradi? Bitta tarif rejasini tanlab, unga mos siniq byudjet chizig‘ini chizing. Elektr energiyasining blokli tarifi (birinchi 150 kVt·soat 600 so‘mdan, ortig‘i 900 so‘mdan; daromad 4 mln so‘m) uchun 250 kVt·soat iste’molda o‘rtacha va chekli narxni hisoblang.",
+  "Inflatsiya sharoitida ish haqi narxlardan orqada qolsa, byudjet chizig‘i qanday siljiydi? «Barcha narxlar va daromad ikki baravar oshsa, hech narsa o‘zgarmaydi» degan fikrga qo‘shilasizmi? Pensionerlar misolida muhokama qiling. Oziq-ovqat narxlari 10 foizga oshganda o‘z oilangiz bir oylik byudjet chizig‘i qanday o‘zgarishini ko‘rsating.",
+  "«Ijara narxi nazorati» munozarasi. Guruh ikkiga bo‘linadi: biri talabalar turar joyida ijara narxini cheklashni, ikkinchisi yangi turar joylar qurilishini rag‘batlantirishni himoya qiladi. Har bir guruh o‘z pozitsiyasini talab-taklif grafigi va Pareto samaradorlik tushunchasi asosida asoslaydi. Yakunda pozitiv va normativ argumentlarni ajrating.",
+  "Qd = 200 − 5P va Qs = −40 + 7P bo‘lgan bozor uchun muvozanatni toping, so‘ng narxning yuqori chegarasi 15 va quyi chegarasi 25 bo‘lgan holatlarni grafikda tasvirlab, oqibatlarini tahlil qiling. Esse mavzulari (birini tanlang): «Iqtisodiy modellar reallikni soddalashtiradi: bu ularning kuchimi yoki zaifligimi?»; «Narx nazorati qachon oqlanishi mumkin?»; «Bozor narxlari axborot uzatish tizimi sifatida: F. fon Hayek g‘oyasining raqamli iqtisodiyotdagi ahamiyati»."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Ekzogen o‘zgaruvchilar modelga tashqaridan beriladi (kvartiralar soni, talabalar daromadi, shahar markaziga yaqinlik, soliqlar); endogen o‘zgaruvchilar model ichida aniqlanadi (ijara narxi, ijaraga olinayotgan kvartiralar miqdori). Moslashtirishda shahar (masalan, Toshkent yoki Samarqand) bo‘yicha kvartiralar soni va talabalar rezervatsion narxlarini real ma’lumotlardan oling. Pareto samarali taqsimot adolatli bo‘lishi shart emas: bir kishi hamma narsani olgan taqsimot ham Pareto samarali bo‘lishi mumkin, chunki samaradorlik kimningdir ahvolini yomonlashtirmay boshqasiniki yaxshilanmasligini bildiradi, taqsimot adolatini emas.",
+  "Paketli tarif byudjet to‘plamini siniq (pog‘onali) qiladi: abonent to‘lovi daromadni qisqartiradi, paket doirasida chekli narx nolga yaqin bo‘ladi, paketdan ortiq trafikda esa chekli narx keskin oshadi, chiziq sinish nuqtasida tikroq bo‘ladi. Elektr masalasi: to‘lov = 150·600 + 100·900 = 90 000 + 90 000 = 180 000 so‘m; o‘rtacha narx = 180 000/250 = 720 so‘m, chekli narx = 900 so‘m. O‘rtacha narx chekli narxdan past, chunki dastlabki birliklar arzonroq narxda olingan.",
+  "Ish haqi narxlardan sekin o‘ssa, real daromad m/p kamayadi va byudjet chizig‘i parallel ichkariga siljiydi. Barcha narxlar va daromad bir xil nisbatda oshsa, byudjet chizig‘i (p1x1 + p2x2 = m tenglamaning ikki tomonini bir songa ko‘paytirish) o‘zgarmaydi, ya’ni iste’molchi imkoniyatlari o‘sha-o‘sha. Biroq pensionerlarda pensiya narxlar o‘sishidan keyin indekslansa yoki daromadi qat’iy bo‘lsa, ular uchun real daromad kamayadi, shuning uchun «hech narsa o‘zgarmaydi» faqat barcha narxlar va daromad aynan teng nisbatda o‘sganida to‘g‘ri bo‘ladi. Oziq-ovqat narxi 10 foizga oshsa, oziq-ovqat o‘qidagi kesishish nuqtasi m/(1,1·p) ga tushadi va chiziq boshqa xarajatlar o‘qidagi nuqta atrofida buriladi.",
+  "Ijara narxini cheklashni himoya qiluvchilar muvozanatdan past narx talabalar uchun arzonlik beradi, deydi, ammo talab taklifdan oshib taqchillik, navbat va norasmiy bozor yuzaga kelishini, kvartiralar sifati pasayishini hisobga olishlari kerak. Qurilishni rag‘batlantirish tarafdorlari taklifni oshirib narxni pasaytirish mumkinligini ko‘rsatadi (taklif egri chizig‘i o‘ngga siljiydi), lekin qisqa muddatda taklif vertikal ekanini e’tiborga olishlari kerak. Pareto samaradorlik nuqtai nazaridan narx nazorati muvozanat bitimlarining bir qismini yo‘qotadi. Pozitiv argument: «Narx P* dan past bo‘lsa, taqchillik paydo bo‘ladi». Normativ argument: «Talabalar uchun ijara arzon bo‘lishi kerak».",
+  "Muvozanat: 200 − 5P = −40 + 7P → 240 = 12P → P* = 20, Q* = 100. P = 15 da (yuqori chegara): Qd = 125, Qs = 65, taqchillik 60. P = 25 da (quyi chegara): Qd = 75, Qs = 135, ortiqcha taklif 60. Chegara faqat muvozanatdan past (yuqori chegara) yoki yuqori (quyi chegara) bo‘lganda amal qiladi. Grafikda talab va taklif egri chiziqlari, P = 15 va P = 25 gorizontal chiziqlari hamda ular orasidagi gorizontal masofa (taqchillik yoki ortiqcha) ko‘rsatilishi kerak. Esse uchun: aniq tezis, kamida ikki argument, qarshi fikr va xulosa bo‘lsin; pozitiv va normativ fikrlarni ajrating."
  ]
 }

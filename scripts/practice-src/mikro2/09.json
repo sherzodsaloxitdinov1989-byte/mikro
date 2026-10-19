@@ -1,35 +1,136 @@
 {
- "goal": "«O‘yinlar nazariyasi» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Dominant strategiya, Nesh muvozanati, aralash strategiyalar, takrorlanadigan va ketma-ket o‘yinlar, auksionlar hamda kooperativ o‘yinlarni yechish ko‘nikmalarini shakllantirish.",
  "concepts": [
-  "o‘yin",
-  "o‘yinchi",
-  "strategiya",
-  "yutuq",
-  "yutuqlar matritsasi",
-  "normal shakl"
+  "Nesh muvozanati",
+  "dominant strategiya",
+  "mahbus dilemmasi",
+  "aralash strategiyalar va befarqlik tamoyili",
+  "trigger strategiyasi va diskont omili",
+  "teskari induksiya va qism o‘yin bo‘yicha mukammal muvozanat"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 9-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 9-bob; I-ilova (A9), V-ilova (V.9)",
+ "tasks": [
+  {
+   "id": "mm9-p1",
+   "title": "Trigger strategiyasi va diskont omili",
+   "text": "Cheksiz takrorlanadigan mahbus dilemmasida har davrdagi yutuqlar: hamkorlik qilganda har bir o‘yinchiga 10, bir tomonlama aldaganda aldovchiga 15, o‘zaro aldashda har biriga 4. Ikkala o‘yinchi trigger strategiyasini qo‘llaydi (bir marta aldash ro‘y bersa, abadiy aldashga o‘tadi). Hamkorlik barqaror bo‘lishi uchun diskont omili δ ning minimal qiymatini toping.",
+   "fields": [
+    {
+     "label": "Minimal δ",
+     "value": 0.4545,
+     "unit": ""
+    }
+   ],
+   "solution": "Hamkorlikda qolish: 10/(1−δ). Aldash: 15 + 4δ/(1−δ). Shart: 10/(1−δ) ≥ 15 + 4δ/(1−δ) → 10 ≥ 15(1−δ) + 4δ → 10 ≥ 15 − 11δ → 11δ ≥ 5 → δ ≥ 5/11 ≈ 0,4545.",
+   "formula": "R/(1−δ) ≥ T + P·δ/(1−δ)  ⇒  δ ≥ (T − R)/(T − P)",
+   "note": "Qayta hisoblash darslikdagi javobni (δ ≥ 5/11 ≈ 0,45) tasdiqlaydi. δ qancha katta bo‘lsa (o‘yinchilar kelajakni qancha yuqori qadrlasa), hamkorlik shuncha barqaror."
+  },
+  {
+   "id": "mm9-p2",
+   "title": "Aralash strategiyalardagi Nesh muvozanati",
+   "text": "Ikki o‘yinchili o‘yinda A (qator) «Yuqori» yoki «Pastki», B (ustun) «Chap» yoki «O‘rta» strategiyani tanlaydi. Yutuqlar (A; B): (Yuqori, Chap) = (3; 1), (Yuqori, O‘rta) = (2; 4), (Pastki, Chap) = (1; 3), (Pastki, O‘rta) = (4; 2). Sof strategiyalarda muvozanat yo‘q. Aralash strategiyalardagi muvozanatda A «Yuqori»ni p ehtimol bilan, B «Chap»ni q ehtimol bilan tanlaydi. p va q ni toping.",
+   "fields": [
+    {
+     "label": "A «Yuqori»ni tanlash ehtimoli p",
+     "value": 0.25,
+     "unit": ""
+    },
+    {
+     "label": "B «Chap»ni tanlash ehtimoli q",
+     "value": 0.5,
+     "unit": ""
+    }
+   ],
+   "solution": "B ni befarq qilish: 1·p + 3(1−p) = 4p + 2(1−p) → 3 − 2p = 2 + 2p → p = 0,25. A ni befarq qilish: 3q + 2(1−q) = 1·q + 4(1−q) → 2 + q = 4 − 3q → q = 0,5. Tekshiruv: B uchun 0,25 + 2,25 = 2,5 va 1 + 1,5 = 2,5; A uchun 1,5 + 1 = 2,5 va 0,5 + 2 = 2,5.",
+   "formula": "Befarqlik tamoyili: raqibning har bir sof strategiyadagi kutilgan yutug‘i teng bo‘ladi",
+   "note": "Darslikdagi javob (p = 0,25; q = 0,5) qayta hisoblashda tasdiqlandi. Har bir o‘yinchi o‘z ehtimolini raqibini befarq qiladigan qilib tanlashiga e’tibor bering."
+  },
+  {
+   "id": "mm9-p3",
+   "title": "Ketma-ket o‘yin: teskari induksiya",
+   "text": "1-o‘yinchi avval A yoki B ni tanlaydi, so‘ng 2-o‘yinchi buni ko‘rib X yoki Y ni tanlaydi. Yutuqlar (1-o‘yinchi; 2-o‘yinchi): A dan keyin X = (3; 1), Y = (1; 2); B dan keyin X = (2; 3), Y = (4; 0). Teskari induksiya bilan qism o‘yin bo‘yicha mukammal muvozanatda 1-o‘yinchi va 2-o‘yinchining yutuqlarini toping.",
+   "fields": [
+    {
+     "label": "1-o‘yinchining yutug‘i",
+     "value": 2,
+     "unit": ""
+    },
+    {
+     "label": "2-o‘yinchining yutug‘i",
+     "value": 3,
+     "unit": ""
+    }
+   ],
+   "solution": "A dan keyin 2-o‘yinchi: Y (2) > X (1) → natija (1; 2). B dan keyin: X (3) > Y (0) → natija (2; 3). 1-o‘yinchi A da 1, B da 2 oladi → B ni tanlaydi. Muvozanat: (B, X), yutuqlar (2; 3). Muvozanat strategiyasi to‘liq: 2-o‘yinchi A dan keyin Y, B dan keyin X ni tanlaydi.",
+   "formula": "Teskari induksiya: oxirgi qadamdan boshlab har bir tugunda o‘yinchi o‘z yutug‘ini maksimallashtiradi",
+   "note": "Darslik javobi (B, X; (2; 3)) tasdiqlandi. 1-o‘yinchi A ni tanlasa faqat 1 oladi, shuning uchun A bilan boshlash uni qiziqtirmaydi."
+  },
+  {
+   "id": "mm9-p4",
+   "title": "Kooperativ o‘yin: Shepli qiymati",
+   "text": "Uch ishtirokchi A, B, C ning koalitsiya qiymatlari: v(A) = v(B) = v(C) = 0; v(AB) = v(AC) = v(BC) = 40; v(ABC) = 90. Har bir ishtirokchining Shepli qiymatini toping va yig‘indisi katta koalitsiya qiymatiga tengligini tekshiring.",
+   "fields": [
+    {
+     "label": "Har bir ishtirokchining Shepli qiymati",
+     "value": 30,
+     "unit": "birlik"
+    },
+    {
+     "label": "Uchala qiymat yig‘indisi",
+     "value": 90,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "Ishtirokchilar simmetrik, shuning uchun qiymatlar teng. 6 ta tartibning har birida A ning hissasi: birinchi bo‘lsa 0; ikkinchi bo‘lsa 40 − 0 = 40; oxirgi bo‘lsa 90 − 40 = 50. Tartiblar: birinchi – 2 ta (0), ikkinchi – 2 ta (40), oxirgi – 2 ta (50). Shepli(A) = (2·0 + 2·40 + 2·50)/6 = 180/6 = 30. Yig‘indi: 3·30 = 90 = v(ABC).",
+   "formula": "φᵢ = barcha tartiblar bo‘yicha i-ishtirokchining o‘rtacha chekka hissasi = (1/n!)·Σ [v(S ∪ {i}) − v(S)]",
+   "note": "Darslikdagi javob (har biriga 30) python orqali barcha 6 ta tartib bo‘yicha qayta hisoblandi va tasdiqlandi."
+  },
+  {
+   "id": "mm9-p5",
+   "title": "Birinchi narx yopiq auksionida sotuvchi daromadi",
+   "text": "Ikki ishtirokchi birinchi narx yopiq auksionida ishtirok etadi. Ularning baholashlari [0; 100) oraliqda tekis taqsimlangan va mustaqil. Muvozanat strategiyasi b(v) = v/2. Eng yuqori baholash kutilgan qiymatining 2/3 qismiga teng (100 ning 2/3 qismi). Sotuvchining kutilgan daromadini toping va Vikri (ikkinchi narx) auksionidagi daromad bilan solishtiring.",
+   "fields": [
+    {
+     "label": "Yutuvchining kutilgan baholashi",
+     "value": 66.67,
+     "unit": ""
+    },
+    {
+     "label": "Sotuvchining kutilgan daromadi (birinchi narx)",
+     "value": 33.33,
+     "unit": ""
+    },
+    {
+     "label": "Sotuvchining kutilgan daromadi (Vikri auksioni)",
+     "value": 33.33,
+     "unit": ""
+    }
+   ],
+   "solution": "Yutuvchi baholashining kutilgan qiymati E[max(v1, v2)] = (2/3)·100 ≈ 66,67. Yutuvchi o‘z baholashining yarmini to‘laydi: 66,67/2 ≈ 33,33. Vikri auksionida to‘lov ikkinchi (past) baholashga teng: E[min(v1, v2)] = (1/3)·100 ≈ 33,33. Daromadlar teng.",
+   "formula": "E[max] = 2/3·100; to‘lov = b(v) = v/2; Vikri: E[min] = 1/3·100",
+   "note": "Hisob-kitob qayta tekshirildi: 100/3 = 33,33. Natija daromadlar ekvivalentligi teoremasini ko‘rsatadi: xavfga neytral ishtirokchilarda auksion turi sotuvchining kutilgan daromadini o‘zgartirmaydi."
+  }
+ ],
  "open": [
-  "Esse/munozara: Mahbus dilemmasidan chiqish yo‘llari: ijtimoiy normalar, institutlar va takroriy munosabatlar.",
-  "Esse/munozara: Xalqaro savdo urushlarini o‘yinlar nazariyasi asosida tahlil qiling.",
-  "Esse/munozara: Davlat xaridlarida auksionlar dizayni va korrupsiyaga qarshi kurash.",
-  "Esse/munozara: Ishonch – iqtisodiy resurs: takrorlanadigan o‘yinlar va obro‘.",
-  "Esse/munozara: Kooperativ o‘yinlar va infratuzilma xarajatlarini taqsimlash.",
+  "Kundalik hayotdan (yo‘l harakati, guruhdagi loyiha ishi, navbat) mahbus dilemmasiga misollar keltiring va ularning yutuqlar matritsasini tuzing.",
+  "Nima uchun Nesh muvozanati har doim ham «eng yaxshi» natija emas? Futboldagi penaltilar va soliq tekshiruvlari o‘rtasida qanday o‘xshashlik bor?",
+  "Firmalar qanday qilib tahdidlarini ishonchli qiladi? Davlat xaridlarida qaysi turdagi auksion samaraliroq? Fikringizni asoslang.",
+  "Interfaol topshiriq «Ultimatum o‘yini»: juftliklarda bir talaba 10 ta shartli «tanga»ni bo‘lishni taklif qiladi, ikkinchisi qabul qiladi yoki rad etadi. 3 raund rollar almashtirilib o‘ynaladi. Natijalarni 9.6-rasm bilan solishtiring va ratsionallik, adolat hamda o‘zaro munosabat omillarini muhokama qiling.",
+  "Esse: «Mahbus dilemmasidan chiqish yo‘llari: ijtimoiy normalar, institutlar va takroriy munosabatlar» yoki «Davlat xaridlarida auksionlar dizayni va korrupsiyaga qarshi kurash».",
   "Mustaqil ish: O‘zbekiston iqtisodiyotidan mahbus dilemmasi vaziyatiga uchta misol topib, ularni yutuqlar matritsasi shaklida ifodalang va hamkorlikka erishish yo‘llarini taklif qiling.",
-  "Mustaqil ish: Guruhingizda takrorlanadigan mahbus dilemmasi o‘yinini (10 raund) o‘tkazing. Ishtirokchilar qanday strategiyalarni qo‘llaganini tahlil qiling.",
   "Mustaqil ish: Davlat xaridlari portalidagi (xarid.uzex.uz) auksion yoki tender natijalarini tahlil qiling: qaysi auksion turi qo‘llaniladi, ishtirokchilar soni va narx pasayishi o‘rtasida qanday bog‘liqlik bor?",
-  "Mustaqil ish: Mavjud firmaning raqiblarni bozorga kirishdan to‘sish uchun qo‘llagan strategik majburiyatlariga real misollar toping."
+  "Keys 5. Onlayn taksi platformalari. Vaziyat: shaharda ikkita yirik onlayn taksi platformasi faoliyat yuritadi. Talab yuqori bo‘lgan soatlarda (ertalab, kechqurun, yomg‘irli kunlarda) narxlar «dinamik koeffitsient» bilan bir necha baravar oshadi. Yo‘lovchilar bu amaliyotni «adolatsiz» deb hisoblab, narxning yuqori chegarasini o‘rnatishni talab qilmoqda. Haydovchilar esa platforma komissiyasi juda yuqori ekanidan noroziligini bildirmoqda. Savollar: 1) Dinamik narx belgilashni talab va taklif modeli orqali tushuntiring. Narxning yuqori chegarasi talab yuqori soatlarda qanday natija beradi? 2) Ikki tomonlama bozor (III bob, Tirol va Roshe) nuqtai nazaridan platformaning narx tuzilmasini tahlil qiling: nima uchun platforma yo‘lovchilarga chegirma berib, haydovchilardan komissiya oladi? 3) Ikki platforma o‘rtasidagi raqobat Bertran yoki Kurno modellaridan qaysi biriga ko‘proq mos keladi? 4) Haydovchilar va platforma o‘rtasidagi munosabatda prinsipal–agent muammosi qanday namoyon bo‘ladi (reyting tizimlari, buyurtmani rad etish)?",
+  "Keys 9. Quyosh elektr stansiyalari uchun auksionlar. Vaziyat: hukumat qayta tiklanadigan energiya quvvatlarini oshirish maqsadida quyosh elektr stansiyalarini qurish huquqini xalqaro tanlov (auksion) orqali beradi: g‘olib – eng past elektr energiyasi tarifini taklif qilgan investor bo‘lib, davlat kompaniyasi u bilan 25 yillik elektr energiyasi xarid shartnomasini tuzadi. Xalqaro tajribada bunday auksionlar tariflarning keskin pasayishiga olib kelgan. Savollar: 1) Bu auksion qaysi turga kiradi? Ishtirokchilar soni ortishi tarif taklifiga qanday ta’sir qiladi? 2) «G‘olib la’nati» xavfi qanday namoyon bo‘lishi mumkin (xarajatlarni kam baholash, keyinchalik loyihani amalga oshirmaslik)? Uni kamaytirish uchun qanday kafolatlar talab qilinadi? 3) Uzoq muddatli shartnomaning riskni taqsimlashdagi rolini tahlil qiling: investor va davlat qaysi risklarni ko‘taradi (valyuta, talab, texnologik risk)? 4) Bu loyihani tashqi samaralar (uglerod chiqindilarini kamaytirish) nuqtai nazaridan baholang."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Namunalar: hamkor bilan loyiha ishida «ishlash yoki ishlamaslik» (hamma ishlasa (5; 5), bittasi ishlamasa unga (8), ishlagan (0), hech kim ishlamasa (1; 1)); yo‘lda navbatga qarama-qarshi chiqish; jamoat joyini tozalash. Har birida dominant strategiya (aldash) va Nesh muvozanati Pareto samarasizligini ko‘rsating.",
+  "Nesh muvozanatida hech kim bir tomonlama chetga chiqmaydi, lekin natija Pareto samarasiz bo‘lishi mumkin (mahbus dilemmasi), shuningdek bir nechta muvozanat mavjud bo‘lishi mumkin. Penalti va soliq tekshiruvi – aralash strategiyalar o‘yinlari: zarbachi/tekshiruvchi oldindan taxmin qilinmasligi uchun tasodifiy tanlaydi, ehtimollar raqibni befarq qiladi.",
+  "Tahdid ishonchli bo‘lishi uchun u qism o‘yin bo‘yicha mukammal muvozanatga mos kelishi, ya’ni bajarilganda ham tahdid qiluvchi uchun foydali bo‘lishi kerak. Qaytarib bo‘lmaydigan strategik majburiyat (masalan, quvvatni oldindan kengaytirish) tahdidni ishonchli qiladi. Davlat xaridlarida ikkinchi narx (Vikri) auksioni haqiqiy baholashni rag‘batlantiradi, birinchi narx auksionida esa «g‘olib la’nati» va kelishuv xavfi mavjud.",
+  "Odatiy natija: takliflar umumiy summaning 40–50 foizi, past takliflar (20–30 foiz) ko‘pincha rad etiladi. Standart nazariya (teskari induksiya) minimal taklif va uning qabul qilinishini bashorat qiladi. Farq adolat, o‘zaro munosabat va obro‘ omillari bilan izohlanadi.",
+  "Esse tuzilishi: dilemma mohiyati; chiqish yo‘llari (takrorlanish va trigger/«qasdma-qasd» strategiyalari, diskont omili sharti, shartnoma va institutlar, ijtimoiy normalar); xulosa. Auksion dizayni mavzusida: Vikri va birinchi narx auksionlarini solishtiring, kelishuv va korrupsiyaga qarshi choralarni keltiring.",
+  "Misollar: kartel kelishuvi (narx/miqdor), reklama urushi, umumiy resursdan (suv, yaylov) foydalanish. Har biri uchun 2×2 matritsa tuzing, Nesh muvozanatini toping va hamkorlik yo‘llarini (takroriy munosabat, nazorat, jarima) tavsiflang.",
+  "Ishtirokchilar soni oshgan sari takliflar xarajatga yaqinlashadi. Tahlil: auksion turi (ochiq/yopiq, birinchi/ikkinchi narx), ishtirokchilar soni, boshlang‘ich va yakuniy narx. Natijalarni jadvalga kiriting va xulosa qiling.",
+  "Dinamik narx qisqa muddatli taklifni (qo‘shimcha haydovchilarni yo‘lga chiqishga) rag‘batlantiradi va cheklangan taklifni eng yuqori baholovchi yo‘lovchilarga taqsimlaydi; narx chegarasi taqchillikka, kutish vaqtining keskin oshishiga olib keladi. Platformalar uchun tarmoq samaralari kuchli, shuning uchun bozor konsentratsiyalashishga moyil. Ikki tomonlama bozorda narx tuzilmasi tomonlarning narx elastikligi va tarmoq samarasiga bog‘liq: yo‘lovchi tomon rag‘batlantiriladi, haydovchilardan komissiya olinadi.",
+  "Bu – teskari (xarid) birinchi narx yopiq auksioni; raqobatchilar soni oshgan sari takliflar xarajatga yaqinlashadi (IX bob). G‘olib la’natiga qarshi – ishtirok kafolatlari, malaka talablari, jarimalar. Uzoq muddatli shartnoma investorni narx riskidan himoya qilib, kapital narxini pasaytiradi (V bob). Uglerod chiqindilarini kamaytirish – ijobiy tashqi samara; uni hisobga olish davlat uchun subsidiya yoki yuqori tarifni oqlashi mumkin."
  ]
 }

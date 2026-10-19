@@ -1,0 +1,356 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Aktiv va uning daromadliligi",
+   "sub": "5.1. Aktivlar bozori va arbitraj",
+   "bullets": [
+    "Aktiv – vaqt davomida xizmatlar oqimi yoki pul daromadi beradigan ne’mat",
+    "Real aktivlar: uy-joy, yer, uskuna, oltin; moliyaviy: aksiya, obligatsiya, depozit",
+    "Daromad: joriy (dividend, kupon, ijara) va kapital daromadi (narx o‘sishi)",
+    "Noaniqlik yo‘q deb faraz qilamiz: kelgusi narxlar va daromadlar ma’lum"
+   ],
+   "note": "IV bobdagi vaqtlararo tanlov va joriy qiymat vositalari aktivlar bozoriga qo‘llaniladi"
+  },
+  {
+   "type": "formula",
+   "title": "Arbitraj yo‘qligi sharti",
+   "sub": "5.1. Aktivlar bozori va arbitraj",
+   "items": [
+    {
+     "name": "Aktivning daromadliligi",
+     "formula": "r_A = (D + p₁ − p₀) / p₀",
+     "note": "D – joriy daromad, p₀ – bugungi, p₁ – kutilayotgan narx"
+    },
+    {
+     "name": "Arbitraj yo‘qligi sharti",
+     "formula": "(D + p₁ − p₀) / p₀ = r",
+     "note": "barcha risksiz aktivlar daromadliligi foiz stavkasiga teng"
+    },
+    {
+     "name": "Aktivning bugungi narxi",
+     "formula": "p₀ = (D + p₁) / (1 + r)",
+     "note": "kelajakdagi qiymatning joriy qiymati"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Uy-joy, soliq va spekulyativ pufak",
+   "sub": "5.1. Aktivlar bozori va arbitraj",
+   "bullets": [
+    "Uy-joy: tejalgan (yashirin) ijara joriy daromad hisoblanadi: (T + Δp) / p = r",
+    "Misol: narx 800 mln, ijara 48 mln, o‘sish 8% (64 mln): (48+64)/800 = 14%",
+    "Depozit 18% bersa, uy sotib olish ijaraga yashashdan kam foydali",
+    "Soliq: arbitraj soliqdan keyingi daromadlilikka tegishli, r_obl = (1 − t)·r_dep",
+    "Pufak: narx qayta sotish umidida o‘sadi (lola maniyasi 1637, dot-com 2000)"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Hotelling qoidasi va o‘rmon kesish",
+   "sub": "5.1. Aktivlar bozori va arbitraj",
+   "items": [
+    {
+     "name": "Hotelling qoidasi",
+     "formula": "p_{t+1} = (1 + r)·p_t",
+     "note": "tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi"
+    },
+    {
+     "name": "Resursning bugungi narxi",
+     "formula": "p₀ = C / (1 + r)ᵀ",
+     "note": "C – muqobil texnologiya xarajati, T – tugash muddati"
+    },
+    {
+     "name": "O‘rmonni kesish sharti",
+     "formula": "F′(T) / F(T) = r",
+     "note": "o‘sish sur’ati foiz stavkasiga tenglashganda kesiladi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Shartli iste’mol va sug‘urta byudjeti",
+   "sub": "5.2. Noaniqlik: shartli iste’mol va kutilgan naflilik",
+   "items": [
+    {
+     "name": "Sug‘urtasiz holat (Bobur)",
+     "formula": "C_g = 35,  C_b = 25",
+     "note": "boylik 35 mln, o‘g‘irlanish ehtimoli 1%, zarar 10 mln"
+    },
+    {
+     "name": "Sug‘urta bilan",
+     "formula": "C_g = 35 − γK,  C_b = 25 + K − γK",
+     "note": "K – qoplama, γ – mukofot stavkasi"
+    },
+    {
+     "name": "Byudjet chizig‘ining og‘ishi",
+     "formula": "−γ / (1 − γ)",
+     "note": "mukofot – yomon holat iste’molining narxi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Kutilgan qiymat va kutilgan naflilik",
+   "sub": "5.2. Noaniqlik: shartli iste’mol va kutilgan naflilik",
+   "bullets": [
+    "Lotereyaning kutilgan qiymati: E(w) = ∑ πᵢwᵢ; kutilgan naflilik: EU = ∑ πᵢu(wᵢ)",
+    "Sankt-Peterburg paradoksi: kutilgan qiymat cheksiz, lekin hech kim katta summa to‘lamaydi",
+    "Bernulli yechimi: chekli naflilik kamayadi; ln naflilikda ishonchli ekvivalent 4 so‘m",
+    "Fon Neyman–Morgenshtern: aksiomalar bajarilsa, afzallik EU bilan ifodalanadi",
+    "Alle paradoksi mustaqillik aksiomasi buzilishini ko‘rsatadi (aniqlik samarasi)"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Riskka munosabatning uch turi",
+   "sub": "5.3. Riskka munosabat",
+   "left": {
+    "head": "Riskdan qochish va neytrallik",
+    "items": [
+     "Qochish: u(E(w)) > E(u(w)), naflilik botiq (u″ < 0)",
+     "Neytrallik: u(E(w)) = E(u(w)), naflilik chiziqli",
+     "Yirik kompaniya va davlat neytralga yaqin tutadi"
+    ]
+   },
+   "right": {
+    "head": "Riskni sevish",
+    "items": [
+     "u(E(w)) < E(u(w)), naflilik qavariq",
+     "Qimor va lotereyaga ishtiyoq shunday izohlanadi",
+     "Aksariyat odamlar muhim qarorda riskdan qochadi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Ishonchli ekvivalent va risk mukofoti",
+   "sub": "5.3. Riskka munosabat",
+   "img": "image49.png",
+   "caption": "5.4-rasm. Botiq naflilik funksiyasi: ishonchli ekvivalent va risk mukofoti"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 5.1: fermer",
+   "sub": "5.3. Riskka munosabat",
+   "steps": [
+    "Berilgan: u(w) = √w; daromad 9 yoki 1 mln, ehtimol 50%/50%",
+    "Kutilgan qiymat: E(w) = 0,5·9 + 0,5·1 = 5 mln",
+    "Kutilgan naflilik: EU = 0,5·3 + 0,5·1 = 2",
+    "Ishonchli ekvivalent: CE = 2² = 4 mln; risk mukofoti RP = 5 − 4 = 1 mln",
+    "Sug‘urta 4,5 mln kafolatlasa: 4,5 > CE = 4 – fermer qabul qiladi",
+    "Neytral kompaniya o‘rtacha 0,5 mln foyda oladi – ikkala tomon yutadi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Riskdan qochish o‘lchovlari",
+   "sub": "5.3. Riskka munosabat",
+   "items": [
+    {
+     "name": "Ishonchli ekvivalent",
+     "formula": "u(CE) = EU,  RP = E(w) − CE",
+     "note": "RP – riskdan qutulish uchun to‘lashga tayyor summa"
+    },
+    {
+     "name": "Absolyut riskdan qochish (Errou–Pratt)",
+     "formula": "r_A(w) = −u″(w) / u′(w)",
+     "note": "nisbiy: r_R(w) = −w·u″(w) / u′(w)"
+    },
+    {
+     "name": "Risk mukofoti (kichik risklar)",
+     "formula": "RP ≈ ½·r_A·σ²",
+     "note": "riskdan qochish darajasi va dispersiyaga proporsional"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Optimal sug‘urta va diversifikatsiya",
+   "sub": "5.4. Sug‘urta va riskni kamaytirish",
+   "items": [
+    {
+     "name": "Optimum sharti",
+     "formula": "π·u′(C_b) / ((1 − π)·u′(C_g)) = γ / (1 − γ)",
+     "note": "befarqlik chizig‘i og‘ishi byudjet og‘ishiga teng"
+    },
+    {
+     "name": "Adolatli sug‘urta",
+     "formula": "γ = π  ⇒  C_b = C_g",
+     "note": "riskdan qochuvchi to‘liq sug‘urta qiladi"
+    },
+    {
+     "name": "Teng ulushli portfel riski",
+     "formula": "σ_p² = σ²/n + (1 − 1/n)·ρσ²",
+     "note": "o‘ziga xos risk yo‘qoladi, sistematik risk qoladi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Amaliy misol 5.2: Boburning sug‘urtasi",
+   "sub": "5.4. Sug‘urta va riskni kamaytirish",
+   "bullets": [
+    "Adolatli mukofot γ = 0,01; to‘liq sug‘urta K = 10 mln, mukofot 0,1 mln so‘m",
+    "Har ikki holatda iste’mol C = 34,9 mln so‘m",
+    "u = ln w: EU = 0,01·ln 25 + 0,99·ln 35 = 3,5520; CE = e^3,5520 ≈ 34,88 mln",
+    "Maksimal mukofot 35 − 34,88 ≈ 0,12 mln (120 ming so‘m)",
+    "Kompaniya 100–120 ming so‘m oralig‘idagi narxda shartnoma tuza oladi"
+   ],
+   "note": "Sug‘urta kompaniyasi katta sonlar qonuni tufayli riskka neytral tutadi"
+  },
+  {
+   "type": "formula",
+   "title": "O‘rtacha–dispersiya yondashuvi va CAPM",
+   "sub": "5.5. Riskli aktivlar bozori",
+   "items": [
+    {
+     "name": "Portfel daromadi va riski",
+     "formula": "r_x = x·r_m + (1 − x)·r_f,  σ_x = x·σ_m",
+     "note": "x – riskli aktivga qo‘yilgan ulush"
+    },
+    {
+     "name": "Byudjet chizig‘i",
+     "formula": "r_x = r_f + [(r_m − r_f)/σ_m]·σ_x",
+     "note": "og‘ish – riskning narxi (Sharp nisbati)"
+    },
+    {
+     "name": "Beta koeffitsienti",
+     "formula": "β_i = cov(r_i, r_m) / σ_m²",
+     "note": "sistematik riskning o‘lchovi"
+    },
+    {
+     "name": "CAPM (SML)",
+     "formula": "r_i = r_f + β_i·(r_m − r_f)",
+     "note": "daromadlilik faqat sistematik riskka bog‘liq"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Qimmatli qog‘ozlar bozori chizig‘i",
+   "sub": "5.5. Riskli aktivlar bozori",
+   "img": "image52.png",
+   "caption": "5.7-rasm. Qimmatli qog‘ozlar bozori chizig‘i (SML)"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 5.3: CAPM",
+   "sub": "5.5. Riskli aktivlar bozori",
+   "steps": [
+    "Berilgan: r_f = 10%, r_m = 18%, bozor mukofoti 8%",
+    "Sement (β = 1,5): 10 + 1,5·8 = 22%",
+    "Oziq-ovqat (β = 0,6): 10 + 0,6·8 = 14,8%",
+    "Kutilayotgan daromad 17% > 14,8% – aksiya SML dan yuqorida",
+    "Aksiya arzon baholangan – sotib olish maqsadga muvofiq",
+    "Narx oshib, kutilgan daromadlilik 14,8% ga tushadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Istiqbol nazariyasining g‘oyalari",
+   "sub": "5.6. Noaniqlik va xulq-atvor: istiqbol nazariyasi",
+   "bullets": [
+    "Kaneman va Tverski (1979): kutilgan naflilik muntazam buziladi (Alle paradoksi)",
+    "Mos yozuv nuqtasi: natija yutuq yoki yo‘qotish sifatida baholanadi",
+    "Yo‘qotishdan qochish: yo‘qotish yutuqdan taxminan 2–2,5 marta kuchliroq his qilinadi",
+    "Yutuqda riskdan qochish, yo‘qotishda riskni sevish",
+    "Ehtimollarni tortish: kichik ehtimollar ortiqcha baholanadi (lotereya va sug‘urta)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Istiqbol nazariyasining qiymat funksiyasi",
+   "sub": "5.6. Noaniqlik va xulq-atvor: istiqbol nazariyasi",
+   "img": "image53.png",
+   "caption": "5.8-rasm. Istiqbol nazariyasining qiymat funksiyasi"
+  },
+  {
+   "type": "table",
+   "title": "Asosiy derivativ vositalar",
+   "sub": "5.8. Riskni boshqarishning moliyaviy vositalari: derivativlar",
+   "head": [
+    "Vosita",
+    "Mazmuni",
+    "Kim foydalanadi"
+   ],
+   "rows": [
+    [
+     "Forvard",
+     "Kelajakda belgilangan narxda individual bitim",
+     "Eksportyor, fermer"
+    ],
+    [
+     "Fyuchers",
+     "Birjada savdo qilinadigan standart forvard",
+     "Hedjer, spekulyant"
+    ],
+    [
+     "Opsion (koll)",
+     "Belgilangan narxda sotib olish huquqi",
+     "Narx oshishidan himoyalanuvchi"
+    ],
+    [
+     "Opsion (put)",
+     "Belgilangan narxda sotish huquqi",
+     "Ishlab chiqaruvchi"
+    ],
+    [
+     "Svop",
+     "To‘lov oqimlarini almashtirish",
+     "Banklar, korporatsiyalar"
+    ]
+   ],
+   "note": "Derivativ – qiymati bazis aktiv narxiga bog‘liq shartnoma"
+  },
+  {
+   "type": "bullets",
+   "title": "Hedjlash misoli va real opsionlar",
+   "sub": "5.8. Riskni boshqarishning moliyaviy vositalari: derivativlar",
+   "bullets": [
+    "Fermer 6 oydan keyin 100 tonna bug‘doy kutmoqda; spot narx 3 mln so‘m/tonna",
+    "Forvard 3 mln dan: daromad 300 mln kafolatlanadi, ammo narx oshganda foydadan voz kechiladi",
+    "Put opsion: narx tushsa 3 mln dan sotish huquqi – «pastki chegarali» daromad",
+    "Kutish opsioni: noaniqlik yuqori bo‘lsa, firma investitsiyani kechiktiradi",
+    "Noaniqlik va qaytmaslikda NPV > 0 mezoni yetarli emas"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 1–2: aksiya narxi va o‘rmon",
+   "sub": "5.7. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "1-masala: dividend 12, kutilgan narx 110 ming so‘m, r = 20%",
+    "p₀ = (12 + 110)/1,2 = 101,67 ming so‘m",
+    "2-masala: F(t) = 100√t, r = 5%; F′/F = 1/(2t)",
+    "Shart: 1/(2T) = 0,05",
+    "Optimal kesish vaqti T = 10 yil (uzluksiz diskontlash)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 3–4: risk mukofoti va portfel",
+   "sub": "5.7. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "3-masala: u = ln w, w = 100, o‘yin ±36 (ehtimol 50%)",
+    "EU = 0,5·ln 136 + 0,5·ln 64 = 4,5358; CE = e^4,5358 = 93,30",
+    "RP = 100 − 93,30 = 6,70; taxminiy: 0,5·0,01·1296 = 6,48",
+    "4-masala: U = μ − 2σ², r_f = 0,08, r_m = 0,16, σ_m = 0,2",
+    "U = 0,08 + 0,08x − 0,08x²; dU/dx = 0 ⇒ x* = 0,5 (daromad 12%, risk 10%)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Arbitraj yo‘qligi sharti aktivlar daromadliligini tenglashtiradi: p₀ = (D + p₁)/(1 + r)",
+    "Hotelling qoidasiga ko‘ra tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi",
+    "Noaniqlikda tanlov EU = ∑ πᵢu(wᵢ) bilan tahlil qilinadi; botiq naflilik – riskdan qochish",
+    "Adolatli sug‘urtada riskdan qochuvchi to‘liq sug‘urta qiladi; diversifikatsiya o‘ziga xos riskni yo‘qotadi",
+    "CAPM: r_i = r_f + β_i(r_m − r_f); istiqbol nazariyasi yo‘qotishdan qochishni tushuntiradi"
+   ]
+  }
+ ]
+}

@@ -1,35 +1,173 @@
 {
- "goal": "«Monopoliya va monopoliya harakati. oligopoliya» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Monopol narx va hajmni, ustama va Lerner indeksini, narx diskriminatsiyasi, ikki qismli tarif va oligopoliya (Kurno) muvozanatlarini hisoblash, bozor konsentratsiyasini HHI bilan o‘lchash ko‘nikmalarini shakllantirish.",
  "concepts": [
   "sof monopoliya",
-  "bozorga kirish to‘siqlari",
-  "tabiiy monopoliya",
-  "monopol narx",
-  "ustama",
-  "Lerner indeksi"
+  "monopol narx va ustama qoidasi",
+  "Lerner indeksi",
+  "narx diskriminatsiyasi",
+  "Kurno muvozanati",
+  "Herfindal–Hirshman indeksi"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 8-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 8-bob; I-ilova (A8), V-ilova (V.8)",
+ "tasks": [
+  {
+   "id": "mm8-p1",
+   "title": "Monopolistning muvozanati va DWL",
+   "text": "Monopolistning bozor talabi P=120−3Q, chekli xarajati doimiy: MC=30, doimiy xarajat yo‘q (FC=0). Monopol hajm va narxni, monopol foydani, Lerner indeksini hamda monopoliyaning o‘lik yuk yo‘qotishini (DWL) toping.",
+   "fields": [
+    {
+     "label": "Monopol hajm Q",
+     "value": 15,
+     "unit": "birlik"
+    },
+    {
+     "label": "Monopol narx P",
+     "value": 75,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Monopol foyda",
+     "value": 675,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Lerner indeksi",
+     "value": 0.6,
+     "unit": ""
+    }
+   ],
+   "solution": "MR=120−6Q. MR=MC: 120−6Q=30 → Q=15. P=120−3·15=75. Foyda=(75−30)·15=675. Lerner indeksi L=(P−MC)/P=45/75=0,6. Raqobatli hajm: P=MC → 120−3Q=30, Qc=30. DWL=0,5·(Qc−Qm)·(Pm−MC)=0,5·15·45=337,5.",
+   "formula": "MR=MC; L=(P−MC)/P=1/|ε|; DWL=0,5·(Qc−Qm)·(Pm−MC)",
+   "note": "Raqobatli hajm Qc=30, shuning uchun DWL=337,5. Hisob qayta tekshirildi, darslik javobiga mos."
+  },
+  {
+   "id": "mm8-p2",
+   "title": "Ikki bozorda narx diskriminatsiyasi",
+   "text": "Monopolist ikki bozorda sotadi. Birinchi bozorda talab Q1=50−P1, ikkinchisida Q2=30−0,5P2. Chekli xarajat ikkala bozorda ham doimiy: MC=10. Uchinchi darajali diskriminatsiya sharoitida har bir bozordagi narx va hajmni toping.",
+   "fields": [
+    {
+     "label": "1-bozor narxi P1",
+     "value": 30,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "1-bozor hajmi Q1",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "2-bozor narxi P2",
+     "value": 35,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "2-bozor hajmi Q2",
+     "value": 12.5,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "1-bozor: P1=50−Q1, MR1=50−2Q1=10 → Q1=20, P1=30. 2-bozor: P2=60−2Q2, MR2=60−4Q2=10 → Q2=12,5, P2=60−25=35. Tekshiruv: |ε1|=1·30/20=1,5; |ε2|=0,5·35/12,5=1,4. Talabi noelastikroq bozorda narx yuqori.",
+   "formula": "MR1=MR2=MC",
+   "note": "Ikkinchi bozorda talab noelastikroq (|ε|=1,4 < 1,5), shuning uchun narx yuqoriroq. Qayta hisoblash darslik javobiga mos."
+  },
+  {
+   "id": "mm8-p3",
+   "title": "Kurno duopoliyasi: har xil xarajatlar",
+   "text": "Ikki firmali bozorda talab P=90−Q (Q=q1+q2). Firmalar hajmni bir vaqtda tanlaydi (Kurno). Birinchi firmaning chekli xarajati MC1=10, ikkinchisiniki MC2=20. Reaksiya funksiyalarini tuzib, muvozanat hajmlari, bozor narxi va firmalar foydasini toping.",
+   "fields": [
+    {
+     "label": "1-firma hajmi q1",
+     "value": 30,
+     "unit": "birlik"
+    },
+    {
+     "label": "2-firma hajmi q2",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Bozor narxi P",
+     "value": 40,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "1-firma foydasi",
+     "value": 900,
+     "unit": "pul birligi"
+    }
+   ],
+   "solution": "1-firma: MR1=90−2q1−q2=10 → q1=(80−q2)/2=40−q2/2. 2-firma: 90−2q2−q1=20 → q2=(70−q1)/2=35−q1/2. Birgalikda: q1=40−17,5+q1/4 → 0,75q1=22,5 → q1=30, q2=20. Q=50, P=90−50=40. π1=(40−10)·30=900; π2=(40−20)·20=400.",
+   "formula": "MRi=MCi, reaksiya funksiyalari: q1=(a−c1−q2)/2, q2=(a−c2−q1)/2 (b=1)",
+   "note": "Xarajati past firma ko‘proq ishlab chiqaradi (30>20) va ko‘proq foyda oladi (900>400). Shtakelbergda (1-firma lider) q1=45, q2=12,5, P=32,5 bo‘lishi mumkin."
+  },
+  {
+   "id": "mm8-p4",
+   "title": "Ikki qismli tarif",
+   "text": "Monopolist bir xil 200 nafar iste’molchiga xizmat ko‘rsatadi. Har bir iste’molchining talabi Q=30−P, chekli xarajat MC=6 (doimiy), doimiy xarajat yo‘q. Monopolist ikki qismli tarif qo‘llaydi: abonent to‘lovi T va foydalanish narxi p. Optimal p va T ni hamda monopolist foydasini toping.",
+   "fields": [
+    {
+     "label": "Foydalanish narxi p",
+     "value": 6,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Abonent to‘lovi T",
+     "value": 288,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Monopolist foydasi",
+     "value": 57600,
+     "unit": "pul birligi"
+    }
+   ],
+   "solution": "Optimal foydalanish narxi p=MC=6. Har bir iste’molchi Q=30−6=24 birlik iste’mol qiladi. Iste’molchi ortiqchaligi CS=0,5·24·(30−6)=0,5·24·24=288. Abonent to‘lovi T=CS=288. Foyda=200·288=57 600 (foydalanish to‘lovlari xarajatni aynan qoplaydi, chunki p=MC).",
+   "formula": "p=MC; T=CS(p=MC)=0,5·(a−MC)·Q",
+   "note": "Bunday tarifda hajm raqobatli darajada, DWL yo‘q, butun iste’molchi ortiqchaligi monopolistga o‘tadi."
+  },
+  {
+   "id": "mm8-p5",
+   "title": "HHI va birlashuv ta’siri",
+   "text": "Bozorda beshta firma bor, ularning bozor ulushlari 30, 25, 20, 15 va 10 foiz. Herfindal–Hirshman indeksini (HHI) va uchta eng yirik firma konsentratsiya koeffitsiyentini (CR3) toping. Keyin ikki eng kichik firma (15% va 10%) qo‘shilsa, HHI qanchaga o‘zgaradi?",
+   "fields": [
+    {
+     "label": "HHI",
+     "value": 2250,
+     "unit": ""
+    },
+    {
+     "label": "CR3",
+     "value": 75,
+     "unit": "%"
+    },
+    {
+     "label": "Qo‘shilgandan keyingi HHI",
+     "value": 2550,
+     "unit": ""
+    },
+    {
+     "label": "HHI o‘sishi",
+     "value": 300,
+     "unit": ""
+    }
+   ],
+   "solution": "HHI=30²+25²+20²+15²+10²=900+625+400+225+100=2250. CR3=30+25+20=75%. Qo‘shilgandan keyin ulushlar 30, 25, 20, 25: HHI=900+625+400+625=2550. O‘sish=2550−2250=300 (=2·15·10).",
+   "formula": "HHI=Σ si²; CR_k=Σ s_i (k ta yirik firma); ΔHHI=2·s1·s2",
+   "note": "2500 dan yuqori HHI odatda yuqori konsentratsiyalashgan bozorni bildiradi; 300 punktlik o‘sish antimonopol organ e’tiborini tortadigan darajada."
+  }
+ ],
  "open": [
-  "Esse/munozara: Tabiiy monopoliyalarni tartibga solish: xalqaro tajriba va O‘zbekiston uchun saboqlar.",
-  "Esse/munozara: Narx diskriminatsiyasi: iste’molchiga foydami yoki zararmi?",
-  "Esse/munozara: Raqamli platformalar va antimonopol siyosat.",
-  "Esse/munozara: Oligopolistik bozorlarda yashirin til biriktirish: aniqlash va oldini olish.",
-  "Esse/munozara: Davlat ishtirokidagi korxonalar va raqobat muhiti.",
-  "Mustaqil ish: O‘zbekistondagi tabiiy monopoliya sohalaridan birini tanlab, tarif belgilash amaliyotini 8.3-jadvaldagi usullar bilan solishtiring.",
-  "Mustaqil ish: Narx diskriminatsiyasining O‘zbekiston amaliyotidagi beshta misolini toping (transport, madaniyat, ta’lim, aloqa xizmatlari) va ularning turini aniqlang.",
-  "Mustaqil ish: Biror oligopolistik bozor (mobil aloqa, avtomobil, sement) bo‘yicha firmalarning bozor ulushlari haqida ochiq ma’lumotlarni to‘plab, C R3 va HHI ni hisoblang.",
-  "Mustaqil ish: Shahringizdagi kafe yoki restoranlar bozorini monopolistik raqobat nazariyasi asosida tahlil qiling: mahsulot differensiatsiyasi qanday shakllarda namoyon bo‘ladi?"
+  "Keys 2. Mobil aloqa bozorida raqobat. Vaziyat: mamlakatda to‘rtta mobil operator faoliyat yuritadi; ularning abonentlar bo‘yicha ulushlari taxminan 38%, 30%, 22% va 10% (shartli). Yangi xorijiy operator bozorga kirish uchun litsenziya so‘ramoqda. Mavjud operatorlar “bozor to‘yingan” deb e’tiroz bildirmoqda. Raqobat organi yangi operatorning kirishi narxlarga qanday ta’sir qilishini baholashi kerak. Savollar: 1. Joriy HHI va CR3 ni hisoblang. Bozor qanday konsentratsiyalashgan? 2. Agar bozorni Kurno modeli bilan tasvirlasak (n ta bir xil firma), firmalar soni 4 dan 5 ga oshganda narx va chekli xarajat orasidagi farq qanday o‘zgaradi? 3. Mobil aloqada tarmoq samaralari va o‘zaro ulanish (interconnect) tariflarining roli qanday? Yirik operator kichik raqobatchiga qarshi qanday strategiyalarni qo‘llashi mumkin? 4. Raqamlarni boshqa operatorga o‘tkazish (MNP) xizmati raqobatga qanday ta’sir qiladi?",
+  "Muhokama: 1) O‘zbekistonda qaysi bozorlarda tabiiy monopoliya mavjud? Ularni tartibga solishning qaysi usuli (chekli yoki o‘rtacha xarajat bo‘yicha narx, price cap, ikki qismli tarif) maqsadga muvofiq? 2) Talaba chegirmasi, “happy hour”, aviachiptalarning turli narxlari narx diskriminatsiyasining qaysi turlariga kiradi?",
+  "Muhokama: 1) Monopolistik raqobatdagi “ortiqcha quvvat” samarasizlikmi yoki xilma-xillikning narxi? 2) Nima uchun kartellar beqaror? OPEK tajribasini muhokama qiling. 3) Raqamli platformalar bozorida antimonopol siyosat qanday o‘ziga xosliklarga ega?",
+  "Interfaol topshiriq «Kartel o‘yini». Talabalar 4 ta “firma”ga bo‘linadi. Har bir raundda firmalar yashirin ravishda “yuqori” yoki “past” ishlab chiqarish hajmini tanlaydi; o‘qituvchi oldindan tayyorlangan yutuqlar jadvali bo‘yicha natijalarni e’lon qiladi. 3-raunddan keyin firmalarga muzokara qilishga ruxsat beriladi. Kelishuvlar qanchalik bajarilgani va nima uchun buzilgani muhokama qilinadi.",
+  "Mustaqil ish / esse (birini tanlang): 1) Biror oligopolistik bozor (mobil aloqa, avtomobil, sement) bo‘yicha firmalarning bozor ulushlari haqida ochiq ma’lumotlarni to‘plab, CR3 va HHI ni hisoblang. 2) Narx diskriminatsiyasining O‘zbekiston amaliyotidagi beshta misolini toping (transport, madaniyat, ta’lim, aloqa xizmatlari) va ularning turini aniqlang. 3) Esse: «Tabiiy monopoliyalarni tartibga solish: xalqaro tajriba va O‘zbekiston uchun saboqlar» yoki «Narx diskriminatsiyasi: iste’molchiga foydami yoki zararmi?»."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "1) HHI=38²+30²+22²+10²=1444+900+484+100=2928 – yuqori konsentratsiyalashgan bozor; CR3=38+30+22=90%. 2) Chiziqli talab va bir xil MC li Kurno modelida P−MC=(a−c)/(n+1): n=4 dan 5 ga oshsa, ustama 1/5 dan 1/6 ga, ya’ni taxminan 17% ga kamayadi; narx pasayadi. 3) Tarmoq samaralari kattaroq operatorni afzal qiladi; o‘zaro ulanish tarifini yuqori qo‘yish yoki tarmoq ichida arzon tarif berish kichik raqobatchini siqib chiqarishi mumkin. 4) MNP o‘tish xarajatlarini kamaytiradi va raqobatni kuchaytiradi. VIII bobdagi Kurno modeli, III bobdagi tarmoq samaralari va IX bobdagi strategik majburiyat tushunchalaridan foydalaning.",
+  "1) Tabiiy monopoliya sohalari: elektr uzatish, gaz va suv ta’minoti, temir yo‘l infratuzilmasi. Usullarni 8.3-bo‘limdagi bilan solishtiring: P=MC zarar keltiradi va subsidiya talab qiladi, P=AC firma zararsizligini ta’minlaydi, price cap xarajatni kamaytirishga rag‘bat beradi, ikki qismli tarif samaradorlik va xarajat qoplanishini birlashtiradi. 2) Talaba chegirmasi va aviachiptalar narxi – asosan uchinchi (guruhlar) va ikkinchi darajali diskriminatsiya, “happy hour” – vaqt bo‘yicha. Arbitraj imkoniyati yo‘qligini ko‘rsating.",
+  "1) Ortiqcha quvvat monopolistik raqobatda P=AC>MC bo‘lgani uchun uzoq muddatda firma minimal AC nuqtasidan chapda ishlaganidan kelib chiqadi; bir tomondan DWL, boshqa tomondan iste’molchi xilma-xillikdan naf oladi – ikkala qarashni keltiring. 2) Kartelda har bir a’zo kelishuvni buzib, hajmni oshirishda rag‘bat ko‘radi (mahbuslar dilemmasi); OPEK misolida kvotalarning buzilishini ko‘rsating. 3) Platformalarda tarmoq samaralari, ma’lumotlar, ko‘p tomonlama bozor va nol narx; bozor ulushi bilan hukmronlikni baholash qiyin.",
+  "Yutuqlar jadvalida kelishuvdan chetlashish (“past” narx yoki “yuqori” hajm) kelishuvga rioya qilishdan ko‘ra foydaliroq bo‘lishi kerak (mahbuslar dilemmasi). Muzokaradan keyin ham kartel buzilishini va bu Kurno natijasiga yaqinlashishini muhokama qiling. Takroriy o‘yin, jazo mexanizmi, firmalar soni va kuzatish imkoniyati kartel barqarorligini oshirishini qayd eting.",
+  "1) CR3 va HHI ni ulushlar kvadratlari yig‘indisi sifatida hisoblang; 2500 dan yuqori HHI – yuqori konsentratsiya. Manbani ko‘rsating. 2) Har misol uchun turini (1-, 2- yoki 3-darajali) va arbitraj to‘sig‘ini aniqlang. 3) Esse: muammo qo‘yilishi, nazariy asos (8.3 yoki 8.4-bo‘lim), O‘zbekiston va xorijiy misollar, xulosa; kamida 2–3 ochiq manbaga tayaning."
  ]
 }

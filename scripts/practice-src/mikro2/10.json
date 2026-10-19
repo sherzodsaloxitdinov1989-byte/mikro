@@ -1,35 +1,174 @@
 {
- "goal": "«Tashqi samara (eksternaliyalar). jamiyat ne’mati» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Ejvort qutisi, tashqi samaralar, Pigu solig‘i, ruxsatnomalar savdosi, Kouz teoremasi, umumiy resurslar va jamoat ne’matlari bo‘yicha tahliliy ko‘nikmalarni shakllantirish.",
  "concepts": [
-  "umumiy muvozanat",
-  "Ejvort qutisi",
-  "shartnoma chizig‘i",
-  "Valras muvozanati",
-  "farovonlik iqtisodiyotining birinchi va ikkinchi teoremalari",
-  "naflilik imkoniyatlari chegarasi"
+  "Ejvort qutisi va shartnoma chizig‘i",
+  "tashqi samara",
+  "Pigu solig‘i",
+  "ruxsatnomalar savdosi va Kouz teoremasi",
+  "umumiylar tragediyasi",
+  "jamoat ne’mati va Lindal narxlari"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 10-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 10-bob; I-ilova (A10), V-ilova (V.10)",
+ "tasks": [
+  {
+   "id": "mm10-p1",
+   "title": "Salbiy tashqi samara va Pigu solig‘i",
+   "text": "Ishlab chiqarish natijasida atrof-muhitga zarar yetadi. Bozor talabi P = 200 − 2Q, chekli xususiy xarajat MPC = 20 + Q, chekli tashqi xarajat MEC = 0,5Q. Bozor muvozanat hajmini, ijtimoiy optimal hajmni, Pigu solig‘ini (optimal hajmda) va ortiqcha yo‘qotish (DWL) ni toping.",
+   "fields": [
+    {
+     "label": "Bozor hajmi Qm",
+     "value": 60,
+     "unit": "birlik"
+    },
+    {
+     "label": "Optimal hajm Q*",
+     "value": 51.43,
+     "unit": "birlik"
+    },
+    {
+     "label": "Pigu solig‘i t",
+     "value": 25.71,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "DWL",
+     "value": 128.57,
+     "unit": "pul birligi"
+    }
+   ],
+   "solution": "Bozor: 200 − 2Q = 20 + Q → Qm = 60. Ijtimoiy: MSC = MPC + MEC = 20 + 1,5Q; 200 − 2Q = 20 + 1,5Q → 3,5Q = 180 → Q* = 51,43. Pigu solig‘i t = MEC(Q*) = 0,5·51,43 = 25,71. DWL: Qm da MSC = 20 + 1,5·60 = 110, talab narxi P = 200 − 120 = 80, farq 30; DWL = 0,5·(60 − 51,43)·30 = 128,57.",
+   "formula": "MSC = MPC + MEC; P = MSC; t = MEC(Q*)",
+   "note": "Darslikda Qm = 60, Q* = 51,4, t = 25,7 keltirilgan; DWL qo‘shimcha hisoblandi."
+  },
+  {
+   "id": "mm10-p2",
+   "title": "Ochiq kirishli baliq ovi",
+   "text": "Ko‘lda baliq ovlash: n ta qayiq ishlatilsa, umumiy hosil F(n) = 100n − 2n². Har bir qayiqning xarajati c = 20. Ochiq kirishda qayiqlar soni (o‘rtacha mahsulot = c) va ijtimoiy optimal qayiqlar soni (chekli mahsulot = c) ni toping.",
+   "fields": [
+    {
+     "label": "Ochiq kirishda qayiqlar soni",
+     "value": 40,
+     "unit": "ta"
+    },
+    {
+     "label": "Optimal qayiqlar soni",
+     "value": 20,
+     "unit": "ta"
+    }
+   ],
+   "solution": "O‘rtacha mahsulot AP = F/n = 100 − 2n. Ochiq kirishda AP = c: 100 − 2n = 20 → n = 40. Optimumda MP = F′(n) = 100 − 4n = 20 → n* = 20. Ochiq kirishda qayiqlar soni optimaldan 2 baravar ko‘p.",
+   "formula": "AP = c (ochiq kirish); MP = c (optimum)",
+   "note": ""
+  },
+  {
+   "id": "mm10-p3",
+   "title": "Jamoat ne’mati va Lindal narxlari",
+   "text": "Uch iste’molchining jamoat ne’mati uchun chekli baholashlari MRS1 = 50 − G, MRS2 = 40 − G, MRS3 = 30 − G; jamoat ne’matini ta’minlashning chekli xarajati MC = 60. Samarali miqdor G* va har bir iste’molchining Lindal narxi (t1, t2, t3) ni toping.",
+   "fields": [
+    {
+     "label": "Samarali miqdor G*",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Lindal narxi t1",
+     "value": 30,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Lindal narxi t2",
+     "value": 20,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Lindal narxi t3",
+     "value": 10,
+     "unit": "pul birligi"
+    }
+   ],
+   "solution": "Samuelson sharti: ΣMRSi = MC → 120 − 3G = 60 → G* = 20. Lindal narxlari G* dagi baholashga teng: t1 = 50 − 20 = 30, t2 = 40 − 20 = 20, t3 = 30 − 20 = 10; yig‘indisi 60 = MC.",
+   "formula": "ΣMRSi = MC; ti = MRSi(G*)",
+   "note": ""
+  },
+  {
+   "id": "mm10-p4",
+   "title": "Ruxsatnomalar savdosi va xarajat tejash",
+   "text": "Ikki firmaning chekli tozalash xarajatlari MAC1 = a1 va MAC2 = 3a2 (a — kamaytirilgan chiqindi miqdori). Jami 80 birlik chiqindini kamaytirish talab qilinadi. Xarajat-samarali taqsimotni (a1, a2) va ruxsatnoma (kamaytirish) narxini toping. Jami tozalash xarajatlarini hisoblab, ularni teng taqsimot (har biri 40 birlik) bilan solishtiring: ruxsatnomalar savdosi qancha tejaydi? Jami xarajat MAC ning integraliga teng (firma 1: a1²/2, firma 2: 1,5·a2²).",
+   "fields": [
+    {
+     "label": "Firma 1 kamaytirishi a1",
+     "value": 60,
+     "unit": "birlik"
+    },
+    {
+     "label": "Firma 2 kamaytirishi a2",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Ruxsatnoma narxi p",
+     "value": 60,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Tejalgan xarajat",
+     "value": 800,
+     "unit": "pul birligi"
+    }
+   ],
+   "solution": "Xarajat-samaradorlik: MAC1 = MAC2 → a1 = 3a2; a1 + a2 = 80 → a2 = 20, a1 = 60. p = MAC = 60. Xarajat: 60²/2 + 1,5·20² = 1800 + 600 = 2400. Teng standartda: 40²/2 + 1,5·40² = 800 + 2400 = 3200. Tejash 3200 − 2400 = 800.",
+   "formula": "MAC1 = MAC2 = p; a1 + a2 = A",
+   "note": ""
+  },
+  {
+   "id": "mm10-p5",
+   "title": "Ejvort qutisi: umumiy muvozanat",
+   "text": "Ikki iste’molchi, ikki tovar (x va y). Naflilik funksiyalari: uA = x^0,3·y^0,7, uB = x^0,6·y^0,4. Boshlang‘ich zaxiralar: A da (10; 0), B da (0; 10). y tovar narxi py = 1. Raqobatli muvozanatda x tovar narxi px, hamda A ning (xA, yA) va B ning xB iste’mol miqdorlarini toping (Koshi–Duglas funksiyada daromadning α ulushi x ga sarflanadi).",
+   "fields": [
+    {
+     "label": "x narxi px",
+     "value": 0.857,
+     "unit": "(6/7)"
+    },
+    {
+     "label": "xA",
+     "value": 3,
+     "unit": "birlik"
+    },
+    {
+     "label": "yA",
+     "value": 6,
+     "unit": "birlik"
+    },
+    {
+     "label": "xB",
+     "value": 7,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "A daromadi 10·px, B daromadi 10. x bozori: xA + xB = 10; xA = 0,3·10px/px = 3; xB = 0,6·10/px = 6/px. 3 + 6/px = 10 → px = 6/7 ≈ 0,857. yA = 0,7·10·px = 7·(6/7) = 6; xB = 6/(6/7) = 7; yB = 0,4·10 = 4. Tekshiruv: yA + yB = 10, xA + xB = 10.",
+   "formula": "xi = αi·Mi/px; yi = (1 − αi)·Mi/py; Σxi = 10",
+   "note": "yB = 4 (bozor tozalanishi tekshiruvi: 6 + 4 = 10)."
+  }
+ ],
  "open": [
-  "Esse/munozara: Orol fojiasi: tashqi samaralar va umumiy resurslar nuqtai nazaridan saboqlar.",
-  "Esse/munozara: Uglerod solig‘i yoki emissiyalar savdosi: qaysi biri samaraliroq?",
-  "Esse/munozara: Mahalla institutining jamoat ne’matlarini ta’minlashdagi o‘rni.",
-  "Esse/munozara: Shahar tirbandligi: Pigu solig‘i va jamoat transportini rivojlantirish.",
-  "Esse/munozara: Errou teoremasi va demokratik qarorlar qabul qilish.",
-  "Mustaqil ish: Yashash hududingizdagi ekologik muammolardan birini (havo ifloslanishi, suv, chiqindilar) tanlab, uni tashqi samara sifatida tahlil qiling va tartibga solish vositalarini 10.3-jadval asosida taklif qiling.",
-  "Mustaqil ish: Mahallangizdagi jamoat ne’matlaridan birini ta’minlash bo‘yicha kichik so‘rov o‘tkazing: aholining to‘lashga tayyorligini aniqlang va Samuelson sharti asosida samarali miqdorni baholang.",
-  "Mustaqil ish: “Tashabbusli byudjet” natijalarini (rasmiy portaldan) tahlil qilib, qaysi turdagi loyihalar ko‘proq ovoz olganini va buning sabablarini muhokama qiling.",
-  "Mustaqil ish: Orolbo‘yi mintaqasini tiklash bo‘yicha amalga oshirilayotgan dasturlarni o‘rganib, ularni iqtisodiy vositalar (narx, kvota, investitsiya) nuqtai nazaridan baholang."
+  "Muhokama: Farovonlikning ikkinchi teoremasi ijtimoiy siyosat uchun qanday ahamiyatga ega?",
+  "Muhokama: Shahringizdagi eng muhim salbiy tashqi samara qaysi? Uni qaysi vosita (Pigu solig‘i, standart, ruxsatnomalar savdosi, Kouz muzokaralari) bilan tartibga solgan bo‘lardingiz? Kouz teoremasi qaysi vaziyatlarda amalda ishlaydi, qaysilarida ishlamaydi? Uglerod solig‘i yoki emissiyalar savdosi — O‘zbekiston uchun qaysi biri maqbulroq?",
+  "Muhokama: Mahalladagi qaysi ne’matlar jamoat ne’mati, qaysilari umumiy resurs hisoblanadi? Hashar an’anasini jamoaviy harakat nazariyasi nuqtai nazaridan tahlil qiling. Orol fojiasidan qanday iqtisodiy saboqlar chiqarish mumkin? «Tashabbusli byudjet» Samuelson shartini bajarishga qanchalik yaqinlashtiradi?",
+  "Kouz masalasi: fabrika chiqindisi baliqchilarga 300 zarar keltiradi; filtr o‘rnatish 200 turadi; baliqchilarning boshqa joyga ko‘chishi 250 turadi. Huquqlar ikki xil taqsimlanganda (fabrikada ifloslantirish huquqi bor / baliqchilarda toza suv huquqi bor) natijani aniqlang.",
+  "Interfaol topshiriq «Jamoat ne’mati o‘yini»: har bir talabaga 10 ta shartli tanga beriladi; istalgan qismini «umumiy fond»ga qo‘shadi. Fonddagi summa 2 ga ko‘paytirilib, barcha ishtirokchilar o‘rtasida teng taqsimlanadi. 5 raund: avval anonim, keyin hissalar e’lon qilinadigan va «jazolash» imkoniyati bilan. Hissalar dinamikasini tekinxo‘rlik nazariyasi va Ostrom tamoyillari asosida muhokama qiling.",
+  "Keys 6. Shahar tirbandligi va pullik to‘xtash joylari. Vaziyat: poytaxt markazida avtomobillar soni tez o‘smoqda, ko‘chalarda tirbandlik va to‘xtash joylari tanqisligi kuchaymoqda. Shahar hokimligi markazda pullik to‘xtash joylari tizimini kengaytirish va jamoat transportini rivojlantirishni rejalashtirmoqda; ba’zi ekspertlar markazga kirish uchun «tirbandlik to‘lovi» joriy qilishni (London va Stokgolm tajribasi kabi) taklif qilmoqda. Savollar: 1) Tirbandlikni salbiy tashqi samara sifatida tahlil qiling: har bir qo‘shimcha haydovchi boshqalarga qanday xarajat yuklaydi? 2) Optimal tirbandlik to‘lovi Pigu solig‘i mantiqiga qanday mos keladi? Uni qanday baholash mumkin? 3) Bepul to‘xtash joylari «umumiy resurs» sifatida qanday muammolarga olib keladi? Pullik tizim bu muammoni qanday hal qiladi? 4) To‘lovlarning taqsimot oqibatlari (kam daromadli haydovchilarga ta’siri) va tushumni jamoat transportiga yo‘naltirishning ahamiyatini muhokama qiling.",
+  "Mustaqil ish: yashash hududingizdagi ekologik muammolardan birini (havo ifloslanishi, suv, chiqindilar) tanlab, uni tashqi samara sifatida tahlil qiling va tartibga solish vositalarini taklif qiling; mahallangizdagi bir jamoat ne’mati bo‘yicha kichik so‘rov o‘tkazib, aholining to‘lashga tayyorligi asosida Samuelson sharti bo‘yicha samarali miqdorni baholang.",
+  "Esse: Orol fojiasi — tashqi samaralar va umumiy resurslar nuqtai nazaridan saboqlar; yoki uglerod solig‘i va emissiyalar savdosidan qaysi biri samaraliroq."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Ikkinchi teorema: har qanday Pareto samarali taqsimotga boshlang‘ich zaxiralarni qayta taqsimlash (bir martalik transfer) va raqobatli bozor orqali erishish mumkin. Shu sababli samaradorlik va adolat masalalarini ajratish mumkin: davlat zaxiralarni qayta taqsimlaydi, narxlarni buzmaydi. Cheklov: bir martalik, buzilishsiz transfer amalda qiyin.",
+  "Yaxshi javobda aniq tashqi samara (havo ifloslanishi, chiqindi) nomlanadi, MPC va MEC ajratiladi. Vosita tanlovi asoslanadi: Pigu solig‘i MEC ni bilishni talab qiladi; ruxsatnomalar savdosi umumiy shiftga minimal xarajat bilan erishtiradi; Kouz esa tomonlar kam va tranzaksion xarajat past bo‘lganda ishlaydi. Uglerod solig‘i narx aniqligini, emissiyalar savdosi miqdor aniqligini beradi; O‘zbekiston institutlari imkoniyatiga qarab asoslang.",
+  "Jamoat ne’mati: raqobatsiz va istisno qilinmaydigan (yoritish, xavfsizlik, mahalla yo‘li); umumiy resurs: raqobatli, lekin istisno qilinmaydigan (mahalla yaylovi, suv). Hashar — Ostrom tamoyillari (aniq chegara, o‘zaro nazorat, jazo) asosidagi jamoaviy harakat, tekinxo‘rlikni ijtimoiy normalar bilan yengish. Orol: umumiy resursdan ortiqcha foydalanish va salbiy tashqi samara. Tashabbusli byudjet ovoz berish orqali baholashlarni oshkor qiladi.",
+  "Ikkala holatda ham filtr o‘rnatiladi, chunki filtr (200) zarar (300) va ko‘chishdan (250) arzon. Fabrikada ifloslantirish huquqi bo‘lsa, baliqchilar filtr narxini (200) to‘laydi (zarar 300 > 200); baliqchilarda toza suv huquqi bo‘lsa, fabrika filtrni o‘zi o‘rnatadi (200). Samaradorlik bir xil, taqsimot (kim to‘laydi) huquqqa bog‘liq — Kouz teoremasi.",
+  "Bir martalik o‘yinda tekinxo‘rlik nazariyasiga ko‘ra hissa kam bo‘ladi (Nash muvozanati: 0); amalda dastlabki raundlarda yarmigacha hissa qo‘shiladi, anonim o‘yinda esa pasayadi. Hissalar e’lon qilinishi va jazolash imkoniyati hissalarni oshiradi — Ostrom tamoyillari (o‘zaro nazorat, bosqichma-bosqich jazo). Talabalar dinamikani grafikda ko‘rsatib, xulosa qiladi.",
+  "Yo‘l-yo‘riq: haydovchi faqat o‘z vaqt xarajatini hisobga oladi (MPC), boshqalar vaqtini sekinlashtirish xarajati (MEC) esa hisobga olinmaydi, shuning uchun yo‘llardan ortiqcha foydalaniladi. Tirbandlik to‘lovi t = MEC optimal darajada (Pigu mantiqi). Bepul to‘xtash joylari umumiy resurs: ochiq kirish, tanqislik va qidiruv xarajatlari. Pullik tizim narx orqali talabni tartibga soladi. Tushumni jamoat transportini yaxshilashga yo‘naltirish «ikki tomonlama dividend» beradi va taqsimot muammosini yumshatadi.",
+  "Tekshirish yo‘riqnomasi: tanlangan muammo MPC/MEC orqali tahlil qilinishi, tartibga solish vositalari (soliq, standart, ruxsatnoma, Kouz) taqqoslanishi kerak. So‘rovda har bir respondentning to‘lashga tayyorligi (MRSi) yig‘iladi, ΣMRSi = MC sharti bo‘yicha samarali hajm baholanadi; tekinxo‘rlik tufayli baholash pasaytirilishi mumkinligi qayd etiladi.",
+  "Esse tuzilishi: muammo bayoni, iqtisodiy mexanizm, dalillar, xulosa. Orol misolida: Amudaryo va Sirdaryo suvidan paxta uchun ortiqcha foydalanish (ochiq kirish, umumiy resurs) va dengiz qurishining tashqi xarajatlari. Uglerod solig‘i narx aniqligini, savdo tizimi hajm aniqligini beradi; xarajat-samaradorlik sharti barcha MAC larning tengligi."
  ]
 }

@@ -1,0 +1,388 @@
+{
+ "slides": [
+  {
+   "type": "formula",
+   "title": "Talab funksiyasi va bir jinslilik",
+   "sub": "3.1. Talab funksiyasi va uning xossalari",
+   "items": [
+    {
+     "name": "Talab funksiyasi (Marshall)",
+     "formula": "x₁* = x₁(p₁, p₂, m);  x₂* = x₂(p₁, p₂, m)",
+     "note": "Optimal miqdor narxlar va daromadning funksiyasi"
+    },
+    {
+     "name": "Nol darajali bir jinslilik",
+     "formula": "xᵢ(t·p₁, t·p₂, t·m) = xᵢ(p₁, p₂, m),  t > 0",
+     "note": "Pul illyuziyasi yo‘q: byudjet to‘plami o‘zgarmaydi"
+    },
+    {
+     "name": "Elastikliklar munosabati",
+     "formula": "ε₁₁ + ε₁₂ + η₁ = 0",
+     "note": "Eyler teoremasi: barcha narxlar va daromad bir xil foizga o‘zgarsa, ta’sirlar yo‘qoladi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Asosiy afzal ko‘rishlar uchun talab funksiyalari",
+   "sub": "3.1. Talab funksiyasi va uning xossalari",
+   "head": [
+    "Afzal ko‘rish",
+    "Naflilik",
+    "x₁(p₁, p₂, m)",
+    "x₂(p₁, p₂, m)"
+   ],
+   "rows": [
+    [
+     "Kobb–Duglas",
+     "x₁ᶜ·x₂¹⁻ᶜ",
+     "c·m/p₁",
+     "(1−c)·m/p₂"
+    ],
+    [
+     "Mukammal o‘rinbosarlar",
+     "x₁ + x₂",
+     "m/p₁, agar p₁ < p₂",
+     "m/p₂, agar p₂ < p₁"
+    ],
+    [
+     "Mukammal to‘ldiruvchilar",
+     "min{x₁, x₂}",
+     "m/(p₁+p₂)",
+     "m/(p₁+p₂)"
+    ],
+    [
+     "Kvazichiziqli",
+     "v(x₁) + x₂",
+     "v′(x₁) = p₁/p₂ dan",
+     "m/p₂ − p₁x₁/p₂"
+    ]
+   ],
+   "note": "Kobb–Duglas: c·(tm)/(tp₁) = c·m/p₁ — nol darajali bir jinslilik bajariladi"
+  },
+  {
+   "type": "bullets",
+   "title": "Normal va past sifatli tovarlar",
+   "sub": "3.2. Daromadning o‘zgarishi: normal va past sifatli tovarlar",
+   "bullets": [
+    "Normal tovar: daromad oshganda talab ortadi (∂x₁/∂m > 0)",
+    "Past sifatli tovar: daromad oshganda talab kamayadi (∂x₁/∂m < 0)",
+    "Misol: arzon makaron, jamoat transporti, ishlatilgan kiyim",
+    "Hashamatli tovar: daromad oshganda ulushi ortadi; zaruriy tovar: ulushi kamayadi",
+    "“Past sifatli” bo‘lish tovar sifatiga emas, iste’molchi xatti-harakatiga bog‘liq"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Daromad-iste’mol va Engel chiziqlari",
+   "sub": "3.2. Daromadning o‘zgarishi: normal va past sifatli tovarlar",
+   "img": "image25.png",
+   "caption": "3.1-rasm. Daromad-iste’mol chizig‘i va Engel chizig‘i"
+  },
+  {
+   "type": "table",
+   "title": "Engel qonuni: xarajatlar tarkibi (shartli, %)",
+   "sub": "3.2. Daromadning o‘zgarishi: normal va past sifatli tovarlar",
+   "head": [
+    "Xarajat moddasi",
+    "1-guruh (eng kam)",
+    "3-guruh",
+    "5-guruh (eng ko‘p)"
+   ],
+   "rows": [
+    [
+     "Oziq-ovqat",
+     "58",
+     "46",
+     "29"
+    ],
+    [
+     "Kiyim-kechak va poyabzal",
+     "9",
+     "11",
+     "12"
+    ],
+    [
+     "Uy-joy va kommunal xizmatlar",
+     "14",
+     "12",
+     "9"
+    ],
+    [
+     "Transport va aloqa",
+     "6",
+     "10",
+     "16"
+    ],
+    [
+     "Ta’lim, madaniyat, dam olish",
+     "4",
+     "8",
+     "15"
+    ]
+   ],
+   "note": "Daromad oshgan sari oziq-ovqatga mutlaq summa ortadi, ulushi kamayadi"
+  },
+  {
+   "type": "figure",
+   "title": "Narx-iste’mol chizig‘idan talab chizig‘i",
+   "sub": "3.3. Narxning o‘zgarishi va individual talab chizig‘i",
+   "img": "image28.png",
+   "caption": "3.4-rasm. Narx-iste’mol chizig‘i va individual talab chizig‘ining hosil bo‘lishi"
+  },
+  {
+   "type": "bullets",
+   "title": "Oddiy va Giffen tovarlari, o‘rinbosarlar",
+   "sub": "3.3. Narxning o‘zgarishi va individual talab chizig‘i",
+   "bullets": [
+    "Oddiy tovar: narx pasayganda talab ortadi, talab chizig‘i manfiy og‘ishli",
+    "Giffen tovari: narx pasayganda talab kamayadi; albatta past sifatli tovar bo‘lishi kerak",
+    "O‘rinbosarlar: p₂ oshganda x₁ talabi ortadi (∂x₁/∂p₂ > 0); to‘ldiruvchilar: kamayadi",
+    "Teskari talab p₁ = P(x₁): p₂ = 1 da p₁(x₁) = |MRS| — chekli to‘lashga tayyorlik",
+    "Talab chizig‘ining manfiy og‘ishi MRS ning kamayishini aks ettiradi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 3.1. Kobb–Duglas talabi",
+   "sub": "3.3. Narxning o‘zgarishi va individual talab chizig‘i",
+   "steps": [
+    "Berilgan: u = x₁⁰·⁴·x₂⁰·⁶, m = 2 mln so‘m, p₂ = 10 ming so‘m",
+    "a) x₁ = 0,4·2000/p₁ = 800/p₁; teskari funksiya p₁ = 800/x₁",
+    "b) p₁ = 40 da x₁ = 20; p₁ = 50 da x₁ = 16 — talab 20% kamaydi",
+    "c) m = 2400 bo‘lsa, x₁ = 960/40 = 24 — talab 20% ortdi",
+    "Xulosa: Kobb–Duglas uchun daromad elastikligi 1 ga teng"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Elastiklik koeffitsientlari",
+   "sub": "3.4. Talab elastikligi va undan bozor talabini baholashda foydalanish",
+   "items": [
+    {
+     "name": "Narx bo‘yicha talab elastikligi",
+     "formula": "ε = (Δq/q)/(Δp/p) = (p/q)·(dq/dp)",
+     "note": "|ε|>1 elastik; |ε|=1 birlik; |ε|<1 noelastik"
+    },
+    {
+     "name": "Chekli tushum",
+     "formula": "MR = p·(1 + 1/ε) = p·(1 − 1/|ε|)",
+     "note": "Elastik talabda narx oshsa tushum kamayadi; noelastikda ortadi"
+    },
+    {
+     "name": "Daromad elastikligi",
+     "formula": "η = (m/q)·(∂q/∂m)",
+     "note": "η>1 hashamatli; 0<η<1 zaruriy; η<0 past sifatli"
+    },
+    {
+     "name": "Kesishgan elastiklik",
+     "formula": "ε₁₂ = (p₂/x₁)·(∂x₁/∂p₂)",
+     "note": "ε₁₂>0 o‘rinbosar; ε₁₂<0 to‘ldiruvchi; ε₁₂=0 mustaqil"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Chiziqli talab bo‘ylab elastiklik va tushum",
+   "sub": "3.4. Talab elastikligi va undan bozor talabini baholashda foydalanish",
+   "img": "image30.png",
+   "caption": "3.6-rasm. Chiziqli talab bo‘ylab elastiklik, umumiy va chekli tushum"
+  },
+  {
+   "type": "table",
+   "title": "Amaliy misol 3.2. Yo‘l haqi 2000 dan 2500 so‘mga",
+   "sub": "3.4. Talab elastikligi va undan bozor talabini baholashda foydalanish",
+   "head": [
+    "Holat",
+    "Yo‘lovchilar kamayishi",
+    "Yo‘lovchilar soni",
+    "Tushum"
+   ],
+   "rows": [
+    [
+     "Boshlang‘ich",
+     "—",
+     "120 ming",
+     "240 mln so‘m"
+    ],
+    [
+     "Qisqa muddat (ε = −0,3)",
+     "0,3·25 = 7,5%",
+     "111 ming",
+     "277,5 mln (+15,6%)"
+    ],
+    [
+     "Uzoq muddat (ε = −0,7)",
+     "0,7·25 = 17,5%",
+     "99 ming",
+     "247,5 mln (+3,1%)"
+    ]
+   ],
+   "note": "Narx 25% oshadi; uzoq muddatda talab elastikroq, tushum o‘sishi kamayadi"
+  },
+  {
+   "type": "bullets",
+   "title": "Aniqlangan afzal ko‘rish tamoyili va aksiomalar",
+   "sub": "3.5. Aniqlangan afzal ko‘rish",
+   "bullets": [
+    "Iqtisodchi afzal ko‘rishni emas, faqat tanlovlarni kuzatadi (P. Samuelson, 1938)",
+    "Y mavjud bo‘lganda X tanlansa, X to‘g‘ridan-to‘g‘ri afzal ko‘rilgan: X ≻R Y",
+    "WARP: agar p·X ≥ p·Y bo‘lsa, q·Y < q·X bo‘lishi shart",
+    "SARP: to‘g‘ridan-to‘g‘ri va bilvosita zanjirlarda ham ziddiyat bo‘lmasin",
+    "Afriat teoremasi: SARP (GARP) bajarilsa, mos naflilik funksiyasi mavjud"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Aniqlangan afzal ko‘rish: WARP",
+   "sub": "3.5. Aniqlangan afzal ko‘rish",
+   "img": "image32.png",
+   "caption": "3.8-rasm. Aniqlangan afzal ko‘rish: WARP bajarilgan holat"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 3.4. WARP ni tekshirish",
+   "sub": "3.5. Aniqlangan afzal ko‘rish",
+   "steps": [
+    "1-davr: p=(1;2), x=(4;3); 2-davr: p=(2;1), x=(2;6); 3-davr: p=(1;1), x=(5;4)",
+    "p¹ qatori: 10 (haqiqiy), 14 va 13 — afzallik yo‘q",
+    "p² qatori: 11, 10 (haqiqiy), 14 — afzallik yo‘q",
+    "p³ qatori: 7 va 8 < 9 (haqiqiy) — x³ ≻R x¹ va x³ ≻R x²",
+    "Teskari munosabat yo‘q: WARP va SARP bajariladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Narx indekslari va farovonlik",
+   "sub": "3.5. Aniqlangan afzal ko‘rish",
+   "items": [
+    {
+     "name": "Laspeyres indeksi",
+     "formula": "Lₚ = (pᵗ·xᵇ)/(pᵇ·xᵇ) = 12700/9800 = 1,296",
+     "note": "Bazis to‘plamni joriy narxlarda baholaydi (INI shu tamoyilda)"
+    },
+    {
+     "name": "Paashe indeksi",
+     "formula": "Pₚ = (pᵗ·xᵗ)/(pᵇ·xᵗ) = 11880/9120 = 1,303",
+     "note": "Amaliy misol 3.5: go‘sht va un; daromad 30% oshgan"
+    },
+    {
+     "name": "Farovonlik mezoni",
+     "formula": "M = mᵗ/mᵇ = 1,30 > Lₚ = 1,296",
+     "note": "M > Lₚ: ahvol yaxshilangan; M < Pₚ bo‘lsa — yomonlashgan"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ijtimoiy omillar va tarmoq samaralari",
+   "sub": "3.6. Iste’molchining bozordagi harakati: tarmoq samaralari va ijtimoiy omillar",
+   "left": {
+    "head": "Ko‘pchilikka ergashish",
+    "items": [
+     "Boshqalar ko‘p sotib olsa, naf ortadi",
+     "Bozor talabi elastikroq bo‘ladi",
+     "Messenjerlar, moda, to‘lov ilovalari",
+     "Narx pasayishi ikki samara beradi"
+    ]
+   },
+   "right": {
+    "head": "Snob va Veblen samaralari",
+    "items": [
+     "Snob: boshqalar ko‘p olsa, naf kamayadi",
+     "Snob: bozor talabi noelastikroq",
+     "Veblen: yuqori narxning o‘zi naf beradi",
+     "Veblen: talab chizig‘ida musbat og‘ish mumkin"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Ko‘pchilikka ergashish va snob samaralari",
+   "sub": "3.6. Iste’molchining bozordagi harakati: tarmoq samaralari va ijtimoiy omillar",
+   "img": "image35.png",
+   "caption": "3.11-rasm. “Ko‘pchilikka ergashish” va snob samaralari"
+  },
+  {
+   "type": "bullets",
+   "title": "Tushumni boshqarish asoslari",
+   "sub": "3.7. Talab nazariyasining amaliy qo‘llanilishi: tushumni boshqarish",
+   "bullets": [
+    "Aviakompaniya, mehmonxona, temir yo‘l: quvvat qat’iy, sotilmagan o‘rin yo‘qoladi",
+    "Chekli xarajat juda past, asosiy masala — berilgan quvvatdan maksimal tushum",
+    "Quvvat cheklanmasa: MR = 0, ya’ni |ε| = 1 nuqtada tushum maksimal",
+    "Agar shu nuqtada talab quvvatdan oshsa, narx Q(p) = K bo‘lguncha oshiriladi",
+    "Tizimlar talabni prognozlaydi, tarif sinflari kvotasini belgilaydi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 3.6. Toshkent–Samarqand poyezdi",
+   "sub": "3.7. Talab nazariyasining amaliy qo‘llanilishi: tushumni boshqarish",
+   "steps": [
+    "300 o‘rin, talab Q = 900 − 3p (ming so‘m)",
+    "a) MR = 300 − 2Q/3 = 0 → Q = 450 > 300: quvvat bog‘lovchi",
+    "900 − 3p = 300 → p = 200; tushum 60 mln so‘m",
+    "b) MR₁ = 600 − 4Q₁, MR₂ = 240 − 0,8Q₂ teng, Q₁ + Q₂ = 300 → Q₁ = 125, Q₂ = 175",
+    "p₁ = 350, p₂ = 170; tushum 73,5 mln so‘m — 22,5% ko‘p"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Masalalar: elastiklik va tushum",
+   "sub": "3.8. Yechib ko‘rsatilgan masalalar",
+   "bullets": [
+    "1-masala: q = 50p⁻¹·⁵m⁰·⁸pₛ⁰·³: ε = −1,5; η = 0,8; ε₁₂ = 0,3",
+    "%Δq ≈ −1,5·10 + 0,3·5 + 0,8·4 = −10,3%; yig‘indi −0,4 ≠ 0, bir jinslilik buziladi",
+    "2-masala: p 8→12, q 120→90: ε(yoy) = −0,2857/0,4 = −0,714 — noelastik",
+    "Tushum 960 dan 1080 ga oshdi: noelastik talabda narx oshsa tushum ortadi",
+    "4-masala: ε = −2, p = 50: MR = 25 < MC = 30 — narxni oshirish kerak"
+   ],
+   "note": "4-masalada MR = p(1 − 1/|ε|) = 50·0,5"
+  },
+  {
+   "type": "table",
+   "title": "3-masala. Daromad elastikligi (daromad +10%)",
+   "sub": "3.8. Yechib ko‘rsatilgan masalalar",
+   "head": [
+    "Tovar",
+    "Iste’mol o‘zgarishi",
+    "η",
+    "Tasnif"
+   ],
+   "rows": [
+    [
+     "Go‘sht (8 → 8,6 kg)",
+     "+7,5%",
+     "0,75",
+     "Zaruriy normal tovar"
+    ],
+    [
+     "Makaron (5 → 4,7 kg)",
+     "−6%",
+     "−0,6",
+     "Past sifatli tovar"
+    ],
+    [
+     "Maishiy texnika (300 → 360 ming)",
+     "+20%",
+     "2",
+     "Hashamatli tovar"
+    ]
+   ],
+   "note": "Daromad 6 mln so‘mdan 6,6 mln so‘mga oshgan"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Talab funksiyasi optimallashtirish yechimi bo‘lib, nol darajali bir jinsli",
+    "Daromad-iste’mol va Engel chiziqlari normal, past sifatli va hashamatli tovarlarni ajratadi",
+    "Narx-iste’mol chizig‘idan talab chizig‘i hosil bo‘ladi; Giffen tovari kam uchraydi",
+    "Elastiklik tushum va chekli tushumni belgilaydi: MR = p(1 − 1/|ε|)",
+    "WARP/SARP va Laspeyres–Paashe indekslari farovonlik o‘zgarishini baholaydi"
+   ]
+  }
+ ]
+}

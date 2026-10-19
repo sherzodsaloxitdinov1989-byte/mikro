@@ -1,29 +1,170 @@
 {
- "goal": "«Iste’molchi ortiqchaligi va ishlab chiqaruvchi ortiqchaligi» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "CS, PS, CV, EV va DWL ni hisoblash hamda soliq, narx chegarasi, import tarifi va kvota kabi davlat narx siyosati vositalarining iste’molchi va ishlab chiqaruvchi farovonligiga ta’sirini baholash ko‘nikmalarini shakllantirish.",
  "concepts": [
-  "iste’molchi ortiqchaligi",
-  "yalpi iste’molchi"
+  "Iste’molchi ortiqchaligi (CS)",
+  "Ishlab chiqaruvchi ortiqchaligi (PS)",
+  "Kompensatsiyalovchi va ekvivalent variatsiya (CV, EV)",
+  "“O‘lik yuk” yo‘qotishi (DWL)",
+  "Soliq yukining taqsimlanishi",
+  "Import tarifi va kvotasi (renta izlash)"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 6-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 6-bob; I-ilova (A6), V-ilova (V.6)",
+ "tasks": [
+  {
+   "id": "mm6-p1",
+   "title": "Muvozanat, CS, PS va miqdoriy soliq",
+   "text": "Talab Q=100−2P, taklif Q=3P−50 (P – ming so‘m). a) Muvozanat narxi va miqdorini hamda iste’molchi va ishlab chiqaruvchi ortiqchaligini (CS, PS) toping. b) Sotuvchilarga har bir birlik uchun t=10 miqdoriy soliq joriy etildi. Xaridor narxi (Pb), sotuvchi olgan narx (Ps), soliqdan keyingi miqdor, soliq tushumi va “o‘lik yuk” yo‘qotishini (DWL) toping.",
+   "fields": [
+    {
+     "label": "Muvozanat narxi",
+     "value": 30,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "CS",
+     "value": 400,
+     "unit": ""
+    },
+    {
+     "label": "Xaridor narxi Pb (soliqdan keyin)",
+     "value": 36,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "DWL",
+     "value": 60,
+     "unit": ""
+    }
+   ],
+   "solution": "a) 100−2P=3P−50 → P*=30, Q*=40. Talab chizig‘ining narx o‘qi bilan kesishishi: P=50; taklif chizig‘ining: 3P−50=0 → P=50/3≈16,67. CS=0,5·40·(50−30)=400; PS=0,5·40·(30−16,67)≈266,7. b) 100−2Pb=3(Pb−10)−50 → 5Pb=180 → Pb=36, Ps=26, Q=100−72=28. Tushum=10·28=280. DWL=0,5·10·(40−28)=60. Soliq yukining 6/10=60% i xaridorga tushadi (talab taklifdan noelastikroq).",
+   "formula": "CS=0,5·Q·(P_max−P); PS=0,5·Q·(P−P_min); Pb−Ps=t; DWL=0,5·t·(Q*−Q_t)",
+   "note": "Maydonlar: P*, CS, Pb, DWL. Qolgan natijalar: Q*=40, PS≈266,7, Ps=26, Q=28, soliq tushumi 280."
+  },
+  {
+   "id": "mm6-p2",
+   "title": "Narxning yuqori chegarasi: taqchillik va DWL",
+   "text": "Talab Qd=150−3P, taklif Qs=2P−50 (P – ming so‘m). Muvozanat narxi 40, miqdori 30. Hukumat narxning yuqori chegarasini Pmax=35 qilib belgiladi. Taqchillik hajmini va “o‘lik yuk” yo‘qotishini (DWL) toping (samarali taqsimot farazida: tovar eng yuqori to‘lashga tayyor xaridorlarga yetadi).",
+   "fields": [
+    {
+     "label": "Taklif miqdori Qs",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Taqchillik",
+     "value": 25,
+     "unit": "birlik"
+    },
+    {
+     "label": "DWL",
+     "value": 41.67,
+     "unit": ""
+    }
+   ],
+   "solution": "Qs=2·35−50=20; Qd=150−3·35=45; taqchillik=45−20=25. Talab chizig‘ida Q=20 da P=(150−20)/3≈43,33. DWL=0,5·(30−20)·(43,33−35)=0,5·10·8,33≈41,67.",
+   "formula": "Qs(Pmax); Qd(Pmax); taqchillik=Qd−Qs; DWL=0,5·(Q*−Qs)·(P_talab(Qs)−Pmax)",
+   "note": "DWL≈41,7 (aniq qiymat 41,67). Bu nazariy minimum: navbat, qora bozor kabi real yo‘qotishlar undan katta bo‘lishi mumkin."
+  },
+  {
+   "id": "mm6-p3",
+   "title": "CV va EV: narx pasayishi",
+   "text": "Iste’molchining naflilik funksiyasi u=x1·x2, daromadi m=200, p2=1. Birinchi tovar narxi p1=4 dan 1 gacha pasaydi. Kompensatsiyalovchi (CV) va ekvivalent (EV) variatsiyalarni toping. Xarajat funksiyasi: e(p1,p2,u)=2√(p1·p2·u).",
+   "fields": [
+    {
+     "label": "Dastlabki naflilik u0",
+     "value": 2500,
+     "unit": ""
+    },
+    {
+     "label": "Yangi naflilik u1",
+     "value": 10000,
+     "unit": ""
+    },
+    {
+     "label": "CV",
+     "value": 100,
+     "unit": ""
+    },
+    {
+     "label": "EV",
+     "value": 200,
+     "unit": ""
+    }
+   ],
+   "solution": "Dastlab x1=m/(2p1)=25, x2=m/(2p2)=100, u0=2500. Narxdan keyin x1=100, x2=100, u1=10000. CV=m−e(p1new,u0)=200−2√(1·1·2500)=200−100=100. EV=e(p0,u1)−m=2√(4·1·10000)−200=400−200=200.",
+   "formula": "CV=m−e(p¹,u⁰); EV=e(p⁰,u¹)−m",
+   "note": "Narx pasayganda EV>CV; ΔCS ular orasida joylashadi (Uillig yaqinlashuvi)."
+  },
+  {
+   "id": "mm6-p4",
+   "title": "Import tarifi: kichik ochiq iqtisodiyot",
+   "text": "Kichik ochiq iqtisodiyotda talab Qd=200−P, taklif Qs=P−20, jahon narxi Pw=60. Import tarifi 20 ga teng belgilandi. Tarifdan keyingi ichki narxni, importni, ishlab chiqaruvchilar yutug‘ini (ΔPS), tarif tushumini va sof yo‘qotishni (DWL) toping.",
+   "fields": [
+    {
+     "label": "Tarifdan keyingi ichki narx",
+     "value": 80,
+     "unit": ""
+    },
+    {
+     "label": "Ishlab chiqaruvchilar yutug‘i ΔPS",
+     "value": 1000,
+     "unit": ""
+    },
+    {
+     "label": "Tarif tushumi",
+     "value": 1200,
+     "unit": ""
+    },
+    {
+     "label": "DWL",
+     "value": 400,
+     "unit": ""
+    }
+   ],
+   "solution": "Erkin savdoda P=60: Qd=140, Qs=40, import=100. Tarif bilan P=80: Qd=120, Qs=60, import=60. Iste’molchilar yo‘qotishi=0,5·(140+120)·20=2600. ΔPS=0,5·(40+60)·20=1000. Tushum=60·20=1200. DWL=0,5·20·(60−40)+0,5·20·(140−120)=200+200=400 (tekshiruv: 2600−1000−1200=400).",
+   "formula": "P=Pw+tarif; ΔCS=−A−B−C−D; ΔPS=A; tushum=C; DWL=B+D",
+   "note": "Tarifdan keyingi import 60 (erkin savdoda 100). Tushum = tarif×import = 20·60 = 1200."
+  },
+  {
+   "id": "mm6-p5",
+   "title": "Import kvotasi va kvota rentasi",
+   "text": "Kichik ochiq iqtisodiyotda talab Qd=300−2P, taklif Qs=P, jahon narxi Pw=60. Import kvotasi 60 birlik qilib belgilandi. Erkin savdodagi importni, kvotadagi ichki narxni, iste’molchilar yo‘qotishini, ishlab chiqaruvchilar yutug‘ini, kvota rentasini va DWL ni toping.",
+   "fields": [
+    {
+     "label": "Kvotadagi ichki narx",
+     "value": 80,
+     "unit": ""
+    },
+    {
+     "label": "Kvota rentasi",
+     "value": 1200,
+     "unit": ""
+    },
+    {
+     "label": "DWL",
+     "value": 600,
+     "unit": ""
+    }
+   ],
+   "solution": "Erkin savdoda P=60: Qd=180, Qs=60, import=120. Kvota bilan: 300−2P−P=60 → P=80; Qs=80, Qd=140. Iste’molchilar yo‘qotishi=(180+140)/2·20=3200; ishlab chiqaruvchilar yutug‘i=(60+80)/2·20=1400; kvota rentasi=60·(80−60)=1200; DWL=3200−1400−1200=600.",
+   "formula": "Qd(P)−Qs(P)=kvota; renta=kvota·(P−Pw); DWL=ΔCS−ΔPS−renta",
+   "note": "Kvota rentasi litsenziya egalariga tegadi; tarif bo‘lganda shu yuza byudjetga tushar edi."
+  }
+ ],
  "open": [
-  "Esse/munozara: Energiya tariflari islohoti: samaradorlik va ijtimoiy adolat muvozanati.",
-  "Esse/munozara: Minimal ish haqi: bandlikka ta’sir bo‘yicha nazariya va empirik dalillar.",
-  "Esse/munozara: Import bojlari: mahalliy ishlab chiqaruvchini himoya qilishmi yoki iste’molchiga yuk?",
-  "Esse/munozara: Xarajat-foyda tahlilini davlat investitsiya loyihalarida qo‘llash amaliyoti.",
-  "Esse/munozara: Aktsiz soliqlari: sog‘liqni saqlash maqsadlari va byudjet daromadlari.",
-  "Mustaqil ish: (MT-3) Davlatning narx siyosatini iste’molchi va ishlab chiqaruvchi yutug‘iga ko‘ra tahlil qilish. O‘zbekistonda amalga oshirilgan narx siyosati chorasini (tarif o‘zgarishi, aktsiz stavkasi, import bojining o‘zgarishi, narx nazorati) tanlab, uning iste’molchilar, ishlab chiqaruvchilar va davlat byudjetiga ta’sirini 6.5-paragrafdagi usullar bilan tahlil qiling. Elastiklik baholarini adabiyotdan oling.",
-  "Mustaqil ish: Sigaret yoki alkogol mahsulotlariga aktsiz oshirilishining soliq yuki taqsimotini va DWL ini taxminiy baholang.",
-  "Mustaqil ish: Shahringizdagi biror infratuzilma loyihasi (yo‘l, ko‘prik, park) uchun soddalashtirilgan xarajat-foyda tahlilini tayyorlang."
+  "“Hukumat yig‘ilishi” rolli o‘yini. Talabalar “Moliya vazirligi”, “Iste’molchilar uyushmasi”, “Ishlab chiqaruvchilar assotsiatsiyasi” va “Mustaqil ekspertlar” guruhlariga bo‘linadi. Muhokama mavzusi: un mahsulotlariga import bojini bekor qilish. Har bir guruh 6.5-paragrafdagi vositalar bilan o‘z manfaatlarini miqdoriy asoslaydi; “ekspertlar” umumiy farovonlik nuqtai nazaridan xulosa beradi.",
+  "Narx nazorati qisqa muddatda kimga foyda keltiradi va uzoq muddatda nima uchun ko‘pincha zararli bo‘ladi? Aktsiz solig‘i yukini kim ko‘taradi – ishlab chiqaruvchimi yoki iste’molchi (sigaret va benzin misolida)? Javobingizni elastiklik asosida izohlang.",
+  "Minimal ish haqini oshirish bandlikka qanday ta’sir qiladi? Raqobatli bozor modeli va boshqa nazariy qarashlarni (shu jumladan Kard va Kryuger tadqiqotini) solishtiring. Import bojlarini kamaytirish kimga foyda, kimga zarar keltiradi?",
+  "Mustaqil ish (MT-3): O‘zbekistonda amalga oshirilgan biror narx siyosati chorasini (tarif o‘zgarishi, aktsiz stavkasi, import bojining o‘zgarishi, narx nazorati) tanlab, uning iste’molchilar, ishlab chiqaruvchilar va davlat byudjetiga ta’sirini 6.5-paragrafdagi usullar bilan tahlil qiling. Elastiklik baholarini adabiyotdan oling. Qo‘shimcha: sigaret yoki alkogol aktsizi oshirilishining soliq yuki taqsimotini va DWL ini taxminiy baholang; shahringizdagi infratuzilma loyihasi (yo‘l, ko‘prik, park) uchun soddalashtirilgan xarajat-foyda tahlilini tayyorlang.",
+  "Keys 1. Non narxi: subsidiya, narx nazorati yoki maqsadli yordam? Vaziyat. Viloyat markazida oddiy non narxi un narxlarining oshishi sababli bir yilda 30 foizga oshdi. Aholining bir qismi narxni avvalgi darajada “muzlatish”ni talab qilmoqda. Hokimiyat uchta variantni ko‘rib chiqmoqda: (A) novvoyxonalar uchun non narxining yuqori chegarasini belgilash; (B) un ishlab chiqaruvchilarga har bir tonna un uchun subsidiya berish; (C) kam ta’minlangan oilalarga oylik pul kompensatsiyasi to‘lash. Shahar bo‘yicha non talabi Qd=400−50P, taklifi Qs=100P−200 (ming dona/kun, P – ming so‘m). Savollar: 1) Muvozanat narx va miqdorini toping. Narxning yuqori chegarasi 3,5 ming so‘m bo‘lsa, taqchillik va DWL qancha bo‘ladi? 2) Narxni 3,5 ming so‘mgacha tushirish uchun qanday miqdordagi subsidiya kerak? Uning byudjetga xarajati va DWL ni hisoblang. 3) Kam ta’minlangan oilalar (aholining 20%) uchun pul kompensatsiyasi variantini baholang: afzalliklari va kamchiliklari nimada? 4) Har uch variantni samaradorlik, adolat, byudjet xarajati va amalga oshirish qulayligi mezonlari bo‘yicha jadvalda solishtiring.",
+  "Keys 3. Avtomobil bozori va import bojlari. Vaziyat. Mahalliy avtomobil zavodi ichki bozorda ustun mavqega ega. Import avtomobillariga yuqori bojlar va aktsizlar qo‘llanadi. Iste’molchilar uzoq kutish navbatlari va narxlar haqida shikoyat qilmoqda. Hukumat bojlarni bosqichma-bosqich pasaytirishni rejalashtirmoqda. Savollar: 1) Import bojining iste’molchilar, ichki ishlab chiqaruvchi va davlat byudjetiga ta’sirini 6.8-rasm asosida tahlil qiling. 2) Agar ichki ishlab chiqaruvchi monopolist bo‘lsa, boj uning narx belgilash imkoniyatlariga qanday ta’sir qiladi? Import raqobati monopol kuchni qanday cheklaydi? 3) Navbatlar mavjudligi narx muvozanatdan past ekanini ko‘rsatadimi? Navbatning “yashirin narxi”ni qanday baholash mumkin? 4) Bojlarni pasaytirish ishlab chiqarishdagi bandlik va sanoat siyosati maqsadlariga qanday ta’sir qilishi mumkin? Murosali yechim taklif qiling."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Guruhlar quyidagicha asoslaydi: Moliya vazirligi – boj tushumi (C yuza) yo‘qotilishi va byudjet kamomadi; Iste’molchilar uyushmasi – narx pasayishidan CS ortishi (A+B+C+D); Ishlab chiqaruvchilar – PS kamayishi (A) va bandlik; ekspertlar – umumiy farovonlik sof o‘zgarishi (B+D yutug‘i) va o‘tish davri kompensatsiyasi. Har bir guruh kamida bitta sonli baho (mas., elastiklik asosida ΔCS, ΔPS) keltirishi kerak.",
+  "Namunaviy javob: narx nazorati qisqa muddatda narxni qaytarib, narxni to‘lovchilarga foyda beradi, ammo taqchillik va DWL (talab va taklif chiziqlari orasidagi uchburchak) yuzaga keladi; uzoq muddatda taklif elastikligi oshgani sari taqchillik va sifat pasayishi kuchayadi. Aktsiz yukini bozorning noelastikroq tomoni ko‘proq ko‘taradi: sigaret va benzin talabi noelastik bo‘lgani uchun yukning katta qismi xaridorga tushadi.",
+  "Namunaviy javob: raqobatli modelda minimal ish haqi (narxning quyi chegarasi) ishchi kuchi ortiqchasi, ya’ni ishsizlikni keltiradi; monopsoniya modelida esa bandlik oshishi mumkin. Kard–Kryuger tadqiqoti kutilgan salbiy bandlik ta’sirini topmagan. Bojlarni kamaytirish iste’molchilarga (narx pasayishi) va byudjetdan tashqari farovonlikka foyda beradi; ichki ishlab chiqaruvchilar PS ni yo‘qotadi, boj tushumi kamayadi, ammo jamiyat DWL (B+D) ni qaytarib oladi.",
+  "Tekshirish yo‘riqnomasi: talaba aniq chorani (masalan, tarif yoki aktsiz) tanlashi, talab va taklif elastikligini manba bilan keltirishi, yukning taqsimlanishini (Es/(Es+|Ed|)), ΔCS, ΔPS, byudjet tushumi va DWL ni hisoblashi hamda siyosiy xulosa berishi kerak. Aktsiz uchun DWL≈0,5·t²·(elastiklik omili) qoidasidan foydalanish mumkin. Xarajat-foyda tahlilida foyda va xarajatlar joriy qiymatga keltiriladi (diskontlanadi), loyiha NPV>0 bo‘lsa qabul qilinadi.",
+  "Yo‘l-yo‘riq. 1) Muvozanat: 400−50P=100P−200 → P*=4, Q*=200. Pmax=3,5 da Qs=150, Qd=225 – taqchillik 75 ming dona; talab chizig‘ida Q=150 da P=5; DWL=0,5·50·(5−3,5)=37,5 mln so‘m kuniga. 2) Subsidiya: xaridor narxi 3,5 uchun Qd=225; sotuvchi narxi Ps=(225+200)/100=4,25; subsidiya s=0,75 ming so‘m/dona, byudjet xarajati 0,75·225=168,75 mln so‘m kuniga; DWL=0,5·0,75·25≈9,4. 3) Pul kompensatsiyasi narxni buzmaydi (DWL deyarli yo‘q), maqsadli, lekin kam ta’minlanganlarni aniqlash va ma’muriy xarajat muammosi bor. 4) VI bobdagi 6.6-jadval va II bobdagi naqd va natural yordam tahlilidan foydalaning.",
+  "Yo‘l-yo‘riq. 1) Boj ichki narxni jahon narxi + boj darajasiga ko‘taradi: iste’molchilar yo‘qotadi, ichki ishlab chiqaruvchi yutadi, davlat boj tushumini oladi, sof yo‘qotish B+D. 2) Monopolist import raqobati sharoitida narxni jahon narxi + boj darajasidan oshira olmaydi: boj qanchalik past bo‘lsa, ustama shunchalik kichik. 3) Navbatlar – narxning yuqori chegarasi kabi samara: tovar narx emas, kutish vaqti orqali taqsimlanadi; navbat vaqtining muqobil qiymatini (I bobdagi vaqt va pul cheklovi) hisoblang. 4) Bandlik yo‘qotilishi va o‘tish davri kompensatsiyasini hisobga olib, bojni bosqichma-bosqich pasaytirish tavsiya etiladi."
  ]
 }

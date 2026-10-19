@@ -177,6 +177,7 @@ export const SUBJECTS = [
     description: "Mikroiqtisodiyot fanining magistratura darajasidagi davomi: iste'molchi nazariyasi, noaniqlik va aktivlar bozori, firma va tarmoq, monopoliya va oligopoliya, o'yinlar nazariyasi, tashqi samaralar va assimetrik axborot.",
     course: {
       title: "Mikroiqtisodiyot-2",
+      author: "M. Soy, Sh. Saloxitdinov",
       heroTitle: ["Mikroiqtisodiyot-2", "interaktiv platformasi"],
       logo: "📈",
       domain: "mikroiqtisodiyot (magistratura, ilg'or daraja: iste'molchi nazariyasi, noaniqlik, firma va tarmoq, nomukammal raqobat, o'yinlar nazariyasi, tashqi samaralar, assimetrik axborot)",

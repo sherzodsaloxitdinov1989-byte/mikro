@@ -1,0 +1,370 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Siyosat ta’sirini pulda o‘lchash",
+   "sub": "6.1. Iste’molchi ortiqchaligi",
+   "bullets": [
+    "Tarif, aktsiz, subsidiya iste’molchi ahvolini qanchalik o‘zgartiradi?",
+    "Naflilik ordinal – uni bevosita o‘lchab bo‘lmaydi",
+    "Farovonlik o‘zgarishi pul ekvivalentida o‘lchanadi",
+    "Eng mashhur usul – A. Marshall (1890) iste’molchi ortiqchaligi"
+   ],
+   "note": "Ta’rif: to‘lashga tayyorlik bilan haqiqiy to‘lov o‘rtasidagi farq"
+  },
+  {
+   "type": "formula",
+   "title": "Iste’molchi ortiqchaligi formulalari",
+   "sub": "6.1. Iste’molchi ortiqchaligi",
+   "items": [
+    {
+     "name": "Diskret tovar",
+     "formula": "CS = ∑(rᵢ − p) = ∑rᵢ − p·n",
+     "note": "rᵢ – rezervatsion narxlar; ∑rᵢ – yalpi iste’molchi ortiqchaligi"
+    },
+    {
+     "name": "Uzluksiz talab",
+     "formula": "CS = ∫₀^q* P(q)dq − p·q*",
+     "note": "P(q) – teskari talab funksiyasi"
+    },
+    {
+     "name": "Kvazichiziqli naflilik",
+     "formula": "u = v(x) + y,  v′(x) = p",
+     "note": "Daromad samarasi yo‘q – CS aniq farovonlik o‘lchovi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Iste’molchi ortiqchaligi grafigi",
+   "sub": "6.1. Iste’molchi ortiqchaligi",
+   "img": "image54.png",
+   "caption": "6.1-rasm. Iste’molchi ortiqchaligi: diskret va uzluksiz holat"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 6.1: jamoat transporti",
+   "sub": "6.1. Iste’molchi ortiqchaligi",
+   "steps": [
+    "Talab Q = 200 − 40P; yo‘l haqi 2 dan 2,5 ming so‘mga oshdi",
+    "P=2 da Q₀=120; P=2,5 da Q₁=100; talab nolga teng narx 5",
+    "CS₀ = 0,5·120·(5−2) = 180; CS₁ = 0,5·100·2,5 = 125 mln so‘m",
+    "ΔCS = −55 mln so‘m: R = 50 (tashuvchiga o‘tgan), T = 5 (yo‘qotilgan qatnov)",
+    "Tashuvchi tushumi 240 → 250 mln so‘m: atigi 10 mln so‘mga oshdi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "CV va EV – Xiks o‘lchovlari",
+   "sub": "6.2. Kompensatsiyalovchi va ekvivalent variatsiya",
+   "items": [
+    {
+     "name": "Kompensatsiyalovchi variatsiya",
+     "formula": "CV = e(p¹, u⁰) − m",
+     "note": "Yangi narxlarda: dastlabki naflilikni tiklash uchun kerak summa"
+    },
+    {
+     "name": "Ekvivalent variatsiya",
+     "formula": "EV = m − e(p⁰, u¹)",
+     "note": "Eski narxlarda: o‘zgarishga teng kuchli daromad o‘zgarishi"
+    },
+    {
+     "name": "Normal tovar, narx oshganda",
+     "formula": "EV ≤ |ΔCS| ≤ CV",
+     "note": "Narx pasayganda tartib teskari; kvazichiziqli holda uchalasi teng"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 6.2: u = x₁x₂",
+   "sub": "6.2. Kompensatsiyalovchi va ekvivalent variatsiya",
+   "steps": [
+    "m = 100 ming so‘m, p₂ = 1; p₁ 1 dan 2 ga oshdi",
+    "Dastlab x₁ = x₂ = 50, u₀ = 2500; keyin x₁ = 25, x₂ = 50, u₁ = 1250",
+    "e(p₁, p₂, u) = 2√(p₁p₂u)",
+    "CV = 2√5000 − 100 = 41,42; EV = 100 − 2√1250 = 29,29",
+    "ΔCS = −50·ln 2 = −34,66: EV (29,29) < |ΔCS| (34,66) < CV (41,42)"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Ishlab chiqaruvchi ortiqchaligi",
+   "sub": "6.3. Ishlab chiqaruvchi ortiqchaligi",
+   "items": [
+    {
+     "name": "Ta’rif",
+     "formula": "PS = narx chizig‘i va taklif chizig‘i orasidagi yuza",
+     "note": "Olingan summa bilan sotishga rozi minimal summa farqi"
+    },
+    {
+     "name": "Foyda bilan bog‘liqligi",
+     "formula": "PS = TR − TVC = π + TFC",
+     "note": "Taklif chizig‘i ostidagi yuza = o‘zgaruvchan xarajatlar"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ishlab chiqaruvchi va umumiy ortiqcha",
+   "sub": "6.3. Ishlab chiqaruvchi ortiqchaligi",
+   "img": "image57.png",
+   "caption": "6.4-rasm. Ishlab chiqaruvchi ortiqchaligi va umumiy ortiqcha"
+  },
+  {
+   "type": "formula",
+   "title": "Umumiy (ijtimoiy) ortiqcha",
+   "sub": "6.4. Umumiy ortiqcha va bozor samaradorligi",
+   "items": [
+    {
+     "name": "Umumiy ortiqcha",
+     "formula": "TS = CS + PS = ∫₀^q [P_D(t) − P_S(t)]dt",
+     "note": "Iste’molchi baholashi va ishlab chiqarish xarajati farqi"
+    },
+    {
+     "name": "Maksimum sharti",
+     "formula": "P_D(q) > P_S(q)",
+     "note": "Aynan raqobatli muvozanat miqdorida bajariladi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Bozor samaradorligi va “o‘lik yuk”",
+   "sub": "6.4. Umumiy ortiqcha va bozor samaradorligi",
+   "bullets": [
+    "Tashqi samara va bozor kuchi bo‘lmasa, muvozanat TS ni maksimallashtiradi",
+    "Tovarni eng yuqori baholovchi oladi, eng kam xarajatli ishlab chiqaradi",
+    "Muvozanatdan chetlanish TS ni kamaytiradi – “o‘lik yuk” (DWL)",
+    "DWL – Xarberger uchburchagi, hech kimga tegmaydigan yo‘qotish",
+    "TS maksimumi taqsimot haqida hech narsa demaydi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Narx chegaralari oqibatlari",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "head": [
+    "Ko‘rsatkich",
+    "Muvozanat",
+    "Pmax = 3",
+    "Pmin = 7"
+   ],
+   "rows": [
+    [
+     "Iste’molchi ortiqchaligi",
+     "8",
+     "10",
+     "2"
+    ],
+    [
+     "Ishlab chiqaruvchi ortiqchaligi",
+     "8",
+     "2",
+     "18"
+    ],
+    [
+     "Davlat xarajati",
+     "0",
+     "0",
+     "28"
+    ],
+    [
+     "Umumiy ortiqcha",
+     "16",
+     "12",
+     "–8"
+    ]
+   ],
+   "note": "Talab P=9−Q, taklif P=1+Q; Q*=4, P*=5 (mlrd so‘m). Pmax da DWL = 4"
+  },
+  {
+   "type": "table",
+   "title": "Miqdoriy soliq (t = 2)",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "head": [
+    "Ko‘rsatkich",
+    "Soliqsiz",
+    "Soliq bilan",
+    "O‘zgarish"
+   ],
+   "rows": [
+    [
+     "Iste’molchi ortiqchaligi",
+     "8",
+     "4,5",
+     "–3,5"
+    ],
+    [
+     "Ishlab chiqaruvchi ortiqchaligi",
+     "8",
+     "4,5",
+     "–3,5"
+    ],
+    [
+     "Soliq tushumi",
+     "0",
+     "6",
+     "+6"
+    ],
+    [
+     "Umumiy ortiqcha",
+     "16",
+     "15",
+     "–1"
+    ]
+   ],
+   "note": "Qt=3, Pb=6, Ps=4: yuk teng taqsimlandi; DWL = 1 mlrd so‘m"
+  },
+  {
+   "type": "formula",
+   "title": "Soliq yuki va DWL",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "items": [
+    {
+     "name": "Xaridor ulushi",
+     "formula": "ΔP_b / t = ε_S / (ε_S + |ε_D|)",
+     "note": "Noelastikroq tomon yukning ko‘p qismini ko‘taradi"
+    },
+    {
+     "name": "Sotuvchi ulushi",
+     "formula": "|ΔP_s| / t = |ε_D| / (ε_S + |ε_D|)",
+     "note": "Soliq kimdan undirilishi taqsimotga ta’sir qilmaydi"
+    },
+    {
+     "name": "Xarberger formulasi",
+     "formula": "DWL ≈ ½·t·ΔQ",
+     "note": "DWL stavkaning kvadratiga va elastiklikka proporsional"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Import tarifining ta’siri",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "img": "image61.png",
+   "caption": "6.8-rasm. Import tarifining farovonlikka ta’siri"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 6.3: import tarifi",
+   "sub": "6.5. Davlatning narx siyosatini tahlil qilish",
+   "steps": [
+    "P = 9 − Q, P = 0,5 + Q; Pw = 2, boj t = 1,2",
+    "Q₁ = 1,5; Q₂ = 2,7; Q₃ = 5,8; Q₄ = 7",
+    "A = 2,52; B = 0,72; C = 3,72; D = 0,72",
+    "Iste’molchilar yo‘qotishi 7,68; ishlab chiqaruvchilar yutug‘i 2,52",
+    "Tarif tushumi 3,72; sof yo‘qotish B + D = 1,44 mlrd so‘m"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Loyiha foydasi: joriy qiymat",
+   "sub": "6.6. Xarajat-foyda tahlilida ortiqchalikdan foydalanish",
+   "items": [
+    {
+     "name": "Sof joriy qiymat",
+     "formula": "NPV = ∑ (ΔCSₜ + ΔPSₜ − Cₜ) / (1 + r)ᵗ",
+     "note": "Foyda – ortiqchaliklar ortishi; xarajat – muqobil qiymat"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 6.4: yangi ko‘prik",
+   "sub": "6.6. Xarajat-foyda tahlilida ortiqchalikdan foydalanish",
+   "steps": [
+    "Qurilish 120 mlrd so‘m, 30 yil; xarajat 40 → 10 ming so‘m",
+    "Qatnovlar kuniga 6 → 10 ming; r = 10%",
+    "ΔCS = (40−10)·(6+10)/2 = 240 mln so‘m kuniga",
+    "Yillik: 240·365 = 87,6 mlrd; annuitet 87,6·9,427 = 825,8 mlrd",
+    "NPV = 825,8 − 120 ≫ 0 – loyiha foydali"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Tarif islohoti: hisob-kitob",
+   "sub": "6.8. Amaliy tahlil: tarif islohotining farovonlikka ta’siri",
+   "head": [
+    "Ko‘rsatkich",
+    "Kam ta’minlangan",
+    "Boshqa",
+    "Jami"
+   ],
+   "rows": [
+    [
+     "Iste’mol 600 so‘mda, ming m³",
+     "0,160",
+     "0,280",
+     "–"
+    ],
+    [
+     "Iste’mol 1 000 so‘mda, ming m³",
+     "0,100",
+     "0,200",
+     "–"
+    ],
+    [
+     "Jami CS yo‘qotishi, mln so‘m",
+     "2 080",
+     "5 760",
+     "7 840"
+    ],
+    [
+     "Bartaraf etilgan DWL, mln so‘m",
+     "480",
+     "960",
+     "1 440"
+    ]
+   ],
+   "note": "Tarif 600 → 1 000 so‘m (chekli xarajat); subsidiya tejami 9 280 mln so‘m"
+  },
+  {
+   "type": "bullets",
+   "title": "Tarif islohoti: xulosalar",
+   "sub": "6.8. Amaliy tahlil: tarif islohotining farovonlikka ta’siri",
+   "bullets": [
+    "Samaradorlik: xarajatdan past narx ortiqcha iste’mol va DWL beradi",
+    "Taqsimot: narx oshishi kam ta’minlanganlarga og‘irroq tegadi",
+    "Iste’molga bog‘liq bo‘lmagan pul kompensatsiyasi narx signalini saqlaydi",
+    "Sof byudjet tejami: 9 280 − 960 = 8 320 mln so‘m",
+    "Blokli tarif ortiqcha iste’molni qimmatlashtiradi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "1–2-masalalar: soliq va CV",
+   "sub": "6.7. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "Q = 100−2P, Q = 3P−50: P* = 30, Q* = 40; CS = 400, PS = 266,7",
+    "t = 10: Pb = 36, Ps = 26, Qt = 28; tushum 280, DWL = 60",
+    "Yukning 60% xaridorga tushdi (talab noelastikroq)",
+    "u = 20√x + y, p 2 → 4: x = 100/p², ΔCS = −100·(1/2 − 1/4) = −25",
+    "Kvazichiziqli naflilikda daromad samarasi yo‘q: CV = EV = 25"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "3-masala: elastiklik va soliq yuki",
+   "sub": "6.7. Yechib ko‘rsatilgan masalalar",
+   "bullets": [
+    "Berilgan: talab elastikligi −0,5, taklif elastikligi 1,5, aktsiz 1 000 so‘m",
+    "ΔP_b = t·ε_S/(ε_S + |ε_D|) = 1 000 · 1,5/2 = 750 so‘m",
+    "Sotuvchi narxi 250 so‘mga kamayadi",
+    "Yukning 75% i xaridorga tushadi – talab noelastikroq"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Iste’molchi ortiqchaligi – talab va narx chizig‘i orasidagi yuza",
+    "CV va EV farovonlikni aniq o‘lchaydi; normal tovarda EV ≤ |ΔCS| ≤ CV",
+    "Raqobatli muvozanat TS ni maksimallashtiradi; chetlanish DWL beradi",
+    "Narx chegarasi, soliq, subsidiya, tarif DWL yaratadi; yukni noelastik tomon ko‘taradi",
+    "Xarajat-foyda tahlili loyihani ortiqchalik o‘zgarishi va NPV bilan baholaydi"
+   ]
+  }
+ ]
+}

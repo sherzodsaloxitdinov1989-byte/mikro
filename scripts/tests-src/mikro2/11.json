@@ -25,9 +25,9 @@
   "q": "Bitimdan keyingi kuzatilmaydigan harakatlar bilan bog‘liq muammo:",
   "options": [
    "Axloqiy (subyektiv) risk",
-   "Noxush tanlov",
-   "Signal berish",
-   "Skrining"
+   "Noxush tanlov (yashirin xususiyat)",
+   "Signal berish mexanizmi",
+   "Skrining mexanizmi"
   ],
   "c": 0,
   "e": "Yashirin harakat bitimdan keyin paydo bo‘ladi va axloqiy (subyektiv) riskni yuzaga keltiradi."
@@ -101,10 +101,10 @@
  {
   "q": "Spens modelida (unumdorlik 200 va 400 mln, ta’lim xarajati 80y va 40y) ajratuvchi muvozanat uchun talab qilinadigan ta’lim darajasi y* oralig‘i:",
   "options": [
-   "y* < 2,5",
-   "y* > 5",
-   "y* = 0",
-   "2,5 < y* < 5"
+   "y* < 2,5 yil",
+   "y* > 5 yil",
+   "y* = 0 yil",
+   "2,5 < y* < 5 yil"
   ],
   "c": 3,
   "e": "Past unumdor uchun y* > 2,5, yuqori unumdor uchun y* < 5 bo‘lishi kerak."
@@ -234,7 +234,7 @@
   "q": "Yuqoridagi modelda (f(x) = 10x, c(x) = x²) agent mahsulotning 50% ini olsa, tanlaydigan harakat:",
   "options": [
    "5",
-   "0",
+   "12,5",
    "10",
    "2,5"
   ],
@@ -299,10 +299,10 @@
  {
   "q": "Rag‘bat va risk taqsimoti o‘rtasidagi murosa nazariyasi uchun Nobel mukofoti olgan olim:",
   "options": [
-   "E. Ostrom",
+   "Elinor Ostrom",
    "B. Xolmstrem",
-   "R. Kouz",
-   "J. Tirol"
+   "Ronald Kouz",
+   "Jan Tirol"
   ],
   "c": 1,
   "e": "Bengt Xolmstrem (Nobel, 2016) rag‘bat va risk taqsimoti o‘rtasidagi murosa nazariyasini ishlab chiqqan."
@@ -310,9 +310,9 @@
  {
   "q": "Kredit tarixini to‘plovchi tashkilotlar qaysi muammoni yumshatadi?",
   "options": [
-   "Monopoliyani",
+   "Monopoliya muammosini",
    "Kredit bozoridagi noxush tanlovni",
-   "Tashqi samaralarni",
+   "Tashqi samaralar muammosini",
    "Jamoat ne’matlari muammosini"
   ],
   "c": 1,

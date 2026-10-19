@@ -1,39 +1,164 @@
 {
- "goal": "«Bozor talabi. muvozanat. firma va tarmoqning taklifi» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Bozor talabi, ishlab chiqarish funksiyasi va xarajatlar tahlilini qo‘llab, raqobatli firma va tarmoqning qisqa hamda uzoq muddatli muvozanatini aniqlash ko‘nikmalarini shakllantirish.",
  "concepts": [
-  "bozor talabi",
-  "gorizontal qo‘shish",
-  "ekstensiv va intensiv chegara",
-  "bozor muvozanati",
-  "o‘rgimchak to‘ri modeli",
-  "ishlab chiqarish funksiyasi"
+  "bozor talabi va gorizontal qo‘shish",
+  "ishlab chiqarish funksiyasi va MRTS",
+  "izokosta va xarajatlarni minimallashtirish",
+  "qisqa muddatli xarajatlar (FC, VC, ATC, AVC, MC)",
+  "foydani maksimallashtirish: P=MC",
+  "uzoq muddatli tarmoq muvozanati: P=min LAC"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 7-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 7-bob; I-ilova (A7), V-ilova (V.7)",
+ "tasks": [
+  {
+   "id": "mm7-p1",
+   "title": "Qisqa muddatli xarajatlar va foyda",
+   "text": "Raqobatli firmaning qisqa muddatli umumiy xarajatlari TC=100+10Q+Q² (Q – dona, TC – ming so‘m). Bozor narxi P=50 ming so‘m. Toping: a) foydani maksimallashtiruvchi hajm Q* va foyda π; b) ishlab chiqarishni to‘xtatish narxi (min AVC) va zararsizlik narxi (min ATC).",
+   "fields": [
+    {
+     "label": "Optimal hajm Q*",
+     "value": 20,
+     "unit": "dona"
+    },
+    {
+     "label": "Foyda π",
+     "value": 300,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "To‘xtatish narxi",
+     "value": 10,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Zararsizlik narxi",
+     "value": 30,
+     "unit": "ming so‘m"
+    }
+   ],
+   "solution": "FC=100, VC=10Q+Q², AVC=10+Q, ATC=100/Q+10+Q, MC=10+2Q. a) P=MC: 50=10+2Q, Q*=20. TR=50·20=1000; TC=100+200+400=700; π=1000−700=300. b) AVC=10+Q Q→0 da eng kichik: min AVC=10 (to‘xtatish narxi). ATC minimumi: −100/Q²+1=0, Q=10, ATC=10+10+10=30 (zararsizlik narxi; shu nuqtada MC=10+20=30=ATC).",
+   "formula": "P=MC; π=TR−TC; min AVC → to‘xtatish narxi; MC=ATC → zararsizlik narxi"
+  },
+  {
+   "id": "mm7-p2",
+   "title": "Uzoq va qisqa muddatli xarajatlar taqqosi",
+   "text": "Firmaning ishlab chiqarish funksiyasi Q=10·L^0,5·K^0,5, ish haqi w=20, kapital narxi r=8. Qisqa muddatda kapital K=25 da qayd etilgan. Q=250 birlik ishlab chiqarilganda: a) uzoq muddatli xarajat LTC; b) qisqa muddatli xarajat STC (kapital xarajati ham hisobga olinadi); c) uzoq muddatda optimal kapital K*. (Hisoblashda 2 xona aniqlik.)",
+   "fields": [
+    {
+     "label": "Uzoq muddatli xarajat LTC",
+     "value": 632.46,
+     "unit": ""
+    },
+    {
+     "label": "Qisqa muddatli xarajat STC",
+     "value": 700,
+     "unit": ""
+    },
+    {
+     "label": "Optimal kapital K*",
+     "value": 39.53,
+     "unit": ""
+    }
+   ],
+   "solution": "Uzoq muddat: MRTS=K/L=w/r=20/8=2,5, ya’ni K=2,5L. Q=10·√(L·2,5L)=10·√2,5·L=15,81L. LTC=20L+8·2,5L=40L=40Q/15,81=2,53Q. Q=250: L=250/15,81=15,81; LTC=40·15,81=632,46; K*=2,5·15,81=39,53. Qisqa muddat: K=25 da Q=50√L, L=(250/50)²=25; STC=20·25+8·25=500+200=700. STC>LTC (700>632,46), chunki K=25 bu hajm uchun optimal emas.",
+   "formula": "MRTS=w/r; LTC=wL+rK; STC=wL+r·K̄",
+   "note": "Darslikda (V.7, 5-masala) LTC≈632, STC=700 va K*=39,5 berilgan; qayta hisoblash shuni tasdiqladi."
+  },
+  {
+   "id": "mm7-p3",
+   "title": "Tarmoqning qisqa muddatli muvozanati",
+   "text": "Tarmoqda 50 ta bir xil firma bor. Har bir firmaning taklifi q=P−10 (P≥10). Bozor talabi Q=1500−25P. Toping: tarmoq taklifi, muvozanat narxi P*, tarmoq hajmi Q* va har bir firma hajmi q. (Natijani 2 xona aniqlikda yozing.)",
+   "fields": [
+    {
+     "label": "Muvozanat narxi P*",
+     "value": 26.67,
+     "unit": ""
+    },
+    {
+     "label": "Bozor hajmi Q*",
+     "value": 833.33,
+     "unit": ""
+    },
+    {
+     "label": "Firma hajmi q",
+     "value": 16.67,
+     "unit": ""
+    }
+   ],
+   "solution": "Tarmoq taklifi Q_S=50(P−10)=50P−500. Q_D=Q_S: 1500−25P=50P−500 → 75P=2000 → P*=26,67. Q*=50·26,67−500=833,33. Har bir firma q=Q*/50=16,67 (tekshiruv: 26,67−10=16,67).",
+   "formula": "Q_S=n·q(P); Q_D=Q_S"
+  },
+  {
+   "id": "mm7-p4",
+   "title": "Uzoq muddatli tarmoq muvozanati",
+   "text": "Tarmoqdagi har bir firmaning uzoq muddatli o‘rtacha xarajati LAC=q²−16q+80. Bozor talabi Q=3000−100P. Raqobatli uzoq muddatli muvozanatda firma hajmi q, narx P, bozor hajmi Q va firmalar soni n ni toping.",
+   "fields": [
+    {
+     "label": "Firma hajmi q",
+     "value": 8,
+     "unit": ""
+    },
+    {
+     "label": "Narx P",
+     "value": 16,
+     "unit": ""
+    },
+    {
+     "label": "Bozor hajmi Q",
+     "value": 1400,
+     "unit": ""
+    },
+    {
+     "label": "Firmalar soni n",
+     "value": 175,
+     "unit": "ta"
+    }
+   ],
+   "solution": "Uzoq muddatli muvozanatda P=min LAC. LAC′=2q−16=0 → q=8. min LAC=64−128+80=16, demak P=16. Q=3000−100·16=1400. n=Q/q=1400/8=175.",
+   "formula": "P=LMC=min LAC; n=Q/q"
+  },
+  {
+   "id": "mm7-p5",
+   "title": "Firma foydasi va taklif funksiyasi",
+   "text": "Raqobatli firmaning xarajatlari TC=50+2Q+0,5Q². Toping: a) taklif funksiyasi va zararsizlik narxi; b) narx P=20 bo‘lganda optimal hajm va foyda.",
+   "fields": [
+    {
+     "label": "Zararsizlik narxi",
+     "value": 12,
+     "unit": ""
+    },
+    {
+     "label": "Optimal hajm (P=20)",
+     "value": 18,
+     "unit": ""
+    },
+    {
+     "label": "Foyda (P=20)",
+     "value": 112,
+     "unit": ""
+    }
+   ],
+   "solution": "MC=2+Q. P=MC → Q=P−2 (taklif funksiyasi, P≥min AVC=2). ATC=50/Q+2+0,5Q; min: −50/Q²+0,5=0 → Q=10, ATC=5+2+5=12 (zararsizlik narxi). P=20: Q=18; TR=360; TC=50+36+162=248; π=360−248=112.",
+   "formula": "P=MC; min ATC; π=TR−TC",
+   "note": "Darslikdagi javob (min ATC Q=10 da, P=12; π=112) qayta hisoblashda tasdiqlandi."
+  }
+ ],
  "open": [
-  "Esse/munozara: Kichik va o‘rta biznesning optimal o‘lchami: masshtab samarasi va moslashuvchanlik.",
-  "Esse/munozara: Qaytmaydigan xarajatlar xatosi: davlat loyihalari misolida.",
-  "Esse/munozara: Bozorga kirish to‘siqlarini pasaytirish va tadbirkorlik muhiti islohotlari.",
-  "Esse/munozara: Texnologik taraqqiyot va mehnat unumdorligi: avtomatlashtirish mehnat bozoriga qanday ta’sir qiladi?",
-  "Esse/munozara: Klaster tizimi: masshtab va qamrov samaralari nuqtai nazaridan.",
-  "Mustaqil ish: (MT-2) Doimiy va o‘zgaruvchan xarajatlar. Raqobatlashuvchi firmaning foydasi va daromadlari. O‘zingizga tanish kichik biznes (novvoyxona, tikuvchilik sexi, avtoyuvish shoxobchasi) uchun oylik xarajatlarni doimiy va o‘zgaruvchan qismlarga ajrating, zararsizlik nuqtasini hisoblang.",
-  "Mustaqil ish: (MT-8) Ishlab chiqarish omillari va chekli mahsuldorlikning kamayish qonuni. Qishloq xo‘jaligi yoki sanoatdan misol olib, chekli mahsuldorlikning kamayishini raqamli jadval va grafikda ko‘rsating.",
-  "Mustaqil ish: (MT-9) Firma foydasini aniqlash va uni maksimallashtirish. 7.5-misol asosida narxning turli darajalari uchun firma foydasini Excel jadvalida hisoblang va foyda funksiyasi grafigini chizing.",
-  "Mustaqil ish: (MT-15, MT-18) Ishlab chiqarish xarajatlari. O‘zbekistondagi biror sanoat korxonasining (moliyaviy hisobotlari ochiq e’lon qilingan aksiyadorlik jamiyati) xarajatlar tarkibini tahlil qiling.",
-  "Mustaqil ish: (MT-16) Raqobatlashgan bozorda firmaning muvozanati. Dehqon bozoridagi sotuvchini mukammal raqobat sharoitidagi firma sifatida tahlil qiling: u narxni qanchalik o‘zgartira oladi?",
-  "Mustaqil ish: (MT-17) Firma va tarmoqning uzoq muddatli oraliqdagi muvozanati. Mamlakatda keyingi yillarda tez rivojlangan tarmoqni (masalan, issiqxona xo‘jaliklari, IT-xizmatlar) tanlab, firmalar sonining o‘sishi va narxlar dinamikasini uzoq muddatli muvozanat nazariyasi asosida tahlil qiling."
+  "Novvoyxona, sement zavodi va elektr tarmog‘i uchun minimal samarali masshtabni taqqoslang. Bu ularning bozor tuzilmasiga qanday ta’sir qiladi?",
+  "Nima uchun zarar ko‘rayotgan firma qisqa muddatda ishlashda davom etadi? Real misollar keltiring. Qaytmaydigan xarajatlar xatosiga kundalik hayotdan va davlat loyihalaridan misollar keltiring.",
+  "Dehqon bozoridagi sotuvchi mukammal raqobat sharoitidagi firma hisoblanadimi? Issiqxona xo‘jaliklari soni ko‘paysa, pomidor narxi uzoq muddatda qanday o‘zgaradi?",
+  "Interfaol topshiriq «Biznes-reja» mini-loyihasi: kichik guruhlar shartli kichik korxona (masalan, choyxona, tikuvchilik sexi) uchun doimiy va o‘zgaruvchan xarajatlarni baholab xarajatlar jadvalini tuzadi, zararsizlik nuqtasini va bozor narxining uchta ssenariysi uchun foyda/zararni hisoblaydi; natijalar 7.10-rasmga o‘xshash grafikda taqdim etiladi.",
+  "Mustaqil ish: ishlab chiqarish funksiyasi va xarajatlar. Qishloq xo‘jaligi yoki sanoatdan misol olib, chekli mahsuldorlikning kamayishini raqamli jadval va grafikda ko‘rsating; shuningdek 7.5-misol asosida narxning turli darajalari uchun firma foydasini Excel jadvalida hisoblab, foyda funksiyasi grafigini chizing.",
+  "Esse mavzulari (birini tanlang): kichik va o‘rta biznesning optimal o‘lchami: masshtab samarasi va moslashuvchanlik; qaytmaydigan xarajatlar xatosi: davlat loyihalari misolida; texnologik taraqqiyot va mehnat unumdorligi; klaster tizimi: masshtab va qamrov samaralari nuqtai nazaridan.",
+  "Keys 4. Paxta-to‘qimachilik klasteri: vertikal integratsiya. Vaziyat: klaster paxta yetishtirish, tozalash, yigirish va tikuvchilikni birlashtiradi. Ilgari fermerlar paxtani belgilangan narxda davlatga topshirgan; endi ular klaster bilan shartnoma tuzadi. Fermerlar shartnoma narxlari past ekanidan, klaster esa paxta sifati va o‘z vaqtida topshirilmasligidan shikoyat qilmoqda. Savollar: 1) Mintaqada yagona klaster bo‘lsa, u paxta xaridida monopsonist sifatida harakat qilishi mumkin. Fermerlarga to‘lanadigan narx va yetishtiriladigan paxta hajmini raqobatli bozor bilan solishtiring. 2) Paxta sifatini klaster bevosita kuzata olmaydi (o‘g‘it, sug‘orish, terim vaqti). Bu qaysi assimetrik axborot muammosi? Qanday shartnoma rag‘bat beradi? 3) Kouz (firma chegaralari) nuqtai nazaridan klasterning vertikal integratsiyasini qanday tushuntirish mumkin? 4) Fermerlar kooperativlari klaster bilan muzokaralarda qanday rol o‘ynashi mumkin?"
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Minimal samarali masshtab (MES) – LAC minimumiga erishiladigan eng kichik hajm. Novvoyxonada MES bozor hajmiga nisbatan juda kichik, shuning uchun ko‘plab firmalar raqobatlashadi. Sement zavodida MES katta, bozorda oz sonli firma sig‘adi (oligopoliya). Elektr tarmog‘ida MES butun bozorga teng yoki undan katta, ya’ni tabiiy monopoliya paydo bo‘ladi.",
+  "Qisqa muddatda FC qaytmaydi, shuning uchun qaror P va AVC taqqoslanishiga asoslanadi: P>AVC bo‘lsa, ishlab chiqarish FC ning bir qismini qoplaydi va zarar to‘xtatishdagi zarardan (−FC) kam bo‘ladi. P<min AVC bo‘lsa to‘xtatish kerak. Qaytmaydigan xarajatlar xatosi: qurilishi boshlangan, ammo samarasiz loyihani «allaqachon ko‘p pul sarflandi» deb davom ettirish; qaror faqat kelgusi xarajat va daromadlarga qarab qabul qilinishi kerak.",
+  "Dehqon bozori sotuvchisi ko‘p, mahsulot bir xil, kirish erkin bo‘lsa – narx qabul qiluvchi, ya’ni mukammal raqobatga yaqin; sifat, joylashuv va doimiy xaridorlar farqi uni ayrim hollarda monopolistik raqobatga yaqinlashtiradi. Issiqxonalar ko‘payishi bilan taklif ortadi, narx pasayadi; foyda nolga tushguncha kirish davom etadi va uzoq muddatda P=min LAC. Xarajatlar o‘zgarmasa (doimiy xarajatli tarmoq) uzoq muddatli narx avvalgi darajaga qaytadi.",
+  "Tekshirish: doimiy (ijara, uskuna amortizatsiyasi) va o‘zgaruvchan (xomashyo, ish haqi) xarajatlar to‘g‘ri ajratilgan; ATC, AVC, MC hisoblangan; zararsizlik nuqtasi FC/(P−AVC) yoki min ATC orqali topilgan; uchta narx ssenariysida (yuqori, zararsizlik, to‘xtatish narxidan past) foyda/zarar hisoblangan va grafik 7.10-rasm kabi TR va TC yoki ATC/MC bilan chizilgan.",
+  "Tekshirish: jadvalda omil miqdori, umumiy, o‘rtacha va chekli mahsulot ustunlari bo‘lishi, MP ma’lum nuqtadan keyin kamayishi ko‘rsatilishi kerak. Excel jadvalida har bir P uchun Q=Q(P), TR, TC va π hisoblanadi; foyda funksiyasi grafigi P=MC nuqtasida maksimumga ega ekani ko‘rsatiladi.",
+  "Esse 2–3 sahifa, aniq tezis, bob nazariyasiga (masshtab samarasi, MES, qaytmaydigan xarajatlar, MR=MC) tayanishi va O‘zbekistondan 1–2 real misol keltirishi kerak. Baholash: nazariyadan to‘g‘ri foydalanish, dalillar, mantiqiy xulosa. Klaster esesida kattalashuv samaralari va bozor kuchi xavfi ikkala tomondan ko‘rib chiqilsin.",
+  "Yo‘l-yo‘riq: 1) Monopsoniya: MFC>w, shuning uchun klaster raqobatli bozordagiga qaraganda past narx to‘laydi va past hajmda xarid qiladi (VIII bob). 2) Sifat yashirin harakat – prinsipal–agent va axloqiy risk muammosi (XI bob); sifat ko‘rsatkichlariga bog‘langan narx (bonus), uzoq muddatli shartnomalar va obro‘ rag‘bat beradi. 3) Vertikal integratsiya tranzaksion xarajatlarni kamaytiradi, lekin bozor kuchini kuchaytirishi mumkin. 4) Kooperativ fermerlarni birlashtirib muzokaralarda ularning kuchini oshiradi va monopsoniya ta’sirini kamaytiradi."
  ]
 }

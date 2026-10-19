@@ -207,7 +207,7 @@ for (const t of topics) {
   const layer = LAYERS[t.num];
   const outlineFile = path.join(ROOT, "scripts", "slides-src", SUBJ.dir || "", `${String(t.num).padStart(2, "0")}.json`);
   const outline = fs.existsSync(outlineFile) ? JSON.parse(fs.readFileSync(outlineFile, "utf8")).slides : null;
-  const { html, count } = await page.evaluate(build, { topic: t, layer, brand: COURSE.brand, course: COURSE.title, author: "Sh.F. Saloxitdinov", outline, imgDir: SUBJ.dir ? SUBJ.dir + "/" : "" });
+  const { html, count } = await page.evaluate(build, { topic: t, layer, brand: COURSE.brand, course: COURSE.title, author: COURSE.author || "Sh.F. Saloxitdinov", outline, imgDir: SUBJ.dir ? SUBJ.dir + "/" : "" });
   const base = pathToFileURL(path.join(ROOT, "public")).href;
   await page.setContent(`<!doctype html><meta charset="utf-8"><base href="${base}/"><style>${CSS}</style><body>${html.replace(/src="\/img\//g, `src="${base}/img/`)}</body>`, { waitUntil: "load" });
   await page.waitForFunction(() => [...document.images].every((i) => i.complete));

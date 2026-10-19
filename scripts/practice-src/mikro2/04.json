@@ -1,35 +1,168 @@
 {
- "goal": "«Slutskiy tenglamasi va vaqtlararo tanlov» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Narx o‘zgarishini almashtirish va daromad samaralariga ajratish, mehnat taklifi va vaqtlararo tanlov masalalarini yechish hamda joriy qiymat va real foiz stavkasini hisoblash ko‘nikmalarini shakllantirish.",
  "concepts": [
   "almashtirish samarasi",
   "daromad samarasi",
   "Slutskiy tenglamasi",
-  "Slutskiy kompensatsiyasi",
   "Xiks kompensatsiyasi",
-  "kompensatsiyalangan talab"
+  "mehnat taklifi va bo‘sh vaqt",
+  "vaqtlararo byudjet cheklovi va real foiz stavkasi"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 4-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 4-bob; I-ilova (A4), V-ilova (V.4)",
+ "tasks": [
+  {
+   "id": "mm4-p1",
+   "title": "Slutskiy samaralari",
+   "text": "Iste’molchining 1-tovarga talabi x₁ = 15 + m/(25·p₁), daromad m = 1000. 1-tovar narxi p₁ = 4 dan 5 ga oshdi. Slutskiy bo‘yicha almashtirish va daromad samaralarini toping.",
+   "fields": [
+    {
+     "label": "Dastlabki talab x₁⁰",
+     "value": 25,
+     "unit": "birlik"
+    },
+    {
+     "label": "Kompensatsiya Δm",
+     "value": 25,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Almashtirish samarasi",
+     "value": -1.8,
+     "unit": "birlik"
+    },
+    {
+     "label": "Daromad samarasi",
+     "value": -0.2,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "x₁⁰ = 15 + 1000/(25·4) = 25. Xarid qobiliyatini saqlash: Δm = x₁⁰·Δp₁ = 25·1 = 25, m′ = 1025. x₁(5; 1025) = 15 + 1025/125 = 23,2, demak almashtirish samarasi 23,2 − 25 = −1,8. x₁(5; 1000) = 15 + 1000/125 = 23, daromad samarasi 23 − 23,2 = −0,2. Jami: −2.",
+   "formula": "Δm = x₁⁰·Δp₁; Δx₁ = Δx₁ˢ + Δx₁ᵐ",
+   "note": "Jami o‘zgarish −2 = −1,8 + (−0,2). Normal tovarda ikkala samara bir yo‘nalishda."
+  },
+  {
+   "id": "mm4-p2",
+   "title": "Slutskiy va Xiks almashtirish samarasi",
+   "text": "Naflilik funksiyasi u = x₁·x₂, daromad m = 120, p₂ = 1. 1-tovar narxi p₁ = 2 dan 3 ga oshdi. Slutskiy va Xiks bo‘yicha almashtirish samaralarini toping (Xiks uchun 2 xonagacha yaxlitlang).",
+   "fields": [
+    {
+     "label": "Dastlabki talab x₁⁰",
+     "value": 30,
+     "unit": "birlik"
+    },
+    {
+     "label": "Yangi talab x₁ (p₁=3)",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Slutskiy almashtirish samarasi",
+     "value": -5,
+     "unit": "birlik"
+    },
+    {
+     "label": "Xiks almashtirish samarasi",
+     "value": -5.51,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "Kobb–Duglas: x₁ = m/(2p₁). p₁=2: x₁ = 30; p₁=3: x₁ = 120/6 = 20. Slutskiy: Δm = 30·1 = 30, m′ = 150, x₁ = 150/6 = 25, samara 25 − 30 = −5. Xiks: dastlabki naflilik u = 30·60 = 1800; x₁ʰ = √(u·p₂/p₁) = √(1800/3) = √600 ≈ 24,49, samara 24,49 − 30 ≈ −5,51.",
+   "formula": "m′ = m + x₁⁰·Δp₁; x₁ʰ = √(u·p₂/p₁)",
+   "note": "Darslikda Xiks samarasi −5,5 deb yaxlitlangan (√600 ≈ 24,5). Xiks samarasi Slutskiydan absolyut qiymati bo‘yicha biroz katta, chunki Xiks kompensatsiyasi naflilikni saqlaydi."
+  },
+  {
+   "id": "mm4-p3",
+   "title": "Mehnat taklifi",
+   "text": "Iste’molchining naflilik funksiyasi u = C^0,5·R^0,5 (C – iste’mol, R – bo‘sh vaqt). Soatlik ish haqi w = 40 ming so‘m, mehnatdan tashqari daromad M = 160 ming so‘m, sutkadagi umumiy vaqt T = 16 soat. Optimal bo‘sh vaqt va mehnat taklifini toping. M = 0 bo‘lsa, mehnat taklifi qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "To‘liq daromad F",
+     "value": 800,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Bo‘sh vaqt R",
+     "value": 10,
+     "unit": "soat"
+    },
+    {
+     "label": "Mehnat taklifi L (M=160)",
+     "value": 6,
+     "unit": "soat"
+    },
+    {
+     "label": "Mehnat taklifi L (M=0)",
+     "value": 8,
+     "unit": "soat"
+    }
+   ],
+   "solution": "F = w·T + M = 40·16 + 160 = 800. Kobb–Duglas: bo‘sh vaqtga sarf ulushi 0,5, R = 0,5·F/w = 0,5·800/40 = 10, L = 16 − 10 = 6. M = 0 da F = 640, R = 0,5·640/40 = 8, L = 16 − 8 = 8.",
+   "formula": "F = wT + M; R = α·F/w; L = T − R",
+   "note": "Mehnatdan tashqari daromad (M) bo‘lsa, mehnat taklifi kamayadi (8 dan 6 soatga): sof daromad samarasi."
+  },
+  {
+   "id": "mm4-p4",
+   "title": "Vaqtlararo tanlov: qarz olish",
+   "text": "Talaba ikki davrli modelda yashaydi: u = ln c₁ + ln c₂. Birinchi davrda daromadi yo‘q (m₁ = 0), ikkinchi davrda m₂ = 220 mln so‘m olishi kutilmoqda. Foiz stavkasi r = 10%. Optimal iste’mol c₁, c₂ va qarz miqdorini toping.",
+   "fields": [
+    {
+     "label": "Joriy qiymatdagi boylik W",
+     "value": 200,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Optimal c₁",
+     "value": 100,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Optimal c₂",
+     "value": 110,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Qarz miqdori",
+     "value": 100,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "W = m₁ + m₂/(1+r) = 0 + 220/1,1 = 200. Simmetrik log-naflilikda boylik teng bo‘linadi: c₁ = W/2 = 100, c₂/(1+r) = W/2, c₂ = 100·1,1 = 110. Birinchi davrda daromad 0, iste’mol 100, demak qarz = 100. Tekshirish: ikkinchi davrda qaytarish 100·1,1 = 110, qolgan daromad 220 − 110 = 110 = c₂.",
+   "formula": "c₁ + c₂/(1+r) = m₁ + m₂/(1+r)",
+   "note": "Talaba qarz oluvchi. Foiz stavkasi oshsa, qarz oluvchining ahvoli yomonlashadi."
+  },
+  {
+   "id": "mm4-p5",
+   "title": "Soliqdan keyingi real foiz stavkasi",
+   "text": "Inflatsiya 12%, depozit stavkasi yiliga 18%, foiz daromadiga 10% soliq solinadi. Soliqdan keyingi nominal stavkani va aniq real foiz stavkasini (Fisher tenglamasi bo‘yicha) toping.",
+   "fields": [
+    {
+     "label": "Soliqdan keyingi nominal stavka",
+     "value": 16.2,
+     "unit": "%"
+    },
+    {
+     "label": "Soliqdan keyingi real stavka",
+     "value": 3.75,
+     "unit": "%"
+    }
+   ],
+   "solution": "Soliqdan keyingi nominal stavka: 18·(1 − 0,10) = 16,2%. Real stavka: ρ = (1 + 0,162)/(1 + 0,12) − 1 = 1,162/1,12 − 1 = 0,0375, ya’ni 3,75%. Taxminiy hisob: 16,2 − 12 = 4,2%.",
+   "formula": "1 + ρ = (1 + r)/(1 + π)",
+   "note": "Taxminiy formula (ρ ≈ r − π) 4,2% beradi, aniq qiymat 3,75% — inflatsiya yuqori bo‘lganda farq sezilarli."
+  }
+ ],
  "open": [
-  "Esse/munozara: Ish haqi oshsa, odamlar ko‘proq ishlaydimi? Mehnat taklifi bo‘yicha empirik dalillar.",
-  "Esse/munozara: Real foiz stavkasi va aholi jamg‘armalari: O‘zbekiston tajribasi.",
-  "Esse/munozara: Pensiya tizimi islohoti: taqsimlovchi va jamg‘arib boriladigan tizimlarning afzallik va kamchiliklari.",
-  "Esse/munozara: Ta’lim – eng yaxshi investitsiyami? Inson kapitali nazariyasi asosida.",
-  "Esse/munozara: Kredit kartalari va iste’mol kreditlari: giperbolik diskontlash va moliyaviy savodxonlik.",
-  "Mustaqil ish: (MT-1) Daromad samarasi va almashtirish samarasi. O‘zingiz tanlagan tovar (masalan, go‘sht, benzin, kommunal xizmatlar) narxining keskin o‘zgarishi holatini tahlil qiling. Narx o‘zgarishining almashtirish va daromad samaralarini grafikda ko‘rsating, qaysi samara ustunlik qilishini asoslang.",
-  "Mustaqil ish: Turli banklarning depozit stavkalarini to‘plab, joriy inflatsiya darajasida real stavkalarni hisoblang. Qaysi depozit jamg‘aruvchi uchun eng foydali?",
-  "Mustaqil ish: Ipoteka krediti bo‘yicha (masalan, 20 yil, yillik 17 foiz) oylik annuitet to‘lovni hisoblang va kreditning umumiy qiymatini uy narxi bilan solishtiring.",
-  "Mustaqil ish: O‘zingiz uchun magistratura yoki qo‘shimcha kasbiy sertifikat olish loyihasining NPV ini 4.7-misol asosida hisoblang."
+  "Muhokama savollari. 1) Benzin narxi keskin oshganda almashtirish va daromad samaralari qanday namoyon bo‘ladi? Qisqa va uzoq muddatda farq bormi? 2) Nima uchun yuqori daromadli mutaxassislar ish haqi oshganda kamroq ishlashi mumkin? 3) Ish haqi o‘rniga qo‘shimcha ish uchun oshirilgan stavka mehnat taklifiga qanday ta’sir qiladi? 4) Foiz stavkasining oshishi aholi jamg‘armalarini doimo oshiradimi? 5) Ta’limga investitsiyani NPV usulida baholashning qanday cheklovlari bor?",
+  "Interfaol topshiriq «Kredit olishmi yoki jamg‘arishmi?». Juftliklarda 30 mln so‘mlik avtomobil (yoki noutbuk, maishiy texnika) sotib olishning ikki strategiyasini solishtiring: hozir kredit olish (bank shartlarini real taklif asosida oling) yoki 2 yil jamg‘arib, keyin sotib olish. Joriy qiymat, inflatsiya va shaxsiy afzal ko‘rishlarni hisobga olib qaror qabul qiling va guruhga taqdim eting.",
+  "Keys 7. Inflatsiya, depozitlar va valyutadagi jamg‘armalar. Oila 50 mln so‘m jamg‘armaga ega va uni bir yilga joylashtirmoqchi. Variantlar: (A) so‘mdagi depozit, yillik 20%; (B) dollardagi depozit, yillik 5%, so‘mning dollarga nisbatan kutilgan qadrsizlanishi 8%, standart chetlanishi 10%; (C) oltin quymalar, kutilgan daromadlilik 12%, standart chetlanish 18%. Kutilgan inflatsiya 10% (shartli ma’lumotlar). Savollar: 1) Har bir variant uchun so‘mdagi kutilgan nominal va real daromadlilikni hisoblang. 2) Variantlarni «risk – daromadlilik» tekisligida tasvirlang. Riskdan qochuvchi oila qaysi variantni tanlashi mumkin? 3) Diversifikatsiya (masalan, 50% A, 30% B, 20% C) qanday natija beradi (variantlar o‘zaro bog‘lanmagan deb faraz qiling)? 4) Omonatlarni kafolatlash tizimi va bank tanlashda axloqiy risk masalasini muhokama qiling.",
+  "Mustaqil ish. 1) O‘zingiz tanlagan tovar (go‘sht, benzin, kommunal xizmatlar) narxining keskin o‘zgarishi holatini tahlil qiling: almashtirish va daromad samaralarini grafikda ko‘rsating, qaysi samara ustunlik qilishini asoslang. 2) Turli banklarning depozit stavkalarini to‘plab, joriy inflatsiya darajasida real stavkalarni hisoblang; qaysi depozit jamg‘aruvchi uchun eng foydali? 3) Ipoteka krediti bo‘yicha (masalan, 20 yil, yillik 17 foiz) oylik annuitet to‘lovni hisoblang va kreditning umumiy qiymatini uy narxi bilan solishtiring. 4) Magistratura yoki qo‘shimcha kasbiy sertifikat olish loyihasining NPV ini hisoblang.",
+  "Esse mavzulari (birini tanlang). 1) Ish haqi oshsa, odamlar ko‘proq ishlaydimi? Mehnat taklifi bo‘yicha empirik dalillar. 2) Real foiz stavkasi va aholi jamg‘armalari: O‘zbekiston tajribasi. 3) Pensiya tizimi islohoti: taqsimlovchi va jamg‘arib boriladigan tizimlarning afzallik va kamchiliklari. 4) Ta’lim – eng yaxshi investitsiyami? Inson kapitali nazariyasi asosida. 5) Kredit kartalari va iste’mol kreditlari: giperbolik diskontlash va moliyaviy savodxonlik."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "1) Narx oshganda nisbiy narx o‘zgaradi (almashtirish samarasi, talab kamayadi) va xarid qobiliyati pasayadi (daromad samarasi). Benzinda qisqa muddatda muqobil kam, shuning uchun talab noelastik va almashtirish samarasi kichik; uzoq muddatda tejamkor avtomobil, gaz yoki jamoat transportiga o‘tish imkoni almashtirish samarasini kuchaytiradi. 2) Yuqori daromadda bo‘sh vaqt normal tovar: daromad samarasi almashtirish samarasidan ustun kelib, mehnat taklifi chizig‘i orqaga qayriladi. 3) Oshirilgan stavka faqat qo‘shimcha soatlarga qo‘llansa, daromad samarasi kuchsiz bo‘lib, sof almashtirish samarasi mehnat taklifini oshiradi (siniq byudjet chizig‘i). 4) Yo‘q: jamg‘aruvchida almashtirish va daromad samaralari qarama-qarshi ishlaydi; qarz oluvchida esa ikkalasi jamg‘armani kamaytiradi. 5) Kelajakdagi daromad noaniq, diskont stavkasini tanlash sub’ektiv, nomoliyaviy foyda hisobga olinmaydi.",
+  "Juftliklar ikkala strategiya uchun joriy qiymatni hisoblashi kerak: kreditda to‘lovlar yig‘indisining PV si (kredit foizi bo‘yicha) va jamg‘armada kelajakda ham narxi oshgan (inflatsiya) tovarni olish uchun zarur oylik jamg‘arma. Real foiz stavkasi (Fisher) bilan solishtirib, depozit stavkasi kredit stavkasidan past bo‘lgani uchun, odatda, bir martalik xaridning qiymati kreditda yuqori bo‘lishini ko‘rsating. Qaror shaxsiy diskontlash (sabrsizlik), mahsulotdan foydalanish foydasi va likvidlikka bog‘liqligini asoslang. Taqdimotda aniq hisob-kitob va xulosa bo‘lishi shart.",
+  "Yo‘l-yo‘riq. A: nominal 20%, real 1,20/1,10 − 1 ≈ 9,1%, risk ≈ 0. B: nominal 1,05·1,08 − 1 ≈ 13,4%, real ≈ 3,1%, risk ≈ 10%. C: nominal 12%, real ≈ 1,8%, risk 18%. Bu shartli ma’lumotlarda A dominant ko‘rinadi (eng yuqori daromad, eng past risk), ammo valyuta va oltin inflatsiya va devalvatsiya xavfiga qarshi «sug‘urta» vazifasini bajaradi. Diversifikatsiyada portfel riski (o‘zaro bog‘lanmagan variantlar, A risksiz): σp = √(0,3²·0,10² + 0,2²·0,18²) = √(0,0009 + 0,001296) ≈ 4,7%. Omonat kafolati bank tanlashda axloqiy riskni oshiradi: omonatchi bankning ishonchliligiga e’tibor bermay yuqori stavkani izlaydi.",
+  "Mustaqil ishlar bob matniga tayanib tekshiriladi. 1) Narx o‘zgarishi Slutskiy bo‘yicha ajratilgan: byudjet ulushi katta tovarda (kommunal xizmatlar, oziq-ovqat) daromad samarasi ustun, kichik ulushli tovarda almashtirish samarasi ustun bo‘ladi; grafikda byudjet chizig‘ini burish va siljitish ko‘rsatilsin. 2) Real stavka ρ = (1 + r)/(1 + π) − 1 formulasi bilan, soliq bo‘lsa soliqdan keyin hisoblanadi. 3) Oylik annuitet to‘lov A = PV·i/(1 − (1 + i)⁻ⁿ) formulasi bilan topiladi (i = 0,17/12, n = 240); jami to‘lov uy narxidan necha marta ko‘pligi ko‘rsatilsin. 4) NPV = −xarajat + kelgusi daromadlar PV si; qabul qilish mezoni NPV > 0, taxminlar va diskont stavkasi izohlansin.",
+  "Esse har bir mavzuda bob tushunchalariga tayanishi shart: 1) almashtirish va daromad samaralari, orqaga qayriluvchi taklif chizig‘i, empirik dalillar; 2) Fisher tenglamasi, real stavka salbiy yoki musbat bo‘lganda jamg‘arma qarori; 3) vaqtlararo tanlov, hayot sikli, ikki tizimning xavf va moslashuvchanlik jihatidan solishtirilishi; 4) ta’limga xarajat va kelajakdagi ish haqi oqimi NPV si, cheklovlar; 5) giperbolik diskontlash va vaqt nomuvofiqligi, moliyaviy savodxonlik choralari. Esse tezis, dalil va xulosadan iborat bo‘lsin."
  ]
 }

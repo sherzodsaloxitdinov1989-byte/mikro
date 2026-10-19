@@ -1,0 +1,421 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Umumiy muvozanat nima?",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "bullets": [
+    "Qisman muvozanat bitta bozorni ajratib o‘rganadi, umumiy muvozanat esa barcha bozorlarni birga",
+    "Boshlovchi: L. Valras (1874); qat’iy shakl: K. Errou va J. Debre (1954)",
+    "Ejvort qutisi: ikki iste’molchi, ikki tovar, faqat zaxiralar ayirboshlanadi",
+    "Shartnoma chizig‘i: MRS A = MRS B — Pareto samarali taqsimotlar to‘plami",
+    "Tashqi samara va jamoat ne’matlari — bozor “muvaffaqiyatsizliklari”"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ejvort qutisi",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "img": "image91.png",
+   "caption": "10.1-rasm. Ejvort qutisi: boshlang‘ich zaxira, shartnoma chizig‘i va raqobatli muvozanat"
+  },
+  {
+   "type": "formula",
+   "title": "Samaradorlikning uch sharti",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "items": [
+    {
+     "name": "Ayirboshlash samaradorligi",
+     "formula": "MRSᴬ = MRSᴮ",
+     "note": "tovarlar iste’molchilar o‘rtasida samarali taqsimlangan"
+    },
+    {
+     "name": "Ishlab chiqarish samaradorligi",
+     "formula": "MRTS(x) = MRTS(y)",
+     "note": "omillar tarmoqlar o‘rtasida samarali taqsimlangan"
+    },
+    {
+     "name": "Mahsulot tarkibi samaradorligi",
+     "formula": "MRS = MRT = MCₓ / MC_y",
+     "note": "raqobatli bozorda uchala shart avtomatik bajariladi"
+    },
+    {
+     "name": "Valras qonuni",
+     "formula": "pₓ·zₓ + p_y·z_y = 0",
+     "note": "ortiqcha talablar yig‘indisi nol; faqat nisbiy narxlar aniqlanadi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Amaliy misol 10.1: raqobatli muvozanat",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "head": [
+    "Ko‘rsatkich",
+    "A",
+    "B",
+    "Jami"
+   ],
+   "rows": [
+    [
+     "Zaxira (x; y)",
+     "(8; 1,5)",
+     "(2; 6,5)",
+     "(10; 8)"
+    ],
+    [
+     "Daromad m",
+     "7,9",
+     "8,1",
+     "—"
+    ],
+    [
+     "x tovar",
+     "4,94",
+     "5,06",
+     "10"
+    ],
+    [
+     "y tovar",
+     "3,95",
+     "4,05",
+     "8"
+    ],
+    [
+     "Naflilik: oldin → keyin",
+     "√12 = 3,46 → 4,42",
+     "√13 = 3,61 → 4,53",
+     "—"
+    ]
+   ],
+   "note": "u = x⁰,⁵·y⁰,⁵, p_y = 1; x bozori muvozanatidan pₓ = 0,8; ikkalasining nafliligi oshdi"
+  },
+  {
+   "type": "compare",
+   "title": "Farovonlikning fundamental teoremalari",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "left": {
+    "head": "Birinchi teorema",
+    "items": [
+     "Raqobatli muvozanat Pareto samarali",
+     "Shart: barcha bozorlar bor, tashqi samara yo‘q, afzal ko‘rish monoton",
+     "A. Smitning “ko‘rinmas qo‘li”ning qat’iy ifodasi",
+     "Farazlar buzilsa — bozor muvaffaqiyatsizligi"
+    ]
+   },
+   "right": {
+    "head": "Ikkinchi teorema",
+    "items": [
+     "Har qanday Pareto samarali taqsimotga erishish mumkin",
+     "Shart: afzal ko‘rishlar va texnologiyalar qavariq",
+     "Zaxiralar qayta taqsimlanadi, narxlar bozorga qo‘yiladi",
+     "Samaradorlik va adolat masalalarini ajratadi"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Ijtimoiy farovonlik va Errou teoremasi",
+   "sub": "10.1. Umumiy muvozanat va farovonlik iqtisodiyoti asoslari",
+   "bullets": [
+    "Utilitar (Bentam): W = Uᴬ + Uᴮ; Rouls: W = min{Uᴬ, Uᴮ}",
+    "Pareto mezoni samarali taqsimotlar orasida tanlov qilmaydi — farovonlik funksiyasi kerak",
+    "Kondorse paradoksi: ko‘pchilik ovozi bilan ijtimoiy afzal ko‘rish notranzitiv bo‘lib qoladi",
+    "Errou teoremasi: 3 va undan ortiq muqobilda barcha shartni qanoatlantiruvchi ovoz berish qoidasi yo‘q"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Tashqi samara: tushuncha va turlari",
+   "sub": "10.2. Tashqi samaralar",
+   "bullets": [
+    "Tashqi samara (eksternaliya) — ta’sir bozor narxida aks etmaydi, kompensatsiya to‘lanmaydi",
+    "Zararli ta’sir — salbiy, foydali ta’sir — ijobiy tashqi samara",
+    "Salbiy: zavod chiqindilari, sanoat shovqini, suv havzalarini ifloslantirish",
+    "Ijobiy: asalarichilik va bog‘dorchilik, texnologiyalar “oqib o‘tishi”, xodimlarni o‘qitish",
+    "Ijobiy misol: emlash — “jamoaviy immunitet”; ta’lim — innovatsiyalar, past jinoyatchilik"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Salbiy tashqi samara",
+   "sub": "10.2. Tashqi samaralar",
+   "img": "image93.png",
+   "caption": "10.3-rasm. Salbiy tashqi samara: bozor ortiqcha ishlab chiqaradi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 10.2: sement bozori",
+   "sub": "10.2. Tashqi samaralar",
+   "steps": [
+    "Berilgan: P = 120 − Q, MPC = Q, MEC = 0,5Q (ming tonna; ming so‘m/tonna)",
+    "Bozor: 120 − Q = Q → Qm = 60, Pm = 60",
+    "MSC = MPC + MEC = 1,5Q; optimum: 120 − Q = 1,5Q → Q* = 48, P* = 72",
+    "Qm = 60 da MSC = 90, talab bo‘yicha baho = 60",
+    "DWL = 0,5·(60 − 48)·(90 − 60) = 180 mln so‘m",
+    "Bozor 12 ming tonna ortiqcha sement ishlab chiqaradi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Pigu solig‘i va subsidiyasi",
+   "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
+   "items": [
+    {
+     "name": "Chekli ijtimoiy xarajat",
+     "formula": "MSC = MPC + MEC",
+     "note": "salbiy tashqi samarada optimum: D = MSC"
+    },
+    {
+     "name": "Pigu solig‘i",
+     "formula": "t* = MEC(Q*)",
+     "note": "xususiy xarajatni ijtimoiy xarajatga tenglashtiradi (ichkilashtirish)"
+    },
+    {
+     "name": "Pigu subsidiyasi",
+     "formula": "s* = MEB(Q*)",
+     "note": "ijobiy tashqi samarada: ta’lim granti, emlash"
+    },
+    {
+     "name": "10.2-misolda",
+     "formula": "t* = MEC(48) = 24",
+     "note": "120 − Q = Q + 24 → Q = 48; tushum 24·48 = 1152 mln so‘m"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Standart va ruxsatnomalar savdosi",
+   "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
+   "left": {
+    "head": "Emissiya standarti",
+    "items": [
+     "Har bir firmaga chiqindining maksimal miqdori",
+     "Oddiy, natijani kafolatlaydi",
+     "Barcha firmaga bir xil talab",
+     "Tozalash xarajatlari turlicha — samarasiz"
+    ]
+   },
+   "right": {
+    "head": "Ruxsatnomalar savdosi",
+    "items": [
+     "Umumiy “shift” belgilanadi (cap-and-trade)",
+     "Ruxsatnomalar sotib-sotiladi",
+     "Arzon tozalovchilar ko‘proq tozalaydi",
+     "Shiftga eng kam xarajat bilan erishiladi"
+    ]
+   }
+  },
+  {
+   "type": "table",
+   "title": "Amaliy misol 10.3: standart va savdo",
+   "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
+   "head": [
+    "Ko‘rsatkich",
+    "Bir xil standart",
+    "Ruxsatnomalar savdosi"
+   ],
+   "rows": [
+    [
+     "Kamaytirish (1-zavod; 2-zavod)",
+     "50; 50 tonna",
+     "75; 25 tonna"
+    ],
+    [
+     "1-zavod xarajati",
+     "0,25·2500 = 625",
+     "0,25·5625 = 1406,25"
+    ],
+    [
+     "2-zavod xarajati",
+     "0,75·2500 = 1875",
+     "0,75·625 = 468,75"
+    ],
+    [
+     "Jami xarajat (ming so‘m)",
+     "2500",
+     "1875"
+    ],
+    [
+     "Ruxsatnoma narxi",
+     "—",
+     "p = 37,5"
+    ]
+   ],
+   "note": "MAC₁ = 0,5a₁, MAC₂ = 1,5a₂; MAC₁ = MAC₂ → tejash 625 ming so‘m (25%)"
+  },
+  {
+   "type": "bullets",
+   "title": "Kouz teoremasi",
+   "sub": "10.3. Tashqi samaralarni bartaraf etish usullari",
+   "bullets": [
+    "R. Kouz (Nobel, 1991): muammo mulkiy huquqlar aniq belgilanmaganidan kelib chiqadi",
+    "Huquqlar aniq va tranzaksion xarajatlar nol bo‘lsa, muzokara samarali natija beradi",
+    "Natija huquqlar kimga berilganidan qat’i nazar bir xil; huquqlar faqat daromadga ta’sir qiladi",
+    "Misol: filtr 300 mln < ko‘chish 400 < zarar 500 — ikkala holda ham filtr o‘rnatiladi",
+    "Ommaviy tashqi samarada tranzaksion xarajatlar yuqori — davlat aralashuvi zarur"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Umumiylar tragediyasi",
+   "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
+   "bullets": [
+    "Umumiy resurs: foydalanishdan cheklash qiyin, lekin foydalanish miqdorni kamaytiradi",
+    "G. Xardin (1968): har kim yaylovga sigir qo‘shadi, zararni boshqalar bilan bo‘lishadi",
+    "Baliq ovi: F(n) = 120n − 3n², xarajat c = 36; ochiq kirishda 120 − 3n = 36 → n = 28",
+    "Optimum: F′(n) = 120 − 6n = 36 → n* = 14; ochiq kirishda renta 0, optimumda 588",
+    "Usullar: xususiylashtirish, davlat boshqaruvi (kvota, litsenziya), ITQ"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ostrom tamoyillari va Orol fojiasi",
+   "sub": "10.4. Umumiy resurslar va “umumiylar tragediyasi”",
+   "bullets": [
+    "E. Ostrom (Nobel, 2009): jamoaviy o‘zini-o‘zi boshqarish muvaffaqiyatli bo‘lishi mumkin",
+    "Aniq chegaralar, mahalliy sharoitga moslik, jamoaviy qaror qabul qilish",
+    "Monitoring, bosqichma-bosqich jazolar, nizolarni arzon hal qilish",
+    "Tashkil etish huquqining tan olinishi va ko‘p bosqichli tashkil etish",
+    "Orol: daryo suvining ortiqcha olinishi — umumiy resurs muammosi va salbiy tashqi samara"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Ne’matlarning tasnifi",
+   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
+   "head": [
+    "",
+    "Istisno qilinadi",
+    "Istisno qilinmaydi"
+   ],
+   "rows": [
+    [
+     "Raqobatli",
+     "Xususiy ne’mat: oziq-ovqat, avtomobil, uy-joy",
+     "Umumiy resurs: baliq zaxirasi, yaylov, sug‘orish suvi"
+    ],
+    [
+     "Raqobatsiz",
+     "Klub ne’mati: kabel televideniyesi, onlayn obunalar",
+     "Sof jamoat ne’mati: mudofaa, mayoq, ko‘cha yoritilishi"
+    ]
+   ],
+   "note": "Sof jamoat ne’mati — raqobatsiz va istisno qilinmaydigan ne’mat"
+  },
+  {
+   "type": "formula",
+   "title": "Samuelson sharti va tekinxo‘rlik",
+   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
+   "items": [
+    {
+     "name": "Jamoat ne’mati (Samuelson, 1954)",
+     "formula": "∑ MRSᵢ = MC",
+     "note": "individual talablar vertikal qo‘shiladi (10.8-rasm)"
+    },
+    {
+     "name": "Xususiy ne’mat",
+     "formula": "MRSᵢ = MC",
+     "note": "har bir iste’molchi uchun alohida; talablar gorizontal qo‘shiladi"
+    },
+    {
+     "name": "Tekinxo‘rlik",
+     "formula": "MRSᵢ = MC (ixtiyoriy)",
+     "note": "boshqalarga naf hisobga olinmaydi — ne’mat kam ta’minlanadi"
+    },
+    {
+     "name": "Lindal narxlari",
+     "formula": "tᵢ = MRSᵢ(G*),  ∑tᵢ = MC",
+     "note": "har bir iste’molchiga shaxsiy ulush"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 10.5: ko‘cha yoritgichlari",
+   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
+   "steps": [
+    "Berilgan: MRSᴬ = 6 − 0,6G, MRSᴮ = 4 − 0,5G, bir yoritgich narxi 5 mln so‘m",
+    "Samarali miqdor: 10 − 1,1G = 5 → G* ≈ 4,5 (amalda 4–5 ta)",
+    "Ixtiyoriy moliyalashtirish: A uchun 6 − 0,6G = 5 → G ≈ 1,7",
+    "B uchun MRSᴮ(0) = 4 < 5 — u hissa qo‘shmaydi, A ning yoritgichidan tekin foydalanadi",
+    "Natija: 1–2 ta yoritgich — samarali miqdordan ancha kam"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Jamoat ne’matlarini ta’minlash mexanizmlari",
+   "sub": "10.5. Jamiyat (jamoat) ne’matlari",
+   "bullets": [
+    "Davlat: soliq hisobidan moliyalashtirish; ammo haqiqiy baholashlar noma’lum",
+    "Lindal narxlari: shaxsiy ulush; muammo — baholashni kamaytirib ko‘rsatish",
+    "Klark–Groves mexanizmi: haqqoniy oshkor qilish dominant strategiyaga aylanadi",
+    "Ovoz berish: bir cho‘qqili afzal ko‘rishda mediana saylovchi varianti tanlanadi (Blek)",
+    "Xayriya, homiylik, reklama, hashar va mahalla — norasmiy institutlar"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Iqlim o‘zgarishi: eng yirik tashqi samara",
+   "sub": "10.6. Global tashqi samaralar: iqlim o‘zgarishi iqtisodiyoti",
+   "bullets": [
+    "Issiqxona gazlari qayerda chiqarilsa ham butun sayyoraga ta’sir qiladi (N. Stern, 2006)",
+    "Global jamoat ne’mati: davlatlar darajasida tekinxo‘rlik va mahbus dilemmasi",
+    "Vaqtlararo tanlov: xarajat hozir, foyda o‘nlab yillardan keyin — natija diskont stavkasiga sezgir",
+    "Noaniqlik va qaytmaslik: “qaytib bo‘lmaydigan nuqtalar” miqdoriy cheklovlarni afzal qiladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Uglerodning ijtimoiy qiymati va yechimlar",
+   "sub": "10.6. Global tashqi samaralar: iqlim o‘zgarishi iqtisodiyoti",
+   "bullets": [
+    "V. Nordxaus (Nobel, 2018): DICE modeli — integratsiyalashgan baholash modellari",
+    "Uglerodning ijtimoiy qiymati — bir tonna CO₂ kelajakdagi zararining joriy qiymati",
+    "Bu aslida global Pigu solig‘ining optimal darajasi: t* = MEC",
+    "Vositalar: uglerod solig‘i, emissiyalar savdosi, Parij kelishuvi (2015)",
+    "“Iqlim klublari”: qo‘shilmaganlarga import bojlari — tekinxo‘rlikka qarshi mexanizm"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Yechib ko‘rsatilgan masalalar",
+   "sub": "10.7. Yechib ko‘rsatilgan masalalar",
+   "head": [
+    "Masala",
+    "Yechish",
+    "Javob"
+   ],
+   "rows": [
+    [
+     "1: MPC = 10 + Q, P = 100 − Q, MEC = 20",
+     "Bozor: Q = 45; optimum: 100 − Q = 30 + Q",
+     "Q* = 35, P* = 65, t = 20, DWL = 100"
+    ],
+    [
+     "2: MRS = 50−G, 40−G, 30−G; MC = 60",
+     "∑MRS = 120 − 3G = 60",
+     "G* = 20; t = 30, 20, 10"
+    ],
+    [
+     "3: MAC₁ = 2a₁, MAC₂ = 4a₂; jami 60",
+     "2a₁ = 4a₂, a₁ + a₂ = 60",
+     "a₁ = 40, a₂ = 20; t = 80"
+    ]
+   ],
+   "note": "Pigu solig‘i t = MEC; Lindal narxlari yig‘indisi MC ga teng; t = MAC"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "10.7. Xulosa",
+   "bullets": [
+    "Raqobatli muvozanat Pareto samarali, ammo tashqi samara va jamoat ne’matlarida bozor muvaffaqiyatsiz",
+    "Salbiy tashqi samarada bozor ortiqcha, ijobiy tashqi samarada kam ishlab chiqaradi",
+    "Pigu solig‘i va ruxsatnomalar savdosi tashqi samarani ichkilashtiradi; xarajat-samaradorlik sharti: MAC lar teng",
+    "Kouz teoremasi: huquqlar aniq va tranzaksion xarajat nol bo‘lsa, muzokara samarali; umumiylarda Ostrom tamoyillari",
+    "Jamoat ne’mati: ∑MRSᵢ = MC; tekinxo‘rlik tufayli bozor kam ta’minlaydi"
+   ]
+  }
+ ]
+}

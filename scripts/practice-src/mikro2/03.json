@@ -1,35 +1,148 @@
 {
- "goal": "«Iste’molchi tanlovi va talab» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Talab funksiyasini keltirib chiqarish, Engel chiziqlari, elastiklik koeffitsientlarini hisoblash va aniqlangan afzal ko‘rish aksiomalarini tekshirish ko‘nikmalarini shakllantirish.",
  "concepts": [
   "talab funksiyasi",
-  "nol darajali bir jinslilik",
-  "normal tovar",
-  "past sifatli tovar",
-  "daromad-iste’mol chizig‘i",
-  "Engel chizig‘i"
+  "Engel chizig‘i",
+  "narx bo‘yicha talab elastikligi",
+  "kesishgan elastiklik",
+  "aniqlangan afzal ko‘rish (WARP)",
+  "Laspeyres va Paashe indekslari"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 3-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 3-bob; I-ilova (A3), V-ilova (V.3)",
+ "tasks": [
+  {
+   "id": "mm3-p1",
+   "title": "Doimiy elastiklikli talab",
+   "text": "Talab funksiyasi q=50·p^(−1,5)·m^0,8·ps^0,3, bunda p – tovar narxi, m – daromad, ps – o‘rinbosar tovar narxi. Narx 10 foizga, o‘rinbosar tovar narxi 5 foizga, daromad 4 foizga oshsa, talab taxminan necha foizga o‘zgaradi (elastiklik koeffitsientlari yordamida)? Uchala elastiklikning yig‘indisini ham toping.",
+   "fields": [
+    {
+     "label": "Talabning taxminiy o‘zgarishi",
+     "value": -10.3,
+     "unit": "%"
+    },
+    {
+     "label": "Elastikliklar yig‘indisi (ε+η+ε₁₂)",
+     "value": -0.4,
+     "unit": ""
+    }
+   ],
+   "solution": "Doimiy elastiklikli funksiyada darajalar elastiklikka teng: ε=−1,5; η=0,8; ε₁₂=0,3. %Δq ≈ ε·%Δp + ε₁₂·%Δps + η·%Δm = −1,5·10 + 0,3·5 + 0,8·4 = −15 + 1,5 + 3,2 = −10,3%. Elastikliklar yig‘indisi: −1,5+0,8+0,3 = −0,4.",
+   "formula": "%Δq ≈ ε·%Δp + ε₁₂·%Δps + η·%Δm; nol darajali bir jinslilik: ε+ε₁₂+η=0",
+   "note": "Yig‘indi nolga teng emas, ya’ni funksiya bir jinslilik shartini qanoatlantirmaydi va ratsional iste’molchi talabi bo‘la olmaydi. Aniq hisob (1,1^(−1,5)·1,04^0,8·1,05^0,3−1) ≈ −9,2% beradi; taxminiy formula kichik o‘zgarishlar uchun mos."
+  },
+  {
+   "id": "mm3-p2",
+   "title": "Chiziqli talab: elastiklik va tushum",
+   "text": "Talab funksiyasi Q=300−5P. P=20, P=30 va P=40 da talab miqdorini, narx bo‘yicha elastiklikni va umumiy tushumni toping. Qaysi narxda tushum eng katta?",
+   "fields": [
+    {
+     "label": "P=20 dagi elastiklik",
+     "value": -0.5,
+     "unit": ""
+    },
+    {
+     "label": "P=30 dagi elastiklik",
+     "value": -1,
+     "unit": ""
+    },
+    {
+     "label": "P=40 dagi elastiklik",
+     "value": -2,
+     "unit": ""
+    },
+    {
+     "label": "Eng katta tushum",
+     "value": 4500,
+     "unit": ""
+    }
+   ],
+   "solution": "ε=−5·P/Q. P=20: Q=200, ε=−100/200=−0,5, TR=4000. P=30: Q=150, ε=−150/150=−1, TR=4500. P=40: Q=100, ε=−200/100=−2, TR=4000. Tushum |ε|=1 bo‘lgan P=30 da maksimal.",
+   "formula": "ε = (dQ/dP)·(P/Q); TR = P·Q",
+   "note": "Noelastik qismda (|ε|<1) narx oshsa tushum o‘sadi, elastik qismda (|ε|>1) kamayadi; maksimum |ε|=1 nuqtasida."
+  },
+  {
+   "id": "mm3-p3",
+   "title": "Yoy elastikligi va tushum",
+   "text": "Narx 2 000 so‘mdan 2 400 so‘mga oshganda sotuv 500 dondan 420 donaga kamaydi. O‘rtacha qiymatlar asosida yoy elastikligini hisoblang va tushumning o‘zgarishini toping.",
+   "fields": [
+    {
+     "label": "Yoy elastikligi",
+     "value": -0.96,
+     "unit": ""
+    },
+    {
+     "label": "Dastlabki tushum",
+     "value": 1000000,
+     "unit": "so‘m"
+    },
+    {
+     "label": "Yangi tushum",
+     "value": 1008000,
+     "unit": "so‘m"
+    }
+   ],
+   "solution": "%ΔQ = (420−500)/((500+420)/2) = −80/460 = −0,1739; %ΔP = (2400−2000)/((2000+2400)/2) = 400/2200 = 0,1818; ε = −0,1739/0,1818 ≈ −0,96 (noelastik). Tushum: 2000·500 = 1 000 000; 2400·420 = 1 008 000 so‘m.",
+   "formula": "ε_yoy = (ΔQ/Q̄)/(ΔP/P̄)",
+   "note": "|ε|<1 bo‘lgani uchun narx oshganda tushum ozgina (8 000 so‘mga) oshdi, bu nazariyaga mos."
+  },
+  {
+   "id": "mm3-p4",
+   "title": "Kobb–Duglas talabi va Engel chizig‘i",
+   "text": "Naflilik funksiyasi u=x₁^0,6·x₂^0,4, narxlar p₁=30, p₂=20, daromad m=1000. Optimal iste’mol miqdorlarini toping va x₁ uchun Engel chizig‘ini m=k·x₁ ko‘rinishida yozib, k koeffitsientini aniqlang.",
+   "fields": [
+    {
+     "label": "x₁*",
+     "value": 20,
+     "unit": ""
+    },
+    {
+     "label": "x₂*",
+     "value": 20,
+     "unit": ""
+    },
+    {
+     "label": "Engel chizig‘i koeffitsienti k",
+     "value": 50,
+     "unit": ""
+    }
+   ],
+   "solution": "Kobb–Duglas talabi: x₁=0,6·m/p₁ = 0,6·1000/30 = 20; x₂=0,4·m/p₂ = 0,4·1000/20 = 20. Engel chizig‘i: x₁=0,6m/30 = m/50, ya’ni m=50·x₁ (to‘g‘ri chiziq, tovar daromad elastikligi η=1).",
+   "formula": "x₁=α·m/p₁, x₂=(1−α)·m/p₂",
+   "note": "Gomotetik afzal ko‘rishda Engel chizig‘i koordinata boshidan chiqadigan to‘g‘ri chiziq bo‘ladi."
+  },
+  {
+   "id": "mm3-p5",
+   "title": "Laspeyres va Paashe indekslari",
+   "text": "Bazis davrda iste’mol to‘plami (10; 20), narxlar (5; 2). Joriy davrda to‘plam (8; 25), narxlar (6; 2,2). Laspeyres va Paashe narx indekslarini toping. Daromad 15 foizga oshgan bo‘lsa (daromad indeksi 1,15), iste’molchi ahvoli haqida xulosa chiqarish mumkinmi?",
+   "fields": [
+    {
+     "label": "Laspeyres indeksi",
+     "value": 1.156,
+     "unit": ""
+    },
+    {
+     "label": "Paashe indeksi",
+     "value": 1.144,
+     "unit": ""
+    }
+   ],
+   "solution": "L = (6·10+2,2·20)/(5·10+2·20) = 104/90 = 1,156. P = (6·8+2,2·25)/(5·8+2·25) = 103/90 = 1,144. Daromad indeksi 1,15: 1,15 < L=1,156 – ahvol yaxshilanganligi haqida xulosa chiqmaydi; 1,15 > P=1,144 – yomonlashganligi haqida ham xulosa chiqmaydi. Natija noaniq.",
+   "formula": "L = Σp¹x⁰/Σp⁰x⁰; P = Σp¹x¹/Σp⁰x¹; M¹/M⁰ ≥ L bo‘lsa ahvol yaxshilangan, M¹/M⁰ ≤ P bo‘lsa yomonlashgan",
+   "note": "Indekslar 3 xona aniqligida yaxlitlangan (1,1556 va 1,1444)."
+  }
+ ],
  "open": [
-  "Esse/munozara: Engel qonuni va O‘zbekistonda oziq-ovqat xavfsizligi.",
-  "Esse/munozara: Raqamli platformalarda tarmoq samaralari va bozor konsentratsiyasi.",
-  "Esse/munozara: Inflatsiyani o‘lchash: iste’mol narxlari indeksining cheklovlari va ularni bartaraf etish yo‘llari.",
-  "Esse/munozara: Narx elastikligi va soliq siyosati: qaysi tovarlarga aktsiz solish maqsadga muvofiq?",
-  "Esse/munozara: Dinamik narx belgilash: samaradorlikmi yoki adolatsizlikmi?",
-  "Mustaqil ish: (MT-5) Elastiklik koeffitsienti yordamida bozor talabini baholash. Biror tovar (masalan, benzin, un, mobil internet) uchun rasmiy statistika yoki savdo tarmog‘i ma’lumotlari asosida narx va iste’mol hajmi dinamikasini to‘plang, yoy elastikligini hisoblang va natijalarni 3.7-rasmdagi xalqaro baholar bilan solishtiring.",
-  "Mustaqil ish: (MT-13) Talab elastikligi turlari. Narx, daromad va kesishgan elastiklikka uchtadan real misol topib, ularning qiymatlarini taxminiy baholang va iqtisodiy talqin qiling. Natijani",
-  "Mustaqil ish: 3-jadval shaklida rasmiylashtiring. 3. (MT-10) Iste’molchining bozordagi harakati. O‘zbekistondagi raqamli platformalardan birini (taksi, yetkazib berish, marketpleys) tanlab, undagi tarmoq samaralarini tahlil qiling. Platformaning narx siyosati ikki tomonlama bozor nazariyasiga mos keladimi?",
-  "Mustaqil ish: O‘z oilangizning uch oylik xarajatlari bo‘yicha WARP bajarilishini tekshiring (ikki tovar guruhi va ularning o‘rtacha narxlari asosida)."
+  "Muhokama: Sizning oilangiz uchun qaysi tovarlar normal, qaysilari past sifatli? Daromad oshgan sari iste’mol tarkibi qanday o‘zgaradi? Nima uchun Giffen tovarlari juda kam uchraydi?",
+  "Muhokama: Mobil internet, non, avtomobil va sigaret talabining narx elastikligini taxminiy baholang va asoslang. Kesishgan elastiklik yordamida «mobil aloqa bozori» chegaralarini qanday aniqlash mumkin?",
+  "Interfaol topshiriq «Talab funksiyasini baholaymiz»: kichik guruhlar biror tovar (masalan, universitet oshxonasidagi ovqat) bo‘yicha guruhdoshlari o‘rtasida so‘rov o‘tkazib, turli narxlarda sotib olish niyatini aniqlaydi, ma’lumotlarni Excel’da chiziqli regressiya bilan baholab elastiklikni hisoblaydi va oshxonaga narx siyosati bo‘yicha tavsiya beradi.",
+  "Mustaqil ish: biror tovar (benzin, un, mobil internet) uchun rasmiy statistika yoki savdo tarmog‘i ma’lumotlari asosida narx va iste’mol hajmi dinamikasini to‘plang, yoy elastikligini hisoblang va natijani 3.7-rasmdagi xalqaro baholar bilan solishtiring. Shuningdek, narx, daromad va kesishgan elastiklikka uchtadan real misol topib, ularni jadvalda rasmiylashtiring va talqin qiling.",
+  "Esse yoki mustaqil tekshiruv: «Iste’mol narxlari indeksi (INI) inflatsiyani nima uchun oshirib ko‘rsatishi mumkin?» mavzusida esse yozing yoki oilangizning uch oylik xarajatlari bo‘yicha (ikki tovar guruhi va o‘rtacha narxlar asosida) WARP bajarilishini tekshiring."
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Normal tovarlar daromad oshganda iste’moli ortadigan (go‘sht, maishiy texnika), past sifatli tovarlar iste’moli kamayadigan (arzon makaron, ikkinchi qo‘l kiyim) tovarlardir. Giffen tovari albatta past sifatli bo‘lishi va byudjetning katta qismini egallashi, yaqin o‘rinbosari bo‘lmasligi kerak, shuning uchun daromad samarasi o‘rin almashtirish samarasidan kuchli bo‘lgan holat kam uchraydi. Javobda oila byudjeti ulushlari (Engel qonuni) dan foydalanish kerak.",
+  "Elastiklikni baholashda zaruriylik, o‘rinbosarlar mavjudligi, byudjetdagi ulush va vaqt ufqi hisobga olinadi: non – noelastik, avtomobil – elastik, sigaret – odat tufayli noelastik, mobil internet – operatorlar orasida o‘tish mumkinligidan o‘rtacha yoki elastik. Kesishgan elastiklik yuqori bo‘lgan tovarlar (operatorlar xizmati) bir bozorga kiradi, ya’ni bozor chegarasi o‘rinbosarlik darajasi bilan belgilanadi.",
+  "Namunaviy yo‘l: (1) 5–6 xil narxda «sotib olasizmi» so‘rovi o‘tkazing; (2) har narx uchun sotib olishga tayyorlar sonini hisoblab talab jadvalini tuzing; (3) Excel’da Q=a−bP regressiyasini baholang (TREND/LINEST); (4) joriy narxda ε=−b·P/Q ni hisoblang; (5) |ε|>1 bo‘lsa narxni pasaytirish, |ε|<1 bo‘lsa oshirish tushumni ko‘paytirishini asoslang. Namuna hajmi va so‘rovning qiyosiy cheklovlarini ham ko‘rsating.",
+  "Tekshirish: yoy elastikligi formulasi to‘g‘ri qo‘llangani, |ε| ning 1 bilan solishtirilgani, tushum bilan bog‘lanishi va ma’lumot manbasi (stat.uz yoki savdo tarmog‘i) ko‘rsatilganini baholang. Jadvalda har bir elastiklik turi uchun ishorasi va iqtisodiy ma’nosi (o‘rinbosar/to‘ldiruvchi, normal/past sifatli, elastik/noelastik) izohlanishi kerak.",
+  "Esse rejasi: INI qat’iy to‘plam (Laspeyres) bo‘yicha hisoblanadi, shuning uchun iste’molchilar arzonlashgan tovarga o‘tishini (almashtirish xatosi), yangi tovarlar va sifat o‘zgarishini hisobga olmaydi va turmush qiymati o‘sishini oshirib ko‘rsatadi; Paashe indeksi uni pasaytiradi. WARP tekshiruvida ikki davr uchun p¹x² va p²x¹ xarajatlari solishtiriladi: bir vaqtda ikkala tengsizlik buzilmasa, aniqlangan afzal ko‘rishda ziddiyat yo‘q."
  ]
 }

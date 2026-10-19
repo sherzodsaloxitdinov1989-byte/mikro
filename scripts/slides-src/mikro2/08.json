@@ -1,0 +1,404 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Sof monopoliya nima?",
+   "sub": "8.1. Monopoliya: tushunchasi va paydo bo‘lish sabablari",
+   "bullets": [
+    "Yaqin o‘rinbosarsiz mahsulotni yagona firma taklif qiladi",
+    "Yangi firmalarning bozorga kirishi to‘siqlar bilan cheklangan",
+    "Monopolist narx belgilovchi (price maker): unga bozor talabi to‘liq tegishli",
+    "Mukammal raqobatda firma narxni berilgan deb qabul qilardi (VII bob)"
+   ],
+   "note": "Monopoliya saqlanishi uchun kirish to‘siqlari bo‘lishi shart"
+  },
+  {
+   "type": "table",
+   "title": "Bozorga kirish to‘siqlari",
+   "sub": "8.1. Monopoliya: tushunchasi va paydo bo‘lish sabablari",
+   "head": [
+    "To‘siq turi",
+    "Mazmuni",
+    "Misollar"
+   ],
+   "rows": [
+    [
+     "Texnologik (tabiiy)",
+     "Masshtab samarasi juda katta",
+     "Elektr, gaz, suv tarmoqlari"
+    ],
+    [
+     "Huquqiy",
+     "Davlat bergan eksklyuziv huquqlar",
+     "Patent, litsenziya"
+    ],
+    [
+     "Resurs nazorati",
+     "Noyob resurs bitta firmada",
+     "Noyob konlar"
+    ],
+    [
+     "Strategik",
+     "Raqibni to‘sish uchun ataylab yaratiladi",
+     "Ortiqcha quvvat, narx urushi tahdidi"
+    ]
+   ],
+   "note": "Raqamli iqtisodiyotda yangi to‘siq – tarmoq samaralari"
+  },
+  {
+   "type": "formula",
+   "title": "Chekli tushum va ustama qoidasi",
+   "sub": "8.2. Monopolistning foydani maksimallashtirishi",
+   "items": [
+    {
+     "name": "Chekli tushum",
+     "formula": "MR = p(Q) + Q·dp/dQ = p·(1 − 1/|ε|) < p",
+     "note": "Narxni pasaytirish barcha birliklarga tegadi"
+    },
+    {
+     "name": "Chiziqli talab p = a − bQ",
+     "formula": "MR = a − 2bQ",
+     "note": "MR talabdan ikki baravar tik"
+    },
+    {
+     "name": "Foyda maksimumi",
+     "formula": "MR = MC",
+     "note": "Narx talab chizig‘idan olinadi; π = (Pm − AC)·Qm"
+    },
+    {
+     "name": "Ustama qoidasi va Lerner indeksi",
+     "formula": "(p − MC)/p = 1/|ε| = L",
+     "note": "0 ≤ L < 1; monopolist |ε| < 1 sohada ishlamaydi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Monopolistning muvozanati",
+   "sub": "8.2. Monopolistning foydani maksimallashtirishi",
+   "img": "image75.png",
+   "caption": "8.1-rasm. Monopolistning muvozanati va foydasi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 8.1: P = 100 − 2Q, MC = 20, FC = 200",
+   "sub": "8.2. Monopolistning foydani maksimallashtirishi",
+   "steps": [
+    "MR = 100 − 4Q = 20, bundan Qm = 20",
+    "Narx: Pm = 100 − 2·20 = 60",
+    "Foyda: π = (60 − 20)·20 − 200 = 600",
+    "Lerner: L = 40/60 = 0,667; ε = −1,5, 1/|ε| = 0,667 ✓",
+    "Raqobatda P = MC = 20, Q = 40: hajm 2 marta kam, narx 3 marta yuqori"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Monopoliyaning ijtimoiy xarajatlari",
+   "sub": "8.3. Monopoliyaning ijtimoiy xarajatlari va tartibga solish",
+   "bullets": [
+    "DWL: Qm va Qc orasidagi birliklar qadrli, lekin ishlab chiqarilmaydi",
+    "Iste’molchi ortiqchaligining bir qismi monopol foydaga qayta taqsimlanadi",
+    "Renta izlash: lobbichilik va huquqiy kurashga resurs sarflanadi (Posner)",
+    "X-samarasizlik: raqobat bosimi yo‘q, xarajatni kamaytirish rag‘bati zaif (Leybenstayn)",
+    "Shumpeter: monopol foyda innovatsiyalar manbai – statik va dinamik samaradorlik muvozanati"
+   ],
+   "note": "8.1-misolda: DWL = 0,5·40·20 = 400; iste’molchi ortiqchaligi 1600 dan 400 gacha kamaygan"
+  },
+  {
+   "type": "table",
+   "title": "Tabiiy monopoliyani tartibga solish usullari",
+   "sub": "8.3. Monopoliyaning ijtimoiy xarajatlari va tartibga solish",
+   "head": [
+    "Usul",
+    "Afzalligi",
+    "Kamchiligi"
+   ],
+   "rows": [
+    [
+     "Narx P = MC",
+     "DWL yo‘q",
+     "MC < AC: firma zarar ko‘radi, subsidiya kerak"
+    ],
+    [
+     "Narx P = AC",
+     "Zarar yo‘q, subsidiya kerak emas",
+     "Kichik DWL; xarajat rag‘bati zaif"
+    ],
+    [
+     "Rentabellik normasi",
+     "Investorlar uchun barqaror",
+     "Avers–Jonson samarasi"
+    ],
+    [
+     "Price cap (RPI–X)",
+     "Xarajatni kamaytirishga kuchli rag‘bat",
+     "Sifat pasayishi; X ni belgilash qiyin"
+    ],
+    [
+     "Ikki qismli tarif",
+     "Samaradorlik va xarajat qoplanadi",
+     "Abonent to‘lovi og‘ir bo‘lishi mumkin"
+    ]
+   ],
+   "note": "Franshiza auksioni (Demsets): huquq eng past tarif beruvchiga beriladi"
+  },
+  {
+   "type": "bullets",
+   "title": "Narx diskriminatsiyasi: shartlar va darajalar",
+   "sub": "8.4. Monopol xatti-harakat: narx diskriminatsiyasi",
+   "bullets": [
+    "Shartlar: bozor kuchi, iste’molchilarni ajrata olish, arbitraj cheklangani",
+    "1-daraja: har bir birlik rezervatsion narxda – DWL yo‘q, butun ortiqcha monopolistga",
+    "2-daraja: hajm yoki sifatga qarab narx, iste’molchi o‘zi tanlaydi",
+    "3-daraja: guruhlarga turli narx, MR1 = MR2 = MC",
+    "Noelastikroq guruhga narx yuqoriroq belgilanadi"
+   ],
+   "note": "Uch darajani A. Pigu (1920) ajratgan"
+  },
+  {
+   "type": "figure",
+   "title": "Birinchi va uchinchi darajali diskriminatsiya",
+   "sub": "8.4. Monopol xatti-harakat: narx diskriminatsiyasi",
+   "img": "image78.png",
+   "caption": "8.4-rasm. Birinchi va uchinchi darajali narx diskriminatsiyasi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 8.2: aviakompaniya, MC = 2",
+   "sub": "8.4. Monopol xatti-harakat: narx diskriminatsiyasi",
+   "steps": [
+    "Ishbilarmonlar P1 = 12 − Q1: MR1 = 12 − 2Q1 = 2, Q1 = 5, P1 = 7",
+    "Dam oluvchilar P2 = 7 − 0,5Q2: MR2 = 7 − Q2 = 2, Q2 = 5, P2 = 4,5",
+    "Foyda: 5·5 + 2,5·5 = 37,5; |ε1| = 1,4, |ε2| = 1,8",
+    "Yagona narx: P = 5,33, Q = 10, foyda 33,3 < 37,5",
+    "Diskriminatsiya foydani 4,2 ga oshiradi, hajm o‘zgarmagani uchun farovonlik kamayadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ikki qismli tarif va paketli sotish",
+   "sub": "8.4. Monopol xatti-harakat: narx diskriminatsiyasi",
+   "bullets": [
+    "Ikki qismli tarif: kirish to‘lovi T va birlik narxi p (abonement, abonent to‘lovi)",
+    "Bir xil iste’molchilarda optimal: p = MC, T = CS – butun ortiqcha olinadi",
+    "Paketli sotish: bir nechta tovar bitta narxda, baholashlar farqini tekislaydi",
+    "Misol 8.3: alohida 10 + 4 → 28 mln; paket (16) → 32 mln so‘m tushum",
+    "Paket baholashlar teskari korrelyatsiyalangan bo‘lganda foydali (Stigler, 1963)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Monopolistik raqobat: qisqa va uzoq muddat",
+   "sub": "8.5. Monopolistik raqobat",
+   "bullets": [
+    "Ko‘p firma, differensiyalangan mahsulot, kirish va chiqish erkin",
+    "Qisqa muddat: MR = MC; P > ATC bo‘lsa, iqtisodiy foyda bor",
+    "Foyda yangi firmalarni jalb qiladi, talab chapga siljiydi va elastikroq bo‘ladi",
+    "Uzoq muddat: talab AC ga urinadi, P = AC, iqtisodiy foyda nol",
+    "Nazariyani Chemberlin va Robinson (1933) ishlab chiqqan"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Uzoq muddatli muvozanat",
+   "sub": "8.5. Monopolistik raqobat",
+   "img": "image80.png",
+   "caption": "8.6-rasm. Monopolistik raqobatda qisqa va uzoq muddatli muvozanat"
+  },
+  {
+   "type": "formula",
+   "title": "Kurno, Shtakelberg va Bertran (P = 10 − Q, c = 1)",
+   "sub": "8.6. Oligopoliya: strategik o‘zaro ta’sir",
+   "items": [
+    {
+     "name": "Kurno reaksiya funksiyasi",
+     "formula": "q₁ = (9 − q₂)/2,  q₂ = (9 − q₁)/2",
+     "note": "Muvozanat: q₁ = q₂ = 3, Q = 6, P = 4, π = 9"
+    },
+    {
+     "name": "Shtakelberg (lider va izdosh)",
+     "formula": "q₁ = 4,5;  q₂ = 2,25",
+     "note": "Q = 6,75, P = 3,25; lider foydasi 10,125"
+    },
+    {
+     "name": "Bertran (bir jinsli, narx)",
+     "formula": "p₁ = p₂ = c = 1,  π = 0",
+     "note": "Bertran paradoksi: ikki firma – raqobat natijasi"
+    },
+    {
+     "name": "n ta firmali Kurno",
+     "formula": "q = (a − c)/[(n + 1)·b]",
+     "note": "n = 1 monopoliya, n → ∞ mukammal raqobat"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Oligopoliya modellarining qiyosi",
+   "sub": "8.6. Oligopoliya: strategik o‘zaro ta’sir",
+   "head": [
+    "Model",
+    "Q",
+    "P",
+    "Tarmoq foydasi"
+   ],
+   "rows": [
+    [
+     "Mukammal raqobat",
+     "9",
+     "1",
+     "0"
+    ],
+    [
+     "Bertran (bir jinsli)",
+     "9",
+     "1",
+     "0"
+    ],
+    [
+     "Shtakelberg",
+     "6,75",
+     "3,25",
+     "15,19"
+    ],
+    [
+     "Kurno",
+     "6",
+     "4",
+     "18"
+    ],
+    [
+     "Kartel (monopoliya)",
+     "4,5",
+     "5,5",
+     "20,25"
+    ]
+   ],
+   "note": "Kartel har biriga 10,125 beradi, lekin kelishuvni buzish foydali – u beqaror"
+  },
+  {
+   "type": "formula",
+   "title": "Konsentratsiya ko‘rsatkichlari",
+   "sub": "8.7. Bozor konsentratsiyasi va antimonopol siyosat",
+   "items": [
+    {
+     "name": "Konsentratsiya koeffitsienti",
+     "formula": "CRk = s₁ + s₂ + … + sk",
+     "note": "Eng yirik k ta firma ulushlari yig‘indisi (CR3, CR4)"
+    },
+    {
+     "name": "Herfindal–Hirshman indeksi",
+     "formula": "HHI = ∑ sᵢ²,  0 < HHI ≤ 10 000",
+     "note": "s – foizdagi bozor ulushi"
+    },
+    {
+     "name": "Kurnoda o‘rtacha Lerner indeksi",
+     "formula": "L = HHI / (10 000·|ε|)",
+     "note": "Bozor kuchi ulushga proporsional"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Antimonopol siyosat yo‘nalishlari",
+   "sub": "8.7. Bozor konsentratsiyasi va antimonopol siyosat",
+   "bullets": [
+    "Kartellarga qarshi kurash: narx kelishuvi, bozorni bo‘lish, tenderda til biriktirish taqiqlanadi",
+    "Leniency dasturi: birinchi xabar bergan ishtirokchi jazodan ozod – kartelda «mahbus dilemmasi»",
+    "Hukmron mavqe suiiste’moli: yirtqich narx, majburiy bog‘lab sotish, eksklyuziv shartnomalar",
+    "Konsentratsiya nazorati: qo‘shilishlar HHI va uning o‘zgarishi asosida tekshiriladi",
+    "O‘zbekistonda: Raqobatni rivojlantirish va iste’molchilar huquqlarini himoya qilish qo‘mitasi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Raqamli platformalar: antimonopol qiyinchiliklar",
+   "sub": "8.8. Raqamli platformalar va zamonaviy antimonopol siyosat",
+   "bullets": [
+    "Nol narx: Lerner indeksi qo‘llanmaydi, bozor kuchi sifat va ma’lumotda ko‘rinadi",
+    "Tarmoq samaralari «g‘olib hammasini oladi» holatiga olib keladi",
+    "Ma’lumotlar yangi raqobatchilar uchun kirish to‘sig‘i bo‘ladi",
+    "Self-preferencing: platforma o‘z mahsulotini yuqoriroq ko‘rsatadi",
+    "Killer acquisitions: kelajakdagi raqobatchi startaplarni erta sotib olish"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Zamonaviy yondashuv",
+   "sub": "8.8. Raqamli platformalar va zamonaviy antimonopol siyosat",
+   "left": {
+    "head": "An’anaviy nazorat",
+    "items": [
+     "Narx xarajatdan yuqorimi?",
+     "Joriy bozor ulushi va HHI",
+     "Bozordagi raqobat"
+    ]
+   },
+   "right": {
+    "head": "Raqamli bozorlar",
+    "items": [
+     "Sifat, ma’lumot va reklama yuki",
+     "EU 2022: Raqamli bozorlar akti (DMA), ex ante qoidalar",
+     "Tirol: «bozor uchun raqobat»ni saqlash"
+    ]
+   }
+  },
+  {
+   "type": "table",
+   "title": "Masalalar: monopolist, Kurno, diskriminatsiya, tarif",
+   "sub": "8.9. Yechib ko‘rsatilgan masalalar",
+   "head": [
+    "Masala",
+    "Shart",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "1. Monopolist",
+     "Q = 120 − 2P, TC = 300 + 10Q + 0,5Q²",
+     "Q = 25, P = 47,5, π = 325"
+    ],
+    [
+     "2. Kurno, 3 firma",
+     "P = 100 − Q, MC = 10",
+     "q = 22,5, Q = 67,5, P = 32,5"
+    ],
+    [
+     "3. Ikki bozor",
+     "ε₁ = −2, ε₂ = −4, MC = 30",
+     "P₁ = 60, P₂ = 40"
+    ],
+    [
+     "4. Ikki qismli tarif",
+     "Q = 20 − P, MC = 4, 100 kishi",
+     "p = 4, T = 128, π = 12 800"
+    ]
+   ],
+   "note": "3-masalada talabi noelastikroq bozorda narx yuqori"
+  },
+  {
+   "type": "steps",
+   "title": "1-masala yechimi va DWL",
+   "sub": "8.9. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "Teskari talab: P = 60 − 0,5Q; MR = 60 − Q; MC = 10 + Q",
+    "MR = MC: Qm = 25, Pm = 47,5",
+    "TR = 1187,5; TC = 300 + 250 + 312,5 = 862,5; π = 325",
+    "Raqobat (P = MC): Qc = 33,3, Pc = 43,3",
+    "DWL = 0,5·8,33·(47,5 − 35) = 52,1"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Monopolist MR = MC bo‘yicha tanlaydi; ustama qoidasi: (p − MC)/p = 1/|ε|",
+    "Monopoliya DWL, renta izlash va X-samarasizlik yaratadi; tabiiy monopoliya tartibga solinadi",
+    "Narx diskriminatsiyasi, ikki qismli tarif va paket iste’molchi ortiqchaligini monopolistga o‘tkazadi",
+    "Monopolistik raqobatda uzoq muddatda P = AC, lekin P > MC va ortiqcha quvvat saqlanadi",
+    "Oligopoliyada natija modelga bog‘liq; konsentratsiya HHI bilan o‘lchanadi, antimonopol siyosat uni nazorat qiladi"
+   ]
+  }
+ ]
+}

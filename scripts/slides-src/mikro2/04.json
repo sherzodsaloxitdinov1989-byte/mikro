@@ -1,0 +1,377 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Narx pasayganda talab nima uchun ortadi?",
+   "sub": "4.1. Narx o‘zgarishining ikki samarasi",
+   "bullets": [
+    "Narx o‘zgarganda iste’molchi uchun ikki narsa o‘zgaradi: nisbiy narx va xarid qobiliyati",
+    "Almashtirish samarasi: nisbatan arzonlashgan tovarga o‘tishga moyillik",
+    "Daromad samarasi: avvalgi to‘plam uchun kamroq pul kerak – real daromad oshadi",
+    "Ikki samara birgalikda talabning umumiy o‘zgarishini beradi",
+    "Misol: go‘sht 100 dan 90 ming so‘mga tushsa, 20 kg uchun 200 ming so‘m tejaladi"
+   ],
+   "note": "Slutskiy (1915): narx o‘zgarishini «burish» va «siljitish» bosqichlariga ajratish"
+  },
+  {
+   "type": "figure",
+   "title": "Burish va siljitish",
+   "sub": "4.1. Narx o‘zgarishining ikki samarasi",
+   "img": "image36.png",
+   "caption": "4.1-rasm. Narx pasayishining almashtirish va daromad samaralariga ajratilishi (normal tovar)"
+  },
+  {
+   "type": "formula",
+   "title": "Slutskiy tenglamasi",
+   "sub": "4.2. Slutskiy tenglamasi",
+   "items": [
+    {
+     "name": "Slutskiy identifikatsiyasi",
+     "formula": "Δx₁ = Δx₁ˢ + Δx₁ⁿ",
+     "note": "umumiy samara = almashtirish + daromad samarasi"
+    },
+    {
+     "name": "Kompensatsiya summasi",
+     "formula": "Δm = x₁·Δp₁",
+     "note": "avvalgi to‘plamni sotib olish uchun daromad o‘zgarishi"
+    },
+    {
+     "name": "Slutskiy tenglamasi",
+     "formula": "∂x₁/∂p₁ = ∂x₁ˢ/∂p₁ − x₁·∂x₁/∂m",
+     "note": "almashtirish samarasi har doim ≤ 0"
+    },
+    {
+     "name": "Elastiklik ko‘rinishi",
+     "formula": "ε₁₁ = ε₁₁ˢ − s₁·η₁",
+     "note": "s₁ = p₁x₁/m – tovarning byudjetdagi ulushi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Tovar turlari va samaralar ishoralari",
+   "sub": "4.2. Slutskiy tenglamasi",
+   "head": [
+    "Tovar turi",
+    "Almashtirish",
+    "Daromad",
+    "Umumiy"
+   ],
+   "rows": [
+    [
+     "Normal tovar",
+     "+",
+     "+",
+     "+"
+    ],
+    [
+     "Past sifatli tovar",
+     "+",
+     "−, kichik",
+     "+"
+    ],
+    [
+     "Giffen tovari",
+     "+",
+     "−, katta",
+     "−"
+    ],
+    [
+     "Mukammal to‘ldiruvchilar",
+     "0",
+     "+",
+     "+"
+    ],
+    [
+     "Kvazichiziqli",
+     "+",
+     "0",
+     "+"
+    ]
+   ],
+   "note": "Narx pasayganda. Normal tovar har doim oddiy tovar – talab qonuni bajariladi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 4.1: sutga talab",
+   "sub": "4.2. Slutskiy tenglamasi",
+   "steps": [
+    "Talab x₁ = 10 + m/(10p₁); m = 120, p₁: 3 → 2 ming so‘m",
+    "Dastlab: x₁ = 10 + 120/30 = 14 litr",
+    "Δm = 14·(−1) = −14, ya’ni m′ = 106",
+    "Almashtirish: 10 + 106/20 = 15,3, samara 1,3 litr",
+    "Yakuniy talab 10 + 120/20 = 16; daromad samarasi 0,7 litr",
+    "Umumiy samara 2 = 1,3 + 0,7 – sut normal tovar"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Slutskiy va Xiks kompensatsiyasi",
+   "sub": "4.3. Xiks bo‘yicha almashtirish samarasi va kompensatsiyalangan talab",
+   "left": {
+    "head": "Slutskiy",
+    "items": [
+     "Xarid qobiliyati saqlanadi",
+     "Avvalgi to‘plam sotib olinadi",
+     "Faqat narx va miqdor ma’lumoti kerak",
+     "Amaliy hisoblarda qulay",
+     "Daromadni biroz ko‘proq beradi"
+    ]
+   },
+   "right": {
+    "head": "Xiks",
+    "items": [
+     "Naflilik darajasi saqlanadi",
+     "Byudjet chizig‘i dastlabki befarqlik chizig‘iga uriniladi",
+     "Naflilik funksiyasini bilish kerak",
+     "Kichik o‘zgarishlarda Slutskiyga teng",
+     "Katta o‘zgarishlarda ikki samara farq qiladi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Xiks va Slutskiy almashtirish samaralari",
+   "sub": "4.3. Xiks bo‘yicha almashtirish samarasi va kompensatsiyalangan talab",
+   "img": "image38.png",
+   "caption": "4.3-rasm. Xiks va Slutskiy bo‘yicha almashtirish samaralari"
+  },
+  {
+   "type": "formula",
+   "title": "Kompensatsiyalangan talab",
+   "sub": "4.3. Xiks bo‘yicha almashtirish samarasi va kompensatsiyalangan talab",
+   "items": [
+    {
+     "name": "Xarajatlarni minimallashtirish",
+     "formula": "min p₁x₁ + p₂x₂,  u(x₁, x₂) = ū",
+     "note": "yechimi – Xiks talabi h₁(p₁, p₂, ū)"
+    },
+    {
+     "name": "Shepard lemmasi",
+     "formula": "∂e/∂p₁ = h₁(p, ū)",
+     "note": "e(p, ū) – naflilikka erishishning minimal xarajati"
+    },
+    {
+     "name": "Slutskiy tenglamasi (dual)",
+     "formula": "∂x₁/∂p₁ = ∂h₁/∂p₁ − x₁·∂x₁/∂m",
+     "note": "Xiks talabi uchun talab qonuni har doim bajariladi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Zaxira daromad samarasi",
+   "sub": "4.4. Boshlang‘ich zaxira va mehnat taklifi",
+   "items": [
+    {
+     "name": "Zaxiradan daromad",
+     "formula": "m = p₁ω₁ + p₂ω₂",
+     "note": "narx o‘zgarsa, pul daromadi ham o‘zgaradi"
+    },
+    {
+     "name": "Uchinchi qo‘shiluvchi",
+     "formula": "Δx₁/Δp₁ = Δx₁ˢ/Δp₁ + (ω₁ − x₁)·Δx₁ᵐ/Δm",
+     "note": "(ω₁ − x₁) – sof taklif; sof sotuvchi narx oshganda yutadi"
+    },
+    {
+     "name": "Vaqt va mehnat",
+     "formula": "L + R = T̄;  pC + wR = M + wT̄",
+     "note": "bo‘sh vaqtning narxi – ish haqi w"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Bo‘sh vaqt va orqaga qayriluvchi taklif",
+   "sub": "4.4. Boshlang‘ich zaxira va mehnat taklifi",
+   "img": "image40.png",
+   "caption": "4.5-rasm. Bo‘sh vaqt va iste’mol tanlovi; orqaga qayriluvchi mehnat taklifi chizig‘i"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 4.5: mehnat taklifi",
+   "sub": "4.4. Boshlang‘ich zaxira va mehnat taklifi",
+   "steps": [
+    "u = C⁰˒⁵R⁰˒⁵; w = 25, M = 100 ming so‘m, p = 1, T̄ = 16 soat",
+    "To‘liq daromad F = M + wT̄ = 100 + 25·16 = 500",
+    "Kobb–Duglas: R = 0,5F/w = 250/25 = 10 soat, L = 6 soat",
+    "Iste’mol C = 0,5·500 = 250",
+    "w = 30 da: F = 580, R = 290/30 ≈ 9,67, L ≈ 6,33 soat",
+    "Mehnat taklifi oshdi: almashtirish samarasi ustun"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Vaqtlararo byudjet cheklovi",
+   "sub": "4.5. Vaqtlararo tanlov",
+   "items": [
+    {
+     "name": "Kelajakdagi qiymat ko‘rinishi",
+     "formula": "(1+r)c₁ + c₂ = (1+r)m₁ + m₂",
+     "note": "c₂ = m₂ + (1+r)(m₁ − c₁)"
+    },
+    {
+     "name": "Joriy qiymat ko‘rinishi",
+     "formula": "c₁ + c₂/(1+r) = m₁ + m₂/(1+r)",
+     "note": "og‘ishi −(1+r): foiz – vaqt bo‘yicha nisbiy narx"
+    },
+    {
+     "name": "Eyler tenglamasi",
+     "formula": "u′(c₁) = β(1+r)·u′(c₂)",
+     "note": "β(1+r) = 1 bo‘lsa, iste’mol tekislanadi: c₁ = c₂"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Jamg‘aruvchi va qarz oluvchi",
+   "sub": "4.5. Vaqtlararo tanlov",
+   "img": "image42.png",
+   "caption": "4.7-rasm. Vaqtlararo byudjet cheklovi"
+  },
+  {
+   "type": "bullets",
+   "title": "Foiz stavkasi va real foiz",
+   "sub": "4.5. Vaqtlararo tanlov",
+   "bullets": [
+    "Foiz oshsa, jamg‘aruvchi jamg‘aruvchiligicha qoladi va uning ahvoli yaxshilanadi",
+    "Qarz oluvchi qarz oluvchi bo‘lib qolsa, ahvoli albatta yomonlashadi",
+    "Jamg‘arma uchun samaralar qarama-qarshi: foiz oshsa, jamg‘arma ortishi ham, kamayishi ham mumkin",
+    "Real foiz: 1 + ρ = (1+r)/(1+π), taxminan ρ ≈ r − π",
+    "Depozit 18%, inflatsiya 10%: real daromad taxminan 8%, aniq 1,18/1,10 − 1 = 7,3%"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Joriy qiymat va diskontlash",
+   "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
+   "items": [
+    {
+     "name": "Bir yillik diskontlash",
+     "formula": "PV = M/(1+r)",
+     "note": "bir yildan keyingi 1 so‘mning bugungi qiymati 1/(1+r)"
+    },
+    {
+     "name": "t yildan keyingi to‘lov",
+     "formula": "PV = Mₜ/(1+r)ᵗ",
+     "note": "1/(1+r)ᵗ – diskont omili"
+    },
+    {
+     "name": "Perpetuitet",
+     "formula": "PV = x/r",
+     "note": "o‘suvchi perpetuitet (g < r): PV = x/(r − g)"
+    },
+    {
+     "name": "Sof joriy qiymat",
+     "formula": "NPV = −I₀ + ∑ CFₜ/(1+r)ᵗ",
+     "note": "NPV > 0 bo‘lsa, loyiha qabul qilinadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 4.6: obligatsiya narxi",
+   "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
+   "steps": [
+    "Nominal 1 mln so‘m, kupon 14% (140 ming), muddati 3 yil, bozor stavkasi 16%",
+    "1-yil: 140/1,16 = 120,69 ming so‘m",
+    "2-yil: 140/1,16² = 104,04 ming so‘m",
+    "3-yil: 1140/1,16³ = 730,35 ming so‘m",
+    "PV = 955,08 ming so‘m",
+    "Kupon bozor stavkasidan past – obligatsiya diskont bilan sotiladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Joriy qiymat nimani ko‘rsatadi?",
+   "sub": "4.6. Joriy qiymat va uning qo‘llanilishi",
+   "bullets": [
+    "24% stavkada 10 yildan keyingi 100 so‘m bugun atigi 12 so‘mga teng",
+    "Foiz yuqori bo‘lsa, uzoq muddatli loyihalar kam jozibador",
+    "Foiz oshsa, obligatsiya narxi tushadi – teskari bog‘liqlik",
+    "Kupon bozor stavkasiga teng bo‘lsa, obligatsiya nominal qiymatida sotiladi",
+    "Muddati uzoq obligatsiya narxi foizga sezgirroq, shuning uchun xatarliroq"
+   ],
+   "note": "Mukammal kapital bozorida joriy qiymati yuqori oqim afzal"
+  },
+  {
+   "type": "bullets",
+   "title": "Hayot sikli gipotezasi",
+   "sub": "4.7. Vaqtlararo tanlovning qo‘llanilishi: hayot sikli va pensiya",
+   "bullets": [
+    "Daromad notekis: yoshlikda past, o‘rta yoshda yuqori, pensiyada past",
+    "Iste’mol esa tekis saqlanadi (F. Modilyani, Nobel mukofoti, 1985)",
+    "Yoshlar qarz oladi, o‘rta yoshdagilar jamg‘aradi, pensionerlar jamg‘armani sarflaydi",
+    "Taqsimlovchi tizim: bugungi badallar bugungi pensionerlarga to‘lanadi",
+    "Jamg‘arib boriladigan tizim: badallar shaxsiy hisobda to‘planadi"
+   ],
+   "note": "Giperbolik diskontlash tufayli odamlar yetarli jamg‘armaydi – avtomatik qo‘shilish asoslanadi"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 4.8: pensiya uchun jamg‘arma",
+   "sub": "4.7. Vaqtlararo tanlovning qo‘llanilishi: hayot sikli va pensiya",
+   "steps": [
+    "40 yil ishlaydi, yiliga 60 mln so‘m; keyin 20 yil pensiyada",
+    "a) Real stavka 0: umrbod daromad 60·40 = 2400 mln so‘m",
+    "2400 mln 60 yilga taqsimlanadi: yillik iste’mol 40 mln",
+    "Ish yillarida jamg‘arma 20 mln; pensiya boshida 20·40 = 800 mln",
+    "b) Stavka 3%: joriy qiymat 60·23,11 ≈ 1 386,7 mln so‘m",
+    "Iste’mol c = 1386,7/27,68 ≈ 50,1 mln so‘m – foiz iste’molni oshiradi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Yechilgan masalalar: natijalar",
+   "sub": "4.8. Yechib ko‘rsatilgan masalalar",
+   "head": [
+    "Masala",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "1. x = 0,02m/p, m = 5000, p: 10 → 8",
+     "almashtirish 2,45; daromad 0,05"
+    ],
+    [
+     "3. Depozit 20%, inflatsiya 9%",
+     "taxminan 11%, aniq 10,09%; 11,01 mln so‘m"
+    ],
+    [
+     "4. Ijara 2 mln, r = 16%, doimiy",
+     "PV = 2/0,16 = 12,5 mln so‘m"
+    ],
+    [
+     "4. Ijara yiliga 5% o‘sadi",
+     "PV = 2/(0,16 − 0,05) = 18,18 mln so‘m"
+    ]
+   ],
+   "note": "1-masalada byudjet ulushi kichik bo‘lgani uchun daromad samarasi juda kichik"
+  },
+  {
+   "type": "steps",
+   "title": "2-masala: optimal iste’mol va jamg‘arma",
+   "sub": "4.8. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "U = ln c₁ + 0,9 ln c₂; m₁ = 100, m₂ = 50, r = 0,1",
+    "Boylik: W = 100 + 50/1,1 = 145,45",
+    "Ulushlar 1/1,9 va 0,9/1,9: c₁ = W/1,9 = 76,56",
+    "c₂/1,1 = 0,9W/1,9 = 68,90, ya’ni c₂ = 75,79",
+    "Jamg‘arma s = 100 − 76,56 = 23,44",
+    "Tekshirish: 50 + 1,1·23,44 = 75,78"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Narx o‘zgarishi almashtirish va daromad samaralariga ajraladi; almashtirish samarasi narxga teskari",
+    "Slutskiy tenglamasi normal, past sifatli va Giffen tovarlarini farqlaydi",
+    "Xiks naflilikni, Slutskiy xarid qobiliyatini saqlaydi; Shepard lemmasi: ∂e/∂p₁ = h₁",
+    "Zaxira bilan Slutskiy tenglamasi mehnat taklifini tushuntiradi; taklif chizig‘i orqaga qayrilishi mumkin",
+    "Vaqtlararo tanlovda foiz – nisbiy narx; joriy qiymat va NPV loyihalarni baholaydi"
+   ]
+  }
+ ]
+}

@@ -1,35 +1,148 @@
 {
- "goal": "«Assimetrik axborot» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Noxush tanlov, signal berish, skrining, axloqiy risk va prinsipal–agent modellarini yechish ko‘nikmalarini shakllantirish.",
  "concepts": [
   "assimetrik axborot",
-  "yashirin xususiyat",
-  "yashirin harakat",
-  "noxush tanlov",
-  "“limonlar bozori”",
-  "kredit ratsionlash"
+  "yashirin xususiyat va yashirin harakat",
+  "noxush tanlov (“limonlar bozori”)",
+  "signal berish va ajratuvchi muvozanat",
+  "axloqiy risk va franshiza",
+  "prinsipal–agent muammosi (ishtirok va rag‘bat muvofiqligi shartlari)"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 11-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 11-bob; I-ilova (A11), V-ilova (V.11)",
+ "tasks": [
+  {
+   "id": "mm11-p1",
+   "title": "Ishlatilgan avtomobillar bozori",
+   "text": "Avtomobillar bozorida 40% sifatli (sotuvchi uchun 100, xaridor uchun 120 mln so‘m) va 60% sifatsiz (sotuvchi uchun 50, xaridor uchun 70 mln so‘m) avtomobillar bor. Xaridorlar riskka neytral va sifatni sotib olishdan oldin ajrata olmaydi. Barcha avtomobillar sotuvga chiqsa, xaridor to‘lashga tayyor kutilgan narxni, muvozanatda bozorda sotiladigan avtomobil narxini va sifatli avtomobillarning kritik ulushini (undan past bo‘lganda sifatlilar bozordan chiqadi) toping.",
+   "fields": [
+    {
+     "label": "Kutilgan narx (barcha avtomobillar sotilsa)",
+     "value": 90,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Muvozanatda sotiladigan (sifatsiz) avtomobil narxi",
+     "value": 70,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Sifatli avtomobillarning kritik ulushi",
+     "value": 60,
+     "unit": "%"
+    }
+   ],
+   "solution": "Kutilgan narx: 0,4·120 + 0,6·70 = 48 + 42 = 90 mln so‘m. Sifatli avtomobil egasi uchun qiymat 100 > 90, shuning uchun u sotmaydi; faqat sifatsizlar sotiladi va xaridorlar ularni 70 mln so‘mdan oladi. Kritik ulush s: 120s + 70(1−s) = 100 → 50s = 30 → s = 0,6, ya’ni sifatlilar ulushi 60% dan kam bo‘lsa, ular bozordan chiqadi.",
+   "formula": "p = s·V_sifatli + (1−s)·V_sifatsiz; sifatlilar sotadi, agar p ≥ sotuvchi bahosi",
+   "note": "Darslikdagi javobda faqat birinchi ikki son keltirilgan; kritik ulush qayta hisoblash bilan topildi (s = 0,6)."
+  },
+  {
+   "id": "mm11-p2",
+   "title": "Spens modeli: ajratuvchi muvozanat",
+   "text": "Spens modelida past unumdor xodim firmaga 150, yuqori unumdor xodim 300 (mln so‘m) keltiradi. Ta’lim (signal) xarajati bir birlik uchun past unumdor xodimga 50, yuqori unumdor xodimga 20 mln so‘m. Firma y* dan yuqori ta’limga ega xodimlarga 300, qolganlarga 150 to‘laydi. Ajratuvchi muvozanat bo‘ladigan y* oralig‘ining quyi va yuqori chegarasini toping.",
+   "fields": [
+    {
+     "label": "y* ning quyi chegarasi",
+     "value": 3,
+     "unit": ""
+    },
+    {
+     "label": "y* ning yuqori chegarasi",
+     "value": 7.5,
+     "unit": ""
+    }
+   ],
+   "solution": "Past unumdor taqlid qilmasligi uchun: 150 > 300 − 50y* → y* > 150/50 = 3. Yuqori unumdor signal berishi foydali bo‘lishi uchun: 300 − 20y* > 150 → y* < 150/20 = 7,5. Demak, 3 < y* < 7,5.",
+   "formula": "w_past > w_yuqori − c_past·y*  va  w_yuqori − c_yuqori·y* > w_past",
+   "note": ""
+  },
+  {
+   "id": "mm11-p3",
+   "title": "Sug‘urta va axloqiy risk: franshiza",
+   "text": "Zarar miqdori 400 (mln so‘m). Zarar ehtimoli ehtiyotkorlik bilan 0,1, ehtiyotkorliksiz 0,3; ehtiyotkorlik xarajati 50. Sug‘urtasiz holatda ehtiyotkor harakat qilgan va ehtiyotkorsiz harakat qilgan shaxsning kutilgan umumiy xarajatini, shuningdek, to‘liq sug‘urtalangan shaxs ehtiyotkorlikni tanlashi uchun zarur franshizaning minimal miqdori D ni toping.",
+   "fields": [
+    {
+     "label": "Ehtiyotkor bo‘lganda kutilgan xarajat (sug‘urtasiz)",
+     "value": 90,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Ehtiyotkorsiz kutilgan xarajat (sug‘urtasiz)",
+     "value": 120,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Minimal franshiza D",
+     "value": 250,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Ehtiyotkor: 0,1·400 + 50 = 40 + 50 = 90. Ehtiyotkorsiz: 0,3·400 = 120. 90 < 120, shuning uchun sug‘urtasiz ehtiyotkor bo‘ladi. To‘liq sug‘urtada shaxs zarar to‘lamaydi, ehtiyotkorlik xarajatini esa o‘zi ko‘taradi, shuning uchun ehtiyotkorsiz bo‘ladi (axloqiy risk). Franshiza D bilan ehtiyotkorlik foydali bo‘lishi uchun: (0,3 − 0,1)·D ≥ 50 → D ≥ 250.",
+   "formula": "(π_ehtiyotkorsiz − π_ehtiyotkor)·D ≥ c",
+   "note": ""
+  },
+  {
+   "id": "mm11-p4",
+   "title": "Prinsipal–agent: ijara haqi va ulushli shartnoma",
+   "text": "Agent harakati x bo‘lganda mahsulot f(x) = 30x, agentning xarajati c(x) = 3x². Agentning muqobil daromadi (zaxira foydaliligi) 20. Samarali harakat darajasini va prinsipal oladigan eng yuqori ijara haqini (agent mahsulotning to‘liq egasi bo‘lib, prinsipalga qat’iy ijara to‘laydi) toping. Keyin agent mahsulotning 60% ini olsa, u qanday harakat tanlashini, bunda mahsulotni, prinsipal ulushini (40%) va agentning sof foydasini toping.",
+   "fields": [
+    {
+     "label": "Samarali harakat x*",
+     "value": 5,
+     "unit": ""
+    },
+    {
+     "label": "Ijara haqi R",
+     "value": 55,
+     "unit": ""
+    },
+    {
+     "label": "Ulushli shartnomada agent harakati",
+     "value": 3,
+     "unit": ""
+    },
+    {
+     "label": "Prinsipal daromadi (40% ulush)",
+     "value": 36,
+     "unit": ""
+    }
+   ],
+   "solution": "Samarali harakat: f′(x) = c′(x) → 30 = 6x → x* = 5. Umumiy ortiqcha: 30·5 − 3·25 = 150 − 75 = 75. Ijara haqi: R = 75 − 20 = 55. Ulushli shartnoma: agent 0,6·30x − 3x² ni maksimallashtiradi → 18 = 6x → x = 3. Mahsulot: 30·3 = 90; prinsipal ulushi 0,4·90 = 36; agent foydasi 0,6·90 − 3·9 = 54 − 27 = 27 ≥ 20 (ishtirok sharti bajariladi). Ulushli shartnomada harakat samarali darajadan (5) past.",
+   "formula": "f′(x) = c′(x);  R = f(x*) − c(x*) − u;  agent ulushi α: α·f′(x) = c′(x)",
+   "note": "Manbadagi shartda c(x) ning daraja belgisi tushib qolgan; yechim yo‘li (30 = 6x) bo‘yicha c(x) = 3x² deb tiklandi."
+  },
+  {
+   "id": "mm11-p5",
+   "title": "Kredit bozori: zararsizlik stavkasi",
+   "text": "Bank ishonchli qarz oluvchi (qarzni 0,95 ehtimol bilan qaytaradi) va xatarli qarz oluvchi (0,7 ehtimol bilan qaytaradi) o‘rtasida farq qila olmaydi. Ularning ulushi teng (50% va 50%). Kredit miqdori 100, bankning resurs qiymati (kredit xarajati) 10%. Qarz oluvchilarning o‘rtacha qaytarish ehtimolini va bank zarar ko‘rmaydigan minimal foiz stavkasini r toping (r ni foizda, yuzdan birgacha aniqlikda yozing).",
+   "fields": [
+    {
+     "label": "O‘rtacha qaytarish ehtimoli",
+     "value": 0.825,
+     "unit": ""
+    },
+    {
+     "label": "Zararsizlik foiz stavkasi r",
+     "value": 33.33,
+     "unit": "%"
+    }
+   ],
+   "solution": "O‘rtacha ehtimol: 0,5·0,95 + 0,5·0,7 = 0,475 + 0,35 = 0,825. Zararsizlik sharti: 0,825·(1 + r) = 1,1 → 1 + r = 1,3333 → r ≈ 33,33%. Bunday yuqori stavkada ishonchli qarz oluvchilar kredit olmay qo‘yadi, xatarlilar ulushi ortadi (noxush tanlov, kredit ratsionlash).",
+   "formula": "p̄·(1 + r) = 1 + i,  p̄ = Σ ulush·ehtimol",
+   "note": ""
+  }
+ ],
  "open": [
-  "Esse/munozara: Diplom: inson kapitali yoki signal?",
-  "Esse/munozara: Kredit tarixi va moliyaviy inklyuziya: assimetrik axborotni kamaytirish yo‘llari.",
-  "Esse/munozara: Davlat korxonalarida korporativ boshqaruv va KPI tizimi.",
-  "Esse/munozara: Sug‘urta bozorida firibgarlik va axloqiy risk: xalqaro tajriba.",
-  "Esse/munozara: Raqamli davrda shaxsiy ma’lumotlar: kimning axboroti ko‘proq?",
-  "Mustaqil ish: O‘zbekistondagi ishlatilgan avtomobillar, ko‘chmas mulk yoki onlayn savdo bozorlaridan birini tanlab, undagi assimetrik axborot muammolarini va ularni hal qilish mexanizmlarini (11.7-jadval asosida) tahlil qiling.",
-  "Mustaqil ish: Ikki-uchta sug‘urta kompaniyasining avtotransport sug‘urtasi polislarini solishtiring: franshiza, bonus-malus, qoplama shartlari qanday farqlanadi? Ularni noxush tanlov va axloqiy risk nuqtai nazaridan baholang.",
-  "Mustaqil ish: Biror tijorat bankining kredit berish shartlarini o‘rganib, garov, kredit tarixi va boshqa talablar assimetrik axborotni qanday kamaytirishini tahlil qiling.",
-  "Mustaqil ish: O‘zingiz biladigan tashkilotda xodimlarni rag‘batlantirish tizimini prinsipal– agent nazariyasi asosida tahlil qilib, takomillashtirish bo‘yicha takliflar bering."
+  "Muhokama savollari: 1) Onlayn savdo platformalarida xaridor sifat haqidagi noaniqlikni qanday kamaytiradi? 2) Diplom – inson kapitalimi yoki signalmi? O‘z fikringizni asoslang. 3) Majburiy avtotransport sug‘urtasi qaysi muammoni hal qiladi? 4) Sotuvchi xodimlarga qat’iy maosh yoki savdodan foiz to‘lash – qaysi biri samaraliroq va nima uchun? 5) Davlat korxonalari rahbarlari uchun qanday rag‘batlantirish tizimi maqbul?",
+  "Interfaol topshiriq – “Limonlar bozori” simulyatsiyasi. Talabalarning yarmi “sotuvchi” bo‘lib, har biriga yashirin sifat kartochkasi (yuqori yoki past) beriladi; qolganlari “xaridor”. Birinchi bosqichda sifat yashirin; ikkinchisida sotuvchilar “kafolat” berishi mumkin (kafolat past sifatli tovar uchun qimmat); uchinchisida “ekspertiza” xizmati joriy etiladi. Har bosqichda bitimlar soni va narxlarni qayd eting va natijalarni muhokama qiling.",
+  "Esse mavzularidan birini tanlang: 1) Diplom: inson kapitali yoki signal? 2) Kredit tarixi va moliyaviy inklyuziya: assimetrik axborotni kamaytirish yo‘llari. 3) Davlat korxonalarida korporativ boshqaruv va KPI tizimi. 4) Sug‘urta bozorida firibgarlik va axloqiy risk: xalqaro tajriba. 5) Raqamli davrda shaxsiy ma’lumotlar: kimning axboroti ko‘proq?",
+  "Mustaqil ish: 1) O‘zbekistondagi ishlatilgan avtomobillar, ko‘chmas mulk yoki onlayn savdo bozorlaridan birini tanlab, undagi assimetrik axborot muammolarini va ularni hal qilish mexanizmlarini tahlil qiling. 2) Ikki-uchta sug‘urta kompaniyasining avtotransport sug‘urtasi polislarini (franshiza, bonus-malus, qoplama shartlari) noxush tanlov va axloqiy risk nuqtai nazaridan solishtiring. 3) Biror tijorat bankining kredit berish shartlarini (garov, kredit tarixi va boshqalar) assimetrik axborotni kamaytirish nuqtai nazaridan tahlil qiling. 4) O‘zingiz biladigan tashkilotda xodimlarni rag‘batlantirish tizimini prinsipal–agent nazariyasi asosida tahlil qilib, takliflar bering.",
+  "Keys 10. Oliy ta’limda to‘lov-kontrakt va diplomning qiymati. Vaziyat: oliy ta’lim muassasalari soni, jumladan xususiy va xorijiy universitetlar filiallari tez o‘sdi. To‘lov-kontrakt narxlari keng diapazonda farq qiladi. Ish beruvchilar diplom bilan bir qatorda xalqaro sertifikatlar va amaliy tajribaga ko‘proq e’tibor bermoqda. Savollar: 1) Ta’limga investitsiyani NPV usulida baholang: o‘qish xarajatlari (kontrakt va muqobil daromad) va kelajakdagi qo‘shimcha daromadni hisobga oling (IV bob, 4.7-misol). 2) Spens modeli nuqtai nazaridan diplom va xalqaro sertifikatlar qanday signal vazifasini bajaradi? Universitetlar soni oshganda diplomning signal qiymati qanday o‘zgaradi? 3) Ta’lim ijobiy tashqi samaralarga egami? Davlat granti va ta’lim krediti qanday asoslanadi? 4) Universitetlar o‘rtasidagi raqobatni monopolistik raqobat modeli asosida tahlil qiling: differensiatsiya qanday shakllarda namoyon bo‘ladi?"
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "1) Onlayn platformada sharhlar, reytinglar, qaytarish kafolati va sotuvchi obro‘si sifat haqidagi axborotni oshkor qiladi (obro‘ va kafolat mexanizmlari). 2) Inson kapitali nuqtai nazarida diplom unumdorlikni oshiradi; signal nuqtai nazarida u faqat yuqori unumdor turni ajratadi. Ikkala talqinni Spens modeli bilan solishtiring. 3) Majburiy sug‘urta noxush tanlovni (faqat yuqori riskli kishilar sug‘urtalanishini) bartaraf etadi. 4) Qat’iy maosh rag‘bat bermaydi, foiz esa rag‘bat beradi, lekin agentni riskka duchor qiladi; murosa – aralash tizim. 5) Rahbar uchun natijaga bog‘liq mukofot (KPI), kuzatuv kengashi va shaffoflik; ishtirok va rag‘bat muvofiqligi shartlariga tayaning.",
+  "Simulyatsiyada birinchi bosqichda xaridorlar kutilgan sifatga qarab o‘rtacha narx taklif qiladi, shuning uchun yuqori sifatli sotuvchilar chiqib ketadi va bitimlar kamayadi (noxush tanlov). Kafolat bosqichida past sifatli sotuvchi uchun kafolat qimmat bo‘lgani sababli u ajratuvchi signal vazifasini bajaradi, bitimlar soni ortadi. Ekspertiza bosqichi axborot assimetriyasini kamaytiradi va narxlar sifatga mos tabaqalanadi. Bitimlar soni va o‘rtacha narxni uchala bosqichda solishtirib xulosa chiqaring.",
+  "Esse tuzilmasi: tanlangan mavzuda assimetrik axborot turini (yashirin xususiyat yoki yashirin harakat) aniqlang, tegishli modelni (Akerlof, Spens, Rotshild–Stiglits, prinsipal–agent) qo‘llang, mexanizm (signal, skrining, kafolat, kredit byurosi, franshiza) va yechim taklif qiling. Raqamli yoki real misol keltirish, natijada ijtimoiy samaradorlikka baho berish kerak.",
+  "Tahlil qilinayotgan bozor yoki tashkilotda qaysi tomon ko‘proq biladi, muammo bitimdan oldin (noxush tanlov) yoki keyin (axloqiy risk) yuzaga kelishini aniqlang. Hal qilish vositalarini (11.7-jadval): signal, skrining, kafolat, franshiza, bonus-malus, monitoring, kredit tarixi yoki rag‘batlantiruvchi shartnomani konkret misol bilan baholang. Takliflar asoslangan va amalga oshirilishi mumkin bo‘lishi kerak.",
+  "1) NPV: o‘qish davridagi kontrakt va yo‘qotilgan muqobil daromadni chiqim, o‘qishdan keyingi qo‘shimcha daromadni diskontlangan oqim sifatida hisoblang; NPV > 0 bo‘lsa, investitsiya oqlanadi. 2) Agar diplom ko‘pchilik uchun oson olinadigan bo‘lsa, u yuqori va past unumdorlarni ajratish qobiliyatini yo‘qotadi (birlashtiruvchi muvozanat, XI bob) va ish beruvchilar yangi signallarga (sertifikatlar, portfolio, staj) o‘tadi. 3) Ta’limning tashqi samaralari Pigu subsidiyasini (grantlarni) oqlaydi (X bob); kredit bozorlaridagi assimetrik axborot esa ta’lim kreditlarini davlat tomonidan qo‘llab-quvvatlashni asoslaydi. 4) Universitetlar differensiatsiyasi: yo‘nalish, sifat, brend, joylashuv, o‘qitish tili va shakli, xalqaro hamkorlik, narx."
  ]
 }

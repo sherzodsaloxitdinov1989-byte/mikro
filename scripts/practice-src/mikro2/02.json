@@ -1,35 +1,158 @@
 {
- "goal": "«Afzal ko‘rish, naflilik va tanlov» mavzusi bo'yicha topshiriqlarni bajarib, bilimlarni amalda qo'llash.",
+ "goal": "Afzal ko‘rish aksiomalari, befarqlik chiziqlari va chekli almashtirish normasi (MRS) tushunchalarini mustahkamlash hamda iste’molchining optimal tanlovini Lagranj usulida topish ko‘nikmasini shakllantirish.",
  "concepts": [
-  "afzal ko‘rish munosabati",
-  "to‘liqlik",
-  "refleksivlik",
-  "tranzitivlik",
-  "monotonlik",
-  "qavariqlik"
+  "afzal ko‘rish aksiomalari (to‘liqlik, refleksivlik, tranzitivlik)",
+  "befarqlik chizig‘i va befarqlik kartasi",
+  "chekli almashtirish normasi (MRS)",
+  "naflilik funksiyasi (ordinal va kardinal)",
+  "chekli naflilik va Gossen qonunlari",
+  "optimal tanlov va Lagranj ko‘paytuvchisi"
  ],
- "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 2-bob",
- "tasks": [],
+ "source": "Soy M., Saloxitdinov Sh. Mikroiqtisodiyot-2, 2-bob; I-ilova (A2), V-ilova (V.2)",
+ "tasks": [
+  {
+   "id": "mm2-p1",
+   "title": "Kobb–Duglas iste’molchisi va Gossenning ikkinchi qonuni",
+   "text": "Iste’molchining naflilik funksiyasi u = x₁^0,25 · x₂^0,75, narxlar p₁ = 5 va p₂ = 15 (ming so‘m), daromad m = 400 ming so‘m. Optimal to‘plamni toping va optimumda MU₁/p₁ = MU₂/p₂ tengligi bajarilishini tekshiring (MU₁/p₁ qiymatini yozing).",
+   "fields": [
+    {
+     "label": "Optimal x₁*",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "Optimal x₂*",
+     "value": 20,
+     "unit": "birlik"
+    },
+    {
+     "label": "MU₁/p₁ = MU₂/p₂",
+     "value": 0.05,
+     "unit": ""
+    }
+   ],
+   "solution": "Kobb–Duglas: x₁* = 0,25·400/5 = 20; x₂* = 0,75·400/15 = 20. MU₁ = 0,25·(x₂/x₁)^0,75 = 0,25; MU₂ = 0,75·(x₁/x₂)^0,25 = 0,75. MU₁/p₁ = 0,25/5 = 0,05; MU₂/p₂ = 0,75/15 = 0,05 — tenglik bajariladi.",
+   "formula": "x₁* = a·m/p₁, x₂* = (1−a)·m/p₂; MU₁/p₁ = MU₂/p₂",
+   "note": "Darslikdagi javob (20; 20) qayta hisoblash bilan tasdiqlandi."
+  },
+  {
+   "id": "mm2-p2",
+   "title": "Mukammal to‘ldiruvchilar: choy va qand",
+   "text": "Iste’molchi bir piyola choyni faqat ikki bo‘lak qand bilan ichadi, boshqa nisbatda qoniqish olmaydi: u = min{2x₁, x₂}, bunda x₁ — choy piyolalari, x₂ — qand bo‘laklari. Narxlar p₁ = 4 va p₂ = 2 (ming so‘m), daromad m = 80 ming so‘m. Optimal to‘plamni toping.",
+   "fields": [
+    {
+     "label": "Choy x₁*",
+     "value": 10,
+     "unit": "piyola"
+    },
+    {
+     "label": "Qand x₂*",
+     "value": 20,
+     "unit": "bo‘lak"
+    }
+   ],
+   "solution": "Optimumda sinish nuqtasi: 2x₁ = x₂. Byudjet: 4x₁ + 2·(2x₁) = 80 → 8x₁ = 80 → x₁* = 10, x₂* = 20.",
+   "formula": "2x₁ = x₂; p₁x₁ + p₂x₂ = m",
+   "note": "Mukammal to‘ldiruvchilarda ichki urinish sharti (MRS = p₁/p₂) emas, balki befarqlik chizig‘ining sinish nuqtasi ishlaydi."
+  },
+  {
+   "id": "mm2-p3",
+   "title": "Kvazichiziqli naflilik: daromad o‘zgarganda tanlov",
+   "text": "Iste’molchining naflilik funksiyasi u = 30·ln x₁ + x₂, narxlar p₁ = 5 va p₂ = 1, daromad m = 200. a) Optimal to‘plamni toping. b) Daromad m = 100 ga tushsa, optimal to‘plam qanday bo‘ladi?",
+   "fields": [
+    {
+     "label": "m = 200 da x₁*",
+     "value": 6,
+     "unit": "birlik"
+    },
+    {
+     "label": "m = 200 da x₂*",
+     "value": 170,
+     "unit": "birlik"
+    },
+    {
+     "label": "m = 100 da x₁*",
+     "value": 6,
+     "unit": "birlik"
+    },
+    {
+     "label": "m = 100 da x₂*",
+     "value": 70,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "MRS: MU₁/MU₂ = (30/x₁)/1 = p₁/p₂ = 5 → x₁* = 6. Bu x₁ ga 5·6 = 30 sarflanishini bildiradi. a) x₂* = 200 − 30 = 170. b) x₁* = 6 o‘zgarmaydi (m ≥ 30 bo‘lgani uchun ichki yechim saqlanadi), x₂* = 100 − 30 = 70.",
+   "formula": "30/x₁ = p₁/p₂; x₂ = m − p₁x₁",
+   "note": "Kvazichiziqli funksiyada daromad samarasi x₁ bo‘yicha nolga teng: barcha daromad o‘zgarishi x₂ ga tushadi."
+  },
+  {
+   "id": "mm2-p4",
+   "title": "Daromad solig‘i va miqdoriy soliqni solishtirish",
+   "text": "Iste’molchining naflilik funksiyasi u = √(x₁·x₂), narxlar p₁ = p₂ = 1, daromad m = 16. a) x₁ ga birlik boshiga t = 1 miqdoriy soliq joriy etildi (iste’molchi uchun p₁ = 2 bo‘ladi). Davlat tushumini va iste’molchi naflilik darajasini toping. b) Davlat xuddi shu tushumni daromad solig‘i orqali olsa, iste’molchi naflilik darajasi qancha bo‘ladi? Qaysi soliq iste’molchi uchun og‘irroq?",
+   "fields": [
+    {
+     "label": "Davlat tushumi",
+     "value": 4,
+     "unit": ""
+    },
+    {
+     "label": "Naflilik (miqdoriy soliq)",
+     "value": 5.66,
+     "unit": ""
+    },
+    {
+     "label": "Naflilik (daromad solig‘i)",
+     "value": 6,
+     "unit": ""
+    }
+   ],
+   "solution": "a) p₁ = 2: x₁ = m/(2p₁) = 16/4 = 4; x₂ = 16/(2·1) = 8. Tushum = t·x₁ = 1·4 = 4. u = √(4·8) = √32 ≈ 5,66. b) Daromad solig‘i 4: m = 12, p₁ = p₂ = 1: x₁ = x₂ = 6, u = 6. 6 > 5,66, demak miqdoriy soliq og‘irroq.",
+   "formula": "x₁ = m/(2p₁), x₂ = m/(2p₂); T = t·x₁",
+   "note": "Darslikdagi javob (tushum 4; u≈5,66; daromad solig‘ida u = 6) qayta hisoblash bilan tasdiqlandi. Miqdoriy soliq narxlar nisbatini buzadi, daromad solig‘i esa buzmaydi."
+  },
+  {
+   "id": "mm2-p5",
+   "title": "Naqd pul yoki oziq-ovqat taloni",
+   "text": "Hukumat iste’molchiga yo 200 ming so‘m naqd pul, yo 200 ming so‘mlik oziq-ovqat taloni (faqat oziq-ovqatga sarflanadi) bermoqchi. Iste’molchining naflilik funksiyasi u = x₁^0,2 · x₂^0,8 (x₁ — oziq-ovqat, x₂ — boshqa tovarlar), dastlabki daromadi m = 500 ming so‘m, narxlar 1 ga teng. Har ikki holda optimal to‘plam va naflilikni toping; qaysi shakl afzalligini aniqlang.",
+   "fields": [
+    {
+     "label": "Naqd pul: x₁*",
+     "value": 140,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Naqd pul: x₂*",
+     "value": 560,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Naqd pul: naflilik",
+     "value": 424.4,
+     "unit": ""
+    },
+    {
+     "label": "Talon: naflilik",
+     "value": 416.3,
+     "unit": ""
+    }
+   ],
+   "solution": "Naqd pul: m = 700, x₁ = 0,2·700 = 140, x₂ = 0,8·700 = 560; u = 140^0,2·560^0,8 ≈ 424,4. Talon: talonsiz optimum x₁ = 140 < 200, ya’ni talon cheklov bo‘ladi (burchak yechim): x₁ = 200, x₂ = 500; u = 200^0,2·500^0,8 ≈ 416,3. 424,4 > 416,3, demak naqd pul afzal.",
+   "formula": "x₁ = 0,2m, x₂ = 0,8m; talon: x₁ ≥ 200",
+   "note": "Darslikda ≈424 va ≈416 deb yaxlitlangan; qayta hisoblash 424,4 va 416,3 beradi. Talon faqat talonsiz tanlov talon miqdoridan kichik bo‘lganda cheklaydi."
+  }
+ ],
  "open": [
-  "Esse/munozara: Inson ratsionalmi? Neoklassik va xulq-atvor iqtisodiyoti qarashlarini solishtiring.",
-  "Esse/munozara: “Turtki” siyosati: erkin tanlovga hurmatmi yoki yashirin manipulyatsiyami?",
-  "Esse/munozara: Naqd pul yoki natural yordam: ijtimoiy himoya tizimini qanday loyihalash kerak?",
-  "Esse/munozara: Reklama afzal ko‘rishlarni o‘zgartiradimi yoki faqat axborot beradimi?",
-  "Esse/munozara: Baxt iqtisodiyoti: daromad va qoniqish o‘rtasidagi bog‘liqlik (Isterlin paradoksi).",
-  "Mustaqil ish: (MT-6) Naflilik va chekli naflilik, chekli naflilikning kamayish qonuni. O‘zingiz kundalik iste’mol qiladigan tovar (choy, non, mobil internet) uchun",
-  "Mustaqil ish: 4-jadvalga o‘xshash umumiy va chekli naflilik jadvalini tuzing (sub’ektiv baholar asosida). Gossenning birinchi va ikkinchi qonunlarini o‘z tanlovingiz misolida tahlil qiling. 2. u=x1 0,4 x2 0,6, p1=20, p2=30, m=600 bo‘lsin. Optimal to‘plamni Lagranj usulida toping, MRS ni optimum nuqtada hisoblang va natijani grafikda tasvirlang.",
-  "Mustaqil ish: u=min{2 x1, x2} uchun talab funksiyalarini keltirib chiqaring. p1=4, p2=2, m=80 bo‘lganda optimal to‘plamni toping.",
-  "Mustaqil ish: Guruhingizdagi 10 nafar talaba o‘rtasida “mulkchilik samarasi” bo‘yicha kichik tajriba o‘tkazing (masalan, ruchka yoki daftar bilan) va natijalarni neoklassik nazariya bilan solishtiring."
+  "Kundalik hayotingizda tranzitivlik buzilgan holatlarni eslay olasizmi? Ular nima bilan izohlanadi? “Pul nasosi” argumenti qaysi aksiomaning zarurligini ko‘rsatadi?",
+  "Choy va qand, chap va o‘ng poyabzal, ikki brend benzin uchun befarqlik chiziqlarini chizing. Nima uchun MRS ning absolyut qiymati kamayib boradi va bu qaysi farazdan kelib chiqadi?",
+  "Naflilikni o‘lchash mumkinmi? Ordinal yondashuv nima uchun yetarli? u = x₁x₂ funksiyasining uchta monoton almashtirishini yozing.",
+  "“Mulkchilik samarasi” tajribasi: guruhning yarmiga ramziy buyum (masalan, universitet logotipli ruchka) bering. Egalardan uni sotish uchun minimal narxni, buyumi yo‘qlardan sotib olish uchun maksimal narxni yozma so‘rang. O‘rtacha qiymatlarni solishtiring va natijani standart nazariya hamda Kaneman–Tayler tajribalari bilan muhokama qiling.",
+  "“Turtki” (nudge) siyosatining O‘zbekistondagi qo‘llanilishiga misol keltiring (masalan, pensiya jamg‘armasi, organ donorligi, soliq to‘lovlari). Esse: “Turtki” siyosati — erkin tanlovga hurmatmi yoki yashirin manipulyatsiyami?"
  ],
  "refs": [
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  ""
+  "Misol: bir xil narx-sifatda uchta variantni juft-juft taqqoslashda A≻B, B≻C, lekin C≻A (masalan, kontekst yoki mezon o‘zgarishi tufayli). Izoh: tranzitivlik buzilsa, “eng yaxshi” tanlov bo‘lmaydi. “Pul nasosi”: C ga ega odam A ni olish uchun to‘lab almashtiradi, keyin B, so‘ng yana C ga o‘tadi va har safar pul yo‘qotadi — bu tranzitivlik aksiomasi zarurligini ko‘rsatadi.",
+  "Choy–qand va chap–o‘ng poyabzal — mukammal to‘ldiruvchilar (L shaklidagi chiziqlar); ikki brend benzin — mukammal o‘rinbosarlar (to‘g‘ri chiziqlar, MRS doimiy). Oddiy tovarlar uchun chiziqlar manfiy og‘ishli, koordinata boshiga qavariq. |MRS| qavariqlik farazi (iste’molchi xilma-xillikni, o‘rtacha to‘plamni afzal ko‘radi) tufayli kamayadi: x₁ ko‘p bo‘lgan sari uning har bir qo‘shimcha birligi uchun kamroq x₂ dan voz kechiladi.",
+  "Ordinal yondashuvda faqat to‘plamlar tartibi muhim, naflilik sonlari o‘zi ma’noga ega emas, shuning uchun har qanday monoton o‘suvchi almashtirish bir xil afzal ko‘rishlarni ifodalaydi. Misollar: v = ln x₁ + ln x₂, v = (x₁x₂)², v = 2x₁x₂ + 7 (v = −x₁x₂ esa monoton emas, tartibni teskari qiladi). Tanlov faqat MRS ga bog‘liq bo‘lgani uchun ordinal yondashuv yetarli.",
+  "Kutilgan natija: egalar talab qiladigan sotish narxi (WTA) xaridorlarning to‘lashga tayyorligidan (WTP) odatda ancha yuqori bo‘ladi. Standart nazariyada daromad samarasi kichik bo‘lganda WTA ≈ WTP kutiladi, shuning uchun farq “mulkchilik samarasi”ni (yo‘qotishdan ehtiyot bo‘lish) ko‘rsatadi. Muhokamada krujka bilan o‘tkazilgan Kaneman–Tayler tajribasi va 10 talaba tajribasi natijalarini taqqoslang.",
+  "Misollar: pensiya jamg‘armasiga avtomatik qo‘shilish (standart variant), organ donorligiga rozilik berish tartibi, soliq to‘lovlari bo‘yicha eslatma xabarlari. Esse reja: turtki erkin tanlovni cheklamaydi, standart variantni o‘zgartirib samaradorlikni oshiradi; lekin axborot assimetriyasi va yashirin ta’sir tufayli manipulyatsiya xavfi bor. Ikkala tomonni asoslab, shaffoflik va chiqib ketish imkoniyatini muhokama qiling."
  ]
 }

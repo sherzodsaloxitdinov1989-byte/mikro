@@ -1,0 +1,437 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Afzal ko‘rish munosabatlari va aksiomalar",
+   "sub": "2.1. Iste’molchining afzal ko‘rishlari va ularning aksiomalari",
+   "bullets": [
+    "X ≻ Y: X qat’iy afzal; X ∼ Y: befarq; X ≽ Y: X kamida Y kabi yaxshi",
+    "Asosiy (birlamchi) munosabat sifatida kuchsiz afzal ko‘rish ≽ olinadi",
+    "1-aksioma (to‘liqlik): istalgan ikki to‘plam taqqoslanadi",
+    "2-aksioma (refleksivlik): X ≽ X",
+    "3-aksioma (tranzitivlik): X ≽ Y va Y ≽ Z bo‘lsa, X ≽ Z"
+   ],
+   "note": "Tranzitivlik buzilsa, “eng yaxshi” to‘plam mavjud bo‘lmasligi mumkin"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol 2.1. “Pul nasosi”",
+   "sub": "2.1. Iste’molchining afzal ko‘rishlari va ularning aksiomalari",
+   "steps": [
+    "Alisher choyni kofedan, kofeni sharbatdan, sharbatni choydan afzal ko‘radi",
+    "Qo‘lida sharbat bor: +1 000 so‘m evaziga kofega almashtiradi",
+    "Yana +1 000 so‘m evaziga kofeni choyga almashtiradi",
+    "Yana +1 000 so‘m evaziga choyni sharbatga almashtiradi",
+    "Natija: yana sharbat bilan qoldi, lekin 3 000 so‘m kambag‘allashdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Befarqlik chizig‘i va befarqlik kartasi",
+   "sub": "2.2. Befarqlik chiziqlari",
+   "bullets": [
+    "Befarqlik chizig‘i – iste’molchiga bir xil qoniqish beruvchi barcha to‘plamlar o‘rni",
+    "Har bir to‘plam orqali bitta befarqlik chizig‘i o‘tadi",
+    "Barcha chiziqlar majmui – befarqlik kartasi (“qoniqish relyefi”)",
+    "Befarqlik chiziqlari kesishmaydi: isbot teskarisidan, tranzitivlik va monotonlikka tayanadi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Afzal ko‘rishlarning xususiy hollari",
+   "sub": "2.2. Befarqlik chiziqlari",
+   "head": [
+    "Tovarlar turi",
+    "Befarqlik chizig‘i",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Mukammal o‘rinbosarlar",
+     "Doimiy og‘ishli to‘g‘ri chiziq",
+     "Ko‘k va qizil qalam"
+    ],
+    [
+     "Mukammal to‘ldiruvchilar",
+     "L shaklidagi chiziq",
+     "Chap va o‘ng poyabzal"
+    ],
+    [
+     "Antine’mat",
+     "Musbat og‘ishli chiziq",
+     "Shovqin, ifloslangan havo"
+    ],
+    [
+     "Neytral ne’mat",
+     "Vertikal chiziq",
+     "Iste’molchi qiziqmaydigan tovar"
+    ],
+    [
+     "To‘yinish (bliss point)",
+     "Nuqta atrofida halqalar",
+     "Kuniga 2 piyola kofe"
+    ]
+   ],
+   "note": "Diskret tovarlarda befarqlik “chiziqlari” alohida nuqtalardan iborat"
+  },
+  {
+   "type": "bullets",
+   "title": "“Yaxshi xulq-atvorli” afzal ko‘rishlar",
+   "sub": "2.3. “Yaxshi xulq-atvorli” afzal ko‘rishlar va chekli almashtirish normasi",
+   "bullets": [
+    "Monotonlik: ko‘proq – yaxshiroq; befarqlik chiziqlari manfiy og‘ishga ega",
+    "Qavariqlik: o‘rtacha to‘plam chekka holatlardan yaxshiroq (xilma-xillikni afzal ko‘rish)",
+    "MRS – qoniqish saqlanganda 1-tovarning qo‘shimcha birligi uchun voz kechiladigan 2-tovar miqdori",
+    "MRS – befarqlik chizig‘ining og‘ishi; |MRS| – to‘lashga tayyorlik darajasi",
+    "Qat’iy qavariq afzal ko‘rishlarda |MRS| kamayib boradi"
+   ],
+   "note": "Suv kam bo‘lsa, bir stakan juda qimmatli; ko‘p bo‘lsa – deyarli qimmatsiz"
+  },
+  {
+   "type": "figure",
+   "title": "Chekli almashtirish normasi",
+   "sub": "2.3. “Yaxshi xulq-atvorli” afzal ko‘rishlar va chekli almashtirish normasi",
+   "img": "image17.png",
+   "caption": "2.5-rasm. Chekli almashtirish normasi va uning kamayishi"
+  },
+  {
+   "type": "compare",
+   "title": "Kardinal va ordinal naflilik",
+   "sub": "2.4. Naflilik funksiyasi",
+   "left": {
+    "head": "Kardinal yondashuv",
+    "items": [
+     "Jevons, Menger, Valras",
+     "Naflilik – o‘lchanadigan miqdor (“util”)",
+     "Bevosita o‘lchash usuli topilmadi"
+    ]
+   },
+   "right": {
+    "head": "Ordinal yondashuv",
+    "items": [
+     "Pareto, Xiks, Allen",
+     "Faqat to‘plamlar tartibi muhim",
+     "u(X)=10, u(Y)=5: “ikki baravar yaxshi” degani emas",
+     "Monoton almashtirish bir xil afzal ko‘rishni beradi"
+    ]
+   }
+  },
+  {
+   "type": "table",
+   "title": "Asosiy naflilik funksiyalari",
+   "sub": "2.4. Naflilik funksiyasi",
+   "head": [
+    "Afzal ko‘rish turi",
+    "Naflilik funksiyasi",
+    "MRS"
+   ],
+   "rows": [
+    [
+     "Mukammal o‘rinbosarlar",
+     "u = a·x₁ + b·x₂",
+     "−a/b"
+    ],
+    [
+     "Mukammal to‘ldiruvchilar",
+     "u = min{a·x₁, b·x₂}",
+     "aniqlanmagan"
+    ],
+    [
+     "Kobb–Duglas",
+     "u = x₁^c · x₂^d",
+     "−(c·x₂)/(d·x₁)"
+    ],
+    [
+     "Kvazichiziqli",
+     "u = v(x₁) + x₂",
+     "−v′(x₁)"
+    ]
+   ],
+   "note": "Monoton almashtirish: u = x₁x₂, ln x₁ + ln x₂ va (x₁x₂)² bir xil kartani beradi"
+  },
+  {
+   "type": "formula",
+   "title": "Chekli naflilik va Gossen qonunlari",
+   "sub": "2.5. Chekli naflilik va chekli naflilikning kamayish qonuni",
+   "items": [
+    {
+     "name": "Chekli naflilik",
+     "formula": "MU₁ = Δu / Δx₁",
+     "note": "boshqa tovarlar o‘zgarmaganda"
+    },
+    {
+     "name": "MRS va chekli naflilik",
+     "formula": "MRS₁₂ = −MU₁ / MU₂",
+     "note": "befarqlik chizig‘i bo‘ylab du = MU₁dx₁ + MU₂dx₂ = 0"
+    },
+    {
+     "name": "Gossenning 1-qonuni",
+     "formula": "MU ↓ iste’mol ↑",
+     "note": "har keyingi birlikdan qo‘shimcha naflilik kamayadi"
+    },
+    {
+     "name": "Gossenning 2-qonuni",
+     "formula": "MU₁/p₁ = MU₂/p₂ = … = MUₙ/pₙ",
+     "note": "oxirgi so‘mdan olinadigan naflilik tenglashadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Umumiy va chekli naflilik (somsa misoli)",
+   "sub": "2.5. Chekli naflilik va chekli naflilikning kamayish qonuni",
+   "img": "image20.png",
+   "caption": "2.8-rasm. Umumiy va chekli naflilik"
+  },
+  {
+   "type": "formula",
+   "title": "Optimal tanlov: shart va yechim",
+   "sub": "2.6. Iste’molchining optimal tanlovi",
+   "items": [
+    {
+     "name": "Masala",
+     "formula": "max u(x₁, x₂)  shart: p₁x₁ + p₂x₂ = m",
+     "note": "byudjet to‘plami ichida eng afzal to‘plam"
+    },
+    {
+     "name": "Ichki optimum (urinish sharti)",
+     "formula": "|MRS₁₂| = MU₁/MU₂ = p₁/p₂",
+     "note": "MRS nisbiy narxga teng"
+    },
+    {
+     "name": "Lagranj funksiyasi",
+     "formula": "L = u(x₁, x₂) − λ(p₁x₁ + p₂x₂ − m)",
+     "note": "∂L/∂x₁ = 0, ∂L/∂x₂ = 0, ∂L/∂λ = 0; λ = MU₁/p₁"
+    },
+    {
+     "name": "Kobb–Duglas talabi",
+     "formula": "x₁* = c·m/p₁,  x₂* = (1−c)·m/p₂",
+     "note": "daromadning doimiy ulushi sarflanadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Iste’molchining optimal tanlovi",
+   "sub": "2.6. Iste’molchining optimal tanlovi",
+   "img": "image21.png",
+   "caption": "2.9-rasm. Iste’molchining optimal tanlovi"
+  },
+  {
+   "type": "table",
+   "title": "Amaliy misollar 2.3–2.5",
+   "sub": "2.6. Iste’molchining optimal tanlovi",
+   "head": [
+    "Misol",
+    "Berilgan",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "Kobb–Duglas",
+     "c=0,3; m=5 mln; p₁=50 ming",
+     "x₁* = 30; sarf 1,5 mln so‘m"
+    ],
+    [
+     "Kvazichiziqli",
+     "u=20·ln x₁+x₂; p₁=4; p₂=1; m=100",
+     "x₁*=5; x₂*=80"
+    ],
+    [
+     "Kvazichiziqli (m=15)",
+     "x₂ manfiy chiqadi",
+     "burchak: x₁=3,75; x₂=0"
+    ],
+    [
+     "Miqdoriy soliq",
+     "u=x₁x₂; p=1; m=9; t=0,8",
+     "x₁=2,5; x₂=4,5; u=11,25; R=2"
+    ],
+    [
+     "Daromad solig‘i",
+     "m′=9−2=7",
+     "x₁=x₂=3,5; u=12,25"
+    ]
+   ],
+   "note": "Bir xil tushumda daromad solig‘i iste’molchiga miqdoriy soliqdan og‘ir emas"
+  },
+  {
+   "type": "bullets",
+   "title": "Xulq-atvor iqtisodiyotining asosiy samaralari",
+   "sub": "2.7. Afzal ko‘rishning xulq-atvor jihatlari",
+   "bullets": [
+    "Mulkchilik samarasi: krujka egalari 7 dollar so‘radi, xaridorlar 3 dollardan kam to‘lashga tayyor",
+    "Freyming: “90 foiz yog‘siz” go‘sht “10 foiz yog‘li”dan ko‘proq sotiladi",
+    "Standart variant: avtomatik qo‘shilish ishtirokni oshiradi – “turtki” (nudge) siyosati",
+    "Variantlar ko‘pligi paradoksi: 24 xil murabbo 6 xilga qaraganda kamroq sotilgan",
+    "Nobel: D. Kaneman (2002), R. Tayler (2017)"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Neoklassik nazariya va xulq-atvor iqtisodiyoti",
+   "sub": "2.7. Afzal ko‘rishning xulq-atvor jihatlari",
+   "left": {
+    "head": "Neoklassik nazariya",
+    "items": [
+     "Afzal ko‘rishlar barqaror",
+     "Ratsionallik to‘liq",
+     "Axborotni cheklanmagan qayta ishlash",
+     "Izchil diskontlash",
+     "Siyosat: narx va daromad vositalari"
+    ]
+   },
+   "right": {
+    "head": "Xulq-atvor iqtisodiyoti",
+    "items": [
+     "Kontekst va taqdimotga bog‘liq",
+     "Cheklangan ratsionallik (Saymon)",
+     "Evristikalar, kognitiv xatolar",
+     "“Hozirgi kunga moyillik”",
+     "Siyosat: narx + “turtki”lar"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Naqd va natural ijtimoiy yordam",
+   "sub": "2.8. Tanlov nazariyasining qo‘llanilishi: naqd va natural ijtimoiy yordam",
+   "img": "image24.png",
+   "caption": "2.12-rasm. Naqd va natural ijtimoiy yordamning qiyosi"
+  },
+  {
+   "type": "bullets",
+   "title": "Naqd yordam va natural yordamning qiyosi",
+   "sub": "2.8. Tanlov nazariyasining qo‘llanilishi: naqd va natural ijtimoiy yordam",
+   "bullets": [
+    "Naqd nafaqa S: byudjet chizig‘i parallel siljiydi (p₁x₁ + p₂x₂ = m + S)",
+    "Natural yordam: oila uni sota olmaydi, byudjet chizig‘i “sinadi”",
+    "Naqd pul iste’molchi uchun kamida natural yordamdek yaxshi",
+    "Natural yordam sababi: jamiyat aniq tovarlar iste’molini (ovqat, ta’lim, sog‘liq) qadrlaydi",
+    "Natural yordam – “o‘z-o‘zini tanlash” mexanizmi vazifasini ham bajaradi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Yechilgan masalalar (1, 2, 4, 5)",
+   "sub": "2.9. Yechib ko‘rsatilgan masalalar",
+   "head": [
+    "Masala",
+    "Berilgan",
+    "Natija"
+   ],
+   "rows": [
+    [
+     "1. Kvazichiziqli",
+     "u=x₁^0,5+x₂; p=(2;1); m=10",
+     "x₁*=0,0625; x₂*=9,875"
+    ],
+    [
+     "2. To‘ldiruvchilar",
+     "choy 1000, qand 200; m=7000",
+     "5 piyola, 10 bo‘lak"
+    ],
+    [
+     "4. O‘rinbosarlar",
+     "mol 90, tovuq 40 ming; m=720",
+     "x₁*=0; tovuq 18 kg"
+    ],
+    [
+     "5. CES",
+     "v=x₁^0,5+x₂^0,5; p=(1;4); m=100",
+     "x₁*=80; x₂*=5"
+    ]
+   ],
+   "note": "1-masalada daromad 20 ga oshsa: x₁* o‘zgarmaydi, x₂*=19,875"
+  },
+  {
+   "type": "steps",
+   "title": "3-masala: Gossenning 2-qonunini tekshirish",
+   "sub": "2.9. Yechib ko‘rsatilgan masalalar",
+   "steps": [
+    "Berilgan: u=x₁^0,25·x₂^0,75; p₁=5; p₂=15; m=400",
+    "Talab: x₁* = 0,25·400/5 = 20; x₂* = 0,75·400/15 = 20",
+    "MU₁ = 0,25·(x₂/x₁)^0,75 = 0,25; MU₂ = 0,75·(x₁/x₂)^0,25 = 0,75",
+    "MU₁/p₁ = 0,25/5 = 0,05; MU₂/p₂ = 0,75/15 = 0,05",
+    "Tenglik bajariladi – tanlov optimal"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Afzal ko‘rishlarni o‘lchash usullari",
+   "sub": "2.10. Afzal ko‘rishlarni amaliyotda o‘lchash",
+   "head": [
+    "Usul",
+    "Mazmuni",
+    "Qo‘llanish sohasi"
+   ],
+   "rows": [
+    [
+     "Aniqlangan afzal ko‘rish",
+     "Haqiqiy xaridlar asosida",
+     "Talab funksiyalarini baholash"
+    ],
+    [
+     "Gedonik narxlar",
+     "Narxni xususiyatlarga ajratish",
+     "Ko‘chmas mulk, avtomobillar"
+    ],
+    [
+     "Kontingent baholash",
+     "So‘rov: “qancha to‘laysiz?”",
+     "Ekologik loyihalar"
+    ],
+    [
+     "Konjoint tahlil",
+     "Variantlar orasidan tanlov",
+     "Yangi mahsulot dizayni"
+    ],
+    [
+     "Tajribalar",
+     "Real pul bilan nazorat",
+     "Xulq-atvor iqtisodiyoti"
+    ]
+   ],
+   "note": "Gedonik va konjoint usullari ko‘p ma’lumot va murakkab dizayn talab qiladi"
+  },
+  {
+   "type": "formula",
+   "title": "Diskret tanlov modeli (logit) va misol 2.6",
+   "sub": "2.10. Afzal ko‘rishlarni amaliyotda o‘lchash",
+   "items": [
+    {
+     "name": "Variant nafliligi",
+     "formula": "Uⱼ = Vⱼ + εⱼ",
+     "note": "Vⱼ – narx, vaqt, sifat funksiyasi; εⱼ – tasodifiy qism"
+    },
+    {
+     "name": "Tanlash ehtimoli",
+     "formula": "Pⱼ = e^Vⱼ / ∑ₖ e^Vₖ",
+     "note": "D. Makfadden (Nobel, 2000); BART metrosi bashorati"
+    },
+    {
+     "name": "Misol: Vⱼ = −0,5·narx − 0,1·vaqt",
+     "formula": "avtobus 18,2%; taksi 0,2%; velosiped 81,6%",
+     "note": "V: −4; −8,7; −2,5"
+    },
+    {
+     "name": "Vaqtning qiymati",
+     "formula": "MRS = 0,1/0,5 = 0,2 ming so‘m/daq.",
+     "note": "soatiga 12 ming so‘m"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Afzal ko‘rishlar to‘liqlik, refleksivlik va tranzitivlik aksiomalariga bo‘ysunadi",
+    "Befarqlik chiziqlari kesishmaydi; MRS – chiziq og‘ishi, qavariq holda kamayadi",
+    "Naflilik funksiyasi ordinal: monoton almashtirish bir xil afzal ko‘rishni beradi",
+    "Optimumda |MRS| = p₁/p₂ (MU₁/p₁ = MU₂/p₂); burchak va sinish nuqtasi yechimlari ham bor",
+    "Xulq-atvor iqtisodiyoti standart nazariyadan chetlanishlarni o‘rganib, uni to‘ldiradi"
+   ]
+  }
+ ]
+}
