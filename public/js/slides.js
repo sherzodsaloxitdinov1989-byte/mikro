@@ -300,6 +300,12 @@ export async function openSlidesPdf(meta, onProgress) {
   return lib.getDocument({ data: data.slice() }).promise;
 }
 
+/** O'qituvchi tanlagan PDF faylni ochadi (video studiya uchun). */
+export async function openPdfFile(file) {
+  const lib = await loadPdfJs();
+  return lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) }).promise;
+}
+
 /** PDF fayldagi sahifalar sonini aniqlaydi (yuklashdan oldin, o'qituvchi uchun). */
 export async function countPdfPages(file) {
   try {

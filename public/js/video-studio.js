@@ -2,7 +2,7 @@
 // va mavzuning video darslariga joylanadi. Serverda video ishlanmaydi: hammasi o'qituvchi brauzerida bajariladi.
 import { h, modal, toast } from "./ui.js";
 import { api } from "./api.js";
-import { openSlidesPdf } from "./slides.js";
+import { openSlidesPdf, openPdfFile } from "./slides.js";
 import { uploadVideo, invalidateVideos } from "./media.js";
 
 const W = 1280;
@@ -71,23 +71,37 @@ export async function openVideoStudio(topic, onCreated) {
   try {
     [meta, info] = await Promise.all([api.get(`slides/${topic.id}`), api.get("tts").catch(() => ({ enabled: false, voices: [] }))]);
     if (!meta && topic.deck) meta = { kind: "pdf", src: topic.deck, topicId: topic.id, pages: topic.deckPages };
-    if (!meta) {
-      body.replaceChildren(h("div", { class: "alert alert-warn" }, "Bu mavzuga hali taqdimot yuklanmagan. Avval “Taqdimotlar” bo'limida PDF taqdimot yuklang — video shu slaydlar asosida yaratiladi."));
-      return;
-    }
-    if (meta.kind === "link") {
-      body.replaceChildren(h("div", { class: "alert alert-warn" }, "Bu mavzuning taqdimoti havola ko'rinishida. Video yaratish uchun PDF taqdimot kerak."));
-      return;
-    }
+    if (meta?.kind === "link") meta = null; // havola ko'rinishidagi taqdimotdan video yaratib bo'lmaydi
   } catch (e) {
     body.replaceChildren(h("div", { class: "alert alert-warn" }, e.message || "Taqdimotni olib bo'lmadi"));
     return;
   }
 
+  // Manba: mavzuning o'z taqdimoti yoki o'qituvchi yuklagan tayyor PDF taqdimot
+  const sourceLabel = { name: "" };
+  const pickSource = () =>
+    new Promise((resolve) => {
+      const file = h("input", { type: "file", accept: ".pdf,application/pdf", class: "hidden", onchange: () => file.files[0] && resolve({ file: file.files[0] }) });
+      body.replaceChildren(
+        h("p", {}, "Video qaysi taqdimot asosida yaratilsin?"),
+        meta && h("button", { class: "btn", onclick: () => resolve({ meta }) }, `📑 Mavzu taqdimotidan foydalanish${meta.pages ? ` (${meta.pages} slayd)` : ""}`),
+        h("div", {}, h("button", { class: "btn ghost", onclick: () => file.click() }, "📤 Tayyor PDF taqdimotni yuklash"), file),
+        h("p", { class: "small muted" }, "PDF — 40 MB gacha, 60 sahifagacha (ortig'i qirqiladi). Fayl serverga yuklanmaydi: faqat brauzeringizda o'qiladi va video yaratish uchun ishlatiladi."),
+        !meta && h("div", { class: "alert alert-info small" }, "Bu mavzuga hali taqdimot biriktirilmagan — o'zingizning PDF taqdimotingizni yuklashingiz mumkin."));
+    });
+  const src = await pickSource();
+  if (closed) return;
+  if (src.file && src.file.size > 40 * 1024 * 1024) {
+    body.replaceChildren(h("div", { class: "alert alert-warn" }, "PDF juda katta (40 MB gacha). Faylni siqib, qayta urinib ko'ring."));
+    return;
+  }
+  body.replaceChildren(h("p", { class: "muted" }, "Taqdimot o'qilmoqda…"));
+  sourceLabel.name = src.file ? src.file.name.replace(/\.pdf$/i, "") : "";
+
   let pdf;
   const slides = [];
   try {
-    pdf = await openSlidesPdf(meta);
+    pdf = src.file ? await openPdfFile(src.file) : await openSlidesPdf(src.meta);
     for (let i = 1; i <= Math.min(pdf.numPages, 60); i++) {
       const page = await pdf.getPage(i);
       const vp = page.getViewport({ scale: 1 });
@@ -108,7 +122,7 @@ export async function openVideoStudio(topic, onCreated) {
   }
 
   const ttsOn = Boolean(info.enabled);
-  const title = h("input", { type: "text", maxlength: 150, value: `${topic.title} — video dars` });
+  const title = h("input", { type: "text", maxlength: 150, value: `${sourceLabel.name || topic.title} — video dars` });
   const voice = h("select", {}, (info.voices || []).map((v) => h("option", { value: v.id, selected: v.id === info.defaultVoice }, v.label)));
   const subs = h("input", { type: "checkbox", checked: true });
   const status = h("p", { class: "small muted" }, `${slides.length} ta slayd topildi. “AI bilan ssenariy yozish” tugmasi har bir slayd uchun diktor matnini tayyorlaydi; matnlarni tahrirlashingiz mumkin.`);
