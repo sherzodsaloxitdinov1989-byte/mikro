@@ -12,6 +12,7 @@ import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
 import * as assignment from "./pages/assignment.js";
 import * as tasks from "./pages/tasks.js";
+import * as meets from "./pages/meets.js";
 import * as subject from "./pages/subject.js";
 import * as rating from "./pages/rating.js";
 import * as teacher from "./pages/teacher.js";
@@ -48,6 +49,7 @@ const routes = [
   [/^\/self-study$/, selfStudy.render, { auth: true, student: "#/teacher/self-study" }],
   [/^\/rating$/, rating.render, { auth: true, student: "#/teacher/rating" }],
   [/^\/fan(?:\/([\w-]+))?$/, subject.render, { auth: true }],
+  [/^\/meets$/, meets.render, { auth: true, student: "#/teacher/meets" }],
   [/^\/tasks$/, tasks.render, { auth: true, student: "#/teacher/tasks" }],
   [/^\/tasks\/([\w-]+)$/, tasks.renderTask, { auth: true, student: "#/teacher/tasks" }],
   [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
@@ -71,6 +73,7 @@ const NAV = [
   ["#/media", "Mediateka", "🎬"],
   ["#/assignment", "Topshiriq", "📝"],
   ["#/tasks", "Vazifalar", "🗂️"],
+  ["#/meets", "Jonli dars", "📹"],
   ["#/rating", "Reyting", "🏆"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
   UPDATES.length > 0 && ["#/updates", "Dolzarb", "🔄"],
@@ -87,7 +90,7 @@ function renderNav() {
   const isTeacher = user?.role === "teacher";
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
-  const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/self-study", "#/rating"];
+  const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
   let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
   const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
   const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi
@@ -95,7 +98,7 @@ function renderNav() {
     // Asosiy fanning 3-semestr topshirig'i, reytingi va dolzarb ma'lumotlari unga ko'rinmaydi; fan sahifasi (semestr, guruh reytingi) qo'shiladi
     items = items.filter(([href]) => !["#/assignment", "#/rating", "#/updates"].includes(href));
     items.unshift(["#/fan", ownSubject.title, ownSubject.icon]);
-    if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"]];
+    if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"], ["#/meets", "Jonli dars", "📹"]];
   } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
   // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
   const foot = document.querySelector(".footer-inner");

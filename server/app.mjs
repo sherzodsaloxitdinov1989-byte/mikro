@@ -14,6 +14,7 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
+import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
@@ -1277,6 +1278,53 @@ async function adminTasks(req) {
 }
 
 const taskCtx = () => ({ formKeys: (COURSE.studyForms || []).map((f) => f.key), groups: COURSE.groups || [] });
+
+// ---------- Jonli darslar (Google Meet) ----------
+
+const meetKey = (id) => `meet/${id}`;
+const MEET_ID = /^[\w-]{6,64}$/;
+
+async function myMeets(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") return json({ meets: [], now: new Date().toISOString() });
+  const aud = { form: formKeyOf(user), group: user.group || "" };
+  const now = new Date();
+  const from = now.getTime() - 7 * 86_400_000;
+  const meets = (await getMany("meet/"))
+    .filter((m) => meetLib.forStudent(m, aud) && meetLib.endsAt(m).getTime() >= from)
+    .sort((a, b) => a.startsAt.localeCompare(b.startsAt))
+    .map((m) => meetLib.studentView(m, now));
+  return json({ meets, now: now.toISOString() });
+}
+
+async function adminMeets(req) {
+  await requireTeacher(req);
+  const meets = (await getMany("meet/")).sort((a, b) => b.startsAt.localeCompare(a.startsAt));
+  return json({ meets, now: new Date().toISOString() });
+}
+
+async function saveMeet(req, id) {
+  const teacher = await requireTeacher(req);
+  const r = meetLib.normalizeMeet(await body(req), taskCtx());
+  if (r.error) throw new HttpError(400, r.error);
+  let prev = null;
+  if (id) {
+    if (!MEET_ID.test(id)) throw new HttpError(404, "Dars topilmadi");
+    prev = await db().get(meetKey(id));
+    if (!prev) throw new HttpError(404, "Dars topilmadi");
+  }
+  const now = new Date().toISOString();
+  const meet = { id: prev?.id || newId(), ...r.meet, createdBy: prev?.createdBy || teacher.name, createdAt: prev?.createdAt || now, updatedAt: now };
+  await db().set(meetKey(meet.id), meet);
+  return json(meet, prev ? 200 : 201);
+}
+
+async function deleteMeet(req, id) {
+  await requireTeacher(req);
+  if (!MEET_ID.test(id)) throw new HttpError(404, "Dars topilmadi");
+  await db().del(meetKey(id));
+  return json({ ok: true });
+}
 
 /** Yuklangan fayl matnidan topshiriqlar loyihasini yaratadi (saqlamaydi: o'qituvchi ko'rib chiqib, keyin yaratadi). */
 async function importTasks(req) {
@@ -2832,6 +2880,11 @@ const routes = [
   ["GET", /^tasks\/([\w-]+)\/file$/, myTaskFile],
   ["GET", /^admin\/tasks$/, adminTasks],
   ["POST", /^admin\/video-script$/, videoScript],
+  ["GET", /^meets$/, myMeets],
+  ["GET", /^admin\/meets$/, adminMeets],
+  ["POST", /^admin\/meets$/, (req) => saveMeet(req, null)],
+  ["PUT", /^admin\/meets\/([\w-]+)$/, saveMeet],
+  ["DELETE", /^admin\/meets\/([\w-]+)$/, deleteMeet],
   ["GET", /^admin\/roster$/, adminRoster],
   ["PUT", /^admin\/roster\/([\w-]+)$/, adminRosterUpload],
   ["POST", /^admin\/roster\/([\w-]+)\/(\d{1,3})\/release$/, adminRosterRelease],
