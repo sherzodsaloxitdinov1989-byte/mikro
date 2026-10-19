@@ -42,6 +42,8 @@ export function currentSubjectKey() {
 
 async function loadSubject(key) {
   const L = LOADERS[key];
+  // Darsligi hali yo'q fan (hasContent: false): bo'sh kontent
+  if (!L) return { book: { intro: "", topics: [], literature: [] }, layers: {}, practice: {}, meta: {} };
   const safe = async (fn, empty) => {
     try {
       return await fn();
