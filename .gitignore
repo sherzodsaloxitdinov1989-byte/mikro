@@ -10,3 +10,7 @@ manbalar/*.docx
 manbalar/*.ppt
 manbalar/*.pptx
 manbalar/*.pdf
+
+# Talabalar shifrlari (shaxsiy ma'lumot) — gitga qo'shilmaydi
+*shifr*.xlsx
+*shifr*.csv

@@ -1,7 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
-import { userHasContent, subjectOfGroup } from "../../data/course.js";
+import { userHasContent, subjectOfGroup, isRosterGroup } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
@@ -34,6 +34,8 @@ function loginPage(el, teacher) {
     hint.textContent = ROLES[role][3] + " Email va parolingizni kiriting.";
     err.replaceChildren();
   };
+  // Ro'yxat bo'yicha ochiladigan guruh talabalari uchun (server so'raganda ko'rinadi)
+  const shifrBox = h("div", { class: "hidden" }, field("Shifr (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Ro'yxatdagi shifringiz" }));
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {
@@ -43,7 +45,7 @@ function loginPage(el, teacher) {
       btn.disabled = true;
       err.replaceChildren();
       try {
-        const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password") });
+        const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password"), shifr: fd.get("shifr") || undefined });
         if (res.user.role !== role) {
           // Noto'g'ri sahifa: sessiya ochilmaydi (token darhol bekor qilinadi)
           fetch("/api/auth/logout", { method: "POST", headers: { authorization: `Bearer ${res.token}` } }).catch(() => {});
@@ -54,6 +56,7 @@ function loginPage(el, teacher) {
         toast("Xush kelibsiz!", "ok");
         afterLogin();
       } catch (ex) {
+        if (ex.data?.code === "SHIFR_REQUIRED") shifrBox.classList.remove("hidden");
         err.replaceChildren(h("div", { class: "alert alert-error" }, ex.message));
       } finally {
         btn.disabled = false;
@@ -63,6 +66,7 @@ function loginPage(el, teacher) {
     hint,
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("Parol", { name: "password", type: "password", required: true, autocomplete: "current-password" }),
+    shifrBox,
     h("p", { class: "small", style: { margin: "-6px 0 0", textAlign: "right" } }, h("a", { href: teacher ? "#/ustoz/forgot" : "#/forgot" }, "Parolni unutdingizmi?")),
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
@@ -328,7 +332,15 @@ function studentBlock(config) {
     note.textContent = f ? f.title : "";
   };
   paint();
-  return h("div", { class: "stack" }, h("div", {}, h("span", { class: "small" }, h("b", {}, "Ta'lim shakli")), tabs, note), h("label", { class: "field" }, h("span", {}, "Guruh"), select));
+  const shifrInput = h("input", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Ro'yxatdagi shifringiz" });
+  const shifrWrap = h("label", { class: "field hidden" }, h("span", {}, "Shifr"), shifrInput, h("small", { class: "muted" }, "Bu guruhga faqat o'qituvchi yuklagan ro'yxat bo'yicha kiriladi: shifringizni va F.I.Sh.ni ro'yxatdagidek kiriting."));
+  select.addEventListener("change", () => {
+    const on = isRosterGroup(select.value);
+    shifrWrap.classList.toggle("hidden", !on);
+    shifrInput.required = on;
+    if (!on) shifrInput.value = "";
+  });
+  return h("div", { class: "stack" }, h("div", {}, h("span", { class: "small" }, h("b", {}, "Ta'lim shakli")), tabs, note), h("label", { class: "field" }, h("span", {}, "Guruh"), select), shifrWrap);
 }
 
 export const renderRegister = (el) => registerPage(el, false);

@@ -114,6 +114,8 @@ export const SUBJECTS = [
     direction: "Turizm va mehmondo'stlik",
     form: "kunduzgi",
     groups: ["141-23", "142-23"],
+    // Bu guruhlarga faqat o'qituvchi yuklagan ro'yxat (F.I.Sh. + shifr) bo'yicha kirish mumkin
+    rosterGroups: ["141-23", "142-23"],
     hasContent: true,
     dir: "tb",
     idPrefix: "tb",
@@ -179,3 +181,6 @@ export function currentSemester(today = new Date()) {
   if (finished.length) return list[Math.min(list.indexOf(finished[finished.length - 1]) + 1, list.length - 1)];
   return list[0];
 }
+
+/** Guruhga faqat o'qituvchi yuklagan ro'yxat va shifr bilan kiriladimi. */
+export const isRosterGroup = (group) => SUBJECTS.some((s) => (s.rosterGroups || []).includes(group));

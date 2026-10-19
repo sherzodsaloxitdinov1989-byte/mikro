@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS } from "../public/data/course.js";
+import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup } from "../public/data/course.js";
 import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -40,9 +40,10 @@ const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
 
 class HttpError extends Error {
-  constructor(status, message) {
+  constructor(status, message, code) {
     super(message);
     this.status = status;
+    this.code = code;
   }
 }
 
@@ -164,6 +165,102 @@ const str = (v, max = 200) => (typeof v === "string" ? v.trim().slice(0, max) : 
 
 // ---------- Auth ----------
 
+// ---------- Guruh ro'yxati va shifr bilan kirish (masalan, 141-23, 142-23) ----------
+// O'qituvchi guruh ro'yxatini (F.I.Sh. + shifr) yuklaydi. Talaba faqat o'z shifri va ismi ro'yxatdagiga mos kelsa kira oladi;
+// har bir shifr bir marta ishlatiladi. Shifrlar bazada ochiq saqlanmaydi (HMAC xesh), taxmin qilishga qarshi cheklov bor.
+
+const rosterKey = (group) => `roster/${group}`;
+const rosterPepper = () => process.env.JWT_SECRET || generatedSecretValue();
+const shifrDigits = (v) => String(v ?? "").replace(/\D/g, "");
+const shifrHash = (group, shifr) => crypto.createHmac("sha256", rosterPepper()).update(`roster:${group}:${shifrDigits(shifr)}`).digest("hex");
+const normName = (v) => String(v || "").toUpperCase().replace(/[ʻʼ‘’'`´]/g, "").replace(/[^\p{L}\s]/gu, " ").replace(/\s+/g, " ").trim();
+const titleName = (v) => String(v || "").toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase()).replace(/([oOgG])[ʻʼ‘’'`´]/g, "$1‘");
+/** Ro'yxatdagi familiya va ism talaba yozgan ismda bo'lishi shart (tartib va otasining ismi muhim emas). */
+function nameMatches(entryName, typed) {
+  const want = normName(entryName).split(" ").slice(0, 2);
+  const have = new Set(normName(typed).split(" "));
+  return want.length >= 2 && want.every((t) => have.has(t));
+}
+
+/** Ro'yxat guruhi talabasi shifrga bog'lanmagan bo'lsa, parol tiklash orqali ham kira olmaydi: avval shifr bilan kirishi kerak. */
+async function rosterGate(user) {
+  if (user.role !== "student" || !isRosterGroup(user.group)) return;
+  const roster = await db().get(rosterKey(user.group));
+  if (!roster?.entries?.some((e) => e.claimedBy === user.id)) throw new HttpError(403, "Parol yangilandi. Endi «Kirish» sahifasida email, parol va o'qituvchi bergan shifr bilan kiring.", "SHIFR_REQUIRED");
+}
+
+async function claimRoster(req, group, shifr, typedName, userId) {
+  if (!shifrDigits(shifr)) throw new HttpError(400, "Shifrni kiriting (ro'yxatda sizga berilgan raqam)", "SHIFR_REQUIRED");
+  const ip = sha(clientIp(req)).slice(0, 24);
+  const keys = [[`ratelimit/shifr-ip/${ip}`, 12], [`ratelimit/shifr-group/${group}`, 150]];
+  for (const [k, lim] of keys) if ((await peekHit(k, 3600_000)).n >= lim) throw new HttpError(429, "Shifr bo'yicha urinishlar ko'p bo'ldi. Bir soatdan keyin qayta urinib ko'ring yoki o'qituvchiga murojaat qiling.");
+  const roster = await db().get(rosterKey(group));
+  if (!roster?.entries?.length) throw new HttpError(403, `${group} guruhi ro'yxati hali yuklanmagan. O'qituvchiga murojaat qiling.`);
+  const h = shifrHash(group, shifr);
+  const entry = roster.entries.find((e) => safeEqual(e.hash, h));
+  if (!entry || !nameMatches(entry.name, typedName)) {
+    await Promise.all(keys.map(([k]) => hit(k, 3600_000)));
+    await new Promise((r) => setTimeout(r, 500));
+    throw new HttpError(403, "Shifr yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. Shifrni va ismingizni ro'yxatdagidek kiriting.");
+  }
+  if (entry.claimedBy && entry.claimedBy !== userId) throw new HttpError(409, "Bu shifr bilan allaqachon profil yaratilgan. Parolingizni unutgan bo'lsangiz «Parolni unutdingizmi?» dan foydalaning yoki o'qituvchiga murojaat qiling.");
+  return { roster, entry };
+}
+
+async function finishClaim(roster, entry, userId) {
+  entry.claimedBy = userId;
+  entry.claimedAt = new Date().toISOString();
+  await db().set(rosterKey(roster.group), roster);
+}
+
+async function adminRoster(req) {
+  await requireTeacher(req);
+  const out = [];
+  for (const s of SUBJECTS) {
+    for (const group of s.rosterGroups || []) {
+      const r = await db().get(rosterKey(group));
+      out.push({ group, subject: s.key, uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries: (r?.entries || []).map((e, i) => ({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null })) });
+    }
+  }
+  return json({ groups: out });
+}
+
+async function adminRosterUpload(req, group) {
+  const teacher = await requireTeacher(req);
+  if (!isRosterGroup(group)) throw new HttpError(400, "Bu guruh uchun ro'yxat talab qilinmaydi");
+  const b = await body(req);
+  const list = Array.isArray(b.entries) ? b.entries.slice(0, 400) : [];
+  const old = (await db().get(rosterKey(group))) || { entries: [] };
+  const seen = new Set();
+  const entries = [];
+  for (const [i, e] of list.entries()) {
+    const name = titleName(str(e?.name, 120));
+    const digits = shifrDigits(e?.shifr);
+    if (!name || normName(name).split(" ").length < 2) throw new HttpError(400, `${i + 1}-qator: F.I.Sh. to'liq emas`);
+    if (digits.length < 6 || digits.length > 20) throw new HttpError(400, `${i + 1}-qator (${name}): shifr 6–20 raqamdan iborat bo'lsin`);
+    const hash = shifrHash(group, digits);
+    if (seen.has(hash)) throw new HttpError(400, `${i + 1}-qator (${name}): shifr takrorlangan`);
+    seen.add(hash);
+    const prev = old.entries.find((x) => x.hash === hash);
+    entries.push({ name, hash, ...(prev?.claimedBy ? { claimedBy: prev.claimedBy, claimedAt: prev.claimedAt } : {}) });
+  }
+  if (!entries.length) throw new HttpError(400, "Ro'yxat bo'sh");
+  await db().set(rosterKey(group), { group, entries, uploadedAt: new Date().toISOString(), by: teacher.name });
+  return json({ ok: true, count: entries.length, claimed: entries.filter((e) => e.claimedBy).length });
+}
+
+/** Talabaning shifrini bo'shatish (profil yo'qolgan bo'lsa): u qayta shifr bilan kiradi/ro'yxatdan o'tadi. */
+async function adminRosterRelease(req, group, n) {
+  await requireTeacher(req);
+  const r = await db().get(rosterKey(group));
+  const e = r?.entries?.[Number(n) - 1];
+  if (!e) throw new HttpError(404, "Ro'yxatda bunday qator yo'q");
+  delete e.claimedBy;
+  delete e.claimedAt;
+  await db().set(rosterKey(group), r);
+  return json({ ok: true });
+}
+
 /** Ro'yxatdan o'tishda tanlangan ta'lim shakli (guruhlar sozlangan bo'lsa majburiy). */
 function studyFormOf(b) {
   if (!(COURSE.studyForms || []).length) return "";
@@ -204,11 +301,14 @@ async function register(req) {
   }
   const store = db();
   if (await store.get(emailKey(email))) throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
+  // Ro'yxat bo'yicha ochiladigan guruhlar: shifr va ism ro'yxatga mos bo'lishi shart
+  const rosterNeeded = role === "student" && isRosterGroup(str(b.group, 60));
+  const claim = rosterNeeded ? await claimRoster(req, str(b.group, 60), b.shifr, name, null) : null;
 
   const user = {
     id: newId(),
     email,
-    name,
+    name: claim ? claim.entry.name : name,
     role,
     group: role === "student" ? checkGroup(str(b.group, 60), null, studyFormOf(b)) : str(b.group, 60),
     studyForm: role === "student" ? studyFormOf(b) || undefined : undefined,
@@ -219,8 +319,10 @@ async function register(req) {
     ...(await hashPassword(password)),
   };
   if (role === "student") user.code = await nextCode();
+  if (claim) user.rosterOk = true;
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
+  if (claim) await finishClaim(claim.roster, claim.entry, user.id);
   if (role === "teacher") await store.del(inviteKey(email));
   return withCookie(json({ token: createToken(user), user: publicUser(user) }, 201), createToken(user));
 }
@@ -255,6 +357,19 @@ async function login(req) {
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
   await resetHit(keys[0][0]);
+  // Ro'yxat bo'yicha ochiladigan guruh: profil ro'yxatdagi shifrga bog'langan bo'lishi shart
+  if (user.role === "student" && isRosterGroup(user.group)) {
+    const roster = await db().get(rosterKey(user.group));
+    const entry = roster?.entries?.find((e) => e.claimedBy === user.id);
+    if (!entry) {
+      if (!str(b.shifr)) throw new HttpError(403, `${user.group} guruhiga kirish uchun o'qituvchi bergan shifr kerak. Shifrni kiriting.`, "SHIFR_REQUIRED");
+      const claim = await claimRoster(req, user.group, b.shifr, user.name, user.id);
+      await finishClaim(claim.roster, claim.entry, user.id);
+      user.rosterOk = true;
+      user.name = claim.entry.name;
+      await db().set(userKey(user.id), user);
+    }
+  }
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -375,6 +490,7 @@ async function resetWithCode(req) {
   if (!user) throw new HttpError(400, "Kod noto'g'ri yoki muddati o'tgan. Yangi kod so'rang.");
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
+  await rosterGate(user);
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -458,6 +574,7 @@ async function resetPassword(req) {
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
   await resetHit(rlKey);
+  await rosterGate(user);
   const token = createToken(user);
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
@@ -479,6 +596,7 @@ async function adminResetPassword(req, id) {
 function checkGroup(value, current = null, formKey = "") {
   const list = COURSE.groups || [];
   if (!list.length || value === current) return value;
+  if (isRosterGroup(value) && current !== null) throw new HttpError(403, `${value} guruhiga faqat o'qituvchi bergan shifr bilan ro'yxatdan o'tib kirish mumkin.`);
   const form = formKey ? formByKey(formKey) : null;
   if (formKey && !form) throw new HttpError(400, "Ta'lim shaklini tanlang");
   const allowed = form ? form.groups : list;
@@ -2713,6 +2831,9 @@ const routes = [
   ["GET", /^tasks\/([\w-]+)\/file$/, myTaskFile],
   ["GET", /^admin\/tasks$/, adminTasks],
   ["POST", /^admin\/video-script$/, videoScript],
+  ["GET", /^admin\/roster$/, adminRoster],
+  ["PUT", /^admin\/roster\/([\w-]+)$/, adminRosterUpload],
+  ["POST", /^admin\/roster\/([\w-]+)\/(\d{1,3})\/release$/, adminRosterRelease],
   ["POST", /^admin\/tasks$/, createTask],
   ["POST", /^admin\/tasks\/import$/, importTasks],
   ["PUT", /^admin\/tasks\/([\w-]+)$/, updateTask],
@@ -2795,7 +2916,7 @@ export async function handle(req) {
     }
     throw new HttpError(404, "Topilmadi");
   } catch (err) {
-    if (err instanceof HttpError) return json({ error: err.message }, err.status);
+    if (err instanceof HttpError) return json(err.code ? { error: err.message, code: err.code } : { error: err.message }, err.status);
     console.error(err);
     return json({ error: describeError(err) }, 500);
   }
