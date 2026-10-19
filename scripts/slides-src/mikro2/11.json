@@ -94,7 +94,7 @@
     },
     {
      "name": "Uzluksiz sifat: o‘rtacha sifat",
-     "formula": "q ≤ p  ⇒  q̄ = (p)/(2)",
+     "formula": "q ≤ p  ⇒  q_{o‘rt} = (p)/(2)",
      "note": "q ∈ [0; 1] tekis taqsimlangan; faqat q ≤ p sotuvga chiqadi"
     },
     {

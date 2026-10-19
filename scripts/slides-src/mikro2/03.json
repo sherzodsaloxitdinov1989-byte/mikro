@@ -7,18 +7,18 @@
    "items": [
     {
      "name": "Talab funksiyasi (Marshall)",
-     "formula": "x₁* = x₁(p₁, p₂, m);  x₂* = x₂(p₁, p₂, m)",
+     "formula": "x_{1}^{*} = x_{1}(p_{1}, p_{2}, m);  x_{2}^{*} = x_{2}(p_{1}, p_{2}, m)",
      "note": "Optimal miqdor narxlar va daromadning funksiyasi"
     },
     {
      "name": "Nol darajali bir jinslilik",
-     "formula": "xᵢ(t·p₁, t·p₂, t·m) = xᵢ(p₁, p₂, m),  t > 0",
+     "formula": "x_{i}(tp_{1}, tp_{2}, tm) = x_{i}(p_{1}, p_{2}, m),  t > 0",
      "note": "Pul illyuziyasi yo‘q: byudjet to‘plami o‘zgarmaydi"
     },
     {
      "name": "Elastikliklar munosabati",
-     "formula": "ε₁₁ + ε₁₂ + η₁ = 0",
-     "note": "Eyler teoremasi: barcha narxlar va daromad bir xil foizga o‘zgarsa, ta’sirlar yo‘qoladi"
+     "formula": "ε_{11} + ε_{12} + η_{1} = 0",
+     "note": "Eyler teoremasi: narxlar va daromad bir xil foizga o‘zgarsa, ta’sirlar yo‘qoladi"
     }
    ]
   },
@@ -29,44 +29,50 @@
    "head": [
     "Afzal ko‘rish",
     "Naflilik",
-    "x₁(p₁, p₂, m)",
-    "x₂(p₁, p₂, m)"
+    "x_{1}(p_{1}, p_{2}, m)",
+    "x_{2}(p_{1}, p_{2}, m)"
    ],
    "rows": [
     [
      "Kobb–Duglas",
-     "x₁ᶜ·x₂¹⁻ᶜ",
-     "c·m/p₁",
-     "(1−c)·m/p₂"
+     "x_{1}^{c} x_{2}^{1−c}",
+     "(cm)/(p_{1})",
+     "((1−c)m)/(p_{2})"
     ],
     [
      "Mukammal o‘rinbosarlar",
-     "x₁ + x₂",
-     "m/p₁, agar p₁ < p₂",
-     "m/p₂, agar p₂ < p₁"
+     "x_{1} + x_{2}",
+     "(m)/(p_{1}), agar p_{1} < p_{2}",
+     "(m)/(p_{2}), agar p_{2} < p_{1}"
     ],
     [
      "Mukammal to‘ldiruvchilar",
-     "min{x₁, x₂}",
-     "m/(p₁+p₂)",
-     "m/(p₁+p₂)"
+     "min{x_{1}, x_{2}}",
+     "(m)/(p_{1}+p_{2})",
+     "(m)/(p_{1}+p_{2})"
     ],
     [
      "Kvazichiziqli",
-     "v(x₁) + x₂",
-     "v′(x₁) = p₁/p₂ dan",
-     "m/p₂ − p₁x₁/p₂"
+     "v(x_{1}) + x_{2}",
+     "v′(x_{1}) = (p_{1})/(p_{2}) dan",
+     "(m)/(p_{2}) − (p_{1}x_{1})/(p_{2})"
+    ],
+    [
+     "CES (ρ = 0,5, a = b)",
+     "(√(x_{1}) + √(x_{2}))^{2}",
+     "(p_{2}m)/(p_{1}(p_{1}+p_{2}))",
+     "(p_{1}m)/(p_{2}(p_{1}+p_{2}))"
     ]
    ],
-   "note": "Kobb–Duglas: c·(tm)/(tp₁) = c·m/p₁ — nol darajali bir jinslilik bajariladi"
+   "note": "Kobb–Duglas: (c(tm))/(tp_{1}) = (cm)/(p_{1}) — nol darajali bir jinslilik bajariladi"
   },
   {
    "type": "bullets",
    "title": "Normal va past sifatli tovarlar",
    "sub": "3.2. Daromadning o‘zgarishi: normal va past sifatli tovarlar",
    "bullets": [
-    "Normal tovar: daromad oshganda talab ortadi (∂x₁/∂m > 0)",
-    "Past sifatli tovar: daromad oshganda talab kamayadi (∂x₁/∂m < 0)",
+    "Normal tovar: daromad oshganda talab ortadi (∂x_{1}/∂m > 0)",
+    "Past sifatli tovar: daromad oshganda talab kamayadi (∂x_{1}/∂m < 0)",
     "Misol: arzon makaron, jamoat transporti, ishlatilgan kiyim",
     "Hashamatli tovar: daromad oshganda ulushi ortadi; zaruriy tovar: ulushi kamayadi",
     "“Past sifatli” bo‘lish tovar sifatiga emas, iste’molchi xatti-harakatiga bog‘liq"
@@ -137,8 +143,8 @@
    "bullets": [
     "Oddiy tovar: narx pasayganda talab ortadi, talab chizig‘i manfiy og‘ishli",
     "Giffen tovari: narx pasayganda talab kamayadi; albatta past sifatli tovar bo‘lishi kerak",
-    "O‘rinbosarlar: p₂ oshganda x₁ talabi ortadi (∂x₁/∂p₂ > 0); to‘ldiruvchilar: kamayadi",
-    "Teskari talab p₁ = P(x₁): p₂ = 1 da p₁(x₁) = |MRS| — chekli to‘lashga tayyorlik",
+    "O‘rinbosarlar: p_{2} oshganda x_{1} talabi ortadi (∂x_{1}/∂p_{2} > 0); to‘ldiruvchilar: kamayadi",
+    "Teskari talab p_{1} = P(x_{1}): p_{2} = 1 da p_{1}(x_{1}) = |MRS| — chekli to‘lashga tayyorlik",
     "Talab chizig‘ining manfiy og‘ishi MRS ning kamayishini aks ettiradi"
    ]
   },
@@ -147,11 +153,33 @@
    "title": "Amaliy misol 3.1. Kobb–Duglas talabi",
    "sub": "3.3. Narxning o‘zgarishi va individual talab chizig‘i",
    "steps": [
-    "Berilgan: u = x₁⁰·⁴·x₂⁰·⁶, m = 2 mln so‘m, p₂ = 10 ming so‘m",
-    "a) x₁ = 0,4·2000/p₁ = 800/p₁; teskari funksiya p₁ = 800/x₁",
-    "b) p₁ = 40 da x₁ = 20; p₁ = 50 da x₁ = 16 — talab 20% kamaydi",
-    "c) m = 2400 bo‘lsa, x₁ = 960/40 = 24 — talab 20% ortdi",
+    "Berilgan: u = x_{1}^{0,4} x_{2}^{0,6}, m = 2 mln so‘m, p_{2} = 10 ming so‘m",
+    "a) x_{1} = (0,4 · 2000)/(p_{1}) = (800)/(p_{1}); teskari funksiya p_{1} = (800)/(x_{1})",
+    "b) p_{1} = 40 da x_{1} = 20; p_{1} = 50 da x_{1} = 16 — talab 20% kamaydi",
+    "c) m = 2400 bo‘lsa, x_{1} = (960)/(40) = 24 — talab 20% ortdi",
     "Xulosa: Kobb–Duglas uchun daromad elastikligi 1 ga teng"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Teskari talab va Engel chizig‘i",
+   "sub": "3.3. Narxning o‘zgarishi va individual talab chizig‘i",
+   "items": [
+    {
+     "name": "Optimumda MRS",
+     "formula": "|MRS| = (p_{1})/(p_{2})",
+     "note": "Optimal tanlov sharti"
+    },
+    {
+     "name": "Teskari talab (p_{2} = 1)",
+     "formula": "p_{1}(x_{1}) = |MRS(x_{1}, x_{2})|",
+     "note": "Chekli birlik uchun to‘lashga tayyorlik"
+    },
+    {
+     "name": "Kobb–Duglas (c = 0,5)",
+     "formula": "x_{1} = (m)/(2p_{1}),  x_{2} = (m)/(2p_{2})",
+     "note": "Talab giperbola; narx-iste’mol chizig‘i gorizontal"
+    }
    ]
   },
   {
@@ -161,23 +189,50 @@
    "items": [
     {
      "name": "Narx bo‘yicha talab elastikligi",
-     "formula": "ε = (Δq/q)/(Δp/p) = (p/q)·(dq/dp)",
+     "formula": "ε = (Δq/q)/(Δp/p) = (p)/(q) · (dq)/(dp)",
      "note": "|ε|>1 elastik; |ε|=1 birlik; |ε|<1 noelastik"
     },
     {
      "name": "Chekli tushum",
-     "formula": "MR = p·(1 + 1/ε) = p·(1 − 1/|ε|)",
-     "note": "Elastik talabda narx oshsa tushum kamayadi; noelastikda ortadi"
+     "formula": "MR = p(1 + (1)/(ε)) = p(1 − (1)/(|ε|))",
+     "note": "Chekli tushum faqat talabning elastik qismida musbat"
     },
     {
      "name": "Daromad elastikligi",
-     "formula": "η = (m/q)·(∂q/∂m)",
+     "formula": "η = (m)/(q) · (∂q)/(∂m)",
      "note": "η>1 hashamatli; 0<η<1 zaruriy; η<0 past sifatli"
     },
     {
      "name": "Kesishgan elastiklik",
-     "formula": "ε₁₂ = (p₂/x₁)·(∂x₁/∂p₂)",
-     "note": "ε₁₂>0 o‘rinbosar; ε₁₂<0 to‘ldiruvchi; ε₁₂=0 mustaqil"
+     "formula": "ε_{12} = (p_{2})/(x_{1}) · (∂x_{1})/(∂p_{2})",
+     "note": "ε_{12}>0 o‘rinbosar; ε_{12}<0 to‘ldiruvchi; ε_{12}=0 mustaqil"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Tushum va elastiklik bog‘lanishi",
+   "sub": "3.4. Talab elastikligi va undan bozor talabini baholashda foydalanish",
+   "items": [
+    {
+     "name": "Yoy elastikligi",
+     "formula": "ε_{yoy} = ((q_{2} − q_{1})/((q_{1}+q_{2})/2)) / ((p_{2} − p_{1})/((p_{1}+p_{2})/2))",
+     "note": "O‘rta nuqta formulasi: boshlang‘ich nuqta tanloviga bog‘liq emas"
+    },
+    {
+     "name": "Chiziqli talab",
+     "formula": "q = a − bp:  ε = −(bp)/(q) = −(bp)/(a − bp)",
+     "note": "Elastiklik chiziq bo‘ylab o‘zgaradi: |ε| = 1 o‘rtada"
+    },
+    {
+     "name": "Tushum va narx",
+     "formula": "(dR)/(dp) = q + p (dq)/(dp) = q(1 + ε) = q(1 − |ε|)",
+     "note": "R = pq; |ε| = 1 da tushum maksimal"
+    },
+    {
+     "name": "Daromad elastikliklari o‘rtachasi",
+     "formula": "Σ_{i} s_{i} η_{i} = 1,  s_{i} = (p_{i}x_{i})/(m)",
+     "note": "Hashamatli tovar bo‘lsa, kamida bitta zaruriy tovar bo‘ladi"
     }
    ]
   },
@@ -226,10 +281,27 @@
    "sub": "3.5. Aniqlangan afzal ko‘rish",
    "bullets": [
     "Iqtisodchi afzal ko‘rishni emas, faqat tanlovlarni kuzatadi (P. Samuelson, 1938)",
-    "Y mavjud bo‘lganda X tanlansa, X to‘g‘ridan-to‘g‘ri afzal ko‘rilgan: X ≻R Y",
-    "WARP: agar p·X ≥ p·Y bo‘lsa, q·Y < q·X bo‘lishi shart",
+    "Y mavjud bo‘lganda X tanlansa, X to‘g‘ridan-to‘g‘ri afzal ko‘rilgan: X ≻_{R} Y",
+    "WARP: agar p · X ≥ p · Y bo‘lsa, q · Y < q · X bo‘lishi shart",
     "SARP: to‘g‘ridan-to‘g‘ri va bilvosita zanjirlarda ham ziddiyat bo‘lmasin",
     "Afriat teoremasi: SARP (GARP) bajarilsa, mos naflilik funksiyasi mavjud"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "WARP va indekslarni tekshirish",
+   "sub": "3.5. Aniqlangan afzal ko‘rish",
+   "items": [
+    {
+     "name": "To‘g‘ridan-to‘g‘ri afzallik",
+     "formula": "p^{t} · x^{s} ≤ p^{t} · x^{t} ⇒ x^{t} ≻_{R} x^{s}",
+     "note": "x^{s} mavjud edi, lekin x^{t} tanlangan"
+    },
+    {
+     "name": "WARP sharti",
+     "formula": "p · X ≥ p · Y ⇒ q · Y < q · X",
+     "note": "X tanlanganda Y mavjud bo‘lsa, Y tanlanganda X mavjud emas"
+    }
    ]
   },
   {
@@ -244,10 +316,10 @@
    "title": "Amaliy misol 3.4. WARP ni tekshirish",
    "sub": "3.5. Aniqlangan afzal ko‘rish",
    "steps": [
-    "1-davr: p=(1;2), x=(4;3); 2-davr: p=(2;1), x=(2;6); 3-davr: p=(1;1), x=(5;4)",
-    "p¹ qatori: 10 (haqiqiy), 14 va 13 — afzallik yo‘q",
-    "p² qatori: 11, 10 (haqiqiy), 14 — afzallik yo‘q",
-    "p³ qatori: 7 va 8 < 9 (haqiqiy) — x³ ≻R x¹ va x³ ≻R x²",
+    "1-davr: p^{1} = (1; 2), x^{1} = (4; 3); 2-davr: p^{2} = (2; 1), x^{2} = (2; 6); 3-davr: p^{3} = (1; 1), x^{3} = (5; 4)",
+    "p^{1} qatori: 10 (haqiqiy), 14 va 13 — afzallik yo‘q",
+    "p^{2} qatori: 11, 10 (haqiqiy), 14 — afzallik yo‘q",
+    "p^{3} qatori: 7 va 8 < 9 (haqiqiy) — x^{3} ≻_{R} x^{1} va x^{3} ≻_{R} x^{2}",
     "Teskari munosabat yo‘q: WARP va SARP bajariladi"
    ]
   },
@@ -258,18 +330,18 @@
    "items": [
     {
      "name": "Laspeyres indeksi",
-     "formula": "Lₚ = (pᵗ·xᵇ)/(pᵇ·xᵇ) = 12700/9800 = 1,296",
+     "formula": "L_{p} = (p^{t} · x^{b})/(p^{b} · x^{b}) = (12700)/(9800) = 1,296",
      "note": "Bazis to‘plamni joriy narxlarda baholaydi (INI shu tamoyilda)"
     },
     {
      "name": "Paashe indeksi",
-     "formula": "Pₚ = (pᵗ·xᵗ)/(pᵇ·xᵗ) = 11880/9120 = 1,303",
+     "formula": "P_{p} = (p^{t} · x^{t})/(p^{b} · x^{t}) = (11880)/(9120) = 1,303",
      "note": "Amaliy misol 3.5: go‘sht va un; daromad 30% oshgan"
     },
     {
      "name": "Farovonlik mezoni",
-     "formula": "M = mᵗ/mᵇ = 1,30 > Lₚ = 1,296",
-     "note": "M > Lₚ: ahvol yaxshilangan; M < Pₚ bo‘lsa — yomonlashgan"
+     "formula": "M = (m^{t})/(m^{b}) = 1,30 > L_{p} = 1,296",
+     "note": "M > L_{p}: ahvol yaxshilangan; M < P_{p} bo‘lsa — yomonlashgan"
     }
    ]
   },
@@ -321,10 +393,10 @@
    "sub": "3.7. Talab nazariyasining amaliy qo‘llanilishi: tushumni boshqarish",
    "steps": [
     "300 o‘rin, talab Q = 900 − 3p (ming so‘m)",
-    "a) MR = 300 − 2Q/3 = 0 → Q = 450 > 300: quvvat bog‘lovchi",
+    "a) MR = 300 − (2Q)/(3) = 0 → Q = 450 > 300: quvvat bog‘lovchi",
     "900 − 3p = 300 → p = 200; tushum 60 mln so‘m",
-    "b) MR₁ = 600 − 4Q₁, MR₂ = 240 − 0,8Q₂ teng, Q₁ + Q₂ = 300 → Q₁ = 125, Q₂ = 175",
-    "p₁ = 350, p₂ = 170; tushum 73,5 mln so‘m — 22,5% ko‘p"
+    "b) MR_{1} = 600 − 4Q_{1}, MR_{2} = 240 − 0,8Q_{2} teng, Q_{1} + Q_{2} = 300 → Q_{1} = 125, Q_{2} = 175",
+    "p_{1} = 350, p_{2} = 170; tushum 73,5 mln so‘m — 22,5% ko‘p"
    ]
   },
   {
@@ -332,13 +404,13 @@
    "title": "Masalalar: elastiklik va tushum",
    "sub": "3.8. Yechib ko‘rsatilgan masalalar",
    "bullets": [
-    "1-masala: q = 50p⁻¹·⁵m⁰·⁸pₛ⁰·³: ε = −1,5; η = 0,8; ε₁₂ = 0,3",
+    "1-masala: q = 50p^{−1,5}m^{0,8}p_{s}^{0,3}: ε = −1,5; η = 0,8; ε_{12} = 0,3",
     "%Δq ≈ −1,5·10 + 0,3·5 + 0,8·4 = −10,3%; yig‘indi −0,4 ≠ 0, bir jinslilik buziladi",
-    "2-masala: p 8→12, q 120→90: ε(yoy) = −0,2857/0,4 = −0,714 — noelastik",
+    "2-masala: p 8→12, q 120→90: ε_{yoy} = −0,2857/0,4 = −0,714 — noelastik",
     "Tushum 960 dan 1080 ga oshdi: noelastik talabda narx oshsa tushum ortadi",
     "4-masala: ε = −2, p = 50: MR = 25 < MC = 30 — narxni oshirish kerak"
    ],
-   "note": "4-masalada MR = p(1 − 1/|ε|) = 50·0,5"
+   "note": "4-masalada MR = p(1 − (1)/(|ε|)) = 50 · 0,5"
   },
   {
    "type": "table",
@@ -380,7 +452,7 @@
     "Talab funksiyasi optimallashtirish yechimi bo‘lib, nol darajali bir jinsli",
     "Daromad-iste’mol va Engel chiziqlari normal, past sifatli va hashamatli tovarlarni ajratadi",
     "Narx-iste’mol chizig‘idan talab chizig‘i hosil bo‘ladi; Giffen tovari kam uchraydi",
-    "Elastiklik tushum va chekli tushumni belgilaydi: MR = p(1 − 1/|ε|)",
+    "Elastiklik tushum va chekli tushumni belgilaydi: MR = p(1 − (1)/(|ε|))",
     "WARP/SARP va Laspeyres–Paashe indekslari farovonlik o‘zgarishini baholaydi"
    ]
   }

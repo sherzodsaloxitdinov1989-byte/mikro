@@ -331,12 +331,12 @@
     },
     {
      "name": "Boshlang‘ich zaxira (ω_{1}, ω_{2})",
-     "formula": "p_{1}x_{1} + p_{2}x_{2} = p_{1}·ω_{1} + p_{2}·ω_{2}",
+     "formula": "p_{1}x_{1} + p_{2}x_{2} = p_{1}ω_{1} + p_{2}ω_{2}",
      "note": "Chiziq zaxira nuqtasidan o‘tadi, narx o‘zgarganda shu nuqta atrofida buriladi"
     },
     {
      "name": "Pul va vaqt cheklovi",
-     "formula": "p_{1}x_{1} + p_{2}x_{2} ≤ m;  t_{1}·x_{1} + t_{2}·x_{2} ≤ T",
+     "formula": "p_{1}x_{1} + p_{2}x_{2} ≤ m;  t_{1}x_{1} + t_{2}x_{2} ≤ T",
      "note": "Haqiqiy to‘plam ikki cheklov kesishmasi"
     }
    ]

@@ -19,17 +19,17 @@
    "items": [
     {
      "name": "Aktivning daromadliligi",
-     "formula": "rA = (D + p₁ − p₀) / p₀",
-     "note": "D – joriy daromad, p₀ – bugungi, p₁ – kutilayotgan narx"
+     "formula": "r_{A} = (D+(p_{1}−p_{0}))/(p_{0})",
+     "note": "D – joriy daromad, p_{0} – bugungi, p_{1} – kutilayotgan narx"
     },
     {
      "name": "Arbitraj yo‘qligi sharti",
-     "formula": "(D + p₁ − p₀) / p₀ = r",
+     "formula": "(D+p_{1}−p_{0})/(p_{0}) = r",
      "note": "barcha risksiz aktivlar daromadliligi foiz stavkasiga teng"
     },
     {
      "name": "Aktivning bugungi narxi",
-     "formula": "p₀ = (D + p₁) / (1 + r)",
+     "formula": "p_{0} = (D+p_{1})/(1+r)",
      "note": "kelajakdagi qiymatning joriy qiymati"
     }
    ]
@@ -39,10 +39,10 @@
    "title": "Uy-joy, soliq va spekulyativ pufak",
    "sub": "5.1. Aktivlar bozori va arbitraj",
    "bullets": [
-    "Uy-joy: tejalgan (yashirin) ijara joriy daromad hisoblanadi: (T + Δp) / p = r",
+    "Uy-joy: tejalgan (yashirin) ijara T joriy daromad hisoblanadi: (T+Δp)/(p) = r",
     "Misol: narx 800 mln, ijara 48 mln, o‘sish 8% (64 mln): (48+64)/800 = 14%",
     "Depozit 18% bersa, uy sotib olish ijaraga yashashdan kam foydali",
-    "Soliq: arbitraj soliqdan keyingi daromadlilikka tegishli, robl = (1 − t)·rdep",
+    "Soliq: arbitraj soliqdan keyingi daromadlilikka tegishli, r_{obl} = (1−t)·r_{dep}",
     "Pufak: narx qayta sotish umidida o‘sadi (lola maniyasi 1637, dot-com 2000)"
    ]
   },
@@ -53,17 +53,17 @@
    "items": [
     {
      "name": "Hotelling qoidasi",
-     "formula": "pₜ₊₁ = (1 + r)·pₜ",
+     "formula": "p_{t+1} = (1+r)·p_{t}",
      "note": "tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi"
     },
     {
      "name": "Resursning bugungi narxi",
-     "formula": "p₀ = C / (1 + r)ᵀ",
+     "formula": "p_{0} = C/(1+r)^{T}",
      "note": "C – muqobil texnologiya xarajati, T – tugash muddati"
     },
     {
      "name": "O‘rmonni kesish sharti",
-     "formula": "F′(T) / F(T) = r",
+     "formula": "(F′(T))/(F(T)) = r",
      "note": "o‘sish sur’ati foiz stavkasiga tenglashganda kesiladi"
     }
    ]
@@ -75,17 +75,17 @@
    "items": [
     {
      "name": "Sug‘urtasiz holat (Bobur)",
-     "formula": "Cg = 35,  Cb = 25",
+     "formula": "C_{g} = 35,  C_{b} = 25",
      "note": "boylik 35 mln, o‘g‘irlanish ehtimoli 1%, zarar 10 mln"
     },
     {
      "name": "Sug‘urta bilan",
-     "formula": "Cg = 35 − γK,  Cb = 25 + K − γK",
+     "formula": "C_{g} = 35−γK,  C_{b} = 25+K−γK",
      "note": "K – qoplama, γ – mukofot stavkasi"
     },
     {
      "name": "Byudjet chizig‘ining og‘ishi",
-     "formula": "−γ / (1 − γ)",
+     "formula": "−(γ)/(1−γ)",
      "note": "mukofot – yomon holat iste’molining narxi"
     }
    ]
@@ -95,11 +95,38 @@
    "title": "Kutilgan qiymat va kutilgan naflilik",
    "sub": "5.2. Noaniqlik: shartli iste’mol va kutilgan naflilik",
    "bullets": [
-    "Lotereyaning kutilgan qiymati: E(w) = ∑ πᵢwᵢ; kutilgan naflilik: EU = ∑ πᵢu(wᵢ)",
-    "Sankt-Peterburg paradoksi: kutilgan qiymat cheksiz, lekin hech kim katta summa to‘lamaydi",
+    "Lotereyaning kutilgan qiymati: E(w) = Σ_{i} π_{i}w_{i}; kutilgan naflilik: EU = Σ_{i} π_{i}u(w_{i})",
+    "Sankt-Peterburg paradoksi: kutilgan qiymat Σ(1/2)^{k}·2^{k} = ∞, lekin hech kim katta summa to‘lamaydi",
     "Bernulli yechimi: chekli naflilik kamayadi; ln naflilikda ishonchli ekvivalent 4 so‘m",
     "Fon Neyman–Morgenshtern: aksiomalar bajarilsa, afzallik EU bilan ifodalanadi",
     "Alle paradoksi mustaqillik aksiomasi buzilishini ko‘rsatadi (aniqlik samarasi)"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Kutilgan naflilik va Alle paradoksi",
+   "sub": "5.2. Noaniqlik: shartli iste’mol va kutilgan naflilik",
+   "items": [
+    {
+     "name": "Kutilgan naflilik (fon Neyman–Morgenshtern)",
+     "formula": "EU = Σ_{i} π_{i}u(w_{i})",
+     "note": "π_{i} – ehtimol, w_{i} – natija; v = au+b (a > 0) da invariant"
+    },
+    {
+     "name": "Mustaqillik aksiomasi",
+     "formula": "A ≻ B ⇒ αA+(1−α)C ≻ αB+(1−α)C",
+     "note": "istalgan C lotereya va 0 < α < 1 uchun"
+    },
+    {
+     "name": "Bernulli: ln naflilik",
+     "formula": "Σ(1/2)^{k}·ln2^{k} = 2ln2",
+     "note": "kutilgan naflilik chekli; ishonchli ekvivalent 4 so‘m"
+    },
+    {
+     "name": "Alle paradoksi",
+     "formula": "A ≻ B, lekin D ≻ C",
+     "note": "A, B – 1 mln atrofida; C: 11% bilan 1 mln, D: 10% bilan 5 mln"
+    }
    ]
   },
   {
@@ -136,9 +163,9 @@
    "sub": "5.3. Riskka munosabat",
    "steps": [
     "Berilgan: u(w) = √w; daromad 9 yoki 1 mln, ehtimol 50%/50%",
-    "Kutilgan qiymat: E(w) = 0,5·9 + 0,5·1 = 5 mln",
-    "Kutilgan naflilik: EU = 0,5·3 + 0,5·1 = 2",
-    "Ishonchli ekvivalent: CE = 2² = 4 mln; risk mukofoti RP = 5 − 4 = 1 mln",
+    "Kutilgan qiymat: E(w) = 0,5·9+0,5·1 = 5 mln",
+    "Kutilgan naflilik: EU = 0,5·3+0,5·1 = 2",
+    "Ishonchli ekvivalent: CE = 2^{2} = 4 mln; risk mukofoti RP = 5−4 = 1 mln",
     "Sug‘urta 4,5 mln kafolatlasa: 4,5 > CE = 4 – fermer qabul qiladi",
     "Neytral kompaniya o‘rtacha 0,5 mln foyda oladi – ikkala tomon yutadi"
    ]
@@ -150,18 +177,23 @@
    "items": [
     {
      "name": "Ishonchli ekvivalent",
-     "formula": "u(CE) = EU,  RP = E(w) − CE",
+     "formula": "u(CE) = EU,  RP = E(w)−CE",
      "note": "RP – riskdan qutulish uchun to‘lashga tayyor summa"
     },
     {
      "name": "Absolyut riskdan qochish (Errou–Pratt)",
-     "formula": "rA(w) = −u″(w) / u′(w)",
-     "note": "nisbiy: rR(w) = −w·u″(w) / u′(w)"
+     "formula": "r_{A}(w) = −(u″(w))/(u′(w))",
+     "note": "nisbiy: r_{R}(w) = −w·(u″(w))/(u′(w))"
     },
     {
      "name": "Risk mukofoti (kichik risklar)",
-     "formula": "RP ≈ ½·rA·σ²",
+     "formula": "RP ≈ (1)/(2)·r_{A}·σ^{2}",
      "note": "riskdan qochish darajasi va dispersiyaga proporsional"
+    },
+    {
+     "name": "Naflilik funksiyalari bo‘yicha",
+     "formula": "√w: r_{A} = (1)/(2w);  ln w: r_{A} = (1)/(w), r_{R} = 1",
+     "note": "CRRA: r_{R} = ρ;  CARA: r_{A} = a"
     }
    ]
   },
@@ -171,18 +203,23 @@
    "sub": "5.4. Sug‘urta va riskni kamaytirish",
    "items": [
     {
+     "name": "Kutilgan naflilikni maksimallashtirish",
+     "formula": "max_{K} π u(C_{b})+(1−π)u(C_{g})",
+     "note": "K – qoplama; C_{b}, C_{g} – yomon va yaxshi holat iste’moli"
+    },
+    {
      "name": "Optimum sharti",
-     "formula": "π·u′(Cb) / ((1 − π)·u′(Cg)) = γ / (1 − γ)",
+     "formula": "(π u′(C_{b}))/((1−π)u′(C_{g})) = (γ)/(1−γ)",
      "note": "befarqlik chizig‘i og‘ishi byudjet og‘ishiga teng"
     },
     {
      "name": "Adolatli sug‘urta",
-     "formula": "γ = π  ⇒  Cb = Cg",
+     "formula": "γK−πK = 0 ⇒ γ = π ⇒ C_{b} = C_{g}",
      "note": "riskdan qochuvchi to‘liq sug‘urta qiladi"
     },
     {
      "name": "Teng ulushli portfel riski",
-     "formula": "σp² = σ²/n + (1 − 1/n)·ρσ²",
+     "formula": "σ_{p}^{2} = (σ^{2})/(n)+(1−(1)/(n))ρσ^{2}",
      "note": "o‘ziga xos risk yo‘qoladi, sistematik risk qoladi"
     }
    ]
@@ -194,8 +231,8 @@
    "bullets": [
     "Adolatli mukofot γ = 0,01; to‘liq sug‘urta K = 10 mln, mukofot 0,1 mln so‘m",
     "Har ikki holatda iste’mol C = 34,9 mln so‘m",
-    "u = ln w: EU = 0,01·ln 25 + 0,99·ln 35 = 3,5520; CE = e^3,5520 ≈ 34,88 mln",
-    "Maksimal mukofot 35 − 34,88 ≈ 0,12 mln (120 ming so‘m)",
+    "u = ln w: EU_{0} = 0,01ln25+0,99ln35 = 3,5520; CE = e^{3,5520} ≈ 34,88 mln",
+    "Maksimal mukofot 35−34,88 ≈ 0,12 mln (120 ming so‘m)",
     "Kompaniya 100–120 ming so‘m oralig‘idagi narxda shartnoma tuza oladi"
    ],
    "note": "Sug‘urta kompaniyasi katta sonlar qonuni tufayli riskka neytral tutadi"
@@ -207,22 +244,22 @@
    "items": [
     {
      "name": "Portfel daromadi va riski",
-     "formula": "rx = x·rm + (1 − x)·rf,  σx = x·σm",
+     "formula": "r_{x} = x r_{m}+(1−x)r_{f},  σ_{x} = x σ_{m}",
      "note": "x – riskli aktivga qo‘yilgan ulush"
     },
     {
      "name": "Byudjet chizig‘i",
-     "formula": "rx = rf + [(rm − rf)/σm]·σx",
-     "note": "og‘ish – riskning narxi (Sharp nisbati)"
+     "formula": "r_{x} = r_{f}+(r_{m}−r_{f})/(σ_{m}) σ_{x}",
+     "note": "og‘ish – Sharp nisbati; optimumda |MRS| = (r_{m}−r_{f})/(σ_{m})"
     },
     {
      "name": "Beta koeffitsienti",
-     "formula": "βi = cov(ri, rm) / σm²",
+     "formula": "β_{i} = (cov(r_{i},r_{m}))/(σ_{m}^{2})",
      "note": "sistematik riskning o‘lchovi"
     },
     {
      "name": "CAPM (SML)",
-     "formula": "ri = rf + βi·(rm − rf)",
+     "formula": "r_{i} = r_{f}+β_{i}(r_{m}−r_{f})",
      "note": "daromadlilik faqat sistematik riskka bog‘liq"
     }
    ]
@@ -239,9 +276,9 @@
    "title": "Amaliy misol 5.3: CAPM",
    "sub": "5.5. Riskli aktivlar bozori",
    "steps": [
-    "Berilgan: rf = 10%, rm = 18%, bozor mukofoti 8%",
-    "Sement (β = 1,5): 10 + 1,5·8 = 22%",
-    "Oziq-ovqat (β = 0,6): 10 + 0,6·8 = 14,8%",
+    "Berilgan: r_{f} = 10%, r_{m} = 18%, bozor mukofoti 8%",
+    "Sement (β = 1,5): 10+1,5·8 = 22%",
+    "Oziq-ovqat (β = 0,6): 10+0,6·8 = 14,8%",
     "Kutilayotgan daromad 17% > 14,8% – aksiya SML dan yuqorida",
     "Aksiya arzon baholangan – sotib olish maqsadga muvofiq",
     "Narx oshib, kutilgan daromadlilik 14,8% ga tushadi"
@@ -254,7 +291,7 @@
    "bullets": [
     "Kaneman va Tverski (1979): kutilgan naflilik muntazam buziladi (Alle paradoksi)",
     "Mos yozuv nuqtasi: natija yutuq yoki yo‘qotish sifatida baholanadi",
-    "Yo‘qotishdan qochish: yo‘qotish yutuqdan taxminan 2–2,5 marta kuchliroq his qilinadi",
+    "Yo‘qotishdan qochish: yo‘qotish yutuqdan taxminan 2–2,5 marta kuchliroq his qilinadi (λ ≈ 2,25)",
     "Yutuqda riskdan qochish, yo‘qotishda riskni sevish",
     "Ehtimollarni tortish: kichik ehtimollar ortiqcha baholanadi (lotereya va sug‘urta)"
    ]
@@ -322,9 +359,9 @@
    "sub": "5.7. Yechib ko‘rsatilgan masalalar",
    "steps": [
     "1-masala: dividend 12, kutilgan narx 110 ming so‘m, r = 20%",
-    "p₀ = (12 + 110)/1,2 = 101,67 ming so‘m",
-    "2-masala: F(t) = 100√t, r = 5%; F′/F = 1/(2t)",
-    "Shart: 1/(2T) = 0,05",
+    "p_{0} = (12+110)/1,2 = 101,67 ming so‘m",
+    "2-masala: F(t) = 100√t, r = 5%; F′/F = (1)/(2t)",
+    "Shart: (1)/(2T) = 0,05",
     "Optimal kesish vaqti T = 10 yil (uzluksiz diskontlash)"
    ]
   },
@@ -334,10 +371,10 @@
    "sub": "5.7. Yechib ko‘rsatilgan masalalar",
    "steps": [
     "3-masala: u = ln w, w = 100, o‘yin ±36 (ehtimol 50%)",
-    "EU = 0,5·ln 136 + 0,5·ln 64 = 4,5358; CE = e^4,5358 = 93,30",
-    "RP = 100 − 93,30 = 6,70; taxminiy: 0,5·0,01·1296 = 6,48",
-    "4-masala: U = μ − 2σ², rf = 0,08, rm = 0,16, σm = 0,2",
-    "U = 0,08 + 0,08x − 0,08x²; dU/dx = 0 ⇒ x* = 0,5 (daromad 12%, risk 10%)"
+    "EU = 0,5ln136+0,5ln64 = 4,5358; CE = e^{4,5358} = 93,30",
+    "RP = 100−93,30 = 6,70; taxminiy: 0,5·0,01·1296 = 6,48",
+    "4-masala: U = μ−2σ^{2}, r_{f} = 0,08, r_{m} = 0,16, σ_{m} = 0,2",
+    "U = 0,08+0,08x−0,08x^{2}; dU/dx = 0 ⇒ x^{*} = 0,5 (daromad 12%, risk 10%)"
    ]
   },
   {
@@ -345,11 +382,11 @@
    "title": "Asosiy xulosalar",
    "sub": "Bob bo‘yicha xulosa",
    "bullets": [
-    "Arbitraj yo‘qligi sharti aktivlar daromadliligini tenglashtiradi: p₀ = (D + p₁)/(1 + r)",
+    "Arbitraj yo‘qligi sharti aktivlar daromadliligini tenglashtiradi: p_{0} = (D+p_{1})/(1+r)",
     "Hotelling qoidasiga ko‘ra tugaydigan resurs narxi foiz stavkasi sur’atida o‘sadi",
-    "Noaniqlikda tanlov EU = ∑ πᵢu(wᵢ) bilan tahlil qilinadi; botiq naflilik – riskdan qochish",
+    "Noaniqlikda tanlov EU = Σ_{i} π_{i}u(w_{i}) bilan tahlil qilinadi; botiq naflilik – riskdan qochish",
     "Adolatli sug‘urtada riskdan qochuvchi to‘liq sug‘urta qiladi; diversifikatsiya o‘ziga xos riskni yo‘qotadi",
-    "CAPM: ri = rf + βi(rm − rf); istiqbol nazariyasi yo‘qotishdan qochishni tushuntiradi"
+    "CAPM: r_{i} = r_{f}+β_{i}(r_{m}−r_{f}); istiqbol nazariyasi yo‘qotishdan qochishni tushuntiradi"
    ]
   }
  ]
