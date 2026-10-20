@@ -34,16 +34,11 @@
      "label": "d) Uzoq muddatli P (M = 500 da)",
      "value": 1.0714,
      "unit": ""
-    },
-    {
-     "label": "d) Uzoq muddatli P (M = 450 da)",
-     "value": 0.9643,
-     "unit": ""
     }
    ],
    "solution": "a) Y = MV/P = 500·3/P = 1500/P. b) P = 1: 1500; P = 1,2: 1250; P = 1,5: 1000. c) M = 450: Y = 450·3/P = 1350/P (AD egri chizig‘i chapga siljiydi). d) Y* = 1400: P = 1500/1400 = 1,0714; yangi: P = 1350/1400 = 0,9643.",
    "formula": "Y = MV/P; uzoq muddatli muvozanat: Y = Y*",
-   "note": "Pul massasi 10% kamayganda uzoq muddatda narxlar ham 10% pasayadi (0,9643/1,0714 − 1 = −10%), real YaIM o‘zgarmaydi – pulning neytralligi."
+   "note": "Pul massasi 10% kamayganda uzoq muddatda narxlar ham 10% pasayadi (0,9643/1,0714 − 1 = −10%), real YaIM o‘zgarmaydi – pulning neytralligi. Qo‘shimcha natijalar: d) Uzoq muddatli P (M = 450 da) = 0.9643."
   },
   {
    "id": "mk6-p2",

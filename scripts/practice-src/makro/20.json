@@ -34,21 +34,11 @@
      "label": "Yopiq iqtisodiyot multiplikatori",
      "value": 2.5,
      "unit": ""
-    },
-    {
-     "label": "ΔY (X + 30 bo‘lganda)",
-     "value": 54.55,
-     "unit": ""
-    },
-    {
-     "label": "ΔNX (X + 30 bo‘lganda)",
-     "value": 21.82,
-     "unit": ""
     }
    ],
    "solution": "C = 50 + 0,6Y. Y = 50 + 0,6Y + 150 + 200 + 180 – 30 – 0,15Y = 550 + 0,45Y, Y = 550/0,55... aniqrog‘i: Y(1 – 0,6 + 0,15) = 550, Y = 550/0,55 = 1000. M = 30 + 150 = 180, NX = 180 – 180 = 0. Ochiq multiplikator 1/0,55 = 1,82; yopiq 1/(1 – 0,6) = 2,5. ΔX = 30: ΔY = 30·1,818 = 54,55; ΔM = 0,15·54,55 = 8,18; ΔNX = 30 – 8,18 = 21,82.",
    "formula": "Y = [a + I + G + X – M0]/(1 – c(1 – t) + m); k = 1/(1 – c(1 – t) + m)",
-   "note": "Yo‘l: 1 – 0,75·0,8 + 0,15 = 0,55. Importga chegaraviy moyillik multiplikatorni kamaytiradi, chunki daromadning bir qismi xorijiy tovarlarga sarflanadi."
+   "note": "Yo‘l: 1 – 0,75·0,8 + 0,15 = 0,55. Importga chegaraviy moyillik multiplikatorni kamaytiradi, chunki daromadning bir qismi xorijiy tovarlarga sarflanadi. Qo‘shimcha natijalar: ΔY (X + 30 bo‘lganda) = 54.55; ΔNX (X + 30 bo‘lganda) = 21.82."
   },
   {
    "id": "mk20-p2",
@@ -99,16 +89,11 @@
      "label": "Suzuvchi kurs: yangi e",
      "value": 5.0,
      "unit": ""
-    },
-    {
-     "label": "Qayd etilgan kurs: yangi Y",
-     "value": 2200.0,
-     "unit": ""
     }
    ],
    "solution": "r = r∗ = 5. a) LM∗: 1500 = Y – 100·5, Y = 2000. b) IS∗: Y = 100 + 0,75(Y – 200) + (500 – 100) + 200 + 400 – 100e = 0,75Y + 950 – 100e, 0,25·2000 = 950 – 100e, e = 4,5. c) G = 250: 0,25Y = 1000 – 100e; LM∗ dan Y = 2000, shuning uchun e = 5,0. Y o‘zgarmaydi, NX 50 ga kamayadi (to‘liq siqib chiqarish). d) Qayd etilgan kurs e = 4,5: 0,25Y = 1000 – 450 = 550, Y = 2200 (ΔY = 200 = 50/0,25). Pul taklifi M = Y – 500 = 1700 gacha endogen oshadi.",
    "formula": "LM∗: M/P = Y – 100r∗; IS∗: Y = C + I(r∗) + G + NX(e)",
-   "note": "Bu yerda e – real valyuta kursi: e oshishi milliy valyuta kuchayishi (NX kamayadi), kamayishi esa zaiflashishi (NX oshadi) ma’nosida. Suzuvchi kursda fiskal siyosat samarasiz, qayd etilganda samarali."
+   "note": "Bu yerda e – real valyuta kursi: e oshishi milliy valyuta kuchayishi (NX kamayadi), kamayishi esa zaiflashishi (NX oshadi) ma’nosida. Suzuvchi kursda fiskal siyosat samarasiz, qayd etilganda samarali. Qo‘shimcha natijalar: Qayd etilgan kurs: yangi Y = 2200.0."
   },
   {
    "id": "mk20-p4",

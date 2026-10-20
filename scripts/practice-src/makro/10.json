@@ -68,7 +68,7 @@
    ],
    "solution": "20 mln: soliq 0 (o‘rtacha 0%, chegaraviy 0%). 60 mln: 0,10·(60 – 30) = 3 mln, o‘rtacha 5%, chegaraviy 10%. 150 mln: 0,10·70 + 0,25·50 = 7 + 12,5 = 19,5 mln, o‘rtacha 13%, chegaraviy 25%. 400 mln: 7 + 0,25·300 = 82 mln, o‘rtacha 20,5%, chegaraviy 25%. O‘rtacha stavka daromad bilan oshadi (0; 5; 13; 20,5%) – tizim progressiv.",
    "formula": "O‘rtacha stavka = T/Y; chegaraviy stavka = ΔT/ΔY",
-   "note": "Progressivlik belgisi: o‘rtacha stavka daromad oshgani sari oshadi. Chegaraviy stavka 25% dan yuqorida ham o‘rtacha stavkadan katta, shuning uchun o‘rtacha stavka 25% ga intiladi, lekin unga yetmaydi."
+   "note": "Progressivlik belgisi: o‘rtacha stavka daromad oshgani sari oshadi. Chegaraviy stavka (0; 10; 25%) o‘rtacha stavkadan yuqori, shuning uchun o‘rtacha stavka daromad bilan oshib, 25% ga intiladi."
   },
   {
    "id": "mk10-p3",

@@ -34,16 +34,11 @@
      "label": "Iqtisodiy faollik darajasi",
      "value": 77.92,
      "unit": "%"
-    },
-    {
-     "label": "Umidini uzganlar bilan ishsizlik darajasi",
-     "value": 7.89,
-     "unit": "%"
     }
    ],
    "solution": "Nofaollar: 2,1 + 2,4 + 0,5 + 0,3 = 5,3 mln. Ishchi kuchi = 24 − 5,3 = 18,7 mln. Ishsizlar = 18,7 − 17,5 = 1,2 mln. Ishsizlik darajasi = 1,2/18,7 = 6,42%. Iqtisodiy faollik = 18,7/24 = 77,92%. Umidini uzganlar bilan: ishsiz 1,5 mln, ishchi kuchi 19,0 mln, daraja 1,5/19,0 = 7,89%.",
    "formula": "L = E + U; u = U/L·100%; faollik = L / mehnatga layoqatli aholi·100%",
-   "note": "Iqtisodiy faollik darajasi mehnatga layoqatli yoshdagi aholiga nisbatan olindi (aholi 40 mln emas). Umidini uzgan ishchilar rasmiy statistikada ishsiz hisoblanmaydi, shuning uchun rasmiy daraja ishsizlikni kamaytirib ko‘rsatadi."
+   "note": "Iqtisodiy faollik darajasi mehnatga layoqatli yoshdagi aholiga nisbatan olindi (aholi 40 mln emas). Umidini uzgan ishchilar rasmiy statistikada ishsiz hisoblanmaydi, shuning uchun rasmiy daraja ishsizlikni kamaytirib ko‘rsatadi. Qo‘shimcha natijalar: Umidini uzganlar bilan ishsizlik darajasi = 7.89 %."
   },
   {
    "id": "mk4-p2",
