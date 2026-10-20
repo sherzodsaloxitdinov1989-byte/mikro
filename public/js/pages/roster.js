@@ -2,6 +2,7 @@
 import { h, mount, toast, loading, confirmDialog, fmtDate } from "../ui.js";
 import { api } from "../api.js";
 import { readXlsx, readDelimited } from "../xlsx-read.js";
+import { SUBJECT_KEY, COURSE } from "../../data/topics.js";
 
 const HEADRE = /^\s*(shifr|id|identifikatsi\w*\s*raqam\w*)\s*$/i;
 
@@ -33,8 +34,8 @@ export async function render(el) {
 
   const draw = () => {
     body.replaceChildren(
-      h("div", { class: "alert alert-info" }, h("b", {}, "Shifr bilan kirish. "), "Bu guruhlarga faqat siz yuklagan ro'yxat bo'yicha kirish mumkin: talaba ro'yxatdan o'tishda F.I.Sh. va shifrini kiritadi, ular ro'yxatga mos bo'lsagina profil ochiladi. Har bir shifr bir marta ishlatiladi. Shifrlar bazada ochiq saqlanmaydi (faqat xesh)."),
-      ...data.groups.map((g) => groupCard(g)));
+      h("div", { class: "alert alert-info" }, h("b", {}, `${COURSE.title}: ID raqam bilan kirish. `), "Bu guruhlarga faqat siz yuklagan ro'yxat bo'yicha kirish mumkin: talaba ro'yxatdan o'tishda guruhi, F.I.Sh. va identifikatsiya raqamini kiritadi, ular ro'yxatga mos bo'lsagina profil ochiladi. Har bir ID raqam bir marta ishlatiladi. Raqamlar bazada ochiq saqlanmaydi (faqat xesh). Quyida shu fanning guruhlari va ularda ro'yxatdan o'tgan talabalar ko'rinadi."),
+      ...data.groups.filter((g) => g.subject === SUBJECT_KEY).map((g) => groupCard(g)));
   };
 
   const groupCard = (g) => {
@@ -62,11 +63,12 @@ export async function render(el) {
         h("div", {}, h("h3", {}, `${g.group}-guruh`), h("p", { class: "muted small" }, g.entries.length ? `${g.entries.length} ta talaba · ${claimed} tasi ro'yxatdan o'tgan · yuklangan: ${fmtDate(g.uploadedAt)} (${g.by})` : "Ro'yxat hali yuklanmagan — talabalar bu guruhga kira olmaydi.")),
         h("div", {}, h("button", { class: "btn", onclick: () => file.click() }, g.entries.length ? "📤 Ro'yxatni yangilash" : "📤 Ro'yxat yuklash"), file)),
       g.entries.length > 0 && h("div", { class: "table-wrap" }, h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "Holati", ""].map((x) => h("th", {}, x)))),
+        h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "Holati", "Email", ""].map((x) => h("th", {}, x)))),
         h("tbody", {}, g.entries.map((e) => h("tr", {},
           h("td", { class: "center muted" }, `${e.n}.`),
           h("td", {}, e.name),
           h("td", {}, e.claimed ? h("span", { class: "badge badge-ok" }, "Ro'yxatdan o'tgan") : h("span", { class: "badge" }, "Kutilmoqda")),
+          h("td", { class: "small muted" }, e.claimed ? `${e.email || ""}${e.claimedAt ? ` · ${fmtDate(e.claimedAt)}` : ""}` : "—"),
           h("td", {}, e.claimed && h("button", { class: "btn ghost small", title: "Shifrni bo'shatish (talaba profilini yo'qotgan bo'lsa)", onclick: async () => {
             if (!(await confirmDialog(`${e.name} shifri bo'shatilsinmi? U shifr bilan qayta kirishi/ro'yxatdan o'tishi kerak bo'ladi.`))) return;
             try {

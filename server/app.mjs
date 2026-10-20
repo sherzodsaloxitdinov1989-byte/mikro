@@ -222,7 +222,12 @@ async function adminRoster(req) {
   for (const s of SUBJECTS) {
     for (const group of s.rosterGroups || []) {
       const r = await db().get(rosterKey(group));
-      out.push({ group, subject: s.key, uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries: (r?.entries || []).map((e, i) => ({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null })) });
+      const entries = [];
+      for (const [i, e] of (r?.entries || []).entries()) {
+        const u = e.claimedBy ? await db().get(userKey(e.claimedBy)) : null;
+        entries.push({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null, ...(u ? { email: u.email, idNumber: u.idNumber || "" } : {}) });
+      }
+      out.push({ group, subject: s.key, uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries });
     }
   }
   return json({ groups: out });
