@@ -1,0 +1,437 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Nima uchun mamlakatlar savdo qiladi?",
+   "sub": "16.1. Xalqaro savdoning zarurligi va ko‘rinishlari",
+   "bullets": [
+    "Hech bir mamlakat barcha tovar va xizmatni samarali ishlab chiqara olmaydi",
+    "Resurslarning notekis taqsimlanishi: tabiiy resurslar, iqlim, yer, mehnat, kapital",
+    "Ishlab chiqarish xarajatlaridagi farqlar: texnologiya, malaka, infratuzilma",
+    "Masshtab samarasi va iste’molchilar talabining xilma-xilligi",
+    "Xalqaro raqobat samaradorlik va innovatsiyalarni oshiradi"
+   ],
+   "note": "Xalqaro savdo – mamlakatlar o‘rtasida tovarlar va xizmatlarni ayirboshlash"
+  },
+  {
+   "type": "bullets",
+   "title": "Xalqaro savdoning ko‘rinishlari",
+   "sub": "16.1. Xalqaro savdoning zarurligi va ko‘rinishlari",
+   "bullets": [
+    "Tovarlar savdosi (xom ashyo, oziq-ovqat, sanoat tovarlari) va xizmatlar savdosi",
+    "Tarmoqlararo savdo: masalan, oltinni mashinalarga ayirboshlash",
+    "Tarmoq ichidagi savdo: Germaniya va Fransiyaning bir-biriga avtomobil sotishi",
+    "Qiymat zanjirlari ichidagi savdo – zamonaviy jahon savdosining qariyb yarmi",
+    "Elektron tijorat va raqamli savdo"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Jahon savdosining o‘sishi",
+   "sub": "16.1. Xalqaro savdoning zarurligi va ko‘rinishlari",
+   "bullets": [
+    "Jahon savdosining jahon YaIMga nisbati: 1960-yilda 24%, 2008-yilda 60% dan ortiq",
+    "Sabablar: GATT/JST muzokaralari, konteyner tashish, axborot texnologiyalari",
+    "Global qiymat zanjirlari, Xitoy va sobiq sotsialistik mamlakatlarning integratsiyasi",
+    "2008-yildan keyin o‘sish sekinlashdi («sekin globallashuv», slowbalization)",
+    "Pandemiya va geosiyosat: nearshoring va «do‘stlar bilan savdo» (friend-shoring)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Jahon savdosi va jahon YaIM",
+   "sub": "16.1. Xalqaro savdoning zarurligi va ko‘rinishlari",
+   "img": "image115.png",
+   "caption": "16.1-rasm. Jahon savdosining jahon YaIMga nisbati, 1960–2024-yillar"
+  },
+  {
+   "type": "bullets",
+   "title": "Smit: mutlaq ustunlik",
+   "sub": "16.2. A. Smitning mutlaq ustunlik nazariyasi",
+   "bullets": [
+    "«Xalqlar boyligi» (1776): boylik oltin emas, ishlab chiqarilgan tovarlar",
+    "Mutlaq ustunlik – tovarni boshqa mamlakatdan kamroq resurs sarflab ishlab chiqarish",
+    "Har bir mamlakat mutlaq ustunlikka ega tovarga ixtisoslashishi kerak",
+    "Misol: O‘zbekiston paxtada (10 < 30), Koreya avtomobilda (20 < 60) ustun",
+    "Savol: hamma tovarda mutlaq ustunlik bo‘lsa, savdo foydalimi? – Rikardo javob berdi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Merkantilizm va Smit qarashi",
+   "sub": "16.2. A. Smitning mutlaq ustunlik nazariyasi",
+   "left": {
+    "head": "Merkantilizm",
+    "items": [
+     "Boylik – oltin va kumush zaxiralari",
+     "Eksportni rag‘batlantirish, importni cheklash",
+     "Savdo – «nol yig‘indili o‘yin»"
+    ]
+   },
+   "right": {
+    "head": "Smit nazariyasi",
+    "items": [
+     "Boylik – ishlab chiqarilgan tovarlar",
+     "Har kim mutlaq ustunlik sohasiga ixtisoslashadi",
+     "Savdo ikkala tomonga foydali"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Mutlaq ustunlik hisobi",
+   "sub": "16.2. A. Smitning mutlaq ustunlik nazariyasi",
+   "items": [
+    {
+     "name": "Ishlab chiqarish hajmi",
+     "formula": "Q = (L)/(a)",
+     "note": "L – mehnat resursi (kishi-soat), a – 1 birlik uchun mehnat sarfi; 600/10 = 60 t paxta"
+    },
+    {
+     "name": "Mutlaq ustunlik sharti",
+     "formula": "a_{O‘z} < a_{Kor}",
+     "note": "paxtada 10 < 30 – O‘zbekiston; avtomobilda 20 < 60 – Koreya"
+    },
+    {
+     "name": "Savdodan jahon yutug‘i",
+     "formula": "ΔQ = Q_{ixt} − Q_{avt}",
+     "note": "paxta 120 − 80 = 40 t; avtomobil 60 − 40 = 20 dona"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Mutlaq ustunlik: savdodan yutuq",
+   "sub": "16.2. A. Smitning mutlaq ustunlik nazariyasi",
+   "steps": [
+    "Har bir mamlakatda 1200 kishi-soat; avtarkiyada resursning yarmi har tovarga ketadi",
+    "O‘zbekiston: paxta 60 t, avtomobil 10 dona; Koreya: paxta 20 t, avtomobil 30 dona",
+    "To‘liq ixtisoslashuv: O‘zbekiston 1200/10 = 120 t paxta, Koreya 1200/20 = 60 avtomobil",
+    "Jahon ishlab chiqarishi 40 t paxta va 20 avtomobilga oshdi",
+    "1 avtomobil = 1,5 t paxta: O‘zbekiston 45 t paxtani 30 avtomobilga almashtiradi",
+    "O‘zbekiston: 75 t paxta, 30 avto; Koreya: 45 t paxta, 30 avto – ikkalasi yutdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Rikardo: nisbiy ustunlik",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "bullets": [
+    "«Siyosiy iqtisod va soliqqa tortish asoslari» (1817): savdo nisbiy ustunlikka asoslanadi",
+    "Nisbiy ustunlik – tovarni pastroq muqobil qiymat bilan ishlab chiqarish qobiliyati",
+    "Muqobil qiymat – qo‘shimcha birlik uchun voz kechiladigan boshqa tovar miqdori",
+    "Barcha tovarda mutlaq ustunlikka ega bo‘lmagan mamlakat ham savdodan yutadi",
+    "Kundalik misol: advokat yozuvda tez, lekin kotib yollaydi – kotibda nisbiy ustunlik"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Rikardo misoli: Angliya va Portugaliya",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "head": [
+    "Mamlakat",
+    "Mato (kishi-yil)",
+    "Vino (kishi-yil)",
+    "Nisbiy ustunlik"
+   ],
+   "rows": [
+    [
+     "Angliya",
+     "100",
+     "120",
+     "Mato (0,83 < 1,125)"
+    ],
+    [
+     "Portugaliya",
+     "90",
+     "80",
+     "Vino (0,89 < 1,2)"
+    ],
+    [
+     "Angliyada mato",
+     "1 mato = 0,83 vino",
+     "1 vino = 1,2 mato",
+     "–"
+    ],
+    [
+     "Portugaliyada mato",
+     "1 mato = 1,125 vino",
+     "1 vino = 0,89 mato",
+     "–"
+    ]
+   ],
+   "note": "Portugaliya ikkala tovarda mutlaq ustun, lekin ustunligi vinoda kattaroq (80/120 = 0,67)"
+  },
+  {
+   "type": "formula",
+   "title": "Muqobil qiymat va savdo shartlari",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "items": [
+    {
+     "name": "Matoning muqobil qiymati",
+     "formula": "MQ_{mato} = (a_{mato})/(a_{vino})",
+     "note": "Angliya: 100/120 = 0,83 vino; Portugaliya: 90/80 = 1,125 vino"
+    },
+    {
+     "name": "Vinoning muqobil qiymati",
+     "formula": "MQ_{vino} = (a_{vino})/(a_{mato})",
+     "note": "Angliya: 120/100 = 1,2 mato; Portugaliya: 80/90 = 0,89 mato"
+    },
+    {
+     "name": "Savdo shartlari chegarasi",
+     "formula": "0,83 < P_{mato} < 1,125",
+     "note": "1 mato = 1 vino: Angliya 0,83 o‘rniga 1 vino oladi, Portugaliya 1,125 o‘rniga 1 vino beradi"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Doimiy va o‘suvchi almashtirish xarajatlari",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "left": {
+    "head": "Doimiy xarajatlar",
+    "items": [
+     "ICHE to‘g‘ri chiziq",
+     "To‘liq ixtisoslashuv",
+     "Muqobil qiymat o‘zgarmaydi"
+    ]
+   },
+   "right": {
+    "head": "O‘suvchi xarajatlar",
+    "items": [
+     "ICHE koordinata boshiga nisbatan qavariq",
+     "Qisman ixtisoslashuv",
+     "Kam mos resurslar jalb qilinadi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Qisman ixtisoslashuv va yutuq",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "img": "image117.png",
+   "caption": "16.3-rasm. O‘suvchi almashtirish xarajatlari sharoitida qisman ixtisoslashuv va savdodan yutuq"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Rikardo misolida savdodan yutuq",
+   "sub": "16.3. D. Rikardoning nisbiy ustunlik nazariyasi",
+   "steps": [
+    "Har bir mamlakatda 7200 kishi-yil; avtarkiyada mehnat teng bo‘linadi (3600 / 3600)",
+    "Angliya: mato 3600/100 = 36, vino 3600/120 = 30; Portugaliya: mato 40, vino 45",
+    "Avtarkiyada jami: 76 birlik mato va 75 birlik vino",
+    "Ixtisoslashuv: Angliya 7200/100 = 72 mato; Portugaliya 7200/80 = 90 vino",
+    "Jami 72 mato va 90 vino: vino +15, mato −4 birlik",
+    "Savdo shartlari oralig‘ida almashinuv bilan har ikki mamlakat yutadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Xeksher-Olin teoremasi",
+   "sub": "16.4. Xeksher-Olin nazariyasi",
+   "bullets": [
+    "Rikardo farqni texnologiya bilan izohladi; Xeksher (1919), Olin (1933) – omillar bilan",
+    "Mamlakat ortiqcha omilni intensiv ishlatadigan tovarlarni eksport qiladi",
+    "Taqchil omilni intensiv ishlatadigan tovarlarni import qiladi",
+    "Muhim omillar nisbati, mutlaq miqdor emas (Xitoy – mehnat bilan ko‘proq ta’minlangan)",
+    "Xeksher-Olin-Samuelson: erkin savdo omil narxlarini tenglashtirishga intiladi"
+   ],
+   "note": "Stolper-Samuelson: ortiqcha omil egalari yutadi, taqchil omil egalari daromadi kamayadi"
+  },
+  {
+   "type": "figure",
+   "title": "Xeksher-Olin nazariyasining mantiqi",
+   "sub": "16.4. Xeksher-Olin nazariyasi",
+   "img": "image118.png",
+   "caption": "16.4-rasm. Xeksher-Olin nazariyasining mantiqi"
+  },
+  {
+   "type": "bullets",
+   "title": "Leontyev paradoksi",
+   "sub": "16.4. Xeksher-Olin nazariyasi",
+   "bullets": [
+    "1953-yilda Leontyev AQSH ma’lumotlarini tarmoqlararo balans bilan tekshirdi",
+    "Kutilgan: kapitalga boy AQSH kapital sig‘imli tovar eksport qiladi",
+    "Natija: eksport import o‘rnini bosuvchi tovarlardan kamroq kapital sig‘imli",
+    "Izohlar: inson kapitali, tabiiy resurslar, talab farqlari, proteksionizm",
+    "Ikki omilli model juda soddalashtirilgan; paradoks yangi nazariyalarga turtki berdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Porter: milliy romb",
+   "sub": "16.5. Xalqaro savdoning zamonaviy nazariyalari",
+   "bullets": [
+    "«Mamlakatlarning raqobat ustunligi» (1990): ustunlik tabiatdan emas, yaratiladi",
+    "1) Omillar sharoitlari: rivojlangan omillar (kadrlar, ilm, infratuzilma) muhimroq",
+    "2) Talab sharoitlari: talabchan ichki iste’molchilar innovatsiyaga undaydi",
+    "3) Turdosh tarmoqlar – klasterlar (Kremniy vodiysi, Italiya poyabzal klasterlari)",
+    "4) Firma strategiyasi va ichki raqobat; qo‘shimcha omillar – davlat va tasodif"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Porterning «milliy romb» modeli",
+   "sub": "16.5. Xalqaro savdoning zamonaviy nazariyalari",
+   "img": "image119.png",
+   "caption": "16.5-rasm. M. Porterning «milliy romb» modeli"
+  },
+  {
+   "type": "bullets",
+   "title": "Yangi savdo nazariyalari",
+   "sub": "16.5. Xalqaro savdoning zamonaviy nazariyalari",
+   "bullets": [
+    "Krugman (1979–1980): masshtab samarasi va differensiatsiya, tarmoq ichidagi savdo",
+    "Melits (2003): faqat eng unumli firmalar eksport qiladi; resurslar ularga qayta taqsimlanadi",
+    "Gravitatsiya modeli (Tinbergen, 1962): savdo YaIMga to‘g‘ri, masofaga teskari proporsional",
+    "Hayot tsikli nazariyasi (Vernon, 1966): standartlashgan mahsulot arzon mehnatli mamlakatga ko‘chadi",
+    "Mankyu: dalillar erkin savdo o‘sishga ijobiy ta’sir ko‘rsatishini tasdiqlaydi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Savdo nazariyalarining qiyosiy tavsifi",
+   "sub": "16.5. Xalqaro savdoning zamonaviy nazariyalari",
+   "head": [
+    "Nazariya",
+    "Muallif, yil",
+    "Savdo sababi",
+    "Asosiy xulosa"
+   ],
+   "rows": [
+    [
+     "Merkantilizm",
+     "T. Man va b., XVI–XVIII asr",
+     "Oltin to‘plash",
+     "Eksport rag‘batlanadi"
+    ],
+    [
+     "Mutlaq ustunlik",
+     "A. Smit, 1776",
+     "Mutlaq xarajatlar farqi",
+     "Ikkala tomonga foydali"
+    ],
+    [
+     "Nisbiy ustunlik",
+     "D. Rikardo, 1817",
+     "Muqobil qiymatlar farqi",
+     "Hamma savdodan yutadi"
+    ],
+    [
+     "Omillar nisbati",
+     "Xeksher, Olin, 1919–1933",
+     "Omillar bilan ta’minlanganlik",
+     "Ortiqcha omil eksporti"
+    ],
+    [
+     "Raqobat ustunligi",
+     "M. Porter, 1990",
+     "Milliy romb, klasterlar",
+     "Ustunlik yaratiladi"
+    ],
+    [
+     "Yangi savdo nazariyasi",
+     "P. Krugman, 1979",
+     "Masshtab, differensiatsiya",
+     "Tarmoq ichidagi savdo"
+    ]
+   ],
+   "note": "Jadvalda yana: Melits (2003) – firmalar unumdorligi; Tinbergen (1962) – iqtisodiy hajm va masofa"
+  },
+  {
+   "type": "bullets",
+   "title": "Savdo ochilganda jahon bozori",
+   "sub": "16.6. Jahon bozorida talab va taklif. Muvozanatli narx",
+   "bullets": [
+    "Avtarkiyada narx ichki talab va taklifga bog‘liq: A mamlakatda arzon, B da qimmat",
+    "A da jahon narxi ichki narxdan yuqori: ortiqcha taklif eksport taklifiga aylanadi",
+    "B da jahon narxi ichki narxdan past: yetishmovchilik import talabiga aylanadi",
+    "Eksport taklifi = import talabi nuqtasida jahon narxi va savdo hajmi aniqlanadi",
+    "Jahon narxi ikki mamlakat avtarkiya narxlari oralig‘ida bo‘ladi"
+   ],
+   "note": "Eksportchida ishlab chiqaruvchilar yutadi, importchida iste’molchilar; jamiyat umuman yutadi"
+  },
+  {
+   "type": "figure",
+   "title": "Muvozanatli jahon narxi",
+   "sub": "16.6. Jahon bozorida talab va taklif. Muvozanatli narx",
+   "img": "image120.png",
+   "caption": "16.6-rasm. Jahon bozorida muvozanatli narxning shakllanishi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: paxta bozorida jahon narxi",
+   "sub": "16.6. Jahon bozorida talab va taklif. Muvozanatli narx",
+   "steps": [
+    "A: 100 − 2P = 3P − 20 ⇒ P = 24; B: 150 − 3P = 2P − 10 ⇒ P = 32 (avtarkiya narxlari)",
+    "A ning eksport taklifi: QS − QD = (3P − 20) − (100 − 2P) = 5P − 120",
+    "B ning import talabi: QD − QS = (150 − 3P) − (2P − 10) = 160 − 5P",
+    "Tenglik: 5P − 120 = 160 − 5P ⇒ jahon narxi P = 28 (24 va 32 oralig‘ida)",
+    "Savdo hajmi: 5 · 28 − 120 = 20 birlik; B ning import talabi ham 160 − 140 = 20"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston savdosi nazariyalar ko‘zgusida",
+   "sub": "16.7. O‘zbekiston tashqi savdosi va nisbiy ustunliklari",
+   "bullets": [
+    "2025-yil: aylanma 81,2 mlrd $ (+20,7%), eksport 33,8 mlrd, import 47,3 mlrd $",
+    "Xeksher-Olin: eksportda resurs sig‘imli (oltin 29,3%) va mehnat sig‘imli tovarlar ustun",
+    "Gravitatsiya: Xitoy 21,2%, Rossiya 16%, Qozog‘iston 6,1%; Xitoy va Rossiya – 37%",
+    "Porter: paxta-to‘qimachilik, meva-sabzavot klasterlari, IT-park – yaratilayotgan ustunlik",
+    "Importda mashina-uskunalar, transport vositalari, kimyo va farmatsevtika ustun"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Aniqlangan nisbiy ustunlik indeksi (RCA)",
+   "sub": "16.7. O‘zbekiston tashqi savdosi va nisbiy ustunliklari",
+   "items": [
+    {
+     "name": "Balassa indeksi",
+     "formula": "RCA = (s_{mamlakat})/(s_{jahon})",
+     "note": "s – tovarning mamlakat va jahon eksportidagi ulushi"
+    },
+    {
+     "name": "Talqin",
+     "formula": "RCA > 1 ⇒ nisbiy ustunlik",
+     "note": "RCA < 1 bo‘lsa, mamlakat bu tovarda nisbiy ustunlikka ega emas"
+    },
+    {
+     "name": "Masala: birinchi tovar",
+     "formula": "RCA = (4)/(0,5) = 8",
+     "note": "ulushlar 4% va 0,5%: kuchli nisbiy ustunlik"
+    },
+    {
+     "name": "Masala: ikkinchi tovar",
+     "formula": "RCA = (1)/(2) = 0,5",
+     "note": "ulushlar 1% va 2%: nisbiy ustunlik yo‘q"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston tashqi savdosi muammolari",
+   "sub": "16.7. O‘zbekiston tashqi savdosi va nisbiy ustunliklari",
+   "bullets": [
+    "Eksportning oltinga yuqori bog‘liqligi – narxlar tebranishiga zaiflik",
+    "Tovarlar savdosi taqchilligi 13,5 mlrd dollardan oshgan",
+    "Yuqori qo‘shilgan qiymatli tayyor mahsulotlar ulushi past",
+    "Dengizga chiqish yo‘qligi («ikki karra» yopiq) transport xarajatlarini oshiradi",
+    "Vazifa: eksportni diversifikatsiya qilish va yangi raqobat ustunliklarini yaratish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Xalqaro savdo resurslar, xarajatlar farqi, masshtab samarasi va talab xilma-xilligi tufayli zarur",
+    "Smit – mutlaq, Rikardo – nisbiy ustunlik: barcha mamlakatlar savdodan yutadi",
+    "Doimiy xarajatlarda to‘liq, o‘suvchi xarajatlarda qisman ixtisoslashuv yuz beradi",
+    "Xeksher-Olin, Porter va yangi savdo nazariyalari savdoning boshqa sabablarini ochadi",
+    "Jahon narxi eksport taklifi va import talabi tenglashgan nuqtada; yutuvchi va yutqazuvchilar bor"
+   ]
+  }
+ ]
+}
