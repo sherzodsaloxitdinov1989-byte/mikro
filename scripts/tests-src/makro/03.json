@@ -47,7 +47,7 @@
   "q": "Kitchin tsikllarining asosiy sababi nima?",
   "options": [
    "Tovar-moddiy zaxiralarining o‘zgarishi",
-   "Urushlar va siyosiy to‘ntarishlar",
+   "Urushlar va siyosiy to‘ntarishlar oqibati",
    "Fundamental texnologik inqiloblar",
    "Demografik va migratsion o‘zgarishlar"
   ],
@@ -101,8 +101,8 @@
  {
   "q": "Keyns tsikllarning asosiy sababi deb nimani hisoblagan?",
   "options": [
-   "Texnologik shoklarni",
-   "Pul taklifining o‘zgarishini",
+   "Texnologik shoklarning ta’sirini",
+   "Pul taklifining beqarorligini",
    "Investitsiyalarning beqarorligi",
    "Quyosh faolligini"
   ],
@@ -124,9 +124,9 @@
   "q": "Quyidagilardan qaysi biri talab shoki hisoblanadi?",
   "options": [
    "Iste’molchilar ishonchining keskin pasayishi",
-   "Neft narxining keskin oshishi",
+   "Neft narxining keskin oshib ketishi",
    "Qurg‘oqchilik tufayli hosilning kamayishi",
-   "Yangi texnologiyaning joriy etilishi"
+   "Yangi texnologiyaning keng joriy etilishi"
   ],
   "c": 0,
   "e": "Iste’molchilar ishonchi yalpi talabga ta’sir qiladi; boshqalari taklif shoklari."
@@ -200,10 +200,10 @@
  {
   "q": "Ilg‘or indikatorga qaysi biri misol bo‘ladi?",
   "options": [
-   "Real YaIM",
+   "Real YaIM hajmi",
    "Iste’mol narxlari indeksi",
    "Qurilishga ruxsatnomalar soni",
-   "Ishsizlik davomiyligi"
+   "Ishsizlik darajasining davomiyligi"
   ],
   "c": 2,
   "e": "Qurilish ruxsatnomalari faollik o‘zgarishidan oldin o‘zgaradi, shuning uchun ilg‘or indikator."
@@ -244,8 +244,8 @@
  {
   "q": "Kondratyev to‘lqinlari qaysi omil bilan bog‘liq?",
   "options": [
-   "Saylov davriyligi",
-   "Asosiy kapitalning yangilanishi",
+   "Saylovlar davriyligi va siyosat",
+   "Asosiy kapitalning ommaviy yangilanishi",
    "Fundamental texnologik inqiloblar",
    "Tovar zaxiralarining o‘zgarishi"
   ],
@@ -255,10 +255,10 @@
  {
   "q": "Retsessiya davrida antitsiklik siyosat qanday bo‘lishi kerak?",
   "options": [
-   "Soliqlarni oshirish va xarajatlarni saqlash",
+   "Soliqlarni oshirish va byudjet xarajatlarini saqlash",
    "Davlat xarajatlarini oshirish va stavkalarni pasaytirish",
    "Xarajatlarni qisqartirish va stavkalarni oshirish",
-   "Faqat pul massasini cheklash"
+   "Pul massasini cheklash va soliqlarni oshirish"
   ],
   "c": 1,
   "e": "Antitsiklik siyosat yalpi talabni rag‘batlantirishga qaratiladi."
@@ -300,8 +300,8 @@
   "q": "Retsessiyaning keng tarqalgan «texnik» ta’rifi qanday?",
   "options": [
    "Eksport hajmining bir yillik kamayishi",
-   "Ishsizlikning 5 foizdan oshishi",
-   "Narxlarning 10 foizdan ortiq o‘sishi",
+   "Ishsizlikning 5 foizdan oshib ketishi",
+   "Narxlarning 10 foizdan ortiq o‘sib ketishi",
    "Real YaIMning ketma-ket ikki chorak qisqarishi"
   ],
   "c": 3,
@@ -321,10 +321,10 @@
  {
   "q": "Mankyuga ko‘ra, qisqa muddatli iqtisodiy tebranishlarni tushunishning kaliti nima?",
   "options": [
-   "Aholi sonining o‘sishi",
+   "Aholi sonining o‘sish sur’ati",
    "Narxlarning qisqa muddatda qat’iyligi",
-   "Texnologik taraqqiyot sur’ati",
-   "Oltin standartining mavjudligi"
+   "Texnologik taraqqiyot sur’ati va tezligi",
+   "Oltin standartining saqlanib qolishi"
   ],
   "c": 1,
   "e": "Mankyu qisqa muddatda narxlar yopishqoq bo‘lishini tebranishlar kaliti deb hisoblaydi."

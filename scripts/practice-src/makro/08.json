@@ -1,0 +1,204 @@
+{
+ "goal": "Keyns xochi, muvozanatli YaIM, multiplikatorlar, retsession va inflyatsion uzilishlarni hisoblash hamda tejamkorlik paradoksini miqdoriy tahlil qilish ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "Samarali talab va Keyns xochi",
+  "Rejalashtirilgan va haqiqiy xarajatlar",
+  "Avtonom xarajatlar multiplikatori",
+  "Ochiq iqtisodiyot multiplikatori",
+  "Retsession va inflyatsion uzilish",
+  "Tejamkorlik paradoksi"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 8-bob",
+ "tasks": [
+  {
+   "id": "mk8-p1",
+   "title": "Yopiq iqtisodiyotda muvozanat",
+   "text": "Yopiq iqtisodiyotda: C = 100 + 0,8Yd, I = 150, G = 200, T = 150 (mlrd so‘m). Muvozanatli YaIMni toping. Iste’mol, jamg‘arma va byudjet qoldig‘ini hisoblang. Multiplikatorni toping. Investitsiyalar 50 ga kamaysa, yangi muvozanatli YaIM qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "Muvozanatli YaIM",
+     "value": 1650,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Jamg‘arma",
+     "value": 200,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Byudjet qoldig‘i (kamomad manfiy)",
+     "value": -50,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Investitsiyalar 50 ga kamaygandagi YaIM",
+     "value": 1400,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Y = 100 + 0,8(Y − 150) + 150 + 200 = 330 + 0,8Y, Y = 1650. Yd = 1500, C = 100 + 1200 = 1300, S = 1500 − 1300 = 200. Byudjet: T − G = 150 − 200 = −50 (kamomad). k = 1/(1 − 0,8) = 5. ΔI = −50: ΔY = −250, Y = 1400.",
+   "formula": "Y = C + I + G; k = 1/(1 − MPC); ΔY = k·ΔI",
+   "note": "Tekshiruv (injeksiya = chiqib ketish): S + T = 200 + 150 = 350 = I + G = 150 + 200."
+  },
+  {
+   "id": "mk8-p2",
+   "title": "Retsession uzilishni bartaraf etish",
+   "text": "1-masala sharoitida potensial YaIM 2000 mlrd so‘m. YaIM uzilishi va retsession uzilishni toping. Davlat xaridlarini qanchaga oshirish kerak? Soliqlarni qanchaga kamaytirish kerak (soliq multiplikatori −c/(1 − c))? Ikki variantning byudjetga ta’sirini taqqoslang.",
+   "fields": [
+    {
+     "label": "YaIM uzilishi",
+     "value": 350,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Davlat xaridlarini oshirish (retsession uzilish)",
+     "value": 70,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Soliqlarni kamaytirish",
+     "value": 87.5,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Soliq kamaytirish variantida byudjet kamomadi G ni oshirishdagidan qancha ko‘p",
+     "value": 17.5,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "YaIM uzilishi = 2000 − 1650 = 350. Retsession uzilish = 350/5 = 70, demak ΔG = 70. Soliq multiplikatori = −0,8/0,2 = −4; ΔT = −350/4 = −87,5. G ni oshirishda byudjet kamomadi 50 + 70 = 120; soliqni kamaytirishda 50 + 87,5 = 137,5; farq 17,5.",
+   "formula": "retsession uzilish = YaIM uzilishi/k; kT = −c/(1 − c)",
+   "note": "Soliqlar bir martalik (lump-sum) deb olingan. G ni oshirish byudjetga kamroq yuk bo‘ladi, chunki G multiplikatori (5) soliq multiplikatoridan (4) katta."
+  },
+  {
+   "id": "mk8-p3",
+   "title": "PE funksiyasini aniqlash",
+   "text": "Y = 1000 bo‘lganda rejalashtirilgan xarajatlar 1080 ga, Y = 1400 bo‘lganda 1400 ga teng (PE funksiyasi chiziqli). PE funksiyasini toping. Muvozanatli YaIM va multiplikatorni aniqlang. Y = 1000 da zaxiralar qanday o‘zgaradi?",
+   "fields": [
+    {
+     "label": "Avtonom xarajatlar (PE funksiyasining kesishmasi)",
+     "value": 280,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Egri chiziq og‘ishi (PE ning Y ga nisbatan moyilligi)",
+     "value": 0.8,
+     "unit": ""
+    },
+    {
+     "label": "Muvozanatli YaIM",
+     "value": 1400,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Y = 1000 da zaxiralar o‘zgarishi (kamayish manfiy)",
+     "value": -80,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Og‘ish = (1400 − 1080)/(1400 − 1000) = 0,8. PE = a + 0,8Y: 1400 = a + 1120, a = 280. PE = 280 + 0,8Y. Muvozanat: Y = PE, Y = 280/0,2 = 1400. k = 1/(1 − 0,8) = 5. Y = 1000 da PE = 1080 > 1000, zaxiralar 80 ga kamayadi, firmalar ishlab chiqarishni oshiradi.",
+   "formula": "PE = a + bY; Y* = a/(1 − b); k = 1/(1 − b)",
+   "note": "Y = 1400 da PE = Y bo‘lgani uchun u muvozanat nuqtasi."
+  },
+  {
+   "id": "mk8-p4",
+   "title": "Ochiq iqtisodiyotda muvozanat",
+   "text": "C = 50 + 0,8(Y − T), T = 0,25Y, I = 200, G = 250, X = 180, IM = 30 + 0,1Y. Muvozanatli YaIMni toping. Multiplikatorni hisoblang. Sof eksport va byudjet qoldig‘ini toping. Eksport 40 ga oshsa, YaIM va sof eksport qanchaga o‘zgaradi?",
+   "fields": [
+    {
+     "label": "Muvozanatli YaIM",
+     "value": 1300,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Sof eksport",
+     "value": 20,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Byudjet qoldig‘i",
+     "value": 75,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Eksport 40 ga oshgandagi YaIM o‘sishi",
+     "value": 80,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "C = 50 + 0,6Y. Y = 50 + 0,6Y + 200 + 250 + 180 − 30 − 0,1Y = 650 + 0,5Y, Y = 1300. k = 1/(1 − 0,8·0,75 + 0,1) = 1/0,5 = 2. T = 325, byudjet T − G = 75 (profitsit). IM = 30 + 130 = 160, NX = 180 − 160 = 20. ΔX = 40: ΔY = 2·40 = 80, Y = 1380; IM = 168, X = 220, NX = 52, ΔNX = +32.",
+   "formula": "Y = C + I + G + X − IM; k = 1/(1 − c(1 − t) + m); NX = X − IM",
+   "note": "Sof eksport 20 dan 52 gacha, ya’ni 32 ga oshadi (eksportning 40 o‘sishining bir qismi import o‘sishi (8) bilan so‘nadi)."
+  },
+  {
+   "id": "mk8-p5",
+   "title": "Tejamkorlik paradoksi",
+   "text": "S = −100 + 0,2Y, I = 200 (G = T = 0, yopiq iqtisodiyot). Muvozanatli YaIM va jamg‘armani toping. Uy xo‘jaliklari har bir daromadda 40 ko‘p jamg‘arishga qaror qildi: S = −60 + 0,2Y; yangi YaIM va jamg‘armani toping. I = 100 + 0,1Y bo‘lsa, ikkala holat uchun YaIMni toping.",
+   "fields": [
+    {
+     "label": "Dastlabki muvozanatli YaIM (I = 200)",
+     "value": 1500,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Jamg‘arish oshgandan keyingi YaIM (I = 200)",
+     "value": 1300,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Dastlabki YaIM (I = 100 + 0,1Y)",
+     "value": 2000,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Jamg‘arish oshgandan keyingi YaIM (I = 100 + 0,1Y)",
+     "value": 1600,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Muvozanat S = I. a) −100 + 0,2Y = 200, Y = 1500, S = 200. b) −60 + 0,2Y = 200, Y = 1300, S = 200. c) −100 + 0,2Y = 100 + 0,1Y, Y = 2000, S = I = 300; keyin −60 + 0,2Y = 100 + 0,1Y, Y = 1600, S = I = 260.",
+   "formula": "muvozanat: S = I",
+   "note": "Paradoks: jamg‘arishga moyillik oshganda YaIM kamayadi, jami jamg‘arma o‘zgarmaydi (I mustaqil bo‘lsa, 200) yoki hatto kamayadi (300 → 260, I daromadga bog‘liq bo‘lsa)."
+  },
+  {
+   "id": "mk8-p6",
+   "title": "Multiplikatorlarni taqqoslash",
+   "text": "MPC = 0,8, soliq stavkasi 20%, importga chegaraviy moyillik 0,25. Yopiq iqtisodiyot, proporsional soliqli yopiq iqtisodiyot va ochiq iqtisodiyot uchun multiplikatorlarni hisoblang. 50 mlrd so‘mlik davlat investitsiya loyihasining daromadga ta’sirini har uch holat uchun aniqlang.",
+   "fields": [
+    {
+     "label": "Yopiq iqtisodiyotda daromad o‘sishi",
+     "value": 250,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Proporsional soliqli iqtisodiyotda daromad o‘sishi",
+     "value": 138.89,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Ochiq iqtisodiyotda multiplikator",
+     "value": 1.64,
+     "unit": ""
+    },
+    {
+     "label": "Ochiq iqtisodiyotda daromad o‘sishi",
+     "value": 81.97,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Yopiq: k = 1/(1 − 0,8) = 5, ΔY = 250. Proporsional soliq: k = 1/(1 − 0,8·0,8) = 1/0,36 = 2,78, ΔY = 138,89. Ochiq: k = 1/(1 − 0,64 + 0,25) = 1/0,61 = 1,64, ΔY = 81,97.",
+   "formula": "k = 1/(1 − c(1 − t) + m)",
+   "note": "Soliq va import «chiqib ketishlar» ni oshirgani sari multiplikator kichrayadi (5 → 2,78 → 1,64)."
+  }
+ ],
+ "open": [
+  "Keyns klassik nazariyaning qaysi qoidalarini tanqid qildi va nima uchun uning fikricha bozor mexanizmi muvozanatni to‘liq bandlikda avtomatik ta’minlay olmaydi?",
+  "Tejamkorlik paradoksini grafik yordamida tushuntiring. Nima uchun u «tarkib xatosi»ga misol bo‘ladi va uzoq muddatda ham amal qiladimi?",
+  "O‘zbekiston sharoitida multiplikator qiymatiga qanday omillar ta’sir qiladi? Darslikdagi taxminiy ko‘rsatkichlar (c ≈ 0,8, t ≈ 0,2, m ≈ 0,3) asosida multiplikatorni baholab, iqtisodiy siyosat uchun xulosa chiqaring."
+ ],
+ "refs": [
+  "Keyns tanqid qilgan qoidalar: narx va ish haqining moslashuvchanligi hamda bozorning o‘zini-o‘zi to‘liq bandlikda tartibga solishi. Uning fikricha, jamg‘arish va investitsiya qarorlarini turli subyektlar qabul qiladi, narxlar va ish haqi qat’iy (pastga qat’iy), shuning uchun yalpi talab yetishmasligi uzoq muddat davom etishi mumkin. Ishlab chiqarish hajmini samarali talab belgilaydi; muvozanat to‘liq bandlikdan past darajada ham o‘rnatilishi mumkin va davlat talabni rag‘batlantirishi kerak.",
+  "Tejamkorlik paradoksi: jamiyat ko‘proq jamg‘arishga intilsa, iste’mol va yalpi talab kamayadi, YaIM multiplikator marta qisqaradi, natijada jami jamg‘armalar oshmaydi (yoki kamayadi). Har bir xo‘jalik uchun to‘g‘ri qaror hamma uchun birgalikda noto‘g‘ri natija beradi – shuning uchun «tarkib xatosi». Qisqa muddatda, narxlar qat’iy va resurslar bandligi to‘liq bo‘lmaganda amal qiladi; uzoq muddatda jamg‘arma investitsiyaga aylanib, kapital va o‘sishni oshirishi mumkin, bu moliya tizimi samaradorligiga bog‘liq. Javobda 8.7-rasm tavsifi bo‘lishi kerak.",
+  "Hisob: k = 1/(1 − c(1 − t) + m) = 1/(1 − 0,8·0,8 + 0,3) = 1/0,66 ≈ 1,52. Bu oddiy multiplikator (5) dan ancha kichik. Omillar: MPC, soliq stavkasi, importga moyillik (soliq va import – «chiqib ketishlar»). Xulosa: davlat xarajatlari yoki pul o‘tkazmalari ko‘proq importni rag‘batlantirishi mumkin, shuning uchun ichki ishlab chiqarishni rag‘batlantirish va importga moyillikni kamaytirish multiplikatorni oshiradi. Yaxshi javobda baholash taxminiy ekani aytiladi."
+ ]
+}

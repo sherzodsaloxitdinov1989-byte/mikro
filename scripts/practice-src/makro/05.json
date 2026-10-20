@@ -1,0 +1,154 @@
+{
+ "goal": "Inflyatsiya sur’atini o‘lchash, almashinuv tenglamasi, Fisher tenglamasi, Fillips egri chizig‘i va qurbonlik koeffitsiyenti bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish; inflyatsiya oqibatlari va aksilinflyatsiya siyosatini tahlil qilish.",
+ "concepts": [
+  "Inflyatsiya sur’ati va narxlar indeksi",
+  "Pulning miqdoriy nazariyasi (MV = PY)",
+  "Fisher tenglamasi va real foiz stavkasi",
+  "Fillips egri chizig‘i va adaptiv kutishlar",
+  "Qurbonlik koeffitsiyenti va Ouken qonuni",
+  "Seynoraj (inflyatsion soliq)"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 5-bob",
+ "tasks": [
+  {
+   "id": "mk5-p1",
+   "title": "Narxlar indeksi va real daromad",
+   "text": "Narxlar indeksi 2023-yilda 145, 2024-yilda 159,2, 2025-yilda 170,8 (bazis yil = 100). Talabaning nominal daromadi 2023-yilda 1,2 mln so‘m, 2025-yilda 1,4 mln so‘m. 2024 va 2025-yillar uchun inflyatsiya sur’atini, 2023–2025-yillardagi ikki yillik jami inflyatsiyani va real daromadning o‘zgarishini (foizda) toping. Foizlarni ikki o‘nli xonagacha yaxlitlang.",
+   "fields": [
+    {
+     "label": "2024-yil inflyatsiya sur’ati",
+     "value": 9.79,
+     "unit": "%"
+    },
+    {
+     "label": "2025-yil inflyatsiya sur’ati",
+     "value": 7.29,
+     "unit": "%"
+    },
+    {
+     "label": "Ikki yillik jami inflyatsiya",
+     "value": 17.79,
+     "unit": "%"
+    },
+    {
+     "label": "Real daromadning o‘zgarishi (2023 → 2025)",
+     "value": -0.96,
+     "unit": "%"
+    }
+   ],
+   "solution": "π2024 = (159,2 − 145)/145 = 9,79%; π2025 = (170,8 − 159,2)/159,2 = 7,29%. Jami: 170,8/145 − 1 = 17,79%. Real daromad 2023: 1,2/1,45 = 0,8276 mln; 2025: 1,4/1,708 = 0,8197 mln; o‘zgarish 0,8197/0,8276 − 1 = −0,96%.",
+   "formula": "π = (Pt − Pt−1)/Pt−1 · 100%; real daromad = nominal daromad / narxlar indeksi",
+   "note": "2023-yil inflyatsiyasini hisoblash uchun 2022-yil indeksi kerak, u shartda berilmagan (145 – bazis yilga nisbatan jamlangan o‘sish), shuning uchun faqat 2024 va 2025 hisoblandi. Nominal daromad 16,7% oshgan, narxlar 17,8% – real daromad biroz kamaygan."
+  },
+  {
+   "id": "mk5-p2",
+   "title": "Almashinuv tenglamasi: narxlar darajasi va inflyatsiya",
+   "text": "Iqtisodiyotda pul massasi 400 trln so‘m, pulning aylanish tezligi 4, real YaIM 800 trln so‘m (bazis narxlarda). a) Narxlar darajasini toping. b) Pul massasi 20% ga, real YaIM 5% ga oshsa va aylanish tezligi o‘zgarmasa, yangi narxlar darajasi va inflyatsiya qancha bo‘ladi? c) Agar bir vaqtda aylanish tezligi 3% ga kamaysa-chi? Narxlar darajasini to‘rt o‘nli, inflyatsiyani ikki o‘nli xonagacha yaxlitlang.",
+   "fields": [
+    {
+     "label": "a) Narxlar darajasi",
+     "value": 2,
+     "unit": ""
+    },
+    {
+     "label": "b) Yangi narxlar darajasi",
+     "value": 2.2857,
+     "unit": ""
+    },
+    {
+     "label": "b) Inflyatsiya",
+     "value": 14.29,
+     "unit": "%"
+    },
+    {
+     "label": "c) Inflyatsiya (V 3% ga kamaysa)",
+     "value": 10.86,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) P = MV/Y = 400·4/800 = 2. b) M = 480, Y = 840, V = 4: P = 480·4/840 = 2,2857; inflyatsiya = 2,2857/2 − 1 = 14,29%. c) V = 4·0,97 = 3,88: P = 480·3,88/840 = 2,2171; inflyatsiya = 10,86%.",
+   "formula": "MV = PY; P = MV/Y; π ≈ %ΔM + %ΔV − %ΔY",
+   "note": "Taxminiy formula: 20 + 0 − 5 = 15% (b) va 20 − 3 − 5 = 12% (c); aniq hisob (14,29% va 10,86%) undan biroz past, chunki o‘zgarishlar ko‘paytma sifatida birlashadi."
+  },
+  {
+   "id": "mk5-p3",
+   "title": "Fisher tenglamasi: nominal stavka va real daromad",
+   "text": "Bank kreditlar bo‘yicha 4% real daromad olishni istaydi. Kutilgan inflyatsiya 9%. a) Bank qanday nominal stavka belgilaydi (aniq formula bo‘yicha va taxminiy formula bo‘yicha)? b) Agar haqiqiy inflyatsiya 13% bo‘lsa, bankning real daromadi (aniq formula bo‘yicha) qancha bo‘ladi? Ikki o‘nli xonagacha yaxlitlang.",
+   "fields": [
+    {
+     "label": "a) Nominal stavka (aniq)",
+     "value": 13.36,
+     "unit": "%"
+    },
+    {
+     "label": "a) Nominal stavka (taxminiy)",
+     "value": 13,
+     "unit": "%"
+    },
+    {
+     "label": "b) Bankning real daromadi (aniq)",
+     "value": 0.32,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) Aniq: 1 + i = (1 + r)(1 + πe) = 1,04·1,09 = 1,1336, i = 13,36%. Taxminiy: i ≈ r + πe = 4 + 9 = 13%. b) 1 + r = 1,1336/1,13 = 1,00319, r = 0,32%. (Taxminiy: 13,36 − 13 = 0,36%.)",
+   "formula": "1 + i = (1 + r)(1 + π); i ≈ r + π",
+   "note": "c) savol: haqiqiy inflyatsiya kutilganidan yuqori (13% > 9%) – kreditorlar (bank) yutqazdi, qarzdorlar yutdi: ular real qiymati kamaygan qarzni qaytaradi."
+  },
+  {
+   "id": "mk5-p4",
+   "title": "Fillips egri chizig‘i va qurbonlik koeffitsiyenti",
+   "text": "Fillips egri chizig‘i tenglamasi: π = πe − 0,5(u − 6). Kutilgan inflyatsiya oldingi yil inflyatsiyasiga teng (adaptiv kutishlar), boshlang‘ich inflyatsiya 10%. Markaziy bank inflyatsiyani 4 yil ichida 2% ga tushirmoqchi (har yili 2 foiz punktdan). a) Har yili ishsizlik darajasi qancha bo‘lishi kerak? b) Jami tsiklik ishsizlik qancha (foiz punkt-yil)? c) Ouken koeffitsiyenti 2 bo‘lsa, qurbonlik koeffitsiyentini toping.",
+   "fields": [
+    {
+     "label": "a) Har yilgi ishsizlik darajasi",
+     "value": 10,
+     "unit": "%"
+    },
+    {
+     "label": "b) Jami tsiklik ishsizlik",
+     "value": 16,
+     "unit": "foiz punkt-yil"
+    },
+    {
+     "label": "c) Qurbonlik koeffitsiyenti",
+     "value": 4,
+     "unit": ""
+    }
+   ],
+   "solution": "a) π − πe = −2 = −0,5(u − 6) ⇒ u − 6 = 4 ⇒ u = 10%. b) Har yili tsiklik ishsizlik 10 − 6 = 4 punkt, 4 yil: 4·4 = 16 foiz punkt-yil. c) YaIM yo‘qotilishi = 2·16 = 32% (bir yillik YaIM); inflyatsiya 8 punktga pasaydi (10 → 2): 32/8 = 4.",
+   "formula": "π − πe = −β(u − un); YaIM yo‘qotilishi = Ouken koeffitsiyenti · tsiklik ishsizlik; qurbonlik koeffitsiyenti = YaIM yo‘qotilishi / inflyatsiya pasayishi",
+   "note": "Tabiiy ishsizlik darajasi 6% deb olindi (tenglamadan). Natija darslikdagi tarixiy baholarga (≈ 2,8–5) yaqin."
+  },
+  {
+   "id": "mk5-p5",
+   "title": "Inflyatsiyaning o‘rtacha vaznli indeksi",
+   "text": "Iste’mol savati: oziq-ovqat (og‘irligi 45%), nooziq-ovqat tovarlari (30%), xizmatlar (25%). Yil davomida narxlar mos ravishda 5,4%, 5,1% va 13,9% ga oshdi. Umumiy inflyatsiyani hisoblang (bir o‘nli xonagacha) va rasmiy 7,3% ko‘rsatkich bilan solishtiring.",
+   "fields": [
+    {
+     "label": "Umumiy inflyatsiya",
+     "value": 7.4,
+     "unit": "%"
+    },
+    {
+     "label": "Hisobiy va rasmiy ko‘rsatkich farqi",
+     "value": 0.1,
+     "unit": "foiz punkt"
+    }
+   ],
+   "solution": "π = 0,45·5,4 + 0,30·5,1 + 0,25·13,9 = 2,43 + 1,53 + 3,475 = 7,435 ≈ 7,4%. Rasmiy 7,3% dan farq ≈ 0,1 punkt.",
+   "formula": "π = Σ wᵢ·πᵢ",
+   "note": "Farq mumkin sabablar: savatning real og‘irliklari shartdagidan farq qilishi, yaxlitlash, mavsumiy tovarlar va tarkibiy farqlar. Shartdagi og‘irliklar taxminiy."
+  }
+ ],
+ "open": [
+  "Hukumat byudjet taqchilligini pul emissiyasi hisobidan moliyalashtiradi. Real pul qoldiqlari (M/P) 100 trln so‘m, pul massasi yiliga 30% ga o‘sadi. a) Seynorajni hisoblang. b) Inflyatsiya oshgani sababli aholi real pul qoldiqlarini 70 trln so‘mgacha kamaytirsa, seynoraj qanday o‘zgaradi? c) Qanday xulosa chiqarasiz?",
+  "Shok terapiyasi va gradualizm strategiyalarini taqqoslang: qo‘llash sharti, qisqa muddatli narxi, xavflari va muvaffaqiyat sharti. O‘zbekiston uchun qaysi yo‘l mosligini asoslang.",
+  "Inflyatsion targetlash rejimining asosiy elementlarini sanab, O‘zbekistonda uni amalga oshirish tajribasini (inflyatsiya omillari, Markaziy bank siyosati, natijalar va inflyatsion kutishlar muammosi) baholang."
+ ],
+ "refs": [
+  "a) Seynoraj = (ΔM/M)·(M/P) = 0,3·100 = 30 trln so‘m. b) 0,3·70 = 21 trln so‘m: seynoraj 9 trln so‘mga kamayadi. c) Yuqori inflyatsiya sharoitida aholi pul saqlashdan qochadi, inflyatsion soliq bazasi (real pul qoldiqlari) qisqaradi; emissiyadan tushum o‘sib borishi shart emas, ma’lum nuqtadan so‘ng pasayadi. Shuning uchun emissiya orqali taqchillikni moliyalash barqaror emas, inflyatsion spiralni kuchaytiradi.",
+  "Shok terapiyasi – keskin cheklash; giperinflyatsiya yoki yuqori galoplashuvchi inflyatsiyada qo‘llanadi, narxi chuqur, ammo qisqa retsessiya, xavfi ijtimoiy keskinlik va bankrotliklar; muvaffaqiyat sharti – siyosat ishonchliligi. Gradualizm – bosqichma-bosqich pasaytirish, mo‘’tadil/o‘rtacha inflyatsiyada; sekinlashuv uzoqroq, ammo yumshoqroq, xavfi – ishonchning yo‘qolishi; sharti – izchillik va kommunikatsiya. O‘zbekistonda inflyatsiya yuqori emas, ammo kutishlar barqaror emas, shuning uchun darslik tajribasiga ko‘ra gradualizm (inflyatsion targetlashga bosqichma-bosqich o‘tish) mosroq.",
+  "Elementlar: raqamli maqsadning e’lon qilinishi, narxlar barqarorligining qonunda ustuvorligi, Markaziy bank mustaqilligi, foiz stavkasi asosiy vosita, shaffoflik, prognozga asoslangan siyosat (ta’sir 12–18 oy kechikadi). O‘zbekistonda Markaziy bank 2020-yildan rejimga o‘tishni e’lon qilgan; inflyatsiya omillari: 2017-yil valyuta liberallashuvi, tariflarni bosqichma-bosqich bozor darajasiga yaqinlashtirish, kredit ekspansiyasi, pul o‘tkazmalari, yuqori kutishlar. Muddat surilgan (5% maqsad), inflyatsiya 2024-yil 9,8% dan 2025-yil 7,3% ga pasaygan, ammo kutishlar hali yuqori – asosiy muammo."
+ ]
+}

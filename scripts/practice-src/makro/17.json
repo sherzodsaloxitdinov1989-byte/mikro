@@ -1,0 +1,164 @@
+{
+ "goal": "Import tarifi, kvota, subsidiya va eksport bojining farovonlikka ta’sirini hisoblash; samarali himoya darajasini aniqlash va savdo siyosati vositalarini qiyosiy baholash.",
+ "concepts": [
+  "Import tarifi va sof yo‘qotishlar (b + d)",
+  "Import kvotasi va kvota rentasi",
+  "Ishlab chiqaruvchilarga subsidiya va maqsadli siyosat tamoyili",
+  "Eksport boji",
+  "Samarali himoya darajasi",
+  "Optimal tarif va yosh tarmoqlarni himoya qilish"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 17-bob",
+ "tasks": [
+  {
+   "id": "mk17-p1",
+   "title": "Televizorlarga import tarifi",
+   "text": "Kichik mamlakatda televizorlarga talab QD = 400 – 2P, taklif QS = 2P – 80 (ming dona, P – dollar). Jahon narxi 100 dollar. a) Erkin savdoda ichki ishlab chiqarish, iste’mol va importni toping. b) 20 dollar spetsifik tarif joriy qilinsa, yangi ko‘rsatkichlarni toping. c) Iste’molchilar yo‘qotishi, ishlab chiqaruvchilar yutug‘i, davlat daromadi va sof yo‘qotishni hisoblang.",
+   "fields": [
+    {
+     "label": "Erkin savdoda import",
+     "value": 80,
+     "unit": "ming dona"
+    },
+    {
+     "label": "Tarifdan keyin ichki ishlab chiqarish",
+     "value": 160,
+     "unit": "ming dona"
+    },
+    {
+     "label": "Iste’molchilar yo‘qotishi",
+     "value": 3600,
+     "unit": "ming dollar"
+    },
+    {
+     "label": "Sof yo‘qotish (b + d)",
+     "value": 800,
+     "unit": "ming dollar"
+    }
+   ],
+   "solution": "a) P = 100: QS = 2·100 – 80 = 120, QD = 400 – 200 = 200, import = 200 – 120 = 80. b) Ichki narx 120: QS = 160, QD = 160, import = 0 (avtarkiya narxi 400 – 2P = 2P – 80 ⇒ P = 120, ya’ni tarif taqiqlovchi). c) Iste’molchilar yo‘qotishi = (200 + 160)/2 · 20 = 3600; ishlab chiqaruvchilar yutug‘i = (120 + 160)/2 · 20 = 2800; davlat daromadi = 20 · 0 = 0; sof yo‘qotish = 3600 – 2800 – 0 = 800 (b = ½·40·20 = 400, d = ½·40·20 = 400).",
+   "formula": "ΔCS = –(a+b+c+d); ΔPS = +a; daromad = t·(QD – QS); sof yo‘qotish = b + d",
+   "note": "Shartdagi 20 dollarlik tarif avtarkiya narxiga (120) aynan teng, shuning uchun import nolga tushadi va davlat daromadi 0. Birliklar: ming dona · dollar = ming dollar."
+  },
+  {
+   "id": "mk17-p2",
+   "title": "Import kvotasi va kvota rentasi",
+   "text": "1-masala sharoitida tarif o‘rniga import kvotasi 80 ming dona qilib belgilandi. a) Ichki narxni toping. b) Kvota rentasini hisoblang. c) Litsenziyalar auksionda sotilganda va bepul taqsimlanganda farovonlik qanday taqsimlanadi? (Qo‘shimcha: kvota 40 ming dona bo‘lsa, ichki narx va renta qancha bo‘ladi?)",
+   "fields": [
+    {
+     "label": "Ichki narx (kvota 80 ming dona)",
+     "value": 100,
+     "unit": "dollar"
+    },
+    {
+     "label": "Kvota rentasi (kvota 80 ming dona)",
+     "value": 0,
+     "unit": "ming dollar"
+    },
+    {
+     "label": "Ichki narx (kvota 40 ming dona)",
+     "value": 110,
+     "unit": "dollar"
+    },
+    {
+     "label": "Kvota rentasi (kvota 40 ming dona)",
+     "value": 400,
+     "unit": "ming dollar"
+    }
+   ],
+   "solution": "Kvota 80: QD – QS = 80 ⇒ (400 – 2P) – (2P – 80) = 80 ⇒ 480 – 4P = 80 ⇒ P = 100 – jahon narxiga teng, ya’ni kvota erkin savdodagi importga (80) teng va to‘sqinlik qilmaydi; renta = (100 – 100)·80 = 0. Kvota 40: 480 – 4P = 40 ⇒ P = 110; QS = 140, QD = 180; renta = (110 – 100)·40 = 400; iste’molchilar yo‘qotishi = (200 + 180)/2·10 = 1900, ishlab chiqaruvchilar yutug‘i = (120 + 140)/2·10 = 1300, sof yo‘qotish = 1900 – 1300 – 400 = 200 (renta olinsa).",
+   "formula": "QD(P) – QS(P) = kvota; renta = (PK – Pw)·kvota",
+   "note": "Darslikdagi shartda kvota (80) erkin savdodagi importga teng, shuning uchun u bog‘lamaydi (narx 100, renta 0). Mazmunli natija uchun 40 ming dona varianti qo‘shildi. Litsenziyalar auksionda sotilsa, renta davlatga tushadi (tarif kabi); bepul taqsimlansa – litsenziya egalariga; eksportyor mamlakatga berilsa (VER) – xorijga ketadi va sof yo‘qotish katta bo‘ladi."
+  },
+  {
+   "id": "mk17-p3",
+   "title": "Ishlab chiqaruvchilarga subsidiya",
+   "text": "1-masala sharoitida hukumat ichki ishlab chiqarishni tarif bilan bir xil darajaga oshirish uchun ishlab chiqaruvchilarga subsidiya bermoqchi. a) Subsidiya miqdori qancha bo‘lishi kerak? b) Byudjet xarajatlarini hisoblang. c) Sof yo‘qotishni tarif bilan taqqoslang.",
+   "fields": [
+    {
+     "label": "Subsidiya miqdori (birlikka)",
+     "value": 20,
+     "unit": "dollar"
+    },
+    {
+     "label": "Byudjet xarajati",
+     "value": 3200,
+     "unit": "ming dollar"
+    },
+    {
+     "label": "Subsidiya bo‘yicha sof yo‘qotish",
+     "value": 400,
+     "unit": "ming dollar"
+    },
+    {
+     "label": "Tarif bo‘yicha sof yo‘qotish",
+     "value": 800,
+     "unit": "ming dollar"
+    }
+   ],
+   "solution": "Maqsad: QS = 160 ⇒ 2P – 80 = 160 ⇒ P = 120, ya’ni ishlab chiqaruvchi 120 olishi kerak, jahon narxi 100 ⇒ s = 20. Byudjet xarajati = s·Q = 20·160 = 3200 (a + b). Ishlab chiqaruvchilar yutug‘i a = 2800. Sof yo‘qotish faqat b = ½·20·40 = 400 (iste’moldagi buzilish d yo‘q). Tarifda esa b + d = 800.",
+   "formula": "s = P* – Pw; byudjet = s·Q2 = a + b; sof yo‘qotish = b",
+   "note": "Iste’molchilar narx 100 da 200 ming dona iste’mol qilishda davom etadi. Subsidiya tarifga qaraganda ikki marta kam sof yo‘qotish beradi (maqsadli siyosat tamoyili), lekin byudjet mablag‘i talab qiladi."
+  },
+  {
+   "id": "mk17-p4",
+   "title": "Bug‘doy eksport boji",
+   "text": "Mamlakat bug‘doy eksportchisi: talab QD = 100 – 5P, taklif QS = 10P – 20 (mln t). Jahon narxi 10. a) Erkin savdoda eksport hajmini toping. b) 2 birlik eksport boji joriy qilinsa, ichki narx, iste’mol, ishlab chiqarish va eksport qanday o‘zgaradi? c) Farovonlik o‘zgarishlarini hisoblang.",
+   "fields": [
+    {
+     "label": "Erkin savdoda eksport",
+     "value": 30,
+     "unit": "mln t"
+    },
+    {
+     "label": "Bojdan keyingi ichki narx",
+     "value": 8,
+     "unit": "birlik"
+    },
+    {
+     "label": "Bojdan keyingi eksport",
+     "value": 0,
+     "unit": "mln t"
+    },
+    {
+     "label": "Sof farovonlik o‘zgarishi",
+     "value": -30,
+     "unit": "mln birlik"
+    }
+   ],
+   "solution": "a) P = 10: QD = 50, QS = 80, eksport = 30. b) Ichki narx = 10 – 2 = 8: QD = 60, QS = 60, eksport = 0 (avtarkiya narxi 100 – 5P = 10P – 20 ⇒ P = 8). c) Iste’molchilar yutug‘i = (50 + 60)/2·2 = 110; ishlab chiqaruvchilar yo‘qotishi = (80 + 60)/2·2 = 140; davlat daromadi = 2·0 = 0; sof o‘zgarish = 110 – 140 + 0 = –30.",
+   "formula": "Pich = Pw – t; QD, QS ichki narxda; eksport = QS – QD",
+   "note": "Boj (2) avtarkiya narxiga (8) aynan olib keladi, shuning uchun eksport to‘liq to‘xtaydi va davlat daromadi 0. Iste’molchilar yutadi, ishlab chiqaruvchilar yutqazadi."
+  },
+  {
+   "id": "mk17-p5",
+   "title": "Samarali himoya darajasi",
+   "text": "Avtomobilga import boji 30%, butlovchi qismlarga 10%; butlovchi qismlar ulushi avtomobil qiymatining 70 foizi. a) Samarali himoya darajasini hisoblang. b) Agar butlovchilarga boj 0 ga tushirilsa, samarali himoya qanday o‘zgaradi? c) Natijani talqin qiling.",
+   "fields": [
+    {
+     "label": "Samarali himoya darajasi",
+     "value": 76.7,
+     "unit": "%"
+    },
+    {
+     "label": "Butlovchilarga boj 0 bo‘lganda samarali himoya",
+     "value": 100,
+     "unit": "%"
+    }
+   ],
+   "solution": "g = (t – a·tb)/(1 – a) = (0,30 – 0,7·0,10)/(1 – 0,7) = 0,23/0,30 ≈ 0,767 = 76,7%. Butlovchilarga boj 0 bo‘lsa: g = 0,30/0,30 = 100%.",
+   "formula": "g = (t – a·tb)/(1 – a)",
+   "note": "Samarali himoya nominal tarifdan (30%) ancha yuqori, chunki tayyor mahsulotga boj yuqori, resurslarga past (tarif eskalatsiyasi). Butlovchilar bojini bekor qilish himoyani yanada oshiradi."
+  }
+ ],
+ "open": [
+  "«Optimal tarif» nima va u nima uchun faqat yirik mamlakatlar uchun mavjud? Bu siyosatning xatarlarini tushuntiring.",
+  "Yosh tarmoqlarni himoya qilish dalilini tanqidiy baholang. Nima uchun hatto shu holda ham ishlab chiqaruvchilarga subsidiya tarifdan afzal? Janubiy Koreya va Argentina tajribasi bilan misol keltiring.",
+  "O‘zbekistonning JSTga a’zo bo‘lish jarayoni, imkoniyatlari va xatarlarini tahlil qiling."
+ ],
+ "refs": [
+  "Yirik mamlakat jahon narxiga ta’sir qila oladi: tarif import talabini qisqartirib, jahon narxini pasaytiradi va savdo shartlari yaxshilanadi. Shuning uchun tarifning dastlabki birliklari farovonlikni oshirishi mumkin va milliy farovonlikni maksimallashtiruvchi musbat «optimal tarif» mavjud. Kichik mamlakat jahon narxiga ta’sir qilmaydi, shuning uchun uning uchun optimal tarif nolga teng. Yutuq hamkorlar hisobiga olinadi, shuning uchun javob choralari va savdo urushi xavfi bor; yaxshi javobda 17.3-rasm izohlanadi.",
+  "Dalil: yosh tarmoq o‘rganish va miqyos samaralari tufayli dastlab raqobatbardosh emas, vaqtinchalik himoya uni kuchaytiradi. Tanqid: kelajakdagi yutuqni oldindan bilish qiyin, himoya tarmoqni samarasiz qoldirishi, lobbizm va rent izlash xavfi bor. Hatto dalil to‘g‘ri bo‘lsa ham subsidiya afzal: u iste’moldagi buzilishni (d) keltirib chiqarmaydi, xarajat byudjetda ochiq ko‘rinadi (maqsadli siyosat tamoyili). Misollarda muvaffaqiyat va muvaffaqiyatsizlik omillarini (eksportga yo‘naltirilganlik, himoya muddati) solishtiring.",
+  "Imkoniyatlar: bozorlarga kafolatlangan kirish, MFN va milliy rejim, tariflarni bog‘lash orqali barqarorlik, investitsiya muhiti va nizolarni hal qilish mexanizmi. Xatarlar: ayrim himoyalangan tarmoqlar (masalan, avtomobilsozlik, qishloq xo‘jaligi) uchun raqobat kuchayadi, davlat korxonalari va subsidiyalar bo‘yicha majburiyatlar. Qolgan vazifalar: antidemping, kompensatsiya va himoya choralari to‘g‘risidagi qonunlarni JST talablariga moslashtirish, valyuta tartibga solish. Javobda darslikdagi jarayon holati keltirilishi kerak."
+ ]
+}

@@ -1,0 +1,224 @@
+{
+ "goal": "Iste’mol va jamg‘arish funksiyalari, APC/MPC ko‘rsatkichlari, hayot tsikli va permanent daromad gipotezalari hamda investitsiyalarga talab, Tobin koeffitsiyenti va akselerator bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "Iste’mol va jamg‘arish funksiyalari",
+  "APC, APS, MPC, MPS",
+  "«Kuznets jumbog‘i»",
+  "Hayot tsikli va permanent daromad gipotezalari",
+  "Investitsiyalarga talab funksiyasi",
+  "Tobin koeffitsiyenti va akselerator"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 7-bob",
+ "tasks": [
+  {
+   "id": "mk7-p1",
+   "title": "Iste’mol va jamg‘arish funksiyasi",
+   "text": "Iste’mol funksiyasi C = 150 + 0,8Yd (mlrd so‘m). Jamg‘arish funksiyasini yozing; Yd = 500, 750, 1000 bo‘lganda C, S, APC, APS ni hisoblang; «kritik» nuqtani toping; tasarrufdagi daromad 100 ga oshsa, iste’mol va jamg‘arma qanchaga oshadi?",
+   "fields": [
+    {
+     "label": "«Kritik» nuqta (C = Yd bo‘ladigan daromad)",
+     "value": 750,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Yd = 500 da APC",
+     "value": 1.1,
+     "unit": ""
+    },
+    {
+     "label": "Tasarrufdagi daromad 100 ga oshganda iste’molning o‘sishi",
+     "value": 80,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Tasarrufdagi daromad 100 ga oshganda jamg‘armaning o‘sishi",
+     "value": 20,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "S = Yd − C = −150 + 0,2Yd. Yd = 500: C = 550, S = −50, APC = 1,1, APS = −0,1. Yd = 750: C = 750, S = 0, APC = 1. Yd = 1000: C = 950, S = 50, APC = 0,95, APS = 0,05. Kritik nuqta: 150 + 0,8Yd = Yd, Yd = 750. ΔC = 0,8·100 = 80, ΔS = 0,2·100 = 20.",
+   "formula": "S = −Ca + (1 − c)Yd; APC = C/Yd; APS = S/Yd; ΔC = MPC·ΔYd",
+   "note": "APC daromad oshgani sari kamayadi (1,1 → 1 → 0,95), MPC = 0,8 esa o‘zgarmaydi."
+  },
+  {
+   "id": "mk7-p2",
+   "title": "MPC va iste’mol funksiyasini tiklash",
+   "text": "Uy xo‘jaliklarining daromadi 600 dan 700 mlrd so‘mga oshganda, iste’mol 520 dan 595 mlrd so‘mga oshdi. MPC va MPS ni hisoblang, har ikki daromad darajasida APC va APS ni toping, chiziqli iste’mol funksiyasini tuzing.",
+   "fields": [
+    {
+     "label": "MPC",
+     "value": 0.75,
+     "unit": ""
+    },
+    {
+     "label": "Avtonom iste’mol Ca",
+     "value": 70,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Y = 600 da APC",
+     "value": 0.867,
+     "unit": ""
+    },
+    {
+     "label": "Y = 700 da APS",
+     "value": 0.15,
+     "unit": ""
+    }
+   ],
+   "solution": "MPC = (595 − 520)/(700 − 600) = 0,75; MPS = 0,25. APC(600) = 520/600 = 0,867, APS = 0,133; APC(700) = 595/700 = 0,85, APS = 0,15. C = Ca + 0,75Y: 520 = Ca + 450, Ca = 70. Tekshiruv: 70 + 0,75·700 = 595. C = 70 + 0,75Y.",
+   "formula": "MPC = ΔC/ΔY; C = Ca + MPC·Y; APC + APS = 1",
+   "note": "Masalada soliqlar ko‘rsatilmagan, shuning uchun daromad tasarrufdagi daromad sifatida qaralgan. APC (0,867 → 0,85) kamayadi."
+  },
+  {
+   "id": "mk7-p3",
+   "title": "Hayot tsikli modeli",
+   "text": "Inson 25 yoshda ishlay boshlaydi, 65 yoshda pensiyaga chiqadi va 80 yoshgacha yashashni kutadi. Yillik daromadi 60 mln so‘m, boshlang‘ich boyligi 150 mln so‘m. Iste’molni teng taqsimlash uchun yillik iste’mol qancha bo‘lishi kerak? Ishlagan yillarda yillik jamg‘arma qancha? Pensiyaga chiqqanda to‘plangan boylik qancha? C = αW + βY ko‘rinishida β ni toping.",
+   "fields": [
+    {
+     "label": "Yillik iste’mol",
+     "value": 46.36,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Ishlagan yillarda yillik jamg‘arma",
+     "value": 13.64,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Pensiyadagi boylik",
+     "value": 695.45,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "β koeffitsiyenti (daromadga moyillik)",
+     "value": 0.727,
+     "unit": ""
+    }
+   ],
+   "solution": "Umr 25 dan 80 gacha = 55 yil, ish davri 65 − 25 = 40 yil. Umr bo‘yi resurs = 150 + 40·60 = 2550. C = 2550/55 = 46,36. Jamg‘arma S = 60 − 46,36 = 13,64. Boylik W = 150 + 40·13,64 = 695,45 (tekshiruv: pensiya 15 yil·46,36 = 695,45). C = (1/55)W + (40/55)Y, ya’ni α = 0,018, β = 0,727.",
+   "formula": "C = (W + WL·Y)/N = αW + βY, α = 1/N, β = WL/N",
+   "note": "Foiz stavkasi nolga teng deb olingan (ko‘rsatilmagan). Pensiyada jamg‘arma sarflanadi, boylik nolga tushadi."
+  },
+  {
+   "id": "mk7-p4",
+   "title": "Fridmenning permanent daromad modeli",
+   "text": "C = 0,9YP; permanent daromad joriy yil va undan oldingi ikki yil daromadining o‘rtachasi. Daromadlar: 2023 – 100, 2024 – 110, 2025 – 120, 2026-yilda kutilmagan holda 150. 2025 va 2026-yillar uchun iste’mol va APC ni hisoblang va Keyns modeli (C = 0,9Y) bilan taqqoslang.",
+   "fields": [
+    {
+     "label": "2025-yil iste’moli",
+     "value": 99,
+     "unit": ""
+    },
+    {
+     "label": "2026-yil iste’moli",
+     "value": 114,
+     "unit": ""
+    },
+    {
+     "label": "2026-yil APC",
+     "value": 0.76,
+     "unit": ""
+    },
+    {
+     "label": "2026-yil iste’moli Keyns modeli bo‘yicha",
+     "value": 135,
+     "unit": ""
+    }
+   ],
+   "solution": "2025: YP = (100 + 110 + 120)/3 = 110, C = 99, APC = 99/120 = 0,825. 2026: YP = (110 + 120 + 150)/3 = 126,67, C = 114, APC = 114/150 = 0,76. Keyns: 2025 – C = 108, APC = 0,9; 2026 – C = 135, APC = 0,9.",
+   "formula": "C = 0,9YP; YP = (Yt + Yt−1 + Yt−2)/3; APC = C/Y",
+   "note": "«O‘tgan uch yil» joriy yilni ham o‘z ichiga oladi deb talqin qilindi. Vaqtinchalik daromad o‘sishi iste’molni kam oshiradi (APC 0,825 → 0,76), Keyns modeli esa buni ko‘rsatmaydi."
+  },
+  {
+   "id": "mk7-p5",
+   "title": "Investitsiyalarga talab funksiyasi",
+   "text": "Investitsiyalarga talab I = 400 − 20r (mlrd so‘m, r – foizda). r = 5, 8, 12 bo‘lganda investitsiyalar hajmini toping. Markaziy bank stavkani 2 punktga oshirsa, investitsiyalar qanchaga kamayadi? Avtonom investitsiyalar 60 ga oshsa, yangi funksiyani yozing.",
+   "fields": [
+    {
+     "label": "r = 5 da investitsiyalar",
+     "value": 300,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "r = 8 da investitsiyalar",
+     "value": 240,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "r = 12 da investitsiyalar",
+     "value": 160,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Stavka 2 punktga oshganda investitsiyalarning kamayishi",
+     "value": 40,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "I(5) = 400 − 100 = 300; I(8) = 400 − 160 = 240; I(12) = 400 − 240 = 160. Stavka 2 punktga oshsa: ΔI = −20·2 = −40. Avtonom investitsiyalar 60 ga oshsa: I = 460 − 20r (egri chiziq parallel o‘ngga siljiydi).",
+   "formula": "I = e − dr; ΔI = −d·Δr",
+   "note": "Stavka o‘zgarishi egri chiziq bo‘ylab harakat, kutilayotgan foydaning o‘zgarishi esa egri chiziqning siljishidir."
+  },
+  {
+   "id": "mk7-p6",
+   "title": "Tobin koeffitsiyenti",
+   "text": "Firmaning aksiyalar bozoridagi qiymati 450 mlrd so‘m, kapitalini almashtirish qiymati 360 mlrd so‘m. Tobin koeffitsiyentini hisoblang. Firma investitsiyalarni oshiradimi? Birja inqirozida aksiyalar narxi 30 foizga tushsa, koeffitsiyent qanday bo‘ladi?",
+   "fields": [
+    {
+     "label": "Tobin koeffitsiyenti q",
+     "value": 1.25,
+     "unit": ""
+    },
+    {
+     "label": "Aksiyalar 30% tushgandagi q",
+     "value": 0.875,
+     "unit": ""
+    }
+   ],
+   "solution": "q = 450/360 = 1,25 > 1, firma investitsiyalarni oshiradi. Inqirozda bozor qiymati 450·0,7 = 315, q = 315/360 = 0,875 < 1, investitsiyalar rag‘batlantirilmaydi (qisqaradi).",
+   "formula": "q = bozor qiymati / almashtirish qiymati",
+   "note": "q > 1 – yangi kapital yaratish foydali; q < 1 – tayyor kapitalni sotib olish arzonroq."
+  },
+  {
+   "id": "mk7-p7",
+   "title": "Akselerator modeli",
+   "text": "Kapital sig‘imi koeffitsiyenti v = 3. Ishlab chiqarish yillar bo‘yicha: 500, 520, 550, 570, 580, 580, 575. Har yil uchun sof investitsiyalarni hisoblang. Qaysi yilda investitsiyalar qisqara boshlaydi?",
+   "fields": [
+    {
+     "label": "3-yil sof investitsiyalari",
+     "value": 90,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "5-yil sof investitsiyalari",
+     "value": 30,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "7-yil sof investitsiyalari",
+     "value": -15,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Investitsiyalar qisqara boshlagan yil (tartib raqami)",
+     "value": 4,
+     "unit": ""
+    }
+   ],
+   "solution": "I = v·ΔY. 2-yil: 3·20 = 60; 3-yil: 3·30 = 90; 4-yil: 3·20 = 60; 5-yil: 3·10 = 30; 6-yil: 0; 7-yil: 3·(−5) = −15 (1-yil uchun oldingi ma’lumot yo‘q). Investitsiyalar 4-yildan qisqaradi (90 → 60), garchi ishlab chiqarish hali o‘sayotgan bo‘lsa ham.",
+   "formula": "I = v × ΔY",
+   "note": "Sabab: investitsiyalar ishlab chiqarish darajasiga emas, uning o‘sish sur’atiga bog‘liq; o‘sish sekinlashishi bilanoq investitsiyalar kamayadi."
+  }
+ ],
+ "open": [
+  "«Kuznets jumbog‘i» nima va u qanday aniqlangan? Modilyanining hayot tsikli gipotezasi va Fridmenning permanent daromad gipotezasi uni qanday izohlaydi?",
+  "Vaqtinchalik soliq kamaytirishning iste’molga ta’sirini Keyns, hayot tsikli va permanent daromad nazariyalari asosida baholang va xulosalarni taqqoslang.",
+  "Investitsiyalarning beqarorligini belgilovchi omillar nimalardan iborat? O‘zbekiston investitsiya siyosatining asosiy yo‘nalishlarini sanab, ularni tahlil qiling."
+ ],
+ "refs": [
+  "Kuznets jumbog‘i: qisqa muddatda daromad oshgani sari APC kamayadi (Keyns bilan mos), uzoq muddatda esa APC deyarli barqaror qoladi. Modilyani: iste’mol nafaqat daromad, balki boylik va hayot bosqichiga bog‘liq (C = αW + βY), boylik o‘sishi uzoq muddatda funksiyani yuqoriga siljitadi. Fridmen: iste’mol permanent daromadga bog‘liq, vaqtinchalik daromad asosan jamg‘ariladi, shuning uchun qisqa muddatli ma’lumotlarda APC o‘zgaradi, uzoq muddatda barqaror. Javobda ikki gipotezaning umumiy g‘oyasi (iste’molni tekislash) ko‘rsatilishi kerak.",
+  "Keyns: iste’mol joriy daromadga bog‘liq, shuning uchun soliq kamayishi tasarrufdagi daromadni oshirib, iste’molni MPC ga qarab sezilarli oshiradi. Hayot tsikli: vaqtinchalik kamaytirish umr bo‘yi resursni kam oshiradi, iste’mol ozgina o‘sadi. Permanent daromad: vaqtinchalik o‘zgarish permanent daromadni deyarli o‘zgartirmaydi, ta’sir juda kichik; doimiy kamaytirish esa kuchli ta’sir qiladi. Xulosa: ta’sir kuchi soliq o‘zgarishining vaqtinchalik yoki doimiyligiga bog‘liq.",
+  "Beqarorlik omillari: kutilayotgan sof foyda normasining o‘zgaruvchanligi, real foiz stavkasi, Tobin koeffitsiyenti (bozor kayfiyati) va akselerator samarasi (talab o‘sishi sekinlashganda investitsiyalar keskin kamayadi). O‘zbekistonda investitsiyalar YaIMning qariyb uchdan bir qismini tashkil etadi, moliyalashtirishda xorijiy manbalar ustun. Siyosat yo‘nalishlari: investitsiya muhitini yaxshilash (qonunchilik, investor huquqlari himoyasi), makroiqtisodiy liberallashtirish, maxsus iqtisodiy zonalar va asosiy vazifa – investitsiyalar samaradorligini oshirish. Javobda xorijiy manbalarga bog‘liqlik risklari ham tilga olinishi kerak."
+ ]
+}

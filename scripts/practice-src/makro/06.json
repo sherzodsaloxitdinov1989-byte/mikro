@@ -1,0 +1,134 @@
+{
+ "goal": "Yalpi talab va yalpi taklif tenglamalarini yozish, qisqa va uzoq muddatli muvozanatni topish, talab va taklif shoklarining oqibatlarini hisoblash hamda barqarorlashtirish siyosatini tahlil qilish ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "AD egri chizig‘i va pulning miqdoriy nazariyasi",
+  "Foiz stavkasi, boylik va import xaridlari samaralari",
+  "SRAS va LRAS (keynscha va klassik modellar)",
+  "Qisqa va uzoq muddatli muvozanat",
+  "Talab va taklif shoklari",
+  "Moslashtiruvchi siyosat va barqarorlashtirish"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 6-bob",
+ "tasks": [
+  {
+   "id": "mk6-p1",
+   "title": "AD tenglamasi pulning miqdoriy nazariyasidan",
+   "text": "Iqtisodiyotda pul massasi 500 trln so‘m, aylanish tezligi 3. a) AD tenglamasini yozing. b) P = 1; 1,2; 1,5 bo‘lganda yalpi talabni hisoblang. c) Pul massasi 10% ga kamaysa, AD tenglamasi qanday o‘zgaradi? d) Potensial YaIM 1400 trln so‘m bo‘lsa, uzoq muddatli muvozanat narxlar darajasini toping (pul massasi kamayishidan oldin va keyin; to‘rt o‘nli xonagacha).",
+   "fields": [
+    {
+     "label": "a) AD: Y = k/P, k =",
+     "value": 1500,
+     "unit": ""
+    },
+    {
+     "label": "b) Y (P = 1,2 da)",
+     "value": 1250,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "c) Yangi k (M = 450 da)",
+     "value": 1350,
+     "unit": ""
+    },
+    {
+     "label": "d) Uzoq muddatli P (M = 500 da)",
+     "value": 1.0714,
+     "unit": ""
+    },
+    {
+     "label": "d) Uzoq muddatli P (M = 450 da)",
+     "value": 0.9643,
+     "unit": ""
+    }
+   ],
+   "solution": "a) Y = MV/P = 500·3/P = 1500/P. b) P = 1: 1500; P = 1,2: 1250; P = 1,5: 1000. c) M = 450: Y = 450·3/P = 1350/P (AD egri chizig‘i chapga siljiydi). d) Y* = 1400: P = 1500/1400 = 1,0714; yangi: P = 1350/1400 = 0,9643.",
+   "formula": "Y = MV/P; uzoq muddatli muvozanat: Y = Y*",
+   "note": "Pul massasi 10% kamayganda uzoq muddatda narxlar ham 10% pasayadi (0,9643/1,0714 − 1 = −10%), real YaIM o‘zgarmaydi – pulning neytralligi."
+  },
+  {
+   "id": "mk6-p2",
+   "title": "Qisqa muddatli muvozanat (keynscha SRAS)",
+   "text": "Yalpi talab funksiyasi YD = 3200 − 400P, qisqa muddatli yalpi taklif P = 2 darajada gorizontal, potensial YaIM 2400. a) Qisqa muddatli muvozanatni toping. b) Iqtisodiyot qanday holatda (retsessiya yoki qizib ketish)? YaIM uzilishini hisoblang. c) Uzoq muddatda narxlar darajasi qanchaga o‘zgaradi?",
+   "fields": [
+    {
+     "label": "a) Muvozanat YaIM",
+     "value": 2400,
+     "unit": ""
+    },
+    {
+     "label": "b) YaIM uzilishi (Y − Y*)",
+     "value": 0,
+     "unit": ""
+    },
+    {
+     "label": "c) Uzoq muddatda narxlar o‘zgarishi",
+     "value": 0,
+     "unit": ""
+    }
+   ],
+   "solution": "a) P = 2: Y = 3200 − 400·2 = 2400. b) Y = Y* = 2400, uzilish = 0: iqtisodiyot potensial darajada, na retsessiya, na qizib ketish. c) Uzoq muddatli muvozanat: 3200 − 400P = 2400 ⇒ P = 2 – narxlar o‘zgarmaydi.",
+   "formula": "Y = YD(P = 2); uzilish = Y − Y*",
+   "note": "Shartdagi savol (retsessiya yoki qizib ketish) javobi: ikkalasi ham emas – iqtisodiyot to‘liq bandlikda, bu keyingi masala uchun boshlang‘ich holat."
+  },
+  {
+   "id": "mk6-p3",
+   "title": "Talab shoki: YaIM uzilishi va tsiklik ishsizlik",
+   "text": "2-masala sharoitida yalpi talab kamayib, YD = 2960 − 400P bo‘ldi. a) Yangi qisqa muddatli muvozanatni toping. b) Ouken koeffitsiyenti 2 bo‘lsa, tsiklik ishsizlik qanchaga o‘zgaradi (foiz punkt)? c) Hukumat iqtisodiyotni potensial darajaga qaytarish uchun yalpi talabni (P = 2 da) qancha oshirishi kerak?",
+   "fields": [
+    {
+     "label": "a) Yangi muvozanat YaIM",
+     "value": 2160,
+     "unit": ""
+    },
+    {
+     "label": "b) Tsiklik ishsizlikning oshishi",
+     "value": 5,
+     "unit": "foiz punkt"
+    },
+    {
+     "label": "c) Talabni oshirish hajmi",
+     "value": 240,
+     "unit": ""
+    }
+   ],
+   "solution": "a) P = 2: Y = 2960 − 800 = 2160. b) Uzilish = (2160 − 2400)/2400 = −10%; Ouken: 10/2 = 5 foiz punkt tsiklik ishsizlik. c) 2400 − 2160 = 240 (AD ni 240 ga siljitish, ya’ni YD = 3200 − 400P ga qaytarish).",
+   "formula": "uzilish % = (Y − Y*)/Y* · 100; Δu = |uzilish %| / Ouken koeffitsiyenti",
+   "note": "Ouken koeffitsiyenti 2 deganda tsiklik ishsizlikning har 1 punkti YaIM ning 2% yo‘qotilishiga mos keladi."
+  },
+  {
+   "id": "mk6-p4",
+   "title": "Salbiy taklif shoki va moslashtiruvchi siyosat",
+   "text": "Iqtisodiyot uzoq muddatli muvozanatda: Y* = 1000, P = 1. Neft narxi oshishi natijasida SRAS P = 1,2 darajaga ko‘tarildi. AD: Y = 2000 − 1000P. a) Qisqa muddatli muvozanatni toping. b) Markaziy bank to‘liq moslashtiruvchi siyosat yuritsa, yangi AD tenglamasi qanday bo‘lishi kerak? c) Moslashtiruvchi siyosat yuritilmasa, uzoq muddatda narxlar darajasi qanday bo‘ladi?",
+   "fields": [
+    {
+     "label": "a) Qisqa muddatli YaIM",
+     "value": 800,
+     "unit": ""
+    },
+    {
+     "label": "b) Yangi AD tenglamasida erkin had (Y = a − 1000P)",
+     "value": 2200,
+     "unit": ""
+    },
+    {
+     "label": "c) Uzoq muddatli narxlar darajasi",
+     "value": 1,
+     "unit": ""
+    }
+   ],
+   "solution": "a) Y = 2000 − 1000·1,2 = 800 (potensialdan 200 past, −20%). b) AD yangi nuqtadan o‘tishi kerak: Y = 1000, P = 1,2 ⇒ a = 1000 + 1200 = 2200; AD: Y = 2200 − 1000P. c) Moslashtirilmasa, retsessiya ta’sirida narxlar va ish haqi pasayadi, SRAS pastga qaytadi: 2000 − 1000P = 1000 ⇒ P = 1, Y = 1000.",
+   "formula": "Y = a − bP; moslashtirish: AD ni (Y*, Pshok) nuqtadan o‘tkazish",
+   "note": "Moslashtirish retsessiyani tezda yo‘qotadi, ammo narxlar darajasi doimiy yuqori (1,2) qoladi va inflyatsion kutishlar oshishi mumkin; moslashtirmaslik uzoq va og‘riqli retsessiya narxini talab qiladi."
+  }
+ ],
+ "open": [
+  "Quyidagi hodisalarning har biri AD yoki AS egri chizig‘ini qaysi tomonga siljitishini aniqlang: a) Markaziy bank asosiy stavkani pasaytirdi; b) eng kam ish haqi 30% ga oshirildi; c) QQS stavkasi 12% dan 15% ga oshirildi; d) Xitoyda iqtisodiy o‘sish sekinlashdi; e) aholining inflyatsion kutishlari keskin oshdi; f) yangi yirik mis koni ishga tushirildi; g) davlat kambag‘al oilalarga nafaqalarni oshirdi; h) so‘m AQSH dollariga nisbatan 15% ga qadrsizlandi.",
+  "Keynscha va klassik yondashuvlarda AS egri chizig‘ining shakli haqidagi bahsni taqqoslang: farazlar, narxlar «yopishqoqligi»ning sabablari (Blinder tadqiqoti), klassik dixotomiya va pulning neytralligi.",
+  "Salbiy talab shokining qisqa va uzoq muddatli oqibatlarini AD-AS grafigi yordamida tahlil qiling va barqarorlashtirish siyosatining vositalari hamda cheklovlarini baholang."
+ ],
+ "refs": [
+  "a) AD o‘ngga (investitsiya va iste’mol oshadi). b) AS chapga (xarajatlar ortadi); talab tomonidan ham ta’sir mumkin. c) Soliq xarajatlarni oshiradi: AS chapga; iste’mol kamaysa AD ham chapga. d) Eksport talabi kamayadi: AD chapga. e) Kutishlar ish haqi va narxlarni oshiradi: SRAS chapga. f) Resurs taklifi oshadi: AS o‘ngga. g) Iste’mol oshadi: AD o‘ngga. h) Eksport raqobatbardoshligi oshadi (AD o‘ngga), ammo import xomashyo qimmatlashadi (AS chapga). Har javobda siljish (egri chiziq bo‘ylab harakat emas) sababini ko‘rsating.",
+  "Klassik model: narxlar va ish haqi to‘liq moslashuvchan, bozorlar tez tozalanadi, shuning uchun uzoq muddatli AS vertikal (Y*); pul neytral, nominal va real o‘zgaruvchilar ajratiladi (klassik dixotomiya). Keynscha model: qisqa muddatda narxlar va ish haqi qotib qoladi, shuning uchun AS gorizontal va talab YaIM ni belgilaydi. «Yopishqoqlik» sabablari Blinder tadqiqotiga ko‘ra: koordinatsiya muvaffaqiyatsizligi, narx o‘zgartirish xarajatlari (menyu), shartnomalar va boshqalar. Xulosa: qisqa muddatda keynscha, uzoq muddatda klassik qarash to‘g‘ri; AS ning uch kesimi shuni aks ettiradi.",
+  "Salbiy talab shoki (masalan, ishonch pasayishi) AD ni chapga siljitadi: qisqa muddatda YaIM va narxlar (biroz) kamayadi, ishsizlik oshadi (retsessiya). Uzoq muddatda narxlar va ish haqi pasayib, SRAS pastga siljiydi, YaIM potensialga qaytadi, narxlar daraja pastroq bo‘ladi. Barqarorlashtirish siyosati (pul-kredit va fiskal vositalar) AD ni o‘ngga siljitib retsessiyani qisqartiradi. Cheklovlar: ta’sir kechikishi, noaniq prognozlar, inflyatsion kutishlarning oshishi va davlat qarzi xavfi."
+ ]
+}

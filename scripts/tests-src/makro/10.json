@@ -13,10 +13,10 @@
  {
   "q": "Konsolidatsiyalashgan byudjet o‘z ichiga oladi:",
   "options": [
-   "Davlat byudjeti va byudjetdan tashqari fondlarni",
-   "Faqat Pensiya jamg‘armasini",
-   "Faqat mahalliy byudjetlarni",
-   "Faqat respublika byudjetini"
+   "Davlat byudjeti va fondlarni",
+   "Faqat Pensiya jamg‘armasi byudjetini",
+   "Faqat mahalliy byudjetlar yig‘indisini",
+   "Faqat respublika byudjeti ko‘rsatkichlarini"
   ],
   "c": 0,
   "e": "Konsolidatsiyalashgan byudjet davlat byudjeti va maqsadli jamg‘armalar ko‘rsatkichlarini birlashtiradi."
@@ -37,8 +37,8 @@
   "options": [
    "Aholini ommaviy emlash dasturi",
    "Ta’lim xizmatlarining kengayishi",
-   "Ko‘kalamzorlashtirish ishlari",
-   "Zavod chiqindilari bilan havoning ifloslanishi"
+   "Qishloq hududlarida yo‘llar qurilishi",
+   "Zavod tutunidan havo ifloslanishi"
   ],
   "c": 3,
   "e": "Zavod chiqindilari uchinchi shaxslarga zarar yetkazadi va narxda aks etmaydi."
@@ -46,9 +46,9 @@
  {
   "q": "Salbiy tashqi samara mavjud bo‘lganda bozor:",
   "options": [
-   "Optimal miqdorni ishlab chiqaradi",
-   "Umuman ishlab chiqarmaydi",
-   "Ijtimoiy optimaldan ko‘p ishlab chiqaradi",
+   "Ijtimoiy optimal miqdorni ishlab chiqaradi",
+   "Ishlab chiqarishni umuman to‘xtatadi",
+   "Optimaldan ko‘p ishlab chiqaradi",
    "Ijtimoiy optimaldan kam ishlab chiqaradi"
   ],
   "c": 2,
@@ -57,8 +57,8 @@
  {
   "q": "Pigu solig‘i qanday maqsadda qo‘llaniladi?",
   "options": [
-   "Salbiy tashqi samaralarni tuzatish",
-   "Importni cheklash",
+   "Salbiy tashqi samarani tuzatish",
+   "Importni cheklab, ichki bozorni himoyalash",
    "Inflyatsiyani pasaytirish",
    "Byudjet daromadlarini oshirish"
   ],
@@ -68,10 +68,10 @@
  {
   "q": "Jamoat ne’matiga misol:",
   "options": [
-   "Avtomobil",
-   "Milliy mudofaa",
-   "Non",
-   "Kiyim"
+   "Shaxsiy avtomobil",
+   "Milliy mudofaa tizimi",
+   "Kundalik non mahsuloti",
+   "Tikuvchilik korxonasi kiyimi"
   ],
   "c": 1,
   "e": "Mudofaa iste’molda raqobatsiz va chiqarib bo‘lmaydigan ne’matdir."
@@ -79,10 +79,10 @@
  {
   "q": "Egri soliqqa misol:",
   "options": [
-   "Foyda solig‘i",
+   "Yuridik shaxslar foyda solig‘i",
    "Qo‘shilgan qiymat solig‘i",
-   "Mol-mulk solig‘i",
-   "Daromad solig‘i"
+   "Jismoniy shaxslar mol-mulk solig‘i",
+   "Jismoniy shaxslar daromad solig‘i"
   ],
   "c": 1,
   "e": "QQS tovar narxiga qo‘shiladi va oxir-oqibat iste’molchi to‘laydi."
@@ -123,9 +123,9 @@
  {
   "q": "To‘lovga qodirlik tamoyili nimani anglatadi?",
   "options": [
-   "Hamma bir xil summada soliq to‘lashini",
-   "Soliq yuki to‘lovchining daromadi va boyligiga mos bo‘lishini",
-   "Soliq to‘lash ixtiyoriy bo‘lishini",
+   "Barcha to‘lovchilar bir xil summada soliq to‘lashini",
+   "Soliq yuki daromad va boylikka mos bo‘lishini",
+   "Soliq to‘lash to‘lovchining xohishiga bog‘liq bo‘lishini",
    "Soliqni davlat xizmatlaridan foydalanuvchilar to‘lashini"
   ],
   "c": 1,
@@ -137,7 +137,7 @@
    "Teng daromadli shaxslar teng soliq to‘laydi",
    "Boylar ko‘proq soliq to‘laydi",
    "Kambag‘allar soliq to‘lamaydi",
-   "Soliq stavkasi barcha uchun tekis bo‘ladi"
+   "Soliq stavkasi barcha daromadlar uchun tekis bo‘ladi"
   ],
   "c": 0,
   "e": "Gorizontal adolat – teng daromadli shaxslarga teng munosabat; vertikal adolat – boylar ko‘proq to‘lashi."
@@ -145,9 +145,9 @@
  {
   "q": "Soliq yuki:",
   "options": [
-   "Soliqlar / byudjet xarajatlari",
-   "Soliqlar / eksport hajmi",
-   "Soliqlar / aholi soni",
+   "Soliqlar va majburiy to‘lovlar / byudjet xarajatlari",
+   "Soliqlar va majburiy to‘lovlar / eksport hajmi",
+   "Soliqlar va majburiy to‘lovlar / aholi soni",
    "Soliqlar va majburiy to‘lovlar / YaIM"
   ],
   "c": 3,
@@ -178,10 +178,10 @@
  {
   "q": "Laffer egri chizig‘i qaysi ko‘rsatkichlar o‘rtasidagi bog‘liqlikni ko‘rsatadi?",
   "options": [
-   "Foiz stavkasi va investitsiyalar",
+   "Foiz stavkasi va investitsiyalar hajmi",
    "Soliq stavkasi va soliq tushumlari",
    "Inflyatsiya va ishsizlik",
-   "Daromad va iste’mol"
+   "Jami daromad va iste’mol xarajatlari"
   ],
   "c": 1,
   "e": "Laffer egri chizig‘i stavka va tushumlar orasidagi bog‘liqlikni va optimal stavkani ko‘rsatadi."
@@ -200,9 +200,9 @@
  {
   "q": "Chegaraviy soliq stavkasi:",
   "options": [
-   "Qo‘shimcha daromad birligidan to‘lanadigan soliq ulushi",
-   "Jami soliqning jami daromadga nisbati",
-   "Soliq imtiyozi miqdori",
+   "Qo‘shimcha daromadga tegishli soliq ulushi",
+   "Jami soliq summasining jami daromadga nisbati",
+   "Soliq imtiyozi sifatida berilgan miqdor",
    "Eng past qo‘llaniladigan soliq stavkasi"
   ],
   "c": 0,
@@ -256,9 +256,9 @@
   "q": "Qarz nisbatining o‘zgarishi formulasida (r – g) × d hadida g nimani bildiradi?",
   "options": [
    "Real YaIM o‘sish sur’atini",
-   "Davlat xaridlarini",
+   "Davlat xaridlari o‘sish sur’atini",
    "Inflyatsiya sur’atini",
-   "Soliq stavkasini"
+   "Soliq stavkasining o‘zgarishini"
   ],
   "c": 0,
   "e": "Formulada r – real foiz stavkasi, g – real YaIM o‘sish sur’ati."
@@ -288,10 +288,10 @@
  {
   "q": "Barcha daromad darajalarida stavka bir xil bo‘lgan soliq:",
   "options": [
-   "Progressiv",
-   "Regressiv",
+   "Progressiv soliq",
+   "Regressiv soliq",
    "Proporsional (tekis)",
-   "Rag‘batlantiruvchi"
+   "Rag‘batlantiruvchi soliq"
   ],
   "c": 2,
   "e": "Proporsional soliqda stavka daromadga bog‘liq bo‘lmaydi."
@@ -310,8 +310,8 @@
  {
   "q": "Ko‘pchilik egri soliqlar amalda nima uchun regressiv hisoblanadi?",
   "options": [
-   "Kam ta’minlanganlar daromadining kattaroq qismini iste’molga sarflaydi",
-   "Ular faqat yuridik shaxslardan olinadi",
+   "Kambag‘allar daromadining ko‘proq qismini sarflaydi",
+   "Ular faqat yuridik shaxslardan, foydaga qarab olinadi",
    "Ularning stavkasi daromad oshgani sari oshib boradi",
    "Ular faqat kam ta’minlanganlardan undiriladi"
   ],

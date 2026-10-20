@@ -38,7 +38,7 @@
    "AD egri chizig‘ini o‘ngga siljitadi",
    "AD egri chizig‘ini chapga siljitadi",
    "AS egri chizig‘ini o‘ngga siljitadi",
-   "AD egri chizig‘i bo‘ylab harakatga olib keladi"
+   "AD bo‘ylab harakatga olib keladi"
   ],
   "c": 3,
   "e": "Narx o‘zgarishi AD egri chizig‘i bo‘ylab harakat, narxdan boshqa omillar esa egri chiziqning siljishini beradi."
@@ -49,7 +49,7 @@
    "Soliqlarning oshirilishi",
    "Pul taklifining kamayishi",
    "Milliy valyutaning qimmatlashishi",
-   "Davlat xarajatlarining oshirilishi"
+   "Davlat xarajatlari oshishi"
   ],
   "c": 3,
   "e": "Davlat xarajatlari AD tarkibiy qismi, ularning oshishi AD ni o‘ngga siljitadi."
@@ -91,7 +91,7 @@
   "q": "Pulning neytralligi nimani anglatadi?",
   "options": [
    "Pul aylanish tezligi o‘zgarmas bo‘ladi",
-   "Pul real o‘zgaruvchilarga ta’sir qilmaydi",
+   "Pul real YaIMga ta’sir qilmaydi",
    "Pul narxlar darajasiga ta’sir qilmaydi",
    "Pul taklifi vaqt davomida o‘zgarmaydi"
   ],
@@ -168,7 +168,7 @@
   "q": "Salbiy talab shoki uzoq muddatda (siyosat aralashuvisiz):",
   "options": [
    "Y doimiy past darajada qoladi",
-   "Y potensialga qaytadi, P pasayadi",
+   "Y tiklanadi, P pasayadi",
    "Giperinflyatsiya boshlanadi",
    "Y potensialga qaytadi, P oshadi"
   ],
@@ -191,7 +191,7 @@
   "options": [
    "SRAS ni pastga siljitib, narxlarni tushiradi",
    "LRAS ni o‘ngga siljitib, potensialni oshiradi",
-   "AD ni o‘ngga siljitadi, Y tiklanadi, P yuqori qoladi",
+   "AD o‘ngga siljiydi, P yuqori qoladi",
    "AD ni chapga siljitib, narxlarni tushiradi"
   ],
   "c": 2,
@@ -201,7 +201,7 @@
   "q": "Blinder tadqiqotiga ko‘ra narxlar qat’iyligining eng ko‘p tilga olingan sababi:",
   "options": [
    "Davlat tomonidan narxlarni nazorat qilish",
-   "Raqobatchilar bilan muvofiqlashtirish muammosi",
+   "Muvofiqlashtirish muammosi",
    "Soliqlarni qayta hisoblash murakkabligi",
    "Menyu xarajatlarining yuqoriligi"
   ],
@@ -214,7 +214,7 @@
    "Fiskal siyosat samaradorligini",
    "Narxlarning to‘liq egiluvchanligini",
    "Giperinflyatsiya sabablarini",
-   "Pulning qisqa muddatda noneytralligini"
+   "Pul noneytralligini"
   ],
   "c": 3,
   "e": "Tajribada pul massasi o‘zgarganda real ko‘rsatkichlar ham o‘zgargan: qisqa muddatda pul neytral emas."
@@ -225,7 +225,7 @@
    "Faqat salbiy taklif shoki",
    "Faqat salbiy talab shoki",
    "Ijobiy talab shoki",
-   "Ham talab, ham taklif shoki"
+   "Talab va taklif shoki"
   ],
   "c": 3,
   "e": "Pandemiya iste’molni ham, ishlab chiqarish imkoniyatlarini ham qisqartirdi."
@@ -234,7 +234,7 @@
   "q": "Klassik dixotomiya nimani anglatadi?",
   "options": [
    "Mikro va makroiqtisodiyotning farqlanishini",
-   "Real va nominal o‘zgaruvchilarni alohida tahlil qilish mumkinligini",
+   "Real va nominal ko‘rsatkichlarni ajratish",
    "Ichki va tashqi bozorlarning ajralishini",
    "Talab va taklif tengligini"
   ],
@@ -244,10 +244,10 @@
  {
   "q": "Pul massasi 400, V = 3 bo‘lsa, AD tenglamasi:",
   "options": [
-   "Y = 1200P",
-   "Y = 133 / P",
+   "Y = 1200 × P",
+   "Y = 133,3 / P",
    "Y = 1200 / P",
-   "Y = 400P"
+   "Y = 400 × P"
   ],
   "c": 2,
   "e": "MV = PY dan Y = MV/P = 400 × 3 / P = 1200 / P."
@@ -311,8 +311,8 @@
   "q": "Klassik dixotomiyaga ko‘ra pul taklifi uzoq muddatda ta’sir qiladi:",
   "options": [
    "Real foiz stavkasiga",
-   "Real YaIMga",
-   "Faqat nominal o‘zgaruvchilarga",
+   "Real ishlab chiqarish hajmiga",
+   "Nominal o‘zgaruvchilarga",
    "Bandlik darajasiga"
   ],
   "c": 2,
@@ -324,7 +324,7 @@
    "Faqat narxlarni oshiradi",
    "Faqat ishlab chiqarishni oshiradi",
    "Narxlarni pasaytiradi",
-   "Ishlab chiqarish va narxlarni oshiradi"
+   "Y va P ni oshiradi"
   ],
   "c": 3,
   "e": "Yuqoriga og‘ma SRAS da AD o‘ngga siljisa, Y ham, P ham oshadi."

@@ -1,0 +1,159 @@
+{
+ "goal": "Kross-kurs, nominal va real kurs, xarid qobiliyati pariteti, foiz stavkalari pariteti va Mankyu modelida real valyuta kursini aniqlash bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "To‘g‘ri, bilvosita va kross-kotirovka",
+  "Nominal va real valyuta kursi",
+  "Xarid qobiliyati pariteti (mutlaq va nisbiy)",
+  "Foiz stavkalari pariteti",
+  "Qadrsizlanish va qimmatlashish",
+  "Mankyu modelida muvozanatli real kurs"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 18-bob",
+ "tasks": [
+  {
+   "id": "mk18-p1",
+   "title": "Kross-kurslar va kotirovkalar",
+   "text": "1 USD = 12 100 so‘m, 1 USD = 7,2 yuan, 1 USD = 470 tenge. a) Yuan va tengening so‘mdagi kross-kurslarini hisoblang. b) 1 so‘mning dollardagi bilvosita kotirovkasini toping. c) Agar tenge dollarga nisbatan 5% qadrsizlansa, tengening so‘mdagi kursi qanday o‘zgaradi?",
+   "fields": [
+    {
+     "label": "1 yuanning so‘mdagi kursi",
+     "value": 1680.56,
+     "unit": "so‘m"
+    },
+    {
+     "label": "1 tengening so‘mdagi kursi",
+     "value": 25.74,
+     "unit": "so‘m"
+    },
+    {
+     "label": "1 so‘mning dollardagi kursi",
+     "value": 8.26e-05,
+     "unit": "USD"
+    },
+    {
+     "label": "5% qadrsizlanishdan keyin 1 tenge",
+     "value": 24.46,
+     "unit": "so‘m"
+    }
+   ],
+   "solution": "a) Yuan: 12 100/7,2 ≈ 1680,56 so‘m; tenge: 12 100/470 ≈ 25,74 so‘m. b) 1/12 100 ≈ 0,0000826 USD (1000 so‘m ≈ 0,0826 USD). c) Tengening dollardagi qiymati 5% kamayadi: 25,74·0,95 ≈ 24,46 so‘m, ya’ni tenge so‘mga nisbatan 5% arzonlashadi.",
+   "formula": "kross-kurs = (so‘m/USD)/(valyuta/USD); bilvosita kurs = 1/to‘g‘ri kurs",
+   "note": "«5% qadrsizlansa» tengening dollardagi qiymati 5% pasayadi deb talqin qilindi. Agar dollar kursi 470 dan 493,5 tengega o‘ssa (kursning 5% o‘sishi), tenge ≈ 24,52 so‘m bo‘ladi (≈4,8% pasayish)."
+  },
+  {
+   "id": "mk18-p2",
+   "title": "So‘mning nominal va real kursi",
+   "text": "2024-yil oxirida 1 USD = 12 920 so‘m, 2025-yil oxirida 12 025 so‘m. a) So‘m necha foizga qimmatlashdi? b) O‘zbekistonda inflyatsiya 7,3%, AQSHda 2,7% bo‘lsa, so‘mning real kursi qanchaga o‘zgardi? c) Natijani eksportyorlar uchun talqin qiling.",
+   "fields": [
+    {
+     "label": "So‘mning nominal qimmatlashishi",
+     "value": 7.44,
+     "unit": "%"
+    },
+    {
+     "label": "Real kurs q ning o‘zgarishi",
+     "value": -10.92,
+     "unit": "%"
+    },
+    {
+     "label": "So‘mning real qimmatlashishi",
+     "value": 12.26,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) So‘mning dollardagi qiymati 12 920/12 025 – 1 ≈ 7,44% ga oshdi (dollar kursi esa 6,93% ga pasaydi). b) q = e·P∗/P: q1/q0 = (12 025/12 920)·(1,027/1,073) ≈ 0,9308·0,9571 ≈ 0,8908, ya’ni q 10,92% ga pasaydi; so‘mning real qimmatlashishi 1/0,8908 – 1 ≈ 12,26%. c) O‘zbekiston tovarlari xorijiy tovarlarga nisbatan qimmatlashdi, eksportyorlarning narx raqobatbardoshligi pasaydi, import esa arzonlashdi.",
+   "formula": "q = e·P∗/P; q1/q0 = (e1/e0)·[(1+π∗)/(1+π)]",
+   "note": "Hisob to‘g‘ri kotirovkadagi real kurs formulasi (q = e·P∗/P) bo‘yicha qilindi. Taxminiy tekshiruv: %Δq ≈ %Δe + π∗ – π = –6,93 + 2,7 – 7,3 ≈ –11,5%."
+  },
+  {
+   "id": "mk18-p3",
+   "title": "XQP kursi va smartfon",
+   "text": "Bir xil smartfon AQSHda 800 dollar, O‘zbekistonda 11,2 mln so‘m turadi; bozor kursi 1 USD = 12 000 so‘m. a) XQP kursini hisoblang. b) So‘m XQPga nisbatan qimmatmi yoki arzonmi? c) Arbitraj imkoniyati bormi? Qanday omillar arbitrajga to‘sqinlik qiladi?",
+   "fields": [
+    {
+     "label": "XQP kursi",
+     "value": 14000,
+     "unit": "so‘m/USD"
+    },
+    {
+     "label": "Smartfonning bozor kursidagi narxi O‘zbekistonda dollarda",
+     "value": 933.33,
+     "unit": "USD"
+    },
+    {
+     "label": "Bozor kursining XQP kursidan og‘ishi",
+     "value": -14.29,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) e_XQP = 11 200 000/800 = 14 000 so‘m/USD. b) Bozor kursi 12 000 < 14 000: dollar XQPga nisbatan arzon, ya’ni so‘m qimmat (so‘m XQPdan 16,7% ga qimmat; bozor kursi XQP kursidan 14,29% past). O‘zbekistonda smartfon 11 200 000/12 000 ≈ 933,33 dollar, AQSHdagidan qimmat. c) Ha, smartfonni AQSHda sotib olib O‘zbekistonda sotish foydali, ammo transport xarajatlari, bojxona to‘siqlari, kafolat va brend farqlari, savdo qilinmaydigan xizmatlar arbitrajga to‘sqinlik qiladi.",
+   "formula": "eXQP = P/P∗",
+   "note": "Bu bir tovar bo‘yicha bir narx qonuni testi: XQP uzoq muddatda va taxminan bajariladi."
+  },
+  {
+   "id": "mk18-p4",
+   "title": "Nisbiy XQP va foiz pariteti",
+   "text": "O‘zbekistonda yillik inflyatsiya 8%, AQSHda 3% kutilmoqda. a) Nisbiy XQP bo‘yicha so‘mning bir yildagi kutilgan qadrsizlanishini hisoblang. b) Joriy kurs 12 000 so‘m bo‘lsa, bir yildan keyingi XQP kursini toping. c) So‘mdagi depozit stavkasi 17%, dollardagi 5% bo‘lsa, foiz stavkalari pariteti bo‘yicha investor uchun qaysi depozit foydaliroq?",
+   "fields": [
+    {
+     "label": "Kutilgan qadrsizlanish",
+     "value": 4.85,
+     "unit": "%"
+    },
+    {
+     "label": "Bir yildan keyingi XQP kursi",
+     "value": 12582.52,
+     "unit": "so‘m/USD"
+    },
+    {
+     "label": "Dollar depoziti so‘mdagi daromadliligi",
+     "value": 10.1,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) Aniq: 1,08/1,03 – 1 ≈ 4,85% (taxminan π – π∗ = 5%). b) 12 000·1,0485 ≈ 12 582,5 so‘m/USD. c) Dollar depozitining so‘mdagi daromadi = 1,05·1,0485 – 1 ≈ 10,1% (taxminan 5% + 4,85% ≈ 9,9%) – so‘m depozitidan (17%) past. Foiz paritetiga erishish uchun kutilgan qadrsizlanish 1,17/1,05 – 1 ≈ 11,4% bo‘lishi kerak. Shuning uchun so‘mdagi depozit foydaliroq, agar kutilgan qadrsizlanish 11,4% dan kam bo‘lsa.",
+   "formula": "%Δe = π – π∗; (1+i) = (1+i∗)·(e1/e0)",
+   "note": "Aniq formula ishlatildi; taxminiy formula natijalari 5% va 12 600 so‘m. Diqqat: bu yerda XQP prognozi bo‘yicha qadrsizlanish foiz farqidan (12 punkt) kam, shuning uchun foiz pariteti bajarilmayapti."
+  },
+  {
+   "id": "mk18-p5",
+   "title": "Mankyu modelida real kurs",
+   "text": "Mankyu modelida: NX = 500 – 500ε, S = 1000, I = 900 – 50r∗, r∗ = 4. a) Muvozanatli real kursni toping. b) Hukumat xarajatlari 50 ga oshib, S 950 gacha kamaysa, yangi ε va NX ni toping. c) Jahon foiz stavkasi 6 gacha oshsa-chi?",
+   "fields": [
+    {
+     "label": "Muvozanatli real kurs ε",
+     "value": 0.4,
+     "unit": ""
+    },
+    {
+     "label": "Hukumat xarajatlari oshgandagi ε",
+     "value": 0.5,
+     "unit": ""
+    },
+    {
+     "label": "Hukumat xarajatlari oshgandagi NX",
+     "value": 250,
+     "unit": ""
+    },
+    {
+     "label": "r∗ = 6 bo‘lgandagi ε",
+     "value": 0.2,
+     "unit": ""
+    }
+   ],
+   "solution": "a) I = 900 – 50·4 = 700; S – I = 300; NX = S – I ⇒ 500 – 500ε = 300 ⇒ ε = 0,4. b) S = 950: S – I = 250 ⇒ 500 – 500ε = 250 ⇒ ε = 0,5, NX = 250 (kamayadi, milliy valyuta qimmatlashadi). c) r∗ = 6: I = 900 – 300 = 600; S – I = 1000 – 600 = 400 ⇒ 500 – 500ε = 400 ⇒ ε = 0,2, NX = 400 (valyuta arzonlashadi).",
+   "formula": "NX(ε) = S – I(r∗)",
+   "note": "Fiskal ekspansiya ε ni oshiradi (milliy valyuta qimmatlashadi), sof eksport kamayadi; jahon foiz stavkasining oshishi investitsiyani kamaytirib, ε ni pasaytiradi va NX ni oshiradi."
+  }
+ ],
+ "open": [
+  "Egiluvchan va qayd etilgan valyuta kursi rejimlarining afzalliklari va kamchiliklari nimada? Qayd etilgan kurs sharoitida zaxiralar tugasa nima bo‘ladi?",
+  "2017-yildagi valyuta liberallashtirilishining O‘zbekiston iqtisodiyoti uchun ahamiyati nimada? 2017–2025-yillarda so‘mning nominal va real kursi nima uchun turlicha o‘zgargan?",
+  "O‘zbekiston Markaziy bankining «neytrallik tamoyili»ning mohiyati nimada? Foiz stavkalari pariteti valyuta kursini qanday tushuntiradi?"
+ ],
+ "refs": [
+  "Egiluvchan kurs tashqi zarbalarni so‘ndiradi, markaziy bankka mustaqil pul siyosatini yuritishga imkon beradi va zaxiralarni talab qilmaydi, ammo kurs o‘zgaruvchan, kutishlar beqaror bo‘lishi mumkin. Qayd etilgan kurs aniqlik va barqarorlik beradi, lekin intervensiya uchun zaxiralar kerak. Zaxiralar tugasa, markaziy bank kursni ushlab tura olmaydi va devalvatsiya yuz beradi. Javobda 18.1-rasm va rejimlar spektri (18.2-rasm) keltirilishi kerak.",
+  "2017-yil sentabrida valyuta bozori liberallashtirildi, erkin ayirboshlash ta’minlandi, boshqariladigan suzuvchi kurs rejimiga o‘tildi, bu eksport, investitsiyalar va tashqi savdo uchun sharoit yaratdi. Nominal ravishda so‘m 2017-yildan beri qadrsizlangan (kurs 8 120 dan 12 025 gacha), ammo O‘zbekistonda inflyatsiya AQSHdagidan yuqori bo‘lgani uchun real ma’noda so‘m qariyb 16% ga qimmatlashgan (q ≈ 84). Bu eksportning narx raqobatbardoshligini cheklashi mumkin.",
+  "Markaziy bank ichki bozorda sotib olingan oltin hajmiga mos miqdorda valyuta bozorida xorijiy valyuta sotadi: pul massasiga ta’sir sterilizatsiya qilinadi, inflyatsiya bosimi kamayadi, zaxiralar barqaror saqlanadi, kurs darajasini «belgilash» maqsadi bo‘lmaydi. Foiz stavkalari pariteti: investorlar uchun turli valyutalardagi depozitlarning kutilgan daromadi tenglashadi, shuning uchun stavka farqi kutilgan qadrsizlanishga teng bo‘ladi; yuqori stavkali valyutaning kutilgan qadrsizlanishi katta."
+ ]
+}
