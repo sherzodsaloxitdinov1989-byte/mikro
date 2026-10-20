@@ -1,0 +1,169 @@
+{
+ "goal": "Pul miqdoriy nazariyasi, pul taklifi (bank va pul multiplikatori), obligatsiya narxi va pul bozori muvozanati (LM) bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish; Markaziy bankning pul taklifini nazorat qilish imkoniyatlari va cheklovlarini tahlil qilish.",
+ "concepts": [
+  "Almashinuv (Fisher) va Kembrij tenglamalari, pulning aylanish tezligi",
+  "Keynsning pulga talab motivlari va spekulyativ talab",
+  "Obligatsiya narxi va foiz stavkasi o‘rtasidagi teskari bog‘liqlik",
+  "Majburiy zaxira normasi va bank multiplikatori",
+  "Pul bazasi, deponentlash koeffitsiyenti va pul multiplikatori",
+  "Pul bozori muvozanati va LM egri chizig‘i"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 9-bob",
+ "tasks": [
+  {
+   "id": "mk9-p1",
+   "title": "Aylanish tezligi, Kembrij koeffitsiyenti va pul massasi",
+   "text": "Iqtisodiyotda nominal YaIM 2000 trln so‘m, pul massasi 500 trln so‘m. a) Pulning aylanish tezligi va Kembrij koeffitsiyentini hisoblang. b) Agar real YaIM 6 foizga, narxlar 8 foizga oshsa va V o‘zgarmasa, pul massasi qanchaga oshishi kerak? c) Agar V 2 foizga kamaysa-chi?",
+   "fields": [
+    {
+     "label": "a) Pulning aylanish tezligi V",
+     "value": 4,
+     "unit": "marta"
+    },
+    {
+     "label": "a) Kembrij koeffitsiyenti k",
+     "value": 0.25,
+     "unit": ""
+    },
+    {
+     "label": "b) Pul massasining o‘sishi (V o‘zgarmas)",
+     "value": 70,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "c) Pul massasining o‘sishi (V 2% ga kamaysa)",
+     "value": 80,
+     "unit": "trln so‘m"
+    }
+   ],
+   "solution": "a) V = PY/M = 2000/500 = 4; k = 1/V = 0,25. b) MV = PY dan o‘sish sur’atlarida: %ΔM + %ΔV = %ΔP + %ΔY. V o‘zgarmas: %ΔM = 8 + 6 = 14%, ya’ni 500·0,14 = 70 trln so‘m (M = 570). c) %ΔV = –2%: %ΔM = 14 + 2 = 16%, ya’ni 500·0,16 = 80 trln so‘m (M = 580).",
+   "formula": "V = PY/M; k = 1/V; %ΔM + %ΔV ≈ %ΔP + %ΔY",
+   "note": "Hisob o‘sish sur’atlarining yig‘indisi (yaqinlashtirilgan) qoidasi bo‘yicha qilindi. Aniq hisobda nominal YaIM 1,06·1,08 – 1 = 14,48% ga oshadi (pul massasi ≈ 72,4 trln so‘mga), farq yaqinlashtirishdan."
+  },
+  {
+   "id": "mk9-p2",
+   "title": "Muddatsiz obligatsiya narxi va kapital yo‘qotish",
+   "text": "Yiliga 15 ming so‘m kupon to‘laydigan muddatsiz obligatsiyaning narxini bozor foiz stavkasi 10%, 12%, 15% va 20% bo‘lganda hisoblang. Agar investor obligatsiyani stavka 10% bo‘lganda sotib olgan bo‘lsa va stavka 15% ga oshsa, uning kapital yo‘qotishi qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "Narx, r = 10%",
+     "value": 150,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Narx, r = 15%",
+     "value": 100,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Narx, r = 20%",
+     "value": 75,
+     "unit": "ming so‘m"
+    },
+    {
+     "label": "Kapital yo‘qotish (10% dan 15% ga)",
+     "value": 50,
+     "unit": "ming so‘m"
+    }
+   ],
+   "solution": "P = kupon/r: r = 10% da 15/0,10 = 150; 12% da 15/0,12 = 125; 15% da 15/0,15 = 100; 20% da 15/0,20 = 75 ming so‘m. Stavka 10% dan 15% ga oshsa, narx 150 dan 100 ga tushadi: yo‘qotish 150 – 100 = 50 ming so‘m (33,3%).",
+   "formula": "P = kupon / r",
+   "note": "12% dagi narx (125 ming so‘m) javob maydonlariga kiritilmagan, yechimda keltirilgan. Stavka oshganda narx tushadi: obligatsiya narxi va foiz stavkasi teskari bog‘liq."
+  },
+  {
+   "id": "mk9-p3",
+   "title": "Bank tizimida depozit va pul yaratilishi",
+   "text": "Majburiy zaxira normasi 12%. Mijoz bankka 50 mln so‘m naqd pul qo‘ydi. a) Bank qancha kredit bera oladi? b) Bank tizimi jami qancha yangi depozit yaratishi mumkin? c) Pul massasi qanchaga oshadi? d) Agar banklar qo‘shimcha 3% ortiqcha zaxira saqlasa-chi?",
+   "fields": [
+    {
+     "label": "a) Bank bera oladigan kredit",
+     "value": 44,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "b) Jami depozitlar o‘sishi",
+     "value": 416.67,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "c) Pul massasining o‘sishi",
+     "value": 366.67,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "d) Jami depozitlar o‘sishi (rr + er = 15%)",
+     "value": 333.33,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "a) Kredit = 50·(1 – 0,12) = 44 mln. b) Bank multiplikatori 1/rr = 1/0,12 ≈ 8,33; ΔD = 50·8,33 = 416,67 mln. c) Mijoz naqd pulni depozitga o‘tkazgani uchun muomaladagi naqd pul 50 mln ga kamaydi, depozitlar 416,67 mln ga oshdi: ΔM = 416,67 – 50 = 366,67 mln (jami kreditlar yig‘indisiga teng). d) rr + er = 0,15: ΔD = 50/0,15 = 333,33 mln; ΔM = 283,33 mln, birinchi bank krediti 42,5 mln.",
+   "formula": "mb = 1/rr (ortiqcha zaxira bilan 1/(rr + er)); ΔD = mb·ΔR",
+   "note": "c) bandida pul massasi M = C + D deb olindi. Agar boshlang‘ich 50 mln ni ham yangi pul sifatida hisoblasak (darslikdagi 1000 so‘mlik misoldagidek), javob 416,67 mln bo‘ladi. Ortiqcha zaxira multiplikatorni kamaytiradi."
+  },
+  {
+   "id": "mk9-p4",
+   "title": "Pul multiplikatori va pul massasi",
+   "text": "Pul bazasi 200 trln so‘m, zaxira normasi 0,1, deponentlash koeffitsiyenti 0,3. a) Pul multiplikatori va pul massasini hisoblang. b) Markaziy bank ochiq bozorda 10 trln so‘mlik obligatsiya sotib olsa, pul massasi qanchaga o‘zgaradi? c) Agar banklarga ishonch pasayib, cr 0,5 ga oshsa, pul massasini avvalgi darajada saqlash uchun pul bazasi qanchaga oshirilishi kerak?",
+   "fields": [
+    {
+     "label": "a) Pul multiplikatori m",
+     "value": 3.25,
+     "unit": ""
+    },
+    {
+     "label": "a) Pul massasi M",
+     "value": 650,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "b) Pul massasining o‘zgarishi",
+     "value": 32.5,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "c) Pul bazasining zarur o‘sishi",
+     "value": 60,
+     "unit": "trln so‘m"
+    }
+   ],
+   "solution": "a) m = (cr + 1)/(cr + rr) = 1,3/0,4 = 3,25; M = 3,25·200 = 650 trln. b) Obligatsiya sotib olinganda pul bazasi 10 trln ga oshadi: ΔM = 3,25·10 = +32,5 trln. c) cr = 0,5 da m = 1,5/0,6 = 2,5. M = 650 saqlanishi uchun B = 650/2,5 = 260 trln, ya’ni bazani 260 – 200 = 60 trln ga oshirish kerak.",
+   "formula": "M = m·B; m = (cr + 1)/(cr + rr)",
+   "note": "b) bandida m = 3,25 o‘zgarmas deb olindi. c) Buyuk depressiya misolida ko‘rsatilganidek, ishonch pasayishi multiplikatorni kamaytiradi va Markaziy bank nazoratini cheklaydi."
+  },
+  {
+   "id": "mk9-p5",
+   "title": "Pul bozori muvozanati va LM egri chizig‘i",
+   "text": "Pulga talab funksiyasi: (M/P)D = 0,4Y – 20r. Real pul taklifi 600, Y = 2000. a) Muvozanatli foiz stavkasini toping. b) Pul taklifi 640 ga oshsa, foiz stavkasi qanday o‘zgaradi? c) Y 2100 ga oshsa (pul taklifi 600) foiz stavkasi qanday bo‘ladi? d) LM tenglamasini yozing.",
+   "fields": [
+    {
+     "label": "a) Muvozanatli foiz stavkasi",
+     "value": 10,
+     "unit": "%"
+    },
+    {
+     "label": "b) Foiz stavkasi (M/P = 640)",
+     "value": 8,
+     "unit": "%"
+    },
+    {
+     "label": "c) Foiz stavkasi (Y = 2100)",
+     "value": 12,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) 600 = 0,4·2000 – 20r = 800 – 20r, r = 200/20 = 10%. b) 640 = 800 – 20r, r = 160/20 = 8% (2 punktga pasayadi). c) 600 = 0,4·2100 – 20r = 840 – 20r, r = 240/20 = 12% (2 punktga oshadi). d) M/P = 0,4Y – 20r dan r = 0,02Y – (M/P)/20; M/P = 600 da LM: r = 0,02Y – 30.",
+   "formula": "M/P = kY – hr; LM: r = (k/h)Y – (1/h)(M/P)",
+   "note": "LM egri chizig‘ining qiyaligi k/h = 0,4/20 = 0,02. Foiz stavkasi foizlarda (r = 10 ya’ni 10%) ifodalangan. Pul taklifi oshsa LM pastga siljiydi, daromad oshsa foiz stavkasi ortadi."
+  }
+ ],
+ "open": [
+  "Keynsning pulga talab motivlarini sanab, har birini tushuntiring. Nima uchun pulga spekulyativ talab foiz stavkasiga teskari bog‘liq? Javobingizda obligatsiya narxi va foiz stavkasi o‘rtasidagi bog‘liqlikni misol bilan ko‘rsating.",
+  "Tijorat banklari qanday qilib pul yaratadi? 100 foizli va qisman zaxira tizimlarini taqqoslang, bank va pul multiplikatori formulalarini keltirib chiqaring. Markaziy bankning pul taklifini nazorat qilish imkoniyatlarini qanday omillar cheklaydi? Buyuk depressiya va 2008-yildan keyingi miqdoriy yumshatish misollarida buni tushuntiring.",
+  "Keynscha pul siyosatining transmissiya mexanizmi qanday? Qachon pul siyosati samarasiz bo‘ladi? Fridmenning monetar qoidasi nima va monetaristlar nima uchun diskretsion siyosatga ishonmaydi?"
+ ],
+ "refs": [
+  "Keyns uchta motivni ajratadi: bitimlar (kundalik xaridlar uchun, daromadga bog‘liq; daromad tez-tez olinsa talab kamayadi), ehtiyotkorlik (kutilmagan xarajatlar uchun, asosan daromadga bog‘liq) va spekulyativ (boylikni pul yoki obligatsiya shaklida saqlash tanlovi) motivi. Pul daromad keltirmaydi, shuning uchun uni saqlashning muqobil qiymati foiz stavkasidir: stavka yuqori bo‘lsa, pul saqlash qimmat va talab kamayadi. Obligatsiya narxi P = kupon/r: stavka 10% da 10 ming so‘mlik kupon 100 ming so‘m turadi, 5% da 200, 20% da 50 ming so‘m. Stavka yuqori bo‘lganda investorlar uni tushishini va narx oshishini kutib obligatsiya sotib oladi, stavka past bo‘lsa, kapital yo‘qotishdan qo‘rqib pul saqlaydi.",
+  "100 foizli zaxira tizimida banklar depozitni to‘liq saqlaydi, kredit bermaydi va pul yaratmaydi. Qisman zaxirada 1000 so‘mlik depozitdan rr = 10% bo‘lsa 900 kreditga beriladi, u keyingi bankka depozit bo‘ladi va jami depozitlar 1000·1/rr = 10 000 ga yetadi: bank multiplikatori 1/rr (ortiqcha zaxira bilan 1/(rr + er)). Kengaytirilgan modelda M = C + D, B = C + R, M/B = (cr + 1)/(cr + rr), ya’ni M = m·B. Markaziy bank nazoratini cheklovchi omillar: cr (aholi ishonchi), banklarning ortiqcha zaxirasi, kredit talabi, dollarlashuv va moliyaviy innovatsiyalar. 1929–1933 yillarda baza 18% oshgan, pul massasi 28% qisqargan (cr 0,17 dan 0,41 ga, rr 0,14 dan 0,21 ga oshgan); 2008-yildan keyin baza ≈5 baravar oshgan, M2 esa ≈50% ga, chunki banklar ortiqcha zaxira saqlagan.",
+  "Transmissiya mexanizmi: M↑ ⇒ r↓ ⇒ I↑ ⇒ AD↑ ⇒ Y↑. Pul siyosati samarasiz bo‘ladigan holatlar: likvidlik tuzog‘i (foiz juda past, pulga talab cheksiz elastik, birinchi bo‘g‘in uziladi) va investitsiya tuzog‘i (investitsiyalar foizga sezgir emas, ikkinchi bo‘g‘in uziladi); shuning uchun Keyns chuqur retsessiyada fiskal siyosatga ko‘proq ishongan. Fridmen qoidasi: pul massasi har yili real YaIMning uzoq muddatli o‘sish sur’atiga (yoki unga maqsadli inflyatsiyani qo‘shib) teng barqaror sur’atda o‘sishi kerak. Monetaristlar fikricha, diskretsion siyosatning ta’siri uzoq va o‘zgaruvchan kechikish bilan namoyon bo‘ladi, pulga talab barqaror va Markaziy bank xatolari inqirozlarni chuqurlashtirgan."
+ ]
+}

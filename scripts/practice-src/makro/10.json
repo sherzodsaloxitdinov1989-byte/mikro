@@ -1,0 +1,164 @@
+{
+ "goal": "Davlat byudjeti ko‘rsatkichlari, soliq yuki, soliqlarning progressivligi, daromadlar tengsizligi (Lorens, Jini), Laffer egri chizig‘i va davlat qarzi dinamikasi bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish; byudjet-soliq siyosati vositalarini tahlil qilish.",
+ "concepts": [
+  "Soliq yuki, umumiy va birlamchi byudjet qoldig‘i",
+  "Progressiv, proporsional va regressiv soliqlar; o‘rtacha va chegaraviy stavka",
+  "Lorens egri chizig‘i va Jini koeffitsiyenti",
+  "Laffer egri chizig‘i",
+  "Birlamchi taqchillik va qarz yuki dinamikasi",
+  "Tashqi samaralar, Pigu solig‘i, jamoat ne’matlari"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 10-bob",
+ "tasks": [
+  {
+   "id": "mk10-p1",
+   "title": "Soliq yuki va byudjet qoldig‘i",
+   "text": "Mamlakatda YaIM 1800 trln so‘m, soliq tushumlari 380 trln so‘m, majburiy ijtimoiy to‘lovlar 45 trln so‘m, nobyudjet daromadlar 60 trln so‘m, davlat xaridlari 400 trln so‘m, transfertlar 90 trln so‘m, davlat qarzi bo‘yicha foizlar 25 trln so‘m. a) Soliq yukini hisoblang. b) Umumiy va birlamchi byudjet qoldig‘ini toping (trln so‘mda va YaIMga %). c) Davlat xarajatlarining YaIMdagi ulushini hisoblang.",
+   "fields": [
+    {
+     "label": "a) Soliq yuki",
+     "value": 23.61,
+     "unit": "%"
+    },
+    {
+     "label": "b) Umumiy byudjet qoldig‘i",
+     "value": -30,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "b) Birlamchi byudjet qoldig‘i",
+     "value": -5,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "c) Davlat xarajatlarining YaIMdagi ulushi",
+     "value": 28.61,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) Soliq yuki = (380 + 45)/1800·100 = 23,61%. b) Daromadlar = 380 + 45 + 60 = 485; xarajatlar = 400 + 90 + 25 = 515. Umumiy qoldiq = 485 – 515 = –30 trln (YaIMning –1,67%, taqchillik). Birlamchi qoldiq = –30 + 25 = –5 trln (–0,28%). c) 515/1800·100 = 28,61%.",
+   "formula": "Soliq yuki = (Soliqlar + Majburiy to‘lovlar)/YaIM; Birlamchi qoldiq = Umumiy qoldiq + foiz to‘lovlari",
+   "note": "Daromadlar soliq, majburiy ijtimoiy to‘lovlar va nobyudjet daromadlar yig‘indisi, xarajatlar esa davlat xaridlari, transfertlar va foizlar yig‘indisi deb talqin qilindi. Nobyudjet daromadlar soliq yukiga kirmaydi."
+  },
+  {
+   "id": "mk10-p2",
+   "title": "Progressiv daromad solig‘i",
+   "text": "Soliq tizimi: yillik daromadning 30 mln so‘mgacha qismiga 0%, 30–100 mln so‘m qismiga 10%, 100 mln so‘mdan yuqori qismiga 25% stavka. 20, 60, 150 va 400 mln so‘m daromadli shaxslar uchun soliq summasi, o‘rtacha va chegaraviy stavkalarni hisoblang. Bu tizim progressivmi?",
+   "fields": [
+    {
+     "label": "Soliq, daromad 60 mln",
+     "value": 3,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Soliq, daromad 150 mln",
+     "value": 19.5,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Soliq, daromad 400 mln",
+     "value": 82,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "O‘rtacha stavka, daromad 400 mln",
+     "value": 20.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "20 mln: soliq 0 (o‘rtacha 0%, chegaraviy 0%). 60 mln: 0,10·(60 – 30) = 3 mln, o‘rtacha 5%, chegaraviy 10%. 150 mln: 0,10·70 + 0,25·50 = 7 + 12,5 = 19,5 mln, o‘rtacha 13%, chegaraviy 25%. 400 mln: 7 + 0,25·300 = 82 mln, o‘rtacha 20,5%, chegaraviy 25%. O‘rtacha stavka daromad bilan oshadi (0; 5; 13; 20,5%) – tizim progressiv.",
+   "formula": "O‘rtacha stavka = T/Y; chegaraviy stavka = ΔT/ΔY",
+   "note": "Progressivlik belgisi: o‘rtacha stavka daromad oshgani sari oshadi. Chegaraviy stavka 25% dan yuqorida ham o‘rtacha stavkadan katta, shuning uchun o‘rtacha stavka 25% ga intiladi, lekin unga yetmaydi."
+  },
+  {
+   "id": "mk10-p3",
+   "title": "QQS: progressivmi yoki regressiv?",
+   "text": "Ikki oila: birinchisining yillik daromadi 40 mln so‘m, u 36 mln so‘mni iste’molga sarflaydi; ikkinchisining daromadi 200 mln so‘m, iste’moli 120 mln so‘m. QQS stavkasi 12% (iste’mol narxiga kiritilgan deb hisoblang). Har bir oila to‘laydigan QQS ning daromadga nisbatini toping. QQS progressivmi, proporsionalmi yoki regressivmi?",
+   "fields": [
+    {
+     "label": "1-oila to‘lagan QQS",
+     "value": 3.86,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "1-oila: QQS / daromad",
+     "value": 9.64,
+     "unit": "%"
+    },
+    {
+     "label": "2-oila to‘lagan QQS",
+     "value": 12.86,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "2-oila: QQS / daromad",
+     "value": 6.43,
+     "unit": "%"
+    }
+   ],
+   "solution": "QQS iste’mol narxiga kiritilgan: QQS = iste’mol·0,12/1,12. 1-oila: 36·0,12/1,12 = 3,857 mln, daromadga nisbati 3,857/40 = 9,64%. 2-oila: 120·0,12/1,12 = 12,857 mln, 12,857/200 = 6,43%. Daromad oshganda nisbat kamayadi – QQS regressiv.",
+   "formula": "QQS = Iste’mol·t/(1 + t); yuk = QQS/Daromad",
+   "note": "Agar 12% iste’mol summasiga qo‘shimcha hisoblansa, nisbatlar 10,8% va 7,2% bo‘ladi; xulosa o‘zgarmaydi. Regressivlik sababi: boy oilalar daromadining kattaroq qismini jamg‘aradi."
+  },
+  {
+   "id": "mk10-p4",
+   "title": "Lorens egri chizig‘i va Jini koeffitsiyenti",
+   "text": "Aholi besh guruhga (kvintillarga) bo‘lingan, ularning daromaddagi ulushi: 6%, 11%, 16%, 23%, 44%. a) Lorens egri chizig‘ini chizing. b) Trapetsiya usulida Jini koeffitsiyentini taxminan hisoblang. c) Soliq va transfertlardan keyin ulushlar 8%, 13%, 17%, 22%, 40% bo‘ldi. Jini koeffitsiyenti qanchaga o‘zgardi?",
+   "fields": [
+    {
+     "label": "b) Jini koeffitsiyenti (soliqdan oldin)",
+     "value": 0.352,
+     "unit": ""
+    },
+    {
+     "label": "c) Jini koeffitsiyenti (soliq va transfertdan keyin)",
+     "value": 0.292,
+     "unit": ""
+    },
+    {
+     "label": "c) Jini koeffitsiyentining o‘zgarishi",
+     "value": -0.06,
+     "unit": ""
+    }
+   ],
+   "solution": "Guruhlar kambag‘aldan boyga qarab tartiblangan. a) Lorens nuqtalari (aholi, daromad): (0;0), (0,2; 0,06), (0,4; 0,17), (0,6; 0,33), (0,8; 0,56), (1; 1). b) Egri chiziq ostidagi yuza (trapetsiyalar): 0,2·[(0 + 0,06)/2 + (0,06 + 0,17)/2 + (0,17 + 0,33)/2 + (0,33 + 0,56)/2 + (0,56 + 1)/2] = 0,2·1,62 = 0,324. G = 1 – 2·0,324 = 0,352. c) Yangi to‘plangan ulushlar: 0,08; 0,21; 0,38; 0,60; 1. Yuza = 0,2·1,77 = 0,354, G = 1 – 0,708 = 0,292. O‘zgarish: 0,292 – 0,352 = –0,06.",
+   "formula": "G = A/(A + B) = 1 – 2·S(Lorens egri chizig‘i ostidagi yuza)",
+   "note": "Trapetsiya usuli Jini koeffitsiyentini bir oz kam baholaydi (egri chiziq bo‘laklarga bo‘linadi), shuning uchun natija taxminiy. Soliq-transfert tizimi tengsizlikni 0,06 punktga kamaytirdi."
+  },
+  {
+   "id": "mk10-p5",
+   "title": "Laffer egri chizig‘i",
+   "text": "Soliq tushumlari funksiyasi T = 2000t – 2500t² (mlrd so‘m, t – soliq stavkasi ulushda). a) Tushumlarni maksimallashtiruvchi stavkani toping. b) Maksimal tushum qancha? c) Agar joriy stavka 50% bo‘lsa, stavkani 40% ga pasaytirish tushumlarni qanday o‘zgartiradi?",
+   "fields": [
+    {
+     "label": "a) Tushumni maksimallashtiruvchi stavka",
+     "value": 40,
+     "unit": "%"
+    },
+    {
+     "label": "b) Maksimal tushum",
+     "value": 400,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "c) Tushumning o‘zgarishi (50% dan 40% ga)",
+     "value": 25,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "a) dT/dt = 2000 – 5000t = 0, t* = 0,4 (40%). b) T(0,4) = 2000·0,4 – 2500·0,16 = 800 – 400 = 400 mlrd. c) T(0,5) = 1000 – 625 = 375 mlrd; stavkani 40% ga pasaytirsak T = 400, ya’ni tushum 25 mlrd so‘mga oshadi.",
+   "formula": "max T(t): dT/dt = 0",
+   "note": "50% stavka t* = 40% dan yuqorida («taqiqlangan zona»), shuning uchun stavkani pasaytirish tushumni oshiradi."
+  }
+ ],
+ "open": [
+  "Davlat byudjeti nima? Muvozanatli byudjet, taqchillik va profitsitni ta’riflang. Byudjet taqchilligining qanday turlari mavjud, birlamchi taqchillik nima? Davlat qarzi va byudjet taqchilligi o‘rtasidagi bog‘liqlikni tushuntiring.",
+  "Tashqi samara nima? Ijobiy va salbiy tashqi samaralarga misollar keltiring. Salbiy tashqi samaralarni bartaraf etish uchun davlat qanday vositalardan foydalanadi, Pigu solig‘i nima? Jamoat ne’matlari qanday xususiyatlarga ega va «tekinxo‘r» muammosi nima?",
+  "Laffer egri chizig‘ining mohiyatini tushuntiring. O‘zbekistonda 2019-yildagi soliq islohotidan keyin soliq tushumlari o‘sishini Laffer samarasi bilan izohlash mumkinmi yoki boshqa omillar muhimroqmi? Tekis (proporsional) daromad solig‘i adolatlimi?"
+ ],
+ "refs": [
+  "Davlat byudjeti – davlat vazifalarini bajarish uchun pul mablag‘larining markazlashgan fondini shakllantirish va undan foydalanish rejasi. Daromadlar xarajatlarga teng bo‘lsa byudjet muvozanatli, xarajatlar ko‘p bo‘lsa taqchillik (defitsit), daromadlar ko‘p bo‘lsa profitsit. Taqchillik turlari: umumiy (yalpi), birlamchi (qarz foizlarisiz) hamda tarkibiy va tsiklik. Taqchillik – oqim, qarz – zaxira: D(t) = D(t–1) + Taqchillik(t). Qarz nisbatining dinamikasi Δd ≈ (r – g)d – s; g > r bo‘lsa, kichik birlamchi taqchillik bilan ham qarz barqaror turishi mumkin.",
+  "Tashqi samara – bitimda ishtirok etmagan uchinchi shaxslarga bozor narxida aks etmaydigan ta’sir. Salbiy (zavod chiqindilari, shovqin, chekish) bo‘lsa, MPC < MSC va bozor ortiqcha ishlab chiqaradi; davlat vositalari: Pigu solig‘i (zarar miqdorida soliq), ekologik normativlar, ifloslantirish huquqlari savdosi. Ijobiy (ta’lim, emlash, fundamental fan) bo‘lsa, MSB > MPB va bozor kam taklif qiladi; vosita: subsidiyalar, bepul ta’lim va tibbiy xizmat, grantlar. Jamoat ne’matlari iste’molda raqobatsiz va chiqarib bo‘lmaydigan (mudofaa, mayoq, ko‘cha yoritilishi); har kim tekinxo‘r bo‘lishni afzal ko‘rgani uchun bozor ularni ta’minlay olmaydi va ular byudjetdan moliyalashtiriladi.",
+  "Laffer egri chizig‘i: stavka 0% va 100% da tushum nolga teng, oraliqda tushumni maksimallashtiruvchi t* mavjud; t* dan yuqori stavkalarda («taqiqlangan zona») pasaytirish tushumni oshiradi, pastida kamaytiradi. 2019-yilda QQS, ijtimoiy soliq stavkalari pasaytirilib, daromad solig‘i 12% lik tekis stavkaga o‘tgan, tushumlar esa baribir o‘sgan; asosiy sabab Laffer samarasidan ko‘ra soliq bazasining kengayishi (norasmiy faoliyatning qonuniylashuvi, imtiyozlar bekor qilinishi, elektron hisob-fakturalar, onlayn kassalar). Tekis soliq gorizontal adolat va soddalikni ta’minlaydi, vertikal adolat (to‘lovga qodirlik) nuqtai nazaridan esa progressiv shkalaga yutqazadi; optimal stavka mamlakatlar uchun bir xil emas."
+ ]
+}

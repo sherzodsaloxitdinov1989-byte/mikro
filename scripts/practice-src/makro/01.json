@@ -1,0 +1,164 @@
+{
+ "goal": "Makroiqtisodiy tahlilning boshlang‘ich ko‘nikmalarini shakllantirish: tarmoqlararo balans, doiraviy aylanish muvozanati, iqtisodiyotning ochiqlik darajasi, iqtisodiy o‘sish sur’atlari va oddiy model muvozanatini hisoblash.",
+ "concepts": [
+  "Tarmoqlararo balans va to‘g‘ridan-to‘g‘ri xarajatlar koeffitsiyentlari",
+  "Yakuniy talab va qo‘shilgan qiymat",
+  "Inyeksiyalar va chiqib ketishlar (doiraviy aylanish muvozanati)",
+  "Tashqi savdo kvotasi (iqtisodiyotning ochiqlik darajasi)",
+  "«70 qoidasi» va iqtisodiy o‘sish",
+  "Endogen va ekzogen o‘zgaruvchilar, oqim va zaxira"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 1-bob",
+ "tasks": [
+  {
+   "id": "mk1-p1",
+   "title": "Uch tarmoqli tarmoqlararo balans",
+   "text": "Uch tarmoqli iqtisodiyotda tarmoqlararo oqimlar quyidagicha (mlrd so‘m): qishloq xo‘jaligi o‘z tarmog‘iga 15, sanoatga 45, xizmatlarga 10 mahsulot yetkazib beradi; sanoat – mos ravishda 25, 100, 35; xizmatlar – 10, 30, 30. Tarmoqlarning yalpi mahsuloti: 150, 350, 250. a) Har bir tarmoq uchun yakuniy talab va qo‘shilgan qiymatni hisoblang. b) Qo‘shilgan qiymat yig‘indisi yakuniy talab yig‘indisiga tengligini tekshiring. c) Bevosita xarajatlar koeffitsiyentlari matritsasini tuzing. Quyida qishloq xo‘jaligi va sanoatning yakuniy talabi, xizmatlarning qo‘shilgan qiymati va jami qo‘shilgan qiymatni kiriting.",
+   "fields": [
+    {
+     "label": "Qishloq xo‘jaligining yakuniy talabi",
+     "value": 80,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Sanoatning yakuniy talabi",
+     "value": 190,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Xizmatlarning qo‘shilgan qiymati",
+     "value": 175,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Jami qo‘shilgan qiymat",
+     "value": 450,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Yakuniy talab = yalpi mahsulot − qatordagi oraliq sotuvlar yig‘indisi: qishloq xo‘jaligi 150 − (15+45+10) = 80; sanoat 350 − (25+100+35) = 190; xizmatlar 250 − (10+30+30) = 180. Jami 450. Qo‘shilgan qiymat = yalpi mahsulot − ustundagi oraliq xarajatlar: qishloq xo‘jaligi 150 − (15+25+10) = 100; sanoat 350 − (45+100+30) = 175; xizmatlar 250 − (10+35+30) = 175. Jami 450. Tenglik bajariladi: 450 = 450. Koeffitsiyentlar aij = zij / Xj: qishloq xo‘jaligi ustuni 0,100; 0,167; 0,067; sanoat ustuni 0,129; 0,286; 0,086; xizmatlar ustuni 0,040; 0,140; 0,120.",
+   "formula": "YT(i) = X(i) − Σj zij; QQ(j) = X(j) − Σi zij; aij = zij / Xj; ΣYT = ΣQQ",
+   "note": "Tekshiruv: jami oraliq oqimlar 15+45+10+25+100+35+10+30+30 = 300; yalpi mahsulot yig‘indisi 750; 750 − 300 = 450 – ham yakuniy talab, ham qo‘shilgan qiymat yig‘indisi. Koeffitsiyentlar matritsasi javob maydonlariga kiritilmaydi, yechimda berilgan."
+  },
+  {
+   "id": "mk1-p2",
+   "title": "Doiraviy aylanish: inyeksiyalar va chiqib ketishlar",
+   "text": "Mamlakat iqtisodiyotida: S = 300, T = 400, IM = 250, I = 280, G = 450, X = 200 (mlrd so‘m). a) Inyeksiyalar va chiqib ketishlarni hisoblang. b) Iqtisodiyot muvozanatdami? c) YaIM qaysi yo‘nalishda o‘zgaradi va nima uchun? Quyida inyeksiyalar, chiqib ketishlar va ularning farqini (inyeksiyalar − chiqib ketishlar) kiriting.",
+   "fields": [
+    {
+     "label": "Inyeksiyalar (I + G + X)",
+     "value": 930,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Chiqib ketishlar (S + T + IM)",
+     "value": 950,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Farq (inyeksiyalar − chiqib ketishlar)",
+     "value": -20,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Inyeksiyalar = I + G + X = 280 + 450 + 200 = 930. Chiqib ketishlar = S + T + IM = 300 + 400 + 250 = 950. Farq 930 − 950 = −20. Muvozanat sharti (inyeksiyalar = chiqib ketishlar) bajarilmaydi. Chiqib ketishlar inyeksiyalardan 20 ga ko‘p, ya’ni xarajatlar oqimiga qaytmagan mablag‘ ortiqcha, shuning uchun yalpi talab kamayadi va YaIM pasayadi.",
+   "formula": "Muvozanat: S + T + IM = I + G + X",
+   "note": "Inyeksiyalar chiqib ketishlardan kam bo‘lgani uchun YaIM muvozanat holatiga yetguncha kamayadi (doiraviy aylanishdan sarflanmay chiqib ketgan mablag‘ ko‘p)."
+  },
+  {
+   "id": "mk1-p3",
+   "title": "Tashqi savdo kvotasi",
+   "text": "Mamlakatning eksporti 24 mlrd dollar, importi 31 mlrd dollar, YaIMi 90 mlrd dollar. Tashqi savdo kvotasini, eksport va import kvotalarini hisoblang (bir o‘nli xonagacha yaxlitlang). Natijani O‘zbekistonning 2025-yildagi ko‘rsatkichi (taxminan 53%) bilan taqqoslang.",
+   "fields": [
+    {
+     "label": "Tashqi savdo kvotasi",
+     "value": 61.1,
+     "unit": "%"
+    },
+    {
+     "label": "Eksport kvotasi",
+     "value": 26.7,
+     "unit": "%"
+    },
+    {
+     "label": "Import kvotasi",
+     "value": 34.4,
+     "unit": "%"
+    }
+   ],
+   "solution": "Tashqi savdo kvotasi = (X + IM) / YaIM × 100% = (24 + 31) / 90 × 100% = 61,1%. Eksport kvotasi = 24 / 90 × 100% = 26,7%. Import kvotasi = 31 / 90 × 100% = 34,4%. O‘zbekistonning 2025-yildagi kvotasi darslikka ko‘ra 81,2 / 152,5 × 100% ≈ 53% bo‘lgani uchun berilgan mamlakat iqtisodiyoti ochiqroq (farq taxminan 8 foiz punkti).",
+   "formula": "Tashqi savdo kvotasi = (X + IM) / YaIM × 100%",
+   "note": "Darslikda O‘zbekiston uchun: eksport 33,8 va import 47,3 mlrd dollar (yig‘indisi 81,1, matnda 81,2 – yaxlitlash farqi), YaIM 152,5 mlrd dollar. Berilgan mamlakatda import eksportdan ko‘p (sof eksport −7 mlrd dollar)."
+  },
+  {
+   "id": "mk1-p4",
+   "title": "«70 qoidasi»: daromad necha yilda ikki baravar oshadi",
+   "text": "Yiliga 2%, 5% va 7% o‘sish sur’atlarida mamlakat daromadi necha yilda ikki baravar ko‘payishini «70 qoidasi» yordamida hisoblang (ikki baravar ko‘payish muddati ≈ 70 / o‘sish sur’ati). O‘zbekistonning 2025-yildagi o‘sish sur’ati (7,7%) saqlanib qolsa, YaIM necha yilda ikki baravar oshadi? Oxirgisini bir o‘nli xonagacha yaxlitlang.",
+   "fields": [
+    {
+     "label": "2% o‘sishda ikki baravar oshish muddati",
+     "value": 35,
+     "unit": "yil"
+    },
+    {
+     "label": "5% o‘sishda",
+     "value": 14,
+     "unit": "yil"
+    },
+    {
+     "label": "7% o‘sishda",
+     "value": 10,
+     "unit": "yil"
+    },
+    {
+     "label": "7,7% o‘sishda (O‘zbekiston, 2025)",
+     "value": 9.1,
+     "unit": "yil"
+    }
+   ],
+   "solution": "70 / 2 = 35 yil; 70 / 5 = 14 yil; 70 / 7 = 10 yil; 70 / 7,7 ≈ 9,09 ≈ 9,1 yil.",
+   "formula": "T ≈ 70 / g (g – o‘sish sur’ati, foizda)",
+   "note": "Aniq formula bo‘yicha T = ln 2 / ln(1+g): 7,7% da ≈ 9,3 yil, ya’ni «70 qoidasi» yaxshi yaqinlashish beradi. O‘zbekistonning 7,7% ko‘rsatkichi darslikdan olingan."
+  },
+  {
+   "id": "mk1-p5",
+   "title": "Non bozori modeli: muvozanat va qiyosiy statika",
+   "text": "Non bozorida talab funksiyasi Qd = 100 − 2P + 0,5Y, taklif funksiyasi Qs = 3P − 20 − 2Pu. Daromad Y = 40, un narxi Pu = 5. a) Muvozanat narxi va miqdorini toping. b) Daromad 60 ga oshsa, muvozanat qanday o‘zgaradi? c) Modelda qaysi o‘zgaruvchilar endogen, qaysilari ekzogen?",
+   "fields": [
+    {
+     "label": "Dastlabki muvozanat narxi",
+     "value": 30,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Dastlabki muvozanat miqdori",
+     "value": 60,
+     "unit": "birlik"
+    },
+    {
+     "label": "Yangi muvozanat narxi (Y = 60)",
+     "value": 32,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Yangi muvozanat miqdori (Y = 60)",
+     "value": 66,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "Y = 40, Pu = 5: Qd = 100 − 2P + 20 = 120 − 2P; Qs = 3P − 20 − 10 = 3P − 30. Qd = Qs: 120 − 2P = 3P − 30, 5P = 150, P = 30; Q = 120 − 60 = 60. Y = 60: Qd = 100 − 2P + 30 = 130 − 2P; 130 − 2P = 3P − 30, P = 32; Q = 130 − 64 = 66. Daromad oshganda talab egri chizig‘i o‘ngga siljiydi, narx 30 dan 32 ga, miqdor 60 dan 66 ga oshadi. Endogen o‘zgaruvchilar: P va Q; ekzogen: Y va Pu.",
+   "formula": "Qd(P, Y) = Qs(P, Pu)",
+   "note": "Tekshiruv: P = 30 da Qs = 3·30 − 30 = 60 = Qd; P = 32 da Qs = 3·32 − 30 = 66 = Qd."
+  }
+ ],
+ "open": [
+  "Quyidagi o‘zgaruvchilarni oqim va zaxiraga ajrating va sababini izohlang: a) davlat qarzi; b) byudjet taqchilligi; c) iste’mol; d) kapital; e) investitsiyalar; f) pul massasi; g) YaIM; h) ishsizlar soni; i) bir oy davomida ishga joylashganlar soni; j) amortizatsiya. Zaxira va oqim o‘rtasidagi bog‘liqlikni davlat qarzi va byudjet taqchilligi misolida tushuntiring.",
+  "Klassik maktabning asosiy g‘oyalarini va Sey qonunining mohiyatini tushuntiring. Buyuk depressiya (1929–1933) klassik nazariyaning qaysi kamchiliklarini ochib berdi va Keyns nazariyasi bunga qanday javob berdi?",
+  "2017-yildan keyin O‘zbekistonda makroiqtisodiy siyosatda qanday tub o‘zgarishlar amalga oshirildi? Valyuta bozori, monetar siyosat, soliq va byudjet siyosati bo‘yicha darslikda keltirilgan o‘zgarishlarni sanab, ular iqtisodiyotning ochiqligiga qanday ta’sir qilganini tahlil qiling."
+ ],
+ "refs": [
+  "Oqim (vaqt birligi davomida o‘lchanadi): b) byudjet taqchilligi, c) iste’mol, e) investitsiyalar, g) YaIM, i) oy davomida ishga joylashganlar soni, j) amortizatsiya. Zaxira (ma’lum vaqt momentida o‘lchanadi): a) davlat qarzi, d) kapital, f) pul massasi, h) ishsizlar soni. Mankyuning vannadagi suv misoli: suv hajmi – zaxira, jo‘mrakdan oqayotgan suv – oqim. Davlat qarzi (zaxira) har yili byudjet taqchilligi (oqim) miqdorida ko‘payadi. Yaxshi javobda har bir ko‘rsatkichning o‘lchov birligi (yilga, oyga yoki sanaga) ham ko‘rsatiladi.",
+  "Klassik maktab (Smit, Rikardo, Sey, Mill) va neoklassiklar (Marshall, Pigu): bozor mexanizmi o‘z-o‘zini tartibga soladi («ko‘rinmas qo‘l»), narx, ish haqi va foiz stavkalari to‘liq egiluvchan, pul neytral, davlat aralashuvi minimal (laissez-faire). Sey qonuni: «taklif o‘ziga mos talabni yaratadi» – har qanday ishlab chiqarish teng daromad vujudga keltiradi va u to‘liq sarflanadi, shuning uchun umumiy ortiqcha ishlab chiqarish bo‘lmaydi. Buyuk depressiyada AQSHda real YaIM taxminan 27% qisqardi, ishsizlik 25% ga yetdi, ish haqi va narxlarning pasayishi bandlikni tiklamadi – bu narxlar egiluvchanligi va Sey qonuni haqidagi farazlar noto‘g‘ri ekanini ko‘rsatdi. Keyns (1936) samarali talab ishlab chiqarish va bandlikni belgilashini, Sey qonuni amal qilmasligini asoslab, davlat aralashuvini taklif qildi.",
+  "Darslikka ko‘ra: 2017-yil sentyabrda valyuta bozori liberallashtirildi, milliy valyutaning erkin konvertatsiyasi joriy etildi; Markaziy bank inflyatsion targetlash rejimiga bosqichma-bosqich o‘tdi (asosiy stavka 2025–2026-yillarda 14%, o‘rta muddatli inflyatsiya maqsadi 5%); 2019-yildan soliq islohoti soliq yukini kamaytirdi va soliqlar sonini qisqartirdi; 2020-yildan MHT-2008 xalqaro standartlarga moslashtirildi; fiskal qoidalar joriy etilib, konsolidatsiyalashgan byudjet taqchilligi 2024-yildagi 3,3% dan 2025-yilda 2,1% gacha qisqardi; JSTga a’zolik muzokaralari yakunlovchi bosqichda. Natijada iqtisodiyot ochiqroq va bozor signallariga sezgirroq bo‘ldi; tashqi savdo kvotasi 2025-yilda taxminan 53% ni tashkil etdi. Yaxshi javobda har bir o‘zgarish fiskal yoki monetar siyosat vositasi sifatida tasniflanadi."
+ ]
+}

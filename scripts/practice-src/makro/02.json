@@ -1,0 +1,169 @@
+{
+ "goal": "YaIM va unga tegishli milliy hisoblar ko‘rsatkichlarini (qo‘shilgan qiymat, xarajatlar va daromadlar usullari, YaMD, MD, ShD, tasarrufdagi daromad), jamg‘arma–investitsiya ayniyatini hamda nominal/real ko‘rsatkichlar va narx indekslarini hisoblash va talqin qilish ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "Qo‘shilgan qiymat va takroriy hisobdan qochish",
+  "YaIMni xarajatlar va daromadlar usullarida hisoblash",
+  "YaMD, SMD, MD, ShD va shaxsiy tasarrufdagi daromad zanjiri",
+  "Jamg‘armalar va investitsiyalar ayniyati, «egizak taqchilliklar»",
+  "Nominal va real YaIM, YaIM deflyatori",
+  "Laspeyres, Paashe va Fisher indekslari; iste’mol narxlari indeksi (INI)"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 2-bob",
+ "tasks": [
+  {
+   "id": "mk2-p1",
+   "title": "Paxtadan kiyimgacha: qo‘shilgan qiymat",
+   "text": "Paxta yetishtiruvchi fermer paxtani 600 mln so‘mga paxta-to‘qimachilik klasteriga sotdi. Klaster undan ip va mato ishlab chiqarib, tikuvchilik fabrikasiga 1100 mln so‘mga sotdi. Fabrika kiyimlar tikib, ulgurji savdo kompaniyasiga 1700 mln so‘mga sotdi; ulgurji kompaniya chakana savdo do‘konlariga 1950 mln so‘mga, do‘konlar esa aholiga 2300 mln so‘mga sotdi. a) Har bir bosqichdagi qo‘shilgan qiymatni hisoblang. b) Ushbu jarayonning YaIMga qo‘shgan hissasi qancha? c) Agar 30 foiz kiyim eksport qilingan bo‘lsa, natija o‘zgaradimi? Quyida klaster, fabrika va chakana savdoning qo‘shilgan qiymatini va YaIMga jami hissani kiriting.",
+   "fields": [
+    {
+     "label": "Klasterning qo‘shilgan qiymati",
+     "value": 500,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Fabrikaning qo‘shilgan qiymati",
+     "value": 600,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "Chakana savdoning qo‘shilgan qiymati",
+     "value": 350,
+     "unit": "mln so‘m"
+    },
+    {
+     "label": "YaIMga jami hissa",
+     "value": 2300,
+     "unit": "mln so‘m"
+    }
+   ],
+   "solution": "Qo‘shilgan qiymat = sotuv − sotib olingan oraliq mahsulot: fermer 600 − 0 = 600; klaster 1100 − 600 = 500; fabrika 1700 − 1100 = 600; ulgurji savdo 1950 − 1700 = 250; chakana savdo 2300 − 1950 = 350. Yig‘indi 600+500+600+250+350 = 2300 = yakuniy mahsulot qiymati (aholiga sotuv). c) Eksport qilingan qism ham mamlakatda ishlab chiqarilgan, shuning uchun YaIM o‘zgarmaydi (2300); faqat tarkibi o‘zgaradi: 30% eksportga (690), 70% iste’molga (1610).",
+   "formula": "QQ = chiqarilgan mahsulot − oraliq mahsulot; ΣQQ = yakuniy mahsulot qiymati",
+   "note": "Fermer va ulgurji savdo qo‘shilgan qiymati mos ravishda 600 va 250 mln so‘m (javob maydonlariga kiritilmagan). Takroriy hisobdan qochish uchun faqat yakuniy mahsulot (2300) yoki qo‘shilgan qiymatlar yig‘indisi olinadi; sotuvlar yig‘indisi (7650) YaIM emas."
+  },
+  {
+   "id": "mk2-p2",
+   "title": "YaIMni xarajatlar va daromadlar usullarida hisoblash",
+   "text": "Quyidagi ma’lumotlar asosida (mlrd so‘m) YaIMni xarajatlar va daromadlar usullarida hisoblang: shaxsiy iste’mol – 2450; yalpi xususiy investitsiyalar – 820; davlat xaridlari – 690; eksport – 610; import – 780; ish haqi va ijtimoiy ajratmalar – 1940; renta – 110; foiz – 160; mulkdorlar daromadi – 230; korporatsiyalar foydasi – 450; egri soliqlar (subsidiyalarsiz) – 290; amortizatsiya – 610. Ikki natija mos keladimi? Statistik tafovutni aniqlang.",
+   "fields": [
+    {
+     "label": "YaIM (xarajatlar usuli)",
+     "value": 3790,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "YaIM (daromadlar usuli)",
+     "value": 3790,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Statistik tafovut",
+     "value": 0,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Xarajatlar usuli: YaIM = C + I + G + NX = 2450 + 820 + 690 + (610 − 780) = 3960 − 170 = 3790. Daromadlar usuli: ish haqi 1940 + renta 110 + foiz 160 + mulkdorlar daromadi 230 + korporatsiyalar foydasi 450 + egri soliqlar 290 + amortizatsiya 610 = 3790. Ikki natija mos keladi, statistik tafovut 0.",
+   "formula": "YaIM = C + I + G + (X − IM); YaIM = ish haqi + renta + foiz + mulkdorlar daromadi + foyda + egri soliqlar + amortizatsiya",
+   "note": "Sof eksport manfiy (−170), ya’ni import eksportdan ko‘p. Amalda ikki usul statistik tafovut bilan farq qiladi; bu masalada ma’lumotlar tafovutsiz tanlangan."
+  },
+  {
+   "id": "mk2-p3",
+   "title": "YaIMdan shaxsiy tasarrufdagi daromadgacha va jamg‘arma",
+   "text": "2-masala ma’lumotlariga quyidagilarni qo‘shing: xorijdan olingan sof omil daromadlari – 45; korporatsiyalar foydasiga soliq – 120; taqsimlanmagan foyda – 140; ijtimoiy sug‘urta ajratmalari – 260; transfert to‘lovlari – 330; shaxsiy daromad solig‘i – 310 (mlrd so‘m). YaMD, SMD, MD, ShD va shaxsiy tasarrufdagi daromadni hisoblang. Agar iste’mol 2450 bo‘lsa, uy xo‘jaliklari jamg‘armasi va jamg‘arish normasi qancha (jamg‘arish normasi – jamg‘armaning tasarrufdagi daromadga nisbati, 1 o‘nli xonagacha yaxlitlang)? Quyida shaxsiy daromad, tasarrufdagi daromad, jamg‘arma va jamg‘arish normasini kiriting.",
+   "fields": [
+    {
+     "label": "Shaxsiy daromad (ShD)",
+     "value": 2745,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Shaxsiy tasarrufdagi daromad",
+     "value": 2435,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Uy xo‘jaliklari jamg‘armasi",
+     "value": -15,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Jamg‘arish normasi",
+     "value": -0.6,
+     "unit": "%"
+    }
+   ],
+   "solution": "YaMD = YaIM + sof omil daromadlari = 3790 + 45 = 3835. SMD = YaMD − amortizatsiya = 3835 − 610 = 3225. MD = SMD − egri soliqlar = 3225 − 290 = 2935. ShD = MD − foyda solig‘i − taqsimlanmagan foyda − ijtimoiy ajratmalar + transfertlar = 2935 − 120 − 140 − 260 + 330 = 2745. Tasarrufdagi daromad = ShD − shaxsiy daromad solig‘i = 2745 − 310 = 2435. Jamg‘arma = 2435 − 2450 = −15. Jamg‘arish normasi = −15 / 2435 × 100% ≈ −0,6%.",
+   "formula": "YaMD = YaIM + sof omil daromadlari; SMD = YaMD − A; MD = SMD − egri soliqlar; ShD = MD − foyda solig‘i − taqsimlanmagan foyda − ijtimoiy ajratmalar + transfertlar; ShTD = ShD − shaxsiy daromad solig‘i",
+   "note": "Jamg‘arma manfiy: uy xo‘jaliklari daromadidan ko‘p sarflagan (qarz olgan yoki oldingi jamg‘armalarini sarflagan). Oraliq natijalar: YaMD 3835, SMD 3225, MD 2935 – javob maydonlarida emas, yechimda berilgan."
+  },
+  {
+   "id": "mk2-p4",
+   "title": "Milliy jamg‘arma va tashqi dunyo jamg‘armasi",
+   "text": "Mamlakatda xususiy jamg‘arma 380, investitsiyalar 450, soliqlar 520, davlat xaridlari 560 mlrd so‘m. a) Davlat jamg‘armasi va milliy jamg‘armani toping. b) Sof eksport qanchaga teng bo‘lishi kerak? c) Tashqi dunyo jamg‘armasi qancha? (Transfertlar e’tiborga olinmaydi, soliqlar sof soliqlar deb hisoblansin.)",
+   "fields": [
+    {
+     "label": "Davlat jamg‘armasi",
+     "value": -40,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Milliy jamg‘arma",
+     "value": 340,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Sof eksport",
+     "value": -110,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Tashqi dunyo jamg‘armasi",
+     "value": 110,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Davlat jamg‘armasi = T − G = 520 − 560 = −40 (byudjet taqchilligi). Milliy jamg‘arma = xususiy + davlat = 380 + (−40) = 340. Ayniyat: S = I + NX, demak NX = S − I = 340 − 450 = −110. Tashqi dunyo jamg‘armasi = −NX = 110 (investitsiyalarning 110 qismi xorijiy jamg‘arma hisobiga moliyalashadi).",
+   "formula": "Sg = T − G; S = Sp + Sg; S = I + NX; Sxorij = −NX",
+   "note": "«Egizak taqchilliklar»: byudjet taqchilligi (40) bilan birga tashqi savdo taqchilligi (110) mavjud. Tashqi savdo taqchilligi 110, byudjet taqchilligi 40 dan katta, chunki xususiy jamg‘arma (380) investitsiyalardan (450) ham kam."
+  },
+  {
+   "id": "mk2-p5",
+   "title": "Nominal va real YaIM, Laspeyres, Paashe va Fisher indekslari",
+   "text": "Iqtisodiyotda uch tovar ishlab chiqariladi. Bazis yil (2024): olma – 2 so‘m/kg, 100 kg; non – 4 so‘m, 200 dona; ko‘ylak – 50 so‘m, 10 dona. Joriy yil (2025): olma – 3 so‘m, 110 kg; non – 5 so‘m, 190 dona; ko‘ylak – 52 so‘m, 14 dona. a) Nominal va real YaIMni hisoblang. b) Real o‘sish sur’atini toping. c) Laspeyres, Paashe va Fisher indekslarini hisoblang va natijalarni izohlang. Quyida 2025-yil real YaIMi (2024-yil narxlarida) va uch indeksni (3 o‘nli xonagacha) kiriting.",
+   "fields": [
+    {
+     "label": "Real YaIM (2025, 2024-yil narxlarida)",
+     "value": 1680,
+     "unit": "so‘m"
+    },
+    {
+     "label": "Laspeyres indeksi",
+     "value": 1.213,
+     "unit": ""
+    },
+    {
+     "label": "Paashe indeksi",
+     "value": 1.195,
+     "unit": ""
+    },
+    {
+     "label": "Fisher indeksi",
+     "value": 1.204,
+     "unit": ""
+    }
+   ],
+   "solution": "2024-yil nominal YaIM = 2·100 + 4·200 + 50·10 = 200 + 800 + 500 = 1500. 2025-yil nominal = 3·110 + 5·190 + 52·14 = 330 + 950 + 728 = 2008. Real YaIM (2024-yil narxlarida) = 2·110 + 4·190 + 50·14 = 220 + 760 + 700 = 1680. Real o‘sish = 1680 / 1500 − 1 = 12,0%. Laspeyres = Σ Pt·Q0 / Σ P0·Q0 = (3·100 + 5·200 + 52·10) / 1500 = 1820 / 1500 = 1,213. Paashe (deflyator) = Σ Pt·Qt / Σ P0·Qt = 2008 / 1680 = 1,195. Fisher = √(1,2133 · 1,1952) = 1,204.",
+   "formula": "IL = ΣPtQ0 / ΣP0Q0; IP = ΣPtQt / ΣP0Qt; IF = √(IL · IP); real YaIM = ΣP0Qt",
+   "note": "Laspeyres narxlar o‘sishini oshirib ko‘rsatadi (21,3%), Paashe kamaytirib ko‘rsatadi (19,5%); Fisher – ikkalasining o‘rta geometrigi (20,4%). Nominal o‘sish 2008/1500 − 1 = 33,9%, shundan real o‘sish 12,0%."
+  }
+ ],
+ "open": [
+  "2024-yilda nominal YaIM 1454,6 trln so‘m, 2023-yilda – 1066,6 trln so‘m (rasmiy dastlabki qiymatlar), YaIM deflyatori o‘sishi 13,3 foiz. a) Nominal o‘sish sur’atini hisoblang. b) Real o‘sish sur’atini toping va uni rasmiy 6,5 foizlik ko‘rsatkich bilan solishtiring. c) Farq qanday sabablarga ko‘ra yuzaga kelishi mumkin? (Ko‘rsatma: statistik ma’lumotlarning qayta ko‘rib chiqilishini eslang.)",
+  "Talabaning nominal stipendiyasi 2023-yilda 700 ming so‘m, 2025-yilda 820 ming so‘m bo‘ldi. Shu davrda INI 2024-yilda 9,8 foizga, 2025-yilda 7,3 foizga oshdi. Real stipendiya o‘sdimi yoki kamaydimi? Necha foizga? Natijani izohlang.",
+  "Nima uchun YaIM farovonlikning mukammal o‘lchovi emas? Qanday muqobil ko‘rsatkichlarni bilasiz? Javobingizda YaIMga kiritilmaydigan operatsiyalardan misollar keltiring."
+ ],
+ "refs": [
+  "Nominal o‘sish = 1454,6 / 1066,6 − 1 ≈ 36,4%. Deflyator o‘sishi 13,3% bo‘lsa, real o‘sish = 1,3638 / 1,133 − 1 ≈ 20,4%, bu rasmiy 6,5% dan ancha yuqori. Darslikdagi hisob: 1,133 × 1,065 ≈ 1,207, ya’ni nominal o‘sish taxminan 20,7% bo‘lishi kerak edi. Katta farq 2023-yilgi nominal YaIM dastlabki qiymati keyin qayta ko‘rib chiqilganini (yuqoriroq bo‘lganini) ko‘rsatadi. Boshqa sabablar: baza yili va narxlar o‘zgarishi, metodologiya o‘zgarishi, qamrov (norasmiy sektor) tuzatishlari. Xulosa: o‘sish sur’atini hisoblashda bir xil metodologiyadagi (qayta ko‘rib chiqilgan) qatorlarni taqqoslash kerak.",
+  "Narxlar 2 yilda 1,098 × 1,073 ≈ 1,178 marta (17,8%) oshgan. Nominal stipendiya 820 / 700 = 1,171 marta (17,1%) oshgan. Real stipendiya 1,171 / 1,178 ≈ 0,994, ya’ni taxminan 0,6% ga kamaygan. Ya’ni nominal oshish inflyatsiyani to‘liq qoplamagan. Yaxshi javobda 2023-yil narxlarida real stipendiya (700 ming so‘m) bilan 2025-yil real qiymati (≈696 ming) solishtiriladi va nominal hamda real ko‘rsatkichlar farqi aytiladi.",
+  "YaIM bozor operatsiyalarini o‘lchaydi, farovonlikning ko‘p jihatini hisobga olmaydi: uy ishlari va ko‘ngilli mehnat, yashirin (norasmiy) iqtisodiyot, bo‘sh vaqt, ekologiya va resurslarning tugashi, daromad tengsizligi, hayot sifati. Qayta sotilgan (ikkinchi qo‘l) tovarlar, sof moliyaviy bitimlar va transfertlar YaIMga kiritilmaydi. Muqobil ko‘rsatkichlar: inson rivojlanishi indeksi (IRI), baxt indeksi, «yashil» YaIM, jon boshiga YaIM XQP bo‘yicha. Yaxshi javobda YaIMning ijobiy tomoni (taqqoslanuvchan, hisoblash usuli aniq) ham aytiladi."
+ ]
+}

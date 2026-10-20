@@ -1,0 +1,159 @@
+{
+ "goal": "Tijorat banki balansi, pul multiplikatori, Teylor qoidasi, real foiz stavkasi va transmissiya mexanizmi bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish; pul-kredit siyosati vositalari va laglarini tahlil qilish.",
+ "concepts": [
+  "Bank balansi, kapital va leveredj",
+  "Majburiy zaxira normasi",
+  "Pul multiplikatori va ochiq bozor operatsiyalari",
+  "Teylor qoidasi va Teylor prinsipi",
+  "Ex ante va ex post real foiz stavkasi",
+  "Transmissiya mexanizmi kanallari va tashqi lag"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 12-bob",
+ "tasks": [
+  {
+   "id": "mk12-p1",
+   "title": "Tijorat bankining balansi va leveredj",
+   "text": "Tijorat bankining balansi: depozitlar 800 mlrd so‘m, kapital 100 mlrd so‘m, majburiy zaxira normasi 10%, bank 30 mlrd so‘m ortiqcha zaxira saqlaydi, qolgan mablag‘lar kreditlarga joylashtirilgan. a) Bank aktivlari tarkibini (zaxiralar, kreditlar) toping. b) Leveredj koeffitsiyentini hisoblang. c) Agar kreditlarning 8 foizi qaytmasa, bank kapitali qanchaga kamayadi? d) Majburiy zaxira normasi 15% ga oshirilsa (ortiqcha zaxira va depozitlar o‘zgarmasa), bank kreditlarni qanchaga qisqartirishi kerak?",
+   "fields": [
+    {
+     "label": "Kreditlar (a)",
+     "value": 790,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Leveredj koeffitsiyenti (b)",
+     "value": 9,
+     "unit": "marta"
+    },
+    {
+     "label": "Kapital qoldig‘i zarardan keyin (c)",
+     "value": 36.8,
+     "unit": "mlrd so‘m"
+    },
+    {
+     "label": "Kreditlarni qisqartirish (d)",
+     "value": 40,
+     "unit": "mlrd so‘m"
+    }
+   ],
+   "solution": "Aktivlar = majburiyatlar + kapital = 800 + 100 = 900. a) Majburiy zaxira 0,10·800 = 80; jami zaxira 80 + 30 = 110; kreditlar 900 – 110 = 790. b) Leveredj = 900/100 = 9. c) Zarar 0,08·790 = 63,2; kapital 100 – 63,2 = 36,8 (kapital 63,2% ga kamayadi). d) Majburiy zaxira 0,15·800 = 120; ortiqcha 30 saqlansa, zaxira 150, ya’ni 40 ga ko‘p – kreditlar 790 dan 750 ga qisqaradi.",
+   "formula": "Aktivlar = Majburiyatlar + Kapital; Leveredj = Aktivlar/Kapital; Zaxira = rr·D + ortiqcha",
+   "note": "d) bandda ortiqcha zaxira 30 o‘zgarmaydi deb olingan; agar bank ortiqcha zaxirani sarflasa (110 dan 120 gacha yetmaydi), qisqartirish 10 ga teng bo‘lardi. Zarar 63,2 kapitalning ko‘pini yo‘qotadi – leveredj 9 bo‘lganda ham xavf katta."
+  },
+  {
+   "id": "mk12-p2",
+   "title": "Pul massasi va pul bazasi",
+   "text": "Pul bazasi 180 trln so‘m, cr = 0,3, rr = 0,08. a) Pul massasini hisoblang. b) Markaziy bank majburiy zaxira normasini 0,12 ga oshirdi. Pul massasi qanchaga o‘zgaradi? c) Pul massasini avvalgi darajada saqlash uchun Markaziy bank ochiq bozorda qancha qimmatli qog‘oz sotib olishi kerak?",
+   "fields": [
+    {
+     "label": "Pul massasi (a)",
+     "value": 615.79,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "Pul massasining o‘zgarishi (b)",
+     "value": -58.65,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "Qimmatli qog‘ozlar xaridi (c)",
+     "value": 18.95,
+     "unit": "trln so‘m"
+    }
+   ],
+   "solution": "m = (cr + 1)/(cr + rr). a) m = 1,3/0,38 = 3,421; M = 180·3,421 = 615,79. b) m = 1,3/0,42 = 3,095; M = 180·3,095 = 557,14; ΔM = 557,14 – 615,79 = –58,65. c) Kerakli B = 615,79/3,095 = 198,95; ΔB = 198,95 – 180 = 18,95 trln so‘m – shuncha qimmatli qog‘ozni Markaziy bank sotib oladi (pul bazasi oshadi).",
+   "formula": "M = m·B; m = (cr + 1)/(cr + rr)",
+   "note": "Majburiy zaxira normasi oshganda multiplikator kamayadi. Ochiq bozorda xarid pul bazasini ko‘paytiradi."
+  },
+  {
+   "id": "mk12-p3",
+   "title": "Teylor qoidasi bo‘yicha stavka",
+   "text": "Teylor qoidasi: i = π + 2 + 0,5(π – 2) + 0,5 × uzilish (AQSH uchun). a) π = 3%, uzilish = –1% bo‘lsa, stavka qancha bo‘lishi kerak? b) π = 6%, uzilish = +2% bo‘lsa-chi? c) O‘zbekiston uchun (r* = 4%, π* = 5%) π = 6,5% va uzilish = +0,5% bo‘lsa, stavka qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "Stavka (a)",
+     "value": 5,
+     "unit": "%"
+    },
+    {
+     "label": "Stavka (b)",
+     "value": 11,
+     "unit": "%"
+    },
+    {
+     "label": "Stavka O‘zbekiston uchun (c)",
+     "value": 11.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) i = 3 + 2 + 0,5·(3 – 2) + 0,5·(–1) = 3 + 2 + 0,5 – 0,5 = 5%. b) i = 6 + 2 + 0,5·4 + 0,5·2 = 6 + 2 + 2 + 1 = 11%. c) i = 6,5 + 4 + 0,5·(6,5 – 5) + 0,5·0,5 = 6,5 + 4 + 0,75 + 0,25 = 11,5%.",
+   "formula": "i = π + r* + 0,5(π – π*) + 0,5 × YaIM uzilishi",
+   "note": "Teylor prinsipi: inflyatsiya 1 punktga oshsa, nominal stavka 1,5 punktga oshishi kerak (real stavka ham oshadi). (b) da real stavka 11 – 6 = 5% bo‘ldi."
+  },
+  {
+   "id": "mk12-p4",
+   "title": "Ex ante va ex post real foiz stavkasi",
+   "text": "Inflyatsiya 9%, Markaziy bank asosiy stavkasi 14%, kutilayotgan inflyatsiya 8%. a) Ex ante va ex post real stavkalarni hisoblang. b) Agar Markaziy bank real stavkani 6% darajasida saqlamoqchi bo‘lsa va kutilayotgan inflyatsiya 7% ga pasaysa, asosiy stavkani qanday o‘zgartirish kerak?",
+   "fields": [
+    {
+     "label": "Ex ante real stavka",
+     "value": 6,
+     "unit": "%"
+    },
+    {
+     "label": "Ex post real stavka",
+     "value": 5,
+     "unit": "%"
+    },
+    {
+     "label": "Yangi asosiy stavka (b)",
+     "value": 13,
+     "unit": "%"
+    },
+    {
+     "label": "Asosiy stavkaning o‘zgarishi (b)",
+     "value": -1,
+     "unit": "foiz punkti"
+    }
+   ],
+   "solution": "a) Ex ante r = i – π^e = 14 – 8 = 6%; ex post r = i – π = 14 – 9 = 5%. b) i = r + π^e = 6 + 7 = 13%, ya’ni stavkani 1 punktga (14 dan 13 gacha) pasaytirish kerak.",
+   "formula": "r = i – π (taxminiy Fisher tenglamasi); ex ante: π^e, ex post: haqiqiy π",
+   "note": "Qaror kutilayotgan inflyatsiyaga asoslanadi, shuning uchun ex ante stavka muhim. Kutilayotgan inflyatsiya pasaysa, real stavkani saqlash uchun nominal stavka pasayadi."
+  },
+  {
+   "id": "mk12-p5",
+   "title": "Asosiy stavka oshishining YaIMga ta’siri",
+   "text": "Asosiy stavka 1 foiz punktga oshirilganda: kredit stavkalari 0,7 punktga oshadi; investitsiyalar kredit stavkasining har 1 punkt oshishiga 3% ga kamayadi; investitsiyalar YaIMning 30%; multiplikator 1,5. YaIMga umumiy ta’sirni (foizda) taxminan hisoblang. Valyuta kursi kanalini ham hisobga olsak, natija qanday o‘zgarishi mumkin?",
+   "fields": [
+    {
+     "label": "Investitsiyalarning nisbiy kamayishi",
+     "value": -2.1,
+     "unit": "%"
+    },
+    {
+     "label": "Investitsiyalar kamayishi (YaIMga nisbatan)",
+     "value": -0.63,
+     "unit": "% YaIM"
+    },
+    {
+     "label": "YaIMga umumiy ta’sir",
+     "value": -0.945,
+     "unit": "%"
+    }
+   ],
+   "solution": "Kredit stavkasi +0,7 punkt, investitsiya 3%·0,7 = 2,1% ga kamayadi. ΔI = 0,021·0,30 = 0,0063, ya’ni YaIMning 0,63%. Multiplikator orqali ΔY = 1,5·0,63 = 0,945%. Valyuta kursi kanali: stavka oshsa milliy valyuta mustahkamlanadi, eksport qimmatlashadi, sof eksport kamayadi – YaIMning qisqarishi 0,945% dan kattaroq bo‘ladi (import arzonlashib, inflyatsiya ham pasayadi).",
+   "formula": "ΔI/I = –3%·Δi_kredit; ΔY = k·ΔI",
+   "note": "Shart talqini: sezgirlik (3%) kredit stavkasining 1 punktiga nisbatan olingan. Taxminiy hisob – boshqa kanallar (aktivlar narxi, kutishlar) e’tiborga olinmagan."
+  }
+ ],
+ "open": [
+  "Monetar siyosatning tashqi lagi o‘rtacha 15 oy. Markaziy bank yanvar oyida inflyatsiya maqsaddan 2 punkt yuqoriligini aniqladi va stavkani oshirdi. Ta’sir qachon to‘liq namoyon bo‘ladi? Agar shu davrda iqtisodiyot o‘z-o‘zidan sekinlasha boshlasa, qanday xavf yuzaga keladi? Grafik bilan tushuntiring.",
+  "Rivojlanayotgan mamlakatlarda transmissiya mexanizmi nima uchun zaif ishlaydi? Transmissiya mexanizmining asosiy kanallarini tavsiflang va O‘zbekiston misolida buzilishlarni kamaytirish yo‘llarini baholang.",
+  "Ikki bosqichli bank tizimi, foiz koridori va Markaziy bank mustaqilligini tahlil qiling. Vaqt bo‘yicha nomuvofiqlik muammosi nima va uni qanday hal qilish mumkin? Monetar va fiskal siyosatni muvofiqlashtirish muammolari hamda «fiskal ustunlik»ning mohiyatini yoriting."
+ ],
+ "refs": [
+  "Ta’sir to‘liq namoyon bo‘lishi taxminan 15 oydan keyin, ya’ni keyingi yilning aprel oyi atrofida kutiladi. Ichki lag qisqa (qaror bir kunda), tashqi lag esa uzoq. Xavf: iqtisodiyot o‘z-o‘zidan sekinlashayotgan paytda stavkaning oshirilishi ta’sirini ko‘rsatadi va sekinlashuvni haddan tashqari chuqurlashtirishi (retsessiya) mumkin; ya’ni siyosat siklga qarshi emas, tsiklni kuchaytiruvchi (prosiklik) bo‘lib qoladi. Yaxshi javobda prognozlarga asoslangan qaror, oldindan ko‘ra bilish va ehtiyotkorlik tamoyili ham tilga olinadi. Grafikda vaqt o‘qida stavka oshirilgan moment, ta’sir egri chizig‘i va iqtisodiy tsikl ko‘rsatiladi.",
+  "Kanallar: foiz stavkasi (real stavka orqali investitsiya va iste’mol), kredit kanali (bank kreditlash va balans), aktivlar narxlari, valyuta kursi, kutishlar. Zaiflik sabablari: dollarlashuv, davlat banklarining yuqori ulushi va yo‘naltirilgan imtiyozli kreditlar, sayoz moliya bozorlari, norasmiy iqtisodiyot va naqd pul, Markaziy bankka ishonchning pastligi, fiskal ustunlik. O‘zbekistonda choralar: imtiyozli kreditlashni bosqichma-bosqich tugatish, davlat banklarini xususiylashtirish, dollarlashuvni kamaytirish (xorijiy valyutadagi depozitlarga yuqoriroq zaxira normasi), kommunikatsiyani yaxshilash (oldindan e’lon qilingan jadval, yiliga 8 marta qaror). Natija: so‘mdagi muddatli depozitlar o‘sishi va inflyatsion kutishlarning pasayishi.",
+  "Ikki bosqichli tizim: Markaziy bank (birinchi bosqich: emissiya, stavka, tartibga solish) va tijorat banklari (ikkinchi bosqich: depozit, kredit va hisob-kitob xizmatlari). Foiz koridori: asosiy stavka atrofida yuqori va quyi chegara (doimiy vositalar stavkalari), bozor stavkalari shu koridor ichida ushlab turiladi. Vaqt bo‘yicha nomuvofiqlik: ma’qul bo‘lgan siyosat va kelajakda amalga oshiriladigan siyosat farq qiladi (qisqa muddatli rag‘batlantirish vasvasasi); yechim – qoidalar (Teylor qoidasi, inflyatsion targetlash), Markaziy bank mustaqilligi va ishonchli kommunikatsiya. Fiskal ustunlik: byudjet taqchilligi monetar siyosatni bo‘ysundiradi va Markaziy bankni taqchillikni monetlashtirishga majbur qiladi; muvofiqlashtirish uchun fiskal qoidalar va Markaziy bank bilan hukumat vazifalarining aniq ajratilishi zarur."
+ ]
+}

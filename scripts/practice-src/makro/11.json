@@ -1,0 +1,164 @@
+{
+ "goal": "Fiskal multiplikatorlarni, tarkibiy va tsiklik byudjet qoldig‘ini, siqib chiqarish samarasini va davlat qarzi barqarorligini hisoblash; fiskal siyosatning makroiqtisodiy oqibatlarini baholash.",
+ "concepts": [
+  "Davlat xarajatlari va soliq multiplikatorlari",
+  "Balanslashgan byudjet multiplikatori (Xaavelmo teoremasi)",
+  "Avtomatik barqarorlashtiruvchilar",
+  "Tarkibiy va tsiklik byudjet qoldig‘i",
+  "Siqib chiqarish samarasi",
+  "Davlat qarzi dinamikasi: Δd = (r – g)d – s"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 11-bob",
+ "tasks": [
+  {
+   "id": "mk11-p1",
+   "title": "Fiskal multiplikatorlar yopiq iqtisodiyotda",
+   "text": "Yopiq iqtisodiyot: C = 200 + 0,75(Y – T), I = 300, G = 400, T = 400. a) Muvozanatli Y ni toping. b) kG, kT va balanslashgan byudjet multiplikatorini hisoblang. c) G 50 ga oshsa, Y va byudjet qoldig‘i qanday o‘zgaradi? d) T 50 ga kamaysa-chi? e) G va T ikkalasi 50 ga oshsa-chi? Maydonlarga a), b) va d) bandlar javobini kiriting.",
+   "fields": [
+    {
+     "label": "Muvozanatli Y (a)",
+     "value": 2400,
+     "unit": ""
+    },
+    {
+     "label": "Davlat xarajatlari multiplikatori kG (b)",
+     "value": 4,
+     "unit": "marta"
+    },
+    {
+     "label": "Soliq multiplikatori kT (b)",
+     "value": -3,
+     "unit": "marta"
+    },
+    {
+     "label": "T 50 ga kamayganda Y ning o‘zgarishi (d)",
+     "value": 150,
+     "unit": ""
+    }
+   ],
+   "solution": "a) Y = [Ca – cT + I + G]/(1 – c) = (200 – 0,75·400 + 300 + 400)/0,25 = 600/0,25 = 2400. b) kG = 1/0,25 = 4; kT = –0,75/0,25 = –3; balanslashgan byudjet multiplikatori = 4 – 3 = 1. c) ΔY = 4·50 = 200 (Y = 2600); boshlang‘ich qoldiq T – G = 0, yangi qoldiq 400 – 450 = –50 (taqchillik 50). d) ΔY = –3·(–50) = +150 (Y = 2550); qoldiq 350 – 400 = –50. e) ΔY = 50 (Y = 2450); qoldiq o‘zgarmaydi (0).",
+   "formula": "Y = (Ca – cT + I + G)/(1 – c); kG = 1/(1 – c); kT = –c/(1 – c); kB = kG + kT = 1",
+   "note": "Qayd etilgan soliqlar sharoitida. Balanslashgan byudjetda ΔY = ΔG = 50 (Xaavelmo teoremasi). Darslikdagi 2-masala (potensial YaIM 2400) bu yerga kiritilmagan: 1-masalada muvozanatli Y allaqachon 2400, ya’ni uzilish nolga teng – shart noaniq."
+  },
+  {
+   "id": "mk11-p2",
+   "title": "Ochiq iqtisodiyot va avtomatik barqarorlashtiruvchilar",
+   "text": "Iqtisodiyotda C = 100 + 0,8(Y – T), T = 0,2Y, I = 250, G = 350, X = 200, IM = 50 + 0,14Y. a) Muvozanatli Y ni toping. b) Davlat xarajatlari multiplikatorini hisoblang. c) Byudjet qoldig‘i va sof eksportni toping.",
+   "fields": [
+    {
+     "label": "Muvozanatli Y",
+     "value": 1700,
+     "unit": ""
+    },
+    {
+     "label": "Davlat xarajatlari multiplikatori kG",
+     "value": 2,
+     "unit": "marta"
+    },
+    {
+     "label": "Byudjet qoldig‘i (T – G)",
+     "value": -10,
+     "unit": ""
+    },
+    {
+     "label": "Sof eksport NX",
+     "value": -88,
+     "unit": ""
+    }
+   ],
+   "solution": "a) Y = 100 + 0,8(Y – 0,2Y) + 250 + 350 + 200 – 50 – 0,14Y = 850 + 0,5Y, bundan Y = 1700. b) kG = 1/(1 – 0,8·0,8 + 0,14) = 1/0,5 = 2. c) T = 0,2·1700 = 340; qoldiq = 340 – 350 = –10 (taqchillik). IM = 50 + 0,14·1700 = 288; NX = 200 – 288 = –88. d) Avtomatik barqarorlashtiruvchi mavjudligi: soliq stavkasi t > 0 va importga moyillik m > 0 multiplikatorni 1/(1 – c) = 5 dan 2 gacha kamaytiradi.",
+   "formula": "kG = 1/(1 – c(1 – t) + m); NX = X – IM",
+   "note": "Xulosa: multiplikatorning 5 dan 2 gacha kamayishi iqtisodiyot shoklarga kam sezgir ekanini ko‘rsatadi."
+  },
+  {
+   "id": "mk11-p3",
+   "title": "Haqiqiy, tarkibiy va tsiklik byudjet qoldig‘i",
+   "text": "Davlat xaridlari G = 300, soliqlar T = 0,2Y, transfertlar TR = 100 – 0,05Y. Haqiqiy YaIM 1800, potensial YaIM 2000. Haqiqiy, tarkibiy va tsiklik byudjet qoldiqlarini hisoblang. Hukumat siyosati rag‘batlantiruvchimi yoki cheklovchi?",
+   "fields": [
+    {
+     "label": "Haqiqiy byudjet qoldig‘i",
+     "value": 50,
+     "unit": ""
+    },
+    {
+     "label": "Tarkibiy byudjet qoldig‘i",
+     "value": 100,
+     "unit": ""
+    },
+    {
+     "label": "Tsiklik byudjet qoldig‘i",
+     "value": -50,
+     "unit": ""
+    }
+   ],
+   "solution": "Haqiqiy (Y = 1800): T = 360, TR = 100 – 90 = 10, qoldiq = 360 – 300 – 10 = +50 (profitsit). Tarkibiy (Y* = 2000): T = 400, TR = 0, qoldiq = 400 – 300 – 0 = +100. Tsiklik = 50 – 100 = –50. Fiskal siyosat tarkibiy qoldiq bo‘yicha baholanadi: tarkibiy profitsit (YaIMning 5 foizi) – siyosat cheklovchi.",
+   "formula": "Haqiqiy qoldiq = Tarkibiy qoldiq + Tsiklik qoldiq; qoldiq = T – G – TR",
+   "note": "Tsiklik qoldiq manfiy: YaIM potensialdan past bo‘lgani uchun avtomatik barqarorlashtiruvchilar profitsitni 50 ga kamaytirgan. Xulosa: tarkibiy profitsit katta, shu sababli siyosat cheklovchi xarakterga ega."
+  },
+  {
+   "id": "mk11-p4",
+   "title": "Qarz mablag‘lari bozori va siqib chiqarish",
+   "text": "Qarz mablag‘lari bozorida: jamg‘arma S = 300 + 20r (davlat jamg‘armasi bilan birga), investitsiyalar I = 500 – 30r (r – foizda). a) Muvozanatli r va I ni toping. b) Byudjet taqchilligi 50 ga oshib, milliy jamg‘arma 50 ga kamaydi. Yangi r va I ni toping. c) Siqib chiqarish samarasi qancha?",
+   "fields": [
+    {
+     "label": "Dastlabki muvozanatli r",
+     "value": 4,
+     "unit": "%"
+    },
+    {
+     "label": "Yangi muvozanatli r",
+     "value": 5,
+     "unit": "%"
+    },
+    {
+     "label": "Yangi investitsiyalar I",
+     "value": 350,
+     "unit": ""
+    },
+    {
+     "label": "Siqib chiqarish samarasi (investitsiyalarning kamayishi)",
+     "value": 30,
+     "unit": ""
+    }
+   ],
+   "solution": "a) 300 + 20r = 500 – 30r, 50r = 200, r = 4%; I = 500 – 120 = 380. b) Yangi S = 250 + 20r: 250 + 20r = 500 – 30r, r = 5%; I = 500 – 150 = 350. c) Siqib chiqarish: 380 – 350 = 30 (taqchillik 50 bo‘lsa-da, investitsiya 30 ga kamaydi).",
+   "formula": "S(r) = I(r); siqib chiqarish = I0 – I1",
+   "note": "Qolgan 20 birlik jamg‘arma kamayishi foiz oshishi hisobiga jamg‘arma o‘sishi (20·1 = 20) bilan qoplanadi: 50 = 30 + 20."
+  },
+  {
+   "id": "mk11-p5",
+   "title": "Davlat qarzining barqarorligi",
+   "text": "Davlat qarzi YaIMning 50 foizi, real foiz stavkasi 5%, real o‘sish 2%. a) Qarzni barqarorlashtirish uchun qanday birlamchi profitsit kerak? b) Hukumat 2% birlamchi taqchillik bilan yashasa, 10 yildan keyin qarz nisbati qancha bo‘ladi (Δd = (r – g)d – s formulasi bo‘yicha yillik hisoblang)? c) Islohotlar o‘sishni 5% ga oshirsa-chi? (b va c da birlamchi taqchillik 2% saqlanadi.)",
+   "fields": [
+    {
+     "label": "Barqarorlashtiruvchi birlamchi profitsit (YaIMga)",
+     "value": 1.5,
+     "unit": "%"
+    },
+    {
+     "label": "10 yildan keyin qarz nisbati (b)",
+     "value": 90.1,
+     "unit": "% YaIM"
+    },
+    {
+     "label": "10 yildan keyin qarz nisbati (c)",
+     "value": 70,
+     "unit": "% YaIM"
+    }
+   ],
+   "solution": "a) Δd = 0 uchun s = (r – g)d = 0,03·0,5 = 0,015, ya’ni YaIMning 1,5 foizi. b) s = –0,02: d(t+1) = d(t) + 0,03·d(t) + 0,02 = 1,03·d(t) + 0,02. d0 = 0,5; 10 yildan keyin d ≈ 0,901 (90,1%). c) g = 5%: r – g = 0, shuning uchun Δd = 0,02 har yili; 10 yilda d = 0,5 + 0,2 = 0,70 (70%).",
+   "formula": "Δd = (r – g)d – s; barqarorlik: s = (r – g)d",
+   "note": "Taxminiy formula (darslikdagidek). Aniq formula d(t+1) = d(t)(1+r)/(1+g) + taqchillik bilan b) javob ≈ 89,7% chiqadi – farq kichik. O‘sish r dan yuqori bo‘lganda qarz «qor ko‘chkisi» bo‘lib o‘smaydi."
+  }
+ ],
+ "open": [
+  "Oliver-Tanzi samarasini hisoblang. Oylik inflyatsiya 5%, soliqlar o‘rtacha 3 oy kechikish bilan to‘lanadi, yillik nominal soliq tushumlari 200 trln so‘m. Real yo‘qotishni toping. Agar oylik inflyatsiya 0,6% ga tushsa-chi? Natijani «taqchillik – inflyatsiya» qopqoni nuqtai nazaridan izohlang.",
+  "Balanslashgan byudjet multiplikatori nimaga teng va nima uchun (Xaavelmo teoremasi)? Soliqlarni kamaytirish va davlat xarajatlarini oshirishning afzalliklari va kamchiliklarini taqqoslang. Nima uchun har yili muvozanatli byudjet talabi retsessiyani chuqurlashtirishi mumkin?",
+  "O‘zbekiston fiskal siyosatining asosiy xususiyatlarini va inqiroz sharoitidagi yo‘nalishlarini tahlil qiling. 11.1-jadval ma’lumotlariga (taqchillik: 2024-yilda 3,3%, 2025-yilda 2,1%; davlat qarzi ~31% YaIM) tayanib, Rikardo ekvivalentligi nazariyasi O‘zbekiston sharoitida qanchalik amal qilishini baholang."
+ ],
+ "refs": [
+  "Real yo‘qotish = 1 – 1/(1 + π)^3. Oylik 5% da: 1 – 1/1,05³ = 1 – 0,864 ≈ 13,6%, ya’ni 200 trln so‘mning ≈ 27,2 trln so‘mi. Oylik 0,6% da: 1 – 1/1,006³ ≈ 1,8%, ya’ni ≈ 3,6 trln so‘m. Inflyatsiya pasayganda yo‘qotish taxminan 7,6 baravar kamayadi. Izoh: taqchillik pul emissiyasi bilan moliyalansa inflyatsiya oshadi, real soliq tushumi kamayadi, taqchillik yana kengayadi – qopqon yuzaga keladi; chiqish yo‘li – soliq tizimini barqarorlashtirish va indeksatsiya.",
+  "Balanslashgan byudjet multiplikatori 1 ga teng: kG + kT = 1/(1 – c) – c/(1 – c) = 1, chunki soliqning birinchi raunddagi ta’siri faqat c ulush (MPC), xarajatniki esa to‘liq. Taqqoslash: xarajatlar multiplikatori kuchliroq (|kT| = kG – 1), soliqlarni kamaytirish esa tanlov erkinligi beradi, taklif tomoniga (ish, jamg‘arma) ta’sir qiladi va davlat hajmini kengaytirmaydi. Har yili muvozanatli byudjet retsessiyada soliq tushumlari kamayganda xarajatlarni qisqartirishni yoki soliqlarni oshirishni talab qiladi, ya’ni avtomatik barqarorlashtiruvchilarni «o‘chiradi» va yalpi talabni yanada kamaytiradi. Yaxshi javobda tsiklik muvozanatli byudjet va tarkibiy qoida (Germaniya «qarz tormozi») eslatiladi.",
+  "Asosiy xususiyatlar: byudjet shaffofligi (2020-yildan byudjet qonun sifatida qabul qilinadi, «Ochiq byudjet» portali), 2019-yilgi soliq islohoti va 2020-yilgi Soliq kodeksi, fiskal qoidalar (taqchillik YaIMning 3 foizidan oshmasligi, «Davlat qarzi to‘g‘risida»gi qonun), taqchillikni qisqartirish (3,3% dan 2,1% gacha), energiya subsidiyalarini isloh qilish, Tiklanish va taraqqiyot jamg‘armasi. Inqiroz choralari: Inqirozga qarshi kurashish jamg‘armasi (10 trln so‘m), soliq imtiyozlari va to‘lovlarni kechiktirish, ijtimoiy himoya, infratuzilma investitsiyalari, tadbirkorlarni kreditlash. Rikardo ekvivalentligi: taqchillik qarz bilan moliyalansa, oqilona uy xo‘jaliklari kelajakdagi soliqlar uchun jamg‘aradi; tanqid – qisqa muddatli fikrlash, likvidlik cheklovlari, meros qoldirishga befarqlik. O‘zbekistonda moliyaviy bozorlar sayoz va likvidlik cheklovlari kuchli, shuning uchun nazariya to‘liq amal qilmasligi ehtimoli yuqori; asoslangan va mezonli xulosa talab qilinadi."
+ ]
+}

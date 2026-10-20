@@ -1,233 +1,256 @@
 [
  {
-  "q": "Merkantilizm ta’limotiga ko‘ra mamlakat boyligi:",
+  "q": "Merkantilizm ta’limotiga ko‘ra mamlakat boyligi nima bilan o‘lchanadi?",
   "options": [
-   "Texnologiyalar",
-   "Mehnat resurslari",
-   "Oltin va kumush zaxiralari",
-   "Ishlab chiqarilgan tovarlar"
+   "Oltin va kumush zaxiralari bilan",
+   "Aholi soni va qo‘shin kuchi bilan",
+   "Yer maydoni va hosildorlik bilan",
+   "Ishlab chiqarish texnologiyalari bilan"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Merkantilizmga ko‘ra boylik oltin va kumush zaxiralari bilan o‘lchanadi."
  },
  {
   "q": "Mutlaq ustunlik nazariyasi muallifi:",
   "options": [
+   "D. Rikardo",
    "A. Smit",
    "E. Xeksher",
-   "M. Porter",
-   "D. Rikardo"
+   "M. Porter"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Mutlaq ustunlik nazariyasini A. Smit «Xalqlar boyligi» asarida bayon etgan."
  },
  {
   "q": "Mutlaq ustunlik – bu:",
   "options": [
-   "Pastroq muqobil qiymat",
+   "Tovarni pastroq muqobil qiymat bilan ishlab chiqarish qobiliyati",
+   "Tovarni ko‘proq kapital sarflab ishlab chiqarish imkoniyati",
    "Tovarni kamroq resurs sarflab ishlab chiqarish qobiliyati",
-   "Ko‘proq kapital",
-   "Yuqori narx"
+   "Tovarni jahon bozorida yuqori narxda sotish imkoniyati"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Mutlaq ustunlik – bir xil tovarni kamroq resurs sarflab ishlab chiqarish qobiliyati."
  },
  {
   "q": "Nisbiy ustunlik nazariyasi muallifi:",
   "options": [
    "P. Krugman",
    "B. Olin",
-   "D. Rikardo",
-   "A. Smit"
+   "A. Smit",
+   "D. Rikardo"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Nisbiy (qiyosiy) ustunlik nazariyasini D. Rikardo ishlab chiqqan."
  },
  {
   "q": "Nisbiy ustunlik – bu:",
   "options": [
-   "Kam resurs sarfi",
-   "Pastroq muqobil qiymat bilan ishlab chiqarish",
-   "Ko‘p aholi",
-   "Katta bozor"
+   "Tovarni kamroq resurs sarflab ishlab chiqarish qobiliyati",
+   "Tovarni eng katta hajmda ishlab chiqarish imkoniyati",
+   "Tovarni boshqa mamlakatdan arzon import qilish imkoniyati",
+   "Tovarni pastroq muqobil qiymat bilan ishlab chiqarish qobiliyati"
   ],
-  "c": 1
+  "c": 3,
+  "e": "Nisbiy ustunlik – tovarni pastroq muqobil qiymat evaziga ishlab chiqarish."
  },
  {
-  "q": "Rikardo misolida Portugaliya:",
+  "q": "Rikardo misolida Portugaliya qaysi ustunlikka ega?",
   "options": [
-   "Matoda nisbiy ustunlikka ega",
+   "Ikkala tovarda mutlaq ustunlikka ega, nisbiy ustunlik matoda",
+   "Faqat vinoda mutlaq ustunlikka ega va matoda yo‘q",
    "Ikkala tovarda mutlaq ustunlikka ega, nisbiy ustunlik vinoda",
-   "Faqat vinoda mutlaq ustunlikka ega",
-   "Hech qanday ustunlikka ega emas"
+   "Matoda mutlaq, vinoda esa nisbiy ustunlikka ega"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Portugaliya ikkala tovarni arzon ishlab chiqaradi, lekin nisbiy ustunligi vinoda."
  },
  {
-  "q": "A mamlakatda 1 mato = 2 paxta, B da 1 mato = 0,5 paxta. Matoda nisbiy ustunlik:",
+  "q": "A mamlakatda 1 mato = 2 paxta, B mamlakatda 1 mato = 0,5 paxta (muqobil qiymat). Matoda nisbiy ustunlik kimda?",
   "options": [
-   "Hech birida",
+   "A mamlakatda",
    "B mamlakatda",
-   "Ikkalasida",
-   "A mamlakatda"
+   "Ikkala mamlakatda ham",
+   "Aniqlab bo‘lmaydi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Matoning muqobil qiymati B da past (0,5 < 2), demak nisbiy ustunlik B da."
  },
  {
-  "q": "7-savoldagi sharoitda savdo shartlari:",
+  "q": "7-savoldagi sharoitda savdo shartlari (ayirboshlash nisbati) qaysi oraliqda bo‘ladi?",
   "options": [
-   "Har qanday",
    "1 mato = 0,5 dan 2 gacha paxta",
-   "1 mato = 3 paxta",
-   "1 mato = 0,2 paxta"
+   "1 mato = 2 dan 3 gacha paxta",
+   "1 mato = 0,2 dan 0,5 gacha paxta",
+   "1 mato = 0,5 dan 3 gacha paxta"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Savdo shartlari ikki mamlakat muqobil qiymatlari (0,5 va 2) oralig‘ida bo‘lishi kerak."
  },
  {
-  "q": "Doimiy almashtirish xarajatlarida ICHE:",
+  "q": "Doimiy almashtirish xarajatlarida ishlab chiqarish imkoniyatlari egri chizig‘i qanday ko‘rinishda bo‘ladi?",
   "options": [
    "Botiq egri chiziq",
-   "Vertikal",
    "To‘g‘ri chiziq",
-   "Qavariq egri chiziq"
+   "Qavariq egri chiziq",
+   "Vertikal chiziq"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Muqobil qiymat doimiy bo‘lsa, ICHE to‘g‘ri chiziq bo‘ladi."
  },
  {
-  "q": "O‘suvchi almashtirish xarajatlarida mamlakat:",
+  "q": "O‘suvchi almashtirish xarajatlarida mamlakat odatda qanday ixtisoslashadi?",
   "options": [
    "To‘liq ixtisoslashadi",
-   "Qisman ixtisoslashadi",
    "Hamma tovarni import qiladi",
-   "Savdo qilmaydi"
+   "Savdoda ishtirok etmaydi",
+   "Qisman ixtisoslashadi"
   ],
-  "c": 1
+  "c": 3,
+  "e": "O‘suvchi muqobil qiymat sharoitida ixtisoslashuv qisman bo‘ladi."
  },
  {
-  "q": "Xeksher-Olin nazariyasiga ko‘ra mamlakat eksport qiladi:",
+  "q": "Xeksher-Olin nazariyasiga ko‘ra mamlakat qanday tovarlarni eksport qiladi?",
   "options": [
    "Ortiqcha omil sig‘imli tovarlarni",
-   "Eng qimmat tovarlarni",
-   "Yuqori texnologiyali tovarlarni",
-   "Taqchil omil sig‘imli tovarlarni"
+   "Taqchil omil sig‘imli tovarlarni",
+   "Yuqori texnologiya sig‘imli tovarlarni",
+   "Eng qimmat narxli tovarlarni"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Mamlakat o‘zida mo‘l omil ko‘p talab qiladigan tovarlarni eksport qiladi."
  },
  {
   "q": "Omillar narxlarining tenglashuvi teoremasi kimlarga tegishli?",
   "options": [
-   "Leontyev va Kuznets",
-   "Xeksher, Olin va Samuelson",
-   "Smit va Rikardo",
-   "Porter va Krugman"
+   "Leontyev, Kuznets, Solou",
+   "Smit, Rikardo, Mill",
+   "Xeksher–Olin–Samuelson",
+   "Porter, Krugman, Vernon"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Teorema Xeksher-Olin modeli doirasida Samuelson nomi bilan bog‘liq."
  },
  {
-  "q": "Stolper-Samuelson teoremasiga ko‘ra savdo ochilganda:",
+  "q": "Stolper-Samuelson teoremasiga ko‘ra savdo ochilganda nima sodir bo‘ladi?",
   "options": [
-   "Taqchil omil egalari yutadi",
-   "Hech kim yutmaydi",
-   "Ortiqcha omil egalari yutadi, taqchil omil egalari yutqazadi",
-   "Barcha omil egalari yutadi"
+   "Taqchil omil egalari yutadi, ortiqcha omil egalari yutqazadi",
+   "Barcha omil egalari bir xilda yutadi va hech kim yutqazmaydi",
+   "Faqat kapital egalari yutadi, mehnat egalari yutqazadi",
+   "Ortiqcha omil egalari yutadi, taqchil omil egalari yutqazadi"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Savdo mo‘l omil narxini oshiradi va taqchil omil narxini pasaytiradi."
  },
  {
   "q": "«Leontyev paradoksi» nimani ko‘rsatdi?",
   "options": [
-   "Savdo zararli",
-   "AQSH kapital sig‘imli tovarlarni eksport qiladi",
    "AQSH eksporti kutilganidan kamroq kapital sig‘imli",
-   "Rikardo nazariyasi noto‘g‘ri"
+   "AQSH kapital sig‘imli tovarlar eksportida jahonda birinchi",
+   "Savdo hajmi masofaga bog‘liq emasligini",
+   "Rikardo nazariyasi barcha tovarlarda tasdiqlanishini"
   ],
-  "c": 2
+  "c": 0,
+  "e": "AQSH kapital mo‘l bo‘lsa-da, eksporti importidan kam kapital sig‘imli chiqdi."
  },
  {
   "q": "Leontyev paradoksining asosiy izohlaridan biri:",
   "options": [
-   "Inson kapitali",
-   "Inflyatsiya",
+   "Valyuta kursi tebranishi",
    "Oltin standarti",
-   "Merkantilizm"
+   "Inson kapitali",
+   "Merkantilizm siyosati"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Izohlardan biri – malakali mehnat (inson kapitali) farqini hisobga olmaslik."
  },
  {
-  "q": "Porterning «milliy romb»iga kirmaydi:",
+  "q": "Porterning «milliy romb»iga nima kirmaydi?",
   "options": [
    "Turdosh va qo‘llab-quvvatlovchi tarmoqlar",
-   "Talab sharoitlari",
    "Valyuta kursi",
+   "Talab sharoitlari",
    "Omillar sharoitlari"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Romb: omillar, talab, turdosh tarmoqlar, firma strategiyasi; valyuta kursi kirmaydi."
  },
  {
   "q": "Klaster – bu:",
   "options": [
-   "Geografik jihatdan jamlangan o‘zaro bog‘liq kompaniyalar va institutlar guruhi",
-   "Savdo kelishuvi",
-   "Davlat monopoliyasi",
-   "Bitta yirik korxona"
+   "Bojxona to‘siqlarisiz savdo qiluvchi mamlakatlar guruhi",
+   "Bir tarmoqdagi davlat monopoliyalari uyushmasi",
+   "Hududda jamlangan o‘zaro bog‘liq kompaniyalar guruhi",
+   "Bitta yirik korxona atrofidagi filiallar tarmog‘i"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Klaster – geografik jamlangan o‘zaro bog‘liq kompaniyalar va institutlar."
  },
  {
   "q": "Tarmoq ichidagi savdoni tushuntiruvchi nazariya:",
   "options": [
-   "Mutlaq ustunlik",
-   "Merkantilizm",
+   "Xeksher–Olin nazariyasi (omillar nisbati)",
    "Yangi savdo nazariyasi (Krugman)",
-   "Xeksher-Olin"
+   "Mutlaq ustunlik nazariyasi (Smit)",
+   "Merkantilizm nazariyasi (XVII asr)"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Tarmoq ichidagi savdoni masshtab samarasi va farqlangan mahsulotga asoslangan yangi savdo nazariyasi izohlaydi."
  },
  {
-  "q": "Gravitatsiya modeliga ko‘ra savdo hajmi:",
+  "q": "Gravitatsiya modeliga ko‘ra ikki mamlakat o‘rtasidagi savdo hajmi:",
   "options": [
    "YaIMga to‘g‘ri, masofaga teskari proporsional",
-   "Masofaga to‘g‘ri proporsional",
-   "Inflyatsiyaga bog‘liq",
-   "Aholi soniga teskari proporsional"
+   "YaIMga teskari, masofaga to‘g‘ri proporsional",
+   "Narx darajasiga to‘g‘ri, YaIMga teskari proporsional",
+   "Aholi soniga teskari, masofaga bog‘liq emas"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Savdo iqtisodiy hajmga to‘g‘ri, masofaga teskari proporsional."
  },
  {
-  "q": "Jahon bozorida muvozanatli narx:",
+  "q": "Jahon bozorida muvozanatli narx qachon aniqlanadi?",
   "options": [
-   "Faqat eksport qiluvchi mamlakatda aniqlanadi",
-   "Avtarkiya narxlaridan yuqori",
-   "Davlat tomonidan belgilanadi",
+   "Eksport qiluvchi mamlakat avtarkiya narxiga teng bo‘lganda",
+   "Davlat eksport kvotasini belgilaganda",
+   "Import qiluvchi mamlakat avtarkiya narxiga teng bo‘lganda",
    "Eksport taklifi va import talabi tenglashganda"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Muvozanat narx – eksport taklifi import talabiga teng bo‘lgan nuqta."
  },
  {
   "q": "Eksport qiluvchi mamlakatda savdo ochilganda kim yutqazadi?",
   "options": [
    "Ishlab chiqaruvchilar",
-   "Davlat",
-   "Hech kim",
-   "Iste’molchilar"
+   "Eksportyorlar",
+   "Iste’molchilar",
+   "Xorijiy iste’molchilar"
   ],
-  "c": 3
+  "c": 2,
+  "e": "Ichki narx jahon narxigacha ko‘tariladi, iste’molchilar yutqazadi."
  },
  {
   "q": "Import qiluvchi mamlakatda savdo ochilganda kim yutadi?",
   "options": [
-   "Iste’molchilar",
-   "Faqat davlat",
    "Mahalliy ishlab chiqaruvchilar",
-   "Hech kim"
+   "Iste’molchilar",
+   "Hech bir guruh",
+   "Faqat eksportyorlar"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Ichki narx tushadi, iste’molchilar yutadi, mahalliy ishlab chiqaruvchilar yutqazadi."
  },
  {
-  "q": "Saks va Uorner tadqiqotiga ko‘ra ochiq rivojlanayotgan mamlakatlarda o‘sish:",
+  "q": "Saks va Uorner tadqiqotiga ko‘ra ochiq rivojlanayotgan mamlakatlarda iqtisodiy o‘sish:",
   "options": [
-   "Yopiqlarnikidan past",
    "Yopiqlarnikidan ancha yuqori",
-   "Manfiy",
-   "Bir xil"
+   "Yopiqlarnikidan ancha past",
+   "Yopiqlar bilan deyarli bir xil",
+   "Manfiy bo‘lgan"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Tadqiqot ochiq iqtisodiyotlarda o‘sish yopiqlardagidan yuqoriligini ko‘rsatdi."
  },
  {
   "q": "2025-yilda O‘zbekiston eksportida eng katta ulushga ega tovar:",
@@ -237,37 +260,41 @@
    "Meva-sabzavotlar",
    "Oltin"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Darslik ma’lumotiga ko‘ra oltin eksportning 29,3 foizini tashkil etdi."
  },
  {
   "q": "2025-yilda O‘zbekistonning eng yirik savdo hamkori:",
   "options": [
    "Qozog‘iston",
+   "Xitoy",
    "Turkiya",
-   "Rossiya",
-   "Xitoy"
+   "Rossiya"
   ],
-  "c": 3
+  "c": 1,
+  "e": "Xitoyning ulushi aylanmaning 21,2 foizini tashkil etdi."
  },
  {
   "q": "Balassa indeksi (RCA) > 1 bo‘lsa:",
   "options": [
    "Mamlakat bu tovarda nisbiy ustunlikka ega",
-   "Mamlakat bu tovarni import qiladi",
-   "Tovar ishlab chiqarilmaydi",
-   "Savdo taqchilligi"
+   "Mamlakat bu tovarni asosan import qiladi",
+   "Bu tovar mamlakatda ishlab chiqarilmaydi",
+   "Savdo balansi taqchil bo‘ladi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "RCA > 1 tovar mamlakat eksportida jahondagidan yuqori ulushga ega ekanini bildiradi."
  },
  {
   "q": "Yangi-yangi savdo nazariyasining asosiy g‘oyasi:",
   "options": [
-   "Oltin to‘plash",
-   "Mutlaq ustunlik",
-   "Omillar nisbati",
-   "Faqat eng unumli firmalar eksport qiladi"
+   "Barcha firmalar bir xil unumdorlikda eksport qiladi",
+   "Savdo faqat mamlakatlar omil nisbati farqidan kelib chiqadi",
+   "Faqat eng unumli firmalar eksport qiladi",
+   "Eksport faqat davlat korxonalari tomonidan qilinadi"
   ],
-  "c": 3
+  "c": 2,
+  "e": "Melits modeli firmalar unumdorligi farqiga e’tibor qaratadi."
  },
  {
   "q": "Mahsulotning hayot tsikli nazariyasi muallifi:",
@@ -277,26 +304,29 @@
    "M. Melits",
    "R. Vernon"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Hayot tsikli nazariyasini R. Vernon (1966) taklif etgan."
  },
  {
   "q": "Samuelson «ham to‘g‘ri, ham ahamiyatli» deb atagan g‘oya:",
   "options": [
-   "Nisbiy ustunlik",
    "Mutlaq ustunlik",
    "Laffer egri chizig‘i",
+   "Nisbiy ustunlik",
    "Merkantilizm"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Samuelson nisbiy ustunlik g‘oyasini shunday baholagan."
  },
  {
   "q": "O‘zbekistonning dengizga chiqish imkoniyati jihatidan xususiyati:",
   "options": [
-   "Dengizga chiqishi bor",
-   "Okeanga chiqishi bor",
-   "Faqat ko‘lga chiqishi bor",
-   "«Ikki karra dengizga chiqa olmaydigan» mamlakat"
+   "Faqat Kaspiy dengiziga chiqishi bor mamlakat",
+   "«Ikki karra dengizga chiqa olmaydigan» mamlakat",
+   "Orol dengizi orqali okeanga chiqadigan mamlakat",
+   "Ikkita okeanga chiqishi bor mamlakat"
   ],
-  "c": 3
+  "c": 1,
+  "e": "O‘zbekiston va unga qo‘shni mamlakatlar ham dengizga chiqa olmaydi."
  }
 ]

@@ -2,52 +2,57 @@
  {
   "q": "To‘lov balansi – bu:",
   "options": [
-   "Davlat byudjeti daromadlari va xarajatlari hisoboti",
-   "Markaziy bank balansi",
-   "Rezidentlar va norezidentlar o‘rtasidagi barcha iqtisodiy operatsiyalarning tizimlashtirilgan hisoboti",
-   "Tijorat banklarining hisoboti"
+   "Davlat byudjeti daromadlari va xarajatlarining hisoboti",
+   "Markaziy bankning aktivlari va majburiyatlari hisoboti",
+   "Rezidentlar va norezidentlar operatsiyalarining statistik hisoboti",
+   "Tijorat banklarining tashqi qarzlari hisoboti"
   ],
-  "c": 2
+  "c": 2,
+  "e": "To‘lov balansi rezidentlar va norezidentlar operatsiyalarining tizimlashtirilgan hisobotidir."
  },
  {
   "q": "O‘zbekistonda to‘lov balansini tuzuvchi organ:",
   "options": [
-   "Bojxona qo‘mitasi",
    "Markaziy bank",
+   "Bojxona qo‘mitasi",
    "Statistika agentligi",
    "Moliya vazirligi"
   ],
-  "c": 1
+  "c": 0,
+  "e": "To‘lov balansini Markaziy bank tuzadi."
  },
  {
   "q": "To‘lov balansini tuzishning xalqaro standarti:",
   "options": [
-   "JST qoidalari",
+   "JSTning savdo qoidalari to‘plami",
    "BMTning 1953-yilgi tizimi",
-   "Bazel III",
+   "Bazel III standartlari",
    "XVFning BPM6 qo‘llanmasi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "To‘lov balansi XVFning BPM6 qo‘llanmasi asosida tuziladi."
  },
  {
   "q": "Rossiyada 3 yildan beri ishlayotgan O‘zbekiston fuqarosi to‘lov balansi maqsadlarida:",
   "options": [
    "O‘zbekiston rezidenti",
    "Rossiya rezidenti",
-   "Hech qaysi mamlakat rezidenti emas",
-   "Ikkala mamlakat rezidenti"
+   "Ikkala mamlakat rezidenti",
+   "Rezidentligi aniqlanmaydi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Iqtisodiy manfaatlar markazi Rossiyada, shuning uchun u Rossiya rezidenti."
  },
  {
   "q": "Kredit moddasiga kiruvchi operatsiya:",
   "options": [
+   "Tovarlar eksporti",
    "Xorijga dividend to‘lash",
    "Xorijiy aktivlarni sotib olish",
-   "Tovarlar eksporti",
    "Tovarlar importi"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Valyuta kirimiga olib keluvchi operatsiyalar (eksport) kreditda yoziladi."
  },
  {
   "q": "Mehnat muhojirlarining oilalariga pul o‘tkazmalari to‘lov balansining qaysi moddasida aks ettiriladi?",
@@ -57,7 +62,8 @@
    "Tovarlar balansi",
    "Ikkilamchi daromadlar"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Pul o‘tkazmalari – ikkilamchi daromadlar (tekin transfertlar)."
  },
  {
   "q": "Dividendlar va foizlar to‘lov balansining qaysi moddasiga kiradi?",
@@ -67,177 +73,195 @@
    "Rezerv aktivlar",
    "Ikkilamchi daromadlar"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Investitsiya daromadlari birlamchi daromadlar tarkibiga kiradi."
  },
  {
   "q": "To‘lov balansida tovarlar qaysi narxlarda qayd etiladi?",
   "options": [
+   "CIF narxlarda",
    "Ichki ulgurji narxlarda",
-   "Chakana narxlarda",
-   "FOB",
-   "CIF"
+   "FOB narxlarda",
+   "Chakana narxlarda"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Tovarlar eksporti va importi yagona asosda FOB narxlarda qayd etiladi."
  },
  {
   "q": "Xorijiy turistlarning O‘zbekistondagi xarajatlari:",
   "options": [
-   "Xizmatlar eksporti",
    "Xizmatlar importi",
    "Ikkilamchi daromad",
-   "Kapital hisobi"
+   "Kapital hisobi",
+   "Xizmatlar eksporti"
   ],
-  "c": 0
+  "c": 3,
+  "e": "Norezidentlar xarajati xizmatlar eksporti sifatida kreditda yoziladi."
  },
  {
   "q": "Qarzdan kechish to‘lov balansining qaysi hisobida aks ettiriladi?",
   "options": [
-   "Rezerv aktivlar",
    "Kapital hisobi",
+   "Rezerv aktivlar",
    "Joriy hisob",
    "Xizmatlar"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Qarzdan kechish kapital hisobiga kiradi."
  },
  {
   "q": "To‘g‘ridan-to‘g‘ri investitsiya mezoni – ustav kapitalidagi ulush:",
   "options": [
    "50 foiz va undan ko‘p",
    "5 foiz va undan ko‘p",
-   "1 foiz va undan ko‘p",
-   "10 foiz va undan ko‘p"
+   "10 foiz va undan ko‘p",
+   "1 foiz va undan ko‘p"
   ],
-  "c": 3
+  "c": 2,
+  "e": "XVF metodologiyasiga ko‘ra TTI mezoni – 10 foiz va undan ko‘p ulush."
  },
  {
   "q": "Rezerv aktivlarga kirmaydigan element:",
   "options": [
-   "SDR",
-   "Tijorat banklarining xorijdagi kreditlari",
-   "Monetar oltin",
-   "XVFdagi rezerv pozitsiya"
+   "SDR (maxsus qarz olish huquqlari)",
+   "Banklarning xorijdagi kreditlari",
+   "Monetar oltin va uning depozitlari",
+   "XVFdagi rezerv pozitsiyasi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Rezerv aktivlar rasmiy (Markaziy bank) aktivlar; tijorat banklariniki kirmaydi."
  },
  {
   "q": "«Sof xatolar va o‘tkazib yuborishlar»ning doimiy katta manfiy qiymati ko‘pincha nimadan dalolat beradi?",
   "options": [
-   "Zaxiralarning o‘sishidan",
-   "Eksportning o‘sishidan",
    "Kapitalning yashirin chiqishidan",
-   "Turizm rivojlanishidan"
+   "Zaxiralarning tez o‘sishidan",
+   "Eksport hajmi oshganidan",
+   "Turizm xizmatlari kengayishidan"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Katta manfiy xato – hisobga olinmagan kapital chiqishi belgisi."
  },
  {
   "q": "Joriy hisob saldosi qaysi ayirmaga teng?",
   "options": [
-   "S – I",
    "C – I",
    "G – T",
-   "X + M"
+   "X + M",
+   "S – I"
   ],
-  "c": 0
+  "c": 3,
+  "e": "CA = S – I (milliy jamg‘arma va investitsiya farqi)."
  },
  {
   "q": "Absorbsiya yondashuviga ko‘ra CA = Y – A, bu yerda A:",
   "options": [
+   "Jami import hajmi (M)",
+   "Xorijiy aktivlar (NFA)",
    "Ichki xarajatlar (C + I + G)",
-   "Import",
-   "Aktivlar",
-   "Amortizatsiya"
+   "Amortizatsiya xarajatlari"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Absorbsiya (A) – ichki xarajatlar C + I + G."
  },
  {
   "q": "Mankyuga ko‘ra savdo taqchilligiga ega mamlakatda:",
   "options": [
-   "Investitsiyalar nolga teng",
+   "Kapitalning sof chiqishi kuzatiladi (S > I)",
    "Kapitalning sof kirishi kuzatiladi (S < I)",
-   "S > I",
-   "Kapitalning sof chiqishi musbat"
+   "Kapital harakati kuzatilmaydi (S = I)",
+   "Jamg‘armalar investitsiyalardan oshib ketadi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "NX < 0 bo‘lsa, S < I va kapitalning sof kirimi bo‘ladi."
  },
  {
   "q": "Joriy hisob taqchilligi asosan nima orqali moliyalashtiriladi?",
   "options": [
-   "Moliyaviy hisob (kapital kirimi yoki rezervlarning kamayishi)",
-   "Hech narsa orqali",
-   "Soliqlarni oshirish",
-   "Pul emissiyasi"
+   "Kapital kirimi yoki rezervlarning kamayishi",
+   "Markaziy bankning qo‘shimcha pul emissiyasi",
+   "Xorijga qo‘shimcha dividend to‘lash hisobiga",
+   "Davlat byudjeti profitsiti hisobiga"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Taqchillik moliyaviy hisobdagi sof kirim yoki rezervlar kamayishi bilan qoplanadi."
  },
  {
   "q": "Svon diagrammasida EB chizig‘i nimani ko‘rsatadi?",
   "options": [
+   "Ichki balans (to‘liq bandlik) nuqtalari",
+   "Pul bozori muvozanati nuqtalari",
    "Tashqi balans (joriy hisob muvozanati) nuqtalari",
-   "Pul bozori muvozanati",
-   "Inflyatsiya darajasi",
-   "To‘liq bandlik nuqtalari"
+   "Inflyatsiya o‘zgarmaydigan nuqtalar to‘plami"
   ],
-  "c": 0
+  "c": 2,
+  "e": "EB – tashqi balans, ya’ni joriy hisob muvozanati chizig‘i."
  },
  {
   "q": "Svon diagrammasida «ishsizlik + taqchillik» zonasida tavsiya etiladigan asosiy chora:",
   "options": [
-   "Milliy valyutani qimmatlashtirish",
-   "Importni rag‘batlantirish",
-   "Ichki xarajatlarni keskin qisqartirish",
-   "Milliy valyutani real qadrsizlantirish"
+   "Milliy valyutani real qimmatlashtirish",
+   "Milliy valyutani real qadrsizlantirish",
+   "Importni rag‘batlantirish choralari",
+   "Ichki xarajatlarni keskin qisqartirish"
   ],
-  "c": 3
+  "c": 1,
+  "e": "Ishsizlik va taqchillik birga bo‘lsa, real qadrsizlanish tavsiya etiladi."
  },
  {
   "q": "Tinbergen qoidasiga ko‘ra:",
   "options": [
-   "Fiskal siyosat samarasiz",
-   "Bitta vosita bilan barcha maqsadlarga erishish mumkin",
-   "Valyuta kursi qayd etilishi kerak",
+   "Barcha maqsadlarga bitta kuchli vosita yetarli bo‘ladi",
+   "Fiskal siyosat har doim pul siyosatidan samaraliroq",
+   "Valyuta kursi doimo qat’iy qayd etilishi shart",
    "Har bir maqsad uchun kamida bitta mustaqil vosita kerak"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Mustaqil maqsadlar soni kamida shuncha mustaqil vosita talab etadi."
  },
  {
-  "q": "Devalvatsiya – bu siyosatning qaysi turiga kiradi?",
+  "q": "Devalvatsiya siyosatning qaysi turiga kiradi?",
   "options": [
    "Xarajatlarni yo‘naltiruvchi",
-   "Xarajatlarni o‘zgartiruvchi",
-   "Tarkibiy",
-   "Fiskal"
+   "Xarajatlarni qisqartiruvchi",
+   "Tarkibiy islohotlar",
+   "Fiskal siyosat"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Devalvatsiya xarajatlarni xorijiy tovarlardan milliy tovarlarga yo‘naltiradi."
  },
  {
   "q": "Marshall-Lerner shartiga ko‘ra devalvatsiya savdo balansini yaxshilaydi, agar:",
   "options": [
-   "Import elastikligi nolga teng bo‘lsa",
-   "Inflyatsiya yuqori bo‘lsa",
-   "Eksport va import elastikliklari yig‘indisi (mutlaq qiymatda) 1 dan katta bo‘lsa",
-   "Eksport va import elastikliklari yig‘indisi 1 dan kichik bo‘lsa"
+   "Elastikliklar yig‘indisi (mutlaq qiymatda) 1 dan kichik bo‘lsa",
+   "Elastikliklar yig‘indisi (mutlaq qiymatda) 1 dan katta bo‘lsa",
+   "Eksport talabi mutlaqo noelastik bo‘lsa",
+   "Import talabi mutlaqo noelastik bo‘lsa"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Shart: |ηX| + |ηM| > 1."
  },
  {
-  "q": "J-egri chiziq samarasi:",
+  "q": "J-egri chiziq samarasi nimani anglatadi?",
   "options": [
-   "Inflyatsiyaning doimiy o‘sishi",
-   "Ishsizlikning pasayishi",
-   "Zaxiralarning tez o‘sishi",
-   "Devalvatsiyadan keyin savdo balansining dastlab yomonlashib, keyin yaxshilanishi"
+   "Savdo balansining dastlab yaxshilanib, keyin yomonlashishi",
+   "Narxlarning dastlab pasayib, keyin keskin oshishi",
+   "Zaxiralarning dastlab o‘sib, keyin kamayishi",
+   "Savdo balansining dastlab yomonlashib, keyin yaxshilanishi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Devalvatsiyadan so‘ng balans avval yomonlashadi, keyin yaxshilanadi."
  },
  {
   "q": "Zaxiralarning yetarliligining klassik me’yori:",
   "options": [
-   "3 oylik import",
    "1 oylik import",
-   "YaIMning 50 foizi",
-   "12 oylik import"
+   "12 oylik import",
+   "3 oylik import",
+   "YaIMning 50 foizi"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Klassik me’yor – kamida 3 oylik import hajmiga teng zaxira."
  },
  {
   "q": "Markaziy bank valyuta intervensiyasining pul massasiga ta’sirini neytrallashi:",
@@ -245,58 +269,64 @@
    "Monetizatsiya",
    "Sterilizatsiya",
    "Devalvatsiya",
-   "Dollarlashuv"
+   "Sekyuritizatsiya"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Sterilizatsiya intervensiyaning pul massasiga ta’sirini bartaraf etadi."
  },
  {
   "q": "«To‘satdan to‘xtash» (sudden stop) – bu:",
   "options": [
-   "Pul o‘tkazmalarining o‘sishi",
-   "Ishlab chiqarishning to‘xtashi",
    "Mamlakatga kapital kirimining keskin to‘xtashi",
-   "Eksportning to‘xtashi"
+   "Eksport tushumlarining to‘satdan kamayishi",
+   "Pul o‘tkazmalari oqimining keskin ortishi",
+   "Ishlab chiqarish quvvatlarining keskin qisqarishi"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Sudden stop – xorijiy kapital kirimining to‘satdan to‘xtashi."
  },
  {
   "q": "1997–1998-yillardagi Osiyo moliyaviy inqirozining asosiy sabablaridan biri:",
   "options": [
-   "Qisqa muddatli xorijiy qarzlar va qayd etilgan kurslar",
-   "Joriy hisob profitsiti",
-   "Oltin narxining oshishi",
-   "Juda katta zaxiralar"
+   "Joriy hisobning yirik profitsiti va erkin suzuvchi kurs",
+   "Zaxiralarning haddan tashqari ko‘pligi va past qarz",
+   "Oltin narxining keskin pasayishi va eksport o‘sishi",
+   "Qisqa muddatli xorijiy qarzlar va qayd etilgan kurslar"
   ],
-  "c": 0
+  "c": 3,
+  "e": "Inqiroz qisqa muddatli valyuta qarzlari va qayd etilgan kurslar sababli kuchaydi."
  },
  {
   "q": "2025-yilda O‘zbekiston joriy hisob taqchilligi YaIMga nisbatan:",
   "options": [
-   "10%",
-   "3,9%",
+   "9,8%",
    "15%",
+   "3,9%",
    "0,5%"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Darslikda 2025-yilda joriy hisob taqchilligi YaIMning 3,9 foizi deb keltirilgan."
  },
  {
   "q": "O‘zbekiston to‘lov balansida tovarlar taqchilligini qoplovchi asosiy omil:",
   "options": [
-   "Birlamchi daromadlar",
-   "Kapital hisobi",
-   "Xizmatlar profitsiti",
-   "Sof ikkilamchi daromadlar (pul o‘tkazmalari)"
+   "Sof ikkilamchi daromadlar (pul o‘tkazmalari)",
+   "Xizmatlar balansining profitsiti",
+   "Birlamchi daromadlar profitsiti",
+   "Kapital hisobidagi sof kirim"
   ],
-  "c": 3
+  "c": 0,
+  "e": "Taqchillikni asosan mehnat muhojirlari pul o‘tkazmalari qoplaydi."
  },
  {
   "q": "Sof xalqaro investitsiya pozitsiyasi musbat bo‘lsa, mamlakat:",
   "options": [
    "Sof qarzdor",
-   "Joriy hisob profitsitiga ega bo‘lishi shart",
    "Sof kreditor",
+   "Joriy hisob profitsitiga ega bo‘lishi shart",
    "Defolt holatida"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Xorijiy aktivlar majburiyatlardan ko‘p bo‘lsa, mamlakat sof kreditor."
  }
 ]
