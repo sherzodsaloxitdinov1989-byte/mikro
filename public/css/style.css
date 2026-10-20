@@ -642,3 +642,16 @@ body.secure-blur main { filter: blur(26px); pointer-events: none; }
 .book-text .fx sub, .book-text .fx sup { font-size: 0.72em; line-height: 0; }
 .book-text p.formula { font-family: inherit; font-size: 1.05rem; text-align: center; padding: 10px 12px; overflow-x: auto; }
 .book-text p.formula .fx { white-space: normal; }
+
+/* Xavfsizlik ogohlantirishi (o'qituvchi): har sahifa tepasida */
+.security-bar { background: #fff4d6; color: #7a4b00; border-bottom: 2px solid #e6a100; padding: 9px 16px; text-align: center; font-size: 0.92rem; }
+.security-bar.critical { background: #fde8e8; color: #a11212; border-bottom-color: #d92d20; animation: secpulse 2.4s ease-in-out infinite; }
+.security-bar-link { color: inherit; text-decoration: none; }
+.security-bar-go { margin-left: 10px; font-weight: 700; text-decoration: underline; }
+@keyframes secpulse { 50% { background: #fbd0d0; } }
+@media (prefers-reduced-motion: reduce) { .security-bar.critical { animation: none; } }
+.alert-card.critical { border-left: 5px solid #d92d20; }
+.alert-card.high { border-left: 5px solid #e6a100; }
+.alert-card.info { border-left: 5px solid #3b82f6; }
+:root[data-theme="dark"] .security-bar { background: #3a2a05; color: #ffd98a; border-bottom-color: #b37a00; }
+:root[data-theme="dark"] .security-bar.critical { background: #4a1414; color: #ffb4ab; border-bottom-color: #d92d20; }

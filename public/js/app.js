@@ -29,6 +29,7 @@ import * as qr from "./pages/qr.js";
 import { UPDATES } from "../data/updates.js";
 import { TOPICS, COURSE, SUBJECT_KEY } from "../data/topics.js";
 import { initContentGuard } from "./guard.js";
+import { initSecurityAlerts } from "./alerts.js";
 import { initSecureMode, setRouteSecure } from "./secure.js";
 
 const routes = [
@@ -209,6 +210,7 @@ initLightbox();
 watch(main);
 initContentGuard();
 initSecureMode();
+initSecurityAlerts();
 // Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz
 if (session.token && userHasContent(session.user) && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
   sessionStorage.setItem("tt.cookie-try", "1");

@@ -12,7 +12,7 @@ import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
-import { mailEnabled, sendResetCode } from "./mail.mjs";
+import { mailEnabled, sendResetCode, sendAlertMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
@@ -87,7 +87,11 @@ async function userFromToken(token) {
 
 async function currentUser(req) {
   const auth = req.headers.get("authorization") || "";
-  return userFromToken(auth.replace(/^Bearer\s+/i, ""));
+  const token = auth.replace(/^Bearer\s+/i, "");
+  const user = await userFromToken(token);
+  // Imzosi noto'g'ri yoki bekor qilingan tokenlar ko'p yuborilsa — soxta kirishga urinish bo'lishi mumkin
+  if (!user && token.length > 20 && (await bump(`badtoken/${sha(clientIp(req)).slice(0, 24)}`, 600_000, 60)).n === 61) await securityAlert(req, "token_tamper", "high", "Soxta yoki yaroqsiz kirish tokenlari ko'p yuborilmoqda", "Bitta manzildan 10 daqiqada 60 dan ortiq yaroqsiz token bilan so'rov keldi (soxta token yasashga urinish yoki eskirgan sessiya bo'lishi mumkin).", sha(clientIp(req)).slice(0, 12));
+  return user;
 }
 
 async function requireUser(req) {
@@ -98,8 +102,65 @@ async function requireUser(req) {
 
 async function requireTeacher(req) {
   const user = await requireUser(req);
-  if (user.role !== "teacher") throw new HttpError(403, "Bu bo'lim faqat o'qituvchilar uchun");
+  if (user.role !== "teacher") {
+    // Talaba o'qituvchi bo'limlariga murojaat qilmoqda: ruxsatsiz kirishga urinish bo'lishi mumkin
+    if ((await bump(`adminforbid/${user.id}`, 600_000, 3)).n === 4) await securityAlert(req, "forbidden_admin", "high", "Talaba o'qituvchi bo'limlariga kirishga urinmoqda", `${user.name} (${maskEmail(user.email)}, ${user.group || "guruhsiz"}) 10 daqiqada o'qituvchi bo'limlariga bir necha marta murojaat qildi.`, user.id);
+    throw new HttpError(403, "Bu bo'lim faqat o'qituvchilar uchun");
+  }
   return user;
+}
+
+// ---------- Xavfsizlik ogohlantirishlari: buzib kirishga urinishlar o'qituvchiga ko'rsatiladi ----------
+// Yozuvlar: alert/<vaqt>-<id>. Bir xil hodisa (tur + obyekt) soatiga bir marta qayd etiladi. Jiddiy (critical/high) holatlarda,
+// pochta xizmati sozlangan bo'lsa, o'qituvchilarga xat ham yuboriladi (turi bo'yicha 6 soatda bir marta, kuniga ko'pi bilan 10 ta).
+const ALERT_PREFIX = "alert/";
+const ALERT_KEEP_MS = 90 * 86_400_000;
+const maskIp = (ip) => (ip === "unknown" ? "noma'lum" : ip.includes(":") ? ip.split(":").slice(0, 3).join(":") + ":…" : ip.replace(/\.\d+$/, ".xxx"));
+const maskEmail = (e) => String(e || "").replace(/^(.{1,2}).*(@.*)$/, "$1***$2");
+
+async function notifyTeachersByMail(rec) {
+  if (!mailEnabled() || !["critical", "high"].includes(rec.severity)) return;
+  if (!(await bump(`alertmail/${rec.type}`, 6 * 3600_000, 1)).ok || !(await bump("alertmail-day", 86_400_000, 10)).ok) return;
+  const teachers = (await getMany("user/")).filter((u) => u.role === "teacher" && u.email);
+  const text = `${rec.title}\n${rec.detail}\nVaqt: ${rec.at}${rec.ip ? `\nManzil: ${rec.ip}${rec.country ? ` (${rec.country})` : ""}` : ""}\n\nBatafsil: o'qituvchi paneli → Xavfsizlik ogohlantirishlari.`;
+  await Promise.all(teachers.map((t) => sendAlertMail(t.email, `Xavfsizlik: ${rec.title}`, text).catch((e) => console.error("alert mail:", e.message))));
+}
+
+/** severity: critical (zudlik bilan), high (muhim), info (ma'lumot uchun). key — takrorlanmasligi uchun obyekt belgisi. */
+async function securityAlert(req, type, severity, title, detail, key = "", windowMs = 3600_000) {
+  try {
+    if (!(await bump(`alertd/${type}/${key}`, windowMs, 1)).ok) return;
+    const at = new Date().toISOString();
+    const rec = { id: `${at}-${newId().slice(0, 6)}`, type, severity, title, detail, ip: req ? maskIp(clientIp(req)) : "", country: req?.headers?.get("cf-ipcountry") || "", at, ack: false };
+    await db().set(ALERT_PREFIX + rec.id, rec);
+    await notifyTeachersByMail(rec);
+  } catch (e) {
+    console.error("securityAlert:", e.message);
+  }
+}
+
+async function adminAlerts(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  let all = (await getEntries(ALERT_PREFIX)).map(([, v]) => v).sort((a, b) => (a.at < b.at ? 1 : -1));
+  const old = all.filter((a) => Date.now() - Date.parse(a.at) > ALERT_KEEP_MS);
+  if (old.length) {
+    await Promise.all(old.map((a) => db().del(ALERT_PREFIX + a.id)));
+    all = all.filter((a) => !old.includes(a));
+  }
+  const unread = all.filter((a) => !a.ack);
+  if (url.searchParams.get("brief")) return json({ unread: unread.length, critical: unread.filter((a) => a.severity === "critical").length, latest: unread[0] || null });
+  return json({ alerts: all.slice(0, 200), unread: unread.length });
+}
+
+async function adminAlertsAck(req) {
+  const t = await requireTeacher(req);
+  const b = await body(req);
+  const ids = Array.isArray(b.ids) ? b.ids.map(String) : null;
+  const list = (await getEntries(ALERT_PREFIX)).map(([, v]) => v).filter((a) => !a.ack && (b.all || ids?.includes(a.id)));
+  const at = new Date().toISOString();
+  await Promise.all(list.map((a) => db().set(ALERT_PREFIX + a.id, { ...a, ack: true, ackBy: t.name, ackAt: at })));
+  return json({ ok: true, count: list.length });
 }
 
 // ---------- Kontent himoyasi: darslik, rasm, taqdimot va audio faqat tizimga kirgan foydalanuvchiga ----------
@@ -202,7 +263,9 @@ async function claimRoster(req, group, shifr, typedName, userId) {
   const h = shifrHash(group, shifr);
   const entry = roster.entries.find((e) => safeEqual(e.hash, h));
   if (!entry || !nameMatches(entry.name, typedName)) {
-    await Promise.all(keys.map(([k]) => hit(k, 3600_000)));
+    const sh = await Promise.all(keys.map(([k]) => hit(k, 3600_000)));
+    if (sh[0].n === 6) await securityAlert(req, "shifr_guess", "high", `ID raqamni topishga urinish (${group})`, `Bitta manzildan bir soatda 6 marta noto'g'ri ID raqam yoki F.I.Sh. kiritildi (${group} guruhi). Boshqa talaba nomidan kirishga urinish bo'lishi mumkin.`, `${group}/${ip}`);
+    if (sh[1].n === 40) await securityAlert(req, "shifr_guess_group", "high", `${group} guruhida ID raqam bo'yicha ko'p xato urinishlar`, "Bir soatda guruh bo'yicha 40 ta noto'g'ri urinish bo'ldi (turli manzillardan bo'lishi mumkin).", group);
     await new Promise((r) => setTimeout(r, 500));
     throw new HttpError(403, "Shifr yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. Shifrni va ismingizni ro'yxatdagidek kiriting.");
   }
@@ -287,7 +350,10 @@ async function register(req) {
   checkPasswordStrength(password);
   if (!name) throw new HttpError(400, "Ism-familiyani kiriting");
   const regLimit = await bump(`ratelimit/register-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 300);
-  if (!regLimit.ok) throw new HttpError(429, "Bu manzildan juda ko'p profil yaratildi. Birozdan keyin qayta urinib ko'ring.");
+  if (!regLimit.ok) {
+    if (regLimit.n === 301) await securityAlert(req, "register_flood", "high", "Ommaviy ro'yxatdan o'tish urinishi", "Bitta manzildan bir soatda 300 dan ortiq profil yaratishga urinildi (avtomatik dastur bo'lishi mumkin).", sha(clientIp(req)).slice(0, 12));
+    throw new HttpError(429, "Bu manzildan juda ko'p profil yaratildi. Birozdan keyin qayta urinib ko'ring.");
+  }
   if (role === "teacher") {
     const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 8);
     if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
@@ -300,7 +366,7 @@ async function register(req) {
       // Zaxira yo'l: umumiy o'qituvchi kodi
       await teacherCodeGuard();
       if (!safeEqual(str(b.teacherCode), secret)) {
-        await teacherCodeFailed();
+        await teacherCodeFailed(req);
         throw new HttpError(403, "O'qituvchi kodi noto'g'ri");
       }
     } else {
@@ -331,7 +397,10 @@ async function register(req) {
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
   if (claim) await finishClaim(claim.roster, claim.entry, user.id);
-  if (role === "teacher") await store.del(inviteKey(email));
+  if (role === "teacher") {
+    await store.del(inviteKey(email));
+    await securityAlert(req, "teacher_signup", "high", `Yangi o'qituvchi profili yaratildi: ${maskEmail(email)}`, `${name} nomli yangi o'qituvchi profili ochildi. Bu siz yoki ishonchli hamkasbingiz bo'lmasa, darhol «O'qituvchilar» bo'limidan profilni o'chiring va TEACHER_CODE ni almashtiring.`, user.id, 60_000);
+  }
   return withCookie(json({ token: createToken(user), user: publicUser(user) }, 201), createToken(user));
 }
 
@@ -361,9 +430,16 @@ async function login(req) {
   const user = ref && (await db().get(userKey(ref.id)));
   const ok = await verifyPassword(String(b.password || ""), user ? user.salt : DUMMY_SALT, user ? user.hash : DUMMY_HASH);
   if (!user || !ok) {
-    await Promise.all(keys.map(([k]) => hit(k, LOGIN_WINDOW_MS)));
+    const hits = await Promise.all(keys.map(([k]) => hit(k, LOGIN_WINDOW_MS)));
+    const who = user ? (user.role === "teacher" ? "o'qituvchi hisobi" : "talaba hisobi") : "mavjud bo'lmagan hisob";
+    const sev = user?.role === "teacher" ? "critical" : "high";
+    if (hits[1].n === 5) await securityAlert(req, "login_bruteforce", sev, `Parolni topishga urinish: ${maskEmail(email)}`, `15 daqiqada 5 marta noto'g'ri parol kiritildi (${who}). Hujum davom etsa, hisob avtomatik vaqtincha bloklanadi.`, sha(email).slice(0, 16));
+    if (hits[0].n === LOGIN_FAILS_PER_PAIR) await securityAlert(req, "login_locked", sev, `Hisob vaqtincha bloklandi: ${maskEmail(email)}`, `Bitta manzildan ${LOGIN_FAILS_PER_PAIR} marta noto'g'ri parol kiritildi (${who}). Manzil 15 daqiqaga bloklandi.`, `${sha(email).slice(0, 12)}/${ip}`);
+    if (hits[2].n === 20) await securityAlert(req, "ip_bruteforce", "high", "Bitta manzildan ko'p noto'g'ri kirish urinishlari", "15 daqiqada 20 ta noto'g'ri kirish urinishi (turli hisoblar bo'yicha bo'lishi mumkin).", ip);
     throw new HttpError(401, "Email yoki parol noto'g'ri");
   }
+  // Ko'p muvaffaqiyatsiz urinishlardan so'ng kirildi: hisob buzilgan bo'lishi mumkin
+  if ((await peekHit(keys[1][0], LOGIN_WINDOW_MS)).n >= 5) await securityAlert(req, "login_after_failures", user.role === "teacher" ? "critical" : "high", `Ko'p noto'g'ri urinishdan so'ng kirildi: ${maskEmail(email)}`, `${user.role === "teacher" ? "O'qituvchi" : "Talaba"} hisobiga kirishdan oldin kamida 5 marta noto'g'ri parol kiritilgan edi. Egasi adashgan yoki hisob buzilgan bo'lishi mumkin: egasi bilan bog'lanib tekshiring.`, user.id);
   await resetHit(keys[0][0]);
   // Ro'yxat bo'yicha ochiladigan guruh: profil ro'yxatdagi shifrga bog'langan bo'lishi shart
   if (user.role === "student" && isRosterGroup(user.group)) {
@@ -419,8 +495,10 @@ const TCODE_FAIL_KEY = "ratelimit/tcode-fail-all";
 async function teacherCodeGuard() {
   if ((await peekHit(TCODE_FAIL_KEY, 3600_000)).n >= 30) throw new HttpError(429, "O'qituvchi kodi vaqtincha bloklandi (juda ko'p noto'g'ri urinish). Bir soatdan keyin urinib ko'ring yoki email orqali tasdiqlashdan foydalaning.");
 }
-async function teacherCodeFailed() {
-  await hit(TCODE_FAIL_KEY, 3600_000);
+async function teacherCodeFailed(req) {
+  const n = (await hit(TCODE_FAIL_KEY, 3600_000)).n;
+  if (n === 5) await securityAlert(req, "teacher_code_guess", "critical", "O'qituvchi kodini topishga urinish", "Bir soatda 5 marta noto'g'ri o'qituvchi kodi kiritildi. Kimdir o'qituvchi huquqini olishga urinmoqda. 30 ta urinishdan keyin kod vaqtincha bloklanadi.", "5");
+  if (n === 30) await securityAlert(req, "teacher_code_locked", "critical", "O'qituvchi kodi bloklandi", "Bir soatda 30 marta noto'g'ri o'qituvchi kodi kiritildi. Kod bir soatga bloklandi. TEACHER_CODE ni almashtirishni o'ylab ko'ring.", "30");
   await new Promise((r) => setTimeout(r, 700));
 }
 
@@ -561,7 +639,7 @@ async function resetPassword(req) {
   if (!safeEqual(str(b.teacherCode), code)) {
     const n = (await hit(rlKey, RESET_WINDOW_MS)).n;
     await hit(ipKey, 3600_000);
-    await teacherCodeFailed();
+    await teacherCodeFailed(req);
     throw new HttpError(403, `O'qituvchi kodi noto'g'ri (qolgan urinishlar: ${Math.max(0, RESET_LIMIT - n)})`);
   }
   const ref = await store.get(emailKey(email));
@@ -580,8 +658,10 @@ async function resetPassword(req) {
       delete user.cohortSource;
     }
   }
+  const promoted = b.as === "teacher" && user.role === "teacher" && user.promotedAt && Date.now() - Date.parse(user.promotedAt) < 5000;
   Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
   await store.set(userKey(user.id), user);
+  await securityAlert(req, promoted ? "teacher_promote" : "teacher_code_reset", "critical", promoted ? `Talaba o'qituvchiga aylantirildi: ${maskEmail(email)}` : `${user.role === "teacher" ? "O'qituvchi" : "Talaba"} paroli o'qituvchi kodi bilan almashtirildi: ${maskEmail(email)}`, promoted ? `${user.name} nomli talaba profili o'qituvchi kodi yordamida o'qituvchi huquqini oldi. Bu siz bo'lmasangiz, darhol TEACHER_CODE ni almashtiring va profilni o'chiring.` : `${user.name} parolini «o'qituvchi kodi» yordamida almashtirdi. Bu siz bo'lmasangiz, TEACHER_CODE ni almashtiring.`, user.id, 60_000);
   await resetHit(rlKey);
   await rosterGate(user);
   const token = createToken(user);
@@ -2961,6 +3041,8 @@ const routes = [
   ["GET", /^certificate\/([A-Za-z]{1,4}-[0-9A-Fa-f]{8})$/, getCertificate],
   ["GET", /^admin\/evidence$/, allEvidence],
   ["GET", /^admin\/overview$/, overview],
+  ["GET", /^admin\/alerts$/, adminAlerts],
+  ["POST", /^admin\/alerts\/ack$/, adminAlertsAck],
   ["GET", /^admin\/teachers$/, listTeachers],
   ["POST", /^admin\/teachers\/invite$/, inviteTeacher],
   ["POST", /^admin\/teachers\/uninvite$/, uninviteTeacher],

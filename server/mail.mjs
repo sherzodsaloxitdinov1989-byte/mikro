@@ -17,6 +17,23 @@ export const mailEnabled = () => mailProvider() !== null;
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
+/** Oddiy xabar (xavfsizlik ogohlantirishi): sarlavha va matn. */
+export async function sendAlertMail(to, subject, text) {
+  const brand = COURSE.brand;
+  const html = `<div style="font-family:Arial,sans-serif;max-width:520px;margin:auto;color:#14213d"><h2 style="margin:0 0 12px;color:#b91c1c">⚠️ ${esc(brand)}: xavfsizlik ogohlantirishi</h2>${text.split("\n").map((l) => `<p style="margin:6px 0">${esc(l)}</p>`).join("")}</div>`;
+  const from = process.env.MAIL_FROM;
+  const name = process.env.MAIL_FROM_NAME || brand;
+  const provider = mailProvider();
+  if (provider === "log") return console.log(`[MAIL_DEBUG] ogohlantirish → ${to}: ${subject}`);
+  let res;
+  if (provider === "brevo") {
+    res = await fetch("https://api.brevo.com/v3/smtp/email", { method: "POST", headers: { "api-key": process.env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" }, body: JSON.stringify({ sender: { name, email: from }, to: [{ email: to }], subject, textContent: text, htmlContent: html }) });
+  } else if (provider === "resend") {
+    res = await fetch("https://api.resend.com/emails", { method: "POST", headers: { authorization: `Bearer ${process.env.RESEND_API_KEY}`, "content-type": "application/json" }, body: JSON.stringify({ from: `${name} <${from}>`, to: [to], subject, text, html }) });
+  } else throw new Error("Pochta xizmati sozlanmagan");
+  if (!res.ok) throw new Error(`Pochta xizmati xatosi (${provider} ${res.status})`);
+}
+
 /** Tasdiqlash kodi xati. purpose: "reset" (parolni tiklash) yoki "teacher" (o'qituvchi sifatida ro'yxatdan o'tish). */
 export async function sendResetCode(to, code, minutes, purpose = "reset") {
   const brand = COURSE.brand;

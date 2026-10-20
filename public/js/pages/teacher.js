@@ -4,6 +4,7 @@ import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, do
 import { api } from "../api.js";
 import { mean, sd, fmt, toCSV } from "../stats.js";
 import { TOPICS, COURSE, SUBJECT_KEY } from "../../data/topics.js";
+import { refreshSecurityAlerts } from "../alerts.js";
 import { reviewView } from "../practice-ui.js";
 import { analyze, pct, fmt as fmtN, LAB_SECTIONS } from "../finance.js";
 import { slideViewer, uploadSlides, fmtSize } from "../slides.js";
@@ -41,6 +42,7 @@ const SECTIONS = [
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
@@ -112,9 +114,50 @@ function subjectBar() {
     h("a", { class: "small", href: "#/teacher/subjects" }, "Fanlar sahifasi"));
 }
 
+const ALERT_TIPS = {
+  login_bruteforce: "Egasi bilan bog'lanib, parolni almashtirishni tavsiya eting. Hisob avtomatik bloklanadi, ammo kuchli parol muhim.",
+  login_locked: "Manzil 15 daqiqaga bloklandi. Takrorlansa, Cloudflare → Security → WAF orqali manzilni bloklang.",
+  ip_bruteforce: "Bitta manzil juda ko'p urinish qilmoqda. Cloudflare → Security → WAF (yoki Bot Fight Mode) orqali bloklash mumkin.",
+  login_after_failures: "Egasi adashgan bo'lishi mumkin. Shubha bo'lsa, o'qituvchi paneli → Talabalar orqali parolini tiklang.",
+  teacher_code_guess: "Kimdir o'qituvchi huquqini olmoqchi. Cloudflare → Worker → Settings → Variables → TEACHER_CODE ni yangi kodga almashtiring.",
+  teacher_code_locked: "O'qituvchi kodi bloklandi. TEACHER_CODE ni zudlik bilan almashtiring.",
+  teacher_signup: "Bu siz yoki ishonchli hamkasb bo'lmasa, «O'qituvchilar» bo'limidan profilni o'chiring va TEACHER_CODE ni almashtiring.",
+  teacher_promote: "Talaba o'qituvchi kodi bilan o'qituvchi bo'ldi. Bu siz bo'lmasangiz, TEACHER_CODE ni almashtirib, profilni o'chiring.",
+  teacher_code_reset: "Parol o'qituvchi kodi bilan almashtirildi. Bu siz bo'lmasangiz, TEACHER_CODE ni almashtiring.",
+  shifr_guess: "Boshqa talaba nomidan kirishga urinish bo'lishi mumkin. Shifr/ID raqamlarni tekshiring; kerak bo'lsa ro'yxatni yangilang.",
+  shifr_guess_group: "Guruhda ID raqam bo'yicha ko'p xato bo'ldi. Talabalarga ID raqamni to'g'ri kiritishni eslating yoki ro'yxatni yangilang.",
+  forbidden_admin: "Talaba o'qituvchi bo'limlariga kirishga urinmoqda (sinab ko'rish yoki hujum). Talaba bilan suhbatlashing.",
+  token_tamper: "Soxta token yasashga urinish bo'lishi mumkin. Tizim imzoni tekshiradi, kirish imkoni yo'q; lekin manzilni bloklash mumkin.",
+  register_flood: "Avtomatik dastur ko'p profil yaratmoqda. Cloudflare Bot Fight Mode/WAF yoqing.",
+};
+const SEV = { critical: ["Jiddiy", "badge-err"], high: ["Muhim", "badge-warn"], info: ["Ma'lumot", ""] };
+
+async function alertsView(el) {
+  mount(el, loading());
+  const load = async () => {
+    const d = await api.get("admin/alerts");
+    const row = (a) => h("div", { class: `card alert-card ${a.ack ? "acked" : a.severity}`, style: { opacity: a.ack ? 0.65 : 1 } },
+      h("div", { class: "row between wrap" },
+        h("div", {}, h("span", { class: `badge ${SEV[a.severity]?.[1] || ""}` }, SEV[a.severity]?.[0] || a.severity), " ", h("b", {}, a.title)),
+        h("span", { class: "muted small" }, fmtDate(a.at))),
+      h("p", { style: { margin: "6px 0" } }, a.detail),
+      (a.ip || a.country) && h("p", { class: "muted small" }, `Manzil: ${a.ip || "—"}${a.country ? ` · ${a.country}` : ""}`),
+      ALERT_TIPS[a.type] && h("p", { class: "small" }, h("b", {}, "Nima qilish kerak: "), ALERT_TIPS[a.type]),
+      h("div", { class: "row between wrap" },
+        a.ack ? h("span", { class: "muted small" }, `O'qilgan${a.ackBy ? ` · ${a.ackBy}` : ""}`) : h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/alerts/ack", { ids: [a.id] }); refreshSecurityAlerts(); load(); } }, "✓ O'qildi")));
+    mount(el,
+      h("div", { class: "alert alert-info" }, h("b", {}, "Bu sahifa nima? "), "Tizim buzib kirishga urinishlarni (parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil ochish va boshqalar) o'zi aniqlaydi va shu yerda hamda har sahifa tepasida qizil chiziq bilan ko'rsatadi. Email xizmati sozlangan bo'lsa (BREVO yoki RESEND), jiddiy holatlar haqida xat ham keladi."),
+      h("div", { class: "row between wrap" },
+        h("h3", {}, d.unread ? `${d.unread} ta o'qilmagan ogohlantirish` : "Yangi ogohlantirishlar yo'q ✅"),
+        d.unread > 0 && h("button", { class: "btn small", onclick: async () => { await api.post("admin/alerts/ack", { all: true }); refreshSecurityAlerts(); load(); } }, "Hammasini o'qilgan deb belgilash")),
+      d.alerts.length ? h("div", { class: "stack" }, d.alerts.map(row)) : h("p", { class: "muted" }, "Hozircha hech qanday shubhali holat qayd etilmagan. 90 kun saqlanadi."));
+  };
+  await load();
+}
+
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -202,6 +245,7 @@ async function overview(el) {
   // Ko'rsatkichlar tanlangan fan bo'yicha hisoblanadi (umumiy hisoblagich emas)
   const [stu, prs, sst] = await Promise.all([api.get("admin/students"), api.get("admin/practice-reviews").catch(() => ({ reviews: [] })), api.get("admin/self-study").catch(() => [])]);
   o.students = stu.filter((u) => u.role === "student" && inSubject(u.group)).length;
+  o.alertsUnread = (await api.get("admin/alerts?brief=1").catch(() => ({ unread: 0 }))).unread;
   const own = prs.reviews.filter((r) => ownTopic(r.topicId));
   o.practiceReviews = own.length;
   o.avgPracticeScore = own.length ? Math.round((own.reduce((n, r) => n + (r.teacher?.grade ?? r.total ?? 0), 0) / own.length) * 10) / 10 : null;
