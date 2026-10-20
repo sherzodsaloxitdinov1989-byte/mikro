@@ -1,0 +1,417 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Ikki bosqichli bank tizimi",
+   "sub": "12.1. Bank tizimining tarkibi",
+   "bullets": [
+    "Birinchi bosqich – Markaziy bank: emissiya, monetar siyosat, tartibga solish va nazorat; aholiga xizmat ko‘rsatmaydi",
+    "Markaziy bank – «banklar banki»: zaxiralarni saqlaydi, oxirgi instansiya kreditori, banklararo hisob-kitoblar",
+    "Yana: hukumatning bankiri, valyuta siyosati, to‘lov tizimi va moliyaviy barqarorlik (makroprudensial siyosat)",
+    "Ikkinchi bosqich – tijorat banklari: depozit qabul qiladi, kredit beradi, to‘lovlarni amalga oshiradi, pul yaratadi",
+    "Banklar kichik omonatlarni yirik kreditga birlashtiradi; «bank vahimasi» sog‘lom bankni ham inqirozga uchratadi"
+   ],
+   "note": "Bank foydasi asosan foiz marjasidan – aktivlardan olingan va passivlarga to‘langan foizlar farqidan shakllanadi"
+  },
+  {
+   "type": "figure",
+   "title": "Bank tizimining tuzilishi",
+   "sub": "12.1. Bank tizimining tarkibi",
+   "img": "image86.png",
+   "caption": "12.1-rasm. Ikki bosqichli bank tizimining tuzilishi"
+  },
+  {
+   "type": "compare",
+   "title": "Banklarning asosiy operatsiyalari",
+   "sub": "12.1. Bank tizimining tarkibi",
+   "left": {
+    "head": "Passiv operatsiyalar – resurslarni shakllantirish",
+    "items": [
+     "O‘z kapitali (ustav kapitali, taqsimlanmagan foyda) va depozitlarni jalb qilish",
+     "Banklararo kreditlar va Markaziy bank kreditlari",
+     "Obligatsiyalar chiqarish"
+    ]
+   },
+   "right": {
+    "head": "Aktiv operatsiyalar – resurslarni joylashtirish",
+    "items": [
+     "Kreditlar berish",
+     "Qimmatli qog‘ozlarga investitsiyalar va boshqa banklarga joylashtirish",
+     "Majburiy va ortiqcha zaxiralar"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Bank kapitali va leveredj",
+   "sub": "12.1. Bank tizimining tarkibi",
+   "items": [
+    {
+     "name": "Bank balansi",
+     "formula": "A = L+K",
+     "note": "A – aktivlar, L – majburiyatlar, K – bank kapitali (egalar kiritgan mablag‘)"
+    },
+    {
+     "name": "Leveredj koeffitsiyenti",
+     "formula": "λ = (A)/(K)",
+     "note": "aktivlarning kapitalga nisbati"
+    },
+    {
+     "name": "Misol: 1000 so‘mlik aktiv, 50 so‘m kapital",
+     "formula": "λ = (1000)/(50) = 20",
+     "note": "aktivlar 5% (50 so‘m) kamaysa, kapital butunlay yo‘qoladi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1: tijorat bankining balansi",
+   "sub": "12.1. Bank tizimining tarkibi",
+   "steps": [
+    "Berilgan: depozit 800, kapital 100, rr = 10%, ortiqcha zaxira 30 (mlrd so‘m)",
+    "a) Majburiy zaxira 0,1·800 = 80; jami zaxira 80+30 = 110; aktivlar 800+100 = 900; kreditlar 900−110 = 790",
+    "b) Leveredj λ = 900/100 = 9",
+    "c) Zarar 0,08·790 = 63,2 mlrd so‘m; kapital 100 dan 36,8 gacha kamayadi",
+    "d) rr = 15%: majburiy zaxira 120, ortiqcha 30 saqlansa jami 150; kreditlar 900−150 = 750",
+    "Kreditlarni 790 dan 750 gacha, ya’ni 40 mlrd so‘mga qisqartirish kerak"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Pul-kredit siyosatining maqsadlari",
+   "sub": "12.2. Pul-kredit siyosatining mohiyati va maqsadlari",
+   "bullets": [
+    "Pul-kredit siyosati – pul taklifi, stavkalar va kredit hajmiga ta’sir orqali narxlar barqarorligini ta’minlash",
+    "Pirovard maqsadlar: narxlar barqarorligi, bandlik va o‘sish, moliyaviy barqarorlik, kurs va tashqi muvozanat",
+    "Mandatlar farq qiladi: Fed – narxlar barqarorligi va bandlik; YeMB – birinchi navbatda narxlar barqarorligi",
+    "O‘zbekiston Markaziy bankining bosh maqsadi – qonunga ko‘ra narxlar barqarorligini ta’minlash",
+    "Markaziy bank pul massasi va foiz stavkasini bir vaqtda belgilay olmaydi; 1990-yillardan aksariyati stavkani tanlagan"
+   ],
+   "note": "2011-yilda YeMB inflyatsiya oshganda stavkani oshirdi, keyinchalik bu qaror bekor qilindi (Mankyu)"
+  },
+  {
+   "type": "table",
+   "title": "Pul-kredit siyosati mo‘ljallari ierarxiyasi",
+   "sub": "12.2. Pul-kredit siyosatining mohiyati va maqsadlari",
+   "head": [
+    "Daraja",
+    "Ko‘rsatkichlar",
+    "Markaziy bank nazorati"
+   ],
+   "rows": [
+    [
+     "Vositalar",
+     "Asosiy stavka, ochiq bozor, zaxira normasi, REPO",
+     "To‘liq"
+    ],
+    [
+     "Operatsion mo‘ljallar",
+     "Overnayt stavkalari, zaxiralar, pul bazasi",
+     "Yuqori"
+    ],
+    [
+     "Oraliq mo‘ljallar",
+     "M2, kredit, kurs, inflyatsiya prognozi",
+     "O‘rtacha"
+    ],
+    [
+     "Pirovard maqsadlar",
+     "Inflyatsiya, YaIM o‘sishi, bandlik, barqarorlik",
+     "Bilvosita, kechikish bilan"
+    ]
+   ],
+   "note": "Inflyatsion targetlash rejimida oraliq mo‘ljal sifatida ko‘pincha inflyatsiya prognozining o‘zi ishlatiladi"
+  },
+  {
+   "type": "formula",
+   "title": "Majburiy zaxira normasi va pul multiplikatori",
+   "sub": "12.3. Pul-kredit siyosatining vositalari",
+   "items": [
+    {
+     "name": "Pul multiplikatori",
+     "formula": "m = (cr+1)/(cr+rr)",
+     "note": "cr – naqd pul/depozit nisbati, rr – majburiy zaxira normasi"
+    },
+    {
+     "name": "Pul massasi",
+     "formula": "M = m·B",
+     "note": "B – pul bazasi; rr oshsa ⇒ m kamayadi ⇒ M kamayadi, stavkalar oshadi"
+    },
+    {
+     "name": "Ochiq bozor operatsiyalari",
+     "formula": "sotib olish ⇒ B↑, M↑, i↓;  sotish ⇒ B↓, M↓, i↑",
+     "note": "Markaziy bank ikkilamchi bozorda davlat qimmatli qog‘ozlari bilan ishlaydi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy stavka va foiz koridori",
+   "sub": "12.3. Pul-kredit siyosatining vositalari",
+   "bullets": [
+    "Hisob (qayta moliyalash) stavkasi – Markaziy bankning tijorat banklariga bergan kreditlari bo‘yicha foiz stavkasi",
+    "Stavka oshsa: Markaziy bankdan qarz qimmatlashadi, banklar kredit stavkasini oshiradi, kredit talabi va M kamayadi",
+    "Zamonaviy amaliyot: asosiy (siyosat) stavkasi foiz koridori orqali amalga oshiriladi",
+    "Koridorning yuqori chegarasi – overnayt kreditlar (yoki REPO) stavkasi, quyi chegarasi – overnayt depozitlar stavkasi",
+    "O‘zbekiston Markaziy banki 2019-yildan qayta moliyalash stavkasi o‘rniga asosiy stavkani qo‘llaydi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Asosiy stavka dinamikasi",
+   "sub": "12.3. Pul-kredit siyosatining vositalari",
+   "img": "image87.png",
+   "caption": "12.2-rasm. O‘zbekiston Markaziy banki asosiy stavkasining dinamikasi, 2017–2026-yillar"
+  },
+  {
+   "type": "bullets",
+   "title": "Ochiq bozor operatsiyalari, REPO va boshqa vositalar",
+   "sub": "12.3. Pul-kredit siyosatining vositalari",
+   "bullets": [
+    "Ochiq bozor operatsiyalari – rivojlangan mamlakatlarda eng ko‘p qo‘llaniladigan, eng egiluvchan vosita",
+    "O‘zbekiston Markaziy banki ortiqcha likvidlikni jalb qilish uchun obligatsiya chiqaradi, depozit auksioni o‘tkazadi",
+    "REPO – qimmatli qog‘ozni oldindan kelishilgan narxda qaytarib sotib olish sharti bilan sotish; garovli qisqa kredit",
+    "To‘g‘ridan-to‘g‘ri REPO likvidlik beradi, teskari REPO ortiqcha likvidlikni jalb qiladi",
+    "Boshqa: makroprudensial choralar (DTI, LTV), forward guidance, noan’anaviy vositalar"
+   ],
+   "note": "Majburiy zaxira normasi – «qo‘pol» vosita: AQSHda 2020-yildan nolga tushirilgan"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 2: pul bazasi va zaxira normasi",
+   "sub": "12.3. Pul-kredit siyosatining vositalari",
+   "steps": [
+    "Berilgan: B = 180 trln so‘m, cr = 0,3, rr = 0,08; m = (cr+1)/(cr+rr)",
+    "a) m = 1,3/0,38 ≈ 3,42; M = 3,42·180 ≈ 615,8 trln so‘m",
+    "b) rr = 0,12: m = 1,3/0,42 ≈ 3,10; M ≈ 557,1 trln so‘m",
+    "Pul massasi taxminan 58,6 trln so‘mga kamayadi",
+    "c) Avvalgi M uchun B = 615,8/3,10 ≈ 198,9 trln so‘m",
+    "Markaziy bank ochiq bozorda taxminan 18,9 trln so‘mlik qimmatli qog‘oz sotib olishi kerak"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Qat’iy va yumshoq pul-kredit siyosati",
+   "sub": "12.4. Qat’iy va yumshoq pul-kredit siyosati",
+   "left": {
+    "head": "Qat’iy (cheklovchi, «qimmat pul»)",
+    "items": [
+     "Qachon: yuqori inflyatsiya, qizib ketish, valyuta bosimi",
+     "Asosiy stavka va zaxira normasi oshiriladi, qimmatli qog‘ozlar sotiladi",
+     "Pul massasi kamayadi: AD↓, inflyatsiya↓, Y↓ (qisqa muddatda)"
+    ]
+   },
+   "right": {
+    "head": "Yumshoq (rag‘batlantiruvchi, «arzon pul»)",
+    "items": [
+     "Qachon: retsessiya, yuqori ishsizlik, deflyatsiya xavfi",
+     "Asosiy stavka va zaxira normasi pasaytiriladi, qimmatli qog‘ozlar sotib olinadi",
+     "Pul massasi oshadi: AD↑, Y↑, inflyatsiya↑"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Qat’iy siyosat: stavka va yalpi talab",
+   "sub": "12.4. Qat’iy va yumshoq pul-kredit siyosati",
+   "img": "image88.png",
+   "caption": "12.3-rasm. Qat’iy pul-kredit siyosati: pul bozorida stavkaning oshishi (a) va yalpi talabning qisqarishi (b)"
+  },
+  {
+   "type": "bullets",
+   "title": "Transmissiya mexanizmi kanallari",
+   "sub": "12.5. Pul-kredit siyosati ta’sirining ishlab chiqarish hajmiga o‘tkazish mexanizmi",
+   "bullets": [
+    "Foiz stavkasi kanali: asosiy stavka ⇒ banklararo, kredit va depozit stavkalari ⇒ investitsiya va iste’mol ⇒ yalpi talab",
+    "Kredit kanali: banklar kreditni cheklaydi, qarz oluvchilar garovi va sof boyligi yomonlashadi (kichik biznes ayniqsa)",
+    "Aktivlar narxlari kanali: stavka pasaysa aksiya va ko‘chmas mulk narxi oshadi; boylik samarasi va Tobin koeffitsiyenti",
+    "Valyuta kursi kanali: stavka oshsa kapital kiradi, valyuta mustahkamlanadi, import arzonlashadi, sof eksport kamayadi",
+    "Kutishlar kanali: ishonchli siyosat inflyatsion kutishlarni pasaytiradi – targetlash rejimida eng muhimlaridan biri"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Transmissiya mexanizmi",
+   "sub": "12.5. Pul-kredit siyosati ta’sirining ishlab chiqarish hajmiga o‘tkazish mexanizmi",
+   "img": "image89.png",
+   "caption": "12.4-rasm. Pul-kredit siyosatining transmissiya mexanizmi kanallari"
+  },
+  {
+   "type": "bullets",
+   "title": "Transmissiya mexanizmidagi buzilishlar",
+   "sub": "12.5. Pul-kredit siyosati ta’sirining ishlab chiqarish hajmiga o‘tkazish mexanizmi",
+   "bullets": [
+    "Yuqori dollarlashuv: xorijiy valyutadagi depozit va kreditlarga milliy valyuta stavkasi ta’sir qilmaydi",
+    "Davlat banklarining yuqori ulushi va yo‘naltirilgan imtiyozli kreditlar bozor stavkalariga bog‘liq emas",
+    "Moliya bozorlarining sayozligi, norasmiy iqtisodiyot va naqd pul aylanishining yuqoriligi",
+    "Markaziy bankka ishonchning pastligi, qat’iy inflyatsion kutishlar va fiskal ustunlik",
+    "Oqibat: samara pasayadi, inflyatsiyani jilovlash uchun stavkani yuqori saqlashga to‘g‘ri keladi"
+   ],
+   "note": "O‘zbekistonda inflyatsiya 2026-yil may oyida 5,5 foizga tushdi; xorijiy valyuta depozitlariga norma yuqoriroq"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 5: stavkaning YaIMga ta’siri",
+   "sub": "12.5. Pul-kredit siyosati ta’sirining ishlab chiqarish hajmiga o‘tkazish mexanizmi",
+   "steps": [
+    "Berilgan: asosiy stavka +1 punkt; kredit stavkasi +0,7 punkt",
+    "Investitsiyalar: 0,7·3% = 2,1% ga kamayadi",
+    "Investitsiyalar YaIMning 30%: ΔI/Y = 0,3·(−2,1%) = −0,63%",
+    "Multiplikator 1,5: ΔY/Y ≈ 1,5·(−0,63%) ≈ −0,95%",
+    "Valyuta kursi kanali: milliy valyuta mustahkamlanib, sof eksport kamayadi – YaIMning pasayishi kuchayadi",
+    "Shu kanal import narxlarini pasaytirib, inflyatsiyaga ham qo‘shimcha ta’sir qiladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Teylor qoidasi",
+   "sub": "12.6. YaIM o‘sishi va pul-kredit siyosati. Siyosat qoidalari",
+   "items": [
+    {
+     "name": "Teylor qoidasi (1993)",
+     "formula": "i = π+r^{∗}+0,5(π−π^{∗})+0,5·(YaIM uzilishi)",
+     "note": "i – stavka, π – inflyatsiya, r^{∗} – neytral real stavka, π^{∗} – maqsad"
+    },
+    {
+     "name": "Teylor prinsipi",
+     "formula": "Δπ = +1 ⇒ Δi = +1,5",
+     "note": "inflyatsiya maqsaddan 1 punkt oshsa, nominal stavka 1,5 punkt oshadi (real stavka ham oshadi)"
+    },
+    {
+     "name": "YaIM uzilishi",
+     "formula": "uzilish = −1 ⇒ Δi = −0,5",
+     "note": "iqtisodiyot potensialdan 1% past bo‘lsa, stavka 0,5 punkt pasayadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Asosiy stavka va Teylor qoidasi",
+   "sub": "12.6. YaIM o‘sishi va pul-kredit siyosati. Siyosat qoidalari",
+   "img": "image90.png",
+   "caption": "12.5-rasm. O‘zbekiston asosiy stavkasi va Teylor qoidasi bo‘yicha hisoblangan stavka (illyustratsiya)"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 3: Teylor qoidasi bo‘yicha stavka",
+   "sub": "12.6. YaIM o‘sishi va pul-kredit siyosati. Siyosat qoidalari",
+   "steps": [
+    "Qoida: i = π + r^{∗} + 0,5(π−π^{∗}) + 0,5·uzilish; AQSH uchun r^{∗} = 2, π^{∗} = 2",
+    "a) π = 3, uzilish = −1: i = 3+2+0,5·1+0,5·(−1) = 5%",
+    "b) π = 6, uzilish = +2: i = 6+2+0,5·4+0,5·2 = 11%",
+    "c) O‘zbekiston, r^{∗} = 4, π^{∗} = 5, π = 6,5, uzilish = +0,5:",
+    "i = 6,5+4+0,5·1,5+0,5·0,5 = 11,5%"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Qoidalar, mustaqillik va vaqt bo‘yicha nomuvofiqlik",
+   "sub": "12.6. YaIM o‘sishi va pul-kredit siyosati. Siyosat qoidalari",
+   "bullets": [
+    "Kidlend va Preskott (1977): past inflyatsiya va’da qilinadi, keyin kutilmagan inflyatsiya «foydali» bo‘lib qoladi",
+    "Oqilona odamlar buni oldindan biladi, va’daga ishonmaydi – inflyatsiya yuqori bo‘ladi, ishsizlik kamaymaydi",
+    "Mankyu misoli: o‘qituvchi imtihonni bekor qilsa, talabalar keyingi safar tayyorlanmaydi",
+    "Yechimlar: aniq qoidalar (Fridmen, Teylor), markaziy bank mustaqilligi, qat’iy obro‘li rahbar, inflyatsion targetlash",
+    "Alesina va Sammers (1993): mustaqil markaziy bankli mamlakatlarda inflyatsiya past, o‘sish va ishsizlik yomonlashmagan"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Tashqi laglar va ko‘zda tutilmagan samaralar",
+   "sub": "12.7. Pul-kredit siyosatining cheklovlari va muvofiqlashtirish muammolari",
+   "bullets": [
+    "Ichki lag qisqa – qaror bir kunda qabul qilinadi; tashqi lag uzoq va o‘zgaruvchan (Fridmen)",
+    "Stavka o‘zgarishi ishlab chiqarishga 6–12 oydan, inflyatsiyaga 12–24 oydan keyin maksimal ta’sir qiladi",
+    "Shu sababli Markaziy bank joriy emas, kelajakdagi inflyatsiya prognozi asosida harakat qilishi kerak",
+    "Past stavkalar: aktivlar pufaklari, «daromad izlash», tengsizlik, zombi-firmalar, kapital oqimlari beqarorligi",
+    "Qat’iy siyosat: kredit qimmatlashadi, kichik biznes va investitsiyalarga zarar, muammoli kreditlar ulushi oshadi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Monetar va fiskal siyosat kombinatsiyalari",
+   "sub": "12.7. Pul-kredit siyosatining cheklovlari va muvofiqlashtirish muammolari",
+   "head": [
+    "Kombinatsiya",
+    "Yalpi talab",
+    "Foiz stavkasi",
+    "Qachon maqsadga muvofiq"
+   ],
+   "rows": [
+    [
+     "Yumshoq monetar + rag‘batlantiruvchi fiskal",
+     "Kuchli oshadi",
+     "Noaniq",
+     "Chuqur retsessiya"
+    ],
+    [
+     "Qat’iy monetar + cheklovchi fiskal",
+     "Kuchli kamayadi",
+     "Noaniq",
+     "Yuqori inflyatsiya"
+    ],
+    [
+     "Qat’iy monetar + rag‘batlantiruvchi fiskal",
+     "Noaniq",
+     "Kuchli oshadi",
+     "Siyosatlar ziddiyati"
+    ],
+    [
+     "Yumshoq monetar + cheklovchi fiskal",
+     "Noaniq",
+     "Kuchli pasayadi",
+     "Byudjet konsolidatsiyasi"
+    ]
+   ],
+   "note": "Ziddiyatda investitsiyalar siqib chiqariladi; fiskal ustunlikda monetar siyosat narxlar barqarorligiga xizmat qilmaydi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 6: tashqi lag",
+   "sub": "12.7. Pul-kredit siyosatining cheklovlari va muvofiqlashtirish muammolari",
+   "steps": [
+    "Berilgan: tashqi lag o‘rtacha 15 oy; yanvarda inflyatsiya maqsaddan 2 punkt yuqori, stavka oshirildi",
+    "Qaror bir kunda qabul qilinadi (ichki lag qisqa), ammo ta’sir kechikib namoyon bo‘ladi",
+    "To‘liq ta’sir: yanvar + 15 oy = keyingi yilning aprel oyi",
+    "Shu davrda iqtisodiyot o‘z-o‘zidan sekinlashsa, qat’iy siyosat ta’siri unga qo‘shiladi",
+    "Xavf: ishlab chiqarishning haddan tashqari qisqarishi va retsessiya; shu sababli prognozga tayanish zarur"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Inflyatsion targetlash, bank sektori va kurs",
+   "sub": "12.8. O‘zbekistonda bank tizimi barqarorligini oshirish va pul-kredit siyosatini takomillashtirishning ustuvor yo‘nalishlari",
+   "bullets": [
+    "Inflyatsion targetlash: 2020-yildan o‘tish e’lon qilingan; o‘rta muddatli maqsad – 2027-yil oxirigacha 5% inflyatsiya",
+    "Bank sektorini isloh qilish strategiyasi (2020–2025): davlat banklarini xususiylashtirish, boshqaruv va raqamlashtirish",
+    "So‘m kursi 2017-yildan bozorda belgilanadi; intervensiya «neytrallik tamoyili»da, oltin sotishni neytrallash uchun",
+    "Kurs 2025-yil oxirida 1 dollar uchun 12 025 so‘m (2024-yil oxirida 12 920 so‘m)",
+    "Yo‘naltirilgan kreditlashni qisqartirish va bozor tamoyillariga asoslangan kreditlashga o‘tish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Barqarorlik, inklyuzivlik va mustaqillik",
+   "sub": "12.8. O‘zbekistonda bank tizimi barqarorligini oshirish va pul-kredit siyosatini takomillashtirishning ustuvor yo‘nalishlari",
+   "bullets": [
+    "Moliyaviy barqarorlik: Bazel III talablari, muammoli aktivlarni hal qilish, iste’mol kreditlarida qarz yuki chegaralari",
+    "Moliyaviy inklyuzivlik: raqamli banklar, masofaviy identifikatsiya, tezkor to‘lov tizimi, ochiq banking",
+    "Kapital bozori: davlat obligatsiyalari bozorini chuqurlashtirish – ochiq bozor operatsiyalari uchun zarur shart",
+    "Korporativ obligatsiyalar va IPO orqali moliyalashtirishni rivojlantirish",
+    "Markaziy bank mustaqilligi va hisobdorligini kuchaytirish (XVF 2026-yilgi tavsiyalarida ham ta’kidlangan)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Bank tizimi ikki bosqichli: Markaziy bank (emissiya, monetar siyosat, nazorat) va tijorat banklari (vositachilik)",
+    "Pirovard maqsad – narxlar barqarorligi; asosiy vositalar: asosiy stavka, ochiq bozor, REPO, majburiy zaxira",
+    "Qat’iy siyosat AD va inflyatsiyani kamaytiradi; transmissiya foiz, kredit, aktiv, kurs, kutish kanallari orqali",
+    "Tashqi lag uzoq: vaqt bo‘yicha nomuvofiqlik qoidalar va markaziy bank mustaqilligini talab qiladi",
+    "Monetar va fiskal siyosat muvofiqlashtirilishi kerak; O‘zbekistonda targetlash va bank islohoti ustuvor"
+   ]
+  }
+ ]
+}
