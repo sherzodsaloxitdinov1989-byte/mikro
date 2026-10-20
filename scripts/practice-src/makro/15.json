@@ -1,0 +1,199 @@
+{
+ "goal": "Solou modelida barqaror holat, jamg‘arish normasi, oltin qoida va texnik taraqqiyotning iqtisodiy o‘sishga ta’sirini hisoblash hamda o‘sish manbalarini tahlil qilish ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "Kobb-Duglas ishlab chiqarish funksiyasi va bir ishchiga ishlab chiqarish",
+  "Solou modelining asosiy tenglamasi va barqaror holat",
+  "Jamg‘arish normasi va oltin qoida",
+  "Aholi o‘sishi va yaqinlashish (konvergensiya)",
+  "Texnik taraqqiyot va mehnat samaradorligi",
+  "O‘sishni hisoblash (UOU)"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 15-bob",
+ "tasks": [
+  {
+   "id": "mk15-p1",
+   "title": "Solou modeli: barqaror holat va oltin qoida",
+   "text": "Ishlab chiqarish funksiyasi Y = K^0,5·L^0,5. s = 0,2, δ = 0,05, n = 0,02. a) Bir ishchiga ishlab chiqarish funksiyasini yozing. b) Barqaror holatdagi k*, y*, c* ni toping. c) Oltin qoida darajasidagi k va s ni toping. d) Iqtisodiyot oltin qoidadan yuqori yoki pastmi?",
+   "fields": [
+    {
+     "label": "Barqaror kapital k*",
+     "value": 8.16,
+     "unit": "birlik"
+    },
+    {
+     "label": "Barqaror daromad y*",
+     "value": 2.86,
+     "unit": "birlik"
+    },
+    {
+     "label": "Barqaror iste’mol c*",
+     "value": 2.29,
+     "unit": "birlik"
+    },
+    {
+     "label": "Oltin qoida kapitali k_oltin",
+     "value": 51.02,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "a) y = k^0,5. b) s·k^0,5 = (δ+n)k → k^0,5 = 0,2/0,07 = 2,857; k* = 8,16; y* = 2,86; c* = (1−s)y* = 0,8·2,857 = 2,29. c) MPK = 0,5·k^(−0,5) = δ+n = 0,07 → k^0,5 = 7,143, k_oltin = 51,02; oltin qoida jamg‘arish normasi s = α = 0,5. d) k* = 8,16 < 51,02 (s = 0,2 < 0,5): iqtisodiyot oltin qoida darajasidan past, jamg‘arishni oshirish uzoq muddatda iste’molni oshiradi.",
+   "formula": "sy = (δ+n)k; MPK = δ+n; s_oltin = α",
+   "note": "Oltin qoida: s = α (Kobb-Duglasda kapital ulushi). Masalaning d) bandi sifatli javob: «past»."
+  },
+  {
+   "id": "mk15-p2",
+   "title": "Jamg‘arish normasining oshishi",
+   "text": "Y = K^(1/3)·L^(2/3), s = 0,24, δ = 0,06, n = 0. a) k* va y* ni toping. b) s 0,30 ga oshsa, yangi barqaror holatni toping. Daromad necha foizga oshadi? c) Oltin qoida jamg‘arish normasi qancha?",
+   "fields": [
+    {
+     "label": "Dastlabki k*",
+     "value": 8,
+     "unit": "birlik"
+    },
+    {
+     "label": "Dastlabki y*",
+     "value": 2,
+     "unit": "birlik"
+    },
+    {
+     "label": "Yangi y* (s = 0,30)",
+     "value": 2.236,
+     "unit": "birlik"
+    },
+    {
+     "label": "Daromadning o‘sishi",
+     "value": 11.8,
+     "unit": "%"
+    }
+   ],
+   "solution": "y = k^(1/3). a) s·k^(1/3) = δk → k^(2/3) = s/δ = 4, k* = 4^1,5 = 8, y* = 8^(1/3) = 2. b) k^(2/3) = 0,30/0,06 = 5; k* = 5^1,5 = 11,18; y* = 5^0,5 = 2,236. Daromad o‘sishi 2,236/2 − 1 = 11,8%. c) s_oltin = α = 1/3 ≈ 0,333.",
+   "formula": "k* = (s/(δ+n))^(1/(1−α)); y* = (k*)^α",
+   "note": "Jamg‘arish normasi 25% oshganda (0,24 → 0,30) daromad barqaror holatda faqat 11,8% ga oshadi: kapitalning kamayib boruvchi unumdorligi."
+  },
+  {
+   "id": "mk15-p3",
+   "title": "O‘tish dinamikasi (jadval)",
+   "text": "1-masala sharoitida (y = k^0,5, s = 0,2, δ+n = 0,07) boshlang‘ich kapital k0 = 4. Birinchi 5 yil uchun k, y, i, c va Δk ni hisoblang (jadval). O‘sish sur’ati qanday o‘zgaradi? Quyida 5-yil ko‘rsatkichlarini kiriting.",
+   "fields": [
+    {
+     "label": "5-yilda kapital k",
+     "value": 4.47,
+     "unit": "birlik"
+    },
+    {
+     "label": "5-yilda Δk",
+     "value": 0.11,
+     "unit": "birlik"
+    },
+    {
+     "label": "1-yilda kapitalning o‘sish sur’ati",
+     "value": 3.0,
+     "unit": "%"
+    },
+    {
+     "label": "5-yilda kapitalning o‘sish sur’ati",
+     "value": 2.46,
+     "unit": "%"
+    }
+   ],
+   "solution": "Δk = s·√k − 0,07k. 1-yil: k = 4, y = 2, i = 0,4, c = 1,6, Δk = 0,12 (3,0%). 2-yil: k = 4,12, y = 2,030, Δk = 0,118. 3-yil: k = 4,238, y = 2,059, Δk = 0,115. 4-yil: k = 4,353, y = 2,086, Δk = 0,113. 5-yil: k = 4,465, y = 2,113, i = 0,423, c = 1,690, Δk = 0,110 (2,46%).",
+   "formula": "Δk = s·f(k) − (δ+n)k",
+   "note": "k0 = 4 < k* = 8,16, shuning uchun k o‘sadi, lekin o‘sish sur’ati sekinlashadi (3,0% → 2,5%) va k* ga yaqinlashgan sari nolga intiladi."
+  },
+  {
+   "id": "mk15-p4",
+   "title": "Aholi o‘sishi va farovonlik",
+   "text": "Ikki mamlakat bir xil texnologiyaga (y = k^0,4), bir xil s = 0,25 va δ = 0,05 ga ega. A mamlakatda n = 0,01, B mamlakatda n = 0,03. Har birining barqaror holatdagi k* va y* ni toping. B mamlakat aholisi necha foiz kambag‘alroq?",
+   "fields": [
+    {
+     "label": "A mamlakat k*",
+     "value": 10.79,
+     "unit": "birlik"
+    },
+    {
+     "label": "B mamlakat k*",
+     "value": 6.68,
+     "unit": "birlik"
+    },
+    {
+     "label": "A mamlakat y*",
+     "value": 2.59,
+     "unit": "birlik"
+    },
+    {
+     "label": "B mamlakat aholisi kambag‘alligi",
+     "value": 17.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "k^0,6 = s/(δ+n). A: 0,25/0,06 = 4,167 → k* = 4,167^(1/0,6) = 10,79; y* = 10,79^0,4 = 2,59. B: 0,25/0,08 = 3,125 → k* = 6,68; y* = 2,14. y_B/y_A = 0,8255, ya’ni B aholisi 17,5% kambag‘alroq.",
+   "formula": "k* = (s/(δ+n))^(1/(1−α)); y* = (k*)^α",
+   "note": "Aholi o‘sishi yuqori bo‘lgan mamlakatda bir ishchiga kapital va daromad past (aniqrog‘i y_B = 2,14)."
+  },
+  {
+   "id": "mk15-p5",
+   "title": "Texnik taraqqiyotli Solou modeli",
+   "text": "Texnik taraqqiyot bilan Solou modeli: y = k^0,3 (bir samarali ishchiga), s = 0,25, δ = 0,04, n = 0,015, g = 0,02. a) Barqaror holatdagi k* va y* ni toping. b) Bir ishchiga mahsulot, umumiy mahsulot va real ish haqi qanday sur’atlarda o‘sadi? c) Oltin qoida bo‘yicha MPK qancha bo‘lishi kerak?",
+   "fields": [
+    {
+     "label": "Barqaror k*",
+     "value": 5.58,
+     "unit": "birlik"
+    },
+    {
+     "label": "Barqaror y*",
+     "value": 1.68,
+     "unit": "birlik"
+    },
+    {
+     "label": "Umumiy mahsulot o‘sish sur’ati",
+     "value": 3.5,
+     "unit": "%"
+    },
+    {
+     "label": "Oltin qoida MPK",
+     "value": 7.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) s·k^0,3 = (δ+n+g)k → k^0,7 = 0,25/0,075 = 3,333; k* = 3,333^(1/0,7) = 5,58; y* = 5,58^0,3 = 1,68 (samarali ishchiga). b) Bir ishchiga mahsulot va real ish haqi — g = 2% ga; umumiy mahsulot — n+g = 3,5% ga o‘sadi. c) MPK = δ+n+g = 0,075 = 7,5%.",
+   "formula": "sy = (δ+n+g)k; MPK_oltin = δ+n+g",
+   "note": "Samarali ishchi birligidagi k va y barqaror holatda o‘zgarmaydi; doimiy o‘sishni faqat texnik taraqqiyot (g) ta’minlaydi."
+  },
+  {
+   "id": "mk15-p6",
+   "title": "O‘sishni hisoblash",
+   "text": "Y = A·K^0,4·L^0,6. 10 yil davomida YaIM yiliga o‘rtacha 6,5%, kapital 8%, mehnat 2% o‘sgan. a) UOU o‘sishini toping. b) Keyingi 10 yilda kapital o‘sishi 6% ga, mehnat 1% ga sekinlashsa va UOU o‘zgarmasa, YaIM o‘sishi qancha bo‘ladi? c) 6,5% o‘sishni saqlash uchun UOU qanchaga tezlashishi kerak?",
+   "fields": [
+    {
+     "label": "UOU o‘sishi",
+     "value": 2.1,
+     "unit": "%"
+    },
+    {
+     "label": "Yangi YaIM o‘sishi",
+     "value": 5.1,
+     "unit": "%"
+    },
+    {
+     "label": "6,5% uchun zarur UOU o‘sishi",
+     "value": 3.5,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) g_A = g_Y − 0,4·g_K − 0,6·g_L = 6,5 − 0,4·8 − 0,6·2 = 6,5 − 3,2 − 1,2 = 2,1%. b) g_Y = 0,4·6 + 0,6·1 + 2,1 = 2,4 + 0,6 + 2,1 = 5,1%. c) g_A = 6,5 − 2,4 − 0,6 = 3,5%, ya’ni UOU o‘sishi 1,4 foiz bandga tezlashishi kerak.",
+   "formula": "g_Y = g_A + α·g_K + (1−α)·g_L",
+   "note": "UOU (Solou qoldig‘i) — omillar hissasi ajratilgandan keyingi qoldiq."
+  }
+ ],
+ "open": [
+  "Solou modelida jamg‘arish normasining oshishi barqaror holatga va o‘sish sur’atiga qanday ta’sir qiladi? Nima uchun jamg‘arish normasi o‘sishi uzoq muddatda o‘sish sur’atini emas, balki daromad darajasini o‘zgartiradi? Yaponiya va Germaniyaning urushdan keyingi tez o‘sishini tushuntiring.",
+  "«Oltin qoida» nima? Uning shartini keltirib chiqaring. Dinamik samarasizlik nima va jamg‘arish normasini oltin qoida darajasiga oshirish o‘tish davrida iste’molga qanday ta’sir qiladi?",
+  "Endogen o‘sish nazariyalarining asosiy g‘oyalarini Solou modeli bilan solishtiring. Xiks bo‘yicha texnik taraqqiyot turlarini tavsiflang va O‘zbekistonda barqaror o‘sishni ta’minlash omillarini sanang."
+ ],
+ "refs": [
+  "Jamg‘arish normasi s oshsa, sy egri chizig‘i yuqoriga siljiydi va yangi barqaror holatda k* va y* yuqori bo‘ladi. O‘tish davrida o‘sish sur’ati vaqtincha oshadi, lekin barqaror holatga yetgach, bir ishchiga daromad o‘sishi yana nolga (texnik taraqqiyot bo‘lsa g ga) tushadi. Demak, jamg‘arish daromad darajasiga ta’sir qiladi, uzoq muddatli o‘sish sur’atiga emas. Yaponiya va Germaniyada urush kapitalni vayron qildi, ya’ni k barqaror holatdan past bo‘ldi; yuqori jamg‘arish va yaqinlashish tufayli o‘sish tez bo‘ldi.",
+  "Oltin qoida — barqaror holatda bir ishchiga iste’molni maksimallashtiruvchi jamg‘arish normasi (kapital darajasi). Shart: c* = f(k) − (δ+n)k ni k bo‘yicha maksimallashtirish → MPK = δ+n; Kobb-Duglasda s = α. Agar k oltin qoida darajasidan yuqori bo‘lsa, iqtisodiyot dinamik samarasiz: jamg‘arishni kamaytirish o‘tish davrida ham, barqaror holatda ham iste’molni oshiradi. Jamg‘arishni oshirish (k oltin qoidadan past bo‘lsa) avval iste’molni kamaytiradi, keyin esa uni dastlabkidan yuqori darajaga olib chiqadi.",
+  "Solou modelida texnik taraqqiyot ekzogen (g berilgan); endogen o‘sish nazariyalarida u iqtisodiy qarorlar natijasi: inson kapitali, ilmiy-tadqiqot xarajatlari, bilim tarqalishi va kapitalning kamayib boruvchi unumdorligi yo‘qligi. Xiks bo‘yicha texnik taraqqiyot neytral, mehnat tejovchi va kapital tejovchi turlarga bo‘linadi. O‘zbekistonda barqaror o‘sish omillari sifatida investitsiyalar, inson kapitali, texnologiyalar, institutsional islohotlar va mehnat unumdorligini oshirish keltirilishi mumkin."
+ ]
+}

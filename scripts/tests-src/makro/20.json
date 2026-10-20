@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Ochiq iqtisodiyotda yalpi xarajatlar:",
+  "options": [
+   "C + I + G + NX",
+   "C + I + G",
+   "C + S + T",
+   "C + I – NX"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Savdo balansi qaysi farqqa teng?",
+  "options": [
+   "C – I",
+   "G – T",
+   "S + I",
+   "Y – A (ishlab chiqarish minus ichki xarajatlar)"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Keyns modelida eksport asosan nimaga bog‘liq?",
+  "options": [
+   "Xorijiy daromadlar va valyuta kursiga",
+   "Milliy daromadga",
+   "Milliy soliqlarga",
+   "Milliy foiz stavkasiga"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Importga chegaraviy moyillik (MPM):",
+  "options": [
+   "Importning YaIMdagi ulushi",
+   "Importning eksportga nisbati",
+   "Qo‘shimcha daromadning import tovarlariga sarflanadigan qismi",
+   "Import tariflari darajasi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Milliy daromad oshganda sof eksport:",
+  "options": [
+   "Nolga tushadi",
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Kamayadi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Ochiq iqtisodiyot multiplikatori (t – soliq stavkasi, m – importga moyillik):",
+  "options": [
+   "1/(1 – MPC)",
+   "1/(1 – MPC(1 – t) + m)",
+   "MPC/(1 – m)",
+   "1/m"
+  ],
+  "c": 1
+ },
+ {
+  "q": "MPC = 0,8, t = 0, m = 0,3 bo‘lsa, ochiq iqtisodiyot multiplikatori:",
+  "options": [
+   "1,25",
+   "3,3",
+   "2",
+   "5"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Import xarajatlar oqimiga nisbatan:",
+  "options": [
+   "Chiqib ketish (sizib chiqish)",
+   "In’ektsiya",
+   "Multiplikatorni oshiradi",
+   "Neytral"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Eksport 100 ga oshsa, multiplikator 2 va m = 0,2 bo‘lsa, sof eksport qanchaga o‘zgaradi?",
+  "options": [
+   "+40",
+   "+60",
+   "–40",
+   "+100"
+  ],
+  "c": 1
+ },
+ {
+  "q": "«Egizak taqchilliklar» – bu:",
+  "options": [
+   "Ichki va tashqi qarz",
+   "Ikki mamlakatning savdo taqchilligi",
+   "Byudjet va savdo balansi taqchilliklari",
+   "Inflyatsiya va ishsizlik"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Mandell-Fleming modeli mualliflari:",
+  "options": [
+   "R. Mandell va M. Fleming",
+   "R. Solou va T. Svon",
+   "J. Xiks va A. Xansen",
+   "M. Fridmen va A. Shvarts"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Mandell-Fleming modelida kapitalning mukammal mobilligi:",
+  "options": [
+   "NX = 0",
+   "e = 1",
+   "r > r∗",
+   "r = r∗"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Mandell-Fleming modelida LM∗ egri chizig‘i:",
+  "options": [
+   "Yuqoriga og‘ma",
+   "Vertikal",
+   "Gorizontal",
+   "Pastga og‘ma"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Mankyu belgilashida (e – 1 milliy valyutaga xorijiy valyuta) IS∗ egri chizig‘i:",
+  "options": [
+   "Yuqoriga og‘ma",
+   "Pastga og‘ma",
+   "Gorizontal",
+   "Vertikal"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Suzuvchi kurs sharoitida fiskal ekspansiya:",
+  "options": [
+   "Y ni oshiradi, e o‘zgarmaydi",
+   "e ni pasaytiradi, Y ni oshiradi",
+   "Ta’sir qilmaydi",
+   "e ni oshiradi, Y o‘zgarmaydi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Suzuvchi kurs sharoitida fiskal ekspansiya nimani siqib chiqaradi?",
+  "options": [
+   "Investitsiyalarni",
+   "Sof eksportni",
+   "Pul taklifini",
+   "Iste’molni"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Suzuvchi kurs sharoitida monetar ekspansiya:",
+  "options": [
+   "Milliy valyutani qimmatlashtiradi",
+   "Faqat inflyatsiyani oshiradi",
+   "Y ga ta’sir qilmaydi",
+   "Milliy valyutani qadrsizlantirib, Y ni oshiradi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Qayd etilgan kurs sharoitida eng samarali siyosat:",
+  "options": [
+   "Ikkalasi bir xil samarali",
+   "Fiskal siyosat",
+   "Monetar siyosat",
+   "Ikkalasi ham samarasiz"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Qayd etilgan kurs sharoitida monetar ekspansiya samarasiz, chunki:",
+  "options": [
+   "Foiz stavkasi oshadi",
+   "Import kamayadi",
+   "Soliqlar oshadi",
+   "Markaziy bank kursni ushlab turish uchun pul taklifini qaytarishga majbur"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Qayd etilgan kurs sharoitida devalvatsiya:",
+  "options": [
+   "Sof eksportni va Y ni oshiradi",
+   "Ta’sir qilmaydi",
+   "Y ni kamaytiradi",
+   "Faqat importni oshiradi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Suzuvchi kurs sharoitida import kvotasi:",
+  "options": [
+   "e ni oshiradi, Y va NX o‘zgarmaydi",
+   "Y ni oshiradi",
+   "e ni pasaytiradi",
+   "NX ni oshiradi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "«Imkonsiz uchlik»ka kirmaydigan element:",
+  "options": [
+   "Kapitalning erkin harakati",
+   "Qayd etilgan valyuta kursi",
+   "Muvozanatlashgan byudjet",
+   "Mustaqil pul siyosati"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Yevrohudud mamlakatlari «imkonsiz uchlik»da nimadan voz kechgan?",
+  "options": [
+   "Mustaqil pul siyosatidan",
+   "Qayd etilgan kursdan",
+   "Kapital erkinligidan",
+   "Hech narsadan"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Mamlakat xatari mukofoti oshsa, suzuvchi kurs sharoitida milliy valyuta:",
+  "options": [
+   "Qimmatlashadi",
+   "Revalvatsiya qilinadi",
+   "Qadrsizlanadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Kapitalning mukammal mobilligida BP egri chizig‘i:",
+  "options": [
+   "Pastga og‘ma",
+   "Vertikal",
+   "Gorizontal",
+   "Tik yuqoriga og‘ma"
+  ],
+  "c": 2
+ },
+ {
+  "q": "BP egri chizig‘idan o‘ngda (pastda) joylashgan nuqtalarda:",
+  "options": [
+   "To‘lov balansi taqchilligi",
+   "To‘lov balansi profitsiti",
+   "To‘lov balansi muvozanati",
+   "To‘liq bandlik"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Kapitalning past mobilligi va suzuvchi kurs sharoitida fiskal ekspansiya:",
+  "options": [
+   "Zaxiralarni ko‘paytiradi",
+   "Ta’sir qilmaydi",
+   "Milliy valyutani qimmatlashtiradi va samarasiz bo‘ladi",
+   "Milliy valyutani qadrsizlantiradi va samarali bo‘ladi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Optimal valyuta hududi nazariyasi muallifi:",
+  "options": [
+   "J.M. Keyns",
+   "M. Fleming",
+   "R. Mandell",
+   "P. Krugman"
+  ],
+  "c": 2
+ },
+ {
+  "q": "1980-yillar boshida AQSHdagi siyosat kombinatsiyasi:",
+  "options": [
+   "Ikkalasi ham cheklovchi",
+   "Fiskal ekspansiya + monetar cheklash",
+   "Ikkalasi ham rag‘batlantiruvchi",
+   "Fiskal konsolidatsiya + monetar yumshatish"
+  ],
+  "c": 1
+ },
+ {
+  "q": "O‘zbekistonda 2017-yildan qo‘llanilayotgan valyuta rejimi:",
+  "options": [
+   "Dollarlashuv",
+   "Boshqariladigan suzuvchi kurs",
+   "Qat’iy qayd etilgan kurs",
+   "Valyuta kengashi"
+  ],
+  "c": 1
+ }
+]

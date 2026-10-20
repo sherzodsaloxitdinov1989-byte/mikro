@@ -40,7 +40,7 @@ const SECTIONS = [
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
-  { key: "roster", only: "tadbirkorlik", icon: "🔐", title: "Talabalar ro'yxati (shifr)", group: "class", desc: "141-23 va 142-23 guruhlari: F.I.Sh. va shifr ro'yxatini yuklash. Talaba faqat ro'yxat va shifr bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
@@ -51,7 +51,7 @@ const SECTIONS = [
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter((x) => x && (!x.only || x.only === SUBJECT_KEY) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
+].filter((x) => x && (!x.only || x.only === SUBJECT_KEY) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {

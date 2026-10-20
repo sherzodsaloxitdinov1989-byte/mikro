@@ -1,0 +1,156 @@
+{
+ "goal": "Ochiq iqtisodiyotda muvozanatli ishlab chiqarish, multiplikatorlar va «egizak taqchilliklar»ni hisoblash; Mandell-Fleming modelida suzuvchi va qayd etilgan kurs sharoitida fiskal va monetar siyosat samaradorligini tahlil qilish.",
+ "concepts": [
+  "Sof eksport va importga chegaraviy moyillik",
+  "Ochiq iqtisodiyot multiplikatori",
+  "«Egizak taqchilliklar»",
+  "Mandell-Fleming modeli (IS∗, LM∗)",
+  "Suzuvchi va qayd etilgan kurs rejimlarida siyosat samaradorligi",
+  "«Imkonsiz uchlik» va IS-LM-BP modeli"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 20-bob",
+ "tasks": [
+  {
+   "id": "mk20-p1",
+   "title": "Ochiq iqtisodiyotda muvozanat va multiplikator",
+   "text": "Iqtisodiyotda: C = 50 + 0,75(Y – T); T = 0,2Y; I = 150; G = 200; X = 180; M = 30 + 0,15Y. a) Muvozanatli Y va NX ni toping. b) Ochiq va yopiq iqtisodiyot multiplikatorlarini hisoblang. c) Eksport 30 ga oshsa, Y va NX qanday o‘zgaradi?",
+   "fields": [
+    {
+     "label": "Muvozanatli Y",
+     "value": 1000,
+     "unit": ""
+    },
+    {
+     "label": "NX",
+     "value": 0,
+     "unit": ""
+    },
+    {
+     "label": "Ochiq iqtisodiyot multiplikatori",
+     "value": 1.82,
+     "unit": ""
+    },
+    {
+     "label": "Yopiq iqtisodiyot multiplikatori",
+     "value": 2.5,
+     "unit": ""
+    },
+    {
+     "label": "ΔY (X + 30 bo‘lganda)",
+     "value": 54.55,
+     "unit": ""
+    },
+    {
+     "label": "ΔNX (X + 30 bo‘lganda)",
+     "value": 21.82,
+     "unit": ""
+    }
+   ],
+   "solution": "C = 50 + 0,6Y. Y = 50 + 0,6Y + 150 + 200 + 180 – 30 – 0,15Y = 550 + 0,45Y, Y = 550/0,55... aniqrog‘i: Y(1 – 0,6 + 0,15) = 550, Y = 550/0,55 = 1000. M = 30 + 150 = 180, NX = 180 – 180 = 0. Ochiq multiplikator 1/0,55 = 1,82; yopiq 1/(1 – 0,6) = 2,5. ΔX = 30: ΔY = 30·1,818 = 54,55; ΔM = 0,15·54,55 = 8,18; ΔNX = 30 – 8,18 = 21,82.",
+   "formula": "Y = [a + I + G + X – M0]/(1 – c(1 – t) + m); k = 1/(1 – c(1 – t) + m)",
+   "note": "Yo‘l: 1 – 0,75·0,8 + 0,15 = 0,55. Importga chegaraviy moyillik multiplikatorni kamaytiradi, chunki daromadning bir qismi xorijiy tovarlarga sarflanadi."
+  },
+  {
+   "id": "mk20-p2",
+   "title": "Egizak taqchilliklar",
+   "text": "1-masala sharoitida hukumat davlat xarajatlarini 40 ga oshirdi. a) Y, NX va byudjet saldosining o‘zgarishini toping. b) «Egizak taqchilliklar» g‘oyasini raqamlar asosida tushuntiring.",
+   "fields": [
+    {
+     "label": "ΔY",
+     "value": 72.73,
+     "unit": ""
+    },
+    {
+     "label": "ΔNX",
+     "value": -10.91,
+     "unit": ""
+    },
+    {
+     "label": "Yangi byudjet saldosi (T – G)",
+     "value": -25.45,
+     "unit": ""
+    }
+   ],
+   "solution": "ΔY = 40·1,818 = 72,73. ΔM = 0,15·72,73 = 10,91, shuning uchun ΔNX = –10,91. Soliq tushumi ΔT = 0,2·72,73 = 14,55; boshlang‘ich byudjet saldosi 200 – 200 = 0, yangi saldo = 14,55 – 40 = –25,45.",
+   "formula": "ΔY = k·ΔG; ΔNX = –m·ΔY; ΔB = t·ΔY – ΔG",
+   "note": "Fiskal ekspansiya byudjet taqchilligini (–25,45) va savdo taqchilligini (–10,91) bir vaqtda hosil qiladi – bu «egizak taqchilliklar»dir."
+  },
+  {
+   "id": "mk20-p3",
+   "title": "Mandell-Fleming: fiskal siyosat",
+   "text": "Kichik ochiq iqtisodiyotda (Mandell-Fleming): C = 100 + 0,75(Y – T); I = 500 – 20r; G = T = 200; NX = 400 – 100e; M/P = Y – 100r; M = 1500, P = 1, r∗ = 5. a) LM∗ dan Y ni toping. b) IS∗ dan muvozanatli e ni toping. c) G 50 ga oshsa, suzuvchi kurs sharoitida Y va e qanday o‘zgaradi? d) Qayd etilgan kurs sharoitida-chi?",
+   "fields": [
+    {
+     "label": "Y (LM∗ dan)",
+     "value": 2000,
+     "unit": ""
+    },
+    {
+     "label": "Muvozanatli e",
+     "value": 4.5,
+     "unit": ""
+    },
+    {
+     "label": "Suzuvchi kurs: yangi Y",
+     "value": 2000,
+     "unit": ""
+    },
+    {
+     "label": "Suzuvchi kurs: yangi e",
+     "value": 5.0,
+     "unit": ""
+    },
+    {
+     "label": "Qayd etilgan kurs: yangi Y",
+     "value": 2200.0,
+     "unit": ""
+    }
+   ],
+   "solution": "r = r∗ = 5. a) LM∗: 1500 = Y – 100·5, Y = 2000. b) IS∗: Y = 100 + 0,75(Y – 200) + (500 – 100) + 200 + 400 – 100e = 0,75Y + 950 – 100e, 0,25·2000 = 950 – 100e, e = 4,5. c) G = 250: 0,25Y = 1000 – 100e; LM∗ dan Y = 2000, shuning uchun e = 5,0. Y o‘zgarmaydi, NX 50 ga kamayadi (to‘liq siqib chiqarish). d) Qayd etilgan kurs e = 4,5: 0,25Y = 1000 – 450 = 550, Y = 2200 (ΔY = 200 = 50/0,25). Pul taklifi M = Y – 500 = 1700 gacha endogen oshadi.",
+   "formula": "LM∗: M/P = Y – 100r∗; IS∗: Y = C + I(r∗) + G + NX(e)",
+   "note": "Bu yerda e – real valyuta kursi: e oshishi milliy valyuta kuchayishi (NX kamayadi), kamayishi esa zaiflashishi (NX oshadi) ma’nosida. Suzuvchi kursda fiskal siyosat samarasiz, qayd etilganda samarali."
+  },
+  {
+   "id": "mk20-p4",
+   "title": "Mandell-Fleming: monetar siyosat",
+   "text": "3-masala sharoitida pul taklifi 1500 dan 1600 ga oshirildi. a) Suzuvchi kurs sharoitida yangi Y, e va NX ni toping. b) Qayd etilgan kurs sharoitida natija qanday bo‘ladi va nima uchun?",
+   "fields": [
+    {
+     "label": "Suzuvchi kurs: yangi Y",
+     "value": 2100,
+     "unit": ""
+    },
+    {
+     "label": "Suzuvchi kurs: yangi e",
+     "value": 4.25,
+     "unit": ""
+    },
+    {
+     "label": "Suzuvchi kurs: yangi NX",
+     "value": -25.0,
+     "unit": ""
+    },
+    {
+     "label": "Qayd etilgan kurs: Y o‘zgarishi",
+     "value": 0,
+     "unit": ""
+    }
+   ],
+   "solution": "a) LM∗: 1600 = Y – 500, Y = 2100. IS∗: 0,25·2100 = 950 – 100e, e = 4,25. NX = 400 – 100·4,25 = –25 (oldin 400 – 450 = –50: sof eksport 25 ga oshdi). b) Qayd etilgan kursda markaziy bank kursni ushlab turish uchun valyuta sotadi va pul taklifi 1500 ga qaytadi, shuning uchun Y = 2000, e = 4,5 o‘zgarmaydi.",
+   "formula": "LM∗: Y = M/P + 100r∗; IS∗: 0,25Y = 950 – 100e",
+   "note": "Suzuvchi kursda monetar siyosat milliy valyuta zaiflashuvi (e kamayishi) va sof eksport oshishi orqali ishlaydi; qayd etilgan kursda samarasiz."
+  }
+ ],
+ "open": [
+  "Ochiq iqtisodiyotda yalpi xarajatlar qanday tarkibiy qismlardan iborat? Eksport va import qanday omillarga bog‘liq va nima uchun ochiq iqtisodiyot multiplikatori yopiq iqtisodiyotnikidan kichik?",
+  "Mandell-Fleming modelining asosiy farazlarini sanab, suzuvchi va qayd etilgan kurs sharoitida fiskal va monetar siyosat samaradorligini taqqoslang. Mamlakat xatari mukofotining oshishi nimaga olib keladi?",
+  "Keys: mamlakat qayd etilgan kurs rejimida, kapital mobilligi past; joriy hisob taqchilligi YaIMning 6 foizi, zaxiralar 2,5 oylik importni qoplaydi, ishsizlik yuqori. Svon diagrammasi va IS-LM-BP modeli asosida holatni tahlil qiling, siyosat kombinatsiyasini taklif qiling va «imkonsiz uchlik» nuqtai nazaridan kerakli tarkibiy o‘zgarishlarni asoslang.",
+  "O‘zbekistonda ochiq iqtisodiyot sharoitida makroiqtisodiy siyosatning xususiyatlarini Mandell-Fleming modeli asosida baholang."
+ ],
+ "refs": [
+  "Y = C + I + G + NX. Eksport xorijiy daromad va valyuta kursiga, import milliy daromad va kursga bog‘liq; importga chegaraviy moyillik m daromadning importga sarflanadigan ulushi. Daromad o‘sishi importni oshirib, sof eksportni kamaytiradi, shuning uchun multiplikator 1/(1 – c(1 – t) + m) bo‘lib, yopiq iqtisodiyotdagi 1/(1 – c(1 – t)) dan kichik: daromadning bir qismi xorijga «oqib chiqadi».",
+  "Farazlar: kichik ochiq iqtisodiyot, kapitalning mukammal mobilligi (r = r∗), narxlar qat’iy. Suzuvchi kursda fiskal siyosat samarasiz (kurs kuchayib sof eksportni siqib chiqaradi), monetar siyosat samarali. Qayd etilgan kursda fiskal siyosat samarali, monetar siyosat samarasiz (pul taklifi endogen). Mamlakat xatari mukofoti oshsa, ichki foiz stavkasi r∗ + mukofotga ko‘tariladi, investitsiyalar kamayadi, suzuvchi kursda valyuta zaiflashadi va sof eksport oshadi.",
+  "Qayd etilgan kurs va past kapital mobilligida taqchilliklar zaxiralarni kamaytirmoqda, shuning uchun talabni kengaytirish cheklangan. Taklif: fiskal-monetar qat’iylashtirish bilan birga devalvatsiya yoki kurs moslashuvchanligini oshirish (xarajatlarni yo‘naltirish) va ishsizlikka qarshi tarkibiy choralar. Imkonsiz uchlikka ko‘ra uchtadan ikkitasi: kurs va kapital nazorati saqlansa, mustaqil monetar siyosat cheklanadi; ko‘proq moslashuvchan kursga o‘tish mustaqil siyosat imkonini beradi. Ichki va tashqi balans uchun ikki vosita (xarajat va kurs) kerak.",
+  "Baholash mezonlari: kurs rejimi (boshqariladigan suzuvchi kurs), inflyatsion targetlash va fiskal konsolidatsiya kombinatsiyasining modelga mosligi; suzuvchi kursda monetar siyosatning kuchi va fiskal siyosatning cheklanganligi; pul o‘tkazmalari va xom ashyo eksportiga bog‘liqlik, dollarlashuv xatari, eksport diversifikatsiyasi zarurati. Javobda kamida bitta tashqi zarba misoli keltirilishi kerak."
+ ]
+}

@@ -15,7 +15,7 @@ AUTO = ROOT / "public" / "data" / (f"{SUBJ}/layers-auto.js" if SUBJ else "layers
 SRC = ROOT / "scripts" / "tests-src" / SUBJ
 KEYS_OUT = ROOT / "server" / (f"quiz-keys-{SUBJ}.mjs" if SUBJ else "quiz-keys.mjs")
 # Savollar soni: asosiy fan va tb — aynan 20; mikro2 — 20 dan 30 gacha (darslikdagi testlar)
-N_MIN, N_MAX = (20, 30) if SUBJ == "mikro2" else (20, 20)
+N_MIN, N_MAX = (20, 30) if SUBJ in ("mikro2", "makro") else (20, 20)
 BAD = re.compile(r"hammasi to.g.ri|hech biri|barcha javoblar|yuqoridagilarning|a va b ", re.I)
 
 text = AUTO.read_text(encoding="utf-8")

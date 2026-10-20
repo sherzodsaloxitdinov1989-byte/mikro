@@ -1,0 +1,302 @@
+[
+ {
+  "q": "YaIMni hisoblashda qaysi tamoyil qo‘llaniladi?",
+  "options": [
+   "Tarmoq",
+   "Milliylik (fuqarolik)",
+   "Hudud (rezidentlik)",
+   "Valyuta"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Quyidagilardan qaysi biri YaIMga kiritiladi?",
+  "options": [
+   "Pensiya to‘lovlari",
+   "Aksiyalar sotuvi",
+   "Yangi qurilgan uy sotuvi",
+   "Ikkinchi qo‘l avtomobil sotuvi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Qo‘shilgan qiymat qanday hisoblanadi?",
+  "options": [
+   "Ish haqi – soliqlar",
+   "Yalpi mahsulot + oraliq iste’mol",
+   "Foyda + amortizatsiya",
+   "Yalpi mahsulot – oraliq iste’mol"
+  ],
+  "c": 3
+ },
+ {
+  "q": "YaIMni xarajatlar usulida hisoblash formulasi:",
+  "options": [
+   "Y = C + S + T",
+   "Y = W + R + i + Pr",
+   "Y = C + I + G + NX",
+   "Y = C + I – G"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Makroiqtisodiyotda investitsiya deganda nima tushuniladi?",
+  "options": [
+   "Oltin sotib olish",
+   "Real kapitalni ko‘paytirishga yo‘naltirilgan xarajatlar",
+   "Bankka omonat qo‘yish",
+   "Aksiyalar sotib olish"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Tovar zaxiralarining ko‘payishi YaIM tarkibida qayerda aks etadi?",
+  "options": [
+   "Investitsiyalarda",
+   "Sof eksportda",
+   "Iste’molda",
+   "Davlat xaridlarida"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Sof investitsiyalar:",
+  "options": [
+   "Yalpi investitsiyalar – amortizatsiya",
+   "Yalpi investitsiyalar + amortizatsiya",
+   "Investitsiyalar – soliqlar",
+   "Jamg‘armalar – iste’mol"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Davlat xaridlari (G) tarkibiga nima kirmaydi?",
+  "options": [
+   "Yo‘l qurilishi",
+   "Harbiy texnika xaridi",
+   "O‘qituvchilar ish haqi",
+   "Pensiyalar"
+  ],
+  "c": 3
+ },
+ {
+  "q": "YaMD = ?",
+  "options": [
+   "YaIM – egri soliqlar",
+   "YaIM – amortizatsiya",
+   "YaIM + transfertlar",
+   "YaIM + xorijdan olingan sof omil daromadlari"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Sof ichki mahsulot:",
+  "options": [
+   "YaIM – soliqlar",
+   "YaIM – amortizatsiya",
+   "MD – transfertlar",
+   "YaMD + amortizatsiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Shaxsiy tasarrufdagi daromad:",
+  "options": [
+   "Shaxsiy daromad – shaxsiy soliqlar",
+   "Milliy daromad – transfertlar",
+   "Shaxsiy daromad + soliqlar",
+   "YaIM – iste’mol"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Yopiq iqtisodiyotda (davlat bilan) qaysi ayniyat to‘g‘ri?",
+  "options": [
+   "C = S",
+   "S + T = I + G",
+   "S + T + IM = I + G + X",
+   "S = I"
+  ],
+  "c": 1
+ },
+ {
+  "q": "(S – I) + (T – G) = ?",
+  "options": [
+   "NX",
+   "0",
+   "C",
+   "Y"
+  ],
+  "c": 0
+ },
+ {
+  "q": "YaIM deflyatori qaysi indeks turiga kiradi?",
+  "options": [
+   "Laspeyres",
+   "Paashe",
+   "Fisher",
+   "Jini"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Iste’mol narxlari indeksi qaysi indeks turiga kiradi?",
+  "options": [
+   "Lorens",
+   "Laspeyres",
+   "Fisher",
+   "Paashe"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Fisher indeksi:",
+  "options": [
+   "Laspeyres va Paashe indekslarining o‘rta arifmetigi",
+   "Laspeyres va Paashe indekslarining o‘rta geometrigi",
+   "Paashe indeksining teskarisi",
+   "Laspeyres indeksining kvadrati"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Nominal YaIM 1200, real YaIM 1000 bo‘lsa, deflyator:",
+  "options": [
+   "120",
+   "83,3",
+   "100",
+   "220"
+  ],
+  "c": 0
+ },
+ {
+  "q": "INI deflyatordan farqli ravishda:",
+  "options": [
+   "Faqat mahalliy tovarlarni qamrab oladi",
+   "Joriy yil og‘irliklaridan foydalanadi",
+   "Investitsiya tovarlarini qamrab oladi",
+   "Import iste’mol tovarlarini ham qamrab oladi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Almashtirish samarasi tufayli INI:",
+  "options": [
+   "Deflyatorga teng bo‘ladi",
+   "Aniq natija beradi",
+   "Narxlar o‘sishini oshirib ko‘rsatadi",
+   "Narxlar o‘sishini kamaytirib ko‘rsatadi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Nominal YaIM 15%, deflyator 10% o‘sgan bo‘lsa, real YaIM taxminan qancha o‘sgan?",
+  "options": [
+   "1,5%",
+   "25%",
+   "5%",
+   "15%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Mehnat migrantlarining pul o‘tkazmalari qaysi ko‘rsatkichni oshiradi, ammo YaIMni bevosita oshirmaydi?",
+  "options": [
+   "Oraliq iste’mol",
+   "Qo‘shilgan qiymat",
+   "Yalpi milliy ixtiyoridagi daromad",
+   "Sof ichki mahsulot"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Uy egalarining o‘z uyida yashashi YaIMda qanday aks etadi?",
+  "options": [
+   "Hisobga olinmaydi",
+   "Transfert sifatida",
+   "Investitsiya sifatida",
+   "Shartli ijara sifatida hisobga olinadi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "2024-yilda O‘zbekiston YaIMida xizmatlar sohasining ulushi (YaQQga nisbatan) taxminan qancha bo‘lgan?",
+  "options": [
+   "26%",
+   "47%",
+   "19%",
+   "70%"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Quyidagilardan qaysi biri zaxira emas, oqim ko‘rsatkichi?",
+  "options": [
+   "Boylik",
+   "Kapital",
+   "YaIM",
+   "Davlat qarzi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Inson taraqqiyoti indeksi qaysi komponentlarni o‘z ichiga oladi?",
+  "options": [
+   "Daromad, ta’lim, umr davomiyligi",
+   "YaIM, inflyatsiya, ishsizlik",
+   "Soliqlar, xarajatlar, qarz",
+   "Eksport, import, kurs"
+  ],
+  "c": 0
+ },
+ {
+  "q": "YaIMni daromadlar bo‘yicha hisoblashda qaysi element kirmaydi?",
+  "options": [
+   "Ishlab chiqarish va importga sof soliqlar",
+   "Foyda",
+   "Ish haqi",
+   "Transfert to‘lovlari"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Agar nominal YaIM 12% oshgan, deflyator 8% oshgan bo‘lsa, real YaIM taxminan:",
+  "options": [
+   "4% oshgan",
+   "1,5% oshgan",
+   "8% kamaygan",
+   "20% oshgan"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Iste’mol narxlari indeksi qaysi turdagi indeks hisoblanadi?",
+  "options": [
+   "Paashe indeksi",
+   "Jini indeksi",
+   "Fisher indeksi",
+   "Laspeyres indeksi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Yashirin (kuzatilmaydigan) iqtisodiyot O‘zbekiston YaIMda taxminan qanday ulushga ega deb baholangan?",
+  "options": [
+   "15%",
+   "35%",
+   "60%",
+   "5%"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Mankyuga ko‘ra YaIM farovonlikning mukammal o‘lchovi emas, chunki u hisobga olmaydi:",
+  "options": [
+   "Bo‘sh vaqt, atrof-muhit sifati va uy xo‘jaligidagi nobozor faoliyatini",
+   "Yakuniy tovarlarni",
+   "Davlat xarajatlarini",
+   "Investitsiyalarni"
+  ],
+  "c": 0
+ }
+]

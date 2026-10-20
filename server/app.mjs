@@ -21,9 +21,10 @@ import * as taskLib from "./tasks.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { KEYS as QUIZ_KEYS_TB } from "./quiz-keys-tb.mjs";
 import { KEYS as QUIZ_KEYS_M2 } from "./quiz-keys-mikro2.mjs";
+import { KEYS as QUIZ_KEYS_MK } from "./quiz-keys-makro.mjs";
 import { normalizeSubmission, reviewPrompt, REVIEW_SCHEMA, REVIEW_CRITERIA, parseReview, demoReview as demoPracticeReview, totalOf } from "./practice-review.mjs";
 // Test javob kalitlari faqat serverda: brauzerga yuborilmaydi (talaba kalitni ko'rib ball soxtalashtirmasligi uchun). Har fanning o'z kalitlari.
-const KEYS_BY_SUBJECT = { mikro: QUIZ_KEYS, tadbirkorlik: QUIZ_KEYS_TB, mikro2: QUIZ_KEYS_M2 };
+const KEYS_BY_SUBJECT = { mikro: QUIZ_KEYS, tadbirkorlik: QUIZ_KEYS_TB, mikro2: QUIZ_KEYS_M2, makro: QUIZ_KEYS_MK };
 for (const [subject, topics] of Object.entries(TOPICS_ALL)) {
   for (const t of topics) {
     const keys = KEYS_BY_SUBJECT[subject]?.[t.num] || [];

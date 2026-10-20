@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Mankyu ta’rifiga ko‘ra pul – bu:",
+  "options": [
+   "Bitimlar uchun ishlatiladigan aktivlar zaxirasi",
+   "Har qanday qimmatli narsalar yig‘indisi (boylik)",
+   "Davlat tomonidan chiqarilgan oltin zaxirasi",
+   "Insonning bir yilda topadigan daromad oqimi"
+  ],
+  "c": 0,
+  "e": "Mankyu pulni bitimlarni amalga oshirish uchun ishlatiladigan aktivlar zaxirasi deb ta’riflaydi; boylik va daromad esa boshqa tushunchalar."
+ },
+ {
+  "q": "Pulning qaysi funksiyasi barter muammosini hal qiladi?",
+  "options": [
+   "Jahon puli sifatidagi funksiya",
+   "Ayirboshlash vositasi",
+   "Jamg‘arish vositasi",
+   "Qiymat o‘lchovi (hisob birligi)"
+  ],
+  "c": 1,
+  "e": "Ayirboshlash vositasi sifatida pul ehtiyojlarning ikki tomonlama mos kelishi muammosini yo‘qotadi."
+ },
+ {
+  "q": "Fiat pul:",
+  "options": [
+   "Oltin zaxirasiga kafolatlangan va almashtiriladigan pul",
+   "Faqat metall tangalar ko‘rinishidagi naqd pul",
+   "Qonun bilan e’lon qilingan, ichki qiymatsiz pul",
+   "Qimmatbaho metalldan zarb etilgan, ichki qiymatli pul"
+  ],
+  "c": 2,
+  "e": "Fiat pul davlat farmoni bilan pul deb e’lon qilinadi va ichki qiymatga ega bo‘lmaydi."
+ },
+ {
+  "q": "M1 agregati:",
+  "options": [
+   "M2 va davlatning qisqa muddatli obligatsiyalari",
+   "Faqat muomaladagi naqd pul va tangalar",
+   "Naqd pul va talab qilib olinguncha depozitlar",
+   "Naqd pul va muddatli jamg‘arma depozitlari"
+  ],
+  "c": 2,
+  "e": "M1 eng likvid agregat bo‘lib, naqd pul va talab qilib olinguncha depozitlardan iborat."
+ },
+ {
+  "q": "Kvazi pullarga kiradi:",
+  "options": [
+   "Talab qilib olinguncha joriy depozitlar",
+   "Muomaladagi naqd pul va tangalar",
+   "Bevosita to‘lov vositasi bo‘lgan chek hisobvaraqlari",
+   "Muddatli va jamg‘arma depozitlari"
+  ],
+  "c": 3,
+  "e": "Kvazi pullar bevosita to‘lov vositasi emas, ammo tez naqd pulga aylanadi: muddatli va jamg‘arma depozitlari."
+ },
+ {
+  "q": "Kembrij tenglamasi:",
+  "options": [
+   "M = mB",
+   "M = kPY",
+   "i = r + π",
+   "MV = PY"
+  ],
+  "c": 1,
+  "e": "Kembrij tenglamasida pulga talab nominal daromadning ma’lum ulushi (k) sifatida yoziladi: M = kPY."
+ },
+ {
+  "q": "Nominal YaIM 1200, pul massasi 300 bo‘lsa, aylanish tezligi:",
+  "options": [
+   "1500",
+   "0,25",
+   "4",
+   "900"
+  ],
+  "c": 2,
+  "e": "V = PY/M = 1200/300 = 4."
+ },
+ {
+  "q": "Keyns bo‘yicha pulga spekulyativ talab nimaga bog‘liq?",
+  "options": [
+   "Soliq stavkalariga",
+   "Daromad darajasiga",
+   "Narxlar darajasiga",
+   "Foiz stavkasiga"
+  ],
+  "c": 3,
+  "e": "Spekulyativ talab obligatsiyalardan voz kechishning muqobil qiymati bo‘lgan foiz stavkasiga teskari bog‘liq."
+ },
+ {
+  "q": "Foiz stavkasi oshganda obligatsiyalar narxi:",
+  "options": [
+   "Pasayadi",
+   "Oshadi",
+   "Foiz bilan bir xil sur’atda oshadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 0,
+  "e": "Foiz stavkasi va obligatsiya narxi o‘rtasida teskari bog‘liqlik mavjud."
+ },
+ {
+  "q": "Pulni saqlashning muqobil qiymati:",
+  "options": [
+   "Nominal foiz stavkasi",
+   "Foyda solig‘i stavkasi",
+   "Real valyuta kursi darajasi",
+   "Inflyatsiyaning yillik sur’ati"
+  ],
+  "c": 0,
+  "e": "Pul saqlagan odam obligatsiyalardan olishi mumkin bo‘lgan foiz daromadidan voz kechadi."
+ },
+ {
+  "q": "Majburiy zaxira normasi 20% bo‘lsa, bank multiplikatori:",
+  "options": [
+   "0,2",
+   "20",
+   "2",
+   "5"
+  ],
+  "c": 3,
+  "e": "m = 1/rr = 1/0,2 = 5."
+ },
+ {
+  "q": "Pul multiplikatori formulasi:",
+  "options": [
+   "(cr + 1)/(cr + rr)",
+   "cr/(1 + rr)",
+   "1/rr",
+   "(cr + rr)/(cr + 1)"
+  ],
+  "c": 0,
+  "e": "M/B = (C + D)/(C + R) = (cr + 1)/(cr + rr)."
+ },
+ {
+  "q": "Pul bazasi:",
+  "options": [
+   "M2 agregati va majburiy zaxiralar yig‘indisi",
+   "Naqd pul va depozitlar yig‘indisi",
+   "Naqd pul va bank zaxiralari yig‘indisi",
+   "Davlat qarzi va markaziy bank aktivlari yig‘indisi"
+  ],
+  "c": 2,
+  "e": "Pul bazasi B = C + R, ya’ni naqd pul va banklar zaxiralari."
+ },
+ {
+  "q": "B = 100, cr = 0,2, rr = 0,1 bo‘lsa, pul massasi:",
+  "options": [
+   "120",
+   "400",
+   "1000",
+   "300"
+  ],
+  "c": 1,
+  "e": "m = 1,2/0,3 = 4, M = 4 × 100 = 400."
+ },
+ {
+  "q": "Deponentlash koeffitsiyenti oshsa, pul multiplikatori:",
+  "options": [
+   "Kamayadi",
+   "O‘zgarmaydi",
+   "Avval oshadi, keyin kamayadi",
+   "Oshadi"
+  ],
+  "c": 0,
+  "e": "cr qancha katta bo‘lsa, pul multiplikatori shuncha kichik bo‘ladi."
+ },
+ {
+  "q": "Markaziy bank ochiq bozorda obligatsiya sotib olsa:",
+  "options": [
+   "Pul bazasi oshadi",
+   "Pul bazasi kamayadi",
+   "Majburiy zaxira normasi oshadi",
+   "Foiz stavkasi oshadi"
+  ],
+  "c": 0,
+  "e": "Obligatsiya sotib olinganda Markaziy bank pul chiqaradi va pul bazasi oshadi."
+ },
+ {
+  "q": "Buyuk depressiya davrida AQSHda pul massasi qisqarishining asosiy sababi:",
+  "options": [
+   "Oltin standarti bekor qilinishi va kapital oqimi",
+   "Pul bazasining keskin va uzoq muddatli qisqarishi",
+   "Pul multiplikatorining keskin kamayishi",
+   "Soliqlarning keskin oshirilishi va byudjet qisqarishi"
+  ],
+  "c": 2,
+  "e": "Pul bazasi 18% oshgan, ammo multiplikator kamayib, pul massasi 28% qisqargan."
+ },
+ {
+  "q": "Pul bozorida pul taklifi oshsa:",
+  "options": [
+   "Pulga talab egri chizig‘i chapga siljiydi",
+   "Real daromad avtomatik kamayadi",
+   "Foiz stavkasi pasayadi",
+   "Foiz stavkasi oshadi"
+  ],
+  "c": 2,
+  "e": "Taklif chizig‘i o‘ngga siljiydi va muvozanatli foiz stavkasi pasayadi."
+ },
+ {
+  "q": "Daromad oshganda pul bozorida:",
+  "options": [
+   "Pul taklifi oshadi, foiz stavkasi pasayadi",
+   "Pulga talab oshadi, foiz stavkasi pasayadi",
+   "Pulga talab kamayadi, foiz stavkasi oshadi",
+   "Pulga talab oshadi, foiz stavkasi oshadi"
+  ],
+  "c": 3,
+  "e": "Talab egri chizig‘i o‘ngga siljiydi, taklif o‘zgarmagani uchun foiz stavkasi oshadi."
+ },
+ {
+  "q": "LM egri chizig‘i nimani ko‘rsatadi?",
+  "options": [
+   "Pul bozori muvozanatini ta’minlovchi Y va r juftliklarini",
+   "Tovarlar bozori muvozanatini ta’minlovchi Y va r juftliklarini",
+   "Inflyatsiya va ishsizlik o‘rtasidagi almashinuvni",
+   "Mehnat bozori muvozanatini ta’minlovchi w va L juftliklarini"
+  ],
+  "c": 0,
+  "e": "LM egri chizig‘i pul bozori muvozanatidagi daromad va foiz stavkasi kombinatsiyalarini beradi."
+ },
+ {
+  "q": "Pulga talab foiz stavkasiga juda sezgir bo‘lsa, LM egri chizig‘i:",
+  "options": [
+   "Pastga egilgan",
+   "Vertikal",
+   "Odatdagidan tikroq",
+   "Yotiq"
+  ],
+  "c": 3,
+  "e": "Talab foizga juda sezgir bo‘lsa, LM egri chizig‘i gorizontalga yaqinlashadi."
+ },
+ {
+  "q": "Likvidlik tuzog‘ida:",
+  "options": [
+   "Investitsiyalar foiz stavkasiga haddan ortiq sezgir bo‘ladi",
+   "Inflyatsiya yuqori va pul siyosati juda samarali bo‘ladi",
+   "Pul taklifining oshishi foiz stavkasini keskin pasaytiradi",
+   "Qo‘shimcha pul foiz stavkasini pasaytirmaydi"
+  ],
+  "c": 3,
+  "e": "Foiz juda past bo‘lsa, odamlar har qanday qo‘shimcha pulni saqlaydi va stavka tushmaydi."
+ },
+ {
+  "q": "Fridmenning monetar qoidasi:",
+  "options": [
+   "Pul massasini tsiklga qarshi qisqartirib turish",
+   "Pul massasini YaIM o‘sishiga mos oshirish",
+   "Valyuta kursini qat’iy qayd etib qo‘yish",
+   "Foiz stavkasini nol darajada qat’iy ushlab turish"
+  ],
+  "c": 1,
+  "e": "Fridmen pul massasini YaIM o‘sishiga mos barqaror sur’atda oshirishni taklif qilgan."
+ },
+ {
+  "q": "Real kassa qoldiqlari samarasi nimani anglatadi?",
+  "options": [
+   "Narx o‘zgarishining real pul qoldig‘i orqali iste’molga ta’siri",
+   "Foiz stavkasi o‘zgarishining investitsiya xarajatlariga ta’siri",
+   "Soliq stavkasi o‘zgarishining real daromad va jamg‘armaga ta’siri",
+   "Pul multiplikatorining zaxira normasi va deponentlash koeffitsiyentiga bog‘liqligi"
+  ],
+  "c": 0,
+  "e": "Narxlar o‘zgarsa, real pul qoldiqlari o‘zgaradi va bu iste’molga ta’sir qiladi."
+ },
+ {
+  "q": "Baumol–Tobin modeliga ko‘ra pulga talab daromadga qanday bog‘liq?",
+  "options": [
+   "Daromadning kvadratiga to‘g‘ri proporsional bog‘liq",
+   "Daromad darajasiga umuman bog‘liq emas",
+   "Daromadning kvadrat ildiziga proporsional",
+   "Daromadga teskari proporsional bog‘liq"
+  ],
+  "c": 2,
+  "e": "Baumol–Tobin modelida pulga talab daromadning kvadrat ildiziga proporsional."
+ },
+ {
+  "q": "Pul agregati M2 ga kiradi:",
+  "options": [
+   "Faqat muomaladagi naqd pul va metall tangalar",
+   "M1 va muddatli depozitlar",
+   "Faqat oltin-valyuta zaxiralari va qimmatbaho metallar",
+   "Davlat obligatsiyalari va korporativ aksiyalar"
+  ],
+  "c": 1,
+  "e": "M2 = M1 + kvazi pullar (muddatli va jamg‘arma depozitlari)."
+ },
+ {
+  "q": "Majburiy zaxira normasi 10% bo‘lsa, oddiy bank multiplikatori:",
+  "options": [
+   "1",
+   "10",
+   "100",
+   "5"
+  ],
+  "c": 1,
+  "e": "m = 1/rr = 1/0,1 = 10."
+ },
+ {
+  "q": "Pul bazasi 200, deponentlash koeffitsienti cr = 0,5, zaxira normasi rr = 0,1 bo‘lsa, pul multiplikatori:",
+  "options": [
+   "1,5",
+   "2,5",
+   "10",
+   "5"
+  ],
+  "c": 1,
+  "e": "m = (0,5 + 1)/(0,5 + 0,1) = 1,5/0,6 = 2,5."
+ },
+ {
+  "q": "Likvidlilikni afzal ko‘rish nazariyasiga ko‘ra pulga talab foiz stavkasiga:",
+  "options": [
+   "Bog‘liq emas",
+   "To‘g‘ri bog‘liq",
+   "Faqat inflyatsiyaga bog‘liq",
+   "Teskari bog‘liq"
+  ],
+  "c": 3,
+  "e": "Foiz qancha yuqori bo‘lsa, pul saqlash shuncha qimmat va pulga talab shuncha kam."
+ },
+ {
+  "q": "Pul taklifi o‘zgarmay, daromad oshsa, pul bozorida foiz stavkasi:",
+  "options": [
+   "Pasayadi",
+   "Oshadi",
+   "Nolga tushadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 1,
+  "e": "Daromad oshsa talab o‘ngga siljiydi va taklif o‘zgarmaganda foiz oshadi."
+ }
+]

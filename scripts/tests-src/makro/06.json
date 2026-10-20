@@ -1,0 +1,302 @@
+[
+ {
+  "q": "AD-AS modelida vertikal o‘qda nima ko‘rsatiladi?",
+  "options": [
+   "Narxlarning umumiy darajasi",
+   "Ish haqi",
+   "Alohida tovar narxi",
+   "Foiz stavkasi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "AD egri chizig‘i pastga qarab egilganligining sababi emas:",
+  "options": [
+   "Almashtirish samarasi (mikroiqtisodiy)",
+   "Boylik samarasi",
+   "Import xaridlari samarasi",
+   "Foiz stavkasi samarasi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Boylik samarasi kimning nomi bilan bog‘liq?",
+  "options": [
+   "J.M. Keyns",
+   "A. Pigu",
+   "R. Mandell",
+   "L. Valras"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Narxlar darajasining pasayishi:",
+  "options": [
+   "AD egri chizig‘ini o‘ngga siljitadi",
+   "AS egri chizig‘ini siljitadi",
+   "AD egri chizig‘ini chapga siljitadi",
+   "AD egri chizig‘i bo‘ylab harakatga olib keladi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Quyidagilardan qaysi biri AD ni o‘ngga siljitadi?",
+  "options": [
+   "Soliqlarning oshirilishi",
+   "Davlat xarajatlarining oshirilishi",
+   "Pul taklifining kamayishi",
+   "Milliy valyutaning qimmatlashishi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Klassik modelda AS egri chizig‘i:",
+  "options": [
+   "Gorizontal",
+   "Vertikal",
+   "Pastga egilgan",
+   "Yuqoriga egilgan"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Keynscha qisqa muddatli AS egri chizig‘i:",
+  "options": [
+   "Giperbola",
+   "Pastga egilgan",
+   "Vertikal",
+   "Gorizontal"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Klassik modelda pul taklifining oshishi:",
+  "options": [
+   "Foiz stavkasini oshiradi",
+   "Faqat narxlar darajasini oshiradi",
+   "Ishsizlikni kamaytiradi",
+   "Real YaIMni oshiradi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Pulning neytralligi nimani anglatadi?",
+  "options": [
+   "Pul aylanish tezligi o‘zgarmas",
+   "Pul real o‘zgaruvchilarga ta’sir qilmaydi",
+   "Pul inflyatsiyaga ta’sir qilmaydi",
+   "Pul taklifi o‘zgarmas"
+  ],
+  "c": 1
+ },
+ {
+  "q": "AS egri chizig‘ining keynscha kesimida yalpi talab oshsa:",
+  "options": [
+   "Ikkalasi ham oshadi",
+   "Faqat narxlar oshadi",
+   "Faqat ishlab chiqarish oshadi",
+   "Hech narsa o‘zgarmaydi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "AS egri chizig‘ining vertikal kesimida yalpi talab oshsa:",
+  "options": [
+   "Faqat narxlar oshadi",
+   "Faqat ishlab chiqarish oshadi",
+   "Narxlar pasayadi",
+   "Ikkalasi ham oshadi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Qaysi omil AS ni chapga siljitadi?",
+  "options": [
+   "Deregulyatsiya",
+   "Texnologik taraqqiyot",
+   "Energiya narxlarining oshishi",
+   "Soliqlarning kamaytirilishi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Uzoq muddatli muvozanatda:",
+  "options": [
+   "AD, SRAS va LRAS bitta nuqtada kesishadi",
+   "Faqat AD va LRAS kesishadi",
+   "SRAS vertikal",
+   "AD va SRAS kesishadi, LRAS dan uzoqda"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Valras qonuniga ko‘ra, 4 ta bozordan 3 tasida muvozanat bo‘lsa:",
+  "options": [
+   "To‘rtinchisida taqchillik bo‘ladi",
+   "To‘rtinchisida ham muvozanat bo‘ladi",
+   "Aniqlab bo‘lmaydi",
+   "To‘rtinchisida ortiqchalik bo‘ladi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Salbiy talab shoki qisqa muddatda:",
+  "options": [
+   "Y ni kamaytiradi",
+   "Faqat P ni oshiradi",
+   "Y ni oshiradi",
+   "LRAS ni siljitadi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Salbiy talab shoki uzoq muddatda (siyosat aralashuvisiz):",
+  "options": [
+   "Y doimiy past bo‘ladi",
+   "Giperinflyatsiya boshlanadi",
+   "P oshadi",
+   "Y potensialga qaytadi, P pasayadi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Salbiy taklif shoki natijasida:",
+  "options": [
+   "Y↓, P↓",
+   "Y↑, P↓",
+   "Y↑, P↑",
+   "Y↓, P↑"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Moslashtiruvchi siyosat taklif shokiga javoban:",
+  "options": [
+   "AD ni o‘ngga siljitib, Y ni tiklaydi, ammo P yuqori qoladi",
+   "SRAS ni pastga siljitadi",
+   "LRAS ni siljitadi",
+   "AD ni chapga siljitadi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Blinder tadqiqotiga ko‘ra narxlar qat’iyligining eng ko‘p tilga olingan sababi:",
+  "options": [
+   "Raqobatchilar bilan muvofiqlashtirish muammosi",
+   "Davlat nazorati",
+   "Soliqlar",
+   "Menyu xarajatlari"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Mankyu keltirgan 1724-yilgi Fransiya tajribasi nimani ko‘rsatadi?",
+  "options": [
+   "Fiskal siyosat samaradorligini",
+   "Narxlarning egiluvchanligini",
+   "Giperinflyatsiyani",
+   "Pulning qisqa muddatda noneytralligini"
+  ],
+  "c": 3
+ },
+ {
+  "q": "COVID-19 pandemiyasi qanday shok bo‘ldi?",
+  "options": [
+   "Faqat taklif shoki",
+   "Faqat talab shoki",
+   "Ham talab, ham taklif shoki",
+   "Ijobiy talab shoki"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Klassik dixotomiya nimani anglatadi?",
+  "options": [
+   "Real va nominal o‘zgaruvchilarni alohida tahlil qilish imkoniyati",
+   "Mikro va makroiqtisodiyot farqi",
+   "Ichki va tashqi bozor farqi",
+   "Talab va taklif tengligi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Pul massasi 400, V = 3 bo‘lsa, AD tenglamasi:",
+  "options": [
+   "Y = 1200P",
+   "Y = 133 / P",
+   "Y = 1200 / P",
+   "Y = 400P"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Barqarorlashtirish siyosatining muammosi emas:",
+  "options": [
+   "Shok turini aniqlash qiyinligi",
+   "Valras qonuni",
+   "Potensial YaIMni baholash qiyinligi",
+   "Vaqt kechikishlari"
+  ],
+  "c": 1
+ },
+ {
+  "q": "2022-yilda O‘zbekistonga pul o‘tkazmalarining keskin oshishi qanday shok bo‘ldi?",
+  "options": [
+   "Ijobiy taklif shoki",
+   "Salbiy talab shoki",
+   "Ijobiy talab shoki",
+   "Salbiy taklif shoki"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Uzoq muddatli yalpi taklif egri chizig‘i (LRAS):",
+  "options": [
+   "Gorizontal",
+   "Yuqoriga og‘ma",
+   "Pastga og‘ma",
+   "Vertikal"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Narxlar darajasi pasayganda real boylikning oshishi iste’molni rag‘batlantirishi:",
+  "options": [
+   "Rikardo samarasi",
+   "Fisher samarasi",
+   "Pigu samarasi",
+   "Keyns samarasi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Salbiy taklif shokiga markaziy bank yalpi talabni oshirish orqali javob bersa, bu siyosat:",
+  "options": [
+   "Neytral siyosat",
+   "Moslashtiruvchi siyosat",
+   "Sterilizatsiya",
+   "Cheklovchi siyosat"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Klassik dixotomiyaga ko‘ra pul taklifi uzoq muddatda ta’sir qiladi:",
+  "options": [
+   "Real foiz stavkasiga",
+   "Real YaIMga",
+   "Faqat nominal o‘zgaruvchilarga",
+   "Bandlikka"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Qisqa muddatda yalpi talabning oshishi (SRAS yuqoriga og‘ma bo‘lganda):",
+  "options": [
+   "Narxlarni pasaytiradi",
+   "Faqat narxlarni oshiradi",
+   "Faqat ishlab chiqarishni oshiradi",
+   "Ishlab chiqarish va narxlarni oshiradi"
+  ],
+  "c": 3
+ }
+]

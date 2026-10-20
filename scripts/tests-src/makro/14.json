@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Iqtisodiy o‘sish – bu:",
+  "options": [
+   "Narxlar umumiy darajasining uzoq muddatli o‘sishi",
+   "Potensial YaIMning uzoq muddatli o‘sishi",
+   "Retsessiyadan keyin YaIMning tiklanishi",
+   "Eksport hajmining uzoq muddatli o‘sishi"
+  ],
+  "c": 1,
+  "e": "Iqtisodiy o‘sish potensial ishlab chiqarish hajmining uzoq muddatda ko‘payishidir."
+ },
+ {
+  "q": "Aholi jon boshiga real YaIM o‘sishi taxminan qanday topiladi?",
+  "options": [
+   "gY + gN",
+   "gN – gY",
+   "gY × gN",
+   "gY – gN"
+  ],
+  "c": 3,
+  "e": "Jon boshiga o‘sish real YaIM o‘sish sur’atidan aholi o‘sish sur’atini ayirib topiladi."
+ },
+ {
+  "q": "«70 qoidasi» bo‘yicha 5% o‘sishda daromad necha yilda ikki baravar oshadi?",
+  "options": [
+   "14 yil",
+   "35 yil",
+   "10 yil",
+   "7 yil"
+  ],
+  "c": 0,
+  "e": "70 / 5 = 14 yil."
+ },
+ {
+  "q": "Iqtisodiy o‘sish ishlab chiqarish imkoniyatlari chegarasi (ICHE) da qanday aks etadi?",
+  "options": [
+   "ICHE ning ichkariga siljishi",
+   "ICHE bo‘ylab bir nuqtadan boshqasiga harakat",
+   "ICHE ning tashqariga siljishi",
+   "ICHE ning o‘zgarishsiz qolib, nuqtaning pastga tushishi"
+  ],
+  "c": 2,
+  "e": "O‘sish potensial hajm oshishini bildiradi, ya’ni ICHE tashqariga suriladi."
+ },
+ {
+  "q": "Ekstensiv o‘sish nima hisobiga ro‘y beradi?",
+  "options": [
+   "Resurslar miqdori oshishi hisobiga",
+   "Ta’lim darajasi oshishi hisobiga",
+   "Yangi texnologiyalar joriy etilishi hisobiga",
+   "Resurslardan foydalanish samaradorligi oshishi hisobiga"
+  ],
+  "c": 0,
+  "e": "Ekstensiv o‘sish ishlatiladigan resurslar miqdorini ko‘paytirishga asoslanadi."
+ },
+ {
+  "q": "Intensiv o‘sishga misol qaysi?",
+  "options": [
+   "Yangi yerlarni o‘zlashtirib, ekin maydonini kengaytirish",
+   "Ishchilar sonini ko‘paytirish orqali ishlab chiqarishni oshirish",
+   "Yangi texnologiyalar joriy etish",
+   "Xuddi shunday yana bitta zavod qurish"
+  ],
+  "c": 2,
+  "e": "Texnologiya resurslardan foydalanish samaradorligini oshiradi – bu intensiv o‘sish."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri ekstensiv o‘sishning ekologik cheklovi misoli bo‘ladi?",
+  "options": [
+   "Raqamlashtirish orqali xizmatlar kengayishi",
+   "Inson kapitalining sifat jihatdan o‘sishi",
+   "Texnologik yangilanish hisobiga unumdorlik oshishi",
+   "Orol dengizi fojiasi"
+  ],
+  "c": 3,
+  "e": "Paxta yakkahokimligi va suvdan haddan tashqari foydalanish Orol fojiasiga olib keldi."
+ },
+ {
+  "q": "Mankyu bo‘yicha uzoq muddatda real ish haqini nima belgilaydi?",
+  "options": [
+   "Pul massasi",
+   "Mehnat unumdorligi",
+   "Valyuta kursi",
+   "Soliq stavkalari"
+  ],
+  "c": 1,
+  "e": "Uzoq muddatda real ish haqi va turmush darajasi mehnat unumdorligiga bog‘liq."
+ },
+ {
+  "q": "Solou qoldig‘i nimani o‘lchaydi?",
+  "options": [
+   "Kapital zahirasining o‘sishini",
+   "Mehnat resurslari sonining o‘sishini",
+   "Narxlar umumiy darajasining o‘sishini",
+   "Umumiy omil unumdorligi o‘sishini"
+  ],
+  "c": 3,
+  "e": "Solou qoldig‘i – omillar hissasi ayirilgach qoladigan UOU o‘sishi."
+ },
+ {
+  "q": "Y 6%, K 10%, L 2% o‘sgan, α = 0,3 bo‘lsa, UOU o‘sishi qancha?",
+  "options": [
+   "1,6%",
+   "3,0%",
+   "4,6%",
+   "2,0%"
+  ],
+  "c": 0,
+  "e": "6 – 0,3 × 10 – 0,7 × 2 = 1,6%."
+ },
+ {
+  "q": "Mankyu ma’lumotlariga ko‘ra 1948–2016-yillarda AQSHda yillik o‘sish qancha bo‘lgan?",
+  "options": [
+   "2,0%",
+   "4,3%",
+   "3,4%",
+   "5,0%"
+  ],
+  "c": 2,
+  "e": "Mankyu keltirgan 9-2 jadvalga ko‘ra, AQSHda yillik o‘sish 3,4% bo‘lgan."
+ },
+ {
+  "q": "1973-yildan keyin AQSHda UOU o‘sishi qanday o‘zgargan?",
+  "options": [
+   "Keskin tezlashgan",
+   "Keskin sekinlashgan",
+   "Deyarli o‘zgarmagan",
+   "Manfiy bo‘lib qolgan"
+  ],
+  "c": 1,
+  "e": "UOU o‘sishi 1,9% dan 0,7% ga tushgan."
+ },
+ {
+  "q": "Neokeynscha o‘sish modellarining mualliflari kimlar?",
+  "options": [
+   "Solou va Svon",
+   "Keyns va Xiks",
+   "Xarrod va Domar",
+   "Romer va Lukas"
+  ],
+  "c": 2,
+  "e": "Neokeynscha o‘sish modellarini R. Xarrod va E. Domar yaratgan."
+ },
+ {
+  "q": "Neokeynscha modellarda qanday ishlab chiqarish funksiyasi qo‘llaniladi?",
+  "options": [
+   "Qat’iy koeffitsiyentli (Leontyev tipidagi)",
+   "Kobb-Duglas tipidagi (almashinuvchan omillar)",
+   "CES tipidagi (o‘zgaruvchan almashtirish)",
+   "Chiziqli tipidagi (to‘liq almashinuvchan)"
+  ],
+  "c": 0,
+  "e": "Bu modellarda kapital va mehnat bir-birini almashtira olmaydi."
+ },
+ {
+  "q": "Domar modelida talab tenglamasi qaysi?",
+  "options": [
+   "ΔY = σI",
+   "ΔY = sY",
+   "ΔY = sI",
+   "ΔY = ΔI / s"
+  ],
+  "c": 3,
+  "e": "Multiplikator 1/s orqali investitsiya o‘sishi daromadni ΔI / s ga oshiradi."
+ },
+ {
+  "q": "Domar modelida taklif tenglamasi qaysi?",
+  "options": [
+   "ΔY = ΔI / s",
+   "ΔY = σI",
+   "ΔY = I / σ",
+   "ΔY = sI"
+  ],
+  "c": 1,
+  "e": "Investitsiyalar quvvatni oshiradi: har bir birlik σ ga teng qo‘shimcha ishlab chiqarish beradi."
+ },
+ {
+  "q": "Domar formulasi bo‘yicha muvozanatli o‘sish sur’ati qanday topiladi?",
+  "options": [
+   "σ × s",
+   "s / σ",
+   "s + σ",
+   "σ / s"
+  ],
+  "c": 0,
+  "e": "Talab va taklif tenglashtirilsa, ΔY / Y = σ × s kelib chiqadi."
+ },
+ {
+  "q": "s = 0,25, σ = 0,2 bo‘lsa, Domar bo‘yicha o‘sish sur’ati qancha?",
+  "options": [
+   "80%",
+   "12,5%",
+   "45%",
+   "5%"
+  ],
+  "c": 3,
+  "e": "0,25 × 0,2 = 0,05, ya’ni 5%."
+ },
+ {
+  "q": "Xarrod modelida kafolatlangan o‘sish sur’ati qaysi formula bilan topiladi?",
+  "options": [
+   "n + λ",
+   "s / vr",
+   "s × v",
+   "v / s"
+  ],
+  "c": 1,
+  "e": "Gw = s / (v·r): jamg‘arish normasining zarur kapital sig‘imiga nisbati."
+ },
+ {
+  "q": "Xarrod modelida tabiiy o‘sish sur’ati qaysi formula bilan topiladi?",
+  "options": [
+   "s / v",
+   "σs",
+   "n + λ",
+   "ΔI / I"
+  ],
+  "c": 2,
+  "e": "Tabiiy sur’at ishchi kuchi o‘sishi n va mehnat unumdorligi o‘sishi λ yig‘indisiga teng."
+ },
+ {
+  "q": "s = 0,3, v = 5 bo‘lsa, kafolatlangan o‘sish sur’ati qancha?",
+  "options": [
+   "6%",
+   "15%",
+   "30%",
+   "1,5%"
+  ],
+  "c": 0,
+  "e": "0,3 / 5 = 0,06, ya’ni 6%."
+ },
+ {
+  "q": "Xarrod modelida haqiqiy sur’at kafolatlanganidan yuqori (G > Gw) bo‘lsa nima bo‘ladi?",
+  "options": [
+   "Depressiya boshlanib, quvvatlar ortiqcha bo‘ladi",
+   "Iqtisodiyot o‘z-o‘zidan Gw ga qaytadi",
+   "Undan uzoqlashadi, inflyatsion yuksalish kuchayadi",
+   "Uzoq muddatli muvozanat tiklanadi, o‘sish barqaror bo‘ladi"
+  ],
+  "c": 2,
+  "e": "G > Gw da quvvatlar yetishmaydi, investitsiyalar oshadi va iqtisodiyot Gw dan tobora uzoqlashadi."
+ },
+ {
+  "q": "«Pichoq tig‘i» muammosi nimani anglatadi?",
+  "options": [
+   "Tabiiy o‘sish sur’atining pasayib borishini",
+   "Kafolatlangan o‘sish yo‘lining beqarorligini",
+   "Soliq yukining keskin oshib borishini",
+   "Talab va taklif o‘rtasidagi vaqt kechikishini"
+  ],
+  "c": 1,
+  "e": "Haqiqiy sur’at Gw dan biroz chetlansa ham, iqtisodiyot unga qaytmaydi."
+ },
+ {
+  "q": "To‘liq bandlik bilan barqaror o‘sish sharti qaysi?",
+  "options": [
+   "s = v",
+   "Gw < Gn",
+   "G > Gn",
+   "G = Gw = Gn"
+  ],
+  "c": 3,
+  "e": "Uchala sur’at teng bo‘lgandagina o‘sish ham barqaror, ham to‘liq bandlikda bo‘ladi."
+ },
+ {
+  "q": "Gw < Gn bo‘lsa, iqtisodiyot nimaga moyil bo‘ladi?",
+  "options": [
+   "Surunkali ortiqcha quvvatlarga (jamg‘armalar ortiqchaligi)",
+   "Giperinflyatsiyaga (pul massasi ko‘pligi)",
+   "Tarkibiy ishsizlikka (jamg‘armalar yetishmasligi)",
+   "Deflyatsiyaga (talab yetishmasligi)"
+  ],
+  "c": 2,
+  "e": "Ishchi kuchi kapitaldan tez o‘sadi, shuning uchun tarkibiy ishsizlik muqarrar."
+ },
+ {
+  "q": "«Oltin asr» atamasini kim kiritgan?",
+  "options": [
+   "R. Xarrod",
+   "J. Robinson",
+   "R. Solou",
+   "E. Felps"
+  ],
+  "c": 1,
+  "e": "Uchala sur’at teng bo‘lgan holatni Joan Robinson «oltin asr» deb atagan."
+ },
+ {
+  "q": "Neokeynscha modellarning kamchiligi nima?",
+  "options": [
+   "Investitsiyalarning ikki tomonlama rolini e’tiborsiz qoldirishi",
+   "Jamg‘arishning iqtisodiy o‘sishdagi rolini ta’kidlashi",
+   "Narxlar moslashuvchanligini haddan tashqari ta’kidlashi",
+   "Kapital va mehnatning o‘zaro almashtirilmasligi farazi"
+  ],
+  "c": 3,
+  "e": "Omillar almashtirilmaydi degan faraz real iqtisodiyotga mos kelmaydi."
+ },
+ {
+  "q": "Rivojlanayotgan mamlakatlarda «moliyalashtirish uzilishi» modeli qaysi modelga asoslangan?",
+  "options": [
+   "Xarrod-Domar",
+   "Solou",
+   "Romer",
+   "Lyuis"
+  ],
+  "c": 0,
+  "e": "Zarur investitsiya = o‘sish × kapital sig‘imi formulasi Xarrod-Domar modelidan olingan."
+ },
+ {
+  "q": "Matnga ko‘ra, 2025-yilda O‘zbekiston YaIM o‘sishiga eng katta hissa qo‘shgan soha qaysi?",
+  "options": [
+   "Sanoat",
+   "Xizmatlar",
+   "Qurilish",
+   "Qishloq xo‘jaligi"
+  ],
+  "c": 1,
+  "e": "O‘sishning 3,9 foiz punkti xizmatlar hissasiga to‘g‘ri kelgan."
+ },
+ {
+  "q": "O‘zbekistonda investitsiyalar YaIMning ~32%, ICOR ≈ 4,2 bo‘lsa, Domar mantiqiga ko‘ra potensial o‘sish taxminan qancha?",
+  "options": [
+   "7,6%",
+   "13,4%",
+   "5,0%",
+   "3,0%"
+  ],
+  "c": 0,
+  "e": "0,32 / 4,2 ≈ 0,076, ya’ni 7,6%."
+ }
+]

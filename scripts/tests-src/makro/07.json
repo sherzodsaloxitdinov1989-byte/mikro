@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Keynsning «asosiy psixologik qonuni»ga ko‘ra:",
+  "options": [
+   "Daromad oshganda iste’mol ham oshadi, ammo daromad o‘sishidan kamroq miqdorda",
+   "Daromad oshganda iste’mol daromad o‘sishiga teng miqdorda oshadi",
+   "Iste’mol asosan real foiz stavkasi o‘zgarishiga bog‘liq bo‘ladi",
+   "Daromad oshganda iste’mol absolyut miqdorda kamayib boradi"
+  ],
+  "c": 0,
+  "e": "Keyns: odamlar daromad oshgan sari iste’molni oshiradi, lekin daromad o‘sishi miqdorida emas."
+ },
+ {
+  "q": "Avtonom iste’mol – bu:",
+  "options": [
+   "Daromadning har bir qo‘shimcha so‘miga bog‘liq iste’mol",
+   "Daromad nolga teng bo‘lganda ham mavjud bo‘ladigan iste’mol",
+   "Faqat davlat tomonidan amalga oshiriladigan iste’mol xarajati",
+   "Faqat import qilinadigan tovarlarga qilingan iste’mol xarajati"
+  ],
+  "c": 1,
+  "e": "Avtonom iste’mol (a) daromadga bog‘liq emas."
+ },
+ {
+  "q": "MPC + MPS = ?",
+  "options": [
+   "0",
+   "Y",
+   "1",
+   "APC"
+  ],
+  "c": 2,
+  "e": "Daromadning qo‘shimcha qismi yoki iste’mol qilinadi yoki jamg‘ariladi, shuning uchun MPC + MPS = 1."
+ },
+ {
+  "q": "C = 100 + 0,8Y bo‘lsa, jamg‘arish funksiyasi:",
+  "options": [
+   "S = –100 + 0,8Y",
+   "S = 100 + 0,2Y",
+   "S = 0,2Y – 80",
+   "S = –100 + 0,2Y"
+  ],
+  "c": 3,
+  "e": "S = Y – C = Y – 100 – 0,8Y = –100 + 0,2Y."
+ },
+ {
+  "q": "C = 100 + 0,8Y bo‘lsa, «kritik» nuqtadagi daromad (C = Y):",
+  "options": [
+   "800",
+   "100",
+   "500",
+   "125"
+  ],
+  "c": 2,
+  "e": "Y = 100 + 0,8Y dan 0,2Y = 100, Y = 500."
+ },
+ {
+  "q": "Chiziqli iste’mol funksiyasida daromad oshganda iste’molga o‘rtacha moyillik (APC):",
+  "options": [
+   "Kamayadi",
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Nolga teng bo‘ladi"
+  ],
+  "c": 0,
+  "e": "APC = a/Y + c, Y oshsa a/Y kamayadi, demak APC kamayadi."
+ },
+ {
+  "q": "Daromad 1000 dan 1200 ga, iste’mol 800 dan 950 ga oshsa, MPC:",
+  "options": [
+   "0,8",
+   "0,79",
+   "0,25",
+   "0,75"
+  ],
+  "c": 3,
+  "e": "MPC = ΔC/ΔY = 150/200 = 0,75."
+ },
+ {
+  "q": "«Kuznets jumbog‘i»ning mohiyati:",
+  "options": [
+   "Uzoq muddatda MPC birdan katta bo‘ladi, qisqa muddatda esa kichik",
+   "Uzoq muddatda APC barqaror, qisqa muddatda esa daromad oshgani sari kamayadi",
+   "Uzoq muddatda jamg‘arma manfiy bo‘ladi, qisqa muddatda esa musbat",
+   "Uzoq muddatda iste’mol faqat foiz stavkasiga bog‘liq bo‘ladi"
+  ],
+  "c": 1,
+  "e": "Kesim va qisqa davr ma’lumotlarida APC kamayadi, uzoq davr ma’lumotlarida deyarli o‘zgarmaydi."
+ },
+ {
+  "q": "Hayot tsikli gipotezasi muallifi:",
+  "options": [
+   "S. Kuznets",
+   "F. Modilyani",
+   "M. Fridmen",
+   "J. Tobin"
+  ],
+  "c": 1,
+  "e": "Hayot tsikli gipotezasini F. Modilyani ilgari surgan."
+ },
+ {
+  "q": "Hayot tsikli modelida iste’mol nimalarga bog‘liq?",
+  "options": [
+   "Faqat real foiz stavkasiga",
+   "Faqat jamg‘arilgan boylikka",
+   "Faqat joriy daromadga",
+   "Boylik va daromadga"
+  ],
+  "c": 3,
+  "e": "Model bo‘yicha iste’mol boylik va daromad orqali butun hayot davomida tekislanadi."
+ },
+ {
+  "q": "Permanent daromad gipotezasiga ko‘ra iste’mol asosan nimaga bog‘liq?",
+  "options": [
+   "Permanent (doimiy) daromadga",
+   "Tranzitor (vaqtinchalik) daromadga",
+   "Joriy yildagi daromadga",
+   "Soliq to‘lovlari miqdoriga"
+  ],
+  "c": 0,
+  "e": "Fridmen: odamlar iste’molni doimiy daromadga moslaydi."
+ },
+ {
+  "q": "Fridmen nazariyasiga ko‘ra vaqtinchalik soliq kamaytirishning iste’molga ta’siri:",
+  "options": [
+   "Kuchli bo‘ladi",
+   "Manfiy bo‘ladi",
+   "Juda zaif bo‘ladi",
+   "Keyns modelidagidan kuchliroq bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Vaqtinchalik daromad permanent daromadni deyarli o‘zgartirmaydi, shuning uchun iste’mol kam o‘zgaradi."
+ },
+ {
+  "q": "Engel qonuniga ko‘ra daromad oshganda:",
+  "options": [
+   "Oziq-ovqat xarajatlarining ulushi oshadi",
+   "Jami iste’mol absolyut miqdorda kamayadi",
+   "Jamg‘arma har doim kamayib boradi",
+   "Oziq-ovqat xarajatlarining ulushi kamayadi"
+  ],
+  "c": 3,
+  "e": "Engel qonuni: daromad o‘sgan sari oziq-ovqatga sarflanadigan ulush kamayadi."
+ },
+ {
+  "q": "Investitsiya amalga oshiriladi, agar:",
+  "options": [
+   "Kutilayotgan sof foyda normasi real foiz stavkasidan yuqori bo‘lsa",
+   "Kutilayotgan sof foyda normasi nominal foiz stavkasidan past bo‘lsa",
+   "Inflyatsiya darajasi nolga yaqin bo‘lsa",
+   "Soliq stavkalari yuqori darajada bo‘lsa"
+  ],
+  "c": 0,
+  "e": "Loyiha foydasi kapital narxi (real foiz) dan oshsagina investitsiya mantiqli."
+ },
+ {
+  "q": "Investitsiyalarga talab funksiyasi:",
+  "options": [
+   "I = e + dr",
+   "I = cY",
+   "I = e – dr",
+   "I = S"
+  ],
+  "c": 2,
+  "e": "Foiz stavkasi r oshsa investitsiyalar kamayadi, shuning uchun r oldida minus."
+ },
+ {
+  "q": "Foiz stavkasining pasayishi:",
+  "options": [
+   "Investitsiyalar egri chizig‘ining o‘ngga siljishiga olib keladi",
+   "Investitsiyalar egri chizig‘i bo‘ylab investitsiyalar oshishiga olib keladi",
+   "Investitsiyalar kamayishiga olib keladi",
+   "Investitsiyalarga hech qanday ta’sir qilmaydi"
+  ],
+  "c": 1,
+  "e": "r o‘zgarishi egri chiziq bo‘ylab harakat, e o‘zgarishi esa siljish beradi."
+ },
+ {
+  "q": "Tobin koeffitsiyenti (q):",
+  "options": [
+   "Kapitalning bozor qiymatining almashtirish qiymatiga nisbati",
+   "Kapitalning almashtirish qiymatining bozor qiymatiga nisbati",
+   "Investitsiyalarning YaIMga nisbati",
+   "Foydaning ishlatilgan kapitalga nisbati"
+  ],
+  "c": 0,
+  "e": "q = bozor qiymati / almashtirish qiymati."
+ },
+ {
+  "q": "Tobin koeffitsiyenti q > 1 bo‘lsa:",
+  "options": [
+   "Mavjud firmani sotib olish yangi kapital qurishdan arzonroq",
+   "Investitsiyalar nolga teng bo‘ladi",
+   "Yangi kapital qurish foydali, investitsiyalar oshadi",
+   "Firmalar kapitalni sotib, investitsiyalarni qisqartiradi"
+  ],
+  "c": 2,
+  "e": "q > 1 da bozor qiymati qurilish xarajatidan yuqori, shuning uchun yangi kapital qurish foydali."
+ },
+ {
+  "q": "Akselerator modelida investitsiyalar nimaga bog‘liq?",
+  "options": [
+   "Real foiz stavkasi darajasiga",
+   "Ishlab chiqarishning absolyut darajasiga",
+   "Iste’molning o‘rtacha moyilligiga",
+   "Ishlab chiqarish (daromad) hajmining o‘zgarishiga"
+  ],
+  "c": 3,
+  "e": "I = v·ΔY: investitsiya ishlab chiqarish o‘zgarishiga proporsional."
+ },
+ {
+  "q": "Akselerator v = 2, ishlab chiqarish 100 dan 115 ga oshsa, sof investitsiya:",
+  "options": [
+   "2",
+   "30",
+   "15",
+   "230"
+  ],
+  "c": 1,
+  "e": "I = v·ΔY = 2 × 15 = 30."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri investitsiyalar beqarorligining sababi emas?",
+  "options": [
+   "Akselerator samarasi",
+   "Kapital tovarlarning uzoq xizmat qilishi",
+   "Iste’molning barqarorligi",
+   "Innovatsiyalarning notekis tarqalishi"
+  ],
+  "c": 2,
+  "e": "Iste’mol barqaror, beqarorlik esa akselerator, uzoq xizmat muddati va innovatsiyalardan kelib chiqadi."
+ },
+ {
+  "q": "Investitsiyalashga chegaraviy moyillik:",
+  "options": [
+   "ΔI / ΔY",
+   "I / Y",
+   "ΔC / ΔY",
+   "ΔS / ΔY"
+  ],
+  "c": 0,
+  "e": "Daromad 1 birlikka o‘zgarganda investitsiya qancha o‘zgarishini ko‘rsatadi."
+ },
+ {
+  "q": "2025-yilda O‘zbekistonda asosiy kapitalga investitsiyalar hajmi nechchi trln so‘mdan oshdi?",
+  "options": [
+   "1850",
+   "591",
+   "350",
+   "150"
+  ],
+  "c": 1,
+  "e": "Darslikka ko‘ra 2025-yilda 591 trln so‘mdan oshgan."
+ },
+ {
+  "q": "Keyns kapitalning chegaraviy samaradorligi deb nimani atagan?",
+  "options": [
+   "Amortizatsiya normasini",
+   "Real foiz stavkasini",
+   "Akselerator koeffitsiyentini",
+   "Kutilayotgan sof foyda normasini"
+  ],
+  "c": 3,
+  "e": "Keyns bu tushunchani investitsiyadan kutilayotgan foyda normasi uchun ishlatgan."
+ },
+ {
+  "q": "ICOR ko‘rsatkichi nimani ko‘rsatadi?",
+  "options": [
+   "YaIMning eksportga bog‘liq qismini",
+   "Narxlar umumiy darajasining o‘sish sur’atini",
+   "YaIMni 1% oshirish uchun zarur bo‘ladigan investitsiya ulushini",
+   "Ishchi kuchining bandlik darajasini"
+  ],
+  "c": 2,
+  "e": "ICOR = investitsiyalar/YaIM nisbatini o‘sish sur’atiga bo‘lish."
+ },
+ {
+  "q": "C = 200 + 0,7Yd bo‘lsa, Yd = 1000 da jamg‘arma:",
+  "options": [
+   "100",
+   "700",
+   "900",
+   "300"
+  ],
+  "c": 0,
+  "e": "C = 200 + 700 = 900, S = 1000 – 900 = 100."
+ },
+ {
+  "q": "Vaqtinchalik kutilmagan daromad o‘zgarishiga iste’molning kam ta’sirchanligini tushuntiruvchi nazariya:",
+  "options": [
+   "Keynsning absolyut daromad gipotezasi",
+   "Akselerator nazariyasi",
+   "Tobin q nazariyasi",
+   "Fridmenning permanent daromad gipotezasi"
+  ],
+  "c": 3,
+  "e": "Fridmen: iste’mol permanent daromadga bog‘liq, vaqtinchalik o‘zgarish kam ta’sir qiladi."
+ },
+ {
+  "q": "Daromad 1000, iste’mol 900 bo‘lsa, iste’molga o‘rtacha moyillik (APC):",
+  "options": [
+   "1,1",
+   "0,9",
+   "0,1",
+   "0,8"
+  ],
+  "c": 1,
+  "e": "APC = C/Y = 900/1000 = 0,9."
+ },
+ {
+  "q": "Investitsiyalar o‘zgarishining daromad o‘zgarishiga bog‘liqligini ko‘rsatuvchi tamoyil:",
+  "options": [
+   "Akselerator",
+   "Ouken qonuni",
+   "Multiplikator",
+   "Laffer egri chizig‘i"
+  ],
+  "c": 0,
+  "e": "Akselerator investitsiyani daromad o‘zgarishi bilan bog‘laydi (multiplikator esa teskari yo‘nalishda)."
+ },
+ {
+  "q": "2025-yilda O‘zbekistonda asosiy kapital investitsiyalarini moliyalashtirishda eng katta ulush:",
+  "options": [
+   "Davlat byudjeti mablag‘lariga to‘g‘ri keladi",
+   "Xorijiy investitsiyalar va kreditlarga to‘g‘ri keladi",
+   "Aholi mablag‘lariga to‘g‘ri keladi",
+   "Tijorat banklari kreditlariga to‘g‘ri keladi"
+  ],
+  "c": 1,
+  "e": "7.8-rasmga ko‘ra xorijiy investitsiyalar va kreditlar ustun, byudjet ulushi atigi 4,7%."
+ }
+]

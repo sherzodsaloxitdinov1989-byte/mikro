@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Makroiqtisodiyot nimani o‘rganadi?",
+  "options": [
+   "Iqtisodiyotni yaxlit tizim sifatida va agregat ko‘rsatkichlarni",
+   "Faqat davlat byudjetini",
+   "Alohida firmaning narx siyosatini",
+   "Iste’molchining tanlovini"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Mankyu fikricha, makroiqtisodiyotning uch asosiy ko‘rsatkichi qaysi qatorda to‘g‘ri ko‘rsatilgan?",
+  "options": [
+   "Foiz stavkasi, pul massasi, soliqlar",
+   "Real YaIM, inflyatsiya darajasi, ishsizlik darajasi",
+   "Investitsiyalar, jamg‘armalar, iste’mol",
+   "Eksport, import, valyuta kursi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "«Iqtisodiy jadval» muallifi kim?",
+  "options": [
+   "F. Kene",
+   "D. Rikardo",
+   "A. Smit",
+   "V. Leontyev"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Kene jadvalida qaysi sinf «unumli sinf» deb hisoblangan?",
+  "options": [
+   "Savdogarlar",
+   "Hunarmandlar",
+   "Fermerlar",
+   "Yer egalari"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Tarmoqlararo balans (input-output modeli) muallifi:",
+  "options": [
+   "J.M. Keyns",
+   "M. Fridmen",
+   "V. Leontyev",
+   "P. Samuelson"
+  ],
+  "c": 2
+ },
+ {
+  "q": "«Taklif o‘ziga mos talabni yaratadi» degan qoida kimning nomi bilan bog‘liq?",
+  "options": [
+   "A. Pigu",
+   "J.B. Sey",
+   "J.M. Keyns",
+   "A. Marshall"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Makroiqtisodiyot mustaqil fan sifatida qaysi asar bilan shakllandi?",
+  "options": [
+   "«Kapital»",
+   "«Xalqlar boyligi»",
+   "«Bandlik, foiz va pulning umumiy nazariyasi»",
+   "«Iqtisodiyot asoslari»"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Quyidagilardan qaysi biri ekzogen o‘zgaruvchiga misol bo‘ladi?",
+  "options": [
+   "Muvozanatli foiz stavkasi",
+   "Muvozanatli YaIM",
+   "Davlat xarajatlari",
+   "Narxlar darajasi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Quyidagilardan qaysi biri zaxira ko‘rsatkichi?",
+  "options": [
+   "Davlat qarzi",
+   "Investitsiyalar",
+   "YaIM",
+   "Byudjet taqchilligi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Yopiq iqtisodiyotda yalpi xarajatlar formulasi:",
+  "options": [
+   "Y = C + I",
+   "Y = C + I + G + NX",
+   "Y = C + S + T",
+   "Y = C + I + G"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Doiraviy aylanish modelida chiqib ketishlarga nimalar kiradi?",
+  "options": [
+   "Investitsiyalar, davlat xaridlari, eksport",
+   "Jamg‘armalar, soliqlar, import",
+   "Iste’mol, investitsiyalar, eksport",
+   "Ish haqi, renta, foyda"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Doiraviy aylanish muvozanatining sharti:",
+  "options": [
+   "S = T",
+   "X = IM",
+   "S + T + IM = I + G + X",
+   "C + I = S + T"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Monetarizm asoschisi:",
+  "options": [
+   "M. Fridmen",
+   "E. Preskott",
+   "R. Lukas",
+   "J. Xiks"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Ratsional kutishlar nazariyasi qaysi maktabga xos?",
+  "options": [
+   "Klassik maktab",
+   "Keynschilik",
+   "Merkantilizm",
+   "Yangi klassik maktab"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Keyns nazariyasiga ko‘ra, ishlab chiqarish va bandlik darajasini asosan nima belgilaydi?",
+  "options": [
+   "Samarali (yalpi) talab",
+   "Texnologiya",
+   "Pul taklifi",
+   "Yalpi taklif"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Pozitiv tahlilga misol bo‘la oladigan fikr:",
+  "options": [
+   "Davlat kambag‘allarga ko‘proq yordam berishi lozim",
+   "Asosiy stavka oshirilsa, kreditlar hajmi qisqaradi",
+   "Inflyatsiya 5 foizdan oshmasligi kerak",
+   "Soliqlar adolatli bo‘lishi kerak"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Mankyu yondashuviga ko‘ra, uzoq muddatda ishlab chiqarish hajmini nima belgilaydi?",
+  "options": [
+   "Davlat xarajatlari",
+   "Pul taklifi",
+   "Yalpi talab",
+   "Ishlab chiqarish omillari va texnologiya"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Agregatlashning kamchiligi:",
+  "options": [
+   "Asosiy bog‘liqliklarni ko‘rsatadi",
+   "Siyosat uchun mo‘ljal beradi",
+   "Mamlakatlarni taqqoslash imkonini beradi",
+   "Tarkibiy o‘zgarishlar va tengsizlikni yashiradi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Inyeksiyalar chiqib ketishlardan ko‘p bo‘lsa, nima yuz beradi?",
+  "options": [
+   "YaIM qisqaradi",
+   "Hech narsa o‘zgarmaydi",
+   "Tovar zaxiralari ko‘payadi",
+   "YaIM o‘sadi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "1970-yillarda yuqori inflyatsiya va yuqori ishsizlikning bir vaqtda kuzatilishi nima deb ataladi?",
+  "options": [
+   "Giperinflyatsiya",
+   "Stagflyatsiya",
+   "Depressiya",
+   "Deflyatsiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Monetar siyosatni qaysi organ amalga oshiradi?",
+  "options": [
+   "Markaziy bank",
+   "Soliq qo‘mitasi",
+   "Moliya vazirligi",
+   "Parlament"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Davlat xarajatlari va soliqlar qaysi siyosatning vositalari?",
+  "options": [
+   "Valyuta",
+   "Tashqi savdo",
+   "Fiskal",
+   "Monetar"
+  ],
+  "c": 2
+ },
+ {
+  "q": "«Tarkib xatosi»ga misol:",
+  "options": [
+   "Bir oila tejasa boyiydi, demak hamma tejasa jamiyat ham boyiydi",
+   "Inflyatsiya pulning qadrsizlanishi",
+   "Daromad oshsa, iste’mol oshadi",
+   "Narx oshsa, talab kamayadi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "2025-yilda O‘zbekistonda real YaIM o‘sishi taxminan qancha bo‘ldi?",
+  "options": [
+   "1,9%",
+   "7,7%",
+   "4,5%",
+   "10,5%"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Real biznes-tsikllar nazariyasiga ko‘ra iqtisodiy tebranishlarning asosiy sababi:",
+  "options": [
+   "Davlat xarajatlari",
+   "Texnologik shoklar",
+   "Pul massasi o‘zgarishi",
+   "Kasaba uyushmalari"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Makroiqtisodiyot fanining asoschisi hisoblangan asar – J.M. Keynsning:",
+  "options": [
+   "«Iqtisodiyot tamoyillari» (1890)",
+   "«Xalqlar boyligi» (1776)",
+   "«Bandlik, foiz va pulning umumiy nazariyasi» (1936)",
+   "«Kapital» (1867)"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Doiraviy aylanish modelida jamg‘arma, soliqlar va import:",
+  "options": [
+   "Oraliq mahsulotlar",
+   "Ekzogen o‘zgaruvchilar",
+   "In’ektsiyalar",
+   "Chiqib ketishlar"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Model ichida aniqlanadigan o‘zgaruvchilar:",
+  "options": [
+   "Parametrlar",
+   "Endogen",
+   "Doimiylar",
+   "Ekzogen"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Tarmoqlararo balans modelining muallifi:",
+  "options": [
+   "F. Kene",
+   "S. Kuznets",
+   "A. Marshall",
+   "V. Leontyev"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Mankyuga ko‘ra makroiqtisodchilar bir vaqtning o‘zida turli modellardan foydalanadi, chunki:",
+  "options": [
+   "Yagona to‘g‘ri model mavjud emas, har bir model turli savolga javob beradi",
+   "Ma’lumotlar yetarli emas",
+   "Modellar har doim bir xil natija beradi",
+   "Modellar faqat tarixiy ahamiyatga ega"
+  ],
+  "c": 0
+ }
+]

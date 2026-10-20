@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Inflyatsiya – bu:",
+  "options": [
+   "Ish haqining oshishi",
+   "Narxlar umumiy darajasining barqaror o‘sishi",
+   "Narxlarning pasayishi",
+   "Alohida tovar narxining oshishi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Inflyatsiya sur’atining pasayishi qanday ataladi?",
+  "options": [
+   "Stagflyatsiya",
+   "Reflyatsiya",
+   "Dezinflyatsiya",
+   "Deflyatsiya"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Almashinuv tenglamasi:",
+  "options": [
+   "MV = PY",
+   "M = PY",
+   "i = r + π",
+   "MP = VY"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Pul massasi 15%, real YaIM 5% o‘ssa, V o‘zgarmas bo‘lsa, inflyatsiya:",
+  "options": [
+   "20%",
+   "3%",
+   "10%",
+   "15%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "«Inflyatsiya har doim va hamma joyda pul hodisasidir» degan fikr muallifi:",
+  "options": [
+   "A. Fillips",
+   "J.M. Keyns",
+   "I. Fisher",
+   "M. Fridmen"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Oyiga 50 foizdan yuqori inflyatsiya qanday ataladi?",
+  "options": [
+   "Galoplashuvchi",
+   "Giperinflyatsiya",
+   "Sudraluvchi",
+   "Mo‘’tadil"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Seynoraj – bu:",
+  "options": [
+   "Bojxona to‘lovi",
+   "Tashqi qarz",
+   "Pul chop etishdan davlat daromadi",
+   "Soliq tushumlari"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Talab inflyatsiyasi grafikda qanday aks etadi?",
+  "options": [
+   "AD chapga siljiydi",
+   "AS o‘ngga siljiydi",
+   "AS chapga siljiydi",
+   "AD o‘ngga siljiydi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Xarajatlar inflyatsiyasi natijasida:",
+  "options": [
+   "Narxlar va YaIM kamayadi",
+   "Narxlar kamayadi, YaIM oshadi",
+   "Narxlar va YaIM oshadi",
+   "Narxlar oshadi, YaIM kamayadi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Stagflyatsiya – bu:",
+  "options": [
+   "Giperinflyatsiya",
+   "Iqtisodiy turg‘unlik va inflyatsiyaning birga kechishi",
+   "Yuqori o‘sish va past inflyatsiya",
+   "Deflyatsiya va retsessiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Bosib turilgan inflyatsiya qanday namoyon bo‘ladi?",
+  "options": [
+   "Tovar taqchilligi va navbatlar",
+   "Foiz stavkalarining pasayishi",
+   "Narxlarning ochiq o‘sishi",
+   "Valyuta kursining oshishi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Kutilmagan inflyatsiyadan kim yutadi?",
+  "options": [
+   "Qayd etilgan foizli kredit olganlar",
+   "Naqd pul saqlovchilar",
+   "Pensionerlar",
+   "Qayd etilgan foizli depozit egalari"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Fisher tenglamasi:",
+  "options": [
+   "π = i + r",
+   "i = r + π",
+   "r = i + π",
+   "i = r – π"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Nominal stavka 18%, inflyatsiya 11% bo‘lsa, real stavka taxminan:",
+  "options": [
+   "11%",
+   "29%",
+   "1,6%",
+   "7%"
+  ],
+  "c": 3
+ },
+ {
+  "q": "«Menyu xarajatlari» nimani anglatadi?",
+  "options": [
+   "Narxlarni o‘zgartirish bilan bog‘liq xarajatlar",
+   "Restoran xarajatlari",
+   "Soliq xarajatlari",
+   "Bankka borish xarajatlari"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Original Fillips egri chizig‘i qaysi ko‘rsatkichlar o‘rtasidagi bog‘liqlikni ko‘rsatgan?",
+  "options": [
+   "Foiz stavkasi va investitsiyalar",
+   "Nominal ish haqi o‘sishi va ishsizlik",
+   "Pul massasi va inflyatsiya",
+   "Narxlar va YaIM"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Uzoq muddatli Fillips egri chizig‘i:",
+  "options": [
+   "Gorizontal",
+   "Pastga egilgan",
+   "Yuqoriga egilgan",
+   "Tabiiy ishsizlik darajasida vertikal"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Kutishlar bilan to‘ldirilgan Fillips egri chizig‘i kimlar tomonidan asoslangan?",
+  "options": [
+   "Lukas va Sarjent",
+   "Samuelson va Solou",
+   "Keyns va Xiks",
+   "Fridmen va Felps"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Qurbonlik koeffitsiyenti nimani ko‘rsatadi?",
+  "options": [
+   "Ishsizlik darajasini",
+   "Pul multiplikatorini",
+   "Soliq yukini",
+   "Inflyatsiyani 1 punktga pasaytirish uchun yo‘qotiladigan YaIM foizini"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Shok terapiyasi qanday sharoitda qo‘llaniladi?",
+  "options": [
+   "Giperinflyatsiyada",
+   "Deflyatsiyada",
+   "To‘liq bandlikda",
+   "Mo‘’tadil inflyatsiyada"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Daromadlarni indeksatsiya qilish qaysi siyosatga kiradi?",
+  "options": [
+   "Shok terapiyasi",
+   "Fiskal ekspansiya",
+   "Adaptatsiya siyosati",
+   "Monetar cheklash"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Inflyatsion targetlashni birinchi joriy etgan mamlakat:",
+  "options": [
+   "AQSH",
+   "Yaponiya",
+   "Yangi Zelandiya",
+   "Germaniya"
+  ],
+  "c": 2
+ },
+ {
+  "q": "O‘zbekiston Markaziy bankining o‘rta muddatli inflyatsiya maqsadi:",
+  "options": [
+   "3%",
+   "5%",
+   "2%",
+   "10%"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Oliver-Tanzi samarasi nimani anglatadi?",
+  "options": [
+   "Investitsiyalarning siqib chiqarilishi",
+   "Inflyatsiya sharoitida soliq tushumlarining real qiymati kamayishi",
+   "Ish haqi qat’iyligi",
+   "Pul multiplikatorining oshishi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "2025-yilda O‘zbekistonda inflyatsiya darajasi:",
+  "options": [
+   "7,3%",
+   "9,8%",
+   "12,3%",
+   "5,5%"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Pulning miqdoriy nazariyasiga ko‘ra (V va Y doimiy bo‘lganda) pul taklifining 10% oshishi:",
+  "options": [
+   "Narxlarni 10% oshiradi",
+   "Tezlikni 10% oshiradi",
+   "Real YaIMni 10% oshiradi",
+   "Narxlarga ta’sir qilmaydi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Fisher tenglamasiga ko‘ra nominal foiz stavkasi 15%, kutilayotgan inflyatsiya 9% bo‘lsa, real stavka:",
+  "options": [
+   "1,7%",
+   "24%",
+   "6%",
+   "9%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Giperinflyatsiyaning keng tarqalgan mezoni (F. Keygan):",
+  "options": [
+   "Oyiga 50% dan yuqori",
+   "Oyiga 5% dan yuqori",
+   "Yiliga 10% dan yuqori",
+   "Yiliga 100% dan yuqori"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Ishlab chiqarishning qisqarishi va inflyatsiyaning bir vaqtda o‘sishi:",
+  "options": [
+   "Deflyatsiya",
+   "Stagflyatsiya",
+   "Reflyatsiya",
+   "Dezinflyatsiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "O‘zbekiston Markaziy bankining o‘rta muddatli inflyatsiya maqsadi:",
+  "options": [
+   "15%",
+   "2%",
+   "5%",
+   "10%"
+  ],
+  "c": 2
+ }
+]

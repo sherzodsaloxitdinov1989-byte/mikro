@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Ishchi kuchi qanday guruhlardan iborat?",
+  "options": [
+   "Mehnatga layoqatli aholi va pensionerlar",
+   "Band aholi va ishsizlar",
+   "Band aholi va nofaol aholi",
+   "Ishsizlar va talabalar"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Ishsizlik darajasi formulasi:",
+  "options": [
+   "E / L × 100%",
+   "U / (E + U) × 100%",
+   "U / E × 100%",
+   "U / Aholi × 100%"
+  ],
+  "c": 1
+ },
+ {
+  "q": "XMT mezonlariga ko‘ra ishsiz hisoblanish uchun qaysi shart talab qilinmaydi?",
+  "options": [
+   "Ishga kirishga tayyorligi",
+   "Bandlik xizmatida ro‘yxatda turishi",
+   "Faol ish qidirishi",
+   "Ishi yo‘qligi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "«Umidini uzgan ishchilar» qaysi guruhga kiradi?",
+  "options": [
+   "Iqtisodiy nofaol aholi",
+   "Ishsizlar",
+   "Band aholi",
+   "Ishchi kuchi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Pigu konsepsiyasiga ko‘ra mehnat bozorida «narx» vazifasini nima bajaradi?",
+  "options": [
+   "Real ish haqi",
+   "Nominal ish haqi",
+   "Foiz stavkasi",
+   "Narxlar darajasi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Keynscha konsepsiyaga ko‘ra bandlik darajasi asosan nima bilan belgilanadi?",
+  "options": [
+   "Real ish haqi",
+   "Mehnat taklifi",
+   "Samarali talab",
+   "Texnologiya"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Yangi bitiruvchining birinchi ishini qidirishi qaysi ishsizlik turiga kiradi?",
+  "options": [
+   "Tarkibiy",
+   "Tsiklik",
+   "Friksion",
+   "Mavsumiy"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Avtomatlashtirish natijasida ishini yo‘qotgan kassir qaysi ishsizlik turiga misol?",
+  "options": [
+   "Ixtiyoriy",
+   "Tsiklik",
+   "Tarkibiy",
+   "Friksion"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Tabiiy ishsizlik darajasi:",
+  "options": [
+   "Tarkibiy + tsiklik",
+   "Friksion + tarkibiy",
+   "Friksion + tsiklik",
+   "Faqat tsiklik"
+  ],
+  "c": 1
+ },
+ {
+  "q": "To‘liq bandlik sharoitida qaysi ishsizlik turi nolga teng?",
+  "options": [
+   "Friksion",
+   "Tarkibiy",
+   "Barchasi",
+   "Tsiklik"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Mankyu modelida statsionar ishsizlik darajasi formulasi:",
+  "options": [
+   "s × f",
+   "s / (s + f)",
+   "f / (s + f)",
+   "(s + f) / s"
+  ],
+  "c": 1
+ },
+ {
+  "q": "s = 0,02, f = 0,18 bo‘lsa, statsionar ishsizlik darajasi:",
+  "options": [
+   "2%",
+   "18%",
+   "10%",
+   "20%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Samarali ish haqi nazariyasiga ko‘ra firmalar yuqori ish haqi to‘laydi, chunki:",
+  "options": [
+   "Qonun talab qiladi",
+   "Bu xodimlar unumdorligini oshiradi",
+   "Soliqlar kamayadi",
+   "Kasaba uyushmalari majburlaydi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Genri Ford 1914-yilda ishchilariga kunlik qancha ish haqi to‘lashni boshlagan?",
+  "options": [
+   "1 dollar",
+   "5 dollar",
+   "10 dollar",
+   "2,5 dollar"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Ouken qonuni qaysi ko‘rsatkichlar o‘rtasidagi bog‘liqlikni ifodalaydi?",
+  "options": [
+   "Pul massasi va narxlar",
+   "Inflyatsiya va ishsizlik",
+   "Ishsizlik va YaIM",
+   "Foiz stavkasi va investitsiyalar"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Mankyu bo‘yicha Ouken qonuni: %ΔY = 3% – 2Δu. Ishsizlik 2 punktga oshsa, YaIM:",
+  "options": [
+   "4% qisqaradi",
+   "1% o‘sadi",
+   "3% o‘sadi",
+   "1% qisqaradi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Ouken koeffitsiyentining birdan katta bo‘lishiga sabab emas:",
+  "options": [
+   "Ish vaqtining qisqarishi",
+   "Narxlarning oshishi",
+   "Mehnatni zaxirada saqlash",
+   "Ishchi kuchidan chiqib ketish"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Histerezis nimani anglatadi?",
+  "options": [
+   "Uzoq davom etgan ishsizlikning tabiiy darajani oshirishi",
+   "Mavsumiy ishsizlik",
+   "Ish haqining egiluvchanligi",
+   "Inflyatsiyaning tezlashuvi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Beveridj egri chizig‘ining o‘ngga siljishi nimani bildiradi?",
+  "options": [
+   "Inflyatsiyani",
+   "Ish haqining oshishini",
+   "Mehnat bozorida moslashuv samaradorligining pasayishini",
+   "Retsessiyani"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Bandlik multiplikatori tushunchasini kim kiritgan?",
+  "options": [
+   "A. Ouken",
+   "A. Pigu",
+   "M. Fridmen",
+   "R. Kan"
+  ],
+  "c": 3
+ },
+ {
+  "q": "MPC = 0,8 bo‘lsa, bandlik multiplikatori:",
+  "options": [
+   "1,25",
+   "8",
+   "0,8",
+   "5"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Tabiiy ishsizlik tushunchasini kiritgan olimlar:",
+  "options": [
+   "Fridmen va Felps",
+   "Pigu va Marshall",
+   "Samuelson va Solou",
+   "Keyns va Kan"
+  ],
+  "c": 0
+ },
+ {
+  "q": "2025-yil III choragida O‘zbekistonda ishsizlik darajasi taxminan:",
+  "options": [
+   "15%",
+   "2,5%",
+   "4,9%",
+   "9,6%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Faol bandlik siyosatiga nima kirmaydi?",
+  "options": [
+   "Qayta o‘qitish",
+   "Tadbirkorlikka imtiyozli kredit",
+   "Jamoat ishlari",
+   "Ishsizlik nafaqasi to‘lash"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Retsessiya davrida qaysi ishsizlik turi oshadi?",
+  "options": [
+   "Tsiklik",
+   "Friksion",
+   "Ixtiyoriy",
+   "Mavsumiy"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Ishsizlik darajasi qanday hisoblanadi?",
+  "options": [
+   "Ishsizlar / band aholi",
+   "Ishsizlar / jami aholi",
+   "Ishsizlar / mehnatga layoqatli aholi",
+   "Ishsizlar / ishchi kuchi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Ishdan ketish darajasi s = 0,02, ish topish darajasi f = 0,18 bo‘lsa, tabiiy ishsizlik darajasi (Mankyu formulasi):",
+  "options": [
+   "10%",
+   "18%",
+   "11%",
+   "2%"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Ishsizlik uzoq davom etganda ishchilar malakasini yo‘qotib, tabiiy ishsizlik darajasi oshishi:",
+  "options": [
+   "Histerezis",
+   "Ouken qonuni",
+   "Fillips egri chizig‘i",
+   "Samarali ish haqi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Bo‘sh ish o‘rinlari va ishsizlik darajasi o‘rtasidagi bog‘liqlikni ko‘rsatuvchi egri chiziq:",
+  "options": [
+   "Laffer egri chizig‘i",
+   "Lorens egri chizig‘i",
+   "Engel egri chizig‘i",
+   "Beveridj egri chizig‘i"
+  ],
+  "c": 3
+ },
+ {
+  "q": "2025-yilning III choragida O‘zbekistonda ishsizlik darajasi taxminan:",
+  "options": [
+   "4,9%",
+   "12,0%",
+   "9,3%",
+   "2,1%"
+  ],
+  "c": 0
+ }
+]

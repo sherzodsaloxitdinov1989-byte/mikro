@@ -1,0 +1,164 @@
+{
+ "goal": "Xalqaro savdo nazariyalari (mutlaq va nisbiy ustunlik, muqobil qiymat, savdo shartlari, jahon narxi, Balassa indeksi) bo‘yicha hisob-kitob ko‘nikmalarini shakllantirish va savdodan yutuq manbalarini tahlil qilish.",
+ "concepts": [
+  "Mutlaq va nisbiy (qiyosiy) ustunlik",
+  "Muqobil qiymat",
+  "Savdo shartlari chegarasi",
+  "To‘liq ixtisoslashuv va savdodan yutuq",
+  "Eksport taklifi, import talabi va jahon narxi",
+  "Balassa indeksi (oshkor qiyosiy ustunlik)"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 16-bob",
+ "tasks": [
+  {
+   "id": "mk16-p1",
+   "title": "Mutlaq va nisbiy ustunlik",
+   "text": "1 birlik tovar ishlab chiqarish uchun mehnat sarfi (kishi-soat): A mamlakatda – non 4, kiyim 8; B mamlakatda – non 6, kiyim 6. a) Mutlaq va nisbiy ustunliklarni aniqlang. b) Har bir mamlakatda muqobil qiymatlarni hisoblang. c) Savdo shartlari qanday chegarada bo‘lishi kerak?",
+   "fields": [
+    {
+     "label": "A: 1 non muqobil qiymati",
+     "value": 0.5,
+     "unit": "kiyim"
+    },
+    {
+     "label": "A: 1 kiyim muqobil qiymati",
+     "value": 2,
+     "unit": "non"
+    },
+    {
+     "label": "B: 1 non muqobil qiymati",
+     "value": 1,
+     "unit": "kiyim"
+    },
+    {
+     "label": "B: 1 kiyim muqobil qiymati",
+     "value": 1,
+     "unit": "non"
+    }
+   ],
+   "solution": "a) Mutlaq ustunlik: nonda A (4 < 6), kiyimda B (6 < 8). b) A: 1 non = 4/8 = 0,5 kiyim, 1 kiyim = 2 non. B: 1 non = 6/6 = 1 kiyim, 1 kiyim = 1 non. Nonda A muqobil qiymati past (0,5 < 1) – A nonda, B kiyimda nisbiy ustunlikka ega. c) 1 non savdo narxi 0,5 va 1 kiyim oralig‘ida (0,5 < P < 1), ya’ni 1 kiyim 1 va 2 non oralig‘ida.",
+   "formula": "Muqobil qiymat = a_i / a_j; 0,5 < P_non < 1 (kiyimda)",
+   "note": "Har ikki mamlakat bir tovarda mutlaq ustunlikka ega, shuning uchun nisbiy ustunlikka ko‘ra ixtisoslashadi."
+  },
+  {
+   "id": "mk16-p2",
+   "title": "Meva va maishiy texnika",
+   "text": "O‘zbekiston bir yilda 100 ming t meva yoki 50 ming dona maishiy texnika ishlab chiqarishi mumkin; Turkiya – 120 ming t meva yoki 120 ming dona texnika. a) Muqobil qiymatlarni hisoblang va nisbiy ustunlikni aniqlang. b) ICHE larni chizing. c) 1 dona texnika = 1,5 t meva nisbatida savdo qilinsa, ikkala mamlakat yutishini ko‘rsating.",
+   "fields": [
+    {
+     "label": "O‘zbekiston: 1 dona texnika muqobil qiymati",
+     "value": 2,
+     "unit": "t meva"
+    },
+    {
+     "label": "Turkiya: 1 dona texnika muqobil qiymati",
+     "value": 1,
+     "unit": "t meva"
+    },
+    {
+     "label": "O‘zbekiston yutug‘i (1 dona texnikada)",
+     "value": 0.5,
+     "unit": "t meva"
+    },
+    {
+     "label": "Turkiya yutug‘i (1 dona texnikada)",
+     "value": 0.5,
+     "unit": "t meva"
+    }
+   ],
+   "solution": "a) O‘zbekiston: 1 dona texnika = 100/50 = 2 t meva (1 t meva = 0,5 dona). Turkiya: 1 dona texnika = 120/120 = 1 t meva. O‘zbekiston mevada (muqobil qiymat 0,5 < 1), Turkiya texnikada nisbiy ustunlikka ega. b) ICHE — to‘g‘ri chiziq: O‘zbekiston (0;100)–(50;0) va Turkiya (0;120)–(120;0). c) Savdo narxi 1,5 t meva ∈ (1; 2): O‘zbekiston texnikani 2 t emas, 1,5 t mevaga oladi (0,5 t tejaydi), Turkiya 1 dona texnika uchun 1 t emas, 1,5 t meva oladi (0,5 t yutadi).",
+   "formula": "Muqobil qiymat = ishlab chiqarish imkoniyati nisbati; 1 < P < 2",
+   "note": "Savdo narxi ikki mamlakatning muqobil qiymatlari oralig‘ida bo‘lsa, ikkalasi ham yutadi (grafikni qo‘lda chizing)."
+  },
+  {
+   "id": "mk16-p3",
+   "title": "Rikardo misoli: savdodan yutuq",
+   "text": "Rikardo misolida (Angliya: mato 100, vino 120; Portugaliya: mato 90, vino 80 kishi-yil) har bir mamlakatda 7200 kishi-yil mehnat bor. a) Avtarkiyada har bir mamlakat mehnatni teng taqsimlasa, ishlab chiqarish qancha? b) To‘liq ixtisoslashuvda jami ishlab chiqarish qancha bo‘ladi? c) Savdodan yutuqni hisoblang (1 mato = 1 vino nisbatida).",
+   "fields": [
+    {
+     "label": "Avtarkiyada jami mato",
+     "value": 76,
+     "unit": "birlik"
+    },
+    {
+     "label": "Avtarkiyada jami vino",
+     "value": 75,
+     "unit": "birlik"
+    },
+    {
+     "label": "Ixtisoslashuvda jami mato",
+     "value": 72,
+     "unit": "birlik"
+    },
+    {
+     "label": "Ixtisoslashuvda jami vino",
+     "value": 90,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "a) Angliya: 3600/100 = 36 mato, 3600/120 = 30 vino. Portugaliya: 3600/90 = 40 mato, 3600/80 = 45 vino. Jami: 76 mato, 75 vino. b) Muqobil qiymat: Angliyada 1 mato = 100/120 = 0,83 vino, Portugaliyada 90/80 = 1,125 vino – Angliya matoda, Portugaliya vinoda ixtisoslashadi: mato 7200/100 = 72, vino 7200/80 = 90. c) Mato 4 birlikka kam, vino 15 birlikka ko‘p: 1:1 nisbatda sof yutuq 15 − 4 = 11 birlik. Masalan, Angliya 36 mato sotib 36 vino oladi: 36 mato + 36 vino (avtarkiyada 36 + 30); Portugaliya 36 vino berib 36 mato oladi: 36 mato + 54 vino (avtarkiyada 40 + 45).",
+   "formula": "Angliya: 7200/100 va Portugaliya: 7200/80; yutuq = Δvino − Δmato (1:1)",
+   "note": "Portugaliya ikkala tovarda ham mutlaq ustunlikka ega, lekin savdo baribir ikkalasiga foydali. Yutuq miqdori savdo narxiga bog‘liq: 1:1 – bir tanlov."
+  },
+  {
+   "id": "mk16-p4",
+   "title": "Jahon narxi va savdo hajmi",
+   "text": "A mamlakatda paxtaga ichki talab QD = 100 – 2P, taklif QS = 3P – 20. B mamlakatda talab QD = 150 – 3P, taklif QS = 2P – 10. a) Har bir mamlakatda avtarkiya narxlarini toping. b) Eksport taklifi va import talabi funksiyalarini tuzing. c) Muvozanatli jahon narxi va savdo hajmini toping.",
+   "fields": [
+    {
+     "label": "A mamlakat avtarkiya narxi",
+     "value": 24,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "B mamlakat avtarkiya narxi",
+     "value": 32,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Jahon narxi",
+     "value": 28,
+     "unit": "pul birligi"
+    },
+    {
+     "label": "Savdo hajmi",
+     "value": 20,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "a) A: 100 − 2P = 3P − 20 → P = 24 (Q = 52). B: 150 − 3P = 2P − 10 → P = 32 (Q = 54). b) A (past narx) eksport qiladi: EX = QS − QD = 5P − 120 (P > 24). B import qiladi: IM = QD − QS = 160 − 5P (P < 32). c) 5P − 120 = 160 − 5P → P = 28; hajm = 5·28 − 120 = 20. Tekshiruv: A: QS = 64, QD = 44 (eksport 20); B: QD = 66, QS = 46 (import 20).",
+   "formula": "EX = QS − QD; IM = QD − QS; EX = IM",
+   "note": "A mamlakat paxtani eksport qiladi (avtarkiya narxi past), B import qiladi."
+  },
+  {
+   "id": "mk16-p5",
+   "title": "Balassa indeksi",
+   "text": "O‘zbekistonda ma’lum tovarning mamlakat eksportidagi ulushi 4%, shu tovarning jahon eksportidagi ulushi 0,5%. Boshqa tovarning ulushlari mos ravishda 1% va 2%. Har bir tovar uchun Balassa indeksini (RCA) hisoblang va talqin qiling.",
+   "fields": [
+    {
+     "label": "1-tovar RCA",
+     "value": 8,
+     "unit": "marta"
+    },
+    {
+     "label": "2-tovar RCA",
+     "value": 0.5,
+     "unit": "marta"
+    }
+   ],
+   "solution": "RCA = (tovarning mamlakat eksportidagi ulushi) / (tovarning jahon eksportidagi ulushi). 1-tovar: 4/0,5 = 8. 2-tovar: 1/2 = 0,5. RCA > 1 – oshkor qiyosiy ustunlik (1-tovar, kuchli), RCA < 1 – ustunlik yo‘q (2-tovar).",
+   "formula": "RCA = (x_ij/X_i) / (x_wj/X_w)",
+   "note": "RCA = 1 chegaraviy qiymat."
+  }
+ ],
+ "open": [
+  "A. Smitning mutlaq ustunlik nazariyasini misol bilan tushuntiring va uning cheklovini ko‘rsating. Nima uchun Rikardoning nisbiy ustunlik nazariyasi bir mamlakat ikkala tovarda ham mutlaq ustun bo‘lganda ham savdo foydali ekanini isbotlaydi?",
+  "Xeksher-Olin teoremasini ta’riflang. Ortiqcha va taqchil omillar nima? «Leontyev paradoksi» nima va uni qanday izohlash mumkin? Stolper-Samuelson teoremasining mohiyati nimada?",
+  "O‘zbekiston eksport va import tarkibini savdo nazariyalari (nisbiy ustunlik, Xeksher-Olin, Porter rombi, yangi savdo nazariyasi) nuqtai nazaridan tahlil qiling. Qaysi nazariya qaysi tovarlar savdosini yaxshiroq tushuntiradi?"
+ ],
+ "refs": [
+  "Smit: har bir mamlakat o‘zi eng kam xarajat bilan (mutlaq ustunlik) ishlab chiqaradigan tovarga ixtisoslashib, almashsa, ikkalasi yutadi (masalan, A nonda, B kiyimda ustun). Cheklov: bir mamlakat hech bir tovarda mutlaq ustunlikka ega bo‘lmasa, nazariya savdoni tushuntirolmaydi. Rikardo ustunlikni muqobil qiymat bo‘yicha o‘lchaydi: mamlakat muqobil qiymati past tovarga ixtisoslashadi, savdo narxi ikki mamlakat muqobil qiymatlari oralig‘ida bo‘lsa, ikkalasi ham yutadi. Javobda Angliya–Portugaliya (mato–vino) misoli keltirilsin.",
+  "Xeksher-Olin: mamlakat o‘zida ortiqcha bo‘lgan omilni intensiv ishlatadigan tovarni eksport qiladi, taqchil omilni talab qiladigan tovarni import qiladi. Omillar narxlarining tenglashuvi teoremasiga ko‘ra erkin savdo omil narxlarini tenglashtirishga intiladi. Stolper-Samuelson: tovar narxi oshsa, uni intensiv ishlatadigan omilning real daromadi oshadi, ikkinchi omilniki kamayadi. Leontyev AQSh eksporti kapital-intensiv bo‘lishi kutilgan bo‘lsa-da, uning importi ko‘proq kapital-intensiv ekanini topdi; izohlar: mehnat sifati (inson kapitali), tabiiy resurslar, tariflar, talab farqlari.",
+  "Tahlil mezonlari: eksport tarkibida mehnat va tabiiy resurs intensiv tovarlar (Xeksher-Olin, nisbiy ustunlik), tarmoq ichidagi savdo va miqyos samarasi (yangi savdo nazariyasi), klasterlar (Porter rombi: omil sharoitlari, talab, qo‘shni tarmoqlar, strategiya va raqobat). Talaba Balassa indeksidan foydalanib, ustunlik tovarlarini aniqlashi, import tarkibini texnologik murakkablik bo‘yicha baholashi va xulosada eksportni diversifikatsiya qilish yo‘llarini ko‘rsatishi kerak. Faqat darslik va tasdiqlangan ma’lumotlarga tayansin."
+ ]
+}

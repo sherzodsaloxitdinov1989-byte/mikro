@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Keyns nazariyasiga ko‘ra ishlab chiqarish hajmini nima belgilaydi?",
+  "options": [
+   "Samarali talab",
+   "Yalpi taklif",
+   "Foiz stavkasi",
+   "Pul taklifi"
+  ],
+  "c": 0,
+  "e": "Keyns bo‘yicha ishlab chiqarish hajmini samarali talab (rejalashtirilgan xarajatlar) belgilaydi."
+ },
+ {
+  "q": "Keyns xochi modelida qaysi kattalik qayd etilgan deb faraz qilinadi?",
+  "options": [
+   "Iste’mol hajmi",
+   "Narxlar darajasi",
+   "Jamg‘arma hajmi",
+   "Daromad darajasi"
+  ],
+  "c": 1,
+  "e": "Modelning asosiy farazi: narxlar darajasi qayd etilgan."
+ },
+ {
+  "q": "Haqiqiy xarajatlar rejalashtirilgan xarajatlardan nimasi bilan farq qiladi?",
+  "options": [
+   "Import hajmining o‘zgarishi miqdori bilan",
+   "Soliqlar hajmining o‘zgarishi miqdori bilan",
+   "Rejalashtirilmagan zaxiralar o‘zgarishi miqdori bilan",
+   "Ular har doim bir-biriga teng bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Sotilmagan mahsulot zaxirasi haqiqiy xarajatga kiradi, rejaga esa kirmaydi."
+ },
+ {
+  "q": "Keyns xochida muvozanat sharti:",
+  "options": [
+   "Y = C",
+   "PE = 0",
+   "S = 0",
+   "Y = PE"
+  ],
+  "c": 3,
+  "e": "Muvozanatda daromad rejalashtirilgan xarajatlarga teng."
+ },
+ {
+  "q": "Agar Y > PE bo‘lsa:",
+  "options": [
+   "Zaxiralar kamayadi va Y oshadi",
+   "Narxlar oshadi va Y o‘zgarmaydi",
+   "Zaxiralar to‘planadi va Y kamayadi",
+   "Iqtisodiyot muvozanat holatida bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Ishlab chiqarish xarajatdan ko‘p bo‘lsa, sotilmagan zaxira to‘planadi va firmalar ishlab chiqarishni qisqartiradi."
+ },
+ {
+  "q": "45° chiziqning har bir nuqtasida:",
+  "options": [
+   "Xarajatlar daromadga teng",
+   "Investitsiyalar jamg‘armaga teng",
+   "Iste’mol jamg‘armaga teng",
+   "Daromad nolga teng"
+  ],
+  "c": 0,
+  "e": "45° chiziq Y = PE tengligini ifodalaydi."
+ },
+ {
+  "q": "PE = 400 + 0,75Y bo‘lsa, muvozanatli Y:",
+  "options": [
+   "400",
+   "300",
+   "533",
+   "1600"
+  ],
+  "c": 3,
+  "e": "Y = 400 + 0,75Y dan 0,25Y = 400, Y = 1600."
+ },
+ {
+  "q": "Multiplikator formulasi (yopiq iqtisodiyot, soliqsiz):",
+  "options": [
+   "1 / MPC",
+   "1 / (1 – MPC)",
+   "MPC / MPS",
+   "1 – MPC"
+  ],
+  "c": 1,
+  "e": "k = 1/(1 – MPC) = 1/MPS."
+ },
+ {
+  "q": "MPC = 0,9 bo‘lsa, multiplikator:",
+  "options": [
+   "9",
+   "10",
+   "1,1",
+   "0,9"
+  ],
+  "c": 1,
+  "e": "k = 1/(1 – 0,9) = 10."
+ },
+ {
+  "q": "MPS = 0,25 bo‘lsa, investitsiyalarning 20 ga oshishi daromadni qanchaga oshiradi?",
+  "options": [
+   "5",
+   "20",
+   "100",
+   "80"
+  ],
+  "c": 3,
+  "e": "k = 1/0,25 = 4, ΔY = 4 × 20 = 80."
+ },
+ {
+  "q": "Ochiq iqtisodiyotda (soliqsiz) multiplikator:",
+  "options": [
+   "1 / (1 – c + m)",
+   "1 / (1 – c – m)",
+   "c / m",
+   "1 / m"
+  ],
+  "c": 0,
+  "e": "Import chiqib ketish bo‘lgani uchun maxrajga +m qo‘shiladi."
+ },
+ {
+  "q": "Importga chegaraviy moyillik oshsa, multiplikator:",
+  "options": [
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Kamayadi",
+   "Birga teng bo‘ladi"
+  ],
+  "c": 2,
+  "e": "m oshsa 1 – c + m maxraji oshadi, k kamayadi."
+ },
+ {
+  "q": "Sof eksport funksiyasi:",
+  "options": [
+   "NX = X + mY",
+   "NX = mY",
+   "NX = C + I",
+   "NX = X – IMa – mY"
+  ],
+  "c": 3,
+  "e": "Import daromadga bog‘liq: IM = IMa + mY, NX = X – IM."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri «chiqib ketishlar»ga kiradi?",
+  "options": [
+   "Jamg‘arma, soliqlar va import",
+   "Iste’mol, investitsiya va davlat xaridlari",
+   "Investitsiya, davlat xaridlari va eksport",
+   "Eksport va import, ammo jamg‘arma emas"
+  ],
+  "c": 0,
+  "e": "Chiqib ketishlar (S, T, IM) aylanma oqimdan chiqarib, yalpi xarajatni kamaytiradi."
+ },
+ {
+  "q": "Retsession uzilishni hisoblash formulasi (k – multiplikator):",
+  "options": [
+   "(Y∗ – Y) × k",
+   "k / Y",
+   "(Y∗ – Y) / k",
+   "Y∗ + Y"
+  ],
+  "c": 2,
+  "e": "Xarajatlarni (Y∗ – Y)/k ga oshirish YaIM uzilishini yopadi."
+ },
+ {
+  "q": "YaIM uzilishi 200, multiplikator 4 bo‘lsa, retsession uzilish:",
+  "options": [
+   "800",
+   "50",
+   "200",
+   "4"
+  ],
+  "c": 1,
+  "e": "200 / 4 = 50."
+ },
+ {
+  "q": "Inflyatsion uzilish qachon yuzaga keladi?",
+  "options": [
+   "Muvozanatli YaIM potensial YaIMdan yuqori bo‘lganda",
+   "Muvozanatli YaIM potensial YaIMdan past bo‘lganda",
+   "Davlat byudjeti taqchilligi bo‘lganda",
+   "Haqiqiy YaIM potensialga teng bo‘lganda"
+  ],
+  "c": 0,
+  "e": "Y > Y∗ da talab ortiqcha, narxlarga bosim paydo bo‘ladi."
+ },
+ {
+  "q": "Tejamkorlik paradoksiga ko‘ra jamiyat ko‘proq jamg‘arishga harakat qilsa:",
+  "options": [
+   "Daromad ham, investitsiyalar ham oshadi",
+   "Investitsiyalar oshib, iste’mol o‘zgarmaydi",
+   "Daromad kamayadi, jami jamg‘arma esa oshmasligi mumkin",
+   "Inflyatsiya oshadi, daromad o‘zgarmaydi"
+  ],
+  "c": 2,
+  "e": "Iste’mol kamayishi daromadni pasaytiradi, jami jamg‘arma oshmaydi."
+ },
+ {
+  "q": "Tejamkorlik paradoksi qaysi vaqt gorizontida amal qiladi?",
+  "options": [
+   "Faqat uzoq muddatda",
+   "Juda uzoq muddatda ham bir xilda",
+   "U hech qachon amal qilmaydi",
+   "Asosan qisqa muddatda"
+  ],
+  "c": 3,
+  "e": "Qisqa muddatda narxlar qayd etilgan, shuning uchun talab kamayishi daromadni pasaytiradi."
+ },
+ {
+  "q": "Proporsional soliq stavkasi oshsa, multiplikator:",
+  "options": [
+   "Oshadi",
+   "Kamayadi",
+   "O‘zgarmaydi",
+   "Birga teng bo‘ladi"
+  ],
+  "c": 1,
+  "e": "k = 1/(1 – c(1 – t)): t oshsa maxraj ortadi, k kamayadi."
+ },
+ {
+  "q": "Investitsiyalar 30 ga kamaysa, MPC = 0,8 da daromad:",
+  "options": [
+   "24 ga kamayadi",
+   "37,5 ga kamayadi",
+   "150 ga kamayadi",
+   "30 ga kamayadi"
+  ],
+  "c": 2,
+  "e": "k = 1/0,2 = 5, ΔY = 5 × (–30) = –150."
+ },
+ {
+  "q": "S + T = I + G tengligi qaysi iqtisodiyot uchun muvozanat sharti?",
+  "options": [
+   "Davlat bor yopiq iqtisodiyot uchun",
+   "Davlatsiz yopiq iqtisodiyot uchun",
+   "Ochiq iqtisodiyot uchun",
+   "Har qanday iqtisodiyot uchun"
+  ],
+  "c": 0,
+  "e": "Chiqib ketishlar (S + T) kiritishlarga (I + G) teng."
+ },
+ {
+  "q": "Mankyuga ko‘ra Keyns xochi qaysi model uchun boshlang‘ich nuqta bo‘ladi?",
+  "options": [
+   "Laffer egri chizig‘i",
+   "IS egri chizig‘i",
+   "Fillips egri chizig‘i",
+   "Solou o‘sish modeli"
+  ],
+  "c": 1,
+  "e": "Mankyu: Keyns xochi – IS egri chizig‘iga birinchi qadam."
+ },
+ {
+  "q": "Mankyu keltirgan hududiy tadqiqotlarga ko‘ra mudofaa xarajatlari multiplikatori taxminan:",
+  "options": [
+   "0,2",
+   "5",
+   "10",
+   "1,5"
+  ],
+  "c": 3,
+  "e": "Nakamura va Steynsson (2014): 1 dollar xarajat daromadni taxminan 1,5 dollarga oshirgan."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri avtonom xarajatlarga kirmaydi?",
+  "options": [
+   "Davlat xaridlari",
+   "Avtonom iste’mol",
+   "Induksiyalangan iste’mol (cY)",
+   "Avtonom investitsiyalar"
+  ],
+  "c": 2,
+  "e": "cY daromadga bog‘liq, shuning uchun induksiyalangan."
+ },
+ {
+  "q": "Rejalashtirilgan yalpi xarajatlar (PE) tarkibi qanday?",
+  "options": [
+   "PE = C + I + G + NX",
+   "PE = C + S + G + NX",
+   "PE = C + I + T + IM",
+   "PE = S + I + G + X"
+  ],
+  "c": 0,
+  "e": "PE – iste’mol, investitsiya, davlat xaridlari va sof eksport yig‘indisi."
+ },
+ {
+  "q": "MPC = 0,75 bo‘lsa, oddiy xarajatlar multiplikatori:",
+  "options": [
+   "0,75",
+   "1,33",
+   "7,5",
+   "4"
+  ],
+  "c": 3,
+  "e": "k = 1/(1 – 0,75) = 4."
+ },
+ {
+  "q": "Ishlab chiqarish rejalashtirilgan xarajatlardan katta bo‘lsa:",
+  "options": [
+   "Zaxiralar kamayadi va firmalar ishlab chiqarishni ko‘paytiradi",
+   "Rejalashtirilmagan zaxiralar ko‘payadi va firmalar ishlab chiqarishni qisqartiradi",
+   "Narxlar tez oshadi va ishlab chiqarish o‘zgarmaydi",
+   "Zaxiralar o‘zgarmaydi va muvozanat tiklanadi"
+  ],
+  "c": 1,
+  "e": "Sotilmagan mahsulot zaxiraga yig‘iladi, firmalar ishlab chiqarishni kamaytiradi."
+ },
+ {
+  "q": "Haqiqiy YaIM potensial darajadan past bo‘lgan holatdagi uzilish:",
+  "options": [
+   "Retsession uzilish",
+   "Inflyatsion uzilish",
+   "Tarkibiy uzilish",
+   "Deflyatsion spiral"
+  ],
+  "c": 0,
+  "e": "Y < Y∗ da retsession uzilish yuzaga keladi."
+ },
+ {
+  "q": "Davlat xaridlari 20 ga oshsa, MPC = 0,8 da (soliqsiz, yopiq iqtisodiyot) daromad:",
+  "options": [
+   "20 ga oshadi",
+   "100 ga oshadi",
+   "16 ga oshadi",
+   "80 ga oshadi"
+  ],
+  "c": 1,
+  "e": "k = 5, ΔY = 5 × 20 = 100."
+ }
+]

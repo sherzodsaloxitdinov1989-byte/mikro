@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Iqtisodiy tsiklning eng yuqori nuqtasi qanday ataladi?",
+  "options": [
+   "Cho‘qqi",
+   "Depressiya",
+   "Tub nuqta",
+   "Amplituda"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Retsessiyaning amaliy mezoni:",
+  "options": [
+   "Ishsizlikning 5 foizdan oshishi",
+   "Valyuta kursining pasayishi",
+   "Real YaIMning ketma-ket ikki chorak qisqarishi",
+   "Inflyatsiya 10 foizdan oshishi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Salbiy YaIM uzilishi nimani bildiradi?",
+  "options": [
+   "Haqiqiy YaIM potensialdan past",
+   "Inflyatsiya yuqori",
+   "Byudjet profitsiti",
+   "Haqiqiy YaIM potensialdan yuqori"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Jyuglyar tsikllarining davomiyligi:",
+  "options": [
+   "3–4 yil",
+   "7–11 yil",
+   "15–25 yil",
+   "45–60 yil"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Kitchin tsikllarining asosiy sababi:",
+  "options": [
+   "Urushlar",
+   "Tovar-moddiy zaxiralarining o‘zgarishi",
+   "Fundamental texnologik inqiloblar",
+   "Demografik o‘zgarishlar"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Uzun to‘lqinlar nazariyasi muallifi:",
+  "options": [
+   "K. Jyuglyar",
+   "N. Kondratyev",
+   "S. Kuznets",
+   "J. Kitchin"
+  ],
+  "c": 1
+ },
+ {
+  "q": "«Ijodiy buzilish» tushunchasi kimga tegishli?",
+  "options": [
+   "P. Samuelson",
+   "M. Fridmen",
+   "Y. Shumpeter",
+   "J.M. Keyns"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Siyosiy biznes-tsikl nazariyasi muallifi:",
+  "options": [
+   "U. Nordxaus",
+   "A. Pigu",
+   "R. Lukas",
+   "J. Xiks"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Multiplikator-akselerator modelida cv > 1 bo‘lsa:",
+  "options": [
+   "Tebranishlar kuchayadi",
+   "Doimiy amplituda",
+   "Tebranish bo‘lmaydi",
+   "Tebranishlar so‘nadi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Keyns tsikllarning asosiy sababi deb nimani hisoblagan?",
+  "options": [
+   "Texnologik shoklar",
+   "Pul taklifi",
+   "Quyosh dog‘lari",
+   "Investitsiyalarning beqarorligi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Taklif shoki ishlab chiqarish va narxlarni qanday o‘zgartiradi?",
+  "options": [
+   "Faqat narxlarni",
+   "Qarama-qarshi yo‘nalishda",
+   "O‘zgartirmaydi",
+   "Bir yo‘nalishda"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Quyidagilardan qaysi biri talab shoki?",
+  "options": [
+   "Neft narxining oshishi",
+   "Iste’molchilar ishonchining keskin pasayishi",
+   "Qurg‘oqchilik",
+   "Yangi texnologiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Qaysi tarmoq eng tsiklik hisoblanadi?",
+  "options": [
+   "Kommunal xizmatlar",
+   "Farmatsevtika",
+   "Oziq-ovqat sanoati",
+   "Qurilish"
+  ],
+  "c": 3
+ },
+ {
+  "q": "YaIM komponentlaridan qaysi biri eng kuchli tebranadi?",
+  "options": [
+   "Oziq-ovqat iste’moli",
+   "Xizmatlar iste’moli",
+   "Davlat xaridlari",
+   "Investitsiyalar"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Real biznes-tsikllar nazariyasiga ko‘ra:",
+  "options": [
+   "Tebranishlar texnologik shoklarga samarali javob",
+   "Narxlar qat’iy",
+   "Tsikllar pul massasidan kelib chiqadi",
+   "Davlat faol barqarorlashtirishi zarur"
+  ],
+  "c": 0
+ },
+ {
+  "q": "«Buyuk mo‘’tadillik» qaysi davrni anglatadi?",
+  "options": [
+   "2008–2009",
+   "1950–1960",
+   "1985–2007",
+   "1929–1933"
+  ],
+  "c": 2
+ },
+ {
+  "q": "2008-yilda bankrot bo‘lgan va moliyaviy vahimani keltirib chiqargan investitsiya banki:",
+  "options": [
+   "JP Morgan",
+   "Deutsche Bank",
+   "Goldman Sachs",
+   "Lehman Brothers"
+  ],
+  "c": 3
+ },
+ {
+  "q": "2020-yilda jahon YaIMi taxminan qancha qisqargan?",
+  "options": [
+   "25%",
+   "10%",
+   "0,1%",
+   "2,7%"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Ilg‘or indikatorga misol:",
+  "options": [
+   "Real YaIM",
+   "Iste’mol narxlari indeksi",
+   "Ishsizlik davomiyligi",
+   "Qurilishga ruxsatnomalar soni"
+  ],
+  "c": 3
+ },
+ {
+  "q": "PMI indeksi 50 dan yuqori bo‘lsa:",
+  "options": [
+   "Ishsizlik oshmoqda",
+   "Faollik kengaymoqda",
+   "Faollik qisqarmoqda",
+   "Inflyatsiya oshmoqda"
+  ],
+  "c": 1
+ },
+ {
+  "q": "«Sekulyar stagnatsiya» atamasini zamonaviy iqtisodiyotga qayta kiritgan olim:",
+  "options": [
+   "J. Tobin",
+   "A. Ouken",
+   "L. Sammers",
+   "R. Solou"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Fridmen va Shvarts Buyuk depressiyaning chuqurlashuvini nima bilan bog‘lagan?",
+  "options": [
+   "Texnologiyalar",
+   "Neft narxi",
+   "Pul massasining keskin qisqarishi",
+   "Davlat xarajatlari oshishi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Kondratyev to‘lqinlari qanday omil bilan bog‘liq?",
+  "options": [
+   "Saylovlar",
+   "Fundamental texnologik inqiloblar",
+   "Asosiy kapitalni yangilash",
+   "Zaxiralar"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Retsessiya davrida antitsiklik siyosat qanday bo‘lishi kerak?",
+  "options": [
+   "Davlat xarajatlarini oshirish va stavkalarni pasaytirish",
+   "Soliqlarni oshirish",
+   "Davlat xarajatlarini qisqartirish",
+   "Foiz stavkalarini oshirish"
+  ],
+  "c": 0
+ },
+ {
+  "q": "2020-yilda O‘zbekiston iqtisodiyoti qanday natija ko‘rsatdi?",
+  "options": [
+   "1,9% o‘sdi",
+   "O‘zgarmadi",
+   "2,7% qisqardi",
+   "7,7% o‘sdi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Iqtisodiy tsiklning eng yuqori nuqtasi:",
+  "options": [
+   "Tiklanish",
+   "Tub nuqta",
+   "Cho‘qqi",
+   "Retsessiya"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Davomiyligi 7–11 yil bo‘lgan, asosiy kapitalning yangilanishi bilan bog‘liq tsikllar:",
+  "options": [
+   "Kitchin tsikllari",
+   "Kondratyev to‘lqinlari",
+   "Kuznets tsikllari",
+   "Jyuglyar tsikllari"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Amaliyotda retsessiyaning keng tarqalgan «texnik» ta’rifi:",
+  "options": [
+   "Ketma-ket ikki chorak real YaIMning qisqarishi",
+   "Eksportning kamayishi",
+   "Ishsizlikning 5% dan oshishi",
+   "Inflyatsiyaning 10% dan oshishi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Ishsizlik darajasi qanday indikator hisoblanadi?",
+  "options": [
+   "Mos keluvchi",
+   "Kechikuvchi",
+   "Neytral",
+   "Ilg‘or"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Mankyuga ko‘ra qisqa muddatli iqtisodiy tebranishlarni tushunishning kaliti:",
+  "options": [
+   "Aholining o‘sishi",
+   "Texnologik taraqqiyot",
+   "Narxlarning qisqa muddatda qat’iyligi (yopishqoqligi)",
+   "Oltin standarti"
+  ],
+  "c": 2
+ }
+]

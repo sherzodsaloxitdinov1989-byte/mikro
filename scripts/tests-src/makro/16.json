@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Merkantilizm ta’limotiga ko‘ra mamlakat boyligi:",
+  "options": [
+   "Texnologiyalar",
+   "Mehnat resurslari",
+   "Oltin va kumush zaxiralari",
+   "Ishlab chiqarilgan tovarlar"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Mutlaq ustunlik nazariyasi muallifi:",
+  "options": [
+   "A. Smit",
+   "E. Xeksher",
+   "M. Porter",
+   "D. Rikardo"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Mutlaq ustunlik – bu:",
+  "options": [
+   "Pastroq muqobil qiymat",
+   "Tovarni kamroq resurs sarflab ishlab chiqarish qobiliyati",
+   "Ko‘proq kapital",
+   "Yuqori narx"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Nisbiy ustunlik nazariyasi muallifi:",
+  "options": [
+   "P. Krugman",
+   "B. Olin",
+   "D. Rikardo",
+   "A. Smit"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Nisbiy ustunlik – bu:",
+  "options": [
+   "Kam resurs sarfi",
+   "Pastroq muqobil qiymat bilan ishlab chiqarish",
+   "Ko‘p aholi",
+   "Katta bozor"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Rikardo misolida Portugaliya:",
+  "options": [
+   "Matoda nisbiy ustunlikka ega",
+   "Ikkala tovarda mutlaq ustunlikka ega, nisbiy ustunlik vinoda",
+   "Faqat vinoda mutlaq ustunlikka ega",
+   "Hech qanday ustunlikka ega emas"
+  ],
+  "c": 1
+ },
+ {
+  "q": "A mamlakatda 1 mato = 2 paxta, B da 1 mato = 0,5 paxta. Matoda nisbiy ustunlik:",
+  "options": [
+   "Hech birida",
+   "B mamlakatda",
+   "Ikkalasida",
+   "A mamlakatda"
+  ],
+  "c": 1
+ },
+ {
+  "q": "7-savoldagi sharoitda savdo shartlari:",
+  "options": [
+   "Har qanday",
+   "1 mato = 0,5 dan 2 gacha paxta",
+   "1 mato = 3 paxta",
+   "1 mato = 0,2 paxta"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Doimiy almashtirish xarajatlarida ICHE:",
+  "options": [
+   "Botiq egri chiziq",
+   "Vertikal",
+   "To‘g‘ri chiziq",
+   "Qavariq egri chiziq"
+  ],
+  "c": 2
+ },
+ {
+  "q": "O‘suvchi almashtirish xarajatlarida mamlakat:",
+  "options": [
+   "To‘liq ixtisoslashadi",
+   "Qisman ixtisoslashadi",
+   "Hamma tovarni import qiladi",
+   "Savdo qilmaydi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Xeksher-Olin nazariyasiga ko‘ra mamlakat eksport qiladi:",
+  "options": [
+   "Ortiqcha omil sig‘imli tovarlarni",
+   "Eng qimmat tovarlarni",
+   "Yuqori texnologiyali tovarlarni",
+   "Taqchil omil sig‘imli tovarlarni"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Omillar narxlarining tenglashuvi teoremasi kimlarga tegishli?",
+  "options": [
+   "Leontyev va Kuznets",
+   "Xeksher, Olin va Samuelson",
+   "Smit va Rikardo",
+   "Porter va Krugman"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Stolper-Samuelson teoremasiga ko‘ra savdo ochilganda:",
+  "options": [
+   "Taqchil omil egalari yutadi",
+   "Hech kim yutmaydi",
+   "Ortiqcha omil egalari yutadi, taqchil omil egalari yutqazadi",
+   "Barcha omil egalari yutadi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "«Leontyev paradoksi» nimani ko‘rsatdi?",
+  "options": [
+   "Savdo zararli",
+   "AQSH kapital sig‘imli tovarlarni eksport qiladi",
+   "AQSH eksporti kutilganidan kamroq kapital sig‘imli",
+   "Rikardo nazariyasi noto‘g‘ri"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Leontyev paradoksining asosiy izohlaridan biri:",
+  "options": [
+   "Inson kapitali",
+   "Inflyatsiya",
+   "Oltin standarti",
+   "Merkantilizm"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Porterning «milliy romb»iga kirmaydi:",
+  "options": [
+   "Turdosh va qo‘llab-quvvatlovchi tarmoqlar",
+   "Talab sharoitlari",
+   "Valyuta kursi",
+   "Omillar sharoitlari"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Klaster – bu:",
+  "options": [
+   "Geografik jihatdan jamlangan o‘zaro bog‘liq kompaniyalar va institutlar guruhi",
+   "Savdo kelishuvi",
+   "Davlat monopoliyasi",
+   "Bitta yirik korxona"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Tarmoq ichidagi savdoni tushuntiruvchi nazariya:",
+  "options": [
+   "Mutlaq ustunlik",
+   "Merkantilizm",
+   "Yangi savdo nazariyasi (Krugman)",
+   "Xeksher-Olin"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Gravitatsiya modeliga ko‘ra savdo hajmi:",
+  "options": [
+   "YaIMga to‘g‘ri, masofaga teskari proporsional",
+   "Masofaga to‘g‘ri proporsional",
+   "Inflyatsiyaga bog‘liq",
+   "Aholi soniga teskari proporsional"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Jahon bozorida muvozanatli narx:",
+  "options": [
+   "Faqat eksport qiluvchi mamlakatda aniqlanadi",
+   "Avtarkiya narxlaridan yuqori",
+   "Davlat tomonidan belgilanadi",
+   "Eksport taklifi va import talabi tenglashganda"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Eksport qiluvchi mamlakatda savdo ochilganda kim yutqazadi?",
+  "options": [
+   "Ishlab chiqaruvchilar",
+   "Davlat",
+   "Hech kim",
+   "Iste’molchilar"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Import qiluvchi mamlakatda savdo ochilganda kim yutadi?",
+  "options": [
+   "Iste’molchilar",
+   "Faqat davlat",
+   "Mahalliy ishlab chiqaruvchilar",
+   "Hech kim"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Saks va Uorner tadqiqotiga ko‘ra ochiq rivojlanayotgan mamlakatlarda o‘sish:",
+  "options": [
+   "Yopiqlarnikidan past",
+   "Yopiqlarnikidan ancha yuqori",
+   "Manfiy",
+   "Bir xil"
+  ],
+  "c": 1
+ },
+ {
+  "q": "2025-yilda O‘zbekiston eksportida eng katta ulushga ega tovar:",
+  "options": [
+   "Tabiiy gaz",
+   "Paxta tolasi",
+   "Meva-sabzavotlar",
+   "Oltin"
+  ],
+  "c": 3
+ },
+ {
+  "q": "2025-yilda O‘zbekistonning eng yirik savdo hamkori:",
+  "options": [
+   "Qozog‘iston",
+   "Turkiya",
+   "Rossiya",
+   "Xitoy"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Balassa indeksi (RCA) > 1 bo‘lsa:",
+  "options": [
+   "Mamlakat bu tovarda nisbiy ustunlikka ega",
+   "Mamlakat bu tovarni import qiladi",
+   "Tovar ishlab chiqarilmaydi",
+   "Savdo taqchilligi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Yangi-yangi savdo nazariyasining asosiy g‘oyasi:",
+  "options": [
+   "Oltin to‘plash",
+   "Mutlaq ustunlik",
+   "Omillar nisbati",
+   "Faqat eng unumli firmalar eksport qiladi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Mahsulotning hayot tsikli nazariyasi muallifi:",
+  "options": [
+   "J. Tinbergen",
+   "B. Olin",
+   "M. Melits",
+   "R. Vernon"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Samuelson «ham to‘g‘ri, ham ahamiyatli» deb atagan g‘oya:",
+  "options": [
+   "Nisbiy ustunlik",
+   "Mutlaq ustunlik",
+   "Laffer egri chizig‘i",
+   "Merkantilizm"
+  ],
+  "c": 0
+ },
+ {
+  "q": "O‘zbekistonning dengizga chiqish imkoniyati jihatidan xususiyati:",
+  "options": [
+   "Dengizga chiqishi bor",
+   "Okeanga chiqishi bor",
+   "Faqat ko‘lga chiqishi bor",
+   "«Ikki karra dengizga chiqa olmaydigan» mamlakat"
+  ],
+  "c": 3
+ }
+]

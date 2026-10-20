@@ -1,0 +1,302 @@
+[
+ {
+  "q": "Ikki bosqichli bank tizimining birinchi bosqichi:",
+  "options": [
+   "Mikromoliya tashkilotlari",
+   "Sug‘urta kompaniyalari",
+   "Tijorat banklari",
+   "Markaziy bank"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Markaziy bankning funksiyasi emas:",
+  "options": [
+   "Monetar siyosat",
+   "Bank nazorati",
+   "Aholiga iste’mol krediti berish",
+   "Pul emissiyasi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Tijorat bankining passiv operatsiyasi:",
+  "options": [
+   "Zaxiralar saqlash",
+   "Kredit berish",
+   "Qimmatli qog‘oz sotib olish",
+   "Depozit jalb qilish"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Bank aktivlari 1000, kapitali 80 bo‘lsa, leveredj:",
+  "options": [
+   "0,08",
+   "12,5",
+   "8",
+   "920"
+  ],
+  "c": 1
+ },
+ {
+  "q": "O‘zbekiston Markaziy bankining bosh maqsadi:",
+  "options": [
+   "Eksportni rag‘batlantirish",
+   "Narxlar barqarorligi",
+   "Byudjetni moliyalashtirish",
+   "Iqtisodiy o‘sish"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Fed ning mandati:",
+  "options": [
+   "Faqat valyuta kursi",
+   "Faqat o‘sish",
+   "Narxlar barqarorligi va maksimal bandlik",
+   "Faqat narxlar barqarorligi"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Operatsion mo‘ljalga misol:",
+  "options": [
+   "YaIM",
+   "Overnayt foiz stavkasi",
+   "Bandlik",
+   "Inflyatsiya"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Majburiy zaxira normasining oshirilishi:",
+  "options": [
+   "Pul multiplikatorini kamaytiradi",
+   "Pul bazasini oshiradi",
+   "Pul multiplikatorini oshiradi",
+   "Foiz stavkasini pasaytiradi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Markaziy bank ochiq bozorda obligatsiya sotsa:",
+  "options": [
+   "Pul massasi oshadi",
+   "Pul massasi kamayadi",
+   "Foiz stavkasi pasayadi",
+   "Ta’sir yo‘q"
+  ],
+  "c": 1
+ },
+ {
+  "q": "REPO – bu:",
+  "options": [
+   "Qaytarib sotib olish sharti bilan qimmatli qog‘oz sotish",
+   "Uzoq muddatli kredit",
+   "Majburiy zaxira",
+   "Valyuta intervensiyasi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Foiz koridorining yuqori chegarasi:",
+  "options": [
+   "Inflyatsiya",
+   "Overnayt depozit stavkasi",
+   "Asosiy stavka",
+   "Overnayt kredit (REPO) stavkasi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Qat’iy pul-kredit siyosati:",
+  "options": [
+   "Stavkani oshirish",
+   "Obligatsiya sotib olish",
+   "Stavkani pasaytirish",
+   "Zaxira normasini pasaytirish"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Yumshoq pul-kredit siyosati qachon qo‘llaniladi?",
+  "options": [
+   "Yuqori inflyatsiyada",
+   "Valyuta bosimida",
+   "Retsessiyada",
+   "Qizib ketishda"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Transmissiya mexanizmining valyuta kursi kanalida stavka oshishi:",
+  "options": [
+   "Eksportni oshiradi",
+   "Milliy valyutani mustahkamlaydi",
+   "Milliy valyutani qadrsizlantiradi",
+   "Importni qimmatlashtiradi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Kutishlar kanali qachon eng samarali ishlaydi?",
+  "options": [
+   "Yo‘naltirilgan kreditlar ko‘p bo‘lganda",
+   "Inflyatsiya yuqori bo‘lganda",
+   "Markaziy bankka ishonch yuqori bo‘lganda",
+   "Dollarlashuv yuqori bo‘lganda"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Transmissiyani zaiflashtiruvchi omil:",
+  "options": [
+   "Markaziy bank mustaqilligi",
+   "Yuqori dollarlashuv",
+   "Past inflyatsion kutishlar",
+   "Rivojlangan obligatsiyalar bozori"
+  ],
+  "c": 1
+ },
+ {
+  "q": "Teylor qoidasiga ko‘ra inflyatsiya maqsaddan 1 punkt oshsa, nominal stavka:",
+  "options": [
+   "O‘zgarmaydi",
+   "1,5 punkt oshadi",
+   "0,5 punkt oshadi",
+   "1 punkt oshadi"
+  ],
+  "c": 1
+ },
+ {
+  "q": "π = 4%, r∗ = 2%, π∗ = 2%, uzilish = 0 bo‘lsa, Teylor stavkasi:",
+  "options": [
+   "7%",
+   "8%",
+   "6%",
+   "4%"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Vaqt bo‘yicha nomuvofiqlik muammosini kim tahlil qilgan?",
+  "options": [
+   "Fridmen va Shvarts",
+   "Keyns va Xiks",
+   "Kidlend va Preskott",
+   "Mandell va Fleming"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Vaqt bo‘yicha nomuvofiqlikning yechimi emas:",
+  "options": [
+   "Inflyatsion targetlash",
+   "Markaziy bank mustaqilligi",
+   "Qoidalarga asoslangan siyosat",
+   "Siyosiy bosimni kuchaytirish"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Monetar siyosatning qaysi lagi uzoq?",
+  "options": [
+   "Lag yo‘q",
+   "Ikkalasi qisqa",
+   "Ichki",
+   "Tashqi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Foiz stavkasi o‘zgarishining inflyatsiyaga maksimal ta’siri odatda:",
+  "options": [
+   "12–24 oyda",
+   "3 oyda",
+   "10 yilda",
+   "1 oyda"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Qat’iy monetar va rag‘batlantiruvchi fiskal siyosat kombinatsiyasi:",
+  "options": [
+   "Foiz stavkasini kuchli oshiradi",
+   "Investitsiyalarni oshiradi",
+   "Yalpi talabni kuchli kamaytiradi",
+   "Foiz stavkasini pasaytiradi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Fiskal ustunlik – bu:",
+  "options": [
+   "Fiskal siyosatning monetar siyosatni o‘z maqsadlariga bo‘ysundirishi",
+   "Byudjet profitsiti",
+   "Markaziy bank mustaqilligi",
+   "Soliqlarning yuqoriligi"
+  ],
+  "c": 0
+ },
+ {
+  "q": "Bazel standartlari nimani tartibga soladi?",
+  "options": [
+   "Valyuta kursini",
+   "Soliqlarni",
+   "Inflyatsiyani",
+   "Bank kapitalining yetarliligini"
+  ],
+  "c": 3
+ },
+ {
+  "q": "Makroprudensial vositaga misol:",
+  "options": [
+   "Daromad solig‘i",
+   "Import tarifi",
+   "Davlat xaridlari",
+   "Qarz yuki ko‘rsatkichi (DTI) chegarasi"
+  ],
+  "c": 3
+ },
+ {
+  "q": "2025–2026-yillarda O‘zbekiston Markaziy banki asosiy stavkasi:",
+  "options": [
+   "17%",
+   "10%",
+   "14%",
+   "13,5%"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Markaziy bank mustaqilligi va inflyatsiya o‘rtasidagi bog‘liqlikni aniqlagan tadqiqot mualliflari:",
+  "options": [
+   "Kan va Keyns",
+   "Lukas va Sarjent",
+   "Alesina va Sammers",
+   "Modilyani va Miller"
+  ],
+  "c": 2
+ },
+ {
+  "q": "Majburiy zaxira normasi qaysi mamlakatda 2020-yildan nolga tushirilgan?",
+  "options": [
+   "AQSH",
+   "Turkiya",
+   "O‘zbekiston",
+   "Xitoy"
+  ],
+  "c": 0
+ },
+ {
+  "q": "2017-yildan beri O‘zbekistonda valyuta kursi qanday belgilanadi?",
+  "options": [
+   "Dollarga bog‘langan",
+   "Bozor tomonidan (egiluvchan)",
+   "Qayd etilgan",
+   "Valyuta kengashi"
+  ],
+  "c": 1
+ }
+]

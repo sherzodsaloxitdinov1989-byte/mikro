@@ -1,0 +1,332 @@
+[
+ {
+  "q": "IS-LM modelini 1937-yilda birinchi bo‘lib kim taklif qilgan?",
+  "options": [
+   "J.M. Keyns",
+   "M. Fridmen",
+   "J. Xiks",
+   "P. Samuelson"
+  ],
+  "c": 2,
+  "e": "Model J. Xiksning 1937-yilgi «Janob Keyns va klassiklar» maqolasida taklif qilingan."
+ },
+ {
+  "q": "IS egri chizig‘i qaysi bozor muvozanatini ifodalaydi?",
+  "options": [
+   "Tovarlar va xizmatlar bozori",
+   "Valyuta bozori",
+   "Pul bozori",
+   "Mehnat bozori"
+  ],
+  "c": 0,
+  "e": "IS foiz stavkasi va daromadning tovarlar bozori muvozanatini ta’minlovchi birikmalarini ko‘rsatadi."
+ },
+ {
+  "q": "IS egri chizig‘ining ko‘rinishi qanday?",
+  "options": [
+   "Yuqoriga egilgan",
+   "Vertikal",
+   "Gorizontal",
+   "Pastga egilgan"
+  ],
+  "c": 3,
+  "e": "Foiz pasayganda investitsiyalar va daromad oshadi, shuning uchun IS pastga egiladi."
+ },
+ {
+  "q": "IS egri chizig‘i nima uchun pastga egilgan?",
+  "options": [
+   "Daromad oshganda foiz stavkasi ham oshib boradi",
+   "Foiz pasayganda investitsiyalar va daromad oshadi",
+   "Foiz pasayganda pulga talab kamayib, daromad pasayadi",
+   "Narxlar pasayganda real pul taklifi oshib ketadi"
+  ],
+  "c": 1,
+  "e": "Foiz pasayishi investitsiyalarni, multiplikator orqali esa daromadni oshiradi."
+ },
+ {
+  "q": "Investitsiyalarning foizga sezgirligi oshsa, IS egri chizig‘i qanday o‘zgaradi?",
+  "options": [
+   "Tikroq bo‘lib qoladi",
+   "Yotiqroq bo‘ladi",
+   "Vertikal holatga o‘tadi",
+   "Parallel ravishda siljiydi"
+  ],
+  "c": 1,
+  "e": "Investitsiyalar foizga sezgir bo‘lsa, foizning kichik o‘zgarishi daromadni ko‘p o‘zgartiradi, IS yotiqlashadi."
+ },
+ {
+  "q": "Davlat xaridlarining oshishi IS-LM modelida nimaga olib keladi?",
+  "options": [
+   "LM ni o‘ngga siljitadi",
+   "LM ni chapga siljitadi",
+   "IS ni chapga siljitadi",
+   "IS ni o‘ngga siljitadi"
+  ],
+  "c": 3,
+  "e": "Davlat xaridlari yalpi xarajatlarni oshiradi va IS ni o‘ngga suradi."
+ },
+ {
+  "q": "LM egri chizig‘ining odatiy ko‘rinishi qanday?",
+  "options": [
+   "Yuqoriga egilgan",
+   "Doim vertikal",
+   "Pastga qarab egilgan",
+   "Doim gorizontal"
+  ],
+  "c": 0,
+  "e": "Daromad oshganda pulga talab oshadi, pul bozori muvozanati uchun foiz ko‘tarilishi kerak."
+ },
+ {
+  "q": "Pul taklifining oshishi LM egri chizig‘iga qanday ta’sir qiladi?",
+  "options": [
+   "LM ni chapga (yuqoriga) siljitadi",
+   "IS ni o‘ngga (yuqoriga) siljitadi",
+   "LM ni o‘ngga (pastga) siljitadi",
+   "IS ni chapga (pastga) siljitadi"
+  ],
+  "c": 2,
+  "e": "Real pul taklifi ko‘paysa, har bir daromadda muvozanatli foiz pasayadi, ya’ni LM o‘ngga siljiydi."
+ },
+ {
+  "q": "Narxlar darajasining oshishi IS-LM modelida nimaga olib keladi?",
+  "options": [
+   "LM ni o‘ngga (pastga) siljitadi",
+   "IS ni chapga siljitadi",
+   "LM ni chapga siljitadi",
+   "IS ni o‘ngga (yuqoriga) siljitadi"
+  ],
+  "c": 2,
+  "e": "Narx oshsa real pul taklifi M/P kamayadi va LM chapga (yuqoriga) siljiydi."
+ },
+ {
+  "q": "LM egri chizig‘ining gorizontal kesimi nimani ifodalaydi?",
+  "options": [
+   "Investitsiya tuzog‘i",
+   "Likvidlik tuzog‘i",
+   "To‘liq bandlik holati",
+   "Klassik monetar holat"
+  ],
+  "c": 1,
+  "e": "Foiz juda past bo‘lganda pulga talab cheksiz egiluvchan bo‘ladi – likvidlik tuzog‘i."
+ },
+ {
+  "q": "LM ning vertikal kesimida fiskal ekspansiya nimaga olib keladi?",
+  "options": [
+   "Faqat r ni oshiradi, Y o‘zgarmaydi",
+   "r ni pasaytiradi va Y ni oshiradi",
+   "Y ni to‘liq multiplikator hajmida oshiradi",
+   "Y ni ham, r ni ham kamaytiradi"
+  ],
+  "c": 0,
+  "e": "Vertikal LM da IS siljishi faqat foizni oshiradi, daromad esa to‘liq siqib chiqariladi."
+ },
+ {
+  "q": "Fiskal ekspansiya IS-LM modelida daromad (Y) va foiz stavkasi (r) ga qanday ta’sir qiladi?",
+  "options": [
+   "Y↓, r↓",
+   "Y↑, r↓",
+   "Y↓, r↑",
+   "Y↑, r↑"
+  ],
+  "c": 3,
+  "e": "IS o‘ngga siljiydi: yangi muvozanatda daromad ham, foiz ham yuqori."
+ },
+ {
+  "q": "Monetar ekspansiya IS-LM modelida Y va r ga qanday ta’sir qiladi?",
+  "options": [
+   "Y↑, r↑",
+   "Y↓, r↑",
+   "Y↓, r↓",
+   "Y↑, r↓"
+  ],
+  "c": 3,
+  "e": "LM o‘ngga siljiydi: foiz pasayadi, investitsiya va daromad oshadi."
+ },
+ {
+  "q": "Siqib chiqarish samarasi nima tufayli yuzaga keladi?",
+  "options": [
+   "Foiz pasayib, xususiy investitsiyalar ko‘payishi",
+   "Pul taklifi oshib, foiz stavkasi pasayishi",
+   "Daromad oshib, pulga talab va foiz ko‘tarilishi",
+   "Import oshib, sof eksport kamayishi"
+  ],
+  "c": 2,
+  "e": "Fiskal ekspansiya daromadni oshiradi, pulga talab ortadi, foiz ko‘tarilib investitsiyalarni siqib chiqaradi."
+ },
+ {
+  "q": "IS-LM modelida fiskal multiplikator qaysi formula bilan ifodalanadi?",
+  "options": [
+   "1/((1 – c) – dk/h)",
+   "1/((1 – c) + dk/h)",
+   "1/((1 – c) + h/dk)",
+   "1/(1 – c + k/h)"
+  ],
+  "c": 1,
+  "e": "Maxrajdagi qo‘shimcha had dk/h siqib chiqarishni aks ettiradi va multiplikatorni Keyns xochidagidan kichik qiladi."
+ },
+ {
+  "q": "Likvidlik tuzog‘ida qaysi siyosat samarasiz bo‘ladi?",
+  "options": [
+   "Monetar siyosat",
+   "Fiskal siyosat",
+   "Valyuta siyosati",
+   "Daromadlar siyosati"
+  ],
+  "c": 0,
+  "e": "Foiz tushmaydigan sharoitda pul taklifini oshirish investitsiyaga ta’sir qilmaydi."
+ },
+ {
+  "q": "Investitsiya tuzog‘ida (IS vertikal) monetar ekspansiya nimaga olib keladi?",
+  "options": [
+   "r ni oshiradi, Y ni ham oshiradi",
+   "IS ni o‘ngga siljitib, Y ni oshiradi",
+   "r ni pasaytiradi, Y o‘zgarmaydi",
+   "Y ni oshiradi, r o‘zgarmaydi"
+  ],
+  "c": 2,
+  "e": "IS vertikal bo‘lsa, foiz pasayishi investitsiyani o‘zgartirmaydi, shuning uchun daromad ham o‘zgarmaydi."
+ },
+ {
+  "q": "Monetar siyosat qaysi holatda eng samarali bo‘ladi?",
+  "options": [
+   "LM yotiq, IS tik",
+   "LM tik, IS tik",
+   "LM yotiq, IS yotiq",
+   "LM tik, IS yotiq"
+  ],
+  "c": 3,
+  "e": "Investitsiyalar foizga sezgir (IS yotiq) bo‘lganda foiz pasayishi daromadni ko‘p oshiradi."
+ },
+ {
+  "q": "Fiskal siyosat qaysi holatda eng samarali bo‘ladi?",
+  "options": [
+   "LM tik, IS yotiq",
+   "LM yotiq, IS tik",
+   "LM tik, IS tik",
+   "LM vertikal, IS yotiq"
+  ],
+  "c": 1,
+  "e": "LM yotiq bo‘lsa siqib chiqarish kichik, IS tik bo‘lsa siljish daromadga to‘liq o‘tadi."
+ },
+ {
+  "q": "IS-LM dan AD egri chizig‘i keltirib chiqarilganda narxlar pasaysa nima bo‘ladi?",
+  "options": [
+   "LM o‘ngga siljiydi, Y oshadi",
+   "LM chapga siljiydi, Y kamayadi",
+   "IS chapga siljiydi, Y kamayadi",
+   "IS o‘ngga siljiydi, Y oshadi"
+  ],
+  "c": 0,
+  "e": "Narx pasaysa M/P ortadi, LM o‘ngga siljiydi va daromad oshadi – AD pastga egilgan."
+ },
+ {
+  "q": "Iste’molchilar ishonchining pasayishi IS-LM modelida qanday natijaga olib keladi?",
+  "options": [
+   "IS o‘ngga, Y↑, r↑",
+   "IS chapga, Y↓, r↓",
+   "LM chapga, Y↓, r↑",
+   "LM o‘ngga, Y↑, r↓"
+  ],
+  "c": 1,
+  "e": "Iste’mol kamayadi, IS chapga siljiydi, daromad va foiz pasayadi."
+ },
+ {
+  "q": "Pigu samarasi nimani anglatadi?",
+  "options": [
+   "Foiz pasayganda investitsiyalar va daromad oshishi",
+   "Soliqlar oshganda real boylik va iste’mol kamayishi",
+   "Import kamayganda sof eksport va daromad oshishi",
+   "Narxlar pasayganda real boylik va iste’mol oshishi"
+  ],
+  "c": 3,
+  "e": "Narxlar pasaysa real kassa qoldiqlari ortadi, iste’mol funksiyasi yuqoriga siljiydi (IS o‘ngga)."
+ },
+ {
+  "q": "Uzoq muddatda (narxlar moslashganda) monetar ekspansiya qanday natija beradi?",
+  "options": [
+   "Real daromadni doimiy oshiradi",
+   "Real foiz stavkasini doimiy pasaytiradi",
+   "Faqat narxlarni oshiradi",
+   "Ishsizlikni doimiy kamaytiradi"
+  ],
+  "c": 2,
+  "e": "Uzoq muddatda Y potensial darajada qoladi, pul taklifi oshishi faqat narxlarni oshiradi."
+ },
+ {
+  "q": "Uzoq muddatda fiskal ekspansiya qanday natija beradi?",
+  "options": [
+   "To‘liq siqib chiqarishga olib keladi",
+   "Narxlarni pasaytirib, Y ni doimiy oshiradi",
+   "Foiz stavkasini doimiy pasaytiradi",
+   "Pul taklifini avtomatik oshiradi"
+  ],
+  "c": 0,
+  "e": "Narxlar oshib LM chapga siljiydi, natijada xususiy xarajatlar davlat xarajatlari hajmida siqib chiqariladi."
+ },
+ {
+  "q": "Volker davrida qisqa muddatda foiz stavkalari oshib, keyin pasayishi nimani ko‘rsatadi?",
+  "options": [
+   "Qisqa muddatda Fisher, uzoq muddatda likvidlik samarasi",
+   "Ikkala muddatda ham faqat likvidlik samarasi",
+   "Qisqa muddatda Pigu, uzoq muddatda Fisher samarasi",
+   "Qisqa muddatda likvidlik, uzoq muddatda Fisher samarasi"
+  ],
+  "c": 3,
+  "e": "Qat’iy monetar cheklash avval stavkani ko‘tardi, inflyatsiya pasaygach Fisher samarasi stavkani tushirdi."
+ },
+ {
+  "q": "IS: Y = 2200 – 125r, LM: Y = 1600 + 100r bo‘lsa, muvozanatli r qancha?",
+  "options": [
+   "1,67%",
+   "3,67%",
+   "2,67%",
+   "2,00%"
+  ],
+  "c": 2,
+  "e": "2200 – 125r = 1600 + 100r, bundan 225r = 600 va r ≈ 2,67%."
+ },
+ {
+  "q": "Markaziy bank foiz stavkasini qayd etilgan darajada ushlab tursa, fiskal multiplikator nimaga teng bo‘ladi?",
+  "options": [
+   "Keyns xochidagi 1/(1 – c) ga teng",
+   "IS-LM dagi 1/((1 – c) + dk/h) ga teng",
+   "Nolga teng, chunki Y o‘zgarmaydi",
+   "Birdan kichik, chunki foiz oshadi"
+  ],
+  "c": 0,
+  "e": "Foiz o‘zgarmasa siqib chiqarish bo‘lmaydi va multiplikator oddiy Keyns multiplikatoriga teng."
+ },
+ {
+  "q": "Nominal foiz stavkasining nol chegarasi qaysi muammo bilan bog‘liq?",
+  "options": [
+   "Siqib chiqarish samarasi",
+   "Likvidlik tuzog‘i",
+   "Investitsiya tuzog‘i",
+   "Pigu samarasi"
+  ],
+  "c": 1,
+  "e": "Stavka nolga yaqinlashganda monetar siyosat foizni yana tushira olmaydi – likvidlik tuzog‘i."
+ },
+ {
+  "q": "Fiskal ekspansiya bilan bir vaqtda monetar cheklash qo‘llansa, nima bo‘ladi?",
+  "options": [
+   "Y keskin oshadi, foiz stavkasi pasayadi",
+   "Daromad ham, foiz ham keskin pasayadi",
+   "r o‘zgarmaydi, Y ko‘p marta oshadi",
+   "r keskin oshadi, Y o‘zgarmasligi mumkin"
+  ],
+  "c": 3,
+  "e": "IS o‘ngga, LM chapga siljiydi: foiz keskin ko‘tariladi, daromadga ta’sir noaniq."
+ },
+ {
+  "q": "2008-yilgi moliyaviy inqiroz IS-LM modelida qanday tasvirlanadi?",
+  "options": [
+   "LM ning kuchli o‘ngga siljishi",
+   "IS ning kuchli chapga siljishi",
+   "IS ning o‘ngga siljishi",
+   "LM ning vertikal bo‘lib qolishi"
+  ],
+  "c": 1,
+  "e": "Uy-joy narxlari qulashi va ishonch pasayishi IS ni chapga kuchli siljitdi."
+ }
+]

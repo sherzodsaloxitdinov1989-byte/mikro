@@ -3,14 +3,16 @@ import { h, mount, toast, loading, confirmDialog, fmtDate } from "../ui.js";
 import { api } from "../api.js";
 import { readXlsx, readDelimited } from "../xlsx-read.js";
 
+const HEADRE = /^\s*(shifr|id|identifikatsi\w*\s*raqam\w*)\s*$/i;
+
 /** Jadvaldan { name, shifr } qatorlarini ajratadi: sarlavhadan ustunlarni topadi, topilmasa — 2- va 3-ustun. */
 function parseRows(rows) {
   let nameCol = 1;
   let shifrCol = 2;
   let start = 0;
-  const head = rows.findIndex((r) => r.some((c) => /^\s*shifr\s*$/i.test(c)));
+  const head = rows.findIndex((r) => r.some((c) => HEADRE.test(c)));
   if (head >= 0) {
-    shifrCol = rows[head].findIndex((c) => /^\s*shifr\s*$/i.test(c));
+    shifrCol = rows[head].findIndex((c) => HEADRE.test(c));
     const n = rows[head].findIndex((c) => /familiya|f\.?i\.?sh|ism/i.test(c));
     if (n >= 0) nameCol = n;
     start = head + 1;

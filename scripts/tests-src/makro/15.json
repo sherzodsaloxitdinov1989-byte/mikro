@@ -1,0 +1,343 @@
+[
+ {
+  "q": "Neoklassik o‘sish modelini 1956-yilda taklif qilgan iqtisodchi (T. Svon bilan birga):",
+  "options": [
+   "R. Solou",
+   "R. Xarrod",
+   "A. Lyuis",
+   "J. Xiks"
+  ],
+  "c": 0,
+  "e": "Solou va Svon neoklassik modelni mustaqil ravishda 1956-yilda taklif qilgan."
+ },
+ {
+  "q": "Solou modelida ishlab chiqarish funksiyasiga qanday faraz qo‘yiladi?",
+  "options": [
+   "Omillar qat’iy nisbatda ishlatiladi, qaytim doimiy",
+   "Omillar almashtiriladi, masshtabdan qaytim o‘suvchi",
+   "Omillar almashtiriladi, masshtabdan qaytim doimiy",
+   "Faqat kapital hisobga olinadi, qaytim kamayuvchi"
+  ],
+  "c": 2,
+  "e": "Solou modelida K va L almashtiriladi va funksiya masshtabdan doimiy qaytimga ega."
+ },
+ {
+  "q": "Kobb-Duglas funksiyasi Y = AKᵅL¹⁻ᵅ da α nimani bildiradi?",
+  "options": [
+   "Jamg‘arish normasining daromaddagi ulushi",
+   "Kapitalning daromaddagi ulushi",
+   "Mehnatning daromaddagi ulushi",
+   "Amortizatsiya normasining kapitalga nisbati"
+  ],
+  "c": 1,
+  "e": "Raqobatli bozorda α kapital ulushi, (1 – α) esa mehnat ulushidir."
+ },
+ {
+  "q": "Solou modelining asosiy tenglamasi qaysi?",
+  "options": [
+   "Δk = sf(k) + (δ + n)k",
+   "Δk = (1 – s)f(k) – (δ + n)k",
+   "Δk = sf(k) – δk + nk",
+   "Δk = sf(k) – (δ + n)k"
+  ],
+  "c": 3,
+  "e": "Investitsiyalar sf(k) dan zarur investitsiyalar (δ + n)k ayriladi."
+ },
+ {
+  "q": "Solou modelida barqaror holat sharti qaysi?",
+  "options": [
+   "Δk = 1, ya’ni sf(k*) = f(k*)",
+   "k* = 0, ya’ni kapital to‘liq eskiradi",
+   "Δk = 0, ya’ni sf(k*) = (δ + n)k*",
+   "Δk > 0, ya’ni investitsiyalar doim ortiq bo‘ladi"
+  ],
+  "c": 2,
+  "e": "Barqaror holatda kapital bilan qurollanganlik o‘zgarmaydi: investitsiyalar zarur investitsiyalarga teng."
+ },
+ {
+  "q": "Texnik taraqqiyotsiz Solou modelida barqaror holatda bir ishchiga daromad qanday o‘zgaradi?",
+  "options": [
+   "O‘zgarmaydi",
+   "n sur’atda o‘sadi",
+   "s sur’atda o‘sadi",
+   "δ sur’atda kamayadi"
+  ],
+  "c": 0,
+  "e": "Barqaror holatda k va y o‘zgarmaydi, shuning uchun bir ishchiga daromad o‘smaydi."
+ },
+ {
+  "q": "Jamg‘arish normasi s oshsa, uzoq muddatda nima yuz beradi?",
+  "options": [
+   "Daromad darajasi ham, o‘sish sur’ati ham doimiy oshadi",
+   "Daromad darajasi o‘zgarmaydi, o‘sish sur’ati doimiy oshadi",
+   "Daromad darajasi pasayadi, o‘sish sur’ati ham kamayadi",
+   "Barqaror daromad darajasi oshadi, o‘sish sur’ati o‘zgarmaydi"
+  ],
+  "c": 3,
+  "e": "Jamg‘arish faqat darajaga ta’sir qiladi, uzoq muddatli o‘sish sur’atiga emas."
+ },
+ {
+  "q": "Aholi o‘sish sur’ati n oshsa, barqaror holatdagi k* qanday o‘zgaradi?",
+  "options": [
+   "Oshadi",
+   "Kamayadi",
+   "O‘zgarmaydi",
+   "Nolga teng bo‘ladi"
+  ],
+  "c": 1,
+  "e": "(δ + n)k chizig‘i tikroq bo‘lib, yangi barqaror holat pastroq k* da o‘rnatiladi."
+ },
+ {
+  "q": "y = √k, s = 0,3, δ = 0,1, n = 0 bo‘lsa, barqaror holatdagi k* nimaga teng?",
+  "options": [
+   "3",
+   "9",
+   "0,9",
+   "30"
+  ],
+  "c": 1,
+  "e": "k* = (s/δ)² = (0,3/0,1)² = 9."
+ },
+ {
+  "q": "Yuqoridagi misolda (y = √k, s = 0,3, δ = 0,1) barqaror holatdagi bir ishchiga iste’mol c* qancha?",
+  "options": [
+   "0,9",
+   "3",
+   "2,7",
+   "2,1"
+  ],
+  "c": 3,
+  "e": "y* = √9 = 3, i* = 0,3 × 3 = 0,9, demak c* = 3 – 0,9 = 2,1."
+ },
+ {
+  "q": "Oltin qoida sharti (n = 0, g = 0 bo‘lganda) qaysi?",
+  "options": [
+   "MPK = δ",
+   "MPK = s",
+   "MPL = δ",
+   "MPK = 1 – s"
+  ],
+  "c": 0,
+  "e": "Iste’molni maksimallashtirish uchun kapitalning chegaraviy mahsuloti amortizatsiya normasiga teng bo‘lishi kerak."
+ },
+ {
+  "q": "Kobb-Duglas funksiyasi uchun oltin qoida jamg‘arish normasi nimaga teng?",
+  "options": [
+   "1 – α, ya’ni mehnatning daromaddagi ulushiga",
+   "δ, ya’ni amortizatsiya normasiga",
+   "α, ya’ni kapitalning daromaddagi ulushiga",
+   "n, ya’ni aholi o‘sish sur’atiga"
+  ],
+  "c": 2,
+  "e": "Kobb-Duglas holida s_oltin = α."
+ },
+ {
+  "q": "Oltin qoida g‘oyasini 1961-yilda ilgari surgan iqtisodchi:",
+  "options": [
+   "R. Solou",
+   "P. Romer",
+   "J. Xiks",
+   "E. Felps"
+  ],
+  "c": 3,
+  "e": "Edmund Felps iste’molni maksimallashtiruvchi barqaror holatni «oltin qoida» deb atagan."
+ },
+ {
+  "q": "Qaysi holat dinamik samarasizlikni bildiradi?",
+  "options": [
+   "MPK > δ + n, ya’ni kapital yetishmaydi",
+   "MPK < δ + n, ya’ni kapital ortiqcha",
+   "s < α, ya’ni jamg‘arish kam",
+   "k* = 0, ya’ni kapital yo‘q"
+  ],
+  "c": 1,
+  "e": "Kapital oltin qoidadan ko‘p bo‘lsa, jamg‘arishni kamaytirish iste’molni oshiradi."
+ },
+ {
+  "q": "Kapital oltin qoidadan kam bo‘lganda jamg‘arishni oshirish o‘tish davrida iste’molga qanday ta’sir qiladi?",
+  "options": [
+   "Darhol oshiradi va shunday qoladi",
+   "Doimiy kamaytiradi, chunki jamg‘arma ko‘payadi",
+   "Avval kamaytiradi, keyin boshlang‘ich darajadan oshiradi",
+   "Hech qanday ta’sir qilmaydi, faqat investitsiya o‘sadi"
+  ],
+  "c": 2,
+  "e": "Dastlab iste’mol qisqaradi, kapital to‘plangach u boshlang‘ich darajadan ham oshib ketadi."
+ },
+ {
+  "q": "Texnik taraqqiyot (g) bilan barqaror holatda bir ishchiga mahsulot (Y/L) qanday o‘sadi?",
+  "options": [
+   "g sur’atda",
+   "n + g sur’atda",
+   "n sur’atda",
+   "nol sur’atda, ya’ni o‘smaydi"
+  ],
+  "c": 0,
+  "e": "Y/L = y × E, E esa g sur’atda o‘sadi."
+ },
+ {
+  "q": "Texnik taraqqiyot bilan Solou modelida barqaror holatda umumiy mahsulot qanday sur’atda o‘sadi?",
+  "options": [
+   "n + g",
+   "g",
+   "s",
+   "n – g"
+  ],
+  "c": 0,
+  "e": "Umumiy mahsulot samarali ishchilar soni (L × E) bilan birga n + g sur’atda o‘sadi."
+ },
+ {
+  "q": "Mankyu baholashicha, AQSH kapitali oltin qoida darajasiga nisbatan qanday?",
+  "options": [
+   "Undan ko‘p, shuning uchun jamg‘arishni kamaytirish kerak",
+   "Unga teng, shuning uchun siyosat o‘zgarmaydi",
+   "Aniqlab bo‘lmaydi, chunki MPK noma’lum",
+   "Undan kam, shuning uchun jamg‘arishni oshirish foydali"
+  ],
+  "c": 3,
+  "e": "AQSHda MPK ≈ 12% > δ ≈ 4%, demak kapital oltin qoidadan kam."
+ },
+ {
+  "q": "Shartli yaqinlashish (konvergensiya) nimani anglatadi?",
+  "options": [
+   "Barcha mamlakatlar bir xil daromadga yetadi",
+   "Kambag‘al mamlakatlar har doim boylardan tez o‘sadi",
+   "Mamlakatlar o‘z barqaror holatlariga yaqinlashadi",
+   "Mamlakatlar o‘rtasida yaqinlashish kuzatilmaydi"
+  ],
+  "c": 2,
+  "e": "Parametrlar farqi hisobga olinsa, kambag‘al mamlakatlar boylarga emas, o‘z barqaror holatiga yaqinlashadi."
+ },
+ {
+  "q": "Endogen o‘sish nazariyasining asoschilari kimlar?",
+  "options": [
+   "R. Xarrod va E. Domar",
+   "P. Romer va R. Lukas",
+   "R. Solou va T. Svon",
+   "J. Keyns va R. Kan"
+  ],
+  "c": 1,
+  "e": "Romer va Lukas 1980-yillar oxirida texnik taraqqiyotni model ichida tushuntirdi."
+ },
+ {
+  "q": "AK modelida jamg‘arish normasi nimaga ta’sir qiladi?",
+  "options": [
+   "Faqat barqaror daraja va o‘tish davriga",
+   "Faqat amortizatsiya normasiga",
+   "Uzoq muddatli o‘sish sur’atiga",
+   "Hech narsaga ta’sir qilmaydi"
+  ],
+  "c": 2,
+  "e": "AK modelida g = sA – δ, shuning uchun jamg‘arish o‘sish sur’atini belgilaydi."
+ },
+ {
+  "q": "Lyuis modelida an’anaviy (agrar) sektorning xususiyati qaysi?",
+  "options": [
+   "Ortiqcha ishchi kuchi bor, chegaraviy mahsulot nolga yaqin",
+   "Kapital ko‘p, ishchi kuchi taqchil",
+   "Unumdorlik yuqori, foyda maksimallashtiriladi",
+   "Ish haqi bozor bo‘yicha oshib boradi"
+  ],
+  "c": 0,
+  "e": "Qishloqda ishchilarning bir qismi ishlab chiqarishga deyarli hech narsa qo‘shmaydi."
+ },
+ {
+  "q": "Qishloqda ortiqcha ishchi kuchi bo‘lganda sanoatga mehnat taklifi qanday bo‘ladi?",
+  "options": [
+   "Vertikal, ya’ni mutlaqo noelastik",
+   "Gorizontal, ya’ni ish haqida cheksiz elastik",
+   "Yuqoriga egilgan, ish haqi tez oshadi",
+   "Pastga egilgan, ish haqi kamayadi"
+  ],
+  "c": 1,
+  "e": "Sanoat qayd etilgan ish haqida istagancha ishchi jalb qila oladi."
+ },
+ {
+  "q": "«Lyuis burilish nuqtasi»dan keyin nima bo‘ladi?",
+  "options": [
+   "Sanoatda ish haqi pasaya boshlaydi",
+   "Qishloqda yangi ortiqcha ishchi kuchi paydo bo‘ladi",
+   "Sanoat bandligi tez kengayishda davom etadi",
+   "Sanoatda ish haqi o‘sa boshlaydi"
+  ],
+  "c": 3,
+  "e": "Ortiqcha ishchi kuchi tugagach, sanoat ish haqini oshirishga majbur bo‘ladi."
+ },
+ {
+  "q": "Xiksning mehnat tejovchi texnik taraqqiyotida nima yuz beradi?",
+  "options": [
+   "MPL tezroq oshadi, K/L kamayadi",
+   "MPK va MPL bir xil nisbatda oshadi",
+   "MPK kamayadi, kapital ulushi pasayadi",
+   "MPK tezroq oshadi, K/L oshadi"
+  ],
+  "c": 3,
+  "e": "Mehnat tejovchi taraqqiyot kapital chegaraviy mahsulotini tezroq oshiradi."
+ },
+ {
+  "q": "Xiks bo‘yicha neytral texnik taraqqiyotda nima o‘zgarmaydi?",
+  "options": [
+   "Mehnat unumdorligi darajasi",
+   "K/L o‘zgarmaganda MPK/MPL nisbati",
+   "Kapitalning chegaraviy mahsuloti qiymati",
+   "Umumiy ishlab chiqarish hajmi"
+  ],
+  "c": 1,
+  "e": "Neytral taraqqiyotda MPK va MPL bir xil nisbatda oshadi."
+ },
+ {
+  "q": "Solou modelida muvozanatli o‘sishga mos yagona texnik taraqqiyot turi qaysi?",
+  "options": [
+   "Xarrod-neytral (mehnatni kengaytiruvchi)",
+   "Solou-neytral (kapitalni kengaytiruvchi)",
+   "Kapital tejovchi (mehnat talab qiluvchi)",
+   "Mehnat tejovchi (kapital talab qiluvchi)"
+  ],
+  "c": 0,
+  "e": "Y = F(K, A·L) ko‘rinishidagi taraqqiyot barqaror holatga mos keladi."
+ },
+ {
+  "q": "Solou modeli urushdan keyingi Yaponiya va Germaniyaning tez o‘sishini qanday tushuntiradi?",
+  "options": [
+   "Texnologiyaning keskin o‘zgarishi tufayli o‘sish tezlashgan",
+   "Jamg‘arish normasining keskin pasayishi natijasida",
+   "Kapital barqaror darajadan past bo‘lgani uchun tez yaqinlashgan",
+   "Aholi o‘sishining tezlashishi orqali"
+  ],
+  "c": 2,
+  "e": "Urush k ni k* dan pastga tushirdi, past k da kapital unumdorligi yuqori bo‘lib, o‘sish tez bo‘ldi."
+ },
+ {
+  "q": "Institutlarning o‘sishdagi rolini mustamlakachilik merosi orqali o‘rgangan olimlar:",
+  "options": [
+   "Xarrod, Domar va Solou",
+   "Adjemo‘g‘lu, Jonson va Robinson",
+   "Kobb, Duglas va Felps",
+   "Fridmen, Shvarts va Lyuis"
+  ],
+  "c": 1,
+  "e": "Ular inklyuziv va ekstraktiv institutlar farqini farovonlik farqining chuqur sababi deb ko‘rsatdi."
+ },
+ {
+  "q": "Barqaror holatda (δ + n)k ifodasi nimani anglatadi?",
+  "options": [
+   "Bir ishchiga to‘g‘ri keladigan jami jamg‘armani",
+   "Bir ishchiga to‘g‘ri keladigan iste’molni",
+   "Kapital bilan qurollanganlikni saqlash uchun zarur investitsiyalarni",
+   "Kapitalning daromaddagi ulushini"
+  ],
+  "c": 2,
+  "e": "Bu ifoda amortizatsiyani qoplash va yangi ishchilarni kapital bilan ta’minlash uchun kerak."
+ },
+ {
+  "q": "O‘zbekistonda qishloq xo‘jaligining YaQQdagi ulushi 2024-yildan 2025-yilning 9 oyigacha qanday o‘zgargan?",
+  "options": [
+   "19,2% dan 17,0% ga kamaygan",
+   "17,0% dan 19,2% ga oshgan",
+   "19,2% dan 30% ga oshgan",
+   "19,2% darajasida o‘zgarmagan"
+  ],
+  "c": 0,
+  "e": "Darslik ma’lumotiga ko‘ra, bu Lyuis samarasi (mehnatning qayta taqsimlanishi) belgisidir."
+ }
+]

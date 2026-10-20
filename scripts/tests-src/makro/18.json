@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Valyuta kursi – bu:",
+  "options": [
+   "Milliy valyutaning oltindagi rasmiy narxi",
+   "Bir valyutaning boshqa valyutadagi narxi",
+   "Markaziy bankning kredit bo‘yicha foiz stavkasi",
+   "Mamlakat narxlar darajasining jahon narxlariga nisbati"
+  ],
+  "c": 1,
+  "e": "Valyuta kursi – bir mamlakat valyutasining boshqa valyutada ifodalangan narxi."
+ },
+ {
+  "q": "1 USD = 12 025 so‘m ko‘rinishidagi kotirovka:",
+  "options": [
+   "To‘g‘ri kotirovka",
+   "Bilvosita kotirovka",
+   "Kross-kotirovka",
+   "Forvard kotirovka"
+  ],
+  "c": 0,
+  "e": "To‘g‘ri (bevosita) kotirovkada 1 birlik xorijiy valyuta milliy valyutada ifodalanadi."
+ },
+ {
+  "q": "Ikki valyutaning uchinchi valyuta orqali hisoblangan nisbati:",
+  "options": [
+   "Kross-kurs",
+   "Samarali kurs",
+   "Real kurs",
+   "Spot kurs"
+  ],
+  "c": 0,
+  "e": "Kross-kurs ikki valyutaning odatda dollar orqali hisoblangan nisbatidir."
+ },
+ {
+  "q": "Dollarga talab egri chizig‘i pastga og‘ma, chunki kurs oshganda:",
+  "options": [
+   "Eksport arzonlashib, dollar taklifi oshadi",
+   "Import qimmatlashib, dollarga talab kamayadi",
+   "Pul o‘tkazmalari ko‘payib, dollar taklifi oshadi",
+   "Inflyatsiya pasayib, importga ehtiyoj kamayadi"
+  ],
+  "c": 1,
+  "e": "Dollar qimmatlashsa, import so‘mda qimmatlashadi va dollarga talab kamayadi."
+ },
+ {
+  "q": "Pul o‘tkazmalarining ko‘payishi suzuvchi kurs sharoitida so‘mga qanday ta’sir qiladi?",
+  "options": [
+   "Qadrsizlantiradi",
+   "Qimmatlashtiradi",
+   "Devalvatsiyaga olib keladi",
+   "Ta’sir qilmaydi"
+  ],
+  "c": 1,
+  "e": "Pul o‘tkazmalari dollar taklifini oshiradi, taklif egri chizig‘i o‘ngga siljib, so‘m qimmatlashadi."
+ },
+ {
+  "q": "Qayd etilgan kurs muvozanat darajasidan past bo‘lsa (milliy valyuta sun’iy qimmat), markaziy bank:",
+  "options": [
+   "Valyuta sotib olib, zaxirani ko‘paytiradi",
+   "Foiz stavkasini pasaytirib, kreditni kengaytiradi",
+   "Hech narsa qilmay, kursni bozorga qoldiradi",
+   "Zaxiralardan valyuta sotadi"
+  ],
+  "c": 3,
+  "e": "Dollar taqchilligini markaziy bank o‘z zaxiralaridan sotib qoplaydi; zaxira tugasa, devalvatsiya muqarrar."
+ },
+ {
+  "q": "Devalvatsiya – bu:",
+  "options": [
+   "Rasmiy qaror bilan milliy valyuta kursini pasaytirish",
+   "Bozor kuchlari ta’sirida milliy valyutaning qadrsizlanishi",
+   "Rasmiy qaror bilan milliy valyuta kursini oshirish",
+   "Inflyatsiya darajasining keskin pasayishi"
+  ],
+  "c": 0,
+  "e": "Devalvatsiya – qayd etilgan kurs rejimida hukumat yoki markaziy bank qarori bilan rasmiy kursning pasaytirilishi."
+ },
+ {
+  "q": "Suzuvchi kurs sharoitida milliy valyuta qiymatining bozor ta’sirida oshishi:",
+  "options": [
+   "Appresiatsiya",
+   "Devalvatsiya",
+   "Revalvatsiya",
+   "Depresiatsiya"
+  ],
+  "c": 0,
+  "e": "Suzuvchi kursda bozor ta’sirida qimmatlashish appresiatsiya deyiladi; revalvatsiya rasmiy qaror bilan bo‘ladi."
+ },
+ {
+  "q": "O‘zbekistonda valyuta bozori liberallashtirilgan sana:",
+  "options": [
+   "2018-yil sentabr",
+   "2016-yil sentabr",
+   "2017-yil sentabr",
+   "2019-yil dekabr"
+  ],
+  "c": 2,
+  "e": "Valyuta bozori 2017-yil sentabrida liberallashtirildi."
+ },
+ {
+  "q": "Mankyu ta’rifiga ko‘ra real valyuta kursi:",
+  "options": [
+   "ε = e × P∗/P",
+   "ε = e + π",
+   "ε = e × P/P∗",
+   "ε = P/P∗"
+  ],
+  "c": 2,
+  "e": "Mankyu bo‘yicha real kurs nominal kurs va narxlar darajalari nisbatining ko‘paytmasi: ε = e × P/P∗."
+ },
+ {
+  "q": "Real kurs ε oshsa (Mankyu ta’rifi):",
+  "options": [
+   "Milliy tovarlar arzonlashadi, sof eksport oshadi",
+   "Milliy tovarlar qimmatlashadi, sof eksport oshadi",
+   "Milliy tovarlar arzonlashadi, sof eksport kamayadi",
+   "Milliy tovarlar qimmatlashadi, sof eksport kamayadi"
+  ],
+  "c": 3,
+  "e": "ε oshishi real appresiatsiya: milliy tovarlar qimmatlashib, raqobatbardoshlik va sof eksport pasayadi."
+ },
+ {
+  "q": "Nominal kurs o‘zgarishi, real kurs o‘zgarishi va inflyatsiya o‘rtasidagi bog‘liqlik (Mankyu):",
+  "options": [
+   "%Δe = %Δε + (π – π∗)",
+   "%Δe = %Δε + (π∗ – π)",
+   "%Δe = %Δε × (π∗ – π)",
+   "%Δe = %Δε + (π + π∗)"
+  ],
+  "c": 1,
+  "e": "Nominal kursning o‘zgarishi real kurs o‘zgarishi va inflyatsiya farqining yig‘indisiga teng."
+ },
+ {
+  "q": "Real samarali valyuta kursi:",
+  "options": [
+   "Savdo hamkorlari valyutalariga nisbatan narxlarga tuzatilmagan o‘rtacha kurs",
+   "Faqat bitta eng yirik hamkor valyutasiga nisbatan narxlarga tuzatilgan kurs",
+   "Muddatli bitimlarda kelishilgan kelajakdagi forvard kurs",
+   "Savdo hamkorlari valyutalariga nisbatan narxlarga tuzatilgan o‘rtacha kurs"
+  ],
+  "c": 3,
+  "e": "REER – hamkorlar valyutalariga nisbatan savdo ulushlari bilan tortilgan va narxlar nisbatiga tuzatilgan indeks."
+ },
+ {
+  "q": "Xarid qobiliyati pariteti nazariyasi muallifi:",
+  "options": [
+   "G. Kassel",
+   "M. Fridmen",
+   "R. Mandell",
+   "J.M. Keyns"
+  ],
+  "c": 0,
+  "e": "XQP nazariyasi G. Kassel (1918) nomi bilan bog‘liq."
+ },
+ {
+  "q": "Mutlaq XQPga ko‘ra (to‘g‘ri kotirovkada):",
+  "options": [
+   "e = P/P∗",
+   "e = 1",
+   "e = i – i∗",
+   "e = P∗ × P"
+  ],
+  "c": 0,
+  "e": "Mutlaq XQPda nominal kurs narxlar darajalari nisbatiga teng, real kurs doimo 1."
+ },
+ {
+  "q": "Nisbiy XQPga ko‘ra milliy valyutaning qadrsizlanish sur’ati teng:",
+  "options": [
+   "Inflyatsiya farqiga (π – π∗)",
+   "YaIM o‘sish sur’atlari farqiga",
+   "Foiz stavkalari farqiga (i – i∗)",
+   "Savdo balansi qoldig‘iga"
+  ],
+  "c": 0,
+  "e": "Nisbiy XQP: %Δe = π – π∗."
+ },
+ {
+  "q": "Big Mak AQSHda 5 dollar, mamlakat A da 40 000 so‘m bo‘lsa, XQP kursi:",
+  "options": [
+   "20 000 so‘m/$",
+   "12 000 so‘m/$",
+   "8 000 so‘m/$",
+   "4 000 so‘m/$"
+  ],
+  "c": 2,
+  "e": "XQP kursi = 40 000 / 5 = 8 000 so‘m/$."
+ },
+ {
+  "q": "XQPning qisqa muddatda bajarilmasligining sababi emas:",
+  "options": [
+   "Savdo qilinmaydigan tovarlar",
+   "Arbitrajning mavjudligi",
+   "Transport xarajatlari",
+   "Kapital oqimlari"
+  ],
+  "c": 1,
+  "e": "Arbitraj narxlarni tenglashtiradi; qolganlari XQPning bajarilishiga to‘sqinlik qiladi."
+ },
+ {
+  "q": "Kambag‘al mamlakatlarda narxlar darajasining past bo‘lishini tushuntiruvchi samara:",
+  "options": [
+   "Oliver-Tanzi samarasi",
+   "Pigu samarasi",
+   "Fisher samarasi",
+   "Balassa-Samuelson"
+  ],
+  "c": 3,
+  "e": "Kambag‘al mamlakatlarda savdo qilinmaydigan xizmatlar arzon, shuning uchun narxlar darajasi past (Balassa-Samuelson samarasi)."
+ },
+ {
+  "q": "Foiz stavkalari pariteti bo‘yicha milliy foiz stavkasi xorijiy stavkadan yuqori bo‘lsa, investorlar milliy valyutaning:",
+  "options": [
+   "O‘zgarmasligini kutadi",
+   "Qadrsizlanishini kutadi",
+   "Qimmatlashishini kutadi",
+   "Devalvatsiyasini talab qiladi"
+  ],
+  "c": 1,
+  "e": "Daromadlar tenglashishi uchun yuqori stavka kutilayotgan qadrsizlanish bilan qoplanadi: i = i∗ + (eᵉ – e)/e."
+ },
+ {
+  "q": "Markaziy bank asosiy stavkani oshirsa, boshqa sharoitlar o‘zgarmaganda milliy valyuta:",
+  "options": [
+   "Devalvatsiya qilinadi",
+   "O‘zgarmaydi",
+   "Qimmatlashadi",
+   "Qadrsizlanadi"
+  ],
+  "c": 2,
+  "e": "Yuqori stavka so‘mdagi aktivlarni jozibador qilib, kapital oqimini kuchaytiradi va so‘m qimmatlashadi."
+ },
+ {
+  "q": "Mankyu modelida mamlakat ichida fiskal ekspansiya real kursga qanday ta’sir qiladi?",
+  "options": [
+   "Oshiradi",
+   "Pasaytiradi",
+   "Ta’sir qilmaydi",
+   "Avval pasaytirib, keyin oshiradi"
+  ],
+  "c": 0,
+  "e": "S kamayadi, S – I chapga siljiydi, real kurs oshadi va sof eksport kamayadi."
+ },
+ {
+  "q": "Mankyu modelida xorijdagi fiskal ekspansiya (r∗ oshishi) real kursni:",
+  "options": [
+   "Oshiradi",
+   "Ikki baravar oshiradi",
+   "O‘zgartirmaydi",
+   "Pasaytiradi"
+  ],
+  "c": 3,
+  "e": "r∗ oshsa investitsiya kamayadi, S – I o‘ngga siljiydi, real kurs pasayadi."
+ },
+ {
+  "q": "Mankyu modelida uzoq muddatda pul-kredit siyosati asosan qaysi kursga ta’sir qiladi?",
+  "options": [
+   "Faqat samarali real kursga",
+   "Ikkalasiga ham ta’sir qilmaydi",
+   "Nominal kursga",
+   "Real kursga"
+  ],
+  "c": 2,
+  "e": "Pul-kredit siyosati narxlar darajasini belgilaydi, shuning uchun uzoq muddatda real kursga emas, nominal kursga ta’sir qiladi."
+ },
+ {
+  "q": "«Golland kasalligi» – bu:",
+  "options": [
+   "Tashqi qarzning keskin oshishi va davlatning to‘lovga qodir bo‘lmay qolishi",
+   "Narxlar darajasining nazoratsiz o‘sishi va pulning tez qadrsizlanishi",
+   "Omonatchilar ishonchini yo‘qotishi natijasida banklarning to‘xtab qolishi",
+   "Resurs eksporti tufayli valyuta qimmatlashib, qayta ishlash sanoati zaiflashishi"
+  ],
+  "c": 3,
+  "e": "Golland kasalligi – resurs eksporti milliy valyutani qimmatlashtirib, qayta ishlash sanoatini zaiflashtirishi."
+ },
+ {
+  "q": "O‘zbekiston Markaziy bankining «neytrallik tamoyili»:",
+  "options": [
+   "Kursni muayyan darajada qat’iy belgilab ushlab turish",
+   "Valyuta bozoriga umuman aralashmaslik va zaxira yig‘maslik",
+   "Sotib olingan oltin hajmiga mos valyuta sotish",
+   "Bozordagi dollar taklifini doimiy ravishda kamaytirib borish"
+  ],
+  "c": 2,
+  "e": "Markaziy bank ichki bozorda sotib olingan oltin hajmiga mos valyutani bozorda sotadi, shu bilan so‘m likvidligini sterilizatsiya qiladi."
+ },
+ {
+  "q": "O‘zbekistonning xalqaro zaxiralari 2026-yil 1-yanvar holatiga:",
+  "options": [
+   "41,2 mlrd dollar",
+   "100 mlrd dollar",
+   "66,3 mlrd dollar",
+   "21 mlrd dollar"
+  ],
+  "c": 2,
+  "e": "Darslikka ko‘ra zaxiralar rekord 66,3 mlrd dollarga yetgan (bir yil oldin 41,2 mlrd)."
+ },
+ {
+  "q": "2017–2025-yillarda so‘mning real kursi:",
+  "options": [
+   "Ikki baravar qadrsizlangan",
+   "Real ma’noda qimmatlashgan",
+   "O‘zgarmagan",
+   "Real ma’noda keskin qadrsizlangan"
+  ],
+  "c": 1,
+  "e": "Real kurs indeksi ≈ 84, ya’ni so‘m nominal qadrsizlangan bo‘lsa-da, real ma’noda qariyb 16% qimmatlashgan."
+ },
+ {
+  "q": "Erkin suzuvchi kursning afzalligi:",
+  "options": [
+   "Kurs tebranishlarining mutlaqo yo‘qligi",
+   "Inflyatsiyaning doimo nolga tengligi",
+   "Import narxlari orqali inflyatsiya xavfining yo‘qligi",
+   "Mustaqil pul-kredit siyosati imkoniyati"
+  ],
+  "c": 3,
+  "e": "Suzuvchi kurs mustaqil pul-kredit siyosatini yuritishga imkon beradi va katta zaxira talab qilmaydi."
+ },
+ {
+  "q": "Rossiya rubli keskin qadrsizlanib, so‘m/dollar kursi o‘zgarmasa, so‘mning real samarali kursi:",
+  "options": [
+   "Pasayadi",
+   "Oshadi",
+   "Nolga tushadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 1,
+  "e": "Rubl hamkor valyuta sifatida katta vaznga ega, shuning uchun so‘m real samarali kurs bo‘yicha qimmatlashadi."
+ }
+]

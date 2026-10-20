@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Fiskal siyosat vositalariga kiradi:",
+  "options": [
+   "Asosiy stavka va majburiy zaxira normasi",
+   "Valyuta intervensiyalari va ochiq bozor operatsiyalari",
+   "Davlat xarajatlari va soliqlar",
+   "Qayta moliyalash va overnayt stavkalari"
+  ],
+  "c": 2,
+  "e": "Fiskal siyosat hukumatning davlat xarajatlari, soliqlar va transfertlarni o‘zgartirishi orqali amalga oshiriladi."
+ },
+ {
+  "q": "Rag‘batlantiruvchi fiskal siyosat:",
+  "options": [
+   "Davlat xarajatlarini oshirish, soliqlarni kamaytirish (G↑, T↓)",
+   "Pul massasini oshirish, foiz stavkasini pasaytirish (M↑, r↓)",
+   "Davlat xarajatlarini qisqartirish, soliqlarni oshirish (G↓, T↑)",
+   "Majburiy zaxira normasini pasaytirish, eksportni cheklash"
+  ],
+  "c": 0,
+  "e": "Yalpi talabni oshirish uchun hukumat xarajatlarni ko‘paytiradi va/yoki soliqlarni kamaytiradi."
+ },
+ {
+  "q": "MPC = 0,75 bo‘lsa, davlat xarajatlari multiplikatori:",
+  "options": [
+   "3",
+   "0,75",
+   "1,33",
+   "4"
+  ],
+  "c": 3,
+  "e": "Multiplikator = 1/(1 – MPC) = 1/0,25 = 4."
+ },
+ {
+  "q": "MPC = 0,75 bo‘lsa, soliq multiplikatori:",
+  "options": [
+   "–0,75",
+   "–3",
+   "–4",
+   "3"
+  ],
+  "c": 1,
+  "e": "Soliq multiplikatori = –MPC/(1 – MPC) = –0,75/0,25 = –3."
+ },
+ {
+  "q": "Balanslashgan byudjet multiplikatori:",
+  "options": [
+   "1/MPS",
+   "1",
+   "MPC",
+   "0"
+  ],
+  "c": 1,
+  "e": "G va T teng oshganda multiplikatorlar yig‘indisi 4 + (–3) = 1 ga teng (Xaavelmo teoremasi)."
+ },
+ {
+  "q": "Xaavelmo teoremasi nimani tasdiqlaydi?",
+  "options": [
+   "G va T teng oshsa, Y o‘zgarmaydi",
+   "G va T teng oshsa, Y kamayadi",
+   "G va T teng oshsa, Y ikki barobar oshadi",
+   "G va T teng oshsa, Y ham shuncha oshadi"
+  ],
+  "c": 3,
+  "e": "Balanslashgan byudjet multiplikatori birga teng, shuning uchun Y xarajat o‘sishiga teng miqdorda oshadi."
+ },
+ {
+  "q": "Nima uchun soliq multiplikatori davlat xarajatlari multiplikatoridan kichik?",
+  "options": [
+   "Soliq o‘zgarishining bir qismi jamg‘armaga ketadi",
+   "Soliqlar yalpi xarajatlarga umuman ta’sir qilmaydi",
+   "Soliqlar kechikib to‘lanadi, ta’siri keyingi yilga o‘tadi",
+   "Soliqlar importni oshirib, ichki talabni siqib chiqaradi"
+  ],
+  "c": 0,
+  "e": "Soliq o‘zgarsa, iste’mol faqat MPC ulushida o‘zgaradi, qolgan qismi jamg‘armadan ketadi."
+ },
+ {
+  "q": "Transfert multiplikatori:",
+  "options": [
+   "–c/(1 – c)",
+   "1/(1 – c)",
+   "c/(1 – c)",
+   "1/(1 – c) – 1/c"
+  ],
+  "c": 2,
+  "e": "Transfertlar soliqqa qarama-qarshi ishorada ta’sir qiladi: c/(1 – c)."
+ },
+ {
+  "q": "Proporsional soliq stavkasi oshsa, multiplikator:",
+  "options": [
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Manfiy bo‘ladi",
+   "Kamayadi"
+  ],
+  "c": 3,
+  "e": "Yuqori stavka daromaddan iste’molga ketadigan ulushni kamaytiradi, shu sababli multiplikator kichrayadi."
+ },
+ {
+  "q": "Avtomatik barqarorlashtiruvchiga misol:",
+  "options": [
+   "Soliq ta’tilini joriy etish bo‘yicha qaror",
+   "Progressiv daromad solig‘i",
+   "Inqirozga qarshi maxsus jamg‘arma tashkil etish",
+   "Infratuzilma loyihasini qo‘shimcha moliyalashtirish"
+  ],
+  "c": 1,
+  "e": "Progressiv soliq qonunga ko‘ra tsikl bilan birga o‘zgaradi, yangi qaror talab qilinmaydi."
+ },
+ {
+  "q": "Diskret fiskal siyosatning asosiy kamchiligi:",
+  "options": [
+   "Pul massasini haddan tashqari oshirishi",
+   "Inflyatsiyani doimo pasaytirib yuborishi",
+   "Qaror va ta’sir laglarining uzoqligi",
+   "Qarorlar avtomatik ishlab ketishi"
+  ],
+  "c": 2,
+  "e": "Diskret choralar ma’qullanishi va iqtisodiyotga yetib borishi uchun uzoq vaqt kerak."
+ },
+ {
+  "q": "Mankyu bo‘yicha fiskal siyosatda qaysi lag uzoqroq?",
+  "options": [
+   "Ichki lag (qaror qabul qilish)",
+   "Tashqi lag (multiplikator jarayoni)",
+   "Ikkala lag ham bir xil davom etadi",
+   "Fiskal siyosatda laglar mavjud emas"
+  ],
+  "c": 0,
+  "e": "Fiskal siyosatda qaror qabul qilish siyosiy jarayon bo‘lgani uchun ichki lag uzoq, tashqi lag nisbatan qisqa."
+ },
+ {
+  "q": "Retsessiyada avtomatik barqarorlashtiruvchilar ta’sirida byudjet:",
+  "options": [
+   "Soliq tushumi kamayib, taqchillik oshadi",
+   "Soliq tushumi oshib, profitsitga o‘tadi",
+   "Byudjet qoldig‘i o‘zgarishsiz qoladi",
+   "Transfertlar kamayib, byudjet muvozanatlashadi"
+  ],
+  "c": 0,
+  "e": "Retsessiyada daromadlar tushadi, soliq tushumi kamayadi, transfertlar oshadi."
+ },
+ {
+  "q": "Tarkibiy taqchillik qachon aniqlanadi?",
+  "options": [
+   "Iqtisodiyot haqiqiy YaIM darajasida bo‘lganda",
+   "Iqtisodiyot retsessiya davrida bo‘lganda",
+   "Iqtisodiyot potensial YaIM darajasida bo‘lganda",
+   "Inflyatsiya nolga teng bo‘lganda"
+  ],
+  "c": 2,
+  "e": "Tarkibiy qoldiq — potensial YaIMda hisoblangan byudjet qoldig‘i."
+ },
+ {
+  "q": "Haqiqiy qoldiq –60, tarkibiy qoldiq –20 bo‘lsa, tsiklik qoldiq:",
+  "options": [
+   "40",
+   "–40",
+   "–80",
+   "–20"
+  ],
+  "c": 1,
+  "e": "Tsiklik = haqiqiy – tarkibiy = –60 – (–20) = –40."
+ },
+ {
+  "q": "Taqchillikni monetlashtirish – bu:",
+  "options": [
+   "Obligatsiyalarni aholiga joylashtirib moliyalash",
+   "Davlat aktivlarini xususiylashtirib moliyalash",
+   "Soliq stavkalarini oshirib moliyalash",
+   "Markaziy bank emissiyasi hisobidan moliyalash"
+  ],
+  "c": 3,
+  "e": "Monetlashtirishda taqchillik Markaziy bank tomonidan pul chiqarish yo‘li bilan qoplanadi."
+ },
+ {
+  "q": "Oliver-Tanzi samarasi:",
+  "options": [
+   "Qarz hisobiga xususiy investitsiyalarning siqib chiqarilishi",
+   "Soliq kamayishining jamg‘arma oshishi bilan qoplanishi",
+   "Inflyatsiyada soliq tushumi real qiymatining pasayishi",
+   "Davlat xarajatlari ta’sirining multiplikator orqali kuchayishi"
+  ],
+  "c": 2,
+  "e": "Soliqlar kechikib to‘lanadi, shu vaqt ichida inflyatsiya ularning real qiymatini yemiradi."
+ },
+ {
+  "q": "Siqib chiqarish samarasi – bu:",
+  "options": [
+   "Soliq oshishi tufayli iste’mol kamayib, importning siqilishi",
+   "Inflyatsiya tufayli jamg‘arma kamayib, kreditning qimmatlashishi",
+   "Import o‘sishi tufayli ichki eksportning kamayishi",
+   "Davlat qarzi tufayli r oshib, xususiy investitsiyalar kamayishi"
+  ],
+  "c": 3,
+  "e": "Davlat qarz olib talabni oshirganda foiz stavkasi ko‘tariladi va xususiy investitsiya kamayadi."
+ },
+ {
+  "q": "Qarz mablag‘lari bozorida byudjet taqchilligi oshsa:",
+  "options": [
+   "S o‘ngga siljiydi, r pasayadi",
+   "S chapga siljiydi, r oshadi",
+   "I chapga siljiydi, r pasayadi",
+   "S ham, I ham o‘zgarmaydi, r o‘zgarmaydi"
+  ],
+  "c": 1,
+  "e": "Davlat jamg‘armasining kamayishi milliy jamg‘armani (S) chapga siljitadi va foiz stavkasini oshiradi."
+ },
+ {
+  "q": "Rikardo ekvivalentligi nazariyasining zamonaviy shaklini ishlab chiqqan:",
+  "options": [
+   "Robert Barro",
+   "Pol Samuelson",
+   "Milton Fridmen",
+   "Jon Meynard Keyns"
+  ],
+  "c": 0,
+  "e": "Zamonaviy shaklini R. Barro ishlab chiqqan."
+ },
+ {
+  "q": "Rikardo ekvivalentligiga ko‘ra soliq kamaytirilib qarz olinsa:",
+  "options": [
+   "Iste’mol keskin oshadi, milliy jamg‘arma kamayadi",
+   "Xususiy jamg‘arma oshadi, milliy jamg‘arma o‘zgarmaydi",
+   "Investitsiyalar kamayadi, foiz stavkasi oshadi",
+   "Xususiy jamg‘arma kamayadi, milliy jamg‘arma oshadi"
+  ],
+  "c": 1,
+  "e": "Iste’molchilar kelgusi soliqlarni kutib, qo‘shimcha daromadni jamg‘aradi, shu sababli milliy jamg‘arma o‘zgarmaydi."
+ },
+ {
+  "q": "Rikardo ekvivalentligiga qarshi dalil emas:",
+  "options": [
+   "Avlodlarning meros orqali o‘zaro bog‘liqligi",
+   "Qisqa ufqda fikrlovchi iste’molchilar mavjudligi",
+   "Keyingi avlodlar yukiga befarq iste’molchilar",
+   "Qarz olishda likvidlik cheklovlari mavjudligi"
+  ],
+  "c": 0,
+  "e": "Avlodlar bog‘liqligi nazariyaning o‘z farazi, qolganlari esa unga qarshi dalillar."
+ },
+ {
+  "q": "Qarz nisbati barqaror bo‘lishi uchun r > g sharoitida:",
+  "options": [
+   "Birlamchi taqchillikni oshirish zarur",
+   "Real foiz stavkasini yanada oshirish zarur",
+   "Taqchillikni Markaziy bank hisobidan qoplash zarur",
+   "Birlamchi profitsit zarur"
+  ],
+  "c": 3,
+  "e": "Δd = (r – g)d – s formulasiga ko‘ra, r > g bo‘lganda qarz o‘sishini to‘xtatish uchun birlamchi profitsit (s > 0) kerak."
+ },
+ {
+  "q": "Tashqi qarzning xavfi:",
+  "options": [
+   "Qarz foizlari mamlakat ichida qoladi, yuk kamayadi",
+   "Qarz yuki faqat eksport hajmiga bog‘liq bo‘ladi",
+   "Milliy valyuta qadrsizlanganda qarz yuki oshadi",
+   "Valyuta kursi o‘zgarishi qarz yukiga ta’sir qilmaydi"
+  ],
+  "c": 2,
+  "e": "Tashqi qarz xorijiy valyutada to‘lanadi, shuning uchun so‘m qadrsizlansa, yuk oshadi."
+ },
+ {
+  "q": "Maastrixt mezonlari bo‘yicha YaIMga nisbatan byudjet taqchilligi chegarasi:",
+  "options": [
+   "1%",
+   "5%",
+   "60%",
+   "3%"
+  ],
+  "c": 3,
+  "e": "Maastrixt mezonlari umumiy taqchillikni 3%, davlat qarzini 60% bilan cheklaydi."
+ },
+ {
+  "q": "2020-yilda O‘zbekistonda tashkil etilgan Inqirozga qarshi kurashish jamg‘armasi hajmi:",
+  "options": [
+   "100 trln so‘m",
+   "50 trln so‘m",
+   "10 trln so‘m",
+   "1 trln so‘m"
+  ],
+  "c": 2,
+  "e": "Darslikka ko‘ra, 2020-yilda 10 trln so‘mlik jamg‘arma tashkil etildi."
+ },
+ {
+  "q": "Cheklovchi fiskal siyosat qachon qo‘llaniladi?",
+  "options": [
+   "Iqtisodiyot qizib, inflyatsiya oshganda",
+   "Iqtisodiyot retsessiyada bo‘lganda",
+   "Deflyatsiya va yuqori ishsizlik davrida",
+   "Ishlab chiqarish potensialdan past bo‘lganda"
+  ],
+  "c": 0,
+  "e": "Cheklovchi siyosat (G↓, T↑) yalpi talabni jilovlab, qizib ketishni sovutadi."
+ },
+ {
+  "q": "Ochiq iqtisodiyotda c = 0,8, t = 0,25, m = 0,2 bo‘lsa, davlat xarajatlari multiplikatori:",
+  "options": [
+   "2,5",
+   "1,67",
+   "5",
+   "1"
+  ],
+  "c": 1,
+  "e": "1/(1 – c(1 – t) + m) = 1/(1 – 0,6 + 0,2) = 1/0,6 ≈ 1,67."
+ },
+ {
+  "q": "Germaniyadagi «qarz tormozi» nimani cheklaydi?",
+  "options": [
+   "Tarkibiy byudjet taqchilligini",
+   "Davlat qarzining YaIMga nisbatini 60 foizgacha",
+   "Markaziy bank emissiyasi hajmini",
+   "Soliq stavkalarining yuqori chegarasini"
+  ],
+  "c": 0,
+  "e": "Qarz tormozi tarkibiy taqchillikni YaIMning 0,35 foizi bilan cheklaydi."
+ },
+ {
+  "q": "XVF 2026-yilda O‘zbekistonga qaysi ko‘rsatkich bo‘yicha fiskal qoida joriy etishni tavsiya qildi?",
+  "options": [
+   "Umumiy byudjet taqchilligi YaIMga nisbatan",
+   "Nomineral birlamchi taqchillik",
+   "Davlat qarzining mutlaq hajmi",
+   "Mineral daromadlarning umumiy hajmi"
+  ],
+  "c": 1,
+  "e": "XVF xarajatlarni mineral daromadlardan himoya qilish uchun nomineral birlamchi taqchillik chegarasini tavsiya qildi."
+ }
+]

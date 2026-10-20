@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Proteksionizm – bu:",
+  "options": [
+   "Savdo to‘siqlarini minimallashtirib, bozor kuchlariga tayanish siyosati",
+   "Milliy ishlab chiqaruvchilarni xorijiy raqobatdan himoya qilish siyosati",
+   "Valyuta kursini erkin suzishga qo‘yib, eksportni rag‘batlantirish siyosati",
+   "Davlat xarajatlarini qisqartirib, byudjet taqchilligini kamaytirish siyosati"
+  ],
+  "c": 1,
+  "e": "Proteksionizm importni cheklab, milliy ishlab chiqaruvchilarni himoya qiladi; to‘siqlarni kamaytirish esa erkin savdoga xos."
+ },
+ {
+  "q": "Tovar bojxona qiymatiga nisbatan foizda belgilanadigan boj:",
+  "options": [
+   "Spetsifik",
+   "Advalor",
+   "Aralash",
+   "Kompensatsiya"
+  ],
+  "c": 1,
+  "e": "Advalor boj tovarning bojxona qiymatidan foizda hisoblanadi."
+ },
+ {
+  "q": "Inflyatsiya sharoitida himoya darajasi pasayadigan boj turi:",
+  "options": [
+   "Advalor",
+   "Eksport boji",
+   "Antidemping",
+   "Spetsifik"
+  ],
+  "c": 3,
+  "e": "Spetsifik boj tovar birligiga qat’iy summada belgilanadi, narxlar o‘sganda uning himoya darajasi pasayadi."
+ },
+ {
+  "q": "Quyidagilardan qaysi biri notarif usul hisoblanadi?",
+  "options": [
+   "Advalor boj",
+   "Import boji",
+   "Kvota",
+   "Eksport boji"
+  ],
+  "c": 2,
+  "e": "Kvota miqdoriy cheklov bo‘lib, boj undirish bilan bog‘liq emas, shuning uchun notarif usul."
+ },
+ {
+  "q": "Kichik mamlakatda import tarifi joriy qilinganda ichki narx:",
+  "options": [
+   "Tarifning yarmiga oshadi",
+   "Pasayadi",
+   "O‘zgarmaydi",
+   "Tarif miqdoriga oshadi"
+  ],
+  "c": 3,
+  "e": "Kichik mamlakat jahon narxiga ta’sir qila olmaydi, shuning uchun tarif to‘liq ichki narxga o‘tadi (Pw + t)."
+ },
+ {
+  "q": "Kichik mamlakatda tarif natijasida ichki ishlab chiqarish:",
+  "options": [
+   "Oshadi",
+   "Kamayadi",
+   "Nolga tushadi",
+   "O‘zgarmaydi"
+  ],
+  "c": 0,
+  "e": "Ichki narx oshgani uchun ishlab chiqarish Q₁ dan Q₂ gacha ko‘payadi."
+ },
+ {
+  "q": "Tarifning milliy farovonlikdagi sof yo‘qotishi grafikda qaysi maydonlarga teng?",
+  "options": [
+   "a + c",
+   "b + d",
+   "a + b + c + d",
+   "c"
+  ],
+  "c": 1,
+  "e": "Sof yo‘qotish = (a + b + c + d) – a – c = b + d."
+ },
+ {
+  "q": "Tarifdan davlat oladigan daromad (17.2-rasm belgilari bilan) teng:",
+  "options": [
+   "Tarif × (Q₄ – Q₁)",
+   "Tarif × Q₂",
+   "Tarif × (Q₃ – Q₂)",
+   "Tarif × Q₃"
+  ],
+  "c": 2,
+  "e": "Daromad tarif stavkasi bilan tarifdan keyingi import hajmi (Q₃ – Q₂) ko‘paytmasiga teng."
+ },
+ {
+  "q": "Ishlab chiqarishdagi buzilish (b maydon) nimani anglatadi?",
+  "options": [
+   "Iste’molchilarning jahon narxidan yuqori qadrli birliklardan voz kechishi",
+   "Ishlab chiqaruvchilarning yuqoriroq narxdan oladigan qo‘shimcha ortiqcha foydasi",
+   "Jahon narxidan qimmat xarajat bilan ishlab chiqarilgan qo‘shimcha birliklar",
+   "Davlatning tarif tushumi sifatida oladigan daromadi"
+  ],
+  "c": 2,
+  "e": "b maydon Q₁ dan Q₂ gacha birliklarni import qilish o‘rniga mamlakat ichida qimmatroq ishlab chiqarish samarasizligini bildiradi."
+ },
+ {
+  "q": "«Optimal tarif» qaysi mamlakatlar uchun musbat bo‘ladi?",
+  "options": [
+   "Narxni qabul qiluvchi kichik ochiq iqtisodiyotlar",
+   "Importni taqiqlagan avtarkiya mamlakatlari",
+   "Jahon narxiga ta’sir qiladigan yirik mamlakatlar",
+   "Savdo balansi taqchil bo‘lgan har qanday mamlakat"
+  ],
+  "c": 2,
+  "e": "Faqat yirik mamlakat tarif orqali jahon narxini pasaytirib savdo shartlarini yaxshilay oladi; kichik mamlakat uchun optimal tarif nolga teng."
+ },
+ {
+  "q": "Yirik mamlakat tarif joriy qilganda uning savdo shartlari:",
+  "options": [
+   "O‘zgarmaydi",
+   "Yomonlashadi",
+   "Yaxshilanadi",
+   "Avval yomonlashib, keyin yaxshilanadi"
+  ],
+  "c": 2,
+  "e": "Import qisqarib jahon narxi pasayadi, tarifning bir qismini xorijiy eksportyorlar to‘laydi."
+ },
+ {
+  "q": "Proteksionizm foydasiga iqtisodiy jihatdan eng asosli hisoblangan dalil:",
+  "options": [
+   "Ichki bandlikni har qanday sharoitda saqlash",
+   "Savdo balansini yaxshilash va taqchillikni kamaytirish",
+   "Arzon xorijiy mehnat bilan «adolatsiz» raqobatdan himoya",
+   "Yosh tarmoqlarni vaqtinchalik himoya qilish"
+  ],
+  "c": 3,
+  "e": "Darslikda yosh tarmoqlarni himoya qilish eng asosli dalil deb baholanadi, boshqa dalillar esa tanqid qilinadi."
+ },
+ {
+  "q": "Demping – bu:",
+  "options": [
+   "Tovarni xorijda tannarxdan past narxda sotish",
+   "Eksportga boj solib, ichki narxni pasaytirish",
+   "Milliy valyutani rasman devalvatsiya qilish",
+   "Importni miqdoriy jihatdan to‘liq taqiqlash"
+  ],
+  "c": 0,
+  "e": "Demping – tovarni xorij bozorida ichki narxdan yoki tannarxdan past narxda sotish; unga antidemping boji qo‘llanadi."
+ },
+ {
+  "q": "Ishlab chiqarish subsidiyasi tarifga nisbatan afzal, chunki:",
+  "options": [
+   "Davlat byudjetiga qo‘shimcha daromad keltiradi",
+   "Importni to‘liq to‘xtatib, savdo balansini yaxshilaydi",
+   "Ichki narxni oshirib, ishlab chiqaruvchilarni qo‘llaydi",
+   "Iste’moldagi buzilishni keltirib chiqarmaydi"
+  ],
+  "c": 3,
+  "e": "Subsidiya ichki narxni o‘zgartirmaydi, shuning uchun d (iste’moldagi buzilish) yo‘q va sof yo‘qotish faqat b."
+ },
+ {
+  "q": "Ishlab chiqarish subsidiyasida sof yo‘qotish teng:",
+  "options": [
+   "b",
+   "b + d",
+   "a + b",
+   "d"
+  ],
+  "c": 0,
+  "e": "Subsidiyada faqat ishlab chiqarishdagi buzilish (b) qoladi."
+ },
+ {
+  "q": "Eksport boji joriy qilinganda ichki narx:",
+  "options": [
+   "Pasayadi",
+   "Oshadi",
+   "O‘zgarmaydi",
+   "Jahon narxiga plyus boj miqdoriga teng bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Ishlab chiqaruvchilar eksportdan Pw – t oladi, shuning uchun ichki narx ham shu darajaga tushadi."
+ },
+ {
+  "q": "Eksport bojidan kim yutadi?",
+  "options": [
+   "Ichki iste’molchilar va davlat",
+   "Ichki ishlab chiqaruvchilar va davlat",
+   "Xorijiy iste’molchilar va ichki eksportyorlar",
+   "Faqat ichki ishlab chiqaruvchilar"
+  ],
+  "c": 0,
+  "e": "Iste’molchilar arzonroq narxdan (a maydon), davlat boj tushumidan (c maydon) yutadi; ishlab chiqaruvchilar yutqazadi."
+ },
+ {
+  "q": "Import kvotasi va tarifning asosiy farqi:",
+  "options": [
+   "Iste’molchilar yo‘qotadigan ortiqcha foyda hajmida",
+   "Ichki ishlab chiqarishning oshish darajasida",
+   "Ichki narxning oshish yo‘nalishida",
+   "c maydon: davlat daromadimi yoki kvota rentasimi"
+  ],
+  "c": 3,
+  "e": "Narx, ishlab chiqarish va iste’molga ta’sir bir xil; farq c maydonda – tarifda u davlat daromadi, kvotada esa kvota rentasi."
+ },
+ {
+  "q": "Talab oshganda kvota sharoitida:",
+  "options": [
+   "Import o‘zgarmaydi, narx oshadi",
+   "Import oshadi, narx o‘zgarmaydi",
+   "Import ham, narx ham o‘zgarmaydi",
+   "Import qisqaradi, narx pasayadi"
+  ],
+  "c": 0,
+  "e": "Kvota importni cheklaganligi uchun talab o‘sishi butunlay narxga tushadi; tarifda esa import ko‘payadi."
+ },
+ {
+  "q": "Kvota rentasini davlat byudjetiga yo‘naltiradigan litsenziya taqsimlash usuli:",
+  "options": [
+   "Eksportyor mamlakatga berish",
+   "Navbat tartibida",
+   "Ilgarigi ulush bo‘yicha",
+   "Auksion"
+  ],
+  "c": 3,
+  "e": "Litsenziyalar auksionda sotilsa, kvota rentasi davlatga tushadi va kvota tarifga teng bo‘ladi."
+ },
+ {
+  "q": "Eksportni «ixtiyoriy» cheklashda kvota rentasi kimga tushadi?",
+  "options": [
+   "Xorijiy eksportyorlarga",
+   "JSTga",
+   "Importyor mamlakat iste’molchilariga",
+   "Importyor mamlakat davlatiga"
+  ],
+  "c": 0,
+  "e": "VER – eksportyor mamlakat boshqaradigan kvota, shuning uchun renta xorijga ketadi."
+ },
+ {
+  "q": "1981–1994-yillarda AQSHga avtomobil eksportini «ixtiyoriy» cheklagan mamlakat:",
+  "options": [
+   "Meksika",
+   "Yaponiya",
+   "Janubiy Koreya",
+   "Germaniya"
+  ],
+  "c": 1,
+  "e": "Yaponiya AQSHga avtomobil eksportini yiliga 1,68 mln (keyin 2,3 mln) donagacha cheklagan."
+ },
+ {
+  "q": "Xorijiy eksport subsidiyalariga javoban qo‘llaniladigan boj:",
+  "options": [
+   "Maxsus himoya boji",
+   "Fiskal import boji",
+   "Kompensatsiya boji",
+   "Antidemping boji"
+  ],
+  "c": 2,
+  "e": "Kompensatsiya boji eksportyor mamlakat subsidiya bergan tovarlarga solinadi va subsidiya ta’sirini neytrallashtiradi."
+ },
+ {
+  "q": "Yirik mamlakat eksport subsidiyasini bersa, uning savdo shartlari:",
+  "options": [
+   "O‘zgarmaydi",
+   "Yomonlashadi",
+   "Yaxshilanadi",
+   "Avval yomonlashib, keyin yaxshilanadi"
+  ],
+  "c": 1,
+  "e": "Eksport ko‘payib jahon narxi pasayadi, mamlakat xorijiy iste’molchilarni «subsidiyalaydi»."
+ },
+ {
+  "q": "Mankyu modeliga ko‘ra kichik ochiq iqtisodiyotda import tarifi joriy qilinsa:",
+  "options": [
+   "Real kurs pasayadi, sof eksport oshadi",
+   "Real kurs o‘zgarmaydi, sof eksport kamayadi",
+   "Real kurs oshadi, sof eksport o‘zgarmaydi",
+   "Real kurs oshadi, sof eksport ham oshadi"
+  ],
+  "c": 2,
+  "e": "NX(ε) o‘ngga siljiydi, S – I esa o‘zgarmaydi; shuning uchun real kurs oshadi, NX o‘zgarmaydi."
+ },
+ {
+  "q": "Kichik ochiq iqtisodiyotda savdo balansi asosan nima bilan belgilanadi?",
+  "options": [
+   "Tarif stavkalari va kvotalar darajasi",
+   "Eksport subsidiyalari hajmi va tarkibi",
+   "Jahon bozoridagi narxlar o‘zgarishi",
+   "Jamg‘arma va investitsiya farqi (S – I)"
+  ],
+  "c": 3,
+  "e": "Mankyu modelida NX = S – I(r∗); savdo siyosati S ga ham, I ga ham ta’sir qilmaydi."
+ },
+ {
+  "q": "Tayyor mahsulotga tarif 20%, butlovchilarga 0%, butlovchilar ulushi 50% bo‘lsa, samarali himoya darajasi:",
+  "options": [
+   "20%",
+   "40%",
+   "10%",
+   "50%"
+  ],
+  "c": 1,
+  "e": "ERP = (0,20 – 0,5 × 0) / (1 – 0,5) = 0,2 / 0,5 = 40%."
+ },
+ {
+  "q": "JSTning «eng qulay sharoitlar rejimi» tamoyili:",
+  "options": [
+   "Import tovarlarga mahalliy tovarlar bilan teng munosabat",
+   "Bir a’zoga berilgan imtiyoz barcha a’zolarga beriladi",
+   "Tariflarni bog‘lash va oshirmaslik majburiyati",
+   "Rivojlanayotgan mamlakatlarga eksport subsidiyasi berish"
+  ],
+  "c": 1,
+  "e": "MFN rejimi bir a’zoga berilgan savdo imtiyozini barcha a’zolarga tatbiq etadi; teng munosabat esa milliy rejim."
+ },
+ {
+  "q": "O‘zbekiston YeIning GSP+ tizimiga qachon qo‘shildi?",
+  "options": [
+   "2019-yil",
+   "2021-yil",
+   "2024-yil",
+   "2017-yil"
+  ],
+  "c": 1,
+  "e": "Darslikka ko‘ra O‘zbekiston GSP+ tizimiga 2021-yil aprelda qo‘shilgan."
+ },
+ {
+  "q": "2025-yilda O‘zbekiston eksportida oltinning ulushi taxminan:",
+  "options": [
+   "29%",
+   "10%",
+   "50%",
+   "70%"
+  ],
+  "c": 0,
+  "e": "Darslikka ko‘ra 2025-yilda oltin eksportning 29,3 foizini tashkil etgan."
+ }
+]

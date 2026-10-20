@@ -30,6 +30,12 @@ const LOADERS = {
     practice: () => import("./mikro2/practice-auto.js").then((m) => m.AUTO_PRACTICE),
     meta: () => import("./mikro2/meta.js"),
   },
+  makro: {
+    book: () => import("./makro/book.js").then((m) => m.BOOK),
+    layers: () => import("./makro/layers-auto.js").then((m) => m.AUTO),
+    practice: () => import("./makro/practice-auto.js").then((m) => m.AUTO_PRACTICE),
+    meta: () => import("./makro/meta.js"),
+  },
 };
 
 const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";

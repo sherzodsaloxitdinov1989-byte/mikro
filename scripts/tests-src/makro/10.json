@@ -1,0 +1,332 @@
+[
+ {
+  "q": "Byudjet taqchilligi – bu:",
+  "options": [
+   "O‘tgan yillarda to‘plangan davlat qarzi",
+   "Daromadlarning xarajatlardan ortiqligi",
+   "Xarajatlarning daromadlardan ortiqligi",
+   "Soliq tushumlarining jami yig‘indisi"
+  ],
+  "c": 2,
+  "e": "Taqchillik (defitsit) – xarajatlar daromadlardan ko‘p bo‘lgan holat."
+ },
+ {
+  "q": "Konsolidatsiyalashgan byudjet o‘z ichiga oladi:",
+  "options": [
+   "Davlat byudjeti va byudjetdan tashqari fondlarni",
+   "Faqat Pensiya jamg‘armasini",
+   "Faqat mahalliy byudjetlarni",
+   "Faqat respublika byudjetini"
+  ],
+  "c": 0,
+  "e": "Konsolidatsiyalashgan byudjet davlat byudjeti va maqsadli jamg‘armalar ko‘rsatkichlarini birlashtiradi."
+ },
+ {
+  "q": "Vagner qonuniga ko‘ra iqtisodiy rivojlanish bilan:",
+  "options": [
+   "Soliq stavkalari kamayadi",
+   "Davlat xarajatlari ulushi kamayadi",
+   "Davlat xarajatlari ulushi oshadi",
+   "Byudjet profitsitga aylanadi"
+  ],
+  "c": 2,
+  "e": "Vagner qonuniga ko‘ra daromad o‘sgani sari davlat xarajatlarining YaIMdagi ulushi oshadi."
+ },
+ {
+  "q": "Salbiy tashqi samaraga misol:",
+  "options": [
+   "Aholini ommaviy emlash dasturi",
+   "Ta’lim xizmatlarining kengayishi",
+   "Ko‘kalamzorlashtirish ishlari",
+   "Zavod chiqindilari bilan havoning ifloslanishi"
+  ],
+  "c": 3,
+  "e": "Zavod chiqindilari uchinchi shaxslarga zarar yetkazadi va narxda aks etmaydi."
+ },
+ {
+  "q": "Salbiy tashqi samara mavjud bo‘lganda bozor:",
+  "options": [
+   "Optimal miqdorni ishlab chiqaradi",
+   "Umuman ishlab chiqarmaydi",
+   "Ijtimoiy optimaldan ko‘p ishlab chiqaradi",
+   "Ijtimoiy optimaldan kam ishlab chiqaradi"
+  ],
+  "c": 2,
+  "e": "Xususiy xarajat ijtimoiy xarajatdan kam bo‘lgani uchun tovar ortiqcha ishlab chiqariladi."
+ },
+ {
+  "q": "Pigu solig‘i qanday maqsadda qo‘llaniladi?",
+  "options": [
+   "Salbiy tashqi samaralarni tuzatish",
+   "Importni cheklash",
+   "Inflyatsiyani pasaytirish",
+   "Byudjet daromadlarini oshirish"
+  ],
+  "c": 0,
+  "e": "Pigu solig‘i zarar miqdorida undirilib, tashqi samarani ichkilashtiradi."
+ },
+ {
+  "q": "Jamoat ne’matiga misol:",
+  "options": [
+   "Avtomobil",
+   "Milliy mudofaa",
+   "Non",
+   "Kiyim"
+  ],
+  "c": 1,
+  "e": "Mudofaa iste’molda raqobatsiz va chiqarib bo‘lmaydigan ne’matdir."
+ },
+ {
+  "q": "Egri soliqqa misol:",
+  "options": [
+   "Foyda solig‘i",
+   "Qo‘shilgan qiymat solig‘i",
+   "Mol-mulk solig‘i",
+   "Daromad solig‘i"
+  ],
+  "c": 1,
+  "e": "QQS tovar narxiga qo‘shiladi va oxir-oqibat iste’molchi to‘laydi."
+ },
+ {
+  "q": "Progressiv soliqda daromad oshganda o‘rtacha stavka:",
+  "options": [
+   "Nolga teng bo‘ladi",
+   "O‘zgarmaydi",
+   "Kamayadi",
+   "Oshadi"
+  ],
+  "c": 3,
+  "e": "Progressiv soliqda boylar daromadining kattaroq qismini to‘laydi."
+ },
+ {
+  "q": "O‘zbekistonda jismoniy shaxslardan olinadigan daromad solig‘i stavkasi:",
+  "options": [
+   "15%",
+   "7,5%",
+   "12%",
+   "22,5%"
+  ],
+  "c": 2,
+  "e": "Bobdagi jadvalga ko‘ra daromad solig‘i 12% li tekis stavkada undiriladi."
+ },
+ {
+  "q": "O‘zbekistonda QQS ning asosiy stavkasi (2025–2026):",
+  "options": [
+   "12%",
+   "10%",
+   "20%",
+   "15%"
+  ],
+  "c": 0,
+  "e": "Jadvalga ko‘ra QQS 20% dan bosqichma-bosqich 12% gacha pasaytirilgan."
+ },
+ {
+  "q": "To‘lovga qodirlik tamoyili nimani anglatadi?",
+  "options": [
+   "Hamma bir xil summada soliq to‘lashini",
+   "Soliq yuki to‘lovchining daromadi va boyligiga mos bo‘lishini",
+   "Soliq to‘lash ixtiyoriy bo‘lishini",
+   "Soliqni davlat xizmatlaridan foydalanuvchilar to‘lashini"
+  ],
+  "c": 1,
+  "e": "To‘lovga qodirlik tamoyili soliq yukini daromad va boylikka moslaydi."
+ },
+ {
+  "q": "Gorizontal adolat:",
+  "options": [
+   "Teng daromadli shaxslar teng soliq to‘laydi",
+   "Boylar ko‘proq soliq to‘laydi",
+   "Kambag‘allar soliq to‘lamaydi",
+   "Soliq stavkasi barcha uchun tekis bo‘ladi"
+  ],
+  "c": 0,
+  "e": "Gorizontal adolat – teng daromadli shaxslarga teng munosabat; vertikal adolat – boylar ko‘proq to‘lashi."
+ },
+ {
+  "q": "Soliq yuki:",
+  "options": [
+   "Soliqlar / byudjet xarajatlari",
+   "Soliqlar / eksport hajmi",
+   "Soliqlar / aholi soni",
+   "Soliqlar va majburiy to‘lovlar / YaIM"
+  ],
+  "c": 3,
+  "e": "Soliq yuki soliq va majburiy to‘lovlar yig‘indisining YaIMga nisbati."
+ },
+ {
+  "q": "Lorens egri chizig‘i nimani ko‘rsatadi?",
+  "options": [
+   "Soliq stavkasi va tushumlar bog‘liqligini",
+   "Foiz stavkasi va investitsiyalar bog‘liqligini",
+   "Daromadlar taqsimotidagi tengsizlikni",
+   "Inflyatsiya va ishsizlik bog‘liqligini"
+  ],
+  "c": 2,
+  "e": "Lorens egri chizig‘i daromadlar taqsimotidagi tengsizlikni baholaydi."
+ },
+ {
+  "q": "Jini koeffitsiyenti 0 ga teng bo‘lsa:",
+  "options": [
+   "Mutlaq tenglik mavjud",
+   "O‘rtacha tengsizlik mavjud",
+   "Ma’lumot yetarli emas",
+   "Mutlaq tengsizlik mavjud"
+  ],
+  "c": 0,
+  "e": "Jini koeffitsiyenti 0 (mutlaq tenglik) dan 1 (mutlaq tengsizlik) gacha qiymat oladi."
+ },
+ {
+  "q": "Laffer egri chizig‘i qaysi ko‘rsatkichlar o‘rtasidagi bog‘liqlikni ko‘rsatadi?",
+  "options": [
+   "Foiz stavkasi va investitsiyalar",
+   "Soliq stavkasi va soliq tushumlari",
+   "Inflyatsiya va ishsizlik",
+   "Daromad va iste’mol"
+  ],
+  "c": 1,
+  "e": "Laffer egri chizig‘i stavka va tushumlar orasidagi bog‘liqlikni va optimal stavkani ko‘rsatadi."
+ },
+ {
+  "q": "Laffer egri chizig‘ining «taqiqlangan zonasi»da stavka pasaytirilsa:",
+  "options": [
+   "Tushumlar o‘zgarmaydi",
+   "Tushumlar oshadi",
+   "Tushumlar kamayadi",
+   "Byudjet taqchilligi oshadi"
+  ],
+  "c": 1,
+  "e": "Optimal stavkadan yuqorida stavkani pasaytirish iqtisodiy faollikni oshirib, tushumlarni ko‘paytiradi."
+ },
+ {
+  "q": "Chegaraviy soliq stavkasi:",
+  "options": [
+   "Qo‘shimcha daromad birligidan to‘lanadigan soliq ulushi",
+   "Jami soliqning jami daromadga nisbati",
+   "Soliq imtiyozi miqdori",
+   "Eng past qo‘llaniladigan soliq stavkasi"
+  ],
+  "c": 0,
+  "e": "Chegaraviy stavka daromadning har bir qo‘shimcha birligidan olinadigan soliq ulushidir."
+ },
+ {
+  "q": "Birlamchi byudjet taqchilligi:",
+  "options": [
+   "Tsiklik taqchillik",
+   "Mahalliy byudjet taqchilligi",
+   "Foiz to‘lovlarisiz hisoblangan taqchillik",
+   "Foiz to‘lovlari bilan hisoblangan taqchillik"
+  ],
+  "c": 2,
+  "e": "Birlamchi taqchillik davlat qarzi bo‘yicha foiz to‘lovlarini hisobga olmaydi."
+ },
+ {
+  "q": "Davlat qarzi qanday ko‘rsatkich?",
+  "options": [
+   "Indeks",
+   "Oqim",
+   "Koeffitsiyent",
+   "Zaxira"
+  ],
+  "c": 3,
+  "e": "Taqchillik oqim, davlat qarzi esa to‘plangan zaxira ko‘rsatkichidir."
+ },
+ {
+  "q": "2025-yilda O‘zbekiston konsolidatsiyalashgan byudjet taqchilligi YaIMga nisbatan:",
+  "options": [
+   "3,3%",
+   "0,5%",
+   "5,0%",
+   "2,1%"
+  ],
+  "c": 3,
+  "e": "Bobga ko‘ra 2025-yilda taqchillik 39,1 trln so‘m, ya’ni YaIMning 2,1 foizi."
+ },
+ {
+  "q": "2025-yilda O‘zbekiston Davlat byudjeti daromadlarida eng katta ulushga ega bo‘lgan guruh:",
+  "options": [
+   "Resurs va mol-mulk soliqlari",
+   "To‘g‘ridan-to‘g‘ri soliqlar",
+   "Boshqa daromadlar",
+   "Egri soliqlar"
+  ],
+  "c": 1,
+  "e": "To‘g‘ridan-to‘g‘ri soliqlar daromadlarning 32,7 foizini tashkil etgan."
+ },
+ {
+  "q": "Qarz nisbatining o‘zgarishi formulasida (r – g) × d hadida g nimani bildiradi?",
+  "options": [
+   "Real YaIM o‘sish sur’atini",
+   "Davlat xaridlarini",
+   "Inflyatsiya sur’atini",
+   "Soliq stavkasini"
+  ],
+  "c": 0,
+  "e": "Formulada r – real foiz stavkasi, g – real YaIM o‘sish sur’ati."
+ },
+ {
+  "q": "«Davlat qarzi to‘g‘risida»gi qonunga ko‘ra O‘zbekistonda davlat qarzi YaIMning qancha foizidan oshmasligi kerak?",
+  "options": [
+   "45%",
+   "30%",
+   "100%",
+   "60%"
+  ],
+  "c": 3,
+  "e": "Bobga ko‘ra qonun davlat qarzini YaIMning 60 foizi bilan cheklaydi."
+ },
+ {
+  "q": "O‘zbekistonda 2019-yildagi islohotdan keyin soliq yuki YaIMning taxminan qancha qismini tashkil etadi?",
+  "options": [
+   "5–10%",
+   "20–25%",
+   "35–40%",
+   "45% dan ortiq"
+  ],
+  "c": 1,
+  "e": "Bobga ko‘ra soliq yuki 2019-yildagi islohotdan keyin YaIMning taxminan 20–25 foizi atrofida."
+ },
+ {
+  "q": "Barcha daromad darajalarida stavka bir xil bo‘lgan soliq:",
+  "options": [
+   "Progressiv",
+   "Regressiv",
+   "Proporsional (tekis)",
+   "Rag‘batlantiruvchi"
+  ],
+  "c": 2,
+  "e": "Proporsional soliqda stavka daromadga bog‘liq bo‘lmaydi."
+ },
+ {
+  "q": "O‘zbekistonda 2025-yilda byudjet xarajatlarining iqtisodiy tasnifidagi eng katta modda:",
+  "options": [
+   "Qarzga xizmat ko‘rsatish",
+   "Ish haqi",
+   "Subsidiyalar",
+   "Kapital xarajatlar"
+  ],
+  "c": 1,
+  "e": "Ish haqi 149,6 trln so‘m bilan xarajatlarning qariyb 39 foizini tashkil etgan."
+ },
+ {
+  "q": "Ko‘pchilik egri soliqlar amalda nima uchun regressiv hisoblanadi?",
+  "options": [
+   "Kam ta’minlanganlar daromadining kattaroq qismini iste’molga sarflaydi",
+   "Ular faqat yuridik shaxslardan olinadi",
+   "Ularning stavkasi daromad oshgani sari oshib boradi",
+   "Ular faqat kam ta’minlanganlardan undiriladi"
+  ],
+  "c": 0,
+  "e": "Kam ta’minlangan oilalar daromadining ko‘proq qismini iste’molga sarflagani uchun egri soliq ularga og‘irroq tushadi."
+ },
+ {
+  "q": "1980-yillarda AQSHda Reygan ma’muriyati daromad solig‘ining eng yuqori chegaraviy stavkasini qanday o‘zgartirdi?",
+  "options": [
+   "28% dan 70% gacha oshirdi",
+   "50% dan 35% gacha pasaytirdi",
+   "90% dan 40% gacha pasaytirdi",
+   "70% dan 28% gacha pasaytirdi"
+  ],
+  "c": 3,
+  "e": "Laffer g‘oyalariga tayangan taklif iqtisodiyoti siyosatida eng yuqori stavka 70 foizdan 28 foizgacha tushirildi."
+ }
+]

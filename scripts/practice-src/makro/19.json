@@ -1,0 +1,139 @@
+{
+ "goal": "To‘lov balansini ikki yoqlama yozuv asosida tuzish, joriy hisob saldosini hisoblash, CA = S – I va CA = Y – A ayniyatlarini qo‘llash, tashqi barqarorlik ko‘rsatkichlarini baholash va Marshall-Lerner shartini tekshirish ko‘nikmalarini shakllantirish.",
+ "concepts": [
+  "Ikki yoqlama yozuv, kredit va debet",
+  "Joriy operatsiyalar hisobi tarkibi",
+  "Moliyaviy hisob va rezerv aktivlar",
+  "CA = S – I va CA = Y – A ayniyatlari",
+  "Tashqi barqarorlik ko‘rsatkichlari (Gidotti-Grinspen, import qamrovi)",
+  "Marshall-Lerner sharti va J-egri chiziq"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 19-bob",
+ "tasks": [
+  {
+   "id": "mk19-p1",
+   "title": "Joriy hisob saldosi",
+   "text": "Quyidagi operatsiyalarni to‘lov balansida ikki yoqlama yozuv bo‘yicha aks ettiring va joriy hisob saldosini toping (mln dollar): a) meva eksporti 200 (tushum bank hisobiga); b) avtomobillar importi 350 (bank hisobidan to‘landi); c) muhojirlarning pul o‘tkazmalari 150; d) xorijiy investorga dividend to‘lovi 30; e) Jahon bankidan 100 mln dollar kredit olindi; f) xorijiy turistlarning mamlakatdagi xarajatlari 60.",
+   "fields": [
+    {
+     "label": "Joriy hisob saldosi",
+     "value": 30,
+     "unit": "mln dollar"
+    }
+   ],
+   "solution": "Joriy hisobga a, b, c, d, f kiradi. Tovarlar: 200 – 350 = –150. Xizmatlar (turizm): +60. Birlamchi daromad (dividend): –30. Ikkilamchi daromad (pul o‘tkazmalari): +150. Saldo = –150 + 60 – 30 + 150 = +30. Kredit (e) moliyaviy hisobga kiradi: kredit olish majburiyat oshishi (+100 kirim), joriy hisob saldosiga ta’sir qilmaydi.",
+   "formula": "CA = (X – M)tovar + (X – M)xizmat + birlamchi + ikkilamchi",
+   "note": "Har bir operatsiya ikki yozuv beradi (masalan, eksport: kredit – tovar; debet – bank hisobi/valyuta aktivi). Pul o‘tkazmalari ikkilamchi daromadlarda aks etadi."
+  },
+  {
+   "id": "mk19-p2",
+   "title": "To‘lov balansi saldolari va rezervlar",
+   "text": "Mamlakat ma’lumotlari (mlrd dollar): tovarlar eksporti 25, importi 40; xizmatlar eksporti 9, importi 13; sof birlamchi daromad +1; sof ikkilamchi daromad +14; kapital hisobi 0; to‘g‘ridan-to‘g‘ri investitsiyalar sof kirimi 4; portfel investitsiyalar sof kirimi 3; boshqa investitsiyalar sof kirimi 2; sof xatolar –0,5. a) Savdo balansi, joriy hisob saldosini toping. b) Rezervlar qanchaga o‘zgardi? c) Natijani talqin qiling.",
+   "fields": [
+    {
+     "label": "Savdo balansi (tovarlar)",
+     "value": -15,
+     "unit": "mlrd dollar"
+    },
+    {
+     "label": "Joriy hisob saldosi",
+     "value": -4,
+     "unit": "mlrd dollar"
+    },
+    {
+     "label": "Rezerv aktivlarning o‘zgarishi (+ ortishi)",
+     "value": 4.5,
+     "unit": "mlrd dollar"
+    }
+   ],
+   "solution": "Savdo balansi = 25 – 40 = –15. Tovarlar va xizmatlar: –15 – 4 = –19. CA = –19 + 1 + 14 = –4. Moliyaviy hisob (rezervlarsiz) sof kirimi = 4 + 3 + 2 = 9. Umumiy balans = CA + KA + FA(rezervsiz) + xatolar = –4 + 0 + 9 – 0,5 = +4,5, ya’ni rezervlar 4,5 mlrd dollarga ortadi.",
+   "formula": "CA + KA + FA(rezervsiz) + xatolar = ΔRezervlar",
+   "note": "Talqin: joriy hisob taqchilligi (4) kapital kirimi (9) bilan qoplangan, ortiqchasi rezervlarni oshirgan. Taqchillik pul o‘tkazmalari hisobiga ancha kichrayganini ham ko‘rsatadi. Rezervlar ortishini to‘lov balansi ijobiy saldosi deb talqin qilish mumkin (rezerv aktivlar ortishi balansda manfiy belgi bilan yozilishi BPM6 qoidasi, bu yerda ΔRezerv shaklida berilgan)."
+  },
+  {
+   "id": "mk19-p3",
+   "title": "Absorbsiya va joriy hisob",
+   "text": "Mamlakatda YaIM 1000, iste’mol 650, investitsiyalar 300, davlat xarajatlari 120 (mlrd). a) Absorbsiya va joriy hisob saldosini toping (xorijdan sof daromad nolga teng). b) Milliy jamg‘armani hisoblang va CA = S – I ayniyatini tekshiring. c) Hukumat xarajatlarini 20 ga qisqartirsa, Y o‘zgarmagan holda CA qanday o‘zgaradi?",
+   "fields": [
+    {
+     "label": "Absorbsiya A",
+     "value": 1070,
+     "unit": "mlrd"
+    },
+    {
+     "label": "Joriy hisob saldosi CA",
+     "value": -70,
+     "unit": "mlrd"
+    },
+    {
+     "label": "Milliy jamg‘arma S",
+     "value": 230,
+     "unit": "mlrd"
+    },
+    {
+     "label": "Yangi CA (G 20 ga qisqargach)",
+     "value": -50,
+     "unit": "mlrd"
+    }
+   ],
+   "solution": "A = C + I + G = 650 + 300 + 120 = 1070. CA = Y – A = 1000 – 1070 = –70. S = Y – C – G = 1000 – 650 – 120 = 230; S – I = 230 – 300 = –70 = CA, ayniyat bajariladi. G = 100 bo‘lsa, A = 1050, CA = 1000 – 1050 = –50: taqchillik 20 ga kamayadi.",
+   "formula": "A = C + I + G; CA = Y – A = S – I",
+   "note": "Xorijdan sof daromad nolga teng bo‘lgani uchun CA = NX. Byudjet xarajatlarini qisqartirish (Y o‘zgarmaganda) CA ni xarajat qisqarishi miqdorida yaxshilaydi."
+  },
+  {
+   "id": "mk19-p4",
+   "title": "Tashqi barqarorlik ko‘rsatkichlari",
+   "text": "Mamlakatning xalqaro zaxiralari 30 mlrd dollar, yillik import 48 mlrd dollar, qisqa muddatli tashqi qarz 12 mlrd dollar, YaIM 120 mlrd dollar, joriy hisob taqchilligi 8 mlrd dollar. a) Zaxiralar necha oylik importni qoplaydi? b) Gidotti-Grinspen ko‘rsatkichini hisoblang. c) Joriy hisob taqchilligi YaIMga nisbatan qancha? Mamlakatning tashqi barqarorligiga baho bering.",
+   "fields": [
+    {
+     "label": "Zaxiralar qamrab oladigan import",
+     "value": 7.5,
+     "unit": "oy"
+    },
+    {
+     "label": "Gidotti-Grinspen ko‘rsatkichi",
+     "value": 2.5,
+     "unit": "marta"
+    },
+    {
+     "label": "Joriy hisob taqchilligi / YaIM",
+     "value": -6.67,
+     "unit": "%"
+    }
+   ],
+   "solution": "a) 30/48 · 12 = 7,5 oy. b) 30/12 = 2,5. c) –8/120 · 100 = –6,67%, ya’ni taqchillik YaIMning taxminan 6,7 foizi.",
+   "formula": "Zaxira/Import · 12; Zaxira / Qisqa muddatli qarz; CA / YaIM · 100",
+   "note": "Baho: import qamrovi (3 oydan ko‘p) va Gidotti-Grinspen (1 dan katta) me’yordan yuqori – qisqa muddatli xatar past. Ammo YaIMning taxminan 6,7% joriy hisob taqchilligi sezilarli (odatda 4–5% dan yuqori xavfli deb baholanadi), shuning uchun uni moliyalashtirish barqarorligini kuzatish zarur."
+  },
+  {
+   "id": "mk19-p5",
+   "title": "Marshall-Lerner sharti",
+   "text": "Eksport talabining narx elastikligi –0,4, import talabining elastikligi –0,5. a) Marshall-Lerner sharti bajariladimi? b) Uzoq muddatda elastikliklar –0,9 va –0,8 bo‘lsa-chi? c) Natijalar asosida J-egri chiziq samarasini tushuntiring.",
+   "fields": [
+    {
+     "label": "Qisqa muddat: |εx| + |εm|",
+     "value": 0.9,
+     "unit": ""
+    },
+    {
+     "label": "Uzoq muddat: |εx| + |εm|",
+     "value": 1.7,
+     "unit": ""
+    }
+   ],
+   "solution": "Shart: |εx| + |εm| > 1. Qisqa muddatda 0,4 + 0,5 = 0,9 < 1 – bajarilmaydi, devalvatsiya savdo balansini dastlab yomonlashtiradi. Uzoq muddatda 0,9 + 0,8 = 1,7 > 1 – bajariladi, balans yaxshilanadi. Shuning uchun balans avval pasayib, so‘ng o‘sadi – J shaklidagi egri chiziq.",
+   "formula": "|εx| + |εm| > 1",
+   "note": "Qisqa muddatda shartning bajarilmasligi J-egri chiziqning pasayuvchi qismini, uzoq muddatda bajarilishi esa o‘sib boruvchi qismini tushuntiradi."
+  }
+ ],
+ "open": [
+  "To‘lov balansi nima va uning makroiqtisodiy ahamiyati nimada? Joriy operatsiyalar hisobining tarkibiy qismlarini sanab, savdo balansi bilan farqini tushuntiring.",
+  "Mankyuning «NX = S – I» ayniyatiga ko‘ra savdo taqchilligi har doim yomonmi? Taqchillik foydali va xavfli bo‘ladigan holatlarni misollar bilan taqqoslang.",
+  "To‘lov balansi inqirozi qanday rivojlanadi va undan chiqish yo‘llari qanday? Xarajatlarni o‘zgartiruvchi va xarajatlarni yo‘naltiruvchi siyosatni taqqoslang."
+ ],
+ "refs": [
+  "To‘lov balansi – ma’lum davrda rezidentlar va norezidentlar o‘rtasidagi barcha iqtisodiy operatsiyalarning tizimlashtirilgan hisoboti (BPM6, ikki yoqlama yozuv). Ahamiyati: tashqi iqtisodiy holat, valyuta kursi va zaxiralar bosimi, moliyalashtirish manbalari haqida ma’lumot beradi. Joriy hisob: tovarlar, xizmatlar, birlamchi va ikkilamchi daromadlar. Savdo balansi faqat tovarlar eksporti va importi farqi, joriy hisob esa xizmatlar va daromadlarni (jumladan pul o‘tkazmalarini) ham qamraydi.",
+  "NX = S – I ayniyatiga ko‘ra savdo taqchilligi investitsiyalar jamg‘armadan ko‘pligini bildiradi, ya’ni qo‘shimcha investitsiyalar xorijiy mablag‘ bilan moliyalashtiriladi. Agar mablag‘ ishlab chiqarish quvvatini oshiruvchi investitsiyaga ketsa, kelajakdagi daromad qarzni to‘lashga yetadi va taqchillik foydali bo‘ladi. Agar u iste’molga ketsa yoki jamg‘arma past bo‘lsa, tashqi qarz oshadi va barqarorlik xavf ostida qoladi. Baholashda taqchillik hajmi, moliyalashtirish turi (to‘g‘ridan-to‘g‘ri investitsiya yoki qisqa muddatli qarz) va zaxiralar hisobga olinadi.",
+  "Inqiroz uzoq davom etgan katta joriy hisob taqchilligi, zaxiralarning kamayishi, kapital chiqib ketishi va kursga bosim bilan rivojlanadi. Chiqish yo‘llari: xarajatlarni o‘zgartiruvchi siyosat (fiskal va monetar qisqartirish, talabni kamaytirish), xarajatlarni yo‘naltiruvchi siyosat (devalvatsiya, tarif), tarkibiy islohotlar va xalqaro moliyaviy yordam. Devalvatsiya Marshall-Lerner sharti bajarilganda samarali, qisqa muddatda J-egri chiziq samarasi kuzatiladi. Qisqartirish siyosati ishsizlikni oshirishi mumkin, shuning uchun siyosatlar kombinatsiyasi talab etiladi."
+ ]
+}
