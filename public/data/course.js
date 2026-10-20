@@ -213,11 +213,11 @@ export const SUBJECTS = [
     },
   },
   {
-    // «Makroiqtisodiyot» (Sh.F. Saloxitdinov darsligi): 20 bob; 231-24, 232-24, 233-24 guruhlari (faqat ro'yxat va ID raqam bo'yicha kirish).
+    // «Makroiqtisodiyot» (Sh.F. Saloxitdinov darsligi): 20 bob; Iqtisodiyot yo'nalishi, 231-24, 232-24, 233-24 guruhlari (faqat ro'yxat va ID raqam bo'yicha kirish).
     key: "makro",
     title: "Makroiqtisodiyot",
     icon: "🌍",
-    direction: "Turizm va mehmondo'stlik",
+    direction: "Iqtisodiyot",
     form: "kunduzgi",
     groups: ["231-24", "232-24", "233-24"],
     rosterGroups: ["231-24", "232-24", "233-24"],
@@ -234,7 +234,7 @@ export const SUBJECTS = [
       heroTitle: ["Makroiqtisodiyot", "interaktiv platformasi"],
       logo: "🌍",
       domain: "makroiqtisodiyot (milliy hisoblar, ishsizlik, inflyatsiya, yalpi talab va taklif, Keyns modeli, pul va byudjet-soliq siyosati, IS-LM, iqtisodiy o'sish, xalqaro savdo, valyuta kursi, to'lov balansi)",
-      audience: "Turizm va mehmondo'stlik yo'nalishi bakalavriat talabalari uchun",
+      audience: "Iqtisodiyot ta’lim yo‘nalishi bakalavriat talabalari uchun",
       description: "«Makroiqtisodiyot» fani bo'yicha interaktiv ta'lim platformasi: darslik, audio va animatsion darslar, taqdimotlar, testlar va amaliy topshiriqlar.",
       source: "Saloxitdinov Sh.F. Makroiqtisodiyot: darslik. – Jizzax: O‘zMU Jizzax filiali, 2026.",
       program: "Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universitetining Jizzax filiali, «Iqtisodiyot va turizm» kafedrasi. «Makroiqtisodiyot» fanining 20 ta mavzusi.",
