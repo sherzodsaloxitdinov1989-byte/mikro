@@ -1,0 +1,154 @@
+{
+ "goal": "Iqtisodiy tsikl bosqichlari, potensial YaIM va YaIM uzilishi, Samuelson multiplikator-akselerator modeli, retsessiya mezoni, shoklar va tarmoqlarning tsiklga sezgirligini hisob-kitoblar va tahlil orqali o‘zlashtirish.",
+ "concepts": [
+  "YaIM uzilishi (output gap)",
+  "Retsessiya mezoni, cho‘qqi va tub nuqta",
+  "Multiplikator-akselerator modeli (cv sharti)",
+  "Talab shoki va taklif shoki",
+  "Tsiklga sezgirlik koeffitsiyenti",
+  "Ilg‘or, mos va kechikuvchi indikatorlar"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 3-bob",
+ "tasks": [
+  {
+   "id": "mk3-p1",
+   "title": "Potensial YaIM va YaIM uzilishi",
+   "text": "Mamlakatda potensial YaIM yiliga 5 foizga o‘sadi. 2024-yilda haqiqiy va potensial YaIM 1000 trln so‘mga teng bo‘lgan. 2025-yilda haqiqiy YaIM 2 foizga, 2026-yilda 8 foizga o‘sdi. Har yil uchun potensial YaIMni, YaIM uzilishini (trln so‘mda va foizda) toping va qaysi siyosat maqsadga muvofiqligini aniqlang.",
+   "fields": [
+    {
+     "label": "2026-yilgi potensial YaIM",
+     "value": 1102.5,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "2025-yilgi YaIM uzilishi",
+     "value": -30,
+     "unit": "trln so‘m"
+    },
+    {
+     "label": "2025-yilgi YaIM uzilishi (foizda)",
+     "value": -2.86,
+     "unit": "%"
+    },
+    {
+     "label": "2026-yilgi YaIM uzilishi",
+     "value": -0.9,
+     "unit": "trln so‘m"
+    }
+   ],
+   "solution": "Potensial: Y*2025 = 1000·1,05 = 1050; Y*2026 = 1050·1,05 = 1102,5. Haqiqiy: Y2025 = 1000·1,02 = 1020; Y2026 = 1020·1,08 = 1101,6. Uzilish 2025: 1020 − 1050 = −30 trln, (−30/1050)·100 = −2,86%. Uzilish 2026: 1101,6 − 1102,5 = −0,9 trln, ya’ni −0,08%.",
+   "formula": "Y* t = Y* t−1·(1 + 0,05); uzilish = (Y − Y*)/Y*·100%",
+   "note": "2025-yilda salbiy uzilish (−2,86%) — rag‘batlantiruvchi (ekspansion) siyosat maqsadga muvofiq. 2026-yilda uzilish deyarli yopilgan (−0,08%), iqtisodiyot potensial darajaga yetgan: neytral siyosat, qizib ketish xavfi uchun ehtiyotkor nazorat kerak."
+  },
+  {
+   "id": "mk3-p2",
+   "title": "Samuelson multiplikator-akselerator modeli",
+   "text": "Samuelson modelida Yt = Ct + It + A, Ct = c·Yt−1, It = v·(Ct − Ct−1); c = 0,75, v = 1,2, avtonom xarajatlar A = 50. Boshlang‘ich muvozanatni toping. 1-davrda A bir martalik 60 ga oshadi (keyin yana 50 ga qaytadi). Keyingi 6 davr (2–7) uchun Y ni hisoblang va cv ko‘paytmasi bo‘yicha tebranishlar xarakterini aniqlang.",
+   "fields": [
+    {
+     "label": "Boshlang‘ich muvozanat daromadi Y",
+     "value": 200,
+     "unit": "birlik"
+    },
+    {
+     "label": "2-davr daromadi Y2",
+     "value": 299,
+     "unit": "birlik"
+    },
+    {
+     "label": "3-davr daromadi Y3",
+     "value": 309.35,
+     "unit": "birlik"
+    },
+    {
+     "label": "7-davr daromadi Y7",
+     "value": 159.65,
+     "unit": "birlik"
+    }
+   ],
+   "solution": "Muvozanat: Y = A/(1 − c) = 50/0,25 = 200, C = 150, I = 0. 1-davrda Y1 = 200 + 60 = 260, C1 = 150 (darslikdagi misolga o‘xshash). 2-davr: C = 0,75·260 = 195; I = 1,2·(195 − 150) = 54; Y = 195 + 54 + 50 = 299. 3-davr: C = 224,25; I = 35,1; Y = 309,35. 4-davr: C = 232,01; I = 9,32; Y = 291,33. 5-davr: C = 218,5; I = −16,22; Y = 252,28. 6-davr: C = 189,21; I = −35,15; Y = 204,06. 7-davr: C = 153,04; I = −43,39; Y = 159,65. cv = 0,75·1,2 = 0,9.",
+   "formula": "Y = A/(1 − c); Yt = c(1 + v)Yt−1 − cvYt−2 + A; tebranish xarakteri cv ga bog‘liq",
+   "note": "Shart «A 60 ga oshadi» deb talqin qilindi: Y1 = 200 + 60 = 260 (darslikdagi 100 → 110 misoli kabi). cv = 0,9 < 1 — tebranishlar so‘nuvchi; hozircha 7-davrda Y muvozanatdan (200) pastga tushgan, keyin yana ko‘tariladi va asta-sekin 200 ga qaytadi."
+  },
+  {
+   "id": "mk3-p3",
+   "title": "Retsessiyani aniqlash",
+   "text": "Mamlakat YaIMi choraklar bo‘yicha (o‘tgan chorakka nisbatan, mavsumiylik hisobga olingan holda) quyidagicha o‘zgargan: +1,2%; +0,8%; −0,3%; −0,9%; −0,4%; +0,6%; +1,1%. Retsessiya bo‘lganmi? Qaysi choraklarda? Cho‘qqi va tub nuqtani aniqlang. Retsessiya davomida YaIM jami necha foizga qisqargan?",
+   "fields": [
+    {
+     "label": "Retsessiya davomiyligi (ketma-ket qisqargan choraklar)",
+     "value": 3,
+     "unit": "chorak"
+    },
+    {
+     "label": "Retsessiya davomida YaIMning jami qisqarishi",
+     "value": 1.59,
+     "unit": "%"
+    }
+   ],
+   "solution": "Ketma-ket ikki va undan ortiq chorak qisqarish — retsessiya. 3, 4 va 5-choraklarda YaIM qisqargan (−0,3; −0,9; −0,4), demak retsessiya 3 chorak davom etgan. Cho‘qqi — 2-chorak oxiri, tub nuqta — 5-chorak oxiri. Jami: 0,997·0,991·0,996 = 0,98407, ya’ni qisqarish 1 − 0,98407 = 1,59%.",
+   "formula": "Jami o‘zgarish = Π(1 + gi) − 1",
+   "note": "Oddiy yig‘indi (−0,3 − 0,9 − 0,4 = −1,6%) taxminiy, aniq qiymat murakkab foiz bilan hisoblanadi: −1,59%. Retsessiyaning amaliy mezoni — ketma-ket kamida ikki chorak real YaIM pasayishi. 6–7-choraklarda tiklanish bosqichi."
+  },
+  {
+   "id": "mk3-p4",
+   "title": "Neft narxi shoki",
+   "text": "Neft eksport qiluvchi mamlakatda neft eksporti YaIMning 25 foizini tashkil etadi. Neft narxi bir yilda 40 foizga pasaydi, eksport hajmi esa o‘zgarmadi. Bu YaIMga birinchi navbatda qanday ta’sir ko‘rsatadi (multiplikator samarasisiz)? Multiplikator 1,6 ga teng bo‘lsa, yakuniy ta’sir qanday? Bu talab shokimi yoki taklif shokimi?",
+   "fields": [
+    {
+     "label": "Birlamchi ta’sir (multiplikatorsiz)",
+     "value": -10,
+     "unit": "% YaIM"
+    },
+    {
+     "label": "Yakuniy ta’sir (multiplikator 1,6)",
+     "value": -16,
+     "unit": "% YaIM"
+    }
+   ],
+   "solution": "Eksport tushumi 40% ga kamaydi: 25%·0,40 = 10% YaIM. Birlamchi ta’sir −10% YaIM. Multiplikator bilan: −10%·1,6 = −16% YaIM.",
+   "formula": "ΔY birlamchi = eksport ulushi·narx o‘zgarishi; ΔY yakuniy = k·ΔY birlamchi",
+   "note": "Eksport tushumining kamayishi mamlakat mahsulotiga tashqi talabning pasayishi, ya’ni salbiy talab shoki. Eslatma: −16% — multiplikatorning mexanik qo‘llanishi, amalda import kamayishi, valyuta kursi va byudjet siyosati ta’sirni yumshatadi. Neft importyorlari uchun esa xarajatlar pasayadi — ijobiy taklif shoki."
+  },
+  {
+   "id": "mk3-p5",
+   "title": "Tarmoqlarning tsiklga sezgirligi",
+   "text": "Retsessiya yilida YaIM −2% ga o‘zgargan, qurilish −12%, avtomobil sotuvlari −18%, oziq-ovqat sanoati +0,5%, sog‘liqni saqlash xizmatlari +1,5%. Tsiklga sezgirlik koeffitsiyentini (tarmoq o‘sishining YaIM o‘sishiga nisbati) hisoblang va tarmoqlarni tsiklik, atsiklik, kontrtsiklik guruhlarga ajrating.",
+   "fields": [
+    {
+     "label": "Qurilish sezgirligi",
+     "value": 6,
+     "unit": "marta"
+    },
+    {
+     "label": "Avtomobil sotuvlari sezgirligi",
+     "value": 9,
+     "unit": "marta"
+    },
+    {
+     "label": "Oziq-ovqat sanoati sezgirligi",
+     "value": -0.25,
+     "unit": "marta"
+    },
+    {
+     "label": "Sog‘liqni saqlash sezgirligi",
+     "value": -0.75,
+     "unit": "marta"
+    }
+   ],
+   "solution": "Qurilish: −12/−2 = 6. Avtomobil: −18/−2 = 9. Oziq-ovqat: 0,5/−2 = −0,25. Sog‘liqni saqlash: 1,5/−2 = −0,75. Koeffitsiyent > 1 — kuchli tsiklik (qurilish, avtomobil sotuvlari); manfiy — tsiklga teskari harakat.",
+   "formula": "sezgirlik = tarmoq o‘sishi / YaIM o‘sishi",
+   "note": "Qat’iy hisobda oziq-ovqat va sog‘liqni saqlash koeffitsiyenti manfiy (kontrtsiklik, ayniqsa sog‘liqni saqlash −0,75). Oziq-ovqat (−0,25 ≈ 0) esa amalda atsiklik deb olinadi, chunki talab barqaror. Qurilish va avtomobil — tsiklik tarmoqlar."
+  }
+ ],
+ "open": [
+  "Siyosiy biznes-tsikl nazariyasi va real biznes-tsikllar nazariyasining asosiy g‘oyalarini taqqoslang: ular tsikl sabablarini va davlat barqarorlashtirish siyosatining zarurligini qanday baholaydi?",
+  "Ilg‘or, mos va kechikuvchi indikatorlarga misollar keltiring. PMI indeksi nimani ko‘rsatadi? O‘zbekiston uchun ilg‘or indikatorlar tizimini (biznes kayfiyati indeksi, kreditlar, import) taklif qiling va asoslang.",
+  "2008–2009-yillardagi jahon moliyaviy inqirozining sabablari va bosqichlarini tavsiflang. Globallashuv sharoitida shoklar mamlakatlararo qanday kanallar orqali tarqaladi?"
+ ],
+ "refs": [
+  "Siyosiy biznes-tsikl (Nordxaus, 1975): hukumatlar saylov oldidan xarajatlarni oshirib, soliqlarni kamaytirib iqtisodiyotni rag‘batlantiradi, saylovdan keyin inflyatsiyani jilovlash uchun siyosatni qattiqlashtiradi — tsikl siyosiy sababga ega. Real biznes-tsikllar nazariyasi: tebranishlar texnologik shoklarga iqtisodiyotning samarali moslashuvi, shuning uchun davlat barqarorlashtirish siyosati zarur emas. Mezon: sabablar (siyosat va texnologiya), siyosiy xulosa farqi va tanqidiy baho.",
+  "Ilg‘or indikatorlar tsiklni oldindan ko‘rsatadi (biznes kayfiyati, yangi buyurtmalar, kreditlar, fond indekslari), mos indikatorlar tsikl bilan bir vaqtda o‘zgaradi (YaIM, sanoat ishlab chiqarishi), kechikuvchilar keyin (ishsizlik, inflyatsiya). PMI (xaridorlar menejerlari indeksi) so‘rovga asoslangan: 50 dan yuqori — faollik o‘sishi, past — qisqarishi. O‘zbekiston uchun indikatorlar: biznes kayfiyati indeksi, bank kreditlari hajmi, import (ayniqsa investitsion tovarlar); har birining tsikldan oldin kelishini asoslash kerak.",
+  "2008–2009 inqirozi AQSH ipoteka bozoridagi pufak, murakkab moliyaviy hosilalar, yuqori leverij va riskni noto‘g‘ri baholashdan boshlanib, global moliyaviy tizim inqiroziga aylandi (darslikdagi 3.4-jadvalga qarang). Shok tarqalish kanallari: savdo, moliyaviy (xalqaro banklar orqali), ishonch kanali va global qiymat zanjirlari. Misol: 2021-yilda Tayvandagi yarimo‘tkazgich ishlab chiqarish uzilishining butun dunyo avtomobilsozligiga ta’siri."
+ ]
+}

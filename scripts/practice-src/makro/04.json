@@ -1,0 +1,164 @@
+{
+ "goal": "Ishchi kuchi, ishsizlik darajasi va iqtisodiy faollikni hisoblash; mehnat bozori muvozanati, statsionar ishsizlik, Ouken qonuni va bandlik multiplikatori bo‘yicha amaliy ko‘nikmalarni shakllantirish.",
+ "concepts": [
+  "Ishchi kuchi, band aholi va ishsizlar",
+  "Ishsizlik va iqtisodiy faollik darajasi",
+  "Majburiy ishsizlik va ish haqining qat’iyligi",
+  "Mankyuning statsionar ishsizlik modeli",
+  "Ouken qonuni (ikki shakli)",
+  "Bandlik multiplikatori"
+ ],
+ "source": "Saloxitdinov Sh.F. Makroiqtisodiyot, 4-bob",
+ "tasks": [
+  {
+   "id": "mk4-p1",
+   "title": "Ishchi kuchi va ishsizlik darajasi",
+   "text": "Mamlakatda aholi soni 40 mln, mehnatga layoqatli yoshdagi aholi 24 mln, shundan talabalar 2,1 mln, uy bekalari 2,4 mln, nogironlar 0,5 mln, umidini uzgan ishchilar 0,3 mln kishi (barchasi nofaol). Band aholi 17,5 mln kishi. Ishchi kuchi, ishsizlar soni, ishsizlik darajasi va iqtisodiy faollik darajasini toping. Umidini uzgan ishchilar ham ishsiz hisoblansa, ishsizlik darajasi qancha bo‘ladi?",
+   "fields": [
+    {
+     "label": "Ishchi kuchi",
+     "value": 18.7,
+     "unit": "mln kishi"
+    },
+    {
+     "label": "Ishsizlar soni",
+     "value": 1.2,
+     "unit": "mln kishi"
+    },
+    {
+     "label": "Ishsizlik darajasi",
+     "value": 6.42,
+     "unit": "%"
+    },
+    {
+     "label": "Iqtisodiy faollik darajasi",
+     "value": 77.92,
+     "unit": "%"
+    },
+    {
+     "label": "Umidini uzganlar bilan ishsizlik darajasi",
+     "value": 7.89,
+     "unit": "%"
+    }
+   ],
+   "solution": "Nofaollar: 2,1 + 2,4 + 0,5 + 0,3 = 5,3 mln. Ishchi kuchi = 24 − 5,3 = 18,7 mln. Ishsizlar = 18,7 − 17,5 = 1,2 mln. Ishsizlik darajasi = 1,2/18,7 = 6,42%. Iqtisodiy faollik = 18,7/24 = 77,92%. Umidini uzganlar bilan: ishsiz 1,5 mln, ishchi kuchi 19,0 mln, daraja 1,5/19,0 = 7,89%.",
+   "formula": "L = E + U; u = U/L·100%; faollik = L / mehnatga layoqatli aholi·100%",
+   "note": "Iqtisodiy faollik darajasi mehnatga layoqatli yoshdagi aholiga nisbatan olindi (aholi 40 mln emas). Umidini uzgan ishchilar rasmiy statistikada ishsiz hisoblanmaydi, shuning uchun rasmiy daraja ishsizlikni kamaytirib ko‘rsatadi."
+  },
+  {
+   "id": "mk4-p2",
+   "title": "Mehnat bozori muvozanati va minimal ish haqi",
+   "text": "Mehnat bozorida talab LD = 120 − 8(W/P), taklif LS = 20 + 12(W/P) (L — mln kishi soat). Muvozanat real ish haqi va bandlikni toping. Davlat real ish haqining minimal darajasini 6 birlikda belgilasa, ishsizlik qancha bo‘ladi? Bu ishsizlik qaysi turga kiradi?",
+   "fields": [
+    {
+     "label": "Muvozanat real ish haqi W/P",
+     "value": 5,
+     "unit": "birlik"
+    },
+    {
+     "label": "Muvozanat bandlik",
+     "value": 80,
+     "unit": "mln kishi soat"
+    },
+    {
+     "label": "Minimal ish haqi (6) da ishsizlik",
+     "value": 20,
+     "unit": "mln kishi soat"
+    }
+   ],
+   "solution": "LD = LS: 120 − 8w = 20 + 12w, 100 = 20w, w = 5; L = 120 − 40 = 80. W/P = 6 da: LD = 120 − 48 = 72, LS = 20 + 72 = 92. Ishsizlik = LS − LD = 92 − 72 = 20.",
+   "formula": "LD = LS; ishsizlik = LS − LD (W/P = 6 da)",
+   "note": "Bu majburiy ishsizlik (ish haqining qat’iyligi tufayli): ish haqi muvozanatdan yuqori, bandlik 80 dan 72 ga tushadi, ishsizlar 20 mln kishi soat. Pigu konsepsiyasiga ko‘ra ish haqi moslashuvchan bo‘lsa, ishsizlik yo‘qoladi."
+  },
+  {
+   "id": "mk4-p3",
+   "title": "Statsionar ishsizlik darajasi",
+   "text": "Har oy band ishchilarning 2 foizi ishini yo‘qotadi, ishsizlarning 30 foizi ish topadi. Statsionar ishsizlik darajasini va o‘rtacha ishsizlik davomiyligini hisoblang. Hukumat ish topish darajasini 40 foizga yetkazsa, ishsizlik qanchaga kamayadi? Ishchi kuchi 15 mln kishi bo‘lsa, bu necha kishini ishga joylashtirish demakdir?",
+   "fields": [
+    {
+     "label": "Statsionar ishsizlik darajasi",
+     "value": 6.25,
+     "unit": "%"
+    },
+    {
+     "label": "O‘rtacha ishsizlik davomiyligi",
+     "value": 3.33,
+     "unit": "oy"
+    },
+    {
+     "label": "Ishsizlik darajasining kamayishi (f = 0,4 da)",
+     "value": 1.49,
+     "unit": "foiz punkti"
+    },
+    {
+     "label": "Qo‘shimcha ishga joylashganlar",
+     "value": 223214,
+     "unit": "kishi"
+    }
+   ],
+   "solution": "u* = s/(s + f) = 0,02/(0,02 + 0,30) = 6,25%. Davomiylik = 1/f = 1/0,3 = 3,33 oy. f = 0,4 da: u* = 0,02/0,42 = 4,76%; kamayish = 6,25 − 4,76 = 1,49 foiz punkti. Ishsizlar: 15 mln·0,0625 = 937 500 dan 15 mln·0,0476 = 714 286 gacha, farqi ≈ 223 214 kishi.",
+   "formula": "u* = s/(s + f); davomiylik = 1/f",
+   "note": "Natija (223 214 kishi) yaxlitlangan, aniq farq 223 214,3. Raqamlashtirish ish topish darajasini oshiradi, shu sababli friksion ishsizlik kamayadi."
+  },
+  {
+   "id": "mk4-p4",
+   "title": "Ouken qonuni: yo‘qotilgan mahsulot",
+   "text": "Tabiiy ishsizlik darajasi 6%, haqiqiy daraja 9%, Ouken koeffitsiyenti 2, haqiqiy YaIM 900 mlrd dollar. Potensial YaIMni toping. Ishsizlik tufayli yo‘qotilgan mahsulot hajmini hisoblang. Agar haqiqiy ishsizlik 10 foizga oshsa (potensial YaIM o‘sha), yo‘qotishlar qanchaga yetadi?",
+   "fields": [
+    {
+     "label": "Potensial YaIM",
+     "value": 957.45,
+     "unit": "mlrd dollar"
+    },
+    {
+     "label": "Yo‘qotilgan mahsulot (u = 9%)",
+     "value": 57.45,
+     "unit": "mlrd dollar"
+    },
+    {
+     "label": "Yo‘qotilgan mahsulot (u = 10%)",
+     "value": 76.6,
+     "unit": "mlrd dollar"
+    }
+   ],
+   "solution": "Uzilish = −2·(9 − 6) = −6%. Y = Y*(1 − 0,06), Y* = 900/0,94 = 957,45 mlrd. Yo‘qotish = 957,45 − 900 = 57,45 mlrd dollar. u = 10% da uzilish = −2·4 = −8%, Y = 957,45·0,92 = 880,85, yo‘qotish = 957,45 − 880,85 = 76,60 mlrd dollar.",
+   "formula": "(Y − Y*)/Y* = −β(u − u*)",
+   "note": "«Ishsizlik 10 foizga oshsa» ifodasi haqiqiy ishsizlik darajasi 10% bo‘ladi deb talqin qilindi (10 foiz punktga emas). Yo‘qotishni Y* ning 6% i (57,45) deb ham hisoblash mumkin, lekin Y ga nisbatan emas, Y* ga nisbatan olinishi to‘g‘ri."
+  },
+  {
+   "id": "mk4-p5",
+   "title": "Ouken qonuni (Mankyu varianti)",
+   "text": "Ouken qonuni (Mankyu varianti): %ΔY = 3% − 2Δu. Agar YaIM 1% o‘ssa, ishsizlik qanday o‘zgaradi? Ishsizlikni 8 foizdan 6 foizga ikki yil ichida tushirish uchun YaIM har yili qancha o‘sishi kerak? 2025-yilda O‘zbekistonda YaIM 7,7 foizga o‘sgan: formula to‘g‘ri bo‘lsa (normal o‘sish 5%, koeffitsiyent 2), ishsizlik qanchaga kamayishi kerak edi?",
+   "fields": [
+    {
+     "label": "YaIM 1% o‘sganda Δu",
+     "value": 1,
+     "unit": "foiz punkti"
+    },
+    {
+     "label": "Ikki yilda 8% dan 6% gacha uchun YaIM yillik o‘sishi",
+     "value": 5,
+     "unit": "%"
+    },
+    {
+     "label": "O‘zbekiston 2025: Δu (normal o‘sish 5%)",
+     "value": -1.35,
+     "unit": "foiz punkti"
+    }
+   ],
+   "solution": "a) 1 = 3 − 2Δu, Δu = 1 foiz punkti (ishsizlik oshadi, chunki o‘sish 3% dan past). b) Har yil Δu = −1 punkt: %ΔY = 3 − 2·(−1) = 5%. c) 7,7 = 5 − 2Δu, Δu = (5 − 7,7)/2 = −1,35 foiz punkti.",
+   "formula": "%ΔY = normal o‘sish − β·Δu, Δu = (normal o‘sish − %ΔY)/β",
+   "note": "a) bandda 1% o‘sish normal 3% o‘sishdan past, shuning uchun ishsizlik oshadi (+1 punkt), kamaymaydi. c) bandda koeffitsiyent AQSH uchun baholangan, O‘zbekiston uchun taxminiy qo‘llanadi."
+  }
+ ],
+ "open": [
+  "Neoklassik (Pigu) va keynscha yondashuvlarni taqqoslang: ishsizlikning sabablari nimada va ish haqini pasaytirish ishsizlikni kamaytiradimi? Majburiy va ixtiyoriy ishsizlik farqini tushuntiring.",
+  "Faol va passiv bandlik siyosati o‘rtasidagi farq nimada? O‘zbekistonda qanday faol choralar qo‘llanilmoqda? «Sun’iy intellekt va kelajakdagi tarkibiy ishsizlik» mavzusida qisqa esse yozing.",
+  "Viloyatda investitsiya loyihasi doirasida 1500 ta yangi ish o‘rni yaratildi. Iste’molga chegaraviy moyillik 0,7, qo‘shimcha daromadning 15 foizi soliqqa, 20 foizi import tovarlariga sarflanadi. Bandlik multiplikatorini va jami bandlik o‘sishini hisoblang (k = 1/(1 − MPC(1 − t) + MPM))."
+ ],
+ "refs": [
+  "Pigu: ish haqi moslashuvchan, muvozanat real ish haqida ishsizlik yo‘qoladi; ishsizlik ish haqining qat’iyligidan (minimal ish haqi, kasaba uyushmalari) kelib chiqadi, davo — mehnat bozorini erkinlashtirish. Keyns: ish haqini pasaytirish iste’mol talabini kamaytirib, yalpi talabni va bandlikni yanada pasaytiradi; ishsizlikning sababi yalpi talab yetishmasligi, davo — fiskal rag‘batlantirish. Ixtiyoriy ishsizlik — ish haqi darajasida ishlashni istamaslik, majburiy — ishlashni xohlab ish topa olmaslik.",
+  "Faol siyosat: kasb o‘qitish, qayta tayyorlash, ish o‘rinlari yaratish, bandlik xizmatlari, subsidiyalar; passiv — ishsizlik nafaqasi va ijtimoiy to‘lovlar. Faol siyosat uzoq muddatli ishsizlikni va inson kapitali yo‘qolishini kamaytiradi. O‘zbekiston choralarini darslikdagi bandlik siyosati bo‘limidan keltiring. Esse mezonlari: sun’iy intellektning ayrim kasblarni siqib chiqarishi (tarkibiy ishsizlik), qayta tayyorlashning roli, davlat siyosati takliflari.",
+  "k = 1/(1 − 0,7·0,85 + 0,2) = 1/(1 − 0,595 + 0,2) = 1/0,605 = 1,653. Jami: 1,6529·1500 = 2479 ish o‘rni, shundan qo‘shimcha 2479 − 1500 = 979. Izoh: Soliq va import «oqib chiqish» tufayli multiplikator (1,65) oddiy 1/(1 − 0,7) = 3,33 dan ancha kichik."
+ ]
+}

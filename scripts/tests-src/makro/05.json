@@ -4,7 +4,7 @@
   "options": [
    "Ish haqi darajasining barqaror o‘sishi",
    "Narxlar umumiy darajasining barqaror o‘sishi",
-   "Alohida tovar narxining keskin oshishi",
+   "Alohida tovar narxining keskin oshib ketishi",
    "Narxlar umumiy darajasining pasayishi"
   ],
   "c": 1,
@@ -69,8 +69,8 @@
   "q": "Seynoraj nima?",
   "options": [
    "Bojxona to‘lovlaridan tushadigan daromad",
-   "Tashqi qarz hisobiga olingan mablag‘",
-   "Soliq tushumlari yig‘indisi",
+   "Tashqi qarz hisobiga olingan mablag‘lar",
+   "Soliq tushumlarining umumiy yig‘indisi",
    "Pul chop etishdan davlat oladigan daromad"
   ],
   "c": 3,
@@ -102,8 +102,8 @@
   "q": "Stagflyatsiya nima?",
   "options": [
    "Yuqori o‘sish va past inflyatsiya uyg‘unligi",
-   "Deflyatsiya bilan retsessiyaning birga kechishi",
-   "Iqtisodiy turg‘unlik va inflyatsiyaning birga kechishi",
+   "Deflyatsiya bilan retsessiya birga kechishi",
+   "Turg‘unlik va inflyatsiyaning birga kechishi",
    "Oyiga 50 foizdan oshgan giperinflyatsiya"
   ],
   "c": 2,
@@ -112,9 +112,9 @@
  {
   "q": "Bosib turilgan inflyatsiya qanday namoyon bo‘ladi?",
   "options": [
-   "Tovar taqchilligi va do‘konlardagi navbatlar",
+   "Tovar taqchilligi va navbatlar",
    "Foiz stavkalarining keskin pasayishi",
-   "Narxlarning bozorda ochiq o‘sishi",
+   "Narxlarning bozorda ochiq o‘sishi va tebranishi",
    "Milliy valyuta kursining mustahkamlanishi"
   ],
   "c": 0,
@@ -157,7 +157,7 @@
   "q": "«Menyu xarajatlari» nimani anglatadi?",
   "options": [
    "Restoran xizmatlariga sarflanadigan xarajatlarni",
-   "Narxlarni o‘zgartirish bilan bog‘liq xarajatlarni",
+   "Narxlarni o‘zgartirish xarajatlarini",
    "Soliq hisobotini topshirish xarajatlarini",
    "Naqd pul olish uchun bankka borish xarajatlarini"
   ],
@@ -167,10 +167,10 @@
  {
   "q": "Original Fillips egri chizig‘i qaysi ko‘rsatkichlar o‘rtasidagi bog‘liqlikni ko‘rsatgan?",
   "options": [
-   "Foiz stavkasi va investitsiyalar",
-   "Pul massasi va inflyatsiya",
-   "Narxlar darajasi va real YaIM",
-   "Nominal ish haqi o‘sishi va ishsizlik"
+   "Foiz stavkasi va investitsiyalar hajmi",
+   "Pul massasi o‘sishi va inflyatsiya",
+   "Narxlar darajasi va real YaIM hajmi",
+   "Ish haqi o‘sishi va ishsizlik"
   ],
   "c": 3,
   "e": "Fillips ish haqi o‘sishi bilan ishsizlik o‘rtasida teskari bog‘liqlikni aniqlagan."
@@ -201,9 +201,9 @@
   "q": "Qurbonlik koeffitsiyenti nimani ko‘rsatadi?",
   "options": [
    "Ishsizlikning tabiiy darajadan chetlanishini",
-   "Pul multiplikatorining o‘zgarishini",
+   "Pul multiplikatorining o‘zgarish sur’atini",
    "Soliq yukining YaIMdagi ulushini",
-   "Inflyatsiyani 1 punktga pasaytirish uchun yo‘qotiladigan YaIM foizini"
+   "Inflyatsiyani 1 punktga pasaytirishga ketadigan YaIM yo‘qotishini"
   ],
   "c": 3,
   "e": "Qurbonlik koeffitsiyenti — dezinflyatsiyaning YaIMdagi narxi."
@@ -211,10 +211,10 @@
  {
   "q": "Shok terapiyasi qanday sharoitda qo‘llaniladi?",
   "options": [
-   "Deflyatsiya xavfi mavjud bo‘lganda",
-   "Giperinflyatsiya yoki yuqori inflyatsiyada",
-   "To‘liq bandlik sharoitida",
-   "Mo‘tadil inflyatsiya sharoitida"
+   "Deflyatsiya xavfi bo‘lganda",
+   "Giperinflyatsiyada",
+   "To‘liq bandlikda",
+   "Mo‘tadil inflyatsiyada"
   ],
   "c": 1,
   "e": "Keskin cheklash yuqori inflyatsiyada qo‘llaniladi, ishonchli siyosat kutishlarni tez pasaytiradi."
@@ -257,7 +257,7 @@
   "options": [
    "Investitsiyalarning davlat tomonidan siqib chiqarilishini",
    "Ish haqining pasayishga qarshiligini",
-   "Inflyatsiyada soliq tushumlarining real qiymati kamayishini",
+   "Soliq tushumlari real qiymatining kamayishini",
    "Pul multiplikatorining inflyatsiyada oshishini"
   ],
   "c": 2,
