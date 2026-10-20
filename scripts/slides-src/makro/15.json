@@ -1,0 +1,450 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Neoklassiklar tanqidi",
+   "sub": "15.1. Neoklassiklar tomonidan keynscha o‘sish nazariyasining tanqidi",
+   "bullets": [
+    "Xarrod-Domar xulosasi: barqaror yo‘l beqaror, iqtisodiyot «pichoq tig‘i»da turadi",
+    "XX asr ikkinchi yarmida rivojlangan mamlakatlar o‘nlab yillar nisbatan barqaror o‘sdi",
+    "Kapital va mehnat almashtiriladi: firmalar nisbiy narxlarga qarab texnologiya tanlaydi, v o‘zgaruvchan",
+    "Uzoq muddatda narx, ish haqi, foiz stavkasi egiluvchan: resurslardan to‘liq foydalaniladi",
+    "Kamayib boruvchi unumdorlik barqarorlikni ta’minlovchi mexanizm vazifasini o‘taydi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Xarrod-Domar va Solou modeli",
+   "sub": "15.1. Neoklassiklar tomonidan keynscha o‘sish nazariyasining tanqidi",
+   "left": {
+    "head": "Xarrod-Domar",
+    "items": [
+     "Qat’iy koeffitsiyentlar, kapital sig‘imi v o‘zgarmas",
+     "Barqaror o‘sish yo‘li beqaror («pichoq tig‘i»)",
+     "O‘sish sur’ati s/v ga to‘g‘ridan-to‘g‘ri proporsional"
+    ]
+   },
+   "right": {
+    "head": "Solou–Svon (1956)",
+    "items": [
+     "Kobb-Duglas funksiyasi, omillar almashtiriladi",
+     "Barqaror holat stabil, «pichoq tig‘i» yo‘q",
+     "Jamg‘arish faqat daraja va o‘tish davriga ta’sir qiladi"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Ishlab chiqarish funksiyasi",
+   "sub": "15.2. Robert Solou modeli: yalpi taklif va yalpi talab",
+   "items": [
+    {
+     "name": "Bir ishchiga hisoblash",
+     "formula": "y = f(k),  y = Y/L,  k = K/L",
+     "note": "masshtabdan doimiy qaytim: z = 1/L da Y/L = F(K/L, 1)"
+    },
+    {
+     "name": "Kobb-Duglas funksiyasi",
+     "formula": "Y = A K^{α} L^{1−α},  0 < α < 1",
+     "note": "amerikalik Ch. Kobb va P. Duglas, 1928"
+    },
+    {
+     "name": "Bir ishchiga mahsulot",
+     "formula": "y = A k^{α}",
+     "note": "k – mehnatning kapital bilan qurollanganlik darajasi"
+    },
+    {
+     "name": "Kapitalning chegaraviy mahsuloti",
+     "formula": "MPK = α A k^{α−1}",
+     "note": "k oshgan sari kamayadi: kamayib boruvchi unumdorlik"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Kobb-Duglas funksiyasi xususiyatlari",
+   "sub": "15.2. Robert Solou modeli: yalpi taklif va yalpi talab",
+   "bullets": [
+    "y = f(k) egri chizig‘i k oshgan sari yotiqlashadi: MPK kamayadi",
+    "Raqobatli bozorda α – kapitalning, (1−α) – mehnatning daromaddagi ulushi",
+    "Rivojlangan mamlakatlarda α ≈ 1/3",
+    "AQSHda ulushlar o‘nlab yillar deyarli o‘zgarmagan – bu Kobb-Duglas funksiyasining to‘g‘riligini tasdiqlaydi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Yalpi talab va asosiy tenglama",
+   "sub": "15.2. Robert Solou modeli: yalpi taklif va yalpi talab",
+   "items": [
+    {
+     "name": "Yalpi talab",
+     "formula": "y = c + i,  c = (1−s)y",
+     "note": "yopiq iqtisodiyot; s – jamg‘arish normasi"
+    },
+    {
+     "name": "Investitsiyalar",
+     "formula": "i = s·y = s·f(k)",
+     "note": "jamg‘armalarga teng va daromadga proporsional"
+    },
+    {
+     "name": "Aholi o‘smaganda",
+     "formula": "Δk = s f(k) − δk",
+     "note": "δ – kapitalning chiqib ketishi (amortizatsiya normasi)"
+    },
+    {
+     "name": "Solou asosiy tenglamasi",
+     "formula": "Δk = s f(k) − (δ+n)k",
+     "note": "(δ+n)k – zarur investitsiyalar; n – ishchi kuchi o‘sishi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Barqaror holat sharti",
+   "sub": "15.3. Barqaror holat",
+   "items": [
+    {
+     "name": "Barqaror holat (Δk = 0)",
+     "formula": "s f(k^{*}) = (δ+n)k^{*}",
+     "note": "sf(k) egri chizig‘i va (δ+n)k to‘g‘ri chizig‘ining kesishuvi"
+    },
+    {
+     "name": "Agar k < k^{*}",
+     "formula": "s f(k) > (δ+n)k ⇒ k oshadi",
+     "note": "investitsiyalar zarur investitsiyalardan ko‘p"
+    },
+    {
+     "name": "Agar k > k^{*}",
+     "formula": "s f(k) < (δ+n)k ⇒ k kamayadi",
+     "note": "qaysi nuqtadan boshlamasin, iqtisodiyot k^{*} ga intiladi"
+    },
+    {
+     "name": "O‘sish sur’atlari",
+     "formula": "g_{k} = g_{y} = 0,  g_{K} = g_{Y} = n",
+     "note": "bir ishchiga daromad o‘smaydi, umumiy hajm aholi bilan o‘sadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Barqaror holat grafigi",
+   "sub": "15.3. Barqaror holat",
+   "img": "image106.png",
+   "caption": "15.1-rasm. Solou modeli: barqaror holatdagi kapital bilan qurollanganlik"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: barqaror holat (Mankyu)",
+   "sub": "15.3. Barqaror holat",
+   "steps": [
+    "Berilgan: y = √k, s = 0,3, δ = 0,1, n = 0",
+    "Shart: s√k = δk ⇒ √k = s/δ ⇒ k^{*} = (0,3/0,1)^{2} = 9",
+    "y^{*} = √9 = 3;  i^{*} = 0,3·3 = 0,9 = δk^{*};  c^{*} = 3−0,9 = 2,1",
+    "k_{0} = 4: y = 2, i = 0,6, δk = 0,4, Δk = 0,2 ⇒ k_{1} = 4,2",
+    "2-yil: y = 2,049, i = 0,615, δk = 0,42, Δk = 0,195 ⇒ k_{2} = 4,395",
+    "k ning o‘sishi sekinlashadi; barqaror holatga yaqinlashish o‘nlab yillarni oladi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar: k^{*}, y^{*}, c^{*} va aholi o‘sishi",
+   "sub": "15.3. Barqaror holat",
+   "steps": [
+    "1-masala: y = k^{0,5}, s = 0,2, δ = 0,05, n = 0,02; shart: 0,2√k = 0,07k",
+    "k^{*} = (0,2/0,07)^{2} ≈ 8,16;  y^{*} = √(8,16) ≈ 2,86;  c^{*} = 0,8·2,86 ≈ 2,29",
+    "4-masala: y = k^{0,4}, s = 0,25, δ = 0,05;  A: n = 0,01,  B: n = 0,03",
+    "A: k^{*} = (0,25/0,06)^{1,67} ≈ 10,79,  y^{*} ≈ 2,59",
+    "B: k^{*} = (0,25/0,08)^{1,67} ≈ 6,68,  y^{*} ≈ 2,14",
+    "y_{B}/y_{A} ≈ 0,825 – B mamlakat aholisi taxminan 17,5% kambag‘alroq"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Jamg‘arish va aholi o‘sishi ta’siri",
+   "sub": "15.3. Barqaror holat",
+   "bullets": [
+    "s oshsa, sf(k) yuqoriga siljiydi: k^{*} va daromad darajasi oshadi, o‘sish sur’ati esa o‘zgarmaydi",
+    "Jamg‘arishning oshishi o‘sishni faqat o‘tish davrida tezlashtiradi",
+    "n oshsa, (δ+n)k tikroq bo‘ladi: k^{*} va bir ishchiga daromad kamayadi",
+    "Yaponiya va Germaniya (1948–1972): jon boshiga o‘sish yiliga 8,2 va 5,7% (AQSH – 2,2%)",
+    "Urush k ni k^{*} dan pastga tushirgan; k past bo‘lganda MPK yuqori, shu sababli tiklanish tez bo‘lgan"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Felpsning oltin qoidasi",
+   "sub": "15.4. Jamg‘arish normasi va E. Felpsning «oltin qoida»si",
+   "items": [
+    {
+     "name": "Barqaror holat iste’moli",
+     "formula": "c^{*} = f(k^{*}) − δ k^{*}",
+     "note": "n = 0 da; k^{*} bo‘yicha hosila nolga tenglanadi"
+    },
+    {
+     "name": "Oltin qoida sharti",
+     "formula": "MPK = δ + n",
+     "note": "texnik taraqqiyot bilan: MPK = δ + n + g"
+    },
+    {
+     "name": "Kobb-Duglas funksiyasi uchun",
+     "formula": "s_{oltin} = α",
+     "note": "jamg‘arish normasi kapitalning daromaddagi ulushiga teng"
+    },
+    {
+     "name": "Dinamik samarasizlik",
+     "formula": "MPK < δ",
+     "note": "kapital ortiqcha; MPK > δ bo‘lsa kapital oltin qoidadan kam"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar: oltin qoida darajasi",
+   "sub": "15.4. Jamg‘arish normasi va E. Felpsning «oltin qoida»si",
+   "steps": [
+    "Mankyu misoli: y = √k, δ = 0,1, n = 0;  k^{*} = (s/δ)^{2}",
+    "Oltin qoida: s = α = 0,5 ⇒ k^{*} = (0,5/0,1)^{2} = 25",
+    "c^{*} = √25 − 0,1·25 = 5 − 2,5 = 2,5;  MPK = (1)/(2√25) = 0,1 = δ",
+    "1-masala (c): s_{oltin} = 0,5, k = (0,5/0,07)^{2} ≈ 51,02 – iqtisodiyot oltin qoidadan past",
+    "2-masala: y = k^{1/3}, s = 0,24, δ = 0,06 ⇒ k^{*} = 4^{3/2} = 8, y^{*} = 2",
+    "s = 0,30: k^{*} = 5^{3/2} ≈ 11,18, y^{*} ≈ 2,24 – daromad ≈ 11,8% oshadi; s_{oltin} = 1/3"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Jamg‘arish normasini oshirish siyosati",
+   "sub": "15.4. Jamg‘arish normasi va E. Felpsning «oltin qoida»si",
+   "bullets": [
+    "MPK > δ bo‘lsa, s ni oshirish: avval iste’mol kamayadi, so‘ng boshlang‘ich darajadan oshadi",
+    "Dilemma: hozirgi avlod iste’molni qisqartiradi, kelajak avlod yutadi – avlodlararo tanlov",
+    "Dinamik samarasizlikda jamg‘arishni kamaytirish barcha avlodlar iste’molini oshiradi",
+    "AQSH: MPK ≈ 12%, δ ≈ 4%; MPK−δ ≈ 8% > n+g ≈ 3% – kapital oltin qoidadan kam",
+    "Vositalar: byudjet taqchilligini kamaytirish, jamg‘armaga soliq imtiyozi, iste’molga soliq, pensiya tizimi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Mehnat samaradorligi va asosiy tenglama",
+   "sub": "15.5. Solou modelida texnik taraqqiyot",
+   "items": [
+    {
+     "name": "Texnik taraqqiyotli funksiya",
+     "formula": "Y = F(K, L·E)",
+     "note": "E yiliga g sur’atda o‘sadi; L·E – samarali ishchilar soni"
+    },
+    {
+     "name": "Bir samarali ishchiga",
+     "formula": "k = (K)/(L·E),  y = (Y)/(L·E)",
+     "note": "Xarrod-neytral (mehnatni kengaytiruvchi) texnik taraqqiyot"
+    },
+    {
+     "name": "Asosiy tenglama",
+     "formula": "Δk = s f(k) − (δ+n+g)k",
+     "note": "samarali ishchilar soni n+g sur’atda o‘sadi"
+    },
+    {
+     "name": "Oltin qoida",
+     "formula": "MPK = δ + n + g",
+     "note": "texnik taraqqiyot bilan oltin qoida sharti"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Barqaror holatdagi o‘sish sur’atlari",
+   "sub": "15.5. Solou modelida texnik taraqqiyot",
+   "head": [
+    "O‘zgaruvchi",
+    "Belgilanishi",
+    "O‘sish sur’ati"
+   ],
+   "rows": [
+    [
+     "Bir samarali ishchiga kapital",
+     "k = K/(E·L)",
+     "0"
+    ],
+    [
+     "Bir samarali ishchiga mahsulot",
+     "y = Y/(E·L) = f(k)",
+     "0"
+    ],
+    [
+     "Bir ishchiga mahsulot",
+     "Y/L = y·E",
+     "g"
+    ],
+    [
+     "Umumiy mahsulot",
+     "Y = y·(E·L)",
+     "n + g"
+    ],
+    [
+     "Real ish haqi",
+     "w = MPL",
+     "g"
+    ],
+    [
+     "Real ijara narxi (kapitalga)",
+     "r = MPK",
+     "0"
+    ]
+   ],
+   "note": "Turmush darajasining doimiy o‘sishini faqat texnik taraqqiyot ta’minlaydi"
+  },
+  {
+   "type": "bullets",
+   "title": "Muvozanatli o‘sish va yaqinlashish",
+   "sub": "15.5. Solou modelida texnik taraqqiyot",
+   "bullets": [
+    "Muvozanatli o‘sish: Y, K, ish haqi bir xil sur’atda o‘sadi; daromad ulushlari o‘zgarmaydi (Kaldor)",
+    "Rivojlangan mamlakatlarda jon boshiga daromad yuz yildan ortiq yiliga ~2% o‘sgan",
+    "Yaqinlashish: bir xil s, n va texnologiyada kambag‘al mamlakat (yuqori MPK) tezroq o‘sadi",
+    "Mutlaq yaqinlashish kuzatilmaydi; o‘xshash mamlakatlar guruhida (AQSH shtatlari, Yevropa) kuzatiladi",
+    "Shartli yaqinlashish: mamlakatlar yiliga ~2% sur’atda o‘z (past) barqaror holatiga yaqinlashadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Endogen o‘sish nazariyalari",
+   "sub": "15.5. Solou modelida texnik taraqqiyot",
+   "bullets": [
+    "Solou modelida texnik taraqqiyot ekzogen – «osmondan tushadigan manna»",
+    "Bilimlar noraqobatli ne’mat: bilimlarda kamayib boruvchi unumdorlik bo‘lmasligi mumkin",
+    "ITTKI yangi bilim yaratadi; inson kapitali yangi texnologiyani yaratish va o‘zlashtirishni belgilaydi",
+    "Tashqi samaralar tufayli bozor ITTKIga kam investitsiya qiladi – davlat qo‘llab-quvvatlashi oqlanadi",
+    "AK modeli: Y = AK, g = sA − δ – jamg‘arish uzoq muddatli o‘sish sur’atiga ta’sir qiladi (Romer, Lukas)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar: texnik taraqqiyot va UOU",
+   "sub": "15.5. Solou modelida texnik taraqqiyot",
+   "steps": [
+    "5-masala: y = k^{0,3}, s = 0,25, δ+n+g = 0,04+0,015+0,02 = 0,075",
+    "k^{*} = (0,25/0,075)^{1/0,7} ≈ 5,58;  y^{*} = k^{0,3} ≈ 1,68",
+    "Bir ishchiga mahsulot va real ish haqi g = 2%, umumiy mahsulot n+g = 3,5% sur’atda o‘sadi",
+    "Oltin qoida: MPK = δ+n+g = 7,5%",
+    "6-masala: UOU = 6,5 − 0,4·8 − 0,6·2 = 2,1%; keyingi 10 yilda 2,1 + 0,4·6 + 0,6·1 = 5,1%",
+    "6,5% o‘sish uchun UOU = 6,5 − 0,4·6 − 0,6·1 = 3,5% bo‘lishi kerak"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Lyuis modeli mexanizmi",
+   "sub": "15.6. A. Lyuisning iqtisodiy o‘sish modeli",
+   "img": "image113.png",
+   "caption": "15.8-rasm. Lyuis modeli: ortiqcha ishchi kuchi sharoitida sanoat sektorining kengayishi"
+  },
+  {
+   "type": "steps",
+   "title": "Lyuis modeli: agrar va sanoat sektori",
+   "sub": "15.6. A. Lyuisning iqtisodiy o‘sish modeli",
+   "steps": [
+    "Agrar sektor: kam unumli, ortiqcha ishchi kuchi (MP ≈ 0); fermada 10 kishi o‘rniga 7 kishi yetarli",
+    "Sanoat sektori: kapital ko‘p, unumdorlik yuqori; tirikchilikdan 30–50% yuqori ish haqi taklif qiladi",
+    "Ish haqida mehnat taklifi cheksiz elastik (gorizontal)",
+    "Foyda qayta investitsiya qilinadi: mehnatga talab D_{1} → D_{2} → D_{3}, bandlik oshadi, ish haqi o‘zgarmaydi",
+    "Past ish haqi foyda va jamg‘arma ulushini oshiradi – kapital yanada tez jamg‘ariladi",
+    "Ortiqcha ishchi kuchi tugagach (Lyuis burilish nuqtasi) ish haqi o‘sadi, iqtisodiyot neoklassik rejimga o‘tadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Lyuis modelining qo‘llanishi va cheklovlari",
+   "sub": "15.6. A. Lyuisning iqtisodiy o‘sish modeli",
+   "bullets": [
+    "Yaponiya, Janubiy Koreya, Tayvan va Xitoy sanoatlashuvini tushuntiradi; Xitoy 2010-yillarda burilish nuqtasiga yetgan",
+    "Cheklovlar: foyda xorijga chiqishi, sanoatda ishsizlik (Todaro), qishloq xo‘jaligi e’tibordan chetda qolishi",
+    "O‘zbekiston: qishloq xo‘jaligi YaQQning 17–19% ini beradi, lekin band aholining qariyb uchdan bir qismi ishlaydi",
+    "Qishloq xo‘jaligi ulushi 2024-yildagi 19,2% dan 2025-yil 9 oyida 17,0% ga tushdi, xizmatlar ulushi 49,4%"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Xiks bo‘yicha texnik taraqqiyot turlari",
+   "sub": "15.7. J. Xiksning texnik taraqqiyot modeli",
+   "head": [
+    "Turi",
+    "MPK va MPL",
+    "K/L ga ta’siri",
+    "Daromad taqsimoti"
+   ],
+   "rows": [
+    [
+     "Neytral",
+     "Bir xil nisbatda oshadi",
+     "O‘zgarmaydi",
+     "Ulushlar o‘zgarmaydi"
+    ],
+    [
+     "Mehnat tejovchi",
+     "MPK tezroq oshadi",
+     "K/L oshadi",
+     "Kapital ulushi oshadi"
+    ],
+    [
+     "Kapital tejovchi",
+     "MPL tezroq oshadi",
+     "K/L kamayadi",
+     "Mehnat ulushi oshadi"
+    ]
+   ],
+   "note": "Xiks (1932): tasnif K/L o‘zgarmaganda MPK/MPL nisbati o‘zgarishiga asoslanadi"
+  },
+  {
+   "type": "figure",
+   "title": "Texnik taraqqiyot turlari",
+   "sub": "15.7. J. Xiksning texnik taraqqiyot modeli",
+   "img": "image114.png",
+   "caption": "15.9-rasm. Xiks bo‘yicha texnik taraqqiyot turlari (izokvantalar siljishi)"
+  },
+  {
+   "type": "bullets",
+   "title": "Barqaror o‘sish omillari: 1–4",
+   "sub": "15.8. O‘zbekiston Respublikasida barqaror iqtisodiy o‘sishni ta’minlash omillari",
+   "bullets": [
+    "Investitsiyalar ulushi YaIMning ~32%: asosiy vazifa hajmni emas, samaradorlikni oshirish",
+    "Ichki jamg‘armalar: joriy operatsiyalar hisobi taqchilligi 2025-yilda YaIMning 3,9% ni tashkil etdi",
+    "Inson kapitali: oliy ta’lim qamrovi 2016-yildagi ~9% dan 40% dan ortiqqa oshirildi; sifat dolzarb",
+    "Texnologiyalar: o‘zlashtirish – xorijiy investitsiyalar, tashqi savdo, litsenziyalar, xorijda o‘qigan mutaxassislar"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Barqaror o‘sish omillari: 5–8",
+   "sub": "15.8. O‘zbekiston Respublikasida barqaror iqtisodiy o‘sishni ta’minlash omillari",
+   "bullets": [
+    "Resurslarni qayta taqsimlash (Lyuis samarasi): qishloq xo‘jaligidan sanoat va xizmatlarga o‘tish",
+    "Institutlar: mulk huquqi himoyasi, sud mustaqilligi, raqobat siyosati, korrupsiyaga qarshi kurash",
+    "Tashqi iqtisodiy ochiqlik: JST ga a’zolik, eksport diversifikatsiyasi, transport-logistika koridorlari",
+    "Ekologik barqarorlik: suv resurslari cheklangan, Orol fojiasi, iqlim o‘zgarishi; «yashil» iqtisodiyotga o‘tish"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Ijodiy topshiriq: Solou modeli va O‘zbekiston",
+   "sub": "15.8. O‘zbekiston Respublikasida barqaror iqtisodiy o‘sishni ta’minlash omillari",
+   "steps": [
+    "Berilgan: α = 0,4; s = 0,30; δ = 0,05; n = 0,018; g = 0,02; δ+n+g = 0,088",
+    "k^{*} = (0,30/0,088)^{1/0,6} ≈ 7,72;  y^{*} = k^{0,4} ≈ 2,27",
+    "Oltin qoida: s_{oltin} = α = 0,4 > 0,30 – O‘zbekiston oltin qoida darajasidan past",
+    "n = 1,0% da δ+n+g = 0,08: k^{*} = (0,30/0,08)^{1/0,6} ≈ 9,05;  y^{*} ≈ 2,41",
+    "Demografik o‘tish barqaror holatdagi kapital va mahsulotni oshiradi",
+    "Excel’da 50 yillik o‘tish dinamikasi simulyatsiya qilinib, grafikda ko‘rsatiladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Neoklassiklar Xarrod-Domar modelini tanqid qildi; Solou modeli almashtirish va kamayib boruvchi unumdorlikka asoslanadi",
+    "Asosiy tenglama: Δk = sf(k) − (δ+n)k; barqaror holat sf(k^{*}) = (δ+n)k^{*} stabil",
+    "Jamg‘arish normasi barqaror daromad darajasini oshiradi, uzoq muddatli o‘sish sur’atiga ta’sir qilmaydi",
+    "Oltin qoida: MPK = δ+n (+g); doimiy o‘sishni faqat texnik taraqqiyot ta’minlaydi, yaqinlashish shartli",
+    "Lyuis modeli ortiqcha ishchi kuchi, Xiks tasnifi texnik taraqqiyot turlarini tushuntiradi"
+   ]
+  }
+ ]
+}
