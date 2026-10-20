@@ -1,0 +1,490 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "IS-LM modeli nima uchun kerak",
+   "sub": "13.1. Xiks-Xansen modelining mohiyati",
+   "bullets": [
+    "Keyns xochi foiz stavkasini, pul bozori esa daromadni qayd etilgan deb oladi",
+    "Haqiqatda daromad pulga talabga, foiz stavkasi esa investitsiyalarga ta’sir qiladi",
+    "Model 1937-yilda J. Xiks tomonidan taklif qilingan, E. Xansen ommalashtirgan",
+    "Asosiy bog‘lovchi bo‘g‘in – investitsiyalar: I = I(r); samarali talab ikki bozor muvozanatidan aniqlanadi"
+   ],
+   "note": "Mankyu: model qayd etilgan narxlarda daromadni aniqlaydi va AD egri chizig‘ini keltirib chiqaradi"
+  },
+  {
+   "type": "formula",
+   "title": "Modelning asosiy tenglamalari",
+   "sub": "13.1. Xiks-Xansen modelining mohiyati",
+   "items": [
+    {
+     "name": "Tovarlar bozori (IS)",
+     "formula": "Y = C(Y−T)+I(r)+G",
+     "note": "endogen o‘zgaruvchilar: Y va r; ekzogen: G, T, M, P"
+    },
+    {
+     "name": "Pul bozori (LM)",
+     "formula": "(M)/(P) = L(r,Y)",
+     "note": "qisqa muddatda narxlar darajasi P qayd etilgan"
+    },
+    {
+     "name": "Xulq funksiyalari",
+     "formula": "C = C_{a}+c(Y−T),  I = e−dr,  L = kY−hr",
+     "note": "c – iste’molga o‘rtacha moyillik, d va h – foizga sezgirlik"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "IS-LM modelining tarkibiy elementlari",
+   "sub": "13.1. Xiks-Xansen modelining mohiyati",
+   "head": [
+    "Element",
+    "Tovarlar bozori (IS)",
+    "Pul bozori (LM)"
+   ],
+   "rows": [
+    [
+     "Muvozanat sharti",
+     "Y = C+I+G",
+     "M/P = L(r, Y)"
+    ],
+    [
+     "Asosiy xulq funksiyalari",
+     "C = C_{a}+c(Y−T), I = e−dr",
+     "L = kY−hr"
+    ],
+    [
+     "Ekzogen o‘zgaruvchilar",
+     "G, T, avtonom iste’mol va investitsiya",
+     "M, P"
+    ],
+    [
+     "Egri chiziq qiyaligi",
+     "Pastga qarab egilgan",
+     "Yuqoriga qarab egilgan"
+    ],
+    [
+     "Siljituvchi siyosat",
+     "Fiskal siyosat",
+     "Monetar siyosat"
+    ],
+    [
+     "Nomi",
+     "Investment – Saving",
+     "Liquidity preference – Money supply"
+    ]
+   ],
+   "note": "13.1-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "IS egri chizig‘ini keltirib chiqarish",
+   "sub": "13.2. Tovarlar bozoridagi muvozanat. IS egri chizig‘i",
+   "bullets": [
+    "IS – tovarlar bozori muvozanatini ta’minlaydigan foiz stavkasi va daromad kombinatsiyalari",
+    "1) Investitsiyalar funksiyasi: r_{1} dan r_{2} ga pasaysa, I_{1} dan I_{2} ga oshadi",
+    "2) Keyns xochi: PE chizig‘i yuqoriga siljiydi, multiplikator tufayli Y_{1} dan Y_{2} ga oshadi",
+    "3) (Y_{1}, r_{1}) va (Y_{2}, r_{2}) nuqtalarini birlashtirib, pastga egilgan IS olinadi"
+   ],
+   "note": "Foiz stavkasi qancha past bo‘lsa, muvozanatli daromad shuncha yuqori"
+  },
+  {
+   "type": "figure",
+   "title": "IS egri chizig‘ining uch bosqichda hosil bo‘lishi",
+   "sub": "13.2. Tovarlar bozoridagi muvozanat. IS egri chizig‘i",
+   "img": "image91.png",
+   "caption": "13.1-rasm. IS egri chizig‘ini keltirib chiqarish: investitsiyalar funksiyasi, Keyns xochi va IS"
+  },
+  {
+   "type": "formula",
+   "title": "IS tenglamasi, qiyaligi va siljishi",
+   "sub": "13.2. Tovarlar bozoridagi muvozanat. IS egri chizig‘i",
+   "items": [
+    {
+     "name": "IS tenglamasi",
+     "formula": "Y = (C_{a}−cT+e+G)/(1−c) − (d)/(1−c)·r",
+     "note": "r ga nisbatan: r = (C_{a}−cT+e+G)/(d) − (1−c)/(d)·Y"
+    },
+    {
+     "name": "IS qiyaligi",
+     "formula": "(1−c)/(d)",
+     "note": "d va c qancha katta bo‘lsa, IS shuncha yotiq; d = 0 da vertikal"
+    },
+    {
+     "name": "Davlat xaridlari bo‘yicha siljish",
+     "formula": "ΔY = (ΔG)/(1−c)",
+     "note": "G oshsa IS o‘ngga siljiydi"
+    },
+    {
+     "name": "Soliqlar bo‘yicha siljish",
+     "formula": "ΔY = (cΔT)/(1−c)",
+     "note": "soliqlar kamaysa IS o‘ngga siljiydi"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "IS egri chizig‘ining yotiqligi",
+   "sub": "13.2. Tovarlar bozoridagi muvozanat. IS egri chizig‘i",
+   "left": {
+    "head": "IS yotiqroq",
+    "items": [
+     "Investitsiyalar foizga sezgir (d katta)",
+     "MPC (c) katta, multiplikator kuchli",
+     "Foiz stavkasining kichik o‘zgarishi daromadni ko‘p o‘zgartiradi"
+    ]
+   },
+   "right": {
+    "head": "IS tikroq",
+    "items": [
+     "Investitsiyalar foizga sezgir emas (d = 0: investitsiya tuzog‘i)",
+     "Ochiq iqtisodiyot va proporsional soliqlarda multiplikator kichik",
+     "IS dan yuqorida – tovarlar ortiqcha taklifi, pastda – ortiqcha talab"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "LM tenglamasi, qiyaligi va siljishi",
+   "sub": "13.3. Pul bozoridagi muvozanat. LM egri chizig‘i",
+   "items": [
+    {
+     "name": "Pul bozori muvozanati",
+     "formula": "(M)/(P) = kY−hr",
+     "note": "pulga talab L = kY−hr, pul taklifi qayd etilgan"
+    },
+    {
+     "name": "LM tenglamasi",
+     "formula": "r = (k)/(h)·Y − (1)/(h)·(M)/(P)",
+     "note": "yoki Y = (1)/(k)·(M)/(P) + (h)/(k)·r"
+    },
+    {
+     "name": "LM qiyaligi",
+     "formula": "(k)/(h)",
+     "note": "k katta va h kichik bo‘lsa, LM tik; yuqoriga egilgan"
+    },
+    {
+     "name": "Real pul taklifi o‘zgarganda",
+     "formula": "M↑ yoki P↓ ⇒ LM o‘ngga",
+     "note": "M↓ yoki P↑ yoki pulga talab oshsa – LM chapga siljiydi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "LM egri chizig‘ining uch kesimi",
+   "sub": "13.3. Pul bozoridagi muvozanat. LM egri chizig‘i",
+   "head": [
+    "Kesim",
+    "Mohiyati",
+    "Fiskal siyosat",
+    "Monetar siyosat"
+   ],
+   "rows": [
+    [
+     "Gorizontal (keynscha)",
+     "Likvidlik tuzog‘i, talab cheksiz elastik",
+     "Maksimal samarali",
+     "Samarasiz"
+    ],
+    [
+     "Ko‘tariluvchi (oraliq)",
+     "Siqib chiqarish qisman",
+     "Samarali",
+     "Samarali"
+    ],
+    [
+     "Vertikal (klassik)",
+     "h = 0, miqdoriy nazariya",
+     "Samarasiz (to‘liq siqib chiqarish)",
+     "Maksimal samarali"
+    ]
+   ],
+   "note": "Gorizontal kesimda foiz stavkasi o‘zgarmaydi, siqib chiqarish yo‘q"
+  },
+  {
+   "type": "figure",
+   "title": "LM egri chizig‘ining kesimlari",
+   "sub": "13.3. Pul bozoridagi muvozanat. LM egri chizig‘i",
+   "img": "image92.png",
+   "caption": "13.2-rasm. LM egri chizig‘ining uch kesimi"
+  },
+  {
+   "type": "steps",
+   "title": "Hisob-kitob: IS va LM tenglamalarini tuzish",
+   "sub": "13.3. Pul bozoridagi muvozanat. LM egri chizig‘i",
+   "steps": [
+    "Berilgan: C = 100+0,8(Y−T), I = 300−25r, G = 200, T = 200; (M/P)D = 0,5Y−50r, M = 800, P = 1",
+    "IS: Y = 100+0,8(Y−200)+300−25r+200 ⇒ 0,2Y = 440−25r ⇒ Y = 2200−125r",
+    "LM: 800 = 0,5Y−50r ⇒ Y = 1600+100r",
+    "Muvozanat: 2200−125r = 1600+100r ⇒ 225r = 600 ⇒ r^{*} ≈ 2,67%",
+    "Y^{*} = 1600+266,7 ≈ 1866,7 mlrd so‘m",
+    "Tekshirish: C = 1433,3; I = 233,3; C+I+G = 1866,7; pulga talab 933,3−133,3 = 800"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "IS va LM kesishgan nuqta",
+   "sub": "13.4. IS-LM modelidagi muvozanat",
+   "img": "image93.png",
+   "caption": "13.3-rasm. IS-LM modelida tovarlar va pul bozorlarining birgalikdagi muvozanati"
+  },
+  {
+   "type": "formula",
+   "title": "Muvozanatli daromad va multiplikatorlar",
+   "sub": "13.4. IS-LM modelidagi muvozanat",
+   "items": [
+    {
+     "name": "Muvozanatli daromad",
+     "formula": "Y^{*} = (h)/(h(1−c)+dk)·(C_{a}−cT+e+G) + (d)/(h(1−c)+dk)·(M)/(P)",
+     "note": "IS va LM birgalikda yechiladi"
+    },
+    {
+     "name": "Fiskal multiplikator",
+     "formula": "(ΔY)/(ΔG) = (1)/((1−c)+(dk)/(h))",
+     "note": "Keyns xochidagi 1/(1−c) dan kichik: dk/h had siqib chiqarishni aks ettiradi"
+    },
+    {
+     "name": "Monetar multiplikator",
+     "formula": "(ΔY)/(Δ(M/P)) = (d/h)/((1−c)+(dk)/(h)) = (1)/((1−c)(h)/(d)+k)",
+     "note": "pul taklifining daromadga ta’siri"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Siyosat samaradorligining parametrlarga bog‘liqligi",
+   "sub": "13.4. IS-LM modelidagi muvozanat",
+   "head": [
+    "Parametr",
+    "Fiskal siyosat",
+    "Monetar siyosat"
+   ],
+   "rows": [
+    [
+     "d katta (IS yotiq)",
+     "Past (kuchli siqib chiqarish)",
+     "Yuqori"
+    ],
+    [
+     "d → 0 (IS vertikal)",
+     "Maksimal",
+     "Nol (investitsiya tuzog‘i)"
+    ],
+    [
+     "h katta (LM yotiq)",
+     "Yuqori",
+     "Past"
+    ],
+    [
+     "h → ∞ (likvidlik tuzog‘i)",
+     "Maksimal (to‘liq multiplikator)",
+     "Nol"
+    ],
+    [
+     "h → 0 (LM vertikal)",
+     "Nol (to‘liq siqib chiqarish)",
+     "Maksimal"
+    ]
+   ],
+   "note": "13.2-jadval"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 2–3: multiplikatorlar va d ning roli",
+   "sub": "13.4. IS-LM modelidagi muvozanat",
+   "steps": [
+    "2-masala: (1−c)+dk/h = 0,2+25·0,5/50 = 0,45; fiskal multiplikator 1/0,45 ≈ 2,22; monetar 0,5/0,45 ≈ 1,11",
+    "G +50: ΔY ≈ 111,1; yangi muvozanat r ≈ 3,78%, Y ≈ 1977,8",
+    "M +50: ΔY ≈ 55,6; yangi muvozanat r ≈ 2,22%, Y ≈ 1922,2",
+    "3-masala: d = 5 da IS: Y = 2200−25r; 2200−25r = 1600+100r ⇒ r = 4,8%, Y = 2080",
+    "G +50: ΔY = 200 (multiplikator 4); M +50: ΔY = 20 (multiplikator 0,4)",
+    "Xulosa: investitsiyalar foizga kam sezgir bo‘lsa, fiskal siyosat kuchayadi, monetar zaiflashadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Fiskal ekspansiya va siqib chiqarish",
+   "sub": "13.5. IS-LM modelida byudjet-soliq siyosati",
+   "img": "image94.png",
+   "caption": "13.4-rasm. IS-LM modelida fiskal ekspansiya va siqib chiqarish samarasi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1: IS-LM muvozanati va siqib chiqarish",
+   "sub": "13.5. IS-LM modelida byudjet-soliq siyosati",
+   "steps": [
+    "Berilgan: C = 200+0,75(Y−T), I = 200−25r, G = T = 100; (M/P)D = Y−100r, M = 1000, P = 2",
+    "IS: Y = 1700−100r; LM: 500 = Y−100r ⇒ Y = 500+100r; muvozanat: r = 6%, Y = 1100",
+    "G = 150: IS Y = 1900−100r; r = 7%, Y = 1200",
+    "Keyns xochida ΔY = 50·4 = 200 (Y = 1300); siqib chiqarish 1300−1200 = 100",
+    "M = 1200 (G = 100): LM Y = 600+100r; r = 5,5%, Y = 1150"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Fiskal ekspansiya va Markaziy bank reaksiyasi",
+   "sub": "13.5. IS-LM modelida byudjet-soliq siyosati",
+   "left": {
+    "head": "Foiz stavkasi qayd etilsa",
+    "items": [
+     "Markaziy bank pul taklifini oshirib LM ni moslashtiradi",
+     "Siqib chiqarish bo‘lmaydi",
+     "Fiskal multiplikator Keyns xochidagiga teng"
+    ]
+   },
+   "right": {
+    "head": "Daromad qayd etilsa",
+    "items": [
+     "Markaziy bank LM ni yuqoriga siljitadi",
+     "Fiskal ekspansiya daromadni oshirmaydi",
+     "Faqat foiz stavkasi oshadi"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Monetar ekspansiya va samaradorlik",
+   "sub": "13.6. IS-LM modelida pul-kredit siyosati",
+   "bullets": [
+    "Pul taklifi oshsa, narxlar qayd etilgani uchun real pul taklifi oshadi va LM o‘ngga siljiydi",
+    "Transmissiya: M↑ ⇒ (M/P)↑ ⇒ r↓ ⇒ I↑ ⇒ Y↑",
+    "Samaradorlik ikki shartga bog‘liq: LM qiyaligi (h) va IS qiyaligi (d)",
+    "Monetar siyosat LM tik va IS yotiq bo‘lganda eng samarali"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Monetar ekspansiya IS-LM da",
+   "sub": "13.6. IS-LM modelida pul-kredit siyosati",
+   "img": "image96.png",
+   "caption": "13.6-rasm. Likvidlik tuzog‘i (a) va investitsiya tuzog‘i (b)"
+  },
+  {
+   "type": "compare",
+   "title": "Likvidlik tuzog‘i va investitsiya tuzog‘i",
+   "sub": "13.6. IS-LM modelida pul-kredit siyosati",
+   "left": {
+    "head": "Likvidlik tuzog‘i (LM gorizontal)",
+    "items": [
+     "Foiz stavkasi juda past, pulga talab cheksiz elastik",
+     "Pul taklifi oshsa ham r va Y o‘zgarmaydi",
+     "Zamonaviy talqin: nominal stavkaning nol chegarasi"
+    ]
+   },
+   "right": {
+    "head": "Investitsiya tuzog‘i (IS vertikal)",
+    "items": [
+     "Investitsiyalar foizga sezgir emas",
+     "Pul taklifi r ni pasaytiradi, I va Y o‘zgarmaydi",
+     "Chuqur pessimizm, ortiqcha quvvat, kredit cheklovlari"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Amaliyotdan misollar (Mankyu)",
+   "sub": "13.6. IS-LM modelida pul-kredit siyosati",
+   "bullets": [
+    "Volker (1979): qisqa stavkalar 10% dan 1981-yilda 15% dan oshdi – likvidlik samarasi",
+    "Inflyatsiya pasaygach, stavkalar 1986-yilga kelib 6% ga tushdi – Fisher samarasi",
+    "AQSH 2001: Fed stavkani 6,5% dan 1,75% gacha pasaytirdi, soliqlar kamaytirildi; ishsizlik 6% gacha",
+    "2008–2009: Fed stavkani nolga tushirdi – likvidlik tuzog‘i; fiskal va noan’anaviy choralar kerak bo‘ldi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "IS-LM dan AD egri chizig‘i",
+   "sub": "13.7. Baholar o‘zgarishi va yalpi talab egri chizig‘i",
+   "img": "image97.png",
+   "caption": "13.7-rasm. IS-LM modelidan yalpi talab egri chizig‘ini keltirib chiqarish"
+  },
+  {
+   "type": "bullets",
+   "title": "AD egri chizig‘i va Pigu samarasi",
+   "sub": "13.7. Baholar o‘zgarishi va yalpi talab egri chizig‘i",
+   "bullets": [
+    "P pasaysa, M/P oshadi, LM o‘ngga siljiydi, r pasayadi, investitsiyalar va Y oshadi",
+    "Har bir P uchun IS-LM daromadini (Y, P) koordinatalarida belgilasak, AD olinadi – foiz stavkasi samarasi",
+    "AD ni IS yoki LM ni siljituvchi har qanday omil (P dan tashqari) siljitadi",
+    "Pigu samarasi: narx pasayganda real boylik oshib, IS o‘ngga siljiydi",
+    "Deflyatsiya qarzlar real yukini va real foizni oshiradi – Buyuk depressiyada Pigu samarasidan kuchliroq bo‘lgan"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 4: AD egri chizig‘ini keltirib chiqarish",
+   "sub": "13.7. Baholar o‘zgarishi va yalpi talab egri chizig‘i",
+   "steps": [
+    "IS: Y = 2000−100r; LM: Y = 600+400/P+100r",
+    "P = 1: r = 5%, Y = 1500; P = 1,25: r = 5,4%, Y = 1460; P = 0,8: r = 4,5%, Y = 1550",
+    "AD: 2000−100r = 600+400/P+100r ⇒ r = 7−2/P",
+    "Y = 2000−100·(7−2/P) = 1300+200/P",
+    "Potensial YaIM 1600: 200/P = 300 ⇒ P = 2/3 ≈ 0,67"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Monetar ekspansiyaning qisqa va uzoq muddatli oqibatlari",
+   "sub": "13.8. Baholar o‘zgarishi sharoitida rag‘batlantiruvchi siyosat. Qisqa va uzoq muddatli muvozanat",
+   "head": [
+    "Ko‘rsatkich",
+    "Qisqa muddat (P qayd)",
+    "Uzoq muddat (P moslashgan)"
+   ],
+   "rows": [
+    [
+     "Real pul taklifi (M/P)",
+     "Oshadi",
+     "Dastlabki darajaga qaytadi"
+    ],
+    [
+     "Foiz stavkasi",
+     "Pasayadi",
+     "Dastlabki darajaga qaytadi"
+    ],
+    [
+     "Daromad (Y)",
+     "Oshadi",
+     "Potensial darajaga qaytadi"
+    ],
+    [
+     "Narxlar darajasi",
+     "O‘zgarmaydi",
+     "Pul taklifi bilan proporsional oshadi"
+    ],
+    [
+     "Xulosa",
+     "Pul noneytral",
+     "Pul neytral"
+    ]
+   ],
+   "note": "13.3-jadval"
+  },
+  {
+   "type": "bullets",
+   "title": "Uzoq muddatli muvozanat va siyosatlar kombinatsiyasi",
+   "sub": "13.8. Baholar o‘zgarishi sharoitida rag‘batlantiruvchi siyosat. Qisqa va uzoq muddatli muvozanat",
+   "bullets": [
+    "IS-LM grafigiga potensial darajadagi vertikal LRAS chizig‘i qo‘shiladi",
+    "Y potensialdan past bo‘lsa, narxlar pasayadi, LM o‘ngga siljiydi; yuqori bo‘lsa – chapga",
+    "Fiskal ekspansiya uzoq muddatda to‘liq siqib chiqarishga olib keladi: foiz yuqori, investitsiyalar kam",
+    "Fiskal ekspansiya + monetar cheklash: Y o‘zgarmasligi mumkin, foiz keskin oshadi, investitsiyalar siqiladi",
+    "Cheklovchi fiskal + yumshoq monetar siyosat daromadni saqlab, investitsiyalarni rag‘batlantiradi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "IS-LM modeli tovarlar va pul bozorlarini birgalikda tahlil qilib, qisqa muddatda Y va r ni aniqlaydi",
+    "IS pastga egilgan, qiyaligi (1−c)/d; LM yuqoriga egilgan, qiyaligi k/h; ularning kesishuvi – muvozanat",
+    "Fiskal ekspansiya IS ni, monetar ekspansiya LM ni o‘ngga siljitadi; siqib chiqarish multiplikatorni kamaytiradi",
+    "Likvidlik va investitsiya tuzoqlarida monetar siyosat samarasiz, fiskal siyosat samarali",
+    "IS-LM dan AD olinadi; uzoq muddatda iqtisodiyot potensialga qaytadi: pul qisqa muddatda noneytral, keyin neytral"
+   ]
+  }
+ ]
+}

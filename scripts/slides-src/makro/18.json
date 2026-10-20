@@ -1,0 +1,480 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Valyuta ayirboshlash zarurati",
+   "sub": "18.1. Valyuta bozori. Valyuta ayirboshlash zarurati",
+   "bullets": [
+    "Har mamlakat o‘z valyutasiga ega, shu sababli har bir xalqaro bitim valyuta ayirboshlashni talab qiladi",
+    "Valyuta bozori – bir valyuta boshqasiga ayirboshlanadigan, jahondagi eng yirik moliya bozori",
+    "BIS (2022): kunlik aylanma 7,5 trillion dollar – asosiy qismi kapital oqimlari va spekulyatsiya",
+    "Ishtirokchilar: tijorat banklari, eksportyor va importyorlar, fondlar, markaziy banklar, aholi",
+    "Spot bozor – 2 ish kuni ichida yetkazish; muddatli bozorlar (forvard, fyuchers, svop, opsion) xedjirlash imkonini beradi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Dollarga talab va taklif manbalari",
+   "sub": "18.1. Valyuta bozori. Valyuta ayirboshlash zarurati",
+   "left": {
+    "head": "Talab (D) – pastga og‘ma",
+    "items": [
+     "Tovar va xizmatlar importi",
+     "Tashqi qarzni to‘lash, xorijga sayohat",
+     "Aholining valyutadagi jamg‘armalari"
+    ]
+   },
+   "right": {
+    "head": "Taklif (S) – yuqoriga og‘ma",
+    "items": [
+     "Eksport tushumi: oltin, mis, energiya, to‘qimachilik",
+     "Mehnat muhojirlarining pul o‘tkazmalari (2025: 18,9 mlrd dollar)",
+     "To‘g‘ridan-to‘g‘ri va portfel investitsiyalar, tashqi qarzlar"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Valyuta bozorida muvozanat",
+   "sub": "18.1. Valyuta bozori. Valyuta ayirboshlash zarurati",
+   "img": "image129.png",
+   "caption": "18.1-rasm. Valyuta bozorida muvozanat: suzuvchi va qayd etilgan kurs sharoitida"
+  },
+  {
+   "type": "table",
+   "title": "Talab va taklifni siljituvchi omillar",
+   "sub": "18.1. Valyuta bozori. Valyuta ayirboshlash zarurati",
+   "head": [
+    "Hodisa",
+    "Siljiydigan egri chiziq",
+    "So‘m kursiga ta’siri"
+   ],
+   "rows": [
+    [
+     "Jahon oltin narxining oshishi",
+     "Dollar taklifi o‘ngga",
+     "So‘m qimmatlashadi"
+    ],
+    [
+     "Rossiyadan pul o‘tkazmalarining qisqarishi",
+     "Dollar taklifi chapga",
+     "So‘m qadrsizlanadi"
+    ],
+    [
+     "Import avtomobillarga talabning oshishi",
+     "Dollarga talab o‘ngga",
+     "So‘m qadrsizlanadi"
+    ],
+    [
+     "Inflyatsiya kutilmalarining oshishi",
+     "Talab o‘ngga (dollarlashuv)",
+     "So‘m qadrsizlanadi"
+    ],
+    [
+     "Yirik xorijiy investitsiya loyihasi",
+     "Dollar taklifi o‘ngga",
+     "So‘m qimmatlashadi"
+    ],
+    [
+     "Davlat tashqi qarzini to‘lash",
+     "Dollarga talab o‘ngga",
+     "So‘m qadrsizlanadi"
+    ]
+   ],
+   "note": "Kichik mamlakat modelida muvozanatli kurs e^{∗} talab va taklif tenglashgan nuqtada aniqlanadi"
+  },
+  {
+   "type": "formula",
+   "title": "Kotirovkalar va kross-kurs",
+   "sub": "18.2. Valyuta kursi va uning kotirovkalari",
+   "items": [
+    {
+     "name": "To‘g‘ri (bevosita) kotirovka",
+     "formula": "1 USD = e so‘m",
+     "note": "1 birlik xorijiy valyuta milliy valyutada: 1 USD = 12 025 so‘m"
+    },
+    {
+     "name": "Bilvosita (teskari) kotirovka",
+     "formula": "1 so‘m = (1)/(e) USD",
+     "note": "1/12 025 = 0,0000832 USD; ikkala kotirovka o‘zaro teskari miqdorlar"
+    },
+    {
+     "name": "Kross-kurs",
+     "formula": "1 EUR = 1,15 × 12 000 = 13 800 so‘m",
+     "note": "ikki valyutaning uchinchi valyuta (odatda dollar) orqali nisbati"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Kross-kursni hisoblash",
+   "sub": "18.2. Valyuta kursi va uning kotirovkalari",
+   "steps": [
+    "Berilgan: 1 USD = 12 000 so‘m; 1 EUR = 1,15 USD; 1 USD = 80 rubl",
+    "Yevro: 1 EUR = 1,15 × 12 000 = 13 800 so‘m",
+    "Rubl: 1 rubl = 12 000 / 80 = 150 so‘m; yevro: 1 EUR = 1,15 × 80 = 92 rubl",
+    "92 000 rubl ish haqi: 92 000 × 150 = 13,8 mln so‘m",
+    "Rubl 10% qadrsizlansa (1 USD = 88 rubl): 12 000 / 88 = 136,4 so‘m",
+    "Xuddi shu ish haqi endi 12,5 mln so‘mga teng bo‘ladi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Egiluvchan va qayd etilgan kurs",
+   "sub": "18.2. Valyuta kursi va uning kotirovkalari",
+   "left": {
+    "head": "Egiluvchan (suzuvchi) kurs",
+    "items": [
+     "Kurs bozorda talab va taklif ta’sirida shakllanadi",
+     "Tashqi zarbalarni yumshatadi, mustaqil pul siyosati, katta zaxira shart emas",
+     "Kamchilik: noaniqlik va import narxlari orqali inflyatsiya xavfi"
+    ]
+   },
+   "right": {
+    "head": "Qayd etilgan kurs",
+    "items": [
+     "Markaziy bank kursni belgilab, intervensiya bilan ushlab turadi",
+     "Kurs muvozanatdan past bo‘lsa, dollar taqchilligi Q^{D}−Q^{S} yuzaga keladi",
+     "Zaxiralar tugasa, devalvatsiya muqarrar"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Valyuta kursi rejimlari spektri",
+   "sub": "18.2. Valyuta kursi va uning kotirovkalari",
+   "img": "image130.png",
+   "caption": "18.2-rasm. Valyuta kursi rejimlari spektri: qat’iy qayd etishdan erkin suzishgacha"
+  },
+  {
+   "type": "table",
+   "title": "Kurs o‘zgarishining atamalari",
+   "sub": "18.2. Valyuta kursi va uning kotirovkalari",
+   "head": [
+    "Atama",
+    "Rejim",
+    "Mazmuni",
+    "So‘m/$ da"
+   ],
+   "rows": [
+    [
+     "Qadrsizlanish",
+     "Suzuvchi",
+     "Bozor kuchlari ta’sirida qiymat pasayadi",
+     "e oshadi"
+    ],
+    [
+     "Qimmatlashish",
+     "Suzuvchi",
+     "Bozor kuchlari ta’sirida qiymat oshadi",
+     "e kamayadi"
+    ],
+    [
+     "Devalvatsiya",
+     "Qayd etilgan",
+     "Rasmiy qaror bilan kurs pasaytiriladi",
+     "e oshiriladi"
+    ],
+    [
+     "Revalvatsiya",
+     "Qayd etilgan",
+     "Rasmiy qaror bilan kurs oshiriladi",
+     "e kamaytiriladi"
+    ]
+   ],
+   "note": "2017-yil 5-sentabr: rasmiy kurs 4 210 dan 8 100 so‘mga o‘zgartirildi – bir martalik devalvatsiya"
+  },
+  {
+   "type": "formula",
+   "title": "Nominal va real valyuta kursi",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "items": [
+    {
+     "name": "Real kurs (Mankyu, bilvosita kotirovka)",
+     "formula": "ε = e × (P)/(P^{∗})",
+     "note": "ε oshsa, milliy tovarlar qimmatlashadi, raqobatbardoshlik pasayadi"
+    },
+    {
+     "name": "Real kurs (to‘g‘ri kotirovka)",
+     "formula": "q = e × (P^{∗})/(P)",
+     "note": "q oshsa – so‘m real qadrsizlanadi; q kamaysa – real qimmatlashadi"
+    },
+    {
+     "name": "O‘zgarish sur’atlari",
+     "formula": "%Δe = %Δε + (π^{∗}−π)",
+     "note": "π > π^{∗} bo‘lsa, real kurs barqaror bo‘lishi uchun valyuta nominal qadrsizlanadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Real kursni hisoblash: avtomobil misoli",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "steps": [
+    "Berilgan: AQSHda avtomobil 50 000 dollar, Yaponiyada 6 mln iyena",
+    "Nominal kurs: 1 dollar = 150 iyena",
+    "ε = (150 × 50 000) / 6 000 000 = 7 500 000 / 6 000 000 = 1,25",
+    "1 Amerika avtomobiliga 1,25 Yaponiya avtomobili beriladi",
+    "Demak, Amerika avtomobillari nisbatan qimmat"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston: nominal va real kurs, 2017–2025",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "bullets": [
+    "2017 = 100: nominal kurs indeksi 148 (8 120 dan 12 025 so‘mgacha)",
+    "Narxlar O‘zbekistonda qariyb 2,33, AQSHda 1,32 baravar oshdi; narxlar nisbati indeksi 176",
+    "Real kurs indeksi: q = 148 / 176 × 100 ≈ 84",
+    "So‘m nominal qadrsizlangan, ammo real ma’noda qariyb 16% qimmatlashgan",
+    "Sabab: inflyatsiya AQSHdagidan yuqori, farq nominal qadrsizlanish bilan to‘liq qoplanmagan"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "So‘m nominal va real kursi dinamikasi",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "img": "image132.png",
+   "caption": "18.4-rasm. O‘zbekiston: so‘m/dollar nominal va real kursi hamda narxlar nisbati, 2017–2025-yillar (2017 = 100)"
+  },
+  {
+   "type": "formula",
+   "title": "Samarali valyuta kurslari",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "items": [
+    {
+     "name": "Nominal samarali kurs (NEER)",
+     "formula": "NEER = Σ_{j} w_{j}·e_{j}",
+     "note": "hamkor valyutalariga nisbatan kurslarning savdo ulushlari bilan tortilgan o‘rtachasi"
+    },
+    {
+     "name": "Real samarali kurs (REER)",
+     "formula": "REER = ((e_{1}P)/(P_{1}))^{w1} × ((e_{2}P)/(P_{2}))^{w2} × … × ((e_{n}P)/(P_{n}))^{wn}",
+     "note": "P_{j} – hamkor mamlakat narxlari; w_{j} – savdo ulushi"
+    },
+    {
+     "name": "Ulushlar yig‘indisi",
+     "formula": "w_{1}+w_{2}+…+w_{n} = 1",
+     "note": "Xitoy yuani, rubl, tenge, lira katta vaznga ega; rubl qadrsizlansa, REER bo‘yicha so‘m qimmatlashadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 1–2: kross-kurs va so‘m dinamikasi",
+   "sub": "18.3. Nominal, real va samarali valyuta kurslari",
+   "steps": [
+    "1-masala: 1 USD = 12 100 so‘m, 7,2 yuan, 470 tenge; yuan = 12 100/7,2 ≈ 1 680,6 so‘m",
+    "Tenge = 12 100/470 ≈ 25,74 so‘m; 1 so‘m = 1/12 100 ≈ 0,0000826 USD",
+    "Tenge 5% qadrsizlansa: 1 USD = 493,5 tenge, tenge = 12 100/493,5 ≈ 24,52 so‘m (taxminan −4,8%)",
+    "2-masala: so‘m (12 920−12 025)/12 920 ≈ 6,9% qimmatlashdi",
+    "Real kurs: q = (12 025/12 920) × (1,027/1,073) ≈ 0,891 – so‘m real ≈ 10,9% qimmatlashdi",
+    "Eksportyorlar uchun: narx raqobatbardoshligi pasayadi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Xarid qobiliyati pariteti (XQP)",
+   "sub": "18.4. Valyuta kursi nazariyalari. Xarid qobiliyati pariteti",
+   "items": [
+    {
+     "name": "Mutlaq XQP (to‘g‘ri kotirovka)",
+     "formula": "e = (P)/(P^{∗})",
+     "note": "kurs narxlar darajalari nisbatiga teng; real kurs doimo 1 ga teng"
+    },
+    {
+     "name": "Nisbiy XQP",
+     "formula": "%Δe = π − π^{∗}",
+     "note": "nominal kursning o‘zgarishi inflyatsiya farqiga teng"
+    },
+    {
+     "name": "XQP kursi (Big Mak indeksi)",
+     "formula": "e_{XQP} = (Big Makning milliy narxi)/(AQSHdagi narxi)",
+     "note": "bir narx qonuni: arbitraj narxlarni tenglashtiradi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Big Mak indeksi: XQP kursi",
+   "sub": "18.4. Valyuta kursi nazariyalari. Xarid qobiliyati pariteti",
+   "steps": [
+    "Berilgan: Big Mak AQSHda 6 dollar, Toshkentda 42 000 so‘m",
+    "XQP kursi = 42 000 / 6 = 7 000 so‘m/dollar",
+    "Bozor kursi 12 000 so‘m",
+    "(12 000 − 7 000) / 12 000 ≈ 42% – so‘m XQPga nisbatan «arzonlashtirilgan»",
+    "Rivojlanayotgan mamlakatlarda Big Mak arzon: narxning katta qismi savdo qilinmaydigan xizmatlarga bog‘liq"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "XQP nazariyasining cheklovlari",
+   "sub": "18.4. Valyuta kursi nazariyalari. Xarid qobiliyati pariteti",
+   "bullets": [
+    "XQP uzoq muddatda va taxminan bajariladi; qisqa muddatda sezilarli og‘ishlar kuzatiladi",
+    "Savdo qilinmaydigan tovarlar va xizmatlar (soch olish, uy-joy ijarasi, ta’lim) – arbitraj imkonsiz",
+    "Transport xarajatlari va savdo to‘siqlari: tariflar, kvotalar",
+    "Tovarlarning bir xil emasligi: brend, sifat va xizmat farqlari",
+    "Qisqa muddatda kursni tovar savdosidan ko‘ra kapital oqimlari ko‘proq belgilaydi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Foiz stavkalari pariteti",
+   "sub": "18.4. Valyuta kursi nazariyalari. Xarid qobiliyati pariteti",
+   "items": [
+    {
+     "name": "Foiz stavkalari pariteti",
+     "formula": "i = i^{∗} + (e^{e}−e)/(e)",
+     "note": "e^{e} – kutilayotgan kelajakdagi kurs; ikki mamlakat aktivlari daromadi tenglashadi"
+    },
+    {
+     "name": "Misol: so‘m 18%, dollar 5%",
+     "formula": "18 − 5 = 13%",
+     "note": "investor so‘mni faqat so‘m yiliga 13% dan kam qadrsizlanishini kutganda afzal ko‘radi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 3–4: XQP va foiz stavkalari pariteti",
+   "sub": "18.4. Valyuta kursi nazariyalari. Xarid qobiliyati pariteti",
+   "steps": [
+    "3-masala: XQP kursi = 11 200 000 / 800 = 14 000 so‘m/dollar",
+    "Bozor kursi 12 000 < 14 000: so‘m XQPga nisbatan qimmat (≈14% yuqori baholangan)",
+    "Arbitraj imkoniyati ko‘rinadi, lekin transport, tariflar, brend va servis farqlari to‘sqinlik qiladi",
+    "4-masala: nisbiy XQP: %Δe = 8 − 3 = 5%; kutilgan kurs 12 000 × 1,05 = 12 600 so‘m",
+    "Foiz pariteti: so‘m depoziti 17%, dollar 5%; 17 − 5 = 12% > 5% – so‘mdagi depozit foydaliroq"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Valyuta kursiga ta’sir etuvchi omillar",
+   "sub": "18.5. Valyuta kursiga ta’sir etuvchi omillar va muvozanatli kurs",
+   "bullets": [
+    "Foiz stavkalari: milliy stavka oshsa, kapital oqimi kuchayadi va valyuta qimmatlashadi",
+    "Inflyatsiya: yuqori inflyatsiya raqobatbardoshlikni pasaytiradi, uzoq muddatda valyuta qadrsizlanadi (XQP)",
+    "Savdo va joriy operatsiyalar balansi: profitsit valyutaga talabni oshiradi, taqchillik bosim yaratadi",
+    "Savdo shartlari: oltin, mis, gaz narxlarining oshishi milliy valyutani mustahkamlaydi",
+    "Pul o‘tkazmalari, kapital oqimlari, kutishlar va xatarlar, markaziy bank siyosati"
+   ],
+   "note": "Iqtisodiy o‘sish importni oshirib valyutani qadrsizlantiradi, unumdorlik esa uzoq muddatda mustahkamlaydi"
+  },
+  {
+   "type": "formula",
+   "title": "Mankyu modeli: muvozanatli real kurs",
+   "sub": "18.5. Valyuta kursiga ta’sir etuvchi omillar va muvozanatli kurs",
+   "items": [
+    {
+     "name": "Real kursning aniqlanishi",
+     "formula": "S − Ī(r^{∗}) = NX(ε)",
+     "note": "NX(ε) pastga og‘ma; S − I real kursga bog‘liq emas – vertikal chiziq"
+    },
+    {
+     "name": "Nominal kurs",
+     "formula": "e = ε × (P^{∗})/(P)",
+     "note": "pul siyosati uzoq muddatda real kursga emas, nominal kursga ta’sir qiladi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Siyosatning real kursga ta’siri (Mankyu)",
+   "sub": "18.5. Valyuta kursiga ta’sir etuvchi omillar va muvozanatli kurs",
+   "head": [
+    "Siyosat yoki hodisa",
+    "S−I",
+    "Real kurs ε",
+    "NX"
+   ],
+   "rows": [
+    [
+     "Ichki fiskal ekspansiya",
+     "S kamayadi",
+     "Oshadi",
+     "Kamayadi"
+    ],
+    [
+     "Xorijda fiskal ekspansiya",
+     "I kamayadi",
+     "Pasayadi",
+     "Oshadi"
+    ],
+    [
+     "Investitsiya talabining oshishi",
+     "I oshadi",
+     "Oshadi",
+     "Kamayadi"
+    ],
+    [
+     "Proteksionizm (tarif, kvota)",
+     "O‘zgarmaydi",
+     "Oshadi",
+     "O‘zgarmaydi"
+    ],
+    [
+     "Eksportga jahon talabining oshishi",
+     "O‘zgarmaydi",
+     "Oshadi",
+     "O‘zgarmaydi"
+    ]
+   ],
+   "note": "Proteksionizm va eksport talabi NX(ε) ni o‘ngga siljitadi"
+  },
+  {
+   "type": "figure",
+   "title": "Mankyu modeli: siyosat ta’siri",
+   "sub": "18.5. Valyuta kursiga ta’sir etuvchi omillar va muvozanatli kurs",
+   "img": "image134.png",
+   "caption": "18.6-rasm. Mankyu modeli: real valyuta kursining aniqlanishi va siyosatning ta’siri"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 5: Mankyu modeli",
+   "sub": "18.5. Valyuta kursiga ta’sir etuvchi omillar va muvozanatli kurs",
+   "steps": [
+    "Berilgan: NX = 500 − 500ε, S = 1000, I = 900 − 50r^{∗}, r^{∗} = 4",
+    "a) I = 900 − 200 = 700; S − I = 300; 500 − 500ε = 300 ⇒ ε = 0,4",
+    "b) S = 950: S − I = 250; 500 − 500ε = 250 ⇒ ε = 0,5, NX = 250",
+    "c) r^{∗} = 6: I = 900 − 300 = 600; S − I = 400 ⇒ ε = 0,2, NX = 400",
+    "Ichki ekspansiya ε ni oshiradi, jahon foiz stavkasining oshishi esa pasaytiradi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekistonda valyuta kursi rejimi",
+   "sub": "18.6. O‘zbekistonda valyuta siyosati",
+   "bullets": [
+    "2017-yil sentabridan boshqariladigan suzuvchi kurs rejimi; Markaziy bank kurs darajasini maqsad qilmaydi",
+    "Keskin tebranishlarni yumshatish uchun valyuta bozorida ishtirok etadi",
+    "2020-yildan inflyatsion targetlash rejimiga bosqichma-bosqich o‘tish boshlandi",
+    "2017 gacha norasmiy bozor kursi rasmiydan qariyb ikki baravar yuqori bo‘lgan (ko‘p kursli tizim)",
+    "Liberallashtirish buzilishlarni bartaraf etdi: norasmiy bozor yo‘qoldi, eksport va investitsiyalar o‘sdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Neytrallik tamoyili va asosiy yo‘nalishlar",
+   "sub": "18.6. O‘zbekistonda valyuta siyosati",
+   "bullets": [
+    "Neytrallik: sotib olingan oltin hajmiga mos miqdorda valyuta bozorida xorijiy valyuta sotiladi",
+    "Natija: so‘m likvidligi sterilizatsiya qilinadi, kurs «belgilanmaydi»; zaxiralar 2026-yil 1-yanvarda 66,3 mlrd dollar",
+    "Dollarlashuvni kamaytirish va valyuta bozori infratuzilmasini rivojlantirish (forvard, svop)",
+    "Kommunikatsiya va shaffoflik: intervensiyalar haqida ma’lumot berish kutishlarni barqarorlashtiradi",
+    "Xavf: rubl, oltin narxi, pul o‘tkazmalari ta’siri; real qimmatlashish eksport raqobatbardoshligini cheklaydi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Kurs dollarga talab va taklif tenglashgan nuqtada aniqlanadi; qayd etilgan kursda markaziy bank intervensiya qiladi",
+    "To‘g‘ri kotirovka 1 xorijiy, bilvosita 1 milliy valyutani ifodalaydi; devalvatsiya – qayd etilgan rejim atamasi",
+    "Real kurs ε = e × P/P^{∗} narxlar nisbatini ko‘rsatadi; REER hamkorlar ulushi bilan tortiladi",
+    "XQP uzoq muddatda taxminan bajariladi; Mankyu modelida real kursni S − I va NX(ε) belgilaydi",
+    "2017-yildan boshqariladigan suzish; so‘m nominal qadrsizlangan, ammo real qimmatlashgan"
+   ]
+  }
+ ]
+}
