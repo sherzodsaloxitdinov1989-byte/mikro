@@ -1,0 +1,457 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Tashqi savdo siyosatining mohiyati",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "bullets": [
+    "Savdo mamlakatni boyitsa-da, ichkarida yutuvchilar va yutqazuvchilar paydo qiladi",
+    "Yutqazuvchilar (import bilan raqobatlashuvchilar) uyushgan, yutuvchi iste’molchilar tarqoq",
+    "Proteksionizm – milliy ishlab chiqaruvchilarni himoya qilish uchun importni cheklash",
+    "Erkin savdo (fritrederlik) – savdo to‘siqlarini minimallashtirish, bozor kuchlariga tayanish",
+    "Sof ko‘rinishdagi yo‘nalishlar uchramaydi: ayrim tarmoqlar himoya qilinadi"
+   ],
+   "note": "1930-yilda Smut-Xouli tarifi va unga javob choralar jahon savdosini uch baravardan ko‘proq qisqartirgan"
+  },
+  {
+   "type": "bullets",
+   "title": "Tashqi savdo siyosatining maqsadlari",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "bullets": [
+    "Milliy ishlab chiqaruvchilarni himoya qilish, ichki bandlikni saqlash",
+    "Yosh tarmoqlarni rivojlantirish va davlat byudjeti daromadlarini oshirish",
+    "To‘lov balansini yaxshilash, oziq-ovqat xavfsizligini ta’minlash",
+    "Milliy xavfsizlik, ekologiya va aholi salomatligini himoya qilish",
+    "Savdo hamkorlariga bosim o‘tkazish, muzokaralarda «savdolashish vositasi»ga ega bo‘lish"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Tashqi savdo siyosati vositalari",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "img": "image123.png",
+   "caption": "17.1-rasm. Tashqi savdo siyosati vositalarining tasnifi"
+  },
+  {
+   "type": "table",
+   "title": "Bojxona bojlarining turlari",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "head": [
+    "Boj turi",
+    "Hisoblash usuli",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Advalor",
+     "Tovar bojxona qiymatiga nisbatan foizda",
+     "Qiymatning 10 foizi"
+    ],
+    [
+     "Spetsifik",
+     "Tovarning fizik birligiga belgilangan summada",
+     "1 kg uchun 0,5 dollar"
+    ],
+    [
+     "Aralash",
+     "Ikkala usul birgalikda yoki kattasi tanlanadi",
+     "15%, lekin 1 kg uchun kamida 1 dollar"
+    ]
+   ],
+   "note": "Maqsadiga ko‘ra: fiskal va proteksionistik bojlar; maxsus: antidemping, kompensatsiya, himoya bojlari"
+  },
+  {
+   "type": "formula",
+   "title": "Samarali himoya darajasi",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "items": [
+    {
+     "name": "Samarali himoya darajasi (ERP)",
+     "formula": "ERP = (t_{f} − a·t_{i})/(1 − a)",
+     "note": "t_{f} – tayyor mahsulotga tarif, t_{i} – butlovchilarga tarif"
+    },
+    {
+     "name": "Butlovchilar ulushi",
+     "formula": "a",
+     "note": "tayyor mahsulot qiymatidagi import butlovchilar ulushi"
+    },
+    {
+     "name": "Tarif eskalatsiyasi",
+     "formula": "t_{xom ashyo} < t_{yarim tayyor} < t_{tayyor}",
+     "note": "xom ashyoga past, tayyor mahsulotga yuqori bojlar"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: samarali himoya",
+   "sub": "17.1. Tashqi savdo siyosati: mohiyati, maqsadlari va usullari",
+   "steps": [
+    "Berilgan: avtomobilga tarif 20%, butlovchilarga 5%, butlovchilar ulushi a = 60%",
+    "Suratni toping: 0,20 − 0,6·0,05 = 0,17",
+    "Maxrajni toping: 1 − 0,6 = 0,4",
+    "ERP = 0,17/0,4 = 42,5%",
+    "«Oddiy» 20 foizli tarif yig‘uvchi korxona qo‘shilgan qiymatini 42,5 foizga himoya qiladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Kichik mamlakatda tarifning ta’siri",
+   "sub": "17.2. Import tariflari va ularning iqtisodiy oqibatlari",
+   "bullets": [
+    "Kichik mamlakat jahon narxi P_{w} ga ta’sir qila olmaydi – «narxni qabul qiluvchi»",
+    "Ichki narx P_{w} + t gacha oshadi; ichki ishlab chiqarish Q_{1} dan Q_{2} gacha ko‘payadi",
+    "Iste’mol Q_{4} dan Q_{3} gacha kamayadi, import Q_{3} − Q_{2} gacha qisqaradi",
+    "Davlat t × (Q_{3} − Q_{2}) miqdorida byudjet daromadi oladi",
+    "Resurslar raqobatbardosh bo‘lmagan sohalarga yo‘naltiriladi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Tarifning farovonlikka ta’siri",
+   "sub": "17.2. Import tariflari va ularning iqtisodiy oqibatlari",
+   "img": "image124.png",
+   "caption": "17.2-rasm. Kichik mamlakatda import tarifining farovonlikka ta’siri"
+  },
+  {
+   "type": "formula",
+   "title": "Tarif: yutuq va yo‘qotishlar",
+   "sub": "17.2. Import tariflari va ularning iqtisodiy oqibatlari",
+   "items": [
+    {
+     "name": "Iste’molchilar yo‘qotishi",
+     "formula": "ΔCS = −(a + b + c + d)",
+     "note": "narx oshishi sababli ortiqcha foyda kamayadi"
+    },
+    {
+     "name": "Ishlab chiqaruvchilar va davlat",
+     "formula": "ΔPS = a;  ΔG = c",
+     "note": "c – tarif tushumi (import hajmi × tarif stavkasi)"
+    },
+    {
+     "name": "Sof yo‘qotish",
+     "formula": "DWL = (a+b+c+d) − a − c = b + d",
+     "note": "b – ishlab chiqarishdagi, d – iste’moldagi buzilish"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: shakarga tarif",
+   "sub": "17.2. Import tariflari va ularning iqtisodiy oqibatlari",
+   "steps": [
+    "Q_{D} = 120 − 10P, Q_{S} = 10P − 20; avtarkiyada P_{A} = 7, Q = 50",
+    "Erkin savdo (P_{w} = 4): Q_{S} = 20, Q_{D} = 80, import = 60 ming t",
+    "Tarif t = 1: ichki narx 5; Q_{S} = 30, Q_{D} = 70, import = 40 ming t",
+    "Iste’molchilar −75 mln, ishlab chiqaruvchilar +25 mln dollar, davlat +40 mln dollar",
+    "Sof yo‘qotish: 75 − 25 − 40 = 10 mln dollar"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Yirik mamlakat va «optimal tarif»",
+   "sub": "17.2. Import tariflari va ularning iqtisodiy oqibatlari",
+   "bullets": [
+    "Yirik mamlakat importni qisqartirganda jahon narxi pasayadi: tarifning bir qismini xorijliklar to‘laydi",
+    "Farovonlik o‘zgarishi: savdo shartlari yutug‘i va sof yo‘qotishlar (b + d) yig‘indisi",
+    "Farovonlikni maksimallashtiradigan tarif – optimal tarif (t*); taqiqlovchi tarif doim zarar beradi",
+    "Optimal tarif yutug‘i hamkorlar hisobiga olinadi va savdo urushiga olib kelishi mumkin",
+    "Yosh tarmoqlarni himoya qilish eng asosli dalil, ammo subsidiya tarifdan samaraliroq"
+   ],
+   "note": "O‘zbekiston kabi kichik ochiq iqtisodiyot uchun optimal tarif nolga teng"
+  },
+  {
+   "type": "compare",
+   "title": "Subsidiya va tarif",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "left": {
+    "head": "Ishlab chiqarish subsidiyasi",
+    "items": [
+     "Narx o‘zgarmaydi, iste’molchilar yo‘qotmaydi",
+     "Sof yo‘qotish faqat b (d yo‘q)",
+     "Xarajat byudjetda ochiq ko‘rinadi"
+    ]
+   },
+   "right": {
+    "head": "Import tarifi",
+    "items": [
+     "Ichki narx oshadi, iste’molchilar zarar ko‘radi",
+     "Sof yo‘qotish b + d",
+     "Byudjetga daromad keltiradi (c)"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Kvota va subsidiyaning ta’siri",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "img": "image126.png",
+   "caption": "17.4-rasm. Import kvotasi va ishlab chiqarish subsidiyasining ta’siri"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1 va 3: tarif va subsidiya",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "steps": [
+    "Q_{D} = 400 − 2P, Q_{S} = 2P − 80, P_{w} = 100: Q_{S} = 120, Q_{D} = 200, import = 80",
+    "Tarif 20 dollar: ichki narx 120, Q_{S} = Q_{D} = 160, import = 0",
+    "Iste’molchilar yo‘qotishi (200+160)/2·20 = 3600; ishlab chiqaruvchilar yutug‘i (120+160)/2·20 = 2800",
+    "Davlat daromadi 0; sof yo‘qotish 3600 − 2800 = 800 (b = 400, d = 400)",
+    "Subsidiya s = 20: byudjet xarajati 20·160 = 3200, yutuq 2800, sof yo‘qotish b = 400"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Eksport boji: maqsadi va oqibatlari",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "bullets": [
+    "Eksport boji – mamlakatdan olib chiqiladigan tovarlarga solinadigan boj",
+    "Maqsadlari: ichki narxni pasaytirish, qayta ishlashni rag‘batlantirish, resurs rentasini olish",
+    "Ichki narx P_{w} − t gacha pasayadi: iste’molchilar a ni yutadi, davlat c ni oladi",
+    "Ishlab chiqaruvchilar a + b + c + d ni yo‘qotadi; sof yo‘qotish b + d",
+    "Xavf: eksport tarmoqlari zaiflashadi (Argentina, 2000–2010-yillar)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Eksport bojining ta’siri",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "img": "image127.png",
+   "caption": "17.5-rasm. Eksport bojining ichki narx, ishlab chiqarish va farovonlikka ta’siri"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 4: bug‘doy eksport boji",
+   "sub": "17.3. Ishlab chiqaruvchilarga subsidiyalar va eksport boji",
+   "steps": [
+    "Q_{D} = 100 − 5P, Q_{S} = 10P − 20, P_{w} = 10: Q_{S} = 80, Q_{D} = 50, eksport = 30 mln t",
+    "Eksport boji 2: ichki narx 8, Q_{S} = 60, Q_{D} = 60, eksport = 0",
+    "Iste’molchilar yutug‘i: (50+60)/2·2 = 110",
+    "Ishlab chiqaruvchilar yo‘qotishi: (80+60)/2·2 = 140; davlat daromadi 0",
+    "Sof yo‘qotish: 140 − 110 = 30 (b = 20, d = 10)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Import kvotasi",
+   "sub": "17.4. Notarif cheklovlar: kvotalar, «ixtiyoriy» cheklashlar, eksport subsidiyalari",
+   "bullets": [
+    "Import kvotasi – davr davomida olib kirilishi mumkin bo‘lgan tovar miqdoriga cheklov",
+    "Kvota tarifdan keyingi import hajmiga teng bo‘lsa, narx, ishlab chiqarish va iste’molga ta’sir bir xil",
+    "Farq c maydonda: tarifda davlat daromadi, kvotada kvota rentasi",
+    "Talab oshganda kvotada butun o‘sish narxga tushadi; kvota qat’iyroq himoya beradi",
+    "Bitta yirik ichki ishlab chiqaruvchi bo‘lsa, kvota monopol narx o‘rnatish imkonini beradi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Litsenziyalarni taqsimlash usullari",
+   "sub": "17.4. Notarif cheklovlar: kvotalar, «ixtiyoriy» cheklashlar, eksport subsidiyalari",
+   "head": [
+    "Usul",
+    "Mazmuni",
+    "Renta kimga tushadi"
+   ],
+   "rows": [
+    [
+     "Auksion",
+     "Ochiq kim oshdi savdosida sotiladi",
+     "Davlatga (tarif kabi)"
+    ],
+    [
+     "Ilgarigi ulush bo‘yicha",
+     "Oldingi import hajmiga mutanosib",
+     "Mavjud importyorlarga"
+    ],
+    [
+     "Ma’muriy (tanlov asosida)",
+     "Davlat organi o‘z mezonlari asosida",
+     "Tanlangan firmalarga"
+    ],
+    [
+     "«Birinchi kelganga»",
+     "Navbat tartibida beriladi",
+     "Tezkor importyorlarga"
+    ],
+    [
+     "Eksportyor mamlakatga berish",
+     "Kvotani eksportyor mamlakat taqsimlaydi",
+     "Xorijiy eksportyorlarga"
+    ]
+   ],
+   "note": "Auksion eng yaxshi usul: renta byudjetga tushadi va kvota tarifga teng bo‘ladi"
+  },
+  {
+   "type": "bullets",
+   "title": "«Ixtiyoriy» cheklash va eksport subsidiyasi",
+   "sub": "17.4. Notarif cheklovlar: kvotalar, «ixtiyoriy» cheklashlar, eksport subsidiyalari",
+   "bullets": [
+    "VER – eksportyor mamlakat boshqaradigan import kvotasi; renta xorijga ketadi, sof yo‘qotish b + c + d",
+    "1981–1994-yillarda Yaponiya AQSHga avtomobil eksportini yiliga 1,68 mln (keyin 2,3 mln) dona bilan chekladi",
+    "Eksport subsidiyasi ichki narxni oshiradi: ishlab chiqaruvchilar yutadi, iste’molchilar yutqazadi",
+    "Yirik mamlakatda jahon narxi pasayadi, savdo shartlari yomonlashadi",
+    "Subsidiyaga javoban import qiluvchi mamlakat subsidiya miqdoriga teng kompensatsiya boji joriy qiladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Vositalarning ta’siri: kichik mamlakat",
+   "sub": "17.4. Notarif cheklovlar: kvotalar, «ixtiyoriy» cheklashlar, eksport subsidiyalari",
+   "head": [
+    "Vosita",
+    "Ichki narx",
+    "Byudjet",
+    "Sof yo‘qotish"
+   ],
+   "rows": [
+    [
+     "Import tarifi",
+     "Oshadi",
+     "+ daromad (c)",
+     "b + d"
+    ],
+    [
+     "Kvota (bepul taqsimlanganda)",
+     "Oshadi",
+     "O‘zgarmaydi (renta importyorlarga)",
+     "b + d"
+    ],
+    [
+     "Kvota (auksionda)",
+     "Oshadi",
+     "+ daromad (c)",
+     "b + d"
+    ],
+    [
+     "Eksportni «ixtiyoriy» cheklash",
+     "Oshadi",
+     "O‘zgarmaydi (renta xorijga)",
+     "b + c + d"
+    ],
+    [
+     "Ishlab chiqarish subsidiyasi",
+     "O‘zgarmaydi",
+     "− xarajat (a + b)",
+     "b"
+    ],
+    [
+     "Eksport boji",
+     "Pasayadi",
+     "+ daromad",
+     "ikki uchburchak"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Mankyu modeli: savdo balansi",
+   "sub": "17.5. Mankyu modelida savdo siyosati va savdo balansi",
+   "items": [
+    {
+     "name": "Sof eksport",
+     "formula": "NX = S − I(r*)",
+     "note": "S = Y − C − G; investitsiya jahon foiz stavkasi r* bilan belgilanadi"
+    },
+    {
+     "name": "Tarif yoki kvota ta’siri",
+     "formula": "NX(ε) o‘ngga siljiydi, S − I o‘zgarmaydi",
+     "note": "muvozanatda real valyuta kursi ε oshadi"
+    },
+    {
+     "name": "Natija",
+     "formula": "ΔNX = 0",
+     "note": "importning kamayishi eksportning teng kamayishi bilan qoplanadi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Proteksionizm va savdo balansi",
+   "sub": "17.5. Mankyu modelida savdo siyosati va savdo balansi",
+   "bullets": [
+    "Savdo siyosati na jamg‘arma S ga, na investitsiya I ga ta’sir qiladi",
+    "Milliy valyuta qimmatlashadi va eksportyorlarning raqobatbardoshligi pasayadi",
+    "Proteksionizm savdo hajmini qisqartiradi, ammo savdo balansini o‘zgartirmaydi",
+    "Taqchillikni kamaytirishning ishonchli yo‘li – milliy jamg‘armani oshirish (byudjet taqchilligini qisqartirish)",
+    "Importga to‘siqlar yashirin eksport solig‘i vazifasini bajaradi (Lerner simmetriya teoremasi)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekistonda liberallashtirish bosqichlari",
+   "sub": "17.6. O‘zbekiston Respublikasi tashqi savdo siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "2017-yil sentabr – valyuta bozori liberallashtirildi, erkin ayirboshlash ta’minlandi",
+    "2017–2020-yillar – minglab tovar pozitsiyalari bo‘yicha import bojlari kamaytirildi yoki bekor qilindi",
+    "2020-yil dekabr – YeOIIda kuzatuvchi maqomi olindi",
+    "2021-yil aprel – YeI GSP+ tizimiga qo‘shildi: 6200 dan ortiq tovar pozitsiyasi bojsiz eksport qilinadi",
+    "Eksportni rag‘batlantirish: imtiyozli kreditlar, ko‘rgazmalar xarajatlarini qoplash, «Made in Uzbekistan»"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston va Jahon savdo tashkiloti",
+   "sub": "17.6. O‘zbekiston Respublikasi tashqi savdo siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "JST tamoyillari: eng qulay sharoitlar rejimi (MFN), milliy rejim, tariflarni bog‘lash, shaffoflik",
+    "O‘zbekiston 1994-yilda ariza bergan; 2019-yildan keyin muzokaralar faollashdi",
+    "2026-yil avgustidagi ma’lumotga ko‘ra, 34 ta ikki tomonlama kelishuvdan 31 tasi JST kotibiyatiga taqdim etilgan",
+    "Imkoniyatlar: 160 dan ortiq bozorda kamsitilmaslik, nizolarni hal qilish mexanizmi",
+    "Xatarlar: avtomobilsozlik va ayrim qishloq xo‘jaligi tarmoqlariga importning bosimi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "O‘zbekiston tashqi savdosi dinamikasi",
+   "sub": "17.6. O‘zbekiston Respublikasi tashqi savdo siyosatining o‘ziga xos xususiyatlari",
+   "img": "image128.png",
+   "caption": "17.6-rasm. O‘zbekiston tashqi savdosi dinamikasi, 2017–2025-yillar"
+  },
+  {
+   "type": "bullets",
+   "title": "Eksportni diversifikatsiya qilish",
+   "sub": "17.6. O‘zbekiston Respublikasi tashqi savdo siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "2017–2025-yillarda eksport qariyb 2,7 baravar, import 3,4 baravar oshdi",
+    "Muammolar: 2025-yilda oltin eksportning 29,3 foizi; xom ashyo ulushi yuqori; geografik konsentratsiya",
+    "Yo‘nalishlar: tovar, xizmatlar (IT, turizm, tranzit) va geografik diversifikatsiya",
+    "Transport koridorlari: Xitoy–Qirg‘iziston–O‘zbekiston temir yo‘li, Transafg‘on yo‘lagi, «O‘rta yo‘lak»",
+    "Global qiymat zanjirlariga integratsiya – qo‘shma ishlab chiqarish, sanoat kooperatsiyasi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Xirshman–Herfindal indeksi",
+   "sub": "17.6. O‘zbekiston Respublikasi tashqi savdo siyosatining o‘ziga xos xususiyatlari",
+   "items": [
+    {
+     "name": "Eksport konsentratsiyasi indeksi",
+     "formula": "HHI = Σ s_{i}^{2}",
+     "note": "s_{i} – i-tovarning eksportdagi ulushi; 1 – bitta tovar, 0 ga yaqin – diversifikatsiya"
+    },
+    {
+     "name": "Misol: 50% oltin, 30% paxta, 20% boshqa",
+     "formula": "HHI = 0,25+0,09+0,04 = 0,38",
+     "note": "konsentratsiya yuqori"
+    },
+    {
+     "name": "Oltin 30%, qolgani 10 tovar (7% dan)",
+     "formula": "HHI = 0,09+10·0,0049 = 0,139",
+     "note": "diversifikatsiya ancha yuqori"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Tashqi savdo siyosati proteksionizm va erkin savdo yo‘nalishlarida tarif va notarif usullar bilan olib boriladi",
+    "Kichik mamlakatda tarif sof yo‘qotish (b + d) keltiradi; optimal tarif faqat yirik mamlakat uchun mavjud",
+    "Ishlab chiqarish subsidiyasi tarifdan samaraliroq; eksport boji eksport tarmoqlarini zaiflashtiradi",
+    "Kvota renta, VER esa eng katta yo‘qotish (b + c + d) keltiradi; Mankyu modelida NX = S − I o‘zgarmaydi",
+    "O‘zbekiston 2017-yildan liberallashtirish, JSTga a’zolik va eksportni diversifikatsiya qilish yo‘lidan bormoqda"
+   ]
+  }
+ ]
+}

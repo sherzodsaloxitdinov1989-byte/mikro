@@ -1,0 +1,437 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Ichki xarajatlar va savdo balansi",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "bullets": [
+    "Ochiq iqtisodiyotda yalpi xarajatlarga sof eksport qo‘shiladi: Y = C + I + G + NX, NX = X – M",
+    "Ichki xarajatlar (absorbsiya) A = C + I + G – rezidentlarning import tovarlariga xarajatlarini ham o‘z ichiga oladi",
+    "Savdo balansi milliy ishlab chiqarish va ichki xarajatlar farqiga teng: NX = Y – A",
+    "Mamlakat ishlab chiqarganidan ko‘proq sarflasa, savdo taqchilligi yuzaga keladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Eksport, import va sof eksport",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "items": [
+    {
+     "name": "Import funksiyasi",
+     "formula": "M = M_{0} + mY",
+     "note": "M_{0} – avtonom import, m – importga chegaraviy moyillik (MPM)"
+    },
+    {
+     "name": "Sof eksport funksiyasi",
+     "formula": "NX = X – M_{0} – mY",
+     "note": "eksport X – xorijiy daromad va real kursga bog‘liq, avtonom"
+    },
+    {
+     "name": "Sof eksport va ichki xarajatlar",
+     "formula": "NX = Y – A",
+     "note": "daromad oshgani sari NX kamayadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Sof eksport funksiyasi",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "img": "image140.png",
+   "caption": "20.1-rasm. Sof eksport funksiyasi: daromad va sof eksport o‘rtasidagi bog‘liqlik"
+  },
+  {
+   "type": "formula",
+   "title": "Muvozanat va ochiq iqtisodiyot multiplikatori",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "items": [
+    {
+     "name": "Muvozanat sharti",
+     "formula": "Y = C_{0} + MPC(1−t)Y + I + G + X − M_{0} − mY",
+     "note": "soliqlar T = tY, iste’mol C = C_{0} + MPC(Y−T)"
+    },
+    {
+     "name": "Muvozanatli ishlab chiqarish",
+     "formula": "Y^{*} = 1/(1−MPC(1−t)+m) · (C_{0}+I+G+X−M_{0})",
+     "note": "avtonom xarajatlar yig‘indisi multiplikatorga ko‘paytiriladi"
+    },
+    {
+     "name": "Ochiq iqtisodiyot multiplikatori",
+     "formula": "k_{ochiq} = 1/(1−MPC(1−t)+m)",
+     "note": "m maxrajni oshiradi, shuning uchun k yopiq iqtisodiyotnikidan kichik"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Raqamlar tilida: muvozanat va multiplikator",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "steps": [
+    "Berilgan (trln so‘m): C = 100+0,8(Y–T); T = 0,25Y; I = 200; G = 300; X = 250; M = 50+0,2Y",
+    "Y = 100+0,8·0,75Y+200+300+250−50−0,2Y = 800+0,4Y ⇒ Y^{*} = 800/0,6 ≈ 1333,3",
+    "Sof eksport: NX = 250−50−0,2·1333,3 = −66,7 (savdo taqchilligi)",
+    "Ochiq iqtisodiyot: k = 1/(1−0,6+0,2) = 1,67",
+    "Yopiq iqtisodiyot (m = 0): k = 1/(1−0,6) = 2,5"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Eksport va davlat xarajatlarining ta’siri",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "bullets": [
+    "Eksport 50 ga oshsa: ΔY = 1,67·50 = 83,3; ΔM = 0,2·83,3 = 16,7; ΔNX = 50−16,7 = +33,3",
+    "Savdo balansi yaxshilanadi, ammo eksport o‘sishidan kamroq: daromad oshishi importni ham ko‘paytiradi",
+    "Davlat xarajatlari 50 ga oshsa: ΔY = 83,3; ΔNX = –16,7",
+    "Fiskal ekspansiya savdo balansini yomonlashtiradi – «egizak taqchilliklar» g‘oyasi asosi"
+   ],
+   "note": "Import – jamg‘arma va soliqlar kabi «chiqib ketish», eksport esa «in’ektsiya»"
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 1–2: ochiq iqtisodiyot multiplikatori",
+   "sub": "20.1. Ochiq iqtisodiyotda muvozanatli ishlab chiqarish hajmi",
+   "steps": [
+    "1-masala: C = 50+0,75(Y–T); T = 0,2Y; I = 150; G = 200; X = 180; M = 30+0,15Y",
+    "Y = 50+0,6Y+150+200+180−30−0,15Y = 550+0,45Y ⇒ Y = 1000; NX = 180−30−150 = 0",
+    "k_{ochiq} = 1/(1−0,6+0,15) = 1/0,55 ≈ 1,82; k_{yopiq} = 1/0,4 = 2,5",
+    "X +30: ΔY = 1,82·30 ≈ 54,5; ΔM = 0,15·54,5 ≈ 8,2; ΔNX ≈ +21,8",
+    "2-masala, G +40: ΔY ≈ 72,7; ΔT = 0,2·72,7 ≈ 14,5; ΔNX = –0,15·72,7 ≈ –10,9",
+    "Byudjet saldosi: 14,5 − 40 ≈ –25,5; byudjet va savdo taqchilligi birga oshadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Mandell-Fleming modelining farazlari",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "bullets": [
+    "IS-LM modelining kichik ochiq iqtisodiyot uchun varianti (R. Mandell va M. Fleming, 1960-yillar)",
+    "Kichik ochiq iqtisodiyot: mamlakat jahon foiz stavkasiga ta’sir qila olmaydi",
+    "Kapitalning mukammal mobilligi: r = r∗; narxlar qisqa muddatda qat’iy",
+    "Valyuta kursi e – 1 birlik milliy valyutaga xorijiy valyuta miqdori; e ortishi – milliy valyuta qimmatlashuvi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "IS∗ va LM∗ egri chiziqlari",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "items": [
+    {
+     "name": "Tovarlar bozori",
+     "formula": "IS^{∗}: Y = C(Y−T) + I(r^{∗}) + G + NX(e)",
+     "note": "e oshsa NX kamayadi, shuning uchun IS∗ pastga og‘ma"
+    },
+    {
+     "name": "Pul bozori",
+     "formula": "LM^{∗}: M/P = L(r^{∗}, Y)",
+     "note": "r∗ ekzogen, shuning uchun LM∗ vertikal, e ga bog‘liq emas"
+    },
+    {
+     "name": "Muvozanat",
+     "formula": "IS^{∗} ∩ LM^{∗} ⇒ (Y, e)",
+     "note": "kesishgan nuqta ishlab chiqarish va valyuta kursini aniqlaydi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Suzuvchi kurs: fiskal va monetar siyosat",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "img": "image142.png",
+   "caption": "20.3-rasm. Mandell-Fleming modeli: suzuvchi valyuta kursi sharoitida fiskal va monetar siyosat"
+  },
+  {
+   "type": "bullets",
+   "title": "Suzuvchi kurs: fiskal, monetar va savdo siyosati",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "bullets": [
+    "Fiskal ekspansiya: IS∗ o‘ngga; kurs e oshadi, Y o‘zgarmaydi – NX to‘liq siqib chiqariladi",
+    "Mexanizm: foiz oshishiga bosim ⇒ kapital kirimi ⇒ valyuta qimmatlashadi ⇒ NX kamayadi",
+    "Monetar ekspansiya: LM∗ o‘ngga; kapital chiqadi, e pasayadi, NX va Y oshadi",
+    "Import kvotasi yoki tarif: IS∗ o‘ngga; e oshadi, Y va NX o‘zgarmaydi"
+   ],
+   "note": "Monetar siyosat foiz orqali emas, valyuta kursi orqali ta’sir qiladi"
+  },
+  {
+   "type": "bullets",
+   "title": "Qayd etilgan kurs: siyosat samaradorligi",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "bullets": [
+    "Markaziy bank kursni ushlab turadi, shuning uchun pul taklifi endogen bo‘ladi",
+    "Fiskal ekspansiya: IS∗ o‘ngga ⇒ bank valyutani sotadi ⇒ M oshadi, LM∗ o‘ngga; Y to‘liq multiplikator bilan oshadi",
+    "Monetar ekspansiya: LM∗ o‘ngga, bank kursni himoya qilib M ni qaytaradi – siyosat samarasiz",
+    "Import cheklovi: IS∗ o‘ngga, M oshadi; Y va NX oshadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Qayd etilgan kurs: siyosat va devalvatsiya",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "img": "image143.png",
+   "caption": "20.4-rasm. Mandell-Fleming modeli: qayd etilgan valyuta kursi sharoitida fiskal, monetar siyosat va devalvatsiya"
+  },
+  {
+   "type": "table",
+   "title": "Siyosatlarning qisqa muddatli ta’siri",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "head": [
+    "Siyosat",
+    "Suzuvchi kurs",
+    "Qayd etilgan kurs"
+   ],
+   "rows": [
+    [
+     "Fiskal ekspansiya",
+     "Y: 0; e: ↑; NX: ↓",
+     "Y: ↑; e: 0; NX: 0"
+    ],
+    [
+     "Monetar ekspansiya",
+     "Y: ↑; e: ↓; NX: ↑",
+     "Y: 0; e: 0; NX: 0"
+    ],
+    [
+     "Import cheklovi",
+     "Y: 0; e: ↑; NX: 0",
+     "Y: ↑; e: 0; NX: ↑"
+    ],
+    [
+     "Devalvatsiya",
+     "–",
+     "Y: ↑; e: ↓; NX: ↑"
+    ]
+   ],
+   "note": "Manba: Mankyu jadvali asosida; devalvatsiya qatori muallif tomonidan qo‘shilgan"
+  },
+  {
+   "type": "bullets",
+   "title": "Devalvatsiya va «imkonsiz uchlik»",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "bullets": [
+    "Devalvatsiya milliy tovarlarni arzonlashtiradi, NX va Y oshadi; revalvatsiya aksincha, inflyatsiyani pasaytiradi",
+    "«Buyuk depressiya»: oltin standartidan erta chiqqan mamlakatlar tezroq tiklandi (Britaniya, Skandinaviya)",
+    "«Imkonsiz uchlik»: kapitalning erkin harakati, mustaqil pul siyosati, qayd etilgan kurs",
+    "Mamlakat bu uchtadan faqat ikkitasiga erisha oladi",
+    "Meksika (1994) va Osiyo (1997) inqirozlari: qayd etilgan kursga ishonch yo‘qolib, kapital chiqib ketgan"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Mamlakat xatari mukofoti",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "items": [
+    {
+     "name": "Foiz stavkalari farqi",
+     "formula": "r = r^{∗} + θ",
+     "note": "θ – xatar mukofoti"
+    },
+    {
+     "name": "Xatar mukofoti omillari",
+     "formula": "θ = θ(mamlakat xatari, kutilayotgan e o‘zgarishi)",
+     "note": "siyosiy beqarorlik, defolt ehtimoli, qadrsizlanish kutilmasi"
+    },
+    {
+     "name": "θ oshganda siljishlar",
+     "formula": "IS^{∗} ←,  LM^{∗} →",
+     "note": "suzuvchi kursda valyuta qadrsizlanadi; amalda ko‘pincha retsessiya"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 3: Mandell-Fleming modeli, suzuvchi kurs",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "steps": [
+    "Berilgan: C = 100+0,75(Y–T); I = 500–20r; G = T = 200; NX = 400–100e; M/P = Y–100r; M = 1500; P = 1; r∗ = 5",
+    "a) LM∗: 1500 = Y − 100·5 ⇒ Y = 2000",
+    "b) IS∗: Y = 100+1350+400+200+NX = 2050+NX ⇒ NX = 2000−2050 = –50",
+    "400 − 100e = –50 ⇒ e = 4,5",
+    "c) G +50, suzuvchi kurs: Y = 2000 o‘zgarmaydi; NX = –100 ⇒ e = 5,0 (valyuta qimmatlashadi)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 3–4: qayd etilgan kurs va monetar ekspansiya",
+   "sub": "20.2. Mandell-Flemingning ochiq iqtisodiyot modeli",
+   "steps": [
+    "3d) Qayd etilgan kurs (e = 4,5), G +50: Y = 0,75Y+550 ⇒ Y = 2200 (ΔY = 4·50 = 200)",
+    "Kursni ushlab turish uchun M/P = 2200−500 = 1700 ⇒ M = 1700",
+    "4a) M = 1600, suzuvchi kurs: Y = 1600+500 = 2100; NX = 2100−2125 = –25 ⇒ e = 4,25",
+    "Valyuta qadrsizlanadi (4,5 → 4,25), NX oshadi (–50 → –25), Y oshadi",
+    "4b) Qayd etilgan kurs: markaziy bank M ni 1500 ga qaytaradi, Y = 2000, e = 4,5 – samarasiz"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "BP egri chizig‘i va kapital mobilligi",
+   "sub": "20.3. Kapitalning past mobilligi sharoitida pul-kredit va fiskal siyosat",
+   "items": [
+    {
+     "name": "To‘lov balansi muvozanati",
+     "formula": "BP = NX(Y, e) + KA(i − i^{∗}) = 0",
+     "note": "rezervlar o‘zgarmaydi; Y ortsa, kapital kirimi uchun i ham ortishi kerak"
+    },
+    {
+     "name": "Mukammal mobillik",
+     "formula": "BP: i = i^{∗}",
+     "note": "gorizontal – Mandell-Fleming holati"
+    },
+    {
+     "name": "Yuqori va past mobillik",
+     "formula": "yuqori: BP yassi;  past: BP tik",
+     "note": "past mobillikda kichik o‘sishni moliyalash uchun i ancha oshishi kerak"
+    },
+    {
+     "name": "Kapital immobilligi",
+     "formula": "BP: vertikal",
+     "note": "joriy hisob o‘z-o‘zidan muvozanatda bo‘lishi kerak"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "IS-LM-BP modeli",
+   "sub": "20.3. Kapitalning past mobilligi sharoitida pul-kredit va fiskal siyosat",
+   "img": "image144.png",
+   "caption": "20.5-rasm. IS-LM-BP modeli: kapital mobilligi va fiskal siyosat"
+  },
+  {
+   "type": "table",
+   "title": "Kapital mobilligi va kurs rejimiga ko‘ra samaradorlik",
+   "sub": "20.3. Kapitalning past mobilligi sharoitida pul-kredit va fiskal siyosat",
+   "head": [
+    "Rejim va mobillik",
+    "Fiskal siyosat",
+    "Monetar siyosat"
+   ],
+   "rows": [
+    [
+     "Qayd etilgan, mukammal mobillik",
+     "Juda samarali",
+     "Samarasiz"
+    ],
+    [
+     "Qayd etilgan, past mobillik",
+     "Kam samarali (zaxiralar kamayadi)",
+     "Uzoq muddatda samarasiz"
+    ],
+    [
+     "Suzuvchi, mukammal mobillik",
+     "Samarasiz (NX siqib chiqariladi)",
+     "Juda samarali"
+    ],
+    [
+     "Suzuvchi, past mobillik",
+     "Samarali (valyuta qadrsizlanadi)",
+     "Samarali"
+    ]
+   ],
+   "note": "Past mobillikda suzuvchi kursda fiskal siyosat ham samarali bo‘ladi"
+  },
+  {
+   "type": "compare",
+   "title": "Suzuvchi va qayd etilgan kurs: dalillar",
+   "sub": "20.4. Erkin suzib yuruvchi valyuta kursi sharoitida iqtisodiy siyosat. Rejimlarni tanlash",
+   "left": {
+    "head": "Suzuvchi kurs tarafdorlari",
+    "items": [
+     "Pul siyosati bandlik va narxlar barqarorligiga yo‘naltiriladi",
+     "Kurs tashqi zarbalarni avtomatik yumshatadi",
+     "Spekulyativ hujum va valyuta inqirozi xavfi kamroq"
+    ]
+   },
+   "right": {
+    "head": "Qayd etilgan kurs tarafdorlari",
+    "items": [
+     "Kurs barqarorligi savdo va investitsiyalar noaniqligini kamaytiradi",
+     "Pul siyosatini «intizomli» qiladi – «nominal langar»",
+     "Valyuta ittifoqi tranzaksiya xarajatlarini yo‘q qiladi (yevro)"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Optimal valyuta hududi va siyosatlar kombinatsiyasi",
+   "sub": "20.4. Erkin suzib yuruvchi valyuta kursi sharoitida iqtisodiy siyosat. Rejimlarni tanlash",
+   "bullets": [
+    "Optimal valyuta hududi (Mandell, 1961): shart: erkin mehnat va kapital, o‘xshash zarbalar, fiskal transfertlar",
+    "Yevrohudud qarz inqirozi (2010–2012): Gretsiya, Ispaniya, Portugaliya qiyin ahvolga tushdi",
+    "Fiskal konsolidatsiya + monetar yumshatish: ishlab chiqarish saqlanadi, savdo balansi yaxshilanadi, investitsiya ortadi",
+    "Fiskal ekspansiya + monetar cheklash: yuqori stavka, kuchli valyuta, katta savdo taqchilligi (AQSH, 1980-yillar boshi)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ochiqlik darajasi: tashqi savdo aylanmasi / YaIM",
+   "sub": "20.5. O‘zbekistonda ochiq iqtisodiyot sharoitida makroiqtisodiy siyosat",
+   "img": "image145.png",
+   "caption": "20.6-rasm. O‘zbekiston iqtisodiyotining ochiqlik darajasi: tashqi savdo aylanmasining YaIMga nisbati, 2017–2025-yillar"
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston Mandell-Fleming modeli ko‘zgusida",
+   "sub": "20.5. O‘zbekistonda ochiq iqtisodiyot sharoitida makroiqtisodiy siyosat",
+   "bullets": [
+    "Tashqi savdo aylanmasining YaIMga nisbati 2017-yildagi qariyb 43 foizdan 55–70 foizgacha ko‘tarildi",
+    "2017-yildan boshqariladigan suzuvchi kurs; kapital operatsiyalari qisman liberallashgan – monetar siyosat samarali",
+    "Markaziy bank inflyatsion targetlashga o‘tmoqda: asosiy stavka 14%, maqsad – 2027-yil oxirigacha 5%",
+    "Byudjet taqchilligi 2024-yildagi 3,3% dan 2025-yilda 2,1% ga qisqardi (fiskal konsolidatsiya)",
+    "2022-yil: pul o‘tkazmalari 16,9 mlrd dollar; «suzuvchi kurs + katta zaxiralar» so‘mni barqaror ushladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Ochiq iqtisodiyot paneli: O‘zbekiston",
+   "sub": "20.5. O‘zbekistonda ochiq iqtisodiyot sharoitida makroiqtisodiy siyosat",
+   "head": [
+    "Ko‘rsatkich",
+    "Qiymat",
+    "Manba"
+   ],
+   "rows": [
+    [
+     "YaIM real o‘sishi, 2025-yil",
+     "7,7%",
+     "Statistika agentligi"
+    ],
+    [
+     "Inflyatsiya, 2026-yil may (yillik)",
+     "5,5%",
+     "Markaziy bank"
+    ],
+    [
+     "Joriy hisob taqchilligi, 2025-yil",
+     "YaIMning 3,9%",
+     "Markaziy bank"
+    ],
+    [
+     "Xalqaro zaxiralar, 2026-yil 1-yanvar",
+     "66,3 mlrd dollar",
+     "Markaziy bank"
+    ],
+    [
+     "Pul o‘tkazmalari, 2025-yil",
+     "18,9 mlrd dollar",
+     "Markaziy bank"
+    ],
+    [
+     "Tashqi savdo aylanmasi, 2025-yil",
+     "81,2 mlrd dollar",
+     "Statistika agentligi"
+    ]
+   ],
+   "note": "So‘m kursi 2025-yil oxirida: 1 USD ≈ 12 025 so‘m (Markaziy bank)"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Ochiq iqtisodiyotda Y = C+I+G+NX; importga moyillik tufayli multiplikator k = 1/(1−MPC(1−t)+m) yopiqnikidan kichik",
+    "Mandell-Fleming: IS∗ pastga og‘ma, LM∗ vertikal; ular Y va e ni aniqlaydi",
+    "Suzuvchi kursda fiskal siyosat samarasiz, monetar samarali; qayd etilgan kursda aksincha",
+    "«Imkonsiz uchlik»: erkin kapital, mustaqil pul siyosati, qayd etilgan kurs – faqat ikkitasi",
+    "O‘zbekiston boshqariladigan suzuvchi kurs, inflyatsion targetlash va fiskal konsolidatsiyani tanlagan"
+   ]
+  }
+ ]
+}

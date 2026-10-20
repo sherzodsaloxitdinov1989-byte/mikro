@@ -1,0 +1,503 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "To‘lov balansi tushunchasi",
+   "sub": "19.1. To‘lov balansi tushunchasi va uning makroiqtisodiy ahamiyati",
+   "bullets": [
+    "To‘lov balansi – rezidentlar va norezidentlar o‘rtasidagi barcha iqtisodiy operatsiyalar hisoboti",
+    "U ma’lum davr (chorak, yil) uchun tuziladi va tashqi dunyo bilan hisob-kitobni ko‘rsatadi",
+    "Xalqaro standart – XVFning BPM6 qo‘llanmasi (2009)",
+    "O‘zbekistonda to‘lov balansini Markaziy bank tuzadi va har chorakda e’lon qiladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "To‘lov balansining makroiqtisodiy ahamiyati",
+   "sub": "19.1. To‘lov balansi tushunchasi va uning makroiqtisodiy ahamiyati",
+   "bullets": [
+    "Mamlakatning tashqi iqtisodiy barqarorligini baholash: taqchillik moliyalanishi, qarz va zaxiralar",
+    "Valyuta kursi va pul-kredit siyosatini ishlab chiqish uchun valyutaga talab va taklif manbalarini tahlil qilish",
+    "Milliy hisoblar tizimi bilan bog‘lash: sof eksport va xorijdan sof daromadlar",
+    "Investitsiya va kredit qarorlari: reyting agentliklari va investorlar ko‘rsatkichlarni kuzatadi",
+    "Inqirozni erta aniqlash: katta taqchillik, qisqa muddatli kapitalga qaramlik, zaxiralar kamayishi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Iqtisodiy hudud va rezident",
+   "sub": "19.2. To‘lov balansini tuzish tamoyillari",
+   "bullets": [
+    "Iqtisodiy hudud – davlat boshqaruvidagi hudud; elchixona, konsulliklar va harbiy bazalar ham kiradi",
+    "Rezident – iqtisodiy manfaatlar markazi mamlakatda bo‘lgan birlik (odatda bir yil va undan ko‘p)",
+    "Rossiyada 3 yildan beri ishlayotgan fuqaro – Rossiya rezidenti; pul o‘tkazmasi ikkilamchi daromad",
+    "6 oylik mavsumiy ishchi va xorijda o‘qiyotgan talaba – o‘z mamlakati rezidenti",
+    "Xorijiy elchixona va xalqaro tashkilotlar (XVF, Jahon banki) O‘zbekiston rezidenti emas"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ikki yoqlama yozuv: kredit va debet",
+   "sub": "19.2. To‘lov balansini tuzish tamoyillari",
+   "left": {
+    "head": "Kredit (+)",
+    "items": [
+     "Valyuta tushumini keltiradigan operatsiyalar",
+     "Tovar va xizmatlar eksporti, olingan daromadlar",
+     "Moliyaviy majburiyatlar oshishi yoki aktivlar kamayishi"
+    ]
+   },
+   "right": {
+    "head": "Debet (–)",
+    "items": [
+     "Valyuta to‘lovini talab qiluvchi operatsiyalar",
+     "Import, xorijga to‘langan daromadlar va transfertlar",
+     "Moliyaviy aktivlar oshishi yoki majburiyatlar kamayishi"
+    ]
+   }
+  },
+  {
+   "type": "steps",
+   "title": "Ikki yoqlama yozuvga misollar",
+   "sub": "19.2. To‘lov balansini tuzish tamoyillari",
+   "steps": [
+    "1) Kalava ip eksporti 10 mln dollar: kredit eksport +10; debet boshqa investitsiyalar (depozit) –10",
+    "2) Muhojir oilasiga 2 ming dollar yubordi: kredit ikkilamchi daromadlar +2; debet valyuta aktivlari –2",
+    "3) Xorijiy kompaniya zavodga 50 mln dollar kiritdi: kredit to‘g‘ridan-to‘g‘ri investitsiya +50; debet –50",
+    "4) Uskuna importi 30 mln dollar: debet import –30; kredit valyuta aktivlarining kamayishi +30",
+    "Joriy hisob: +10 + 2 – 30 = –18; moliyaviy hisob (sof): +18; jami 0"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: joriy hisob saldosini topish",
+   "sub": "19.2. To‘lov balansini tuzish tamoyillari",
+   "steps": [
+    "a) Meva eksporti: tovarlar eksporti +200",
+    "b) Avtomobillar importi: tovarlar importi –350",
+    "c) Pul o‘tkazmalari: ikkilamchi daromadlar +150; d) dividend to‘lovi: birlamchi daromadlar –30",
+    "e) Jahon bankidan 100 mln dollar kredit – moliyaviy hisob operatsiyasi, joriy hisobga kirmaydi",
+    "f) Turistlar xarajati 60: xizmatlar eksporti +60",
+    "Joriy hisob saldosi: 200 – 350 + 150 – 30 + 60 = +30 mln dollar (profitsit)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "To‘lov balansining tuzilishi",
+   "sub": "19.3. To‘lov balansining tuzilishi",
+   "img": "image135.png",
+   "caption": "19.1-rasm. To‘lov balansining tuzilishi (XVF BPM6 standarti asosida)"
+  },
+  {
+   "type": "formula",
+   "title": "Joriy operatsiyalar hisobi saldosi",
+   "sub": "19.3. To‘lov balansining tuzilishi",
+   "items": [
+    {
+     "name": "Joriy operatsiyalar hisobi",
+     "formula": "CA = (X−M)_{tovarlar} + (X−M)_{xizmatlar} + BD_{sof} + ID_{sof}",
+     "note": "BD – sof birlamchi daromadlar, ID – sof ikkilamchi daromadlar (joriy transfertlar)"
+    },
+    {
+     "name": "Tovarlar balansi",
+     "formula": "X_{tovar} − M_{tovar}",
+     "note": "import eksportdan ko‘p bo‘lsa – savdo taqchilligi, aks holda profitsit"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Joriy va kapital hisobi tarkibi",
+   "sub": "19.3. To‘lov balansining tuzilishi",
+   "bullets": [
+    "Tovarlar balansi – tashqi savdo balansi: eksport va import farqi",
+    "Xizmatlar balansi: transport, turizm, qurilish, moliya, sug‘urta, telekommunikatsiya, IT xizmatlari",
+    "Birlamchi daromadlar: xodimlar ish haqi, dividendlar, foizlar, reinvestitsiya qilingan foyda",
+    "Ikkilamchi daromadlar: muhojirlar pul o‘tkazmalari, insonparvarlik yordami, badallar, grantlar",
+    "Kapital hisobi: kapital transfertlar va ishlab chiqarilmagan nomoliyaviy aktivlar (yer, patent, litsenziya)"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Moliyaviy hisob tarkibi",
+   "sub": "19.3. To‘lov balansining tuzilishi",
+   "head": [
+    "Modda",
+    "Mazmuni"
+   ],
+   "rows": [
+    [
+     "To‘g‘ridan-to‘g‘ri investitsiyalar",
+     "Ustav kapitalining 10% va undan ortig‘i"
+    ],
+    [
+     "Portfel investitsiyalar",
+     "10% dan kam aksiyalar, obligatsiyalar"
+    ],
+    [
+     "Moliyaviy hosilalar",
+     "Derivativlar"
+    ],
+    [
+     "Boshqa investitsiyalar",
+     "Kreditlar, depozitlar, savdo kreditlari, naqd valyuta"
+    ],
+    [
+     "Rezerv aktivlar",
+     "Monetar oltin, valyuta, XVFdagi pozitsiya, SDR"
+    ],
+    [
+     "Sof xatolar va o‘tkazib yuborishlar",
+     "Statistik farq; katta manfiy qiymat – kapital chiqishi"
+    ]
+   ],
+   "note": "Rezerv aktivlar – Markaziy bank nazoratidagi, to‘lov balansini moliyalash uchun darhol foydalaniladigan aktivlar"
+  },
+  {
+   "type": "formula",
+   "title": "To‘lov balansining asosiy ayniyati",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "items": [
+    {
+     "name": "Asosiy ayniyat",
+     "formula": "CA + KA + E = FA",
+     "note": "FA – moliyaviy hisobning sof saldosi (rezervlar bilan), E – sof xatolar"
+    },
+    {
+     "name": "Rezervlarning o‘zgarishi",
+     "formula": "ΔR = CA + KA + FA_{xususiy}",
+     "note": "FA xususiy – xususiy kapitalning sof kirimi (rezervlarsiz)"
+    },
+    {
+     "name": "Umumiy saldo",
+     "formula": "ΔR > 0 profitsit,  ΔR < 0 taqchillik",
+     "note": "valyuta kirimi chiqimidan ko‘p bo‘lsa rezervlar ko‘payadi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "To‘lov balansi va milliy hisoblar",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "items": [
+    {
+     "name": "Ochiq iqtisodiyot ayniyati",
+     "formula": "Y = C + I + G + NX",
+     "note": "asosiy makroiqtisodiy ayniyat"
+    },
+    {
+     "name": "Joriy hisob va jamg‘arma",
+     "formula": "CA = S − I,  S = Y − C − G",
+     "note": "joriy hisob saldosi jamg‘arma va investitsiyalar farqiga teng"
+    },
+    {
+     "name": "Absorbsiya yondashuvi",
+     "formula": "CA = Y − A,  A = C + I + G",
+     "note": "A > Y bo‘lsa joriy hisob taqchilligi yuzaga keladi (S. Aleksander, 1952)"
+    },
+    {
+     "name": "Mankyu ayniyati",
+     "formula": "NX = S − I",
+     "note": "sof eksport kapitalning sof chiqishiga teng"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: sof eksport va yo‘qotilgan zaxiralar",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "steps": [
+    "Berilgan: tovarlar X = 25, M = 40; xizmatlar X = 9, M = 13; BD = +1; ID = +14 (mlrd dollar)",
+    "Savdo balansi: 25 – 40 = –15 mlrd dollar; xizmatlar balansi: 9 – 13 = –4",
+    "CA = –15 – 4 + 1 + 14 = –4 mlrd dollar",
+    "Xususiy kapital kirimi: 4 + 3 + 2 = 9; sof xatolar –0,5; kapital hisobi 0",
+    "ΔR = –4 + 0 + 9 – 0,5 = +4,5 mlrd dollar: rezervlar oshdi",
+    "Talqin: taqchillik kapital kirimi bilan to‘liq qoplangan"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: absorbsiya va CA = S – I",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "steps": [
+    "Berilgan: Y = 1000, C = 650, I = 300, G = 120 (mlrd)",
+    "Absorbsiya: A = 650 + 300 + 120 = 1070",
+    "Joriy hisob: CA = Y – A = 1000 – 1070 = –70",
+    "Jamg‘arma: S = 1000 – 650 – 120 = 230; S – I = 230 – 300 = –70 – ayniyat bajarildi",
+    "G ni 20 ga qisqartirsa: A = 1050, CA = 1000 – 1050 = –50 (taqchillik 20 ga kamayadi)"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "O‘zbekiston to‘lov balansi ko‘rsatkichlari",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "head": [
+    "Ko‘rsatkich (mlrd dollar)",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    [
+     "Tovarlar balansi",
+     "–13,5",
+     "–15,5"
+    ],
+    [
+     "Xizmatlar balansi",
+     "–3,9",
+     "–4,4"
+    ],
+    [
+     "Sof ikkilamchi daromadlar (pul o‘tkazmalari)",
+     "+10,6",
+     "+13,7"
+    ],
+    [
+     "Joriy operatsiyalar hisobi saldosi",
+     "–5,7",
+     "–5,8"
+    ],
+    [
+     "Joriy hisob saldosi, YaIMga nisbatan %",
+     "–4,7",
+     "–3,9"
+    ],
+    [
+     "Xalqaro zaxiralar, yil oxiriga",
+     "41,2",
+     "66,3"
+    ]
+   ],
+   "note": "Manba: O‘zbekiston Respublikasi Markaziy banki (2025-yil IV chorak), yaxlitlangan"
+  },
+  {
+   "type": "figure",
+   "title": "O‘zbekiston joriy hisobi tarkibi",
+   "sub": "19.4. To‘lov balansi tarkibiy qismlari o‘rtasidagi aloqadorlik",
+   "img": "image136.png",
+   "caption": "19.2-rasm. O‘zbekiston joriy operatsiyalar hisobining tarkibiy qismlari, 2024–2025-yillar"
+  },
+  {
+   "type": "bullets",
+   "title": "Ichki va tashqi balans, Svon diagrammasi",
+   "sub": "19.5. Ichki va tashqi balans",
+   "bullets": [
+    "Ichki balans – to‘liq bandlik va past, barqaror inflyatsiya; tashqi balans – barqaror moliyalanadigan joriy hisob",
+    "Svon (1955): ikki maqsad – ichki va tashqi balans; ikki vosita – ichki xarajatlar A va real kurs q",
+    "IB chizig‘i pastga og‘ma, EB chizig‘i yuqoriga og‘ma; ular to‘rt noxushlik zonasini hosil qiladi",
+    "Tinbergen qoidasi: maqsadlar soni kamida shuncha mustaqil vositaga muhtoj",
+    "Mandell qoidasi: monetar siyosat – tashqi balansga, fiskal siyosat – ichki balansga"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Svon diagrammasi",
+   "sub": "19.5. Ichki va tashqi balans",
+   "img": "image138.png",
+   "caption": "19.4-rasm. Svon diagrammasi: ichki va tashqi balans hamda iqtisodiy noxushlik zonalari (q – real kurs, so‘m/dollar; oshishi – real qadrsizlanish)"
+  },
+  {
+   "type": "table",
+   "title": "Svon zonalari va siyosat tavsiyalari",
+   "sub": "19.5. Ichki va tashqi balans",
+   "head": [
+    "Zona",
+    "Holat",
+    "Ichki xarajatlar",
+    "Real kurs"
+   ],
+   "rows": [
+    [
+     "I",
+     "Inflyatsiya + profitsit",
+     "Kamaytirish",
+     "Valyutani qimmatlashtirish"
+    ],
+    [
+     "II",
+     "Inflyatsiya + taqchillik",
+     "Kamaytirish",
+     "Ko‘pincha qadrsizlantirish"
+    ],
+    [
+     "III",
+     "Ishsizlik + taqchillik",
+     "Holatga qarab",
+     "Valyutani qadrsizlantirish"
+    ],
+    [
+     "IV",
+     "Ishsizlik + profitsit",
+     "Oshirish",
+     "Ko‘pincha qimmatlashtirish"
+    ]
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Tashqi barqarorlik indikatorlari",
+   "sub": "19.6. To‘lov balansi taqchilligi va uni tartibga solish",
+   "head": [
+    "Indikator",
+    "Xavf chegarasi"
+   ],
+   "rows": [
+    [
+     "Joriy hisob taqchilligi / YaIM",
+     "5% dan yuqori bir necha yil"
+    ],
+    [
+     "Zaxiralar / oylik import",
+     "3 oydan kam"
+    ],
+    [
+     "Zaxiralar / qisqa muddatli tashqi qarz",
+     "1 dan kam (Gidotti-Grinspen)"
+    ],
+    [
+     "Tashqi qarz / YaIM",
+     "60% dan yuqori"
+    ],
+    [
+     "Tashqi qarzga xizmat / eksport",
+     "20–25% dan yuqori"
+    ]
+   ],
+   "note": "Taxminiy xalqaro chegaraviy qiymatlar; 5% qoidasi – Laurens Sammers qoidasi"
+  },
+  {
+   "type": "compare",
+   "title": "Tartibga solish siyosatlari",
+   "sub": "19.6. To‘lov balansi taqchilligi va uni tartibga solish",
+   "left": {
+    "head": "Xarajatlarni o‘zgartiruvchi",
+    "items": [
+     "Ichki xarajatlar darajasini o‘zgartiradi",
+     "Cheklovchi fiskal va monetar siyosat",
+     "Importni kamaytiradi, o‘sishni sekinlashtirishi mumkin"
+    ]
+   },
+   "right": {
+    "head": "Xarajatlarni yo‘naltiruvchi",
+    "items": [
+     "Talabni milliy tovarlarga yo‘naltiradi",
+     "Devalvatsiya, tariflar, kvotalar, subsidiyalar",
+     "Asosiy vosita – valyuta kursi (JST cheklaydi)"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Marshall-Lerner sharti va J-egri chiziq",
+   "sub": "19.6. To‘lov balansi taqchilligi va uni tartibga solish",
+   "items": [
+    {
+     "name": "Marshall-Lerner sharti",
+     "formula": "|η_{X}| + |η_{M}| > 1",
+     "note": "bajarilsa, devalvatsiya savdo balansini yaxshilaydi"
+    },
+    {
+     "name": "J-egri chiziq samarasi",
+     "formula": "qisqa muddat: |η| kichik ⇒ balans avval yomonlashadi",
+     "note": "hajmlar moslashgach savdo balansi yaxshilanadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: tashqi barqarorlik ko‘rsatkichlari",
+   "sub": "19.6. To‘lov balansi taqchilligi va uni tartibga solish",
+   "steps": [
+    "Berilgan: zaxira 30, import 48, qisqa qarz 12, YaIM 120, CA taqchilligi 8 (mlrd dollar)",
+    "Oylik import: 48 / 12 = 4; zaxira qoplaydi: 30 / 4 = 7,5 oylik import (3 oydan ko‘p)",
+    "Gidotti-Grinspen: 30 / 12 = 2,5 (1 dan katta – yetarli)",
+    "Joriy hisob taqchilligi: 8 / 120 ≈ 6,7% YaIM (5% dan yuqori – xavf signali)",
+    "Baho: zaxiralar yetarli, ammo taqchillik yuqori – barqarorlik sharoitli"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Marshall-Lerner sharti",
+   "sub": "19.6. To‘lov balansi taqchilligi va uni tartibga solish",
+   "steps": [
+    "Qisqa muddat: η_{X} = –0,4, η_{M} = –0,5",
+    "|–0,4| + |–0,5| = 0,9 < 1 – shart bajarilmaydi",
+    "Uzoq muddat: η_{X} = –0,9, η_{M} = –0,8",
+    "|–0,9| + |–0,8| = 1,7 > 1 – shart bajariladi",
+    "Demak, devalvatsiya avval savdo balansini yomonlashtiradi, keyin yaxshilaydi – J-egri chiziq samarasi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Xalqaro tajriba: to‘lov balansi inqirozlari",
+   "sub": "19.7. To‘lov balansi inqirozi va undan chiqish",
+   "head": [
+    "Mamlakat, yil",
+    "Asosiy sabablar",
+    "Oqibatlar"
+   ],
+   "rows": [
+    [
+     "Meksika, 1994–1995",
+     "Katta CA taqchilligi, qisqa dollar qarzlar",
+     "Peso ~2 baravar qadrsizlandi"
+    ],
+    [
+     "Sharqiy Osiyo, 1997–1998",
+     "Qisqa xorijiy qarzlar, qayd etilgan kurslar",
+     "Valyutalar 40–80% qadrsizlandi"
+    ],
+    [
+     "Rossiya, 1998",
+     "Byudjet taqchilligi, GKO, neft narxi tushishi",
+     "Defolt, rubl 3 baravar qadrsizlandi"
+    ],
+    [
+     "Argentina, 2001–2002",
+     "Valyuta kengashi, katta tashqi qarz",
+     "Defolt, peso 70% qadrsizlandi"
+    ],
+    [
+     "Shri-Lanka, 2022",
+     "Tashqi qarz, turizm tushumi qulashi",
+     "Defolt, yoqilg‘i va dori taqchilligi"
+    ]
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "To‘lov balansi inqirozining rivojlanishi",
+   "sub": "19.7. To‘lov balansi inqirozi va undan chiqish",
+   "steps": [
+    "1) Qayd etilgan kursda katta CA taqchilligi qisqa muddatli «issiq pullar» bilan moliyalanadi",
+    "2) Zarba investorlar ishonchini pasaytiradi; kapital to‘satdan to‘xtaydi (sudden stop) va chiqib ketadi",
+    "3) Markaziy bank kursni himoya qilib zaxiralarni sarflaydi; spekulyativ hujum (Krugman, 1979)",
+    "4) Majburiy devalvatsiya, valyutada qarzdor firma va banklar bankrotligi, retsessiya"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Inqirozdan chiqish yo‘llari va O‘zbekiston",
+   "sub": "19.7. To‘lov balansi inqirozi va undan chiqish",
+   "bullets": [
+    "Kursni moslashtirish, makroiqtisodiy barqarorlashtirish, XVF kreditlari, qarzni qayta tuzish, tarkibiy islohotlar",
+    "Favqulodda chora – vaqtinchalik kapital nazorati (Malayziya, 1998; Islandiya, 2008)",
+    "O‘zbekiston kuchli tomonlari: zaxira 66,3 mlrd dollar, musbat sof XIP, uzoq muddatli imtiyozli davlat qarzi",
+    "Xatarlar: eksportning oltinga bog‘liqligi, pul o‘tkazmalarining asosan Rossiyadan kelishi",
+    "Yana: tovarlar savdosi taqchilligining o‘sishi, korporativ va davlat tashqi qarzining jadal ortishi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "To‘lov balansi – rezidentlar va norezidentlar operatsiyalari hisoboti (BPM6), ikki yoqlama yozuv asosida tuziladi",
+    "Tarkibi: joriy hisob, kapital hisobi va moliyaviy hisob; taqchillik moliyaviy hisob bilan qoplanadi (CA = S – I = Y – A)",
+    "Svon diagrammasi va Tinbergen qoidasi: ichki va tashqi balans uchun ikki vosita – xarajatlar va valyuta kursi kerak",
+    "Devalvatsiya Marshall-Lerner sharti bajarilganda savdo balansini yaxshilaydi; qisqa muddatda J-egri chiziq kuzatiladi",
+    "O‘zbekiston: katta savdo taqchilligi pul o‘tkazmalari bilan qoplanadi; yirik zaxiralar barqarorlik beradi, oltinga bog‘liqlik xatar"
+   ]
+  }
+ ]
+}

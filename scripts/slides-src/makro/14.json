@@ -1,0 +1,413 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Iqtisodiy o‘sish nima?",
+   "sub": "14.1. Iqtisodiy o‘sish tushunchasi va uning o‘lchanishi",
+   "bullets": [
+    "Iqtisodiy o‘sish – potensial YaIMning uzoq muddatli barqaror o‘sishi",
+    "Real YaIM o‘sishi – iqtisodiyot umumiy hajmi; jon boshiga YaIM o‘sishi – turmush darajasi",
+    "2024-yilda O‘zbekistonda real YaIM 6,5%, jon boshiga real YaIM 4,4% ga o‘sgan",
+    "Retsessiyadan keyingi tiklanish – tsiklik tiklanish, iqtisodiy o‘sish emas",
+    "Haqiqiy o‘sish potensial darajaning o‘zi oshganda yuz beradi"
+   ],
+   "note": "Uzoq muddatda o‘sish sur’atidagi kichik farqlar farovonlikda ulkan tafovutga olib keladi"
+  },
+  {
+   "type": "formula",
+   "title": "O‘sishni o‘lchash va «70 qoidasi»",
+   "sub": "14.1. Iqtisodiy o‘sish tushunchasi va uning o‘lchanishi",
+   "items": [
+    {
+     "name": "Real YaIM o‘sish sur’ati",
+     "formula": "g_{Y} = (Y_{t} − Y_{t−1})/(Y_{t−1}) × 100%",
+     "note": "iqtisodiyotning umumiy hajmi o‘sishi"
+    },
+    {
+     "name": "Jon boshiga YaIM o‘sishi",
+     "formula": "g_{y} ≈ g_{Y} − g_{N}",
+     "note": "g_{N} – aholi sonining o‘sish sur’ati"
+    },
+    {
+     "name": "Ikki baravar oshish muddati",
+     "formula": "T_{2x} ≈ 70/g(%)",
+     "note": "daromad t yilda (1+g)^{t} marta oshadi"
+    },
+    {
+     "name": "Potensial YaIM",
+     "formula": "Y^{∗} = A × F(K, L, N)",
+     "note": "K – kapital, L – mehnat, N – tabiiy resurslar, A – texnologiya va institutlar"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: sur’atlar farqining kuchi",
+   "sub": "14.1. Iqtisodiy o‘sish tushunchasi va uning o‘lchanishi",
+   "steps": [
+    "Ikki mamlakatda jon boshiga daromad 10 ming dollar: A yiliga 2%, B yiliga 6% o‘sadi",
+    "A: ikki baravar oshishi 70/2 = 35 yil; 50 yildan keyin 10 × 1,02^{50} ≈ 26,9 ming dollar",
+    "B: ikki baravar oshishi 70/6 ≈ 11,7 yil; 50 yildan keyin 10 × 1,06^{50} ≈ 184,2 ming dollar",
+    "50 yildan keyin B mamlakat aholisi A dagidan qariyb 7 baravar boy bo‘ladi",
+    "O‘zbekiston 7,7% sur’atni saqlasa (jon boshiga ~5,7%), daromad ~12 yilda ikki baravar oshadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Turli sur’atlarda daromad dinamikasi",
+   "sub": "14.1. Iqtisodiy o‘sish tushunchasi va uning o‘lchanishi",
+   "img": "image99.png",
+   "caption": "14.1-rasm. Turli o‘sish sur’atlarida daromadning 50 yillik dinamikasi"
+  },
+  {
+   "type": "figure",
+   "title": "O‘sish – ICHE ning siljishi",
+   "sub": "14.1. Iqtisodiy o‘sish tushunchasi va uning o‘lchanishi",
+   "img": "image100.png",
+   "caption": "14.2-rasm. Iqtisodiy o‘sish – ishlab chiqarish imkoniyatlari egri chizig‘ining tashqariga siljishi"
+  },
+  {
+   "type": "bullets",
+   "title": "Ekstensiv o‘sish va uning cheklovlari",
+   "sub": "14.2. Ekstensiv va intensiv iqtisodiy o‘sish",
+   "bullets": [
+    "Ekstensiv o‘sish – ko‘proq resurslar jalb qilish hisobiga, samaradorlik o‘zgarmagan holda",
+    "Afzallik: tez natija beradi, bandlikni oshiradi, boshqaruv nisbatan oddiy",
+    "Resurs cheklovi: kamayib boruvchi unumdorlik qonuni tufayli har bir birlik kamroq natija beradi",
+    "Texnologik cheklov: bir xil texnologiyada resurslarni cheksiz ko‘paytirib bo‘lmaydi",
+    "Ekologik cheklov: Orol dengizi fojiasi – ekstensiv qishloq xo‘jaligining oqibati"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ekstensiv va intensiv o‘sish",
+   "sub": "14.2. Ekstensiv va intensiv iqtisodiy o‘sish",
+   "left": {
+    "head": "Ekstensiv o‘sish",
+    "items": [
+     "Resurslar miqdori ko‘payadi",
+     "Yangi yerlar, zavodlar, ishchilar",
+     "Ishlab chiqarish funksiyasi bo‘ylab harakat"
+    ]
+   },
+   "right": {
+    "head": "Intensiv o‘sish",
+    "items": [
+     "Resurslar samaradorligi oshadi",
+     "Yangi texnologiya, malaka, boshqaruv",
+     "Ishlab chiqarish funksiyasi yuqoriga siljiydi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Ekstensiv va intensiv o‘sish",
+   "sub": "14.2. Ekstensiv va intensiv iqtisodiy o‘sish",
+   "img": "image101.png",
+   "caption": "14.3-rasm. Ekstensiv (a) va intensiv (b) iqtisodiy o‘sish"
+  },
+  {
+   "type": "bullets",
+   "title": "Sobiq Ittifoq va Sharqiy Osiyo tajribasi",
+   "sub": "14.2. Ekstensiv va intensiv iqtisodiy o‘sish",
+   "bullets": [
+    "Sobiq Ittifoq 1950–1960-yillarda asosan kapital va mehnatni safarbar qilish hisobiga o‘sdi",
+    "1970–80-yillarga kelib kapitalning chegaraviy samaradorligi pasaydi va o‘sish to‘xtadi",
+    "1994-yilda Krugman Sharqiy Osiyo «yo‘lbarslari» ham asosan ekstensiv o‘sganini ta’kidladi",
+    "Ular ta’lim va texnologiyalarga investitsiya orqali intensiv o‘sishga o‘tib, boy mamlakatlarga aylandi"
+   ],
+   "note": "Real hayotda sof ekstensiv yoki sof intensiv o‘sish deyarli uchramaydi"
+  },
+  {
+   "type": "table",
+   "title": "Iqtisodiy o‘sish omillari",
+   "sub": "14.3. Iqtisodiy o‘sish omillari",
+   "head": [
+    "Omillar guruhi",
+    "Mazmuni",
+    "Misollar"
+   ],
+   "rows": [
+    [
+     "Taklif omillari",
+     "ishlab chiqarish salohiyatini belgilaydi",
+     "mehnat, kapital, tabiiy resurslar, texnologiya"
+    ],
+    [
+     "Talab omillari",
+     "yalpi talab salohiyat bilan mos o‘sishi",
+     "iste’mol, investitsiya, davlat xaridlari, eksport"
+    ],
+    [
+     "Taqsimot omillari",
+     "resurslarning samarali taqsimlanishi",
+     "raqobat, moliya bozori, mulk huquqi, korrupsiya"
+    ]
+   ],
+   "note": "Talab salohiyatdan ortda qolsa, resurslar foydalanilmay qoladi (Keyns muammosi)"
+  },
+  {
+   "type": "bullets",
+   "title": "Mehnat unumdorligini oshiruvchi omillar",
+   "sub": "14.3. Iqtisodiy o‘sish omillari",
+   "bullets": [
+    "Uzoq muddatda real ish haqi va turmush darajasini mehnat unumdorligi (Y/L) belgilaydi",
+    "Mehnatning kapital bilan qurollanganligi (K/L) va inson kapitali",
+    "Tabiiy resurslar bilan ta’minlanganlik va texnologik bilimlar",
+    "Institutlar: mulk huquqlari, qonun ustuvorligi, siyosiy barqarorlik, korrupsiya darajasi",
+    "Boshqaruv sifati: firmalar unumdorligi farqining sezilarli qismini izohlaydi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "O‘sishni hisoblash (growth accounting)",
+   "sub": "14.3. Iqtisodiy o‘sish omillari",
+   "items": [
+    {
+     "name": "Kobb-Duglas funksiyasi",
+     "formula": "Y = A·K^{α}·L^{1−α}",
+     "note": "α – kapitalning daromaddagi ulushi (odatda 0,3–0,4)"
+    },
+    {
+     "name": "O‘sish sur’atlari bog‘lanishi",
+     "formula": "(ΔY)/(Y) = α·(ΔK)/(K) + (1−α)·(ΔL)/(L) + (ΔA)/(A)",
+     "note": "Solou usuli (1957)"
+    },
+    {
+     "name": "UOU o‘sishi (Solou qoldig‘i)",
+     "formula": "(ΔA)/(A) = (ΔY)/(Y) − α·(ΔK)/(K) − (1−α)·(ΔL)/(L)",
+     "note": "kapital va mehnat bilan izohlanmagan qism"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Kobb-Duglas bo‘yicha o‘sish manbalari",
+   "sub": "14.3. Iqtisodiy o‘sish omillari",
+   "steps": [
+    "Berilgan: Y = AK^{0,3}L^{0,7}; YaIM +6%, kapital +8%, mehnat +1,5%",
+    "Kapital hissasi: 0,3 × 8% = 2,4 punkt; mehnat hissasi: 0,7 × 1,5% = 1,05 punkt",
+    "UOU o‘sishi: 6% − 2,4% − 1,05% = 2,55 punkt",
+    "Ulushlar: kapital 40%, mehnat 17,5%, UOU 42,5%",
+    "UOU o‘sishi nolga teng bo‘lsa, YaIM 2,4 + 1,05 = 3,45% ga o‘sgan bo‘lardi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "AQSHda o‘sish manbalari",
+   "sub": "14.3. Iqtisodiy o‘sish omillari",
+   "img": "image102.png",
+   "caption": "14.4-rasm. AQSHda iqtisodiy o‘sish manbalari (Mankyu, 9-2 jadval)"
+  },
+  {
+   "type": "bullets",
+   "title": "O‘sish modellarining mohiyati",
+   "sub": "14.4. Iqtisodiy o‘sish modellari va neokeynscha yondashuv",
+   "bullets": [
+    "O‘sish modellari – o‘sish sur’atini belgilovchi omillar bog‘liqligining formallashtirilgan ifodasi",
+    "Savollar: barqaror o‘sish mumkinmi? O‘sish sur’atini nima belgilaydi?",
+    "Jamg‘arish normasi, aholi o‘sishi va texnologiya o‘sishga qanday ta’sir qiladi?",
+    "Bosqichlar: neokeynscha (Xarrod 1939, Domar 1946) → neoklassik (Solou, Svon 1956) → endogen (Romer 1986, Lukas 1988)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Neokeynscha modellarning xususiyatlari",
+   "sub": "14.4. Iqtisodiy o‘sish modellari va neokeynscha yondashuv",
+   "bullets": [
+    "Qat’iy texnologik koeffitsiyentlar: Leontyev tipidagi funksiya, kapital sig‘imi o‘zgarmas",
+    "Investitsiyalarning ikki tomonlama roli: ham talabni, ham taklifni belgilaydi",
+    "Investitsiya va jamg‘arma turli subyektlar tomonidan amalga oshiriladi, tengligi kafolatlanmagan",
+    "Muvozanatli o‘sish yo‘li beqaror, barqarorlik uchun davlat aralashuvi zarur"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Domar modeli: talab va taklif",
+   "sub": "14.5. E. Domar modeli",
+   "items": [
+    {
+     "name": "Talab tenglamasi (multiplikator)",
+     "formula": "ΔY^{d} = (1)/(s) × ΔI",
+     "note": "s – jamg‘arishga moyillik; talab ΔI ga bog‘liq"
+    },
+    {
+     "name": "Taklif tenglamasi",
+     "formula": "ΔY^{s} = σ × I",
+     "note": "σ = 1/v – kapital unumdorligi; quvvat I darajasiga bog‘liq"
+    },
+    {
+     "name": "Muvozanat sharti",
+     "formula": "ΔY^{d} = ΔY^{s} ⇒ (ΔI)/(s) = σ·I",
+     "note": "yangi quvvatlar to‘liq ishlatilishi kerak"
+    },
+    {
+     "name": "Domar formulasi",
+     "formula": "(ΔI)/(I) = σ·s",
+     "note": "daromad ham shu sur’atda o‘sadi: ΔY/Y = σs"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Domar modeli",
+   "sub": "14.5. E. Domar modeli",
+   "img": "image104.png",
+   "caption": "14.6-rasm. Domar modeli: investitsiyalarning talab va taklif tomonlari"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Domar modeli bo‘yicha hisob",
+   "sub": "14.5. E. Domar modeli",
+   "steps": [
+    "Misol: s = 0,25, σ = 0,24 ⇒ ΔI/I = 0,24 × 0,25 = 0,06, ya’ni 6%",
+    "Investitsiya 4% ga o‘ssa: talab quvvatdan ortda qoladi – ortiqcha quvvat va ishsizlik",
+    "Investitsiya 8% ga o‘ssa: talab quvvatdan oshadi – inflyatsion bosim",
+    "Masala: s = 0,2, σ = 0,3 ⇒ ΔI/I = 0,06 = 6%; I = 300 ⇒ kelgusi yil 300 × 1,06 = 318 mlrd so‘m",
+    "4% o‘sishda talab o‘sishi quvvatlar o‘sishidan 6% − 4% = 2 punktga past"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: maqsadli o‘sish va ICOR",
+   "sub": "14.5. E. Domar modeli",
+   "steps": [
+    "Maqsad: jon boshiga YaIM 10 yilda 11 dan 20 ming dollargacha (XQP)",
+    "Kerakli o‘sish: (20/11)^{1/10} − 1 ≈ 1,0616 − 1 ≈ 6,2% yiliga",
+    "Aholi yiliga 1,8% o‘ssa: real YaIM o‘sishi ≈ 6,2% + 1,8% = 8%",
+    "Domar mantiqi: zarur investitsiyalar = o‘sish × kapital sig‘imi (ICOR)",
+    "ICOR = 4 bo‘lsa, investitsiya ulushi ≈ 4 × 8% = 32% YaIM"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Xarrod modeli: asosiy tenglamalar",
+   "sub": "14.6. R. Xarrod modeli",
+   "items": [
+    {
+     "name": "Jamg‘arma va investitsiya (akselerator)",
+     "formula": "S = s·Y,  I = v·ΔY,  I = S",
+     "note": "v – kapital sig‘imi (akselerator koeffitsiyenti)"
+    },
+    {
+     "name": "Haqiqiy o‘sish sur’ati",
+     "formula": "G = (ΔY)/(Y) = s/C",
+     "note": "C – haqiqiy kapital koeffitsiyenti"
+    },
+    {
+     "name": "Kafolatlangan o‘sish sur’ati",
+     "formula": "G_{w} = s/v_{r}",
+     "note": "v_{r} – tadbirkorlar zarur deb hisoblagan kapital koeffitsiyenti"
+    },
+    {
+     "name": "Tabiiy o‘sish sur’ati",
+     "formula": "G_{n} = n + λ",
+     "note": "n – ishchi kuchi, λ – mehnat unumdorligi o‘sishi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Xarrod modelidagi o‘sish sur’atlari",
+   "sub": "14.6. R. Xarrod modeli",
+   "head": [
+    "Sur’at",
+    "Formula",
+    "Nimani belgilaydi"
+   ],
+   "rows": [
+    [
+     "Haqiqiy (G)",
+     "s / C",
+     "joriy talab va investitsiya qarorlari"
+    ],
+    [
+     "Kafolatlangan (G_{w})",
+     "s / v_{r}",
+     "jamg‘arish normasi va zarur kapital sig‘imi"
+    ],
+    [
+     "Tabiiy (G_{n})",
+     "n + λ",
+     "demografiya va texnik taraqqiyot"
+    ]
+   ],
+   "note": "Tabiiy sur’at – to‘liq bandlikni ta’minlovchi maksimal sur’at"
+  },
+  {
+   "type": "bullets",
+   "title": "«Pichoq tig‘i» muammosi",
+   "sub": "14.6. R. Xarrod modeli",
+   "bullets": [
+    "Kafolatlangan o‘sish yo‘li beqaror: chetlanish tuzalmaydi, balki kuchayadi",
+    "G > G_{w}: C < v_{r}, quvvat yetishmaydi, investitsiya oshadi, talab yanada o‘sadi – inflyatsion yuksalish",
+    "G < G_{w}: ortiqcha quvvat (C > v_{r}), investitsiya qisqaradi, G yanada pasayadi – depressiya"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Kafolatlangan yo‘l beqarorligi",
+   "sub": "14.6. R. Xarrod modeli",
+   "img": "image105.png",
+   "caption": "14.7-rasm. Xarrod modelida kafolatlangan o‘sish yo‘lining beqarorligi («pichoq tig‘i»)"
+  },
+  {
+   "type": "formula",
+   "title": "Barqaror o‘sish sharti",
+   "sub": "14.6. R. Xarrod modeli",
+   "items": [
+    {
+     "name": "To‘liq bandlikda barqaror o‘sish",
+     "formula": "G = G_{w} = G_{n} ⇒ s/v = n + λ",
+     "note": "J. Robinson: «oltin asr»; ularning tengligi uchun mexanizm yo‘q"
+    },
+    {
+     "name": "G_{w} > G_{n}",
+     "formula": "s/v_{r} > n + λ",
+     "note": "jamg‘arma ko‘p: ortiqcha quvvat, ishsizlik, sekulyar stagnatsiya"
+    },
+    {
+     "name": "G_{w} < G_{n}",
+     "formula": "s/v_{r} < n + λ",
+     "note": "jamg‘arma kam: tarkibiy ishsizlik (rivojlanayotgan mamlakatlar)"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Xarrod modeli bo‘yicha tahlil",
+   "sub": "14.6. R. Xarrod modeli",
+   "steps": [
+    "Berilgan: s = 0,24, v_{r} = 3, n = 1,5%, λ = 2,5%",
+    "G_{w} = 0,24/3 = 8%; G_{n} = 1,5% + 2,5% = 4%",
+    "G_{w} > G_{n}: ortiqcha quvvatlar va ishsizlik muammosi",
+    "Barqaror o‘sish uchun s = G_{n} × v_{r} = 0,04 × 3 = 12%",
+    "C = 3,2 bo‘lsa, G = 0,24/3,2 = 7,5% < G_{w}: ortiqcha quvvat, tadbirkorlar investitsiyani qisqartiradi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Neokeynscha modellarning ahamiyati va tanqidi",
+   "sub": "14.6. R. Xarrod modeli",
+   "bullets": [
+    "Ahamiyati: o‘sishning birinchi rasmiy dinamik modeli, investitsiyalarning ikki tomonlama roli",
+    "Rivojlanayotgan mamlakatlarda rejalashtirish va xorijiy yordamni asoslash vositasi bo‘ldi",
+    "Tanqid: qat’iy koeffitsiyentlar, kapital va mehnat o‘zaro almashtirilmaydi",
+    "Tanqid: texnik taraqqiyot ekzogen, narx va foiz stavkalarining roli e’tiborga olinmagan",
+    "Shu tanqid Solouni neoklassik o‘sish modelini yaratishga undadi (15-bob)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "14.6. R. Xarrod modeli",
+   "bullets": [
+    "Iqtisodiy o‘sish – potensial YaIMning uzoq muddatli o‘sishi; kichik sur’at farqlari katta tafovut beradi (70 qoidasi)",
+    "Ekstensiv o‘sish resurs miqdori, intensiv o‘sish samaradorlik hisobiga; ekstensiv o‘sish cheklovlarga duch keladi",
+    "O‘sish omillari: taklif, talab, taqsimot; o‘sishni hisoblash kapital, mehnat va UOU hissalarini ajratadi",
+    "Domar modeli: investitsiyalarning ikki tomonlama roli va muvozanatli o‘sish ΔI/I = σs",
+    "Xarrod modeli: G, G_{w}, G_{n} farqlanadi; kafolatlangan yo‘l beqaror, barqarorlik uchun G = G_{w} = G_{n}"
+   ]
+  }
+ ]
+}

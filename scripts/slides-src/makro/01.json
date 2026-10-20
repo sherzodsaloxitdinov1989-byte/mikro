@@ -1,0 +1,523 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Makroiqtisodiyot: tushuncha, obyekt va predmet",
+   "sub": "1.1. Makroiqtisodiyot tushunchasi, predmeti va obyekti",
+   "bullets": [
+    "Makroiqtisodiyot – iqtisodiyotni yaxlit tizim sifatida, agregat ko‘rsatkichlar orqali o‘rganuvchi fan bo‘limi",
+    "Obyekti – yaxlit milliy iqtisodiyot; predmeti – agregat ko‘rsatkichlar qonuniyatlari va muvozanat shartlari",
+    "Uch asosiy ko‘rsatkich: real YaIM, inflyatsiya darajasi va ishsizlik darajasi",
+    "2025-yilda O‘zbekistonda inflyatsiya 7,3%, ishsizlik 5% atrofida (2020-yilda ishsizlik cho‘qqisi 10,5%)",
+    "2018-yilda ishsizlikning 5,8% dan 9,3% ga «sakrashi» – metodologiyaning XMT standartlariga moslashuvi natijasi"
+   ],
+   "note": "Statistik metodologiya o‘zgarishlarini ma’lumotlar tahlilida doimo hisobga olish zarur"
+  },
+  {
+   "type": "figure",
+   "title": "O‘zbekiston iqtisodiy o‘sishi",
+   "sub": "1.1. Makroiqtisodiyot tushunchasi, predmeti va obyekti",
+   "img": "image1.png",
+   "caption": "1.1-rasm. O‘zbekiston real YaIMining yillik o‘sish sur’atlari, 2017–2025-yillar (foizda)"
+  },
+  {
+   "type": "table",
+   "title": "Mikroiqtisodiyot va makroiqtisodiyot",
+   "sub": "1.1. Makroiqtisodiyot tushunchasi, predmeti va obyekti",
+   "head": [
+    "Belgilar",
+    "Mikroiqtisodiyot",
+    "Makroiqtisodiyot"
+   ],
+   "rows": [
+    [
+     "Tadqiqot obyekti",
+     "Alohida firma, uy xo‘jaligi, tarmoq bozori",
+     "Milliy iqtisodiyot bir butun sifatida"
+    ],
+    [
+     "Asosiy ko‘rsatkichlar",
+     "Tovar narxi va miqdori, firma foydasi",
+     "YaIM, narxlar darajasi, ishsizlik, foiz stavkasi"
+    ],
+    [
+     "Narx tushunchasi",
+     "Nisbiy narxlar",
+     "Narxlarning umumiy darajasi (indekslar)"
+    ],
+    [
+     "Asosiy muammo",
+     "Cheklangan resurslarni samarali taqsimlash",
+     "Barqaror o‘sish, to‘liq bandlik, narx barqarorligi"
+    ],
+    [
+     "Muvozanat",
+     "Qisman (alohida bozor) muvozanati",
+     "Umumiy (yalpi) muvozanat"
+    ],
+    [
+     "Tipik savol",
+     "Benzin narxi oshsa, avtomobilga talab?",
+     "Neft narxi oshsa, inflyatsiya va YaIM?"
+    ]
+   ],
+   "note": "«O‘rmon» va «daraxtlar»: bir kishi uchun to‘g‘ri narsa butun jamiyat uchun to‘g‘ri bo‘lmasligi mumkin (tarkib xatosi)"
+  },
+  {
+   "type": "bullets",
+   "title": "F. Kenening «Iqtisodiy jadvali» (1758)",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "bullets": [
+    "F. Kene (1694–1774) 1758-yilda «Iqtisodiy jadval»ni e’lon qildi: ijtimoiy mahsulotning sinflar o‘rtasida aylanishi",
+    "Uch sinf: unumli (fermerlar), mulkdorlar (yer egalari, qirol, ruhoniylar), unumsiz (hunarmand, savdogar)",
+    "Yillik yalpi mahsulot 5 mlrd livr; fermerlar yer egalariga 2 mlrd livr renta to‘laydi",
+    "Yer egalari rentaning yarmini oziq-ovqatga, yarmini hunarmandlar buyumlariga sarflaydi",
+    "Birinchi marta: oqimlar tizimi, moddiy va pul oqimlarining qarama-qarshi harakati, takror ishlab chiqarish sharti"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Kene jadvali sxemasi",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "img": "image3.png",
+   "caption": "1.3-rasm. F. Kene «Iqtisodiy jadvali»ning soddalashtirilgan sxemasi"
+  },
+  {
+   "type": "table",
+   "title": "Uch tarmoqli tarmoqlararo balans (mlrd so‘m)",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "head": [
+    "Tarmoq",
+    "Oraliq iste’mol",
+    "Yakuniy talab",
+    "Yalpi mahsulot"
+   ],
+   "rows": [
+    [
+     "Qishloq xo‘jaligi",
+     "90",
+     "110",
+     "200"
+    ],
+    [
+     "Sanoat",
+     "200",
+     "200",
+     "400"
+    ],
+    [
+     "Xizmatlar",
+     "90",
+     "210",
+     "300"
+    ],
+    [
+     "Jami",
+     "380",
+     "520",
+     "900"
+    ]
+   ],
+   "note": "Qo‘shilgan qiymat 140 + 180 + 200 = 520 = yakuniy talab 110 + 200 + 210 = 520: YaIMning ikki usuli teng"
+  },
+  {
+   "type": "formula",
+   "title": "Leontyevning «xarajatlar – ishlab chiqarish» modeli",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "items": [
+    {
+     "name": "Leontyev modeli",
+     "formula": "X = AX + Y",
+     "note": "X – yalpi mahsulot vektori, A – to‘g‘ridan-to‘g‘ri xarajatlar matritsasi, Y – yakuniy talab"
+    },
+    {
+     "name": "Yalpi mahsulot",
+     "formula": "X = (E−A)^{−1}·Y",
+     "note": "(E−A)^{−1} – to‘liq xarajatlar matritsasi (Leontyev multiplikatori)"
+    },
+    {
+     "name": "Xarajat koeffitsiyenti",
+     "formula": "a_{ij} = (x_{ij})/(X_{j})",
+     "note": "x_{ij} – i-tarmoqdan j-tarmoqqa oqim, X_{j} – j-tarmoq yalpi mahsuloti"
+    },
+    {
+     "name": "Misol: sanoat (1.2-jadval)",
+     "formula": "a_{22} = 120/400 = 0,30",
+     "note": "1 so‘mlik sanoat mahsuloti uchun o‘z tarmog‘idan 30, qishloq xo‘jaligidan 15, xizmatlardan 10 tiyin"
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Klassik maktab va Keyns inqilobi",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "left": {
+    "head": "Klassik maktab (Sey qonuni)",
+    "items": [
+     "Narx va ish haqi to‘liq egiluvchan, bozor o‘zini o‘zi tartibga soladi",
+     "«Taklif o‘ziga mos talabni yaratadi»; pul – faqat ayirboshlash vositasi",
+     "Davlat aralashuvi minimal bo‘lishi kerak (laissez-faire)"
+    ]
+   },
+   "right": {
+    "head": "Keyns (1936)",
+    "items": [
+     "Yalpi talab ishlab chiqarish va bandlikni belgilaydi; Sey qonuni amal qilmaydi",
+     "Nominal ish haqi qat’iy: to‘liq bandlikdan past muvozanat, majburiy ishsizlik",
+     "Faol fiskal siyosat: davlat xarajatlari orqali yalpi talabni rag‘batlantirish"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Buyuk depressiya va zamonaviy makroiqtisodiyotning tug‘ilishi",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "bullets": [
+    "1929–1933-yillarda AQSHda real YaIM qariyb 27% qisqardi, ishsizlik 25% ga yetdi, narxlar chorak qismga tushdi",
+    "Ish haqi va narxlarning pasayishi bandlikni tiklamadi – klassik nazariya sinovdan o‘ta olmadi",
+    "1936-yil: J.M. Keynsning «Bandlik, foiz va pulning umumiy nazariyasi» – zamonaviy makroiqtisodiyot tug‘ildi",
+    "Jamg‘arish va investitsiyalar turli subyektlar qaroridir, ularning tengligi foiz orqali avtomatik ta’minlanmaydi",
+    "1970-yillardagi stagflyatsiya keynscha siyosat cheklanganligini ko‘rsatdi va yangi maktablar paydo bo‘ldi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Asosiy makroiqtisodiy maktablar",
+   "sub": "1.2. Makroiqtisodiy tahlilning shakllanish tarixi",
+   "head": [
+    "Maktab",
+    "Namoyandalar",
+    "Narxlar",
+    "Siyosat bo‘yicha tavsiya"
+   ],
+   "rows": [
+    [
+     "Klassik",
+     "A. Smit, D. Rikardo, J.B. Sey",
+     "To‘liq egiluvchan",
+     "Davlat aralashmasligi"
+    ],
+    [
+     "Keynschilik",
+     "J.M. Keyns, E. Xansen, J. Xiks",
+     "Qat’iy (ayniqsa ish haqi)",
+     "Faol fiskal siyosat"
+    ],
+    [
+     "Monetarizm",
+     "M. Fridmen, A. Shvarts",
+     "Qisman qat’iy",
+     "Pul massasining barqaror o‘sish qoidasi"
+    ],
+    [
+     "Yangi klassik",
+     "R. Lukas, T. Sarjent, R. Barro",
+     "To‘liq egiluvchan",
+     "Qoidalarga asoslangan siyosat"
+    ],
+    [
+     "Real biznes-tsikllar",
+     "F. Kidlend, E. Preskott",
+     "To‘liq egiluvchan",
+     "Barqarorlashtirish shart emas"
+    ],
+    [
+     "Yangi keynschilik",
+     "G. Mankyu, D. Romer, J. Steglits",
+     "Mikroasoslangan qat’iylik",
+     "Ehtiyotkor faol siyosat"
+    ]
+   ],
+   "note": "Ko‘pchilik makroiqtisodchilar bugun «neoklassik sintez» pozitsiyasida turadi (Mankyu)"
+  },
+  {
+   "type": "bullets",
+   "title": "Beshta asosiy makroiqtisodiy muammo",
+   "sub": "1.3. Asosiy makroiqtisodiy muammolar va makroiqtisodiyot subyektlari",
+   "bullets": [
+    "Iqtisodiy o‘sish: 35 yilda yiliga 2% o‘sishda daromad 2 marta, 7% da qariyb 11 marta ko‘payadi",
+    "«70 qoidasi»: ikki baravar ko‘payish muddati ≈ 70 / o‘sish sur’ati – 2% da 35, 5% da 14, 7% da 10 yil",
+    "Qolgan muammolar: iqtisodiy tebranishlar (tsikllar), ishsizlik, inflyatsiya va tashqi muvozanat",
+    "Muammolar o‘zaro bog‘liq: ishsizlikni kamaytirish inflyatsiyani tezlashtirishi mumkin",
+    "O‘zbekiston 2025-yildagi 7,7% o‘sishni saqlasa, YaIM ≈ 70 / 7,7 ≈ 9 yilda ikki baravar oshadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Makroiqtisodiyot subyektlari",
+   "sub": "1.3. Asosiy makroiqtisodiy muammolar va makroiqtisodiyot subyektlari",
+   "bullets": [
+    "Uy xo‘jaliklari – omillar egasi, iste’mol (C) va jamg‘arma (S); maqsad – naflilikni maksimallashtirish",
+    "Firmalar – ishlab chiqaruvchi va investor (I); maqsad – foydani maksimallashtirish",
+    "Davlat – soliqlar (T), transfertlar (TR), davlat xaridlari (G); maqsad – ijtimoiy farovonlikni maksimallashtirish",
+    "Tashqi dunyo – nerezidentlar; eksport (X), import (IM) va sof eksport (NX)"
+   ],
+   "note": "Tashqi dunyo bilan aloqaga qarab yopiq va ochiq iqtisodiyot farqlanadi"
+  },
+  {
+   "type": "formula",
+   "title": "Yopiq va ochiq iqtisodiyot",
+   "sub": "1.3. Asosiy makroiqtisodiy muammolar va makroiqtisodiyot subyektlari",
+   "items": [
+    {
+     "name": "Yopiq iqtisodiyot",
+     "formula": "Y = C + I + G",
+     "note": "tashqi dunyo bilan aloqa yo‘q yoki e’tiborga olinmaydi"
+    },
+    {
+     "name": "Ochiq iqtisodiyot",
+     "formula": "Y = C + I + G + NX",
+     "note": "yalpi xarajatlar to‘rt komponentdan iborat"
+    },
+    {
+     "name": "Sof eksport",
+     "formula": "NX = X − IM",
+     "note": "eksport va import o‘rtasidagi farq"
+    },
+    {
+     "name": "Tashqi savdo kvotasi",
+     "formula": "(X+IM)/(YaIM) × 100%",
+     "note": "iqtisodiyotning ochiqlik darajasi o‘lchovi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Tashqi savdo kvotasini hisoblash",
+   "sub": "1.3. Asosiy makroiqtisodiy muammolar va makroiqtisodiyot subyektlari",
+   "steps": [
+    "O‘zbekiston, 2025: aylanma 81,2 mlrd $ (eksport 33,8; import 47,3), YaIM ≈ 152,5 mlrd $",
+    "Kvota = 81,2 / 152,5 × 100% ≈ 53% (2016-yilda taxminan 30%)",
+    "Masala: eksport 24, import 31, YaIM 90 mlrd $ ⇒ kvota = (24 + 31) / 90 × 100% ≈ 61,1%",
+    "Eksport kvotasi = 24 / 90 ≈ 26,7%; import kvotasi = 31 / 90 ≈ 34,4%",
+    "O‘zbekiston 2025: eksport 33,8 / 152,5 ≈ 22,2%, import 47,3 / 152,5 ≈ 31,0% – masaladagi mamlakat ochiqroq"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Usullar: agregatlash va pozitiv/normativ tahlil",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "bullets": [
+    "Umumiy ilmiy usullar: abstraksiya, analiz va sintez, induksiya va deduksiya, taqqoslash",
+    "Maxsus usullar: agregatlash, modellashtirish, statistik va ekonometrik tahlil, pozitiv va normativ tahlil",
+    "Pozitiv tahlil «nima bor?», normativ tahlil «nima bo‘lishi kerak?» savoliga javob beradi",
+    "Agregatlash – ko‘plab kattaliklarni yagona ko‘rsatkichga birlashtirish (narxlar indeksi, yalpi investitsiyalar)",
+    "Kamchiligi: tarkibiy o‘zgarishlar, hududlar farqi va daromadlar tengsizligi ko‘rinmay qoladi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ekzogen va endogen o‘zgaruvchilar",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "left": {
+    "head": "Ekzogen (tashqi)",
+    "items": [
+     "Model tashqarisida aniqlanadi, «berilgan» deb qabul qilinadi",
+     "Modelga kirish ma’lumotlari hisoblanadi",
+     "Masalan: G, T, M, xorijiy daromadlar"
+    ]
+   },
+   "right": {
+    "head": "Endogen (ichki)",
+    "items": [
+     "Model ichida aniqlanadi",
+     "Modelning yechimi bo‘lgan kattaliklar",
+     "Masalan: Y, P, r, u"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Model qanday ishlaydi",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "img": "image4.png",
+   "caption": "1.4-rasm. Model qanday ishlaydi: ekzogen o‘zgaruvchilardan endogen o‘zgaruvchilarga"
+  },
+  {
+   "type": "formula",
+   "title": "Talab va taklif modeli (non bozori)",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "items": [
+    {
+     "name": "Talab",
+     "formula": "Q_{d} = D(P, Y)",
+     "note": "P – non narxi, Y – aholi daromadi (ekzogen)"
+    },
+    {
+     "name": "Taklif",
+     "formula": "Q_{s} = S(P, P_{u})",
+     "note": "P_{u} – un narxi (ekzogen)"
+    },
+    {
+     "name": "Bozor muvozanati",
+     "formula": "Q_{d} = Q_{s}",
+     "note": "endogen o‘zgaruvchilar: nonning narxi P va miqdori Q"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: non bozori modeli",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "steps": [
+    "Berilgan: Q_{d} = 100 − 2P + 0,5Y; Q_{s} = 3P − 20 − 2P_{u}; Y = 40, P_{u} = 5",
+    "Q_{d} = 120 − 2P; Q_{s} = 3P − 30 ⇒ 120 − 2P = 3P − 30",
+    "a) P = 150/5 = 30; Q = 3·30 − 30 = 60",
+    "b) Y = 60: Q_{d} = 130 − 2P; 130 − 2P = 3P − 30 ⇒ P = 32, Q = 66",
+    "Daromad oshdi – talab o‘ngga siljidi: narx ham, miqdor ham oshdi",
+    "c) Endogen: P va Q; ekzogen: Y va P_{u}"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Oqim va zaxira; vaqt gorizontlari",
+   "sub": "1.4. Makroiqtisodiyotning tadqiqot usullari",
+   "bullets": [
+    "Oqim – vaqt davomida o‘lchanadi: YaIM, iste’mol, investitsiyalar, byudjet taqchilligi",
+    "Zaxira – ma’lum onda o‘lchanadi: kapital, boylik, davlat qarzi, pul massasi, ishsizlar soni",
+    "Vannadagi suv – zaxira, jo‘mrakdan oqayotgan suv – oqim: davlat qarzi har yili taqchillik miqdorida ko‘payadi",
+    "Qisqa muddat: narxlar qat’iy, ishlab chiqarishni yalpi talab belgilaydi (Keyns xochi, IS-LM, AD-AS)",
+    "Uzoq muddat: narxlar egiluvchan, ishlab chiqarish omillar va texnologiya bilan aniqlanadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ikki sektorli doiraviy aylanish",
+   "sub": "1.5. Doiraviy aylanish modeli",
+   "img": "image6.png",
+   "caption": "1.6-rasm. Ikki sektorli iqtisodiyotda doiraviy aylanish modeli"
+  },
+  {
+   "type": "figure",
+   "title": "To‘rt sektorli doiraviy aylanish",
+   "sub": "1.5. Doiraviy aylanish modeli",
+   "img": "image7.png",
+   "caption": "1.7-rasm. To‘rt sektorli ochiq iqtisodiyotda doiraviy aylanish modeli"
+  },
+  {
+   "type": "formula",
+   "title": "Doiraviy aylanish muvozanati",
+   "sub": "1.5. Doiraviy aylanish modeli",
+   "items": [
+    {
+     "name": "Muvozanat sharti",
+     "formula": "S + T + IM = I + G + X",
+     "note": "chiqib ketishlar yig‘indisi inyeksiyalar yig‘indisiga teng"
+    },
+    {
+     "name": "Boshqacha yozilishi",
+     "formula": "(S−I) + (T−G) = X − IM",
+     "note": "xususiy sektor sof jamg‘armasi va byudjet qoldig‘i yig‘indisi sof eksportga teng"
+    },
+    {
+     "name": "Masala: chiqib ketishlar",
+     "formula": "300 + 400 + 250 = 950",
+     "note": "S = 300, T = 400, IM = 250 (mlrd so‘m)"
+    },
+    {
+     "name": "Masala: inyeksiyalar",
+     "formula": "280 + 450 + 200 = 930",
+     "note": "I + G + X; 930 − 950 = −20: muvozanat yo‘q, YaIM kamayadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Doiraviy aylanish muvozanatini tekshirish",
+   "sub": "1.5. Doiraviy aylanish modeli",
+   "steps": [
+    "Berilgan (mlrd so‘m): S = 200, T = 250, IM = 150, I = 220, G = 280, X = 120",
+    "Chiqib ketishlar: S + T + IM = 200 + 250 + 150 = 600",
+    "Inyeksiyalar: I + G + X = 220 + 280 + 120 = 620 – chiqib ketishlardan 20 ga ko‘p",
+    "Rejalashtirilgan xarajatlar ishlab chiqarishdan ortiq: zaxiralar kamayadi, firmalar ishlab chiqarishni kengaytiradi",
+    "YaIM o‘sadi, jamg‘arma, soliq va import ham ko‘payadi, toki chiqib ketishlar inyeksiyalarga tenglashguncha",
+    "Tekshirish: (S−I) + (T−G) = −50, X − IM = −30 – tenglik bajarilmaydi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Davlat aralashuvi va makroiqtisodiy siyosat maqsadlari",
+   "sub": "1.6. Makroiqtisodiy siyosatning maqsadlari va shakllari",
+   "bullets": [
+    "Bozor muvaffaqiyatsizliklari: jamoat ne’matlari, eksternaliyalar, monopoliya, axborot assimetriyasi, tengsizlik",
+    "Eng muhimi – makroiqtisodiy beqarorlik (tsikllar, ishsizlik, inflyatsiya): Keyns faol siyosatni shu bilan asosladi",
+    "Maqsadlar: barqaror o‘sish, to‘liq bandlik, narxlar barqarorligi (2–5%), tashqi muvozanat, adolatli taqsimot",
+    "Maqsadlar zid: inflyatsiya va ishsizlik o‘rtasida qisqa muddatli muqobillik (Fillips egri chizig‘i)",
+    "Yo‘nalishiga ko‘ra siyosat rag‘batlantiruvchi (ekspansion) yoki cheklovchi (restriktiv) bo‘ladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Makroiqtisodiy siyosat shakllari",
+   "sub": "1.6. Makroiqtisodiy siyosatning maqsadlari va shakllari",
+   "head": [
+    "Siyosat shakli",
+    "Amalga oshiruvchi organ",
+    "Asosiy vositalari",
+    "Ta’sir obyekti"
+   ],
+   "rows": [
+    [
+     "Fiskal (byudjet-soliq)",
+     "Hukumat, Moliya vazirligi",
+     "Xarajatlar, soliqlar, transfertlar",
+     "Yalpi talab, daromadlar taqsimoti"
+    ],
+    [
+     "Monetar (pul-kredit)",
+     "Markaziy bank",
+     "Asosiy stavka, ochiq bozor, zaxira normasi",
+     "Foiz stavkalari, pul taklifi, inflyatsiya"
+    ],
+    [
+     "Valyuta",
+     "Markaziy bank, hukumat",
+     "Intervensiyalar, valyuta rejimi",
+     "Valyuta kursi, to‘lov balansi"
+    ],
+    [
+     "Tashqi savdo",
+     "Hukumat, bojxona organlari",
+     "Tariflar, kvotalar, subsidiyalar",
+     "Eksport, import"
+    ],
+    [
+     "Daromadlar",
+     "Hukumat, kasaba uyushmalari",
+     "Eng kam ish haqi, ijtimoiy to‘lovlar",
+     "Daromadlar, ish haqi"
+    ],
+    [
+     "Tarkibiy (institutsional)",
+     "Hukumat",
+     "Islohotlar, xususiylashtirish, raqobat",
+     "Uzoq muddatli o‘sish salohiyati"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekistonda makroiqtisodiy siyosat yangilanishi",
+   "sub": "1.6. Makroiqtisodiy siyosatning maqsadlari va shakllari",
+   "bullets": [
+    "2017-yil sentyabrda valyuta bozori liberallashtirildi, milliy valyutaning erkin konvertatsiyasi joriy etildi",
+    "Markaziy bank inflyatsion targetlashga o‘tdi: 2025–2026-yillarda asosiy stavka 14%, o‘rta muddatli maqsad – 5%",
+    "2019-yildan soliq islohoti: soliq yuki va soliqlar soni kamaytirildi; 2020-yildan MHT-2008 joriy etildi",
+    "Byudjet taqchilligi 2024-yildagi 3,3% dan 2025-yilda YaIMning 2,1% igacha qisqartirildi",
+    "Jahon savdo tashkilotiga a’zo bo‘lish bo‘yicha muzokaralar yakunlovchi bosqichga kirdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "Makroiqtisodiyot iqtisodiyotni yaxlit tizim sifatida o‘rganadi; asosiy ko‘rsatkichlari – YaIM, inflyatsiya, ishsizlik",
+    "Ildizi Kene jadvali va Leontyev balansiga borib taqaladi; fan Keynsning 1936-yilgi «Umumiy nazariya»si bilan shakllandi",
+    "Subyektlar – uy xo‘jaliklari, firmalar, davlat, tashqi dunyo; doiraviy aylanishda S + T + IM = I + G + X",
+    "Usullar – agregatlash va modellashtirish; ekzogenlar tashqaridan beriladi, endogenlar model ichida aniqlanadi",
+    "Siyosat shakllari – fiskal va monetar; qisqa muddatda narxlar qat’iy, uzoq muddatda egiluvchan"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,437 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Fiskal siyosat: mohiyati, maqsadi, vositalari",
+   "sub": "11.1. Byudjet-soliq siyosatining mohiyati, maqsadlari va vositalari",
+   "bullets": [
+    "Fiskal siyosat – davlat xarajatlari, soliqlar va transfertlarni o‘zgartirish orqali yalpi talabga ta’sir",
+    "Qisqa muddatda: retsessiyada ishlab chiqarishni qo‘llab-quvvatlash, qizib ketishda inflyatsiyani jilovlash",
+    "Uzoq muddatda: infratuzilma, inson kapitali, innovatsiyalar; adolatli taqsimot; qarzning xavfsiz darajasi",
+    "Vositalar: davlat xaridlari (G), soliqlar (T), transfertlar (TR) – «manfiy soliq»"
+   ],
+   "note": "«Fiskal» – lotincha fiscus, ya’ni «davlat g‘aznasi»"
+  },
+  {
+   "type": "compare",
+   "title": "Rag‘batlantiruvchi va cheklovchi siyosat",
+   "sub": "11.1. Byudjet-soliq siyosatining mohiyati, maqsadlari va vositalari",
+   "left": {
+    "head": "Rag‘batlantiruvchi (retsessiyada)",
+    "items": [
+     "G ↑, T ↓, TR ↑",
+     "AD o‘ngga siljiydi, ishlab chiqarish va bandlik oshadi",
+     "Byudjet taqchilligi oshadi"
+    ]
+   },
+   "right": {
+    "head": "Cheklovchi (qizib ketishda)",
+    "items": [
+     "G ↓, T ↑, TR ↓",
+     "AD chapga siljiydi, inflyatsiya pasayadi",
+     "Taqchillik kamayadi yoki profitsit paydo bo‘ladi"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Fiskal siyosat AD-AS modelida",
+   "sub": "11.1. Byudjet-soliq siyosatining mohiyati, maqsadlari va vositalari",
+   "img": "image78.png",
+   "caption": "11.1-rasm. Rag‘batlantiruvchi va cheklovchi fiskal siyosat AD-AS modelida"
+  },
+  {
+   "type": "formula",
+   "title": "Davlat xarajatlari va soliq multiplikatorlari",
+   "sub": "11.2. Fiskal multiplikatorlar",
+   "items": [
+    {
+     "name": "Muvozanatli daromad (qayd etilgan T)",
+     "formula": "Y = (1)/(1 − c)·(C_{a} − cT + I + G)",
+     "note": "yopiq iqtisodiyot"
+    },
+    {
+     "name": "Davlat xarajatlari multiplikatori",
+     "formula": "k_{G} = (1)/(1 − c) = (1)/(MPS)",
+     "note": "ΔY = k_{G}·ΔG; G birinchi raundda to‘liq hajmda AD ga qo‘shiladi"
+    },
+    {
+     "name": "Soliq multiplikatori",
+     "formula": "k_{T} = (−c)/(1 − c)",
+     "note": "manfiy; |k_{T}| = k_{G} − 1, chunki MPS ulushi jamg‘ariladi"
+    },
+    {
+     "name": "Transfert multiplikatori",
+     "formula": "k_{TR} = (c)/(1 − c)",
+     "note": "soliq multiplikatoriga teng, ishorasi ijobiy"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Balanslashgan byudjet va ochiq iqtisodiyot",
+   "sub": "11.2. Fiskal multiplikatorlar",
+   "items": [
+    {
+     "name": "Balanslashgan byudjet (ΔT = ΔG)",
+     "formula": "ΔY = (1)/(1 − c)ΔG + (−c)/(1 − c)ΔT = ΔG",
+     "note": "multiplikator 1 ga teng – Xaavelmo teoremasi (1945)"
+    },
+    {
+     "name": "Ochiq iqtisodiyot",
+     "formula": "k_{G} = (1)/(1 − c + m)",
+     "note": "import daromad oqimidan «chiqib ketish» – multiplikator kichikroq"
+    },
+    {
+     "name": "Proporsional soliqlar (T = tY)",
+     "formula": "k_{G} = (1)/(1 − c(1 − t) + m)",
+     "note": "m = 0 bo‘lsa k = 1/(1 − c(1 − t))"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Turli MPC da fiskal multiplikatorlar",
+   "sub": "11.2. Fiskal multiplikatorlar",
+   "img": "image79.png",
+   "caption": "11.2-rasm. Turli MPC qiymatlarida fiskal multiplikatorlar"
+  },
+  {
+   "type": "steps",
+   "title": "Misol: uzilishni yopishning uch varianti",
+   "sub": "11.2. Fiskal multiplikatorlar",
+   "steps": [
+    "MPC = 0,8: k_{G} = 1/0,2 = 5; k_{T} = −0,8/0,2 = −4; balanslashgan byudjet multiplikatori = 1",
+    "Uzilish 200 mlrd so‘m. 1) ΔG = 200/5 = 40 mlrd so‘m; taqchillik 40 ga oshadi",
+    "2) ΔT = 200/(−4) = −50 mlrd so‘m; taqchillik 50 ga oshadi",
+    "3) ΔG = ΔT = 200 mlrd so‘m; taqchillik o‘zgarmaydi, davlat sektori 200 ga kengayadi",
+    "Ochiq iqtisodiyot (m = 0,2; t = 0,25): k_{G} = 1/(1 − 0,8·0,75 + 0,2) = 1/0,6 ≈ 1,67",
+    "Endi ΔG = 200/1,67 ≈ 120 mlrd so‘m kerak – uch baravar ko‘p"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: yopiq iqtisodiyotda multiplikatorlar",
+   "sub": "11.2. Fiskal multiplikatorlar",
+   "steps": [
+    "C = 200 + 0,75(Y − T), I = 300, G = 400, T = 400: Y = (200 − 300 + 300 + 400)/0,25 = 2400",
+    "k_{G} = 1/0,25 = 4; k_{T} = −0,75/0,25 = −3; balanslashgan byudjet multiplikatori = 1",
+    "G ↑ 50: ΔY = 4·50 = 200, Y = 2600; byudjet qoldig‘i 400 − 450 = −50",
+    "T ↓ 50: ΔY = (−3)(−50) = 150; qoldiq 350 − 400 = −50",
+    "G va T ikkalasi 50 ga ↑: ΔY = 50; qoldiq o‘zgarmaydi (450 − 450 = 0)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Diskret fiskal siyosat",
+   "sub": "11.3. Diskret fiskal siyosat",
+   "bullets": [
+    "Diskret siyosat – hukumat va parlamentning maxsus qarorlari bilan G, T va TR ni ongli o‘zgartirish",
+    "Misol: retsessiyada infratuzilma loyihalari, inqirozga qarshi jamg‘arma, soliq imtiyozlari",
+    "Tsiklik muvozanatli byudjet: retsessiyada taqchillik, yuksalishda profitsit – tsikl davomida muvozanat",
+    "Funksional moliya (A. Lerner): byudjet muvozanati maqsad emas, maqsad – to‘liq bandlik va narxlar barqarorligi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Fiskal siyosatdagi vaqt laglari",
+   "sub": "11.3. Diskret fiskal siyosat",
+   "head": [
+    "Lag",
+    "Mazmuni",
+    "Turi"
+   ],
+   "rows": [
+    [
+     "Tan olish lagi",
+     "vaziyat o‘zgarganini aniqlash",
+     "ichki"
+    ],
+    [
+     "Qaror qabul qilish lagi",
+     "chora-tadbirlarni ishlab chiqish va qabul qilish",
+     "ichki"
+    ],
+    [
+     "Amalga oshirish lagi",
+     "loyihalash, tenderlar, qurilish",
+     "ichki"
+    ],
+    [
+     "Ta’sir lagi",
+     "multiplikator jarayoni",
+     "tashqi"
+    ]
+   ],
+   "note": "Fiskal siyosatda ichki lag uzoq, tashqi lag qisqa; monetar siyosatda aksincha"
+  },
+  {
+   "type": "figure",
+   "title": "Fiskal siyosatdagi laglar",
+   "sub": "11.3. Diskret fiskal siyosat",
+   "img": "image80.png",
+   "caption": "11.3-rasm. Fiskal siyosatdagi vaqt laglari"
+  },
+  {
+   "type": "bullets",
+   "title": "Avtomatik barqarorlashtiruvchilar",
+   "sub": "11.4. Nodiskret fiskal siyosat. Avtomatik barqarorlashtiruvchilar",
+   "bullets": [
+    "Nodiskret siyosat – maxsus qarorlarsiz, tsikka javoban byudjetning avtomatik o‘zgarishi; ichki laglar yo‘q",
+    "Progressiv soliqlar: retsessiyada tushum tezroq kamayadi, iste’mol qo‘llab-quvvatlanadi",
+    "Transfertlar: ishsizlik nafaqalari retsessiyada oshadi, yuksalishda kamayadi",
+    "Foyda solig‘i tsiklga sezgir; rivojlangan mamlakatlarda barqarorlashtiruvchilar shoklarning 30–40 foizini yumshatadi"
+   ],
+   "note": "Ular tebranishlarni yumshatadi, to‘liq bartaraf etmaydi"
+  },
+  {
+   "type": "figure",
+   "title": "Avtomatik barqarorlashtiruvchilar grafigi",
+   "sub": "11.4. Nodiskret fiskal siyosat. Avtomatik barqarorlashtiruvchilar",
+   "img": "image81.png",
+   "caption": "11.4-rasm. Avtomatik barqarorlashtiruvchilarning ishlashi: soliqlar daromad bilan birga o‘zgaradi"
+  },
+  {
+   "type": "formula",
+   "title": "Tarkibiy va tsiklik byudjet qoldig‘i",
+   "sub": "11.4. Nodiskret fiskal siyosat. Avtomatik barqarorlashtiruvchilar",
+   "items": [
+    {
+     "name": "Qoldiqning ajratilishi",
+     "formula": "Haqiqiy qoldiq = Tarkibiy qoldiq + Tsiklik qoldiq",
+     "note": "tarkibiy qoldiq – Y = Y^{*} (potensial YaIM) da hisoblanadi"
+    },
+    {
+     "name": "Tarkibiy qoldiq",
+     "formula": "BB^{str} = tY^{*} − G",
+     "note": "hukumatning diskret siyosatini aks ettiradi"
+    },
+    {
+     "name": "Soliq stavkasi va multiplikator",
+     "formula": "k = (1)/(1 − c(1 − t))",
+     "note": "t qancha yuqori bo‘lsa, k shuncha kichik, iqtisodiyot shoklarga kam sezgir"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: tarkibiy taqchillikni hisoblash",
+   "sub": "11.4. Nodiskret fiskal siyosat. Avtomatik barqarorlashtiruvchilar",
+   "steps": [
+    "G = 450 mlrd so‘m, T = 0,25Y; haqiqiy YaIM 1600, potensial YaIM 1800",
+    "Haqiqiy qoldiq: 0,25·1600 − 450 = 400 − 450 = −50 (taqchillik 50)",
+    "Tarkibiy qoldiq (Y^{*} da): 0,25·1800 − 450 = 450 − 450 = 0",
+    "Tsiklik qoldiq: −50 − 0 = −50",
+    "Butun taqchillik tsiklik; xarajatni qisqartirish retsessiyani chuqurlashtirardi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Taqchillikni moliyalashtirish usullari",
+   "sub": "11.5. Byudjet taqchilligini moliyalashtirish usullari",
+   "bullets": [
+    "1) Pul emissiyasi (monetlashtirish): pul bazasi ↑ va inflyatsiya; O‘zbekistonda MBning bevosita kreditlashi cheklangan",
+    "Oliver-Tanzi: soliqlar kechikib to‘lanadi, inflyatsiya real tushumni yemiradi – «taqchillik – inflyatsiya» qopqoni",
+    "2) Davlat obligatsiyalari (qarz): inflyatsiya yo‘q, lekin qarz ↑ va siqib chiqarish samarasi",
+    "3) Davlat aktivlarini sotish va zaxira fondlari – vaqtinchalik manba"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Oliver-Tanzi samarasi: hisob-kitob",
+   "sub": "11.5. Byudjet taqchilligini moliyalashtirish usullari",
+   "head": [
+    "Oylik inflyatsiya",
+    "Real yo‘qotish",
+    "Yo‘qotish, trln so‘m"
+   ],
+   "rows": [
+    [
+     "1% (yillik ≈ 12,7%)",
+     "1 − 1/1,01^{4} ≈ 3,9%",
+     "≈ 4,7"
+    ],
+    [
+     "10% (giperinflyatsiyaga yaqin)",
+     "1 − 1/1,1^{4} ≈ 31,7%",
+     "≈ 38"
+    ]
+   ],
+   "note": "Yillik nominal tushum 120 trln so‘m, o‘rtacha kechikish 4 oy; yechim – soliqlarni indeksatsiya qilish"
+  },
+  {
+   "type": "figure",
+   "title": "Qarz mablag‘lari bozori va siqib chiqarish",
+   "sub": "11.5. Byudjet taqchilligini moliyalashtirish usullari",
+   "img": "image83.png",
+   "caption": "11.6-rasm. Qarz mablag‘lari bozori: byudjet taqchilligining xususiy investitsiyalarni siqib chiqarishi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: siqib chiqarish samarasi",
+   "sub": "11.5. Byudjet taqchilligini moliyalashtirish usullari",
+   "steps": [
+    "S = 300 + 20r, I = 500 − 30r; S = I: 300 + 20r = 500 − 30r ⇒ r = 4%, I = 380",
+    "Jamg‘arma 50 ga kamaydi: S = 250 + 20r",
+    "250 + 20r = 500 − 30r ⇒ 50r = 250 ⇒ r = 5%, I = 500 − 150 = 350",
+    "Siqib chiqarish: investitsiyalar 380 dan 350 ga tushdi, ya’ni 30 ga qisqardi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Ichki va tashqi qarz",
+   "sub": "11.6. Davlat qarzi va uning iqtisodiy oqibatlari",
+   "left": {
+    "head": "Ichki qarz",
+    "items": [
+     "Rezidentlar oldidagi qarz, odatda milliy valyutada",
+     "Foiz to‘lovlari mamlakat ichida qoladi",
+     "Soliq to‘lovchilardan obligatsiya egalariga qayta taqsimlash"
+    ]
+   },
+   "right": {
+    "head": "Tashqi qarz",
+    "items": [
+     "Nerezidentlar oldidagi qarz",
+     "To‘lash uchun eksport orqali valyuta topish kerak",
+     "Valyutada bo‘lsa, qadrsizlanish yukni keskin oshiradi"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Davlat qarzi o‘sishining oqibatlari",
+   "sub": "11.6. Davlat qarzi va uning iqtisodiy oqibatlari",
+   "bullets": [
+    "Kapital zaxirasi kamayadi: jamg‘arma ↓, investitsiya ↓, kelajakda ish haqi past, yuk avlodlarga",
+    "Daromadlar tengsizligi ortadi va rag‘batlar zaiflashadi (yuqori soliqlar)",
+    "Foiz stavkasi ko‘tariladi: risk mukofoti kreditni qimmatlashtiradi; ishlab chiqarish salohiyati pasayadi",
+    "Moliyaviy inqiroz xavfi: Gretsiya 2010–2012, Argentina 2001, Shri-Lanka 2022"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Rikardo ekvivalentligi",
+   "sub": "11.6. Davlat qarzi va uning iqtisodiy oqibatlari",
+   "bullets": [
+    "Rikardo; zamonaviy shakli – R. Barro (1974)",
+    "Soliq kamaytirilsa, oqilona iste’molchilar kelajakdagi soliqlar uchun jamg‘aradi",
+    "Xususiy jamg‘arma davlat jamg‘armasi kamayishiga teng oshadi: milliy jamg‘arma, foiz va investitsiya o‘zgarmaydi",
+    "Tanqid: qisqa muddatli fikrlash, likvidlik cheklovlari, avlodlar o‘rtasida befarqlik",
+    "Mankyu: empirik ma’lumotlar aralash, nazariya to‘liq amal qilmaydi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Qarz barqarorligi",
+   "sub": "11.6. Davlat qarzi va uning iqtisodiy oqibatlari",
+   "items": [
+    {
+     "name": "Qarz nisbati dinamikasi",
+     "formula": "Δd = (r − g)·d − s",
+     "note": "d – qarz/YaIM, s – birlamchi profitsit, r – real foiz, g – real o‘sish"
+    },
+    {
+     "name": "Barqarorlashtiruvchi profitsit",
+     "formula": "s = (r − g)·d",
+     "note": "r > g bo‘lsa birlamchi profitsit kerak; aks holda qarz «qor ko‘chkisi» kabi o‘sadi"
+    },
+    {
+     "name": "g > r holati",
+     "formula": "r − g < 0",
+     "note": "doimiy birlamchi taqchilikda ham qarz nisbati cheklangan darajada barqarorlashadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: qarzni barqarorlashtirish",
+   "sub": "11.6. Davlat qarzi va uning iqtisodiy oqibatlari",
+   "steps": [
+    "d = 50%, r = 5%, g = 2%: s = (0,05 − 0,02)·0,5 = 0,015, ya’ni YaIMning 1,5%",
+    "Birlamchi taqchilik 2% (s = −2%): Δd = 0,03d + 0,02 – har yil hisoblanadi",
+    "1-yil: 0,5 + 0,03·0,5 + 0,02 = 53,5%; shu tartibda 10 yilda d ≈ 90,1%",
+    "O‘sish g = 5% bo‘lsa: r − g = 0, Δd = 0,02 har yili",
+    "10 yildan keyin d = 50% + 10·2% = 70%"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston fiskal siyosati islohotlari",
+   "sub": "11.7. O‘zbekiston Respublikasi fiskal siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "Shaffoflik: 2020-yildan byudjet qonun sifatida qabul qilinadi; «Ochiq byudjet» portali",
+    "Soliq islohoti (2019): yuk kamaytirildi, stavkalar unifikatsiya qilindi, 2020-yilda yangi Soliq kodeksi",
+    "Fiskal qoidalar: taqchillik YaIMning 3 foizidan oshmasligi; «Davlat qarzi to‘g‘risida»gi qonun (2023)",
+    "Energiya subsidiyalari islohoti va manzilli yordam; Tiklanish va taraqqiyot jamg‘armasi – «xavfsizlik yostig‘i»"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "O‘zbekiston fiskal siyosati ko‘rsatkichlari",
+   "sub": "11.7. O‘zbekiston Respublikasi fiskal siyosatining o‘ziga xos xususiyatlari",
+   "head": [
+    "Ko‘rsatkich",
+    "2024",
+    "2025",
+    "2026 (prognoz)"
+   ],
+   "rows": [
+    [
+     "Byudjet qoldig‘i, YaIMga %",
+     "–3,3",
+     "–2,1",
+     "–1,5"
+    ],
+    [
+     "Byudjet daromadlari, trln so‘m",
+     "–",
+     "502,6",
+     "–"
+    ],
+    [
+     "Byudjet xarajatlari, trln so‘m",
+     "–",
+     "541,7",
+     "–"
+    ],
+    [
+     "Davlat qarzi, YaIMga %",
+     "30,9",
+     "~31",
+     "–"
+    ],
+    [
+     "Real YaIM o‘sishi, %",
+     "6,5",
+     "7,7",
+     "~6,8"
+    ]
+   ],
+   "note": "Manba: Iqtisodiyot va moliya vazirligi, XVF 2026-yil IV modda konsultatsiyasi (11.1-jadval)"
+  },
+  {
+   "type": "bullets",
+   "title": "Inqirozga qarshi fiskal choralar va XVF tavsiyalari",
+   "sub": "11.7. O‘zbekiston Respublikasi fiskal siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "2020-yilda Inqirozga qarshi kurashish jamg‘armasi (10 trln so‘m); soliq imtiyozlari va to‘lovlarni kechiktirish",
+    "Ijtimoiy himoyani kengaytirish, jamoat ishlari, infratuzilma investitsiyalari, tadbirkorlar kreditlari",
+    "XVF: 2026-yilda talab bosimini kuchaytirmaslik, fiskal «yostiqlar»ni tiklash, xarajatlarni cheklash",
+    "O‘rta muddatda: xarajatlarni mineral daromadlardan himoya qilish, imtiyozlarni qisqartirish, aksizlarni oshirish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosalar",
+   "bullets": [
+    "Fiskal siyosat G, T va TR orqali AD ga ta’sir qiladi: rag‘batlantiruvchi AD ni o‘ngga, cheklovchi chapga siljitadi",
+    "k_{G} = 1/(1 − c), k_{T} = −c/(1 − c), balanslashgan byudjet multiplikatori 1 (Xaavelmo)",
+    "Diskret siyosat uzoq ichki laglarga ega; avtomatik barqarorlashtiruvchilar laglarsiz ishlaydi; yo‘nalish tarkibiy taqchillik bilan baholanadi",
+    "Emissiya inflyatsiya va Oliver-Tanzi samarasiga, qarz olish siqib chiqarishga va qarz yukiga olib keladi",
+    "O‘zbekiston fiskal siyosati shaffoflik, soliq islohoti, fiskal qoidalar va taqchillikni qisqartirishga yo‘naltirilgan"
+   ]
+  }
+ ]
+}
