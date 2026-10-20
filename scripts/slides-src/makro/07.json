@@ -1,0 +1,452 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Iste’mol – yalpi talabning eng katta komponenti",
+   "sub": "7.1. Yalpi talab tarkibida iste’molning o‘rni",
+   "bullets": [
+    "Ko‘pchilik mamlakatlarda iste’mol YaIMning 55–70 foizini tashkil etadi",
+    "Iste’mol xarajatlaridagi kichik o‘zgarish ham iqtisodiyotga sezilarli ta’sir qiladi",
+    "Qisqa muddatda iste’mol yalpi talabni va multiplikator samarasini belgilaydi",
+    "Uzoq muddatda iste’mol va jamg‘arish tanlovi o‘sish sur’atini belgilaydi"
+   ],
+   "note": "Uy xo‘jaligi tanlovi: bugun qancha iste’mol qilish va kelajak uchun qancha jamg‘arish"
+  },
+  {
+   "type": "bullets",
+   "title": "Iste’mol va jamg‘armaga ta’sir etuvchi omillar",
+   "sub": "7.1. Yalpi talab tarkibida iste’molning o‘rni",
+   "bullets": [
+    "Daromad darajasi (eng muhim omil), boylik va foiz stavkasi",
+    "Kutishlar: kelajakdagi daromad, narxlar, ish o‘rni barqarorligi",
+    "Iste’mol krediti, qarzdorlik darajasi, soliqlar va transfertlar",
+    "Demografik omillar: aholining yosh tarkibi va oila hajmi",
+    "Madaniy va institutsional omillar: tejamkorlik an’analari, pensiya tizimi"
+   ],
+   "note": "Daromadning iste’mol qilinmagan qismi jamg‘arma hisoblanadi: Y_{d} = C + S"
+  },
+  {
+   "type": "bullets",
+   "title": "«Asosiy psixologik qonun» va Keynsning uch farazi",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "bullets": [
+    "Odamlar daromadi oshgan sari iste’molni oshiradi, ammo daromad o‘sishi miqdorida emas",
+    "1) MPC 0 dan katta, 1 dan kichik; qolgan qismi jamg‘ariladi",
+    "2) APC daromad oshishi bilan kamayadi: Keyns jamg‘arishni «hashamat» deb hisoblagan",
+    "3) Iste’molning asosiy belgilovchisi – daromad, foiz stavkasining ta’siri ahamiyatsiz",
+    "Klassiklar esa foiz stavkasini jamg‘arishning asosiy omili deb bilgan"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Iste’mol va jamg‘arish funksiyalari",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "items": [
+    {
+     "name": "Iste’mol funksiyasi",
+     "formula": "C = C_{a}+c·Y_{d}",
+     "note": "C_{a} – avtonom iste’mol, c – MPC (0 < c < 1), cY_{d} – induksiyalangan iste’mol"
+    },
+    {
+     "name": "Jamg‘arish funksiyasi",
+     "formula": "S = Y_{d}−C = −C_{a}+(1−c)Y_{d}",
+     "note": "grafikda −C_{a} nuqtada o‘qni kesadi, qiyaligi (1−c)"
+    },
+    {
+     "name": "«Kritik» (nol jamg‘arish) nuqtasi",
+     "formula": "C = Y ⇒ S = 0",
+     "note": "undan chapda jamg‘arma manfiy, o‘ngda musbat"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Keynscha iste’mol va jamg‘arish funksiyalari",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "img": "image47.png",
+   "caption": "7.1-rasm. Keynscha iste’mol funksiyasi (yuqori) va jamg‘arish funksiyasi (quyi)"
+  },
+  {
+   "type": "formula",
+   "title": "Moyilliklar va jamg‘arma manbalari",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "items": [
+    {
+     "name": "O‘rtacha moyillik",
+     "formula": "APC = (C)/(Y_{d}),  APS = (S)/(Y_{d}),  APC+APS = 1",
+     "note": "iste’mol va jamg‘armaning daromaddagi ulushi"
+    },
+    {
+     "name": "Chegaraviy moyillik",
+     "formula": "MPC = (ΔC)/(ΔY_{d}),  MPS = (ΔS)/(ΔY_{d}),  MPC+MPS = 1",
+     "note": "daromadning har bir qo‘shimcha birligidan ulush"
+    },
+    {
+     "name": "Chiziqli funksiyada APC",
+     "formula": "APC = (C_{a})/(Y_{d})+c",
+     "note": "daromad oshgan sari APC asta-sekin MPC ga yaqinlashadi"
+    },
+    {
+     "name": "Jamg‘armalarning uch manbai",
+     "formula": "I = S_{p}+S_{g}+S_{f}",
+     "note": "S_{p} = Y−T−C,  S_{g} = T−G,  S_{f} = IM−X"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1: C = 150+0,8Y_{d} (mlrd so‘m)",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "steps": [
+    "a) Jamg‘arish funksiyasi: S = −150+0,2Y_{d}",
+    "b) Y_{d} = 500: C = 550, S = −50, APC = 1,1, APS = −0,1",
+    "Y_{d} = 750: C = 750, S = 0, APC = 1, APS = 0",
+    "Y_{d} = 1000: C = 950, S = 50, APC = 0,95, APS = 0,05",
+    "c) «Kritik» nuqta: 150+0,8Y = Y ⇒ Y = 750",
+    "d) ΔY_{d} = 100 ⇒ ΔC = 0,8·100 = 80, ΔS = 0,2·100 = 20"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 2: MPC va iste’mol funksiyasini topish",
+   "sub": "7.2. Keynsning iste’mol funksiyasi",
+   "steps": [
+    "Berilgan: Y_{d} 600 dan 700 ga, C 520 dan 595 ga oshdi",
+    "MPC = (595−520)/(700−600) = 0,75;  MPS = 1−0,75 = 0,25",
+    "Y_{d} = 600: APC = 520/600 ≈ 0,867;  S = 80;  APS ≈ 0,133",
+    "Y_{d} = 700: APC = 595/700 = 0,85;  S = 105;  APS = 0,15",
+    "Avtonom iste’mol: 520 = C_{a}+0,75·600 ⇒ C_{a} = 70",
+    "Iste’mol funksiyasi: C = 70+0,75Y_{d}"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "«Kuznets jumbog‘i»: Keyns farazining empirik tekshiruvi",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "bullets": [
+    "Kesim ma’lumotlari va qisqa muddatli vaqt qatorlari Keynsni tasdiqladi",
+    "Kuznets (AQSH, 1869–1938): iste’molning daromadga nisbati deyarli o‘zgarmadi (0,84–0,89)",
+    "Demak, uzoq muddatda APC kamaymaydi; «sekulyar stagnatsiya» bashorati amalga oshmadi",
+    "Qisqa va uzoq muddatli funksiyalarning nomuvofiqligi – «Kuznets jumbog‘i»",
+    "Yechimlar I. Fisherning vaqtlararo tanlov modeliga asoslanadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Qisqa va uzoq muddatli iste’mol funksiyalari",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "img": "image49.png",
+   "caption": "7.3-rasm. «Kuznets jumbog‘i»: qisqa va uzoq muddatli iste’mol funksiyalari"
+  },
+  {
+   "type": "formula",
+   "title": "Modilyanining hayot tsikli gipotezasi",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "items": [
+    {
+     "name": "Umr bo‘yi iste’molni tekislash",
+     "formula": "C = (W+RY)/(T) = (1)/(T)W+(R)/(T)Y = αW+βY",
+     "note": "T – umr, R – ishlash yillari, W – boylik, Y – yillik daromad"
+    },
+    {
+     "name": "O‘rtacha moyillik",
+     "formula": "APC = α(W)/(Y)+β",
+     "note": "iste’mol boylikka ham, daromadga ham bog‘liq"
+    },
+    {
+     "name": "Jumboq yechimi",
+     "formula": "qisqa muddat: W/Y ↓ ⇒ APC ↓;  uzoq muddat: W/Y = const",
+     "note": "uzoq muddatda boylik daromad bilan o‘sadi, APC barqaror"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 3: hayot tsikli modeli",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "steps": [
+    "Berilgan: T = 55 yil (25 dan 80 gacha), R = 40 yil, Y = 60 mln, W = 150 mln",
+    "a) C = (150+40·60)/55 = 2550/55 ≈ 46,36 mln so‘m",
+    "b) Yillik jamg‘arma: 60−46,36 ≈ 13,64 mln so‘m",
+    "c) Pensiyadagi boylik: 150+40·13,64 ≈ 695,5 mln so‘m",
+    "d) C = (1/55)W+(40/55)Y ≈ 0,018W+0,727Y"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Fridmenning permanent daromad gipotezasi",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "items": [
+    {
+     "name": "Daromad tarkibi",
+     "formula": "Y = Y^{P}+Y^{T}",
+     "note": "Y^{P} – permanent, Y^{T} – tranzitor (vaqtinchalik) daromad"
+    },
+    {
+     "name": "Iste’mol funksiyasi",
+     "formula": "C = αY^{P}",
+     "note": "vaqtinchalik daromadning katta qismi jamg‘ariladi"
+    },
+    {
+     "name": "O‘rtacha moyillik",
+     "formula": "APC = (αY^{P})/(Y)",
+     "note": "uzoq muddatda chetlanishlar o‘rtachalashadi, APC barqaror"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 4: Fridmen modeli C = 0,9Y^{P}",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "steps": [
+    "Y^{P} – o‘tgan uch yil daromadlari o‘rtachasi: 100, 110, 120, 150 (2026)",
+    "2025: Y^{P} = (100+110+120)/3 = 110;  C = 99;  APC = 99/120 = 0,825",
+    "2026: Y^{P} = (110+120+150)/3 ≈ 126,7;  C ≈ 114;  APC = 114/150 = 0,76",
+    "Keyns (C = 0,9Y): 2025 – C = 108, 2026 – C = 135; APC = 0,9",
+    "Fridmen: kutilmagan daromad o‘sishining ko‘p qismi jamg‘ariladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Iste’mol nazariyalarining qiyosiy tavsifi",
+   "sub": "7.3. «Kuznets jumbog‘i». Iste’molning zamonaviy nazariyalari",
+   "head": [
+    "Belgi",
+    "Keyns",
+    "Modilyani",
+    "Fridmen"
+   ],
+   "rows": [
+    [
+     "Asosiy omil",
+     "Joriy daromad",
+     "Boylik + kelajak daromad",
+     "Permanent daromad"
+    ],
+    [
+     "Iste’molchi xulqi",
+     "Psixologik qonun",
+     "Umr bo‘yi tekislaydi",
+     "Tebranishlardan tekislaydi"
+    ],
+    [
+     "APC",
+     "Daromad bilan kamayadi",
+     "Uzoq muddatda barqaror",
+     "Y/Y^{P} nisbatiga bog‘liq"
+    ],
+    [
+     "Vaqtincha soliq kamayishi",
+     "Kuchli ta’sir",
+     "Zaif ta’sir",
+     "Juda zaif ta’sir"
+    ],
+    [
+     "Siyosat uchun xulosa",
+     "Fiskal siyosat kuchli",
+     "Pensiya tizimi, demografiya",
+     "Faqat doimiy o‘zgarish"
+    ]
+   ],
+   "note": "7.1-jadval. Iste’mol nazariyalarini solishtirish"
+  },
+  {
+   "type": "table",
+   "title": "O‘zbekistonda iste’mol va jamg‘arish xususiyatlari",
+   "sub": "7.4. O‘zbekistonda iste’mol va jamg‘arish jarayonlari",
+   "head": [
+    "Xususiyat",
+    "Mazmuni"
+   ],
+   "rows": [
+    [
+     "Yosh demografik tarkib",
+     "Qariyb yarmi 30 yoshgacha; iste’mol va qarz ko‘p"
+    ],
+    [
+     "Pul o‘tkazmalari",
+     "Iste’mol, uy-joy, to‘y; investitsiya ulushi kichik"
+    ],
+    [
+     "Marosimlar xarajatlari",
+     "To‘y, ma’raka: oila byudjetining katta qismi"
+    ],
+    [
+     "Iste’mol kreditlari",
+     "Kredit, avtokredit, BNPL o‘sdi; qarz yuki xavfi"
+    ],
+    [
+     "Engel qonuni",
+     "INI savatida oziq-ovqat ulushi taxminan 40–45%"
+    ]
+   ],
+   "note": "Markaziy bank qarz yuki bo‘yicha makroprudensial cheklovlar joriy etdi"
+  },
+  {
+   "type": "compare",
+   "title": "Jamg‘arish shakllari: an’ana va yangi tendensiya",
+   "sub": "7.4. O‘zbekistonda iste’mol va jamg‘arish jarayonlari",
+   "left": {
+    "head": "An’anaviy shakllar",
+    "items": [
+     "Ko‘chmas mulk, chorva mollari, oltin, xorijiy valyuta",
+     "Sabab: bank tizimiga ishonchning pastligi",
+     "Sabab: inflyatsiya"
+    ]
+   },
+   "right": {
+    "head": "So‘nggi yillar",
+    "items": [
+     "Yuqori real foiz stavkalari",
+     "Depozitlarni kafolatlash tizimi",
+     "2026-yil may: so‘mdagi muddatli depozitlar 122 trln so‘m"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Investitsiyalar va ularning turlari",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "bullets": [
+    "Investitsiya – kelajakda daromad olish uchun real kapitalni ko‘paytirishga xarajat",
+    "YaIMda ulushi 15–35%, ammo eng beqaror komponent: retsessiyada qisqarishning katta qismi",
+    "Avtonom investitsiyalar milliy daromadga bog‘liq emas (texnologiya, siyosat, strategiya)",
+    "Induksiyalangan investitsiyalar daromad (talab) o‘zgarishiga bog‘liq – akselerator",
+    "Qoida: kutilayotgan sof foyda normasi > real foiz stavkasi bo‘lsa, loyiha amalga oshadi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: tomchilatib sug‘orish tizimi",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "steps": [
+    "Investitsiya 100 mln, yillik qo‘shimcha sof daromad 22 mln so‘m",
+    "Sof foyda normasi: 22/100 = 22%",
+    "Kredit stavkasi 24%, inflyatsiya 7% ⇒ real stavka 24−7 = 17%",
+    "22% > 17% – loyiha foydali",
+    "Imtiyozli kredit 14% bo‘lsa, real stavka 7% – ko‘proq fermer investitsiya qiladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Investitsiyalarga talab funksiyasi va Tobin koeffitsiyenti",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "items": [
+    {
+     "name": "Investitsiyalarga talab",
+     "formula": "I = e−d·r",
+     "note": "e – avtonom investitsiyalar, d – foiz stavkasiga sezgirlik, r – real stavka"
+    },
+    {
+     "name": "Tobin koeffitsiyenti",
+     "formula": "q = (kapitalning bozor qiymati)/(kapitalni almashtirish qiymati)",
+     "note": "aksiyalar bozori qiymati / qayta qurish qiymati"
+    },
+    {
+     "name": "q > 1 va q < 1",
+     "formula": "q > 1 ⇒ investitsiya ↑;  q < 1 ⇒ investitsiya ↓",
+     "note": "q < 1 da mavjud firmani sotib olish arzonroq"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Investitsiyalarga talab egri chizig‘i",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "img": "image51.png",
+   "caption": "7.5-rasm. Investitsiyalarga talab egri chizig‘i va uning siljishi"
+  },
+  {
+   "type": "formula",
+   "title": "Akselerator va to‘liq investitsiya funksiyasi",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "items": [
+    {
+     "name": "Kapital zaxirasi",
+     "formula": "K_{t} = v·Y_{t}",
+     "note": "v – kapital sig‘imi koeffitsiyenti (akselerator)"
+    },
+    {
+     "name": "Akselerator modeli",
+     "formula": "I_{t} = K_{t}−K_{t−1} = v·ΔY_{t}",
+     "note": "talab o‘sishi sekinlashsa, investitsiyalar qisqaradi"
+    },
+    {
+     "name": "To‘liq investitsiya funksiyasi",
+     "formula": "I = I_{a}−d·r+v·ΔY",
+     "note": "avtonom, foizga bog‘liq va akselerator qismlari"
+    },
+    {
+     "name": "Keynscha variant",
+     "formula": "I = I_{a}−d·r+i_{Y}·Y",
+     "note": "i_{Y} = MPI = (ΔI)/(ΔY) – investitsiyalashga chegaraviy moyillik"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Akselerator samarasi",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "img": "image53.png",
+   "caption": "7.7-rasm. Akselerator samarasi: talab o‘sishining sekinlashuvi investitsiyalarni qisqartiradi"
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 5–6: investitsiya talabi va Tobin q",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "steps": [
+    "5-masala: I = 400−20r; r = 5, 8, 12 ⇒ I = 300, 240, 160 mlrd",
+    "Stavka 2 punktga oshsa: ΔI = −20·2 = −40 mlrd so‘m",
+    "Avtonom investitsiya +60 ⇒ yangi funksiya I = 460−20r",
+    "6-masala: q = 450/360 = 1,25 > 1 ⇒ firma investitsiyani oshiradi",
+    "Aksiyalar 30% arzonlashsa: 450·0,7 = 315, q = 315/360 = 0,875 < 1",
+    "q < 1: investitsiyalar kamayadi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 7: akselerator, v = 3",
+   "sub": "7.5. Investitsiyalar va investitsiya funksiyasi",
+   "steps": [
+    "Ishlab chiqarish: 500, 520, 550, 570, 580, 580, 575;  I = 3·ΔY",
+    "2-yil: ΔY = 20, I = 60;  3-yil: ΔY = 30, I = 90",
+    "4-yil: ΔY = 20, I = 60;  5-yil: ΔY = 10, I = 30",
+    "6-yil: ΔY = 0, I = 0;  7-yil: ΔY = −5, I = −15",
+    "4-yildan investitsiyalar qisqaradi, garchi ishlab chiqarish hali o‘sayotgan bo‘lsa ham",
+    "Sabab: talab o‘sish sur’atining sekinlashuvi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekistonda investitsiya faolligi va siyosati",
+   "sub": "7.6. O‘zbekiston investitsiya siyosatining o‘ziga xos xususiyatlari",
+   "bullets": [
+    "2025: asosiy kapitalga investitsiyalar 591 trln so‘m (48,7 mlrd dollar), +10,5%; YaIMning ≈32%",
+    "Moliyalashtirishda xorijiy investitsiya va kreditlar ustun; byudjet ulushi atigi 4,7%",
+    "Yo‘nalishlar: investitsiya muhiti, valyuta konvertatsiyasi, maxsus iqtisodiy zonalar, DXSh",
+    "Xususiylashtirish va IPO, «yashil» investitsiyalar (qayta tiklanadigan energetika)",
+    "ICOR ≈ 32%/7,7% ≈ 4,2 (Xitoyda 5–7, Sharqiy Osiyo «yo‘lbarslari»da ≈3)"
+   ],
+   "note": "Asosiy vazifa – investitsiyalar samaradorligini oshirish"
+  },
+  {
+   "type": "figure",
+   "title": "Investitsiyalarni moliyalashtirish manbalari",
+   "sub": "7.6. O‘zbekiston investitsiya siyosatining o‘ziga xos xususiyatlari",
+   "img": "image54.png",
+   "caption": "7.8-rasm. O‘zbekistonda asosiy kapitalga investitsiyalarning moliyalashtirish manbalari bo‘yicha tarkibi, 2025-yil (foizda)"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Iste’mol – yalpi talabning eng katta qismi: Y_{d} = C+S; Keyns funksiyasi C = C_{a}+cY_{d}, APC daromad bilan kamayadi",
+    "«Kuznets jumbog‘i»ni Modilyani (hayot tsikli) va Fridmen (permanent daromad) izohlaydi",
+    "Investitsiyalar – eng beqaror komponent: foiz stavkasi va kutilayotgan sof foyda normasi taqqoslanadi, I = e−dr",
+    "Tobin q > 1 bo‘lsa investitsiyalar rag‘batlanadi; akselerator: I = v·ΔY",
+    "O‘zbekistonda investitsiyalar YaIMning ≈ 1/3 qismi, xorijiy manbalar ustun; samaradorlik muhim"
+   ]
+  }
+ ]
+}

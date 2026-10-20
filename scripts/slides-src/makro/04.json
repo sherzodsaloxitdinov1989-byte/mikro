@@ -1,0 +1,474 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Ishsizlik va aholining mehnat bozoridagi holati",
+   "sub": "4.1. Ishsizlik tushunchasi va uni o‘lchash",
+   "bullets": [
+    "Ishsizlik – resurslarning isrof bo‘lishi: yo‘qotilgan mahsulot qayta tiklanmaydi",
+    "Mehnatga layoqatli yoshdagi aholi: O‘zbekistonda 16 yoshdan pensiya yoshigacha",
+    "Iqtisodiy faol aholi (ishchi kuchi) band aholi va ishsizlardan iborat",
+    "Ishsiz (XMT): ishi yo‘q, so‘nggi 4 hafta faol ish qidirgan, 2 hafta ichida ishga tayyor",
+    "Nofaol: talabalar, uy bekalari, nogironlar va umidini uzgan ishchilar"
+   ],
+   "note": "Band aholi: haftada kamida bir soat haq to‘lanadigan ish bilan band yoki vaqtincha ishda bo‘lmagan shaxslar"
+  },
+  {
+   "type": "figure",
+   "title": "Aholining mehnat bozoridagi tarkibi",
+   "sub": "4.1. Ishsizlik tushunchasi va uni o‘lchash",
+   "img": "image22.png",
+   "caption": "4.1-rasm. O‘zbekistonda aholining mehnat bozoridagi holati bo‘yicha tarkibi, 2025-yil III chorak (taxminiy)"
+  },
+  {
+   "type": "formula",
+   "title": "Asosiy ko‘rsatkichlar",
+   "sub": "4.1. Ishsizlik tushunchasi va uni o‘lchash",
+   "items": [
+    {
+     "name": "Ishchi kuchi",
+     "formula": "L = E + U",
+     "note": "L – ishchi kuchi, E – band aholi, U – ishsizlar soni"
+    },
+    {
+     "name": "Ishsizlik darajasi",
+     "formula": "u = (U)/(L) × 100% = (U)/(E + U) × 100%",
+     "note": "ishsizlarning ishchi kuchidagi ulushi"
+    },
+    {
+     "name": "Iqtisodiy faollik darajasi",
+     "formula": "Faollik = (L)/(Mehnatga layoqatli aholi) × 100%",
+     "note": "ishchi kuchining mehnatga layoqatli aholiga nisbati"
+    },
+    {
+     "name": "Bandlik darajasi",
+     "formula": "Bandlik = (E)/(Mehnatga layoqatli aholi) × 100%",
+     "note": "band aholining mehnatga layoqatli aholiga nisbati"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "O‘zbekiston ko‘rsatkichlarini hisoblash (2025-y. III chorak)",
+   "sub": "4.1. Ishsizlik tushunchasi va uni o‘lchash",
+   "steps": [
+    "Berilgan: layoqatli aholi 20,35 mln, iqtisodiy faol 15,57 mln, band 14,81 mln kishi",
+    "Ishsizlar: U = 15,57 − 14,81 = 0,76 mln kishi",
+    "Ishsizlik darajasi: u = 0,76 / 15,57 × 100% ≈ 4,9%",
+    "Faollik darajasi: 15,57 / 20,35 × 100% ≈ 76,5%; bandlik darajasi: 14,81 / 20,35 × 100% ≈ 72,8%",
+    "Nofaol aholi: 20,35 − 15,57 = 4,78 mln kishi",
+    "Xorijdagi 1,86 mln qaytsa: (0,76 + 1,86)/(15,57 + 1,86) ≈ 15% – migratsiya «xavfsizlik klapani»"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ishsizlikni o‘lchash muammolari",
+   "sub": "4.1. Ishsizlik tushunchasi va uni o‘lchash",
+   "bullets": [
+    "Umidini uzgan ishchilar ishchi kuchidan chiqadi: retsessiyada ishsizlik past ko‘rinadi",
+    "To‘liqsiz bandlik: to‘liq kun istaganlar «band» hisoblanadi",
+    "Norasmiy bandlik ba’zan ishsiz deb qayd etiladi va aksincha",
+    "«Yolg‘on» ish qidiruvchilar nafaqa uchun ish qidirgandek ko‘rinadi",
+    "XMT: ishsizlar, to‘liqsiz bandlar va potensial ishchi kuchini qamrovchi kompozit ko‘rsatkichlar"
+   ],
+   "note": "AQSHda ishsizlik BLS tomonidan oyiga ~60 ming uy xo‘jaligini qamrovchi so‘rov asosida hisoblanadi"
+  },
+  {
+   "type": "compare",
+   "title": "Pigu va Keyns: ishsizlik sababi",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "left": {
+    "head": "Neoklassik (A. Pigu)",
+    "items": [
+     "Bandlikni mehnat bozoridagi real ish haqi belgilaydi",
+     "Ishsizlik ixtiyoriy; sabab – ish haqining yuqoriligi",
+     "Yo‘l: ish haqini pasaytirish, bozorni erkinlashtirish"
+    ]
+   },
+   "right": {
+    "head": "Keynscha konsepsiya",
+    "items": [
+     "Bandlikni tovarlar bozoridagi samarali talab belgilaydi",
+     "Ishsizlik majburiy; sabab – yalpi talab yetishmasligi",
+     "Yo‘l: yalpi talabni rag‘batlantirish (fiskal siyosat)"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Mehnat bozorining neoklassik modeli",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "img": "image23.png",
+   "caption": "4.2-rasm. Mehnat bozorining neoklassik modeli: real ish haqining muvozanat darajasidan yuqoriligi ishsizlikni keltirib chiqaradi"
+  },
+  {
+   "type": "figure",
+   "title": "Keynscha yondashuv",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "img": "image24.png",
+   "caption": "4.3-rasm. Keynscha yondashuv: yalpi talabning qisqarishi natijasida majburiy ishsizlik"
+  },
+  {
+   "type": "table",
+   "title": "Neoklassik va keynscha konsepsiyalar (4.1-jadval)",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "head": [
+    "Belgi",
+    "Neoklassik (Pigu)",
+    "Keynscha"
+   ],
+   "rows": [
+    [
+     "Ish haqi egiluvchanligi",
+     "To‘liq egiluvchan",
+     "Nominal ish haqi pastga qat’iy"
+    ],
+    [
+     "Bandlikni nima belgilaydi",
+     "Real ish haqi",
+     "Samarali talab"
+    ],
+    [
+     "Ishsizlik xarakteri",
+     "Ixtiyoriy",
+     "Majburiy"
+    ],
+    [
+     "Ish haqini pasaytirish",
+     "Bandlikni oshiradi",
+     "Talabni qisqartiradi, vaziyatni yomonlashtiradi"
+    ],
+    [
+     "Davlat siyosati",
+     "Mehnat bozorini erkinlashtirish",
+     "Yalpi talabni rag‘batlantirish"
+    ],
+    [
+     "Vaqt gorizonti",
+     "Uzoq muddat",
+     "Qisqa muddat"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Mehnatga talab va bandlik multiplikatori",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "items": [
+    {
+     "name": "Firmaning mehnatga talabi",
+     "formula": "MPL = (W)/(P)",
+     "note": "foyda maksimali: chegaraviy mahsulot real ish haqiga teng"
+    },
+    {
+     "name": "Bandlik o‘sishi",
+     "formula": "ΔN = k_{N} × ΔN_{I}",
+     "note": "ΔN_{I} – investitsiya tarmoqlaridagi birlamchi bandlik o‘sishi"
+    },
+    {
+     "name": "Bandlik multiplikatori",
+     "formula": "k_{N} = (1)/(1 − MPC)",
+     "note": "MPC – iste’molga chegaraviy moyillik (R. Kan, 1931)"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: bandlik multiplikatori",
+   "sub": "4.2. Ishsizlikning neoklassik va keynscha konsepsiyalari",
+   "steps": [
+    "Viloyatda to‘qimachilik klasteri qurildi: 2000 ta ish o‘rni, MPC = 0,6",
+    "Multiplikator: k_{N} = 1 / (1 − 0,6) = 2,5",
+    "Jami bandlik o‘sishi: ΔN = 2,5 × 2000 = 5000 ish o‘rni",
+    "Qo‘shimcha ish o‘rinlari: 5000 − 2000 = 3000 (savdo, xizmat, transport)",
+    "Amalda multiplikator kichikroq: daromadning bir qismi soliq va importga ketadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ishsizlikning asosiy turlari",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "bullets": [
+    "Friksion: ish qidirish va moslashtirish vaqti bilan bog‘liq; muqarrar va qisman foydali",
+    "Tarkibiy: malaka, kasb, hudud bo‘yicha talab va taklif nomuvofiqligi; uzoqroq davom etadi",
+    "Tsiklik: tsiklning pasayish bosqichida yalpi talab qisqarishidan; keynscha majburiy ishsizlikka mos",
+    "Qo‘shimcha: mavsumiy, yashirin, institutsional, uzoq muddatli (1 yildan ortiq)",
+    "Friksion ishsizlik sababi – axborot nomukammalligi va tarmoqlararo siljishlar"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Ish haqi qat’iyligi va samarali ish haqi",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "bullets": [
+    "Eng kam ish haqi muvozanatdan yuqori bo‘lsa, yoshlar va kam malakalilar ishsizligi oshadi",
+    "Kasaba uyushmalari: insayderlar uchun yuqori ish haqi, autsayderlar uchun kam ish o‘rni",
+    "Samarali ish haqi: firma bozordan yuqori ish haqini ixtiyoriy to‘laydi – unumdorlik oshadi",
+    "Ford (1914): kunlik 5 dollar; qo‘nimsizlik 370% dan 16% ga, unumdorlik ~50% oshdi",
+    "Xulosa: ko‘p firma samarali ish haqi to‘lasa, tarkibiy ishsizlik paydo bo‘ladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Ishsizlik turlarining qiyosiy tavsifi (4.2-jadval)",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "head": [
+    "Turi",
+    "Asosiy sabab",
+    "Davomiyligi",
+    "Siyosat choralari"
+   ],
+   "rows": [
+    [
+     "Friksion",
+     "Ish qidirish, axborot yetishmasligi",
+     "Bir necha hafta – oy",
+     "Bo‘sh ish o‘rinlari bazalari, onlayn platformalar"
+    ],
+    [
+     "Tarkibiy",
+     "Malaka va talab nomuvofiqligi",
+     "Oylar – yillar",
+     "Qayta o‘qitish, hududiy mobillik"
+    ],
+    [
+     "Tsiklik",
+     "Yalpi talabning qisqarishi",
+     "Tsikl davomida",
+     "Fiskal va monetar rag‘batlantirish"
+    ],
+    [
+     "Mavsumiy",
+     "Ishlab chiqarish mavsumiyligi",
+     "Bir necha oy",
+     "Mavsumiy ish dasturlari, diversifikatsiya"
+    ],
+    [
+     "Yashirin",
+     "Samarasiz bandlik",
+     "Uzoq",
+     "Tarkibiy islohotlar, modernizatsiya"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Tabiiy ishsizlik va Mankyu modeli",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "items": [
+    {
+     "name": "Tabiiy ishsizlik darajasi",
+     "formula": "u^{∗} = u_{friksion} + u_{tarkibiy}",
+     "note": "potensial YaIM darajasidagi ishsizlik (Fridmen, Felps, 1968)"
+    },
+    {
+     "name": "Haqiqiy ishsizlik",
+     "formula": "u = u^{∗} + u_{tsiklik}",
+     "note": "to‘liq bandlik – tsiklik ishsizlik nolga teng"
+    },
+    {
+     "name": "Statsionar holat sharti",
+     "formula": "fU = sE = s(L − U)",
+     "note": "s – ishdan ajralish, f – ish topish darajasi"
+    },
+    {
+     "name": "Statsionar ishsizlik darajasi",
+     "formula": "(U)/(L) = (s)/(s + f)",
+     "note": "faqat s va f ga bog‘liq"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: statsionar ishsizlik darajasi",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "steps": [
+    "Berilgan: s = 0,01 (ishlash muddati 100 oy), f = 0,20 (ishsizlik davomiyligi 5 oy)",
+    "u^{∗} = 0,01 / (0,01 + 0,20) = 0,0476 ≈ 4,8%",
+    "f = 0,25 bo‘lsa: u^{∗} = 0,01 / 0,26 ≈ 3,8%",
+    "s = 0,015, f = 0,20 bo‘lsa: u^{∗} = 0,015 / 0,215 ≈ 7,0%",
+    "Xulosa: siyosat s ni kamaytirishi yoki f ni oshirishi kerak"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Statsionar ishsizlik darajasi",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "img": "image25.png",
+   "caption": "4.4-rasm. Statsionar (tabiiy) ishsizlik darajasining ish topish va ishdan ajralish darajalariga bog‘liqligi"
+  },
+  {
+   "type": "bullets",
+   "title": "Tabiiy darajaga ta’sir etuvchi omillar va Beveridj egri chizig‘i",
+   "sub": "4.3. Ishsizlik turlari va tabiiy ishsizlik darajasi",
+   "bullets": [
+    "Demografiya (yoshlar ulushi), saxiy ishsizlik nafaqalari, mehnat bozori institutlari",
+    "Tarkibiy siljishlar sur’ati va ish qidirish texnologiyalari (onlayn platformalar)",
+    "Histerezis: uzoq tsiklik ishsizlik tabiiy darajani oshirishi mumkin",
+    "Beveridj egri chizig‘i: ishsizlik va bo‘sh ish o‘rinlari o‘rtasida teskari bog‘liqlik",
+    "Egri chiziqning o‘ngga siljishi – moslashuv samaradorligi pasayib, tarkibiy ishsizlik oshgani"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Ouken qonuni",
+   "sub": "4.4. Potensial va haqiqiy YaIM. Ouken qonuni",
+   "items": [
+    {
+     "name": "«Uzilish» shakli",
+     "formula": "(Y − Y^{∗})/(Y^{∗}) = −β(u − u^{∗})",
+     "note": "β – Ouken koeffitsiyenti, empirik baho 2–3 oralig‘ida"
+    },
+    {
+     "name": "«O‘sish» shakli (Mankyu)",
+     "formula": "%ΔY = 3% − 2 × Δu",
+     "note": "ishsizlik o‘zgarmasa YaIM ~3% o‘sadi; Δu = +1 p.p. ⇒ −2%"
+    },
+    {
+     "name": "Nega β > 1?",
+     "formula": "ΔY > Δu",
+     "note": "ish vaqti qisqaradi, umidini uzganlar chiqib ketadi, mehnat zaxirada saqlanadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ouken qonuni",
+   "sub": "4.4. Potensial va haqiqiy YaIM. Ouken qonuni",
+   "img": "image27.png",
+   "caption": "4.6-rasm. Ouken qonuni: ishsizlik darajasining o‘zgarishi va real YaIM o‘sishi o‘rtasidagi bog‘liqlik"
+  },
+  {
+   "type": "steps",
+   "title": "Misol: Ouken qonuni bilan yo‘qotishlarni baholash",
+   "sub": "4.4. Potensial va haqiqiy YaIM. Ouken qonuni",
+   "steps": [
+    "Berilgan: u^{∗} = 5%, u = 8%, β = 2,5, haqiqiy YaIM 1500 trln so‘m",
+    "YaIM uzilishi: −2,5 × (8 − 5) = −7,5%",
+    "Potensial YaIM: Y^{∗} = 1500 / (1 − 0,075) = 1500 / 0,925 ≈ 1621,6 trln so‘m",
+    "Yo‘qotilgan mahsulot: 1621,6 − 1500 ≈ 121,6 trln so‘m",
+    "Mankyu: ishsizlik 5% dan 7% ga oshsa, %ΔY = 3% − 2 × 2 = −1% (retsessiya)",
+    "Ishsizlikni 1 p.p. kamaytirish uchun YaIM 3 + 2 × 1 = 5% o‘sishi kerak"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Ouken qonunining «o‘sish» shakli",
+   "sub": "4.4. Potensial va haqiqiy YaIM. Ouken qonuni",
+   "steps": [
+    "Formula: %ΔY = 3% − 2Δu. YaIM 1% o‘ssa: 1 = 3 − 2Δu ⇒ Δu = −1 p.p.",
+    "Ishsizlik 8% dan 6% ga 2 yilda: Δu = −1 p.p. yiliga",
+    "Kerakli o‘sish: %ΔY = 3% − 2 × (−1) = 5% har yili",
+    "2025-yil: YaIM 7,7%, normal o‘sish 5%, koeffitsiyent 2: 7,7 = 5 − 2Δu",
+    "Δu = −2,7 / 2 = −1,35 p.p. – ishsizlik shuncha kamayishi kerak edi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Iqtisodiy va ijtimoiy oqibatlar",
+   "sub": "4.5. Ishsizlikning ijtimoiy-iqtisodiy oqibatlari",
+   "bullets": [
+    "Yo‘qotilgan ishlab chiqarish: Ouken qonuni bu yo‘qotishlarni baholash imkonini beradi",
+    "Inson kapitalining yo‘qolishi: uzoq ishsizlar malakasini va mehnat odatlarini yo‘qotadi",
+    "Byudjetga yuk: soliq tushumi kamayadi, nafaqa va qayta o‘qitish xarajatlari oshadi",
+    "Tengsizlik ortadi: ishsizlik yoshlar va kam malakalilarga ko‘proq ta’sir qiladi",
+    "Ijtimoiy keskinlik: jinoyatchilik, oilaviy ajrimlar, ruhiy kasalliklar ko‘payadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Yoshlar ishsizligi va histerezis",
+   "sub": "4.5. Ishsizlikning ijtimoiy-iqtisodiy oqibatlari",
+   "bullets": [
+    "Yoshlar ishsizligi xavfli: «chandiq samarasi» (scarring effect) – uzoq past daromad",
+    "Histerezis: vaqtinchalik shokning uzoq muddatli ta’siri; retsessiya tabiiy darajani oshiradi",
+    "Mexanizm 1: uzoq ishsizlar malakasini yo‘qotadi va kam jozibador bo‘ladi",
+    "Mexanizm 2: ishsizlar ish qidirishga motivatsiyasini yo‘qotadi",
+    "Mexanizm 3: insayder-autsayder muammosi kuchayadi; misol – 1980-yillar Yevropasi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston mehnat bozorining xususiyatlari",
+   "sub": "4.6. O‘zbekistonda bandlik siyosatining xususiyatlari",
+   "bullets": [
+    "Demografik bosim: aholi yiliga ~2% o‘sadi, har yili 600–700 ming yosh kirib keladi",
+    "2025-yil: norasmiy band 4,38 mln (−26,9%), rasmiy band 8,58 mln (+17%)",
+    "Mehnat migratsiyasi: ~1,86 mln fuqaro xorijda, 2025-yilda pul o‘tkazmalari 18,9 mlrd dollar",
+    "Hududiy notekislik; qishloqda yashirin ishsizlik yuqori",
+    "Yoshlar ishsizligi umumiy darajadan 1,5–2 baravar yuqori; ayollar faolligi past"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Mehnat bozorining asosiy ko‘rsatkichlari (4.3-jadval)",
+   "sub": "4.6. O‘zbekistonda bandlik siyosatining xususiyatlari",
+   "head": [
+    "Yil",
+    "Ishsizlik, %",
+    "Faol aholi, mln",
+    "Band aholi, mln"
+   ],
+   "rows": [
+    [
+     "2019",
+     "9,0",
+     "14,9",
+     "13,5"
+    ],
+    [
+     "2021",
+     "9,6",
+     "14,8",
+     "13,4"
+    ],
+    [
+     "2023",
+     "6,8",
+     "15,2",
+     "14,2"
+    ],
+    [
+     "2025 (III chorak)",
+     "4,9",
+     "15,57",
+     "14,81"
+    ]
+   ],
+   "note": "Xorijda ishlayotganlar, mln: 2,0; 1,6; 1,4; 1,86. Pul o‘tkazmalari, mlrd dollar: 7,1; 8,1; 11,4; 18,9"
+  },
+  {
+   "type": "compare",
+   "title": "Passiv va faol bandlik siyosati",
+   "sub": "4.6. O‘zbekistonda bandlik siyosatining xususiyatlari",
+   "left": {
+    "head": "Passiv siyosat",
+    "items": [
+     "Ishsizlarning daromadini qo‘llab-quvvatlash",
+     "Nafaqalar, moddiy yordam, erta pensiya",
+     "Oqibatlarni yumshatadi, ishsizlikni kamaytirmaydi"
+    ]
+   },
+   "right": {
+    "head": "Faol siyosat",
+    "items": [
+     "Ishga joylashtirish va yangi ish o‘rinlari yaratish",
+     "Kasbga o‘qitish, imtiyozli kreditlar, ish beruvchilarga subsidiya",
+     "«Mahallabay» tizimi, «Ishga marhamat» markazlari, tashkiliy migratsiya"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "4.6. O‘zbekistonda bandlik siyosatining xususiyatlari",
+   "bullets": [
+    "Ishchi kuchi band va ishsizlardan iborat; ishsizlik darajasi u = U / L; XMT mezonlari bo‘yicha o‘lchanadi",
+    "Pigu: egiluvchan ish haqi to‘liq bandlik beradi; Keyns: nominal ish haqi qat’iy, ishsizlik – talab yetishmasligidan",
+    "Ishsizlik turlari – friksion, tarkibiy, tsiklik; u^{∗} = u_{friksion} + u_{tarkibiy}; Mankyu: u = s / (s + f)",
+    "Ouken qonuni: ishsizlikning 1 p.p. oshishi real YaIM o‘sishini ~2% kamaytiradi; uzoq ishsizlik histerezisga olib keladi",
+    "O‘zbekistonda demografik bosim, norasmiy bandlik va migratsiya mavjud; davlat faol bandlik siyosatini kuchaytirmoqda"
+   ]
+  }
+ ]
+}

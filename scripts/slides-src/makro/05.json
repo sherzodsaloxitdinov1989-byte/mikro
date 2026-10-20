@@ -1,0 +1,469 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Inflyatsiya tushunchasi",
+   "sub": "5.1. Inflyatsiya: mohiyati, o‘lchanishi va turlari",
+   "bullets": [
+    "Inflyatsiya – narxlar umumiy darajasining barqaror o‘sishi va pulning xarid qobiliyati pasayishi",
+    "«Umumiy» – bitta tovar qimmatlashishi emas; «barqaror» – bir martalik narx sakrashi emas",
+    "Deflyatsiya – narxlar umumiy darajasining pasayishi; dezinflyatsiya – inflyatsiya sur’atining pasayishi",
+    "O‘zbekiston: 2024-yilda 9,8%, 2025-yilda 7,3% – bu dezinflyatsiya, deflyatsiya emas",
+    "Pulning qiymati – 1/P: narxlar oshganda pulning qiymati pasayadi"
+   ],
+   "note": "O‘lchash: INI, YaIM deflyatori, ishlab chiqaruvchilar narxlari indeksi, bazaviy inflyatsiya"
+  },
+  {
+   "type": "formula",
+   "title": "Inflyatsiya sur’ati va «70 qoidasi»",
+   "sub": "5.1. Inflyatsiya: mohiyati, o‘lchanishi va turlari",
+   "items": [
+    {
+     "name": "Inflyatsiya sur’ati",
+     "formula": "π_{t} = (P_{t}−P_{t−1})/(P_{t−1}) · 100%",
+     "note": "narxlar indeksining ma’lum davrdagi nisbiy o‘zgarishi"
+    },
+    {
+     "name": "Pulning qiymati",
+     "formula": "(1)/(P)",
+     "note": "bir so‘mga sotib olinadigan tovarlar miqdori"
+    },
+    {
+     "name": "Narxlar ikki baravar oshishi muddati",
+     "formula": "T ≈ (70)/(π)",
+     "note": "7% da taxminan 10 yil, 14% da 5 yil"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Bir necha yillik inflyatsiyani hisoblash",
+   "sub": "5.1. Inflyatsiya: mohiyati, o‘lchanishi va turlari",
+   "steps": [
+    "Berilgan: 2023-yilda 8,8%, 2024-yilda 9,8%, 2025-yilda 7,3%",
+    "Jami o‘sish: 1,088 × 1,098 × 1,073 = 1,282 – narxlar 28,2% ga oshgan",
+    "Oddiy yig‘indi 25,9% noto‘g‘ri: yillik o‘sishlar ko‘paytiriladi",
+    "O‘rtacha yillik (geometrik): ∛(1,282) − 1 ≈ 8,6%",
+    "1 mln so‘mlik savat 2025-yil oxirida 1 mln 282 ming so‘m turadi",
+    "1 mln so‘mning xarid qobiliyati 1/1,282 ≈ 780 ming so‘mgacha kamaygan"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Inflyatsiyaning sur’atlariga ko‘ra turlari",
+   "sub": "5.1. Inflyatsiya: mohiyati, o‘lchanishi va turlari",
+   "head": [
+    "Turi",
+    "Yillik sur’ati",
+    "Tavsifi",
+    "Misol"
+   ],
+   "rows": [
+    [
+     "Mo‘’tadil (sudraluvchi)",
+     "10% gacha",
+     "Narxlar sekin o‘sadi, pulga ishonch saqlanadi",
+     "AQSH, O‘zbekiston (2025)"
+    ],
+    [
+     "Galoplashuvchi",
+     "10–100% (ba’zan 200%)",
+     "Pul tez qadrsizlanadi, valyutaga o‘tiladi",
+     "Turkiya (2022)"
+    ],
+    [
+     "Giperinflyatsiya",
+     "Oyiga 50% dan yuqori",
+     "Pul funksiyalarini yo‘qotadi, barter rivojlanadi",
+     "Germaniya (1923), Zimbabve (2008)"
+    ]
+   ],
+   "note": "Rivojlangan mamlakatlarda mo‘’tadil inflyatsiya – 2–3%"
+  },
+  {
+   "type": "figure",
+   "title": "O‘zbekistonda inflyatsiya va asosiy stavka",
+   "sub": "5.1. Inflyatsiya: mohiyati, o‘lchanishi va turlari",
+   "img": "image29.png",
+   "caption": "5.1-rasm. O‘zbekistonda inflyatsiya va Markaziy bank asosiy stavkasi dinamikasi, 2018–2025-yillar"
+  },
+  {
+   "type": "formula",
+   "title": "Almashinuv tenglamasi",
+   "sub": "5.2. Inflyatsiyaning sabablari. Pulning miqdoriy nazariyasi",
+   "items": [
+    {
+     "name": "Almashinuv tenglamasi (Fisher, 1911)",
+     "formula": "M · V = P · Y",
+     "note": "M – pul massasi, V – aylanish tezligi, P – narxlar darajasi, Y – real YaIM"
+    },
+    {
+     "name": "Aylanish tezligi (ayniyat)",
+     "formula": "V = (P·Y)/(M)",
+     "note": "nazariyaga aylanishi uchun V barqaror deb faraz qilinadi"
+    },
+    {
+     "name": "O‘sish sur’atlarida",
+     "formula": "(ΔM)/(M) + (ΔV)/(V) = (ΔP)/(P) + (ΔY)/(Y)",
+     "note": "V o‘zgarmas bo‘lsa, ΔV/V = 0"
+    },
+    {
+     "name": "Inflyatsiya sur’ati",
+     "formula": "π = (ΔM)/(M) − (ΔY)/(Y)",
+     "note": "Fridmen: «Inflyatsiya har doim va hamma joyda pul hodisasidir»"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Miqdoriy nazariya asosida inflyatsiyani baholash",
+   "sub": "5.2. Inflyatsiyaning sabablari. Pulning miqdoriy nazariyasi",
+   "steps": [
+    "Berilgan: ΔM/M = 22%, ΔY/Y = 6%, aylanish tezligi 2% ga pasaygan",
+    "π = ΔM/M + ΔV/V − ΔY/Y = 22% + (−2%) − 6% = 14%",
+    "V o‘zgarmaganda inflyatsiya 16% bo‘lar edi",
+    "V pasayishi – aholi so‘mdagi jamg‘armalarni ko‘paytirishi (remonetizatsiya)",
+    "Saboq: ishonch oshsa, Markaziy bank pulni tezroq oshirishi mumkin – inflyatsiyasiz"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Inflyatsiyaning asosiy sabablari",
+   "sub": "5.2. Inflyatsiyaning sabablari. Pulning miqdoriy nazariyasi",
+   "bullets": [
+    "Pul massasining tovar massasidan tez o‘sishi: byudjet taqchilligi uchun emissiya, kredit ekspansiyasi",
+    "Aylanish tezligining ortishi, ishlab chiqarish hajmining pasayishi (urush, ofat, tarkibiy inqiroz)",
+    "Monopolizm, davlat xarajatlari va byudjet taqchilligi",
+    "Import narxlari va milliy valyuta qadrsizlanishi (kurs o‘tkazuvchanligi, pass-through)",
+    "Ma’muriy narxlar (energiya tariflari) va inflyatsion kutishlar – o‘zini o‘zi amalga oshiradi"
+   ],
+   "note": "Uzoq muddatda mamlakatlar kesimida pul o‘sishi va inflyatsiya deyarli to‘g‘ri chiziqli bog‘liq"
+  },
+  {
+   "type": "formula",
+   "title": "Seynoraj va inflyatsion soliq",
+   "sub": "5.2. Inflyatsiyaning sabablari. Pulning miqdoriy nazariyasi",
+   "items": [
+    {
+     "name": "Seynoraj",
+     "formula": "Seynoraj = (ΔM)/(P) = (ΔM)/(M) · (M)/(P)",
+     "note": "pul chop etishdan davlat oladigan daromad"
+    },
+    {
+     "name": "Davlat xarajatlarini moliyalashtirish",
+     "formula": "soliq + qarz + pul emissiyasi",
+     "note": "uchinchi yo‘l inflyatsion soliq deb ataladi"
+    },
+    {
+     "name": "Inflyatsion soliqning xususiyati",
+     "formula": "regressiv",
+     "note": "kam ta’minlanganlar boyligini naqd pulda ko‘proq saqlaydi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Germaniyada giperinflyatsiya, 1922–1923",
+   "sub": "5.2. Inflyatsiyaning sabablari. Pulning miqdoriy nazariyasi",
+   "img": "image31.png",
+   "caption": "5.3-rasm. Germaniyada giperinflyatsiya: ulgurji narxlar indeksi, 1922–1923-yillar (logarifmik shkala)"
+  },
+  {
+   "type": "bullets",
+   "title": "Talab inflyatsiyasi",
+   "sub": "5.3. Talab inflyatsiyasi va xarajatlar inflyatsiyasi",
+   "bullets": [
+    "Yalpi talabning ishlab chiqarish imkoniyatlaridan tez o‘sishi: «juda ko‘p pul juda kam tovar ortidan quvadi»",
+    "Sabablar: pul massasi o‘sishi, davlat xarajatlari, soliqlar kamayishi, kayfiyat, eksport, pul o‘tkazmalari",
+    "AD o‘ngga siljiydi: real YaIM ham, narxlar darajasi ham oshadi",
+    "Kritik nuqtadan keyin talab o‘sishi deyarli to‘liq narxlarga o‘tadi",
+    "Kutishlar: adaptiv (π^{e}_{t} = π_{t−1}) va ratsional (Mut, Lukas)"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Talab inflyatsiyasi grafigi",
+   "sub": "5.3. Talab inflyatsiyasi va xarajatlar inflyatsiyasi",
+   "img": "image32.png",
+   "caption": "5.4-rasm. Talab inflyatsiyasi: yalpi talabning o‘sishi narxlar darajasini oshiradi"
+  },
+  {
+   "type": "compare",
+   "title": "Talab va xarajatlar inflyatsiyasi",
+   "sub": "5.3. Talab inflyatsiyasi va xarajatlar inflyatsiyasi",
+   "left": {
+    "head": "Talab inflyatsiyasi",
+    "items": [
+     "Turtki: AD o‘ngga siljiydi",
+     "Real YaIM va bandlik oshadi",
+     "Cheklovchi siyosat dilemma tug‘dirmaydi"
+    ]
+   },
+   "right": {
+    "head": "Xarajatlar inflyatsiyasi",
+    "items": [
+     "Turtki: AS chapga siljiydi",
+     "Real YaIM va bandlik kamayadi (stagflyatsiya)",
+     "Cheklash ishsizlikni oshiradi – dilemma bor"
+    ]
+   }
+  },
+  {
+   "type": "figure",
+   "title": "Xarajatlar inflyatsiyasi va stagflyatsiya",
+   "sub": "5.3. Talab inflyatsiyasi va xarajatlar inflyatsiyasi",
+   "img": "image33.png",
+   "caption": "5.5-rasm. Xarajatlar inflyatsiyasi: yalpi taklifning qisqarishi stagflyatsiyaga olib keladi"
+  },
+  {
+   "type": "bullets",
+   "title": "Inflyatsion spiral va bosib turilgan inflyatsiya",
+   "sub": "5.3. Talab inflyatsiyasi va xarajatlar inflyatsiyasi",
+   "bullets": [
+    "Spiral: AD o‘sadi, narxlar oshadi, ishchilar yuqori ish haqi talab qiladi, SRAS chapga siljiydi",
+    "Iqtisodiyot potensial darajaga qaytadi, narxlar tobora yuqoriroq bo‘ladi",
+    "Spiral pul-kredit siyosati talabni rag‘batlantirishni to‘xtatgandagina to‘xtaydi",
+    "Bosib turilgan inflyatsiya: narxlar qayd etilgan, bosim taqchillik, navbat, qora bozorda ko‘rinadi",
+    "Baho signallari buziladi; 1992-yilda liberallashtirishda ochiq giperinflyatsiyaga aylangan"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Kutilgan va kutilmagan inflyatsiya xarajatlari",
+   "sub": "5.4. Inflyatsiyaning ijtimoiy-iqtisodiy oqibatlari",
+   "left": {
+    "head": "Kutilgan inflyatsiya",
+    "items": [
+     "«Poyabzal eskirishi» va menyu xarajatlari",
+     "Nisbiy narxlar va soliq yukining buzilishi",
+     "Pul hisob birligi sifatida yaroqsizlanadi"
+    ]
+   },
+   "right": {
+    "head": "Kutilmagan inflyatsiya",
+    "items": [
+     "Boylik kreditordan qarzdorga o‘tadi",
+     "Qayd etilgan daromad oluvchilar yutqazadi",
+     "Pul boyligidan real aktivlar egalariga o‘tadi"
+    ]
+   }
+  },
+  {
+   "type": "table",
+   "title": "Kutilmagan inflyatsiyadan kim yutadi, kim yutqazadi?",
+   "sub": "5.4. Inflyatsiyaning ijtimoiy-iqtisodiy oqibatlari",
+   "head": [
+    "Yutqazuvchilar",
+    "Yutuvchilar"
+   ],
+   "rows": [
+    [
+     "Qayd etilgan foizli depozit egalari",
+     "Qayd etilgan foizli kredit olganlar"
+    ],
+    [
+     "Pensionerlar va stipendiya oluvchilar",
+     "Real aktivlar (ko‘chmas mulk, oltin) egalari"
+    ],
+    [
+     "Byudjet tashkilotlari xodimlari",
+     "Narxlarni tez o‘zgartira oladigan firmalar"
+    ],
+    [
+     "Naqd pul saqlovchilar",
+     "Davlat (qarzning real qiymati kamayadi)"
+    ],
+    [
+     "Uzoq muddatli shartnoma yetkazib beruvchilar",
+     "Xorijiy valyutadagi daromad egalari"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Fisher tenglamasi va Fisher samarasi",
+   "sub": "5.4. Inflyatsiyaning ijtimoiy-iqtisodiy oqibatlari",
+   "items": [
+    {
+     "name": "Fisher tenglamasi",
+     "formula": "i = r + π",
+     "note": "i – nominal, r – real foiz stavkasi"
+    },
+    {
+     "name": "Aniqroq ko‘rinishi",
+     "formula": "(1+i) = (1+r)(1+π)",
+     "note": "ko‘paytma ko‘rinishi"
+    },
+    {
+     "name": "Kutilgan inflyatsiya bilan",
+     "formula": "i = r + π^{e}",
+     "note": "haqiqiy π bo‘yicha real stavka – ex post, π^{e} bo‘yicha – ex ante"
+    },
+    {
+     "name": "Fisher samarasi",
+     "formula": "Δπ^{e} = 1 p.p. ⇒ Δi = 1 p.p.",
+     "note": "2025-yil: asosiy stavka 14%, inflyatsiya 7,3% – real stavka 6,7 p.p."
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Fillips egri chizig‘i: original va kutishlar bilan",
+   "sub": "5.5. Inflyatsiya va ishsizlik. Fillips egri chizig‘i",
+   "bullets": [
+    "1958: A.U. Fillips (Buyuk Britaniya, 1861–1957) ish haqi o‘sishi va ishsizlik o‘rtasida teskari bog‘liqlikni topdi",
+    "1960: Samuelson va Solou uni inflyatsiya va ishsizlik bog‘liqligi shaklida ifodaladi",
+    "1968: Fridmen va Felps bog‘liqlik faqat qisqa muddatli ekanini asosladi",
+    "Qisqa muddat: talabni rag‘batlantirish ishsizlikni pasaytiradi, inflyatsiyani oshiradi (A → B)",
+    "Uzoq muddatli egri chiziq (LRPC) tabiiy ishsizlik darajasida vertikal"
+   ],
+   "note": "1970-yillardagi stagflyatsiya Fridmen–Felps nazariyasini tasdiqladi"
+  },
+  {
+   "type": "formula",
+   "title": "Fillips egri chizig‘i va qurbonlik koeffitsiyenti",
+   "sub": "5.5. Inflyatsiya va ishsizlik. Fillips egri chizig‘i",
+   "items": [
+    {
+     "name": "Zamonaviy (Mankyu) shakli",
+     "formula": "π = π^{e} − β(u−u_{n}) + ν",
+     "note": "u_{n} – tabiiy ishsizlik, β – sezgirlik, ν – taklif shoklari"
+    },
+    {
+     "name": "Inflyatsiyaning uch manbai",
+     "formula": "π^{e};  −β(u−u_{n});  ν",
+     "note": "inersiya, tsiklik ishsizlik (talab), taklif shoklari (xarajatlar)"
+    },
+    {
+     "name": "Qurbonlik koeffitsiyenti",
+     "formula": "(YaIM yo‘qotilishi, %)/(inflyatsiya pasayishi, p.p.)",
+     "note": "Volker: 19/6,7 ≈ 2,8; an’anaviy baho ≈ 5"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Qisqa va uzoq muddatli Fillips egri chiziqlari",
+   "sub": "5.5. Inflyatsiya va ishsizlik. Fillips egri chizig‘i",
+   "img": "image37.png",
+   "caption": "5.9-rasm. Qisqa va uzoq muddatli Fillips egri chiziqlari"
+  },
+  {
+   "type": "bullets",
+   "title": "Aksilinflyatsiya siyosatining vositalari",
+   "sub": "5.6. Aksilinflyatsiya siyosati",
+   "bullets": [
+    "Talab inflyatsiyasiga qarshi: asosiy stavka va majburiy zaxira normasini oshirish, ochiq bozorda sotish",
+    "Cheklovchi fiskal siyosat: taqchillikni qisqartirish, emissiya orqali moliyalashtirishdan voz kechish",
+    "Xarajatlar inflyatsiyasiga qarshi: daromadlar siyosati, raqobat va monopoliyaga qarshi siyosat",
+    "Taklif iqtisodiyoti: tarkibiy islohotlar, soliq yukini kamaytirish, energiya bozorini barqarorlashtirish",
+    "Adaptatsiya: indeksatsiya, foiz stavkalarini moslashtirish, inflyatsiyaga bog‘langan obligatsiyalar"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Aksilinflyatsiya strategiyalari",
+   "sub": "5.6. Aksilinflyatsiya siyosati",
+   "head": [
+    "Belgi",
+    "Shok terapiyasi",
+    "Gradualizm",
+    "Adaptatsiya"
+   ],
+   "rows": [
+    [
+     "Mohiyati",
+     "Keskin cheklash",
+     "Bosqichma-bosqich pasaytirish",
+     "Inflyatsiya bilan «yashash»"
+    ],
+    [
+     "Qo‘llash sharti",
+     "Giperinflyatsiya",
+     "Mo‘’tadil yoki o‘rtacha inflyatsiya",
+     "Tez pasaytirish imkonsiz"
+    ],
+    [
+     "Qisqa muddatli narxi",
+     "Chuqur, qisqa retsessiya",
+     "Uzoqroq, yumshoq sekinlashuv",
+     "Inersiya saqlanadi"
+    ],
+    [
+     "Asosiy xavf",
+     "Ijtimoiy keskinlik",
+     "Siyosatdan chekinish",
+     "Inflyatsion spiral"
+    ],
+    [
+     "Muvaffaqiyat sharti",
+     "Siyosat ishonchliligi",
+     "Izchillik, kommunikatsiya",
+     "To‘liq indeksatsiya"
+    ]
+   ],
+   "note": "Shok terapiyasi misollari: Germaniya 1923, Boliviya 1985, Polsha 1990, Isroil 1985"
+  },
+  {
+   "type": "bullets",
+   "title": "Inflyatsion targetlash",
+   "sub": "5.6. Aksilinflyatsiya siyosati",
+   "bullets": [
+    "1990-yilda Yangi Zelandiya joriy etgan; hozir 40 dan ortiq mamlakat, jumladan O‘zbekiston, qo‘llaydi",
+    "Raqamli maqsadni ochiq e’lon qilish; narxlar barqarorligi – ustuvor maqsad; Markaziy bank mustaqilligi",
+    "Asosiy vosita – foiz stavkasi; shaffoflik va kommunikatsiya",
+    "Prognozga asoslangan siyosat: ta’sir 12–18 oy kechikadi",
+    "O‘zbekiston: 2020-yildan rejim; maqsad – 2027-yil oxirigacha 5%; 2025–2026-yillarda stavka 14%"
+   ],
+   "note": "2026-yil may: inflyatsiya 5,5%; kutishlar yuqori – aholida 10,1%, korxonalarda 9,9%"
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 1–2: indeks va miqdoriy nazariya",
+   "sub": "Masalalar va mashqlar",
+   "steps": [
+    "1-masala: 145; 159,2; 170,8. 2024: 159,2/145 − 1 = 9,8%; 2025: 170,8/159,2 − 1 = 7,3%",
+    "Ikki yillik jami: 170,8/145 − 1 = 17,8%. Real daromad: (1,4/1,2)/1,178 − 1 ≈ −1%",
+    "2-masala: P = MV/Y = 400·4/800 = 2",
+    "M +20%, Y +5%: P = 480·4/840 = 2,286; inflyatsiya 14,3%",
+    "Agar V 3% kamaysa: P = 480·3,88/840 = 2,217; inflyatsiya 10,9%"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 3–4: Fisher va Fillips",
+   "sub": "Masalalar va mashqlar",
+   "steps": [
+    "3-masala: (1+i) = 1,04 · 1,09 ⇒ i = 13,36% (taxminan 4 + 9 = 13%)",
+    "Inflyatsiya 13% bo‘lsa, real daromad 1,1336/1,13 − 1 ≈ 0,3% (taxminan 0); qarzdorlar yutadi, bank yutqazadi",
+    "4-masala: inflyatsiya 10 → 8 → 6 → 4 → 2, har yili −2 = −0,5(u−6)",
+    "Demak u − 6 = 4: har yili ishsizlik 10%; jami tsiklik ishsizlik 4 · 4 = 16 p.p.-yil",
+    "Ouken: YaIM yo‘qotilishi 2 · 16 = 32%; qurbonlik koeffitsiyenti 32/8 = 4"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 5–6: seynoraj va inflyatsiya savati",
+   "sub": "Masalalar va mashqlar",
+   "steps": [
+    "5-masala: seynoraj = (ΔM/M)·(M/P) = 0,30 · 100 = 30 trln so‘m",
+    "M/P = 70 trln bo‘lsa: 0,30 · 70 = 21 trln so‘m – 9 trln so‘mga kamayadi",
+    "Xulosa: inflyatsiya soliq bazasini (real qoldiqlarni) qisqartiradi, daromadni saqlash uchun emissiya oshadi",
+    "6-masala: 0,45·5,4 + 0,30·5,1 + 0,25·13,9 = 2,43 + 1,53 + 3,475 = 7,435% ≈ 7,4%",
+    "Rasmiy 7,3% dan ~0,1 p.p. farq: ma’lumotlar yaqinlashtirilgan, rasmiy savat va og‘irliklar boshqacha"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Inflyatsiya – narxlar umumiy darajasining barqaror o‘sishi; sur’atiga ko‘ra mo‘’tadil, galoplashuvchi, giperinflyatsiya",
+    "Miqdoriy nazariya: MV = PY; seynoraj – inflyatsion soliq",
+    "Talab inflyatsiyasi (AD o‘ngga) va xarajatlar inflyatsiyasi (AS chapga); ularning o‘zaro ta’siri – spiral",
+    "Kutilmagan inflyatsiya boylikni qayta taqsimlaydi; Fisher tenglamasi: i = r + π^{e}",
+    "Fillips egri chizig‘i uzoq muddatda vertikal; zamonaviy rejim – inflyatsion targetlash"
+   ]
+  }
+ ]
+}

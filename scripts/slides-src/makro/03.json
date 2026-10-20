@@ -1,0 +1,556 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Iqtisodiy davr (tsikl) nima?",
+   "sub": "3.1. Iqtisodiy davrlarning mohiyati",
+   "bullets": [
+    "Real YaIM uzoq muddatda o‘sadi, ammo trend atrofida qisqa muddatli tebranishlar yuz beradi",
+    "Iqtisodiy davr – bir cho‘qqidan keyingi cho‘qqigacha takrorlanuvchi ko‘tarilish va pasayish",
+    "Berns va Mitchell (1946): ko‘plab faoliyat turlarida taxminan bir vaqtda kengayish, qisqarish va tiklanish",
+    "Mankyu: haqiqiy tebranishlar muntazam emas, shuning uchun «qisqa muddatli tebranishlar» atamasi afzal"
+   ],
+   "note": "Tsikl alohida tarmoqdagi muammo emas, butun iqtisodiyotni qamrab oluvchi hodisa"
+  },
+  {
+   "type": "figure",
+   "title": "Iqtisodiy tsikl va uning tavsiflari",
+   "sub": "3.1. Iqtisodiy davrlarning mohiyati",
+   "img": "image16.png",
+   "caption": "3.1-rasm. Iqtisodiy tsiklning stilizatsiyalangan grafigi"
+  },
+  {
+   "type": "formula",
+   "title": "YaIM uzilishi (output gap)",
+   "sub": "3.1. Iqtisodiy davrlarning mohiyati",
+   "items": [
+    {
+     "name": "YaIM uzilishi",
+     "formula": "(Y−Y^{*})/(Y^{*})·100%",
+     "note": "Y – haqiqiy YaIM, Y^{*} – potensial YaIM"
+    },
+    {
+     "name": "Retsession uzilish",
+     "formula": "Y < Y^{*} ⇒ uzilish < 0",
+     "note": "resurslardan to‘liq foydalanilmayapti, ishsizlik tabiiy darajadan yuqori"
+    },
+    {
+     "name": "Inflyatsion uzilish",
+     "formula": "Y > Y^{*} ⇒ uzilish > 0",
+     "note": "iqtisodiyot «qizib ketgan», inflyatsion bosim kuchaymoqda"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: YaIM uzilishini hisoblash",
+   "sub": "3.1. Iqtisodiy davrlarning mohiyati",
+   "steps": [
+    "Berilgan: potensial YaIM 1600, haqiqiy YaIM 1560 trln so‘m",
+    "Uzilish = (1560−1600)/1600·100% = −2,5% – retsession uzilish",
+    "Yo‘qotilgan mahsulot yiliga 40 trln so‘m, aholi 38 mln – kishi boshiga ≈ 1 mln 50 ming so‘m",
+    "Keyingi yil: haqiqiy 1690, potensial 1660 trln so‘m ⇒ uzilish +1,8%",
+    "Iqtisodiyot qizib ketgan – Markaziy bank inflyatsion bosimga qarshi stavkani oshirishi mumkin",
+    "Masala: potensial YaIM 1000 ⇒ 5% o‘sishda 1050 va 1102,5; haqiqiy 1020 va 1101,6 ⇒ uzilish −2,86% va −0,08%"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Retsessiya va depressiya",
+   "sub": "3.1. Iqtisodiy davrlarning mohiyati",
+   "bullets": [
+    "Retsessiya – iqtisodiy faollikning sezilarli, keng qamrovli va bir necha oy davom etadigan pasayishi",
+    "Soddalashtirilgan mezon: real YaIM ketma-ket ikki chorak qisqarsa, iqtisodiyot retsessiyada",
+    "AQSHda retsessiya sanasini NBER qo‘mitasi YaIM, bandlik, real daromad va boshqa ko‘rsatkichlar asosida belgilaydi",
+    "Depressiya – juda chuqur va uzoq retsessiya: real YaIM 10% dan ko‘p qisqargan yoki bir necha yil davom etgan",
+    "Eng yirik depressiya – 1929–1933-yillardagi Buyuk depressiya"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Klassik to‘rt bosqichli tsikl",
+   "sub": "3.2. Iqtisodiy davrlarning bosqichlari va turlari",
+   "bullets": [
+    "Inqiroz: ishlab chiqarishning keskin qisqarishi, zaxiralar to‘planishi, bankrotliklar, ishsizlikning o‘sishi",
+    "Depressiya (turg‘unlik): past darajada barqarorlashuv, narxlar va foiz stavkalari eng past, ishsizlik yuqori",
+    "Jonlanish: asosiy kapitalni yangilash boshlanadi, investitsiyalar o‘sadi, ishsizlik qisqaradi",
+    "Yuksalish (bum): ishlab chiqarish oldingi cho‘qqidan oshadi; oxirida yangi inqiroz shart-sharoitlari yetiladi"
+   ],
+   "note": "Zamonaviy tavsif ikki bosqichli: qisqarish (cho‘qqidan tub nuqtagacha) va kengayish (tub nuqtadan cho‘qqigacha)"
+  },
+  {
+   "type": "table",
+   "title": "Tsikl bosqichlarida ko‘rsatkichlar dinamikasi",
+   "sub": "3.2. Iqtisodiy davrlarning bosqichlari va turlari",
+   "head": [
+    "Ko‘rsatkich",
+    "Pasayish",
+    "Tub nuqta",
+    "Yuksalish / cho‘qqi"
+   ],
+   "rows": [
+    [
+     "Real YaIM",
+     "Qisqaradi",
+     "Minimal",
+     "O‘sadi / maksimal"
+    ],
+    [
+     "Ishsizlik",
+     "O‘sadi",
+     "Maksimal (kechikib)",
+     "Kamayadi / minimal"
+    ],
+    [
+     "Investitsiyalar",
+     "Keskin qisqaradi",
+     "Minimal",
+     "Tez o‘sadi / yuqori"
+    ],
+    [
+     "Inflyatsiya",
+     "Sekinlashadi",
+     "Past",
+     "Tezlashadi / yuqori"
+    ],
+    [
+     "Foiz stavkalari",
+     "Pasayadi",
+     "Past",
+     "Oshadi / yuqori"
+    ],
+    [
+     "Korxonalar foydasi",
+     "Keskin kamayadi",
+     "Minimal",
+     "Tez o‘sadi / maksimal"
+    ]
+   ],
+   "note": "3.1-jadval; byudjet taqchilligi pasayishda oshadi, tub nuqtada maksimal bo‘ladi"
+  },
+  {
+   "type": "table",
+   "title": "Iqtisodiy tsikllarning asosiy turlari",
+   "sub": "3.2. Iqtisodiy davrlarning bosqichlari va turlari",
+   "head": [
+    "Tsikl turi",
+    "Davomiyligi",
+    "Kashf etgan olim",
+    "Asosiy sababi"
+   ],
+   "rows": [
+    [
+     "Kitchin (qisqa)",
+     "3–4 yil",
+     "J. Kitchin (1923)",
+     "Tovar-moddiy zaxiralar, axborot kechikishi"
+    ],
+    [
+     "Jyuglyar (o‘rta)",
+     "7–11 yil",
+     "K. Jyuglyar (1862)",
+     "Asosiy kapitalga investitsiyalar"
+    ],
+    [
+     "Kuznets",
+     "15–25 yil",
+     "S. Kuznets (1930)",
+     "Qurilish, demografiya, migratsiya"
+    ],
+    [
+     "Kondratyev (uzoq)",
+     "45–60 yil",
+     "N. Kondratyev (1925)",
+     "Texnologik inqiloblar, infratuzilma"
+    ]
+   ],
+   "note": "Kondratyev to‘lqinining har biri yangi texnologik uklad bilan bog‘liq"
+  },
+  {
+   "type": "compare",
+   "title": "Tsikl sabablari: tashqi va ichki omillar",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "left": {
+    "head": "Tashqi (ekzogen)",
+    "items": [
+     "Ilmiy-texnika taraqqiyoti (Shumpeter: innovatsiyalar to‘lqini)",
+     "Siyosiy hodisalar, energiya narxlari, tabiiy hodisalar",
+     "Iqtisodiy tizimdan tashqaridagi omillar"
+    ]
+   },
+   "right": {
+    "head": "Ichki (endogen)",
+    "items": [
+     "Talab va taklif nomutanosibligi, kam iste’mol va ortiqcha jamg‘arish",
+     "Investitsiyalar beqarorligi (Keyns: «hayvoniy instinktlar»)",
+     "Monetar omillar (Fridmen), real biznes-tsikllar (Kidlend, Preskott)"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Tashqi omillar: innovatsiya, siyosat, neft, tabiat",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "bullets": [
+    "Shumpeter: innovatsiyalar investitsiya to‘lqinini yaratadi; «ijodiy buzilish» eski tarmoqlarni siqib chiqaradi",
+    "Nordxaus (1975): siyosiy biznes-tsikl – saylov oldidan rag‘batlantirish, keyin cheklov siyosati",
+    "Neft narxi oshishi importyorlarda salbiy taklif shoki; 1973–1974 va 1979–1980-yillarda stagflyatsiya",
+    "COVID-19 (2020): jahon YaIMi 2,7% qisqardi – Ikkinchi jahon urushidan keyingi eng chuqur pasayish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Mankyu: OPEK va 1970-yillar stagflyatsiyasi",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "bullets": [
+    "1973-yil oxirida OPEK neft narxini qariyb ikki baravar oshirdi",
+    "AQSHda inflyatsiya 1973-yildagi 6,2% dan 1974-yilda 11% ga, ishsizlik 4,9% dan 1975-yilda 8,5% ga o‘sdi",
+    "1979-yilda Eron inqilobidan so‘ng inflyatsiya 13% dan oshdi, ishsizlik 7% dan yuqori bo‘ldi",
+    "1980-yillar o‘rtasida neft narxi tushdi – ijobiy taklif shoki, inflyatsiya ham ishsizlik ham pasaydi"
+   ],
+   "note": "Taklif shoki siyosatchini tanlov oldiga qo‘yadi: ishlab chiqarishni tiklash yoki inflyatsiyani jilovlash"
+  },
+  {
+   "type": "formula",
+   "title": "Multiplikator-akselerator modeli",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "items": [
+    {
+     "name": "Daromad",
+     "formula": "Y_{t} = C_{t}+I_{t}+A",
+     "note": "A – avtonom xarajatlar"
+    },
+    {
+     "name": "Iste’mol (multiplikator)",
+     "formula": "C_{t} = c·Y_{t−1}",
+     "note": "c – iste’molga chegaraviy moyillik"
+    },
+    {
+     "name": "Investitsiya (akselerator)",
+     "formula": "I_{t} = v·(C_{t}−C_{t−1})",
+     "note": "v – akselerator koeffitsiyenti"
+    },
+    {
+     "name": "Ikkinchi tartibli ayirmali tenglama",
+     "formula": "Y_{t} = c(1+v)·Y_{t−1}−cv·Y_{t−2}+A",
+     "note": "P. Samuelson (1939) va J. Xiks modeli"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Modelning dinamikasi: cv ko‘paytmasi",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "items": [
+    {
+     "name": "So‘nuvchi tebranishlar",
+     "formula": "cv < 1",
+     "note": "iqtisodiyot asta-sekin muvozanatga qaytadi"
+    },
+    {
+     "name": "Doimiy amplitudali tebranishlar",
+     "formula": "cv = 1",
+     "note": "tebranishlar so‘nmaydi va kuchaymaydi"
+    },
+    {
+     "name": "Kuchayuvchi tebranishlar",
+     "formula": "cv > 1",
+     "note": "amplituda davrdan davrga oshib boradi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Samuelson modelining dinamikalari",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "img": "image19.png",
+   "caption": "3.4-rasm. Samuelsonning multiplikator-akselerator modeli: parametrlarga qarab turli dinamikalar"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: multiplikator-akselerator mexanizmi",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "steps": [
+    "Berilgan: c = 0,8; v = 1; A = 20; muvozanat Y = 100 (C = 80, I = 0); 1-davrda Y_{1} = 110",
+    "2-davr: C_{2} = 0,8·110 = 88; I_{2} = 1·(88−80) = 8; Y_{2} = 88+8+20 = 116",
+    "3-davr: C_{3} = 0,8·116 = 92,8; I_{3} = 92,8−88 = 4,8; Y_{3} = 92,8+4,8+20 = 117,6",
+    "4-davr: C_{4} = 94,1; I_{4} = 1,3; Y_{4} = 115,4",
+    "5-davr: C_{5} = 92,3; I_{5} = −1,8; Y_{5} = 110,5",
+    "cv = 0,8 < 1 – bir martalik turtki iqtisodiyotni «chayqatadi», tebranishlar so‘nadi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Talab shoklari va taklif shoklari",
+   "sub": "3.3. Iqtisodiy tebranishlarning sabablari",
+   "left": {
+    "head": "Talab shoklari",
+    "items": [
+     "Yalpi talab egri chizig‘ini siljitadi",
+     "Kayfiyat, pul taklifi, davlat xarajatlari va soliqlar, xorijiy talab, moliyaviy inqirozlar",
+     "Ishlab chiqarish va narxlar bir yo‘nalishda o‘zgaradi"
+    ]
+   },
+   "right": {
+    "head": "Taklif shoklari",
+    "items": [
+     "Yalpi taklif egri chizig‘ini siljitadi",
+     "Energiya va xom ashyo narxlari, tabiiy ofatlar, texnologiyalar, ish haqining keskin oshishi",
+     "Ishlab chiqarish va narxlar qarama-qarshi yo‘nalishda o‘zgaradi"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Tarmoqlarning tsiklga sezgirligi",
+   "sub": "3.4. Iqtisodiy tebranishlarning turli tarmoqlarga ta’siri",
+   "bullets": [
+    "Tsiklik tarmoqlar: avtomobilsozlik, mashinasozlik, qurilish, metallurgiya, mebel, turizm – xaridni kechiktirish mumkin",
+    "Atsiklik tarmoqlar: oziq-ovqat, dori-darmon, kommunal xizmatlar, sog‘liqni saqlash, ta’lim – birlamchi ehtiyojlar",
+    "Kontrtsiklik tarmoqlar: lombardlar, ikkinchi qo‘l tovarlar, arzon do‘konlar, qayta tayyorlash kurslari",
+    "Iste’mol YaIMga nisbatan barqaror, investitsiyalar esa YaIMdan bir necha baravar kuchliroq tebranadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "YaIM komponentlarining tebranishi",
+   "sub": "3.4. Iqtisodiy tebranishlarning turli tarmoqlarga ta’siri",
+   "img": "image20.png",
+   "caption": "3.5-rasm. YaIM komponentlarining tsiklik o‘zgaruvchanligi (YaIMga nisbatan)"
+  },
+  {
+   "type": "table",
+   "title": "Retsessiyaning tarmoqlarga ta’siri",
+   "sub": "3.4. Iqtisodiy tebranishlarning turli tarmoqlarga ta’siri",
+   "head": [
+    "Tarmoq",
+    "Sezgirlik",
+    "Tipik reaksiya",
+    "Sabab"
+   ],
+   "rows": [
+    [
+     "Qurilish",
+     "Juda yuqori",
+     "Ishlab chiqarish 10–30% qisqaradi",
+     "Uy-joyni kechiktirish, qimmat kredit"
+    ],
+    [
+     "Avtomobilsozlik",
+     "Juda yuqori",
+     "Sotuvlar 15–40% qisqaradi",
+     "Uzoq muddatli tovar, kredit"
+    ],
+    [
+     "Mashinasozlik",
+     "Yuqori",
+     "Buyurtmalar keskin kamayadi",
+     "Akselerator samarasi"
+    ],
+    [
+     "Turizm, mehmonxonalar",
+     "Yuqori",
+     "Daromadlar keskin tushadi",
+     "Ixtiyoriy xarajatlar qisqaradi"
+    ],
+    [
+     "Oziq-ovqat sanoati",
+     "Past",
+     "Deyarli o‘zgarmaydi",
+     "Birlamchi ehtiyoj"
+    ],
+    [
+     "Kommunal xizmatlar",
+     "Juda past",
+     "Barqaror",
+     "Zaruriy xizmat"
+    ]
+   ],
+   "note": "3.3-jadval; farmatsevtika ham barqaror (noelastik talab)"
+  },
+  {
+   "type": "bullets",
+   "title": "Buyuk mo‘’tadillikdan sekulyar stagnatsiyagacha",
+   "sub": "3.5. XXI asr boshlarida iqtisodiy tebranishlarning xususiyatlari",
+   "bullets": [
+    "1980-yillar o‘rtasidan 2007-yilgacha YaIM va inflyatsiya o‘zgaruvchanligi kamaydi – «Buyuk mo‘’tadillik»",
+    "Sabablari: markaziy banklar siyosati, zaxiralarni boshqarish (just-in-time), xizmatlar ulushi, «omad»",
+    "Lukas (2003): depressiyalarning oldini olish muammosi hal qilindi – 2007–2009-yillar inqirozi bu optimizmga chek qo‘ydi",
+    "Sammers: «sekulyar stagnatsiya» – qarish, past unumdorlik o‘sishi, jamg‘armalar ortiqligi, past real stavkalar"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Mankyu: 2008–2009-yillar moliyaviy inqirozi",
+   "sub": "3.5. XXI asr boshlarida iqtisodiy tebranishlarning xususiyatlari",
+   "bullets": [
+    "Pufak: past stavkalar va subprime kreditlar tufayli 1995–2006-yillarda uy-joy narxlari qariyb ikki baravar oshdi",
+    "2006-yildan narxlar tusha boshladi, 2009-yilgacha ≈ 30% pasaydi; 2008-yil sentabrda Lehman Brothers bankrot bo‘ldi",
+    "Kredit tanqisligi: aksiyalar bozori qariyb ikki baravar qulab tushdi, ishonch pasaydi",
+    "AQSHda real YaIM taxminan 4% qisqardi, ishsizlik 2009-yil oktabrda 10% ga yetdi",
+    "Javob: stavka deyarli nolga, miqdoriy yumshatish, TARP va 787 mlrd dollarlik rag‘batlantirish paketi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Yirik iqtisodiy va moliyaviy inqirozlar",
+   "sub": "3.5. XXI asr boshlarida iqtisodiy tebranishlarning xususiyatlari",
+   "head": [
+    "Yillar",
+    "Inqiroz",
+    "Asosiy sabab",
+    "Oqibat"
+   ],
+   "rows": [
+    [
+     "1997–1998",
+     "Osiyo moliyaviy inqirozi",
+     "Qisqa muddatli tashqi qarz",
+     "YaIM 5–13% qisqardi"
+    ],
+    [
+     "1998",
+     "Rossiya defolti",
+     "Taqchillik, neft narxi pasayishi",
+     "Rubl 3 barobar qadrsizlandi"
+    ],
+    [
+     "2000–2001",
+     "«Dot-kom» pufagi",
+     "Aksiyalarning ortiqcha baholanishi",
+     "AQSHda yengil retsessiya"
+    ],
+    [
+     "2007–2009",
+     "Jahon moliyaviy inqirozi",
+     "Ipoteka pufagi",
+     "AQSHda ishsizlik 10%"
+    ],
+    [
+     "2020",
+     "COVID-19 inqirozi",
+     "Karantin, ta’minot uzilishi",
+     "Jahon YaIMi 2,7% qisqardi"
+    ],
+    [
+     "2021–2023",
+     "Global inflyatsion to‘lqin",
+     "Talab, ta’minot, energiya narxlari",
+     "Inflyatsiya 8–10%"
+    ]
+   ],
+   "note": "3.4-jadval; 2010–2012-yillarda Yevropa suveren qarz inqirozi ham yuz bergan"
+  },
+  {
+   "type": "bullets",
+   "title": "Zamonaviy omillar: tsikl qanday o‘zgardi?",
+   "sub": "3.6. Iqtisodiy tebranishlarga ta’sir qiluvchi zamonaviy omillar",
+   "bullets": [
+    "Monopol tuzilmalar: talab pasayganda narx emas, ishlab chiqarish hajmi qisqaradi",
+    "Davlat roli: avtomatik barqarorlashtiruvchilar va faol monetar siyosat amplitudani kamaytirdi",
+    "Axborot texnologiyalari Kitchin tsikllari ahamiyatini kamaytirdi, ammo yangi pufaklar va kiberxavflar paydo bo‘ldi",
+    "Globallashuv: shoklar savdo, moliyaviy va ishonch kanallari orqali tarqaladi; 2021-yilda yarimo‘tkazgichlar tanqisligi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston iqtisodiyoti va global tebranishlar",
+   "sub": "3.6. Iqtisodiy tebranishlarga ta’sir qiluvchi zamonaviy omillar",
+   "bullets": [
+    "2009-yilgi jahon inqirozida rasmiy ma’lumotlarga ko‘ra 8,1% o‘sish (ekspertlar ortiqcha baholanganini ta’kidlaydi)",
+    "2020-yilda pandemiya sharoitida iqtisodiyot qisqarmay, 1,9% ga o‘sdi",
+    "2017-yildan keyin iqtisodiyotning ochilishi bilan global tebranishlarga ta’sirchanlik oshdi",
+    "2022-yilda pul o‘tkazmalari kutilganidek qisqarmadi, rekord 16,9 mlrd dollarga yetdi"
+   ],
+   "note": "Tashqi shoklar ta’sirini oldindan aytish qiyin"
+  },
+  {
+   "type": "table",
+   "title": "Kon’yunktura indikatorlari",
+   "sub": "3.7. Iqtisodiy kon’yunkturani tahlil qilish va prognozlash",
+   "head": [
+    "Guruh",
+    "Ta’rifi",
+    "Misollar"
+   ],
+   "rows": [
+    [
+     "Ilg‘or (yetakchi)",
+     "Tsikldan oldin o‘zgaradi",
+     "Yangi buyurtmalar, aksiyalar indeksi, PMI"
+    ],
+    [
+     "Ilg‘or (yetakchi)",
+     "Kelajakni bashorat qiladi",
+     "Iste’molchilar ishonchi, foiz stavkalari spredi"
+    ],
+    [
+     "Mos (bir vaqtdagi)",
+     "Tsikl bilan bir vaqtda o‘zgaradi",
+     "Real YaIM, sanoat ishlab chiqarishi, bandlik"
+    ],
+    [
+     "Mos (bir vaqtdagi)",
+     "Joriy holatni ko‘rsatadi",
+     "Chakana savdo, shaxsiy daromadlar"
+    ],
+    [
+     "Kechikuvchi",
+     "Tsikldan keyin o‘zgaradi",
+     "Ishsizlik davomiyligi, iste’mol narxlari indeksi"
+    ],
+    [
+     "Kechikuvchi",
+     "Tsiklni tasdiqlaydi",
+     "Bank kreditlari bo‘yicha foiz stavkalari"
+    ]
+   ],
+   "note": "PMI 50 dan yuqori – faollik kengaymoqda, 50 dan past – qisqarmoqda"
+  },
+  {
+   "type": "compare",
+   "title": "Antitsiklik siyosat",
+   "sub": "3.7. Iqtisodiy kon’yunkturani tahlil qilish va prognozlash",
+   "left": {
+    "head": "Retsessiyada: rag‘batlantirish",
+    "items": [
+     "Davlat xarajatlarini oshirish, soliqlarni kamaytirish",
+     "Foiz stavkalarini pasaytirish",
+     "Pul taklifini ko‘paytirish"
+    ]
+   },
+   "right": {
+    "head": "Qizib ketishda: cheklash",
+    "items": [
+     "Davlat xarajatlarini qisqartirish, soliqlarni oshirish",
+     "Foiz stavkalarini ko‘tarish",
+     "Qiyinchiliklar: vaqt kechikishlari, prognoz noaniqligi, siyosiy cheklovlar"
+    ]
+   }
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar: retsessiya va neft shoki",
+   "sub": "3.7. Iqtisodiy kon’yunkturani tahlil qilish va prognozlash",
+   "steps": [
+    "Choraklik o‘zgarish: +1,2; +0,8; −0,3; −0,9; −0,4; +0,6; +1,1% – ketma-ket pasayish 3–5-choraklarda",
+    "Cho‘qqi – 2-chorak oxiri, tub nuqta – 5-chorak oxiri: retsessiya bo‘lgan",
+    "Jami qisqarish: 0,997·0,991·0,996 ≈ 0,984 ⇒ taxminan −1,6%",
+    "Neft eksporti YaIMning 25%, narx −40%: ta’sir 0,25·40% = 10% (multiplikatorsiz)",
+    "Multiplikator 1,6 bo‘lsa: yakuniy ta’sir 10%·1,6 = 16% ga kamayish"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Iqtisodiy davr – trend atrofida takroriy ko‘tarilish va pasayish; cho‘qqi, tub nuqta, amplituda, davomiylik",
+    "Kitchin (3–4 yil), Jyuglyar (7–11), Kuznets (15–25) tsikllari va Kondratyev to‘lqinlari (45–60 yil) farqlanadi",
+    "Sabablar tashqi va ichki omillarga bo‘linadi; multiplikator-akselerator modeli ichki mexanizmni ko‘rsatadi",
+    "Investitsiyalar va uzoq muddatli tovarlar iste’moli YaIMdan kuchliroq tebranadi; qurilish eng tsiklik tarmoq",
+    "XXI asr tebranishlari moliyaviy inqirozlar bilan bog‘liq; kon’yunktura indikatorlar yordamida baholanadi"
+   ]
+  }
+ ]
+}

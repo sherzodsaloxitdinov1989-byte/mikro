@@ -1,0 +1,539 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Milliy hisoblar tizimi (MHT)",
+   "sub": "2.1. Milliy hisoblar tizimi va YaIM tushunchasi",
+   "bullets": [
+    "MHT – ishlab chiqarish, daromadlar taqsimoti va ulardan foydalanishni tavsiflovchi o‘zaro bog‘langan hisoblar majmui",
+    "Nazariy asosi: S. Kuznets (AQSH) va R. Stoun (Buyuk Britaniya), 1930–1940-yillar",
+    "BMT birinchi standartni 1953-yilda qabul qilgan; keyin 1968, 1993 va 2008-yillarda yangilangan",
+    "O‘zbekistonda MHT-2008 2020-yil 1-yanvardan to‘liq joriy etilgan",
+    "2025-yilda BMT Statistika komissiyasi MHT-2025 standartini ma’qulladi"
+   ],
+   "note": "Sobiq Ittifoqda qo‘llangan MIBda faqat moddiy ishlab chiqarish «unumli» hisoblangan"
+  },
+  {
+   "type": "bullets",
+   "title": "YaIM ta’rifining tarkibiy qismlari",
+   "sub": "2.1. Milliy hisoblar tizimi va YaIM tushunchasi",
+   "bullets": [
+    "YaIM – davr mobaynida iqtisodiy hududda rezidentlar yaratgan yakuniy tovar va xizmatlarning bozor qiymati",
+    "Bozor narxlari: 4 olma × 500 + 3 apelsin × 1000 = 5000 so‘m",
+    "Faqat yakuniy mahsulot hisobga olinadi – oraliq mahsulot takroriy hisobga olib keladi",
+    "YaIM – oqim ko‘rsatkichi: faqat joriy davrda ishlab chiqarilgan mahsulot kiradi",
+    "Rezidentlik fuqarolik bilan emas, iqtisodiy faoliyat joyi (1 yildan ortiq) bilan belgilanadi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "YaIMga nimalar kiradi va kirmaydi",
+   "sub": "2.1. Milliy hisoblar tizimi va YaIM tushunchasi",
+   "left": {
+    "head": "YaIMga kiradi",
+    "items": [
+     "Yakuniy tovarlar va xizmatlar",
+     "Tomorqadagi o‘z iste’moli uchun mahsulot",
+     "Uy egalarining shartli ijarasi"
+    ]
+   },
+   "right": {
+    "head": "YaIMga kirmaydi",
+    "items": [
+     "Qimmatli qog‘ozlar oldi-sotdisi, transfertlar (pensiya, nafaqa)",
+     "Ikkinchi qo‘l tovarlar va oraliq mahsulotlar",
+     "Uy xo‘jaligining o‘zi uchun xizmatlari"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Qo‘shilgan qiymat usuli",
+   "sub": "2.2. YaIMni ishlab chiqarish usuli bo‘yicha hisoblash",
+   "items": [
+    {
+     "name": "YaIM (ishlab chiqarish usuli)",
+     "formula": "YaIM = Σ YaQQ_{i} + (mahsulotlarga soliqlar − subsidiyalar)",
+     "note": "barcha tarmoqlar yalpi qo‘shilgan qiymati va mahsulotlarga sof soliqlar"
+    },
+    {
+     "name": "Qo‘shilgan qiymat",
+     "formula": "YaQQ = Yalpi mahsulot − Oraliq iste’mol",
+     "note": "takroriy hisobni oldini oladi"
+    },
+    {
+     "name": "Tarmoqning o‘sishga hissasi",
+     "formula": "Hissa_{i} = Ulush_{i, o‘tgan yil} × O‘sish sur’ati_{i}",
+     "note": "xizmatlar 2024: 0,43 × 7,7 ≈ 3,3 foiz punkti"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Qo‘shilgan qiymat zanjiri",
+   "sub": "2.2. YaIMni ishlab chiqarish usuli bo‘yicha hisoblash",
+   "img": "image9.png",
+   "caption": "2.2-rasm. Qo‘shilgan qiymat zanjiri: bug‘doydan nongacha"
+  },
+  {
+   "type": "table",
+   "title": "Qo‘shilgan qiymatni hisoblash",
+   "sub": "2.2. YaIMni ishlab chiqarish usuli bo‘yicha hisoblash",
+   "head": [
+    "Bosqich",
+    "Sotish qiymati",
+    "Oraliq iste’mol",
+    "Qo‘shilgan qiymat"
+   ],
+   "rows": [
+    [
+     "Fermer (bug‘doy)",
+     "400",
+     "0",
+     "400"
+    ],
+    [
+     "Tegirmon (un)",
+     "650",
+     "400",
+     "250"
+    ],
+    [
+     "Novvoy (non)",
+     "1000",
+     "650",
+     "350"
+    ],
+    [
+     "Do‘kon (savdo xizmati)",
+     "1200",
+     "1000",
+     "200"
+    ],
+    [
+     "Jami",
+     "3250",
+     "2050",
+     "1200"
+    ]
+   ],
+   "note": "2.1-jadval, ming so‘m. Qo‘shilgan qiymatlar yig‘indisi 1200 = nonning chakana narxi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: paxtadan kiyimgacha",
+   "sub": "2.2. YaIMni ishlab chiqarish usuli bo‘yicha hisoblash",
+   "steps": [
+    "Fermer: qo‘shilgan qiymat = 600 mln so‘m",
+    "Klaster: 1100 − 600 = 500 mln so‘m; fabrika: 1700 − 1100 = 600 mln so‘m",
+    "Ulgurji kompaniya: 1950 − 1700 = 250 mln; do‘konlar: 2300 − 1950 = 350 mln so‘m",
+    "Jami hissa: 600 + 500 + 600 + 250 + 350 = 2300 mln so‘m (aholiga sotish narxiga teng)",
+    "30 foiz kiyimning eksporti natijani o‘zgartirmaydi: eksport ham YaIMga kiradi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Milliy hisoblar ayniyati",
+   "sub": "2.3. YaIMni xarajatlar usuli bo‘yicha hisoblash",
+   "items": [
+    {
+     "name": "Xarajatlar usuli",
+     "formula": "Y = C + I + G + NX",
+     "note": "iste’mol, yalpi investitsiyalar, davlat xaridlari, sof eksport"
+    },
+    {
+     "name": "Sof investitsiyalar",
+     "formula": "Sof investitsiyalar = Yalpi investitsiyalar − Amortizatsiya",
+     "note": "> 0 kengaytirilgan, = 0 oddiy, < 0 qisqargan takror ishlab chiqarish"
+    },
+    {
+     "name": "Sof eksport",
+     "formula": "NX = X − IM",
+     "note": "import C, I va G tarkibida bor, shuning uchun ayiriladi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Hisob-kitob: YaIM xarajatlar usulida",
+   "sub": "2.3. YaIMni xarajatlar usuli bo‘yicha hisoblash",
+   "steps": [
+    "C = 820 trln so‘m (iste’mol xarajatlari)",
+    "I = 310 + 70 + 20 = 400 (asosiy kapital, uy-joy, zaxiralar o‘zgarishi)",
+    "G = 190 + 40 = 230 (pensiya va nafaqalar transfert, kiritilmaydi)",
+    "NX = 380 − 480 = −100; aksiyalar sotuvi (60) YaIMga kirmaydi",
+    "YaIM = 820 + 400 + 230 − 100 = 1350 trln so‘m"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "YaIMning xarajatlar bo‘yicha tarkibi",
+   "sub": "2.3. YaIMni xarajatlar usuli bo‘yicha hisoblash",
+   "head": [
+    "Komponent (%)",
+    "AQSH",
+    "Xitoy",
+    "Germaniya"
+   ],
+   "rows": [
+    [
+     "Uy xo‘jaliklari iste’moli (C)",
+     "68",
+     "39",
+     "51"
+    ],
+    [
+     "Yalpi investitsiyalar (I)",
+     "18",
+     "42",
+     "21"
+    ],
+    [
+     "Davlat xaridlari (G)",
+     "17",
+     "17",
+     "22"
+    ],
+    [
+     "Sof eksport (NX)",
+     "−3",
+     "2",
+     "6"
+    ]
+   ],
+   "note": "2.2-jadval: Jahon banki asosida muallif umumlashmasi, 2020-yillar o‘rtalari, yaxlitlangan"
+  },
+  {
+   "type": "formula",
+   "title": "Daromadlar usuli",
+   "sub": "2.4. YaIMni daromadlar usuli bo‘yicha hisoblash",
+   "items": [
+    {
+     "name": "MHT-2008 bo‘yicha",
+     "formula": "YaIM = Mehnatga haq + Ishlab chiqarish va importga sof soliqlar + Yalpi foyda",
+     "note": "yalpi foyda aralash daromadni ham o‘z ichiga oladi"
+    },
+    {
+     "name": "An’anaviy yondashuv",
+     "formula": "YaIM = Ish haqi + Renta + Foiz + Mulkdorlar daromadi + Korporatsiyalar foydasi + Egri soliqlar + Amortizatsiya",
+     "note": "darsliklarda keng tarqalgan shakl"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: xarajat va daromad usullari",
+   "sub": "2.4. YaIMni daromadlar usuli bo‘yicha hisoblash",
+   "steps": [
+    "Xarajatlar: 2450 + 820 + 690 + (610 − 780) = 3790 mlrd so‘m",
+    "Mehnatga haq 1940 + renta 110 + foiz 160 + mulkdorlar daromadi 230 = 2440",
+    "Foyda 450 + egri soliqlar 290 + amortizatsiya 610 = 1350",
+    "Daromadlar bo‘yicha: 2440 + 1350 = 3790 mlrd so‘m",
+    "Ikki natija mos keladi, statistik tafovut nolga teng"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "YaIMdan YaMD, SIM va SMDgacha",
+   "sub": "2.5. Milliy hisoblar tizimidagi boshqa ko‘rsatkichlar",
+   "items": [
+    {
+     "name": "Yalpi milliy daromad",
+     "formula": "YaMD = YaIM + Xorijdan olingan omil daromadlari − Xorijga to‘langan omil daromadlari",
+     "note": "YaIM hudud, YaMD rezidentlik tamoyiliga asoslanadi"
+    },
+    {
+     "name": "Sof ichki mahsulot",
+     "formula": "SIM = YaIM − A",
+     "note": "A – asosiy kapital iste’moli (amortizatsiya)"
+    },
+    {
+     "name": "Sof milliy daromad",
+     "formula": "SMD = YaMD − A",
+     "note": "yalpi milliy daromaddan amortizatsiya chegiriladi"
+    },
+    {
+     "name": "Milliy daromad",
+     "formula": "MD = SMD − Egri soliqlar + Subsidiyalar",
+     "note": "omil egalarining jami daromadi"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Shaxsiy va tasarrufdagi daromad",
+   "sub": "2.5. Milliy hisoblar tizimidagi boshqa ko‘rsatkichlar",
+   "items": [
+    {
+     "name": "Shaxsiy daromad",
+     "formula": "ShD = MD − Foyda solig‘i − Taqsimlanmagan foyda − Ijtimoiy ajratmalar + Transfertlar",
+     "note": "uy xo‘jaliklari haqiqatda olgan daromad"
+    },
+    {
+     "name": "Shaxsiy tasarrufdagi daromad",
+     "formula": "Y_{d} = ShD − Shaxsiy soliqlar = C + S",
+     "note": "iste’mol va jamg‘armaga taqsimlanadi"
+    },
+    {
+     "name": "Jamg‘arish normasi",
+     "formula": "S/(Y_{d}) = 60/590 ≈ 10,2%",
+     "note": "S = 590 − 530 = 60 mlrd so‘m"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Ko‘rsatkichlar «zinapoyasi»",
+   "sub": "2.5. Milliy hisoblar tizimidagi boshqa ko‘rsatkichlar",
+   "steps": [
+    "YaMD = 1000 − 20 = 980 mlrd so‘m (YaIM = 1000)",
+    "SMD = 980 − 120 = 860; MD = 860 − 60 = 800",
+    "ShD = 800 − 40 − 50 − 60 + 50 = 700",
+    "Y_{d} = 700 − 110 = 590 mlrd so‘m",
+    "Iste’mol 530 bo‘lsa, jamg‘arma S = 60, jamg‘arish normasi ≈ 10,2%"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Ko‘rsatkichlar «zinapoyasi»",
+   "sub": "2.5. Milliy hisoblar tizimidagi boshqa ko‘rsatkichlar",
+   "img": "image12.png",
+   "caption": "2.5-rasm. YaIMdan shaxsiy tasarrufdagi daromadgacha: ko‘rsatkichlar «zinapoyasi» (shartli misol)"
+  },
+  {
+   "type": "formula",
+   "title": "Jamg‘arma va investitsiyalar tengligi",
+   "sub": "2.6. Asosiy makroiqtisodiy ayniyatlar",
+   "items": [
+    {
+     "name": "Yopiq iqtisodiyot, davlatsiz",
+     "formula": "S = I",
+     "note": "Y = C + S va Y = C + I tengliklaridan"
+    },
+    {
+     "name": "Yopiq iqtisodiyot, davlat bilan",
+     "formula": "S + (T − G) = I",
+     "note": "S – xususiy, (T − G) – davlat jamg‘armasi"
+    },
+    {
+     "name": "Ochiq iqtisodiyot",
+     "formula": "(S − I) + (T − G) = NX",
+     "note": "eng muhim ayniyat: jamg‘arma tafovuti savdo balansiga teng"
+    },
+    {
+     "name": "Tashqi dunyo jamg‘armasi",
+     "formula": "I = S + (T − G) + (IM − X)",
+     "note": "xorijliklar iqtisodiyotni moliyalashtiradi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "«Egizak taqchilliklar» mantiqi",
+   "sub": "2.6. Asosiy makroiqtisodiy ayniyatlar",
+   "head": [
+    "Vaziyat",
+    "S − I",
+    "T − G",
+    "NX"
+   ],
+   "rows": [
+    [
+     "Muvozanatli holat",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "Byudjet taqchilligi o‘sdi",
+     "0",
+     "−3",
+     "−3"
+    ],
+    [
+     "Investitsiya boomi",
+     "−4",
+     "0",
+     "−4"
+    ],
+    [
+     "Xususiy jamg‘armalar o‘sdi",
+     "+2",
+     "0",
+     "+2"
+    ],
+    [
+     "Byudjet taqchilligini xususiy jamg‘arma qoplaydi",
+     "+3",
+     "−3",
+     "0"
+    ]
+   ],
+   "note": "2.4-jadval. AQSH 1980-yillar: byudjet va savdo taqchilligi birga o‘sdi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: milliy jamg‘arma va sof eksport",
+   "sub": "2.6. Asosiy makroiqtisodiy ayniyatlar",
+   "steps": [
+    "Davlat jamg‘armasi: T − G = 520 − 560 = −40 mlrd so‘m",
+    "Milliy jamg‘arma: 380 + (−40) = 340 mlrd so‘m",
+    "Ayniyat bo‘yicha NX = 340 − 450 = −110 mlrd so‘m",
+    "Tashqi dunyo jamg‘armasi: IM − X = 110 mlrd so‘m",
+    "Ichki investitsiyaning bir qismi xorijdan qarz olish hisobidan moliyalanadi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Nominal va real YaIM, deflyator",
+   "sub": "2.7. Nominal va real YaIM. Narxlar indekslari",
+   "items": [
+    {
+     "name": "Nominal YaIM",
+     "formula": "Nominal YaIM_{t} = Σ P_{t} Q_{t}",
+     "note": "joriy yil narxlarida"
+    },
+    {
+     "name": "Real YaIM",
+     "formula": "Real YaIM_{t} = Σ P_{0} Q_{t}",
+     "note": "bazis yil narxlarida; iqtisodiy o‘sishning haqiqiy o‘lchovi"
+    },
+    {
+     "name": "YaIM deflyatori",
+     "formula": "Deflyator = (Nominal YaIM)/(Real YaIM) × 100",
+     "note": "nominal o‘sish ≈ real o‘sish + deflyator o‘sishi"
+    },
+    {
+     "name": "Real kattalik",
+     "formula": "Real kattalik = (Nominal kattalik)/(Narxlar indeksi)",
+     "note": "inflyatsiya: π_{t} = (P_{t} − P_{t−1})/(P_{t−1}) × 100%"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Laspeyres, Paashe va Fisher indekslari",
+   "sub": "2.7. Nominal va real YaIM. Narxlar indekslari",
+   "items": [
+    {
+     "name": "Laspeyres (INI)",
+     "formula": "I_{L} = (Σ P_{t} Q_{0})/(Σ P_{0} Q_{0})",
+     "note": "bazis yil miqdorlari; narxlar o‘sishini oshirib ko‘rsatadi"
+    },
+    {
+     "name": "Paashe (deflyator)",
+     "formula": "I_{P} = (Σ P_{t} Q_{t})/(Σ P_{0} Q_{t})",
+     "note": "joriy yil miqdorlari; kamaytirib ko‘rsatadi"
+    },
+    {
+     "name": "Fisher",
+     "formula": "I_{F} = √(I_{L} × I_{P})",
+     "note": "o‘rta geometrik qiymat («ideal» indeks)"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: nominal, real YaIM va indekslar",
+   "sub": "2.7. Nominal va real YaIM. Narxlar indekslari",
+   "steps": [
+    "Bazis nominal: 2·100 + 4·200 + 50·10 = 1500; joriy nominal: 3·110 + 5·190 + 52·14 = 2008",
+    "Real YaIM: 2·110 + 4·190 + 50·14 = 1680; real o‘sish 1680/1500 = 1,12 (12%)",
+    "Laspeyres: (3·100 + 5·200 + 52·10)/1500 = 1820/1500 ≈ 1,213",
+    "Paashe: 2008/1680 ≈ 1,195; Fisher: √(1,213 × 1,195) ≈ 1,204",
+    "Laspeyres oshirib, Paashe kamaytirib ko‘rsatadi; Fisher ular o‘rtasida"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "INI va YaIM deflyatori",
+   "sub": "2.7. Nominal va real YaIM. Narxlar indekslari",
+   "left": {
+    "head": "Iste’mol narxlari indeksi",
+    "items": [
+     "Faqat iste’molchilar sotib oladigan tovarlar",
+     "Import tovarlarni ham qamraydi",
+     "Qayd etilgan savat (Laspeyres)"
+    ]
+   },
+   "right": {
+    "head": "YaIM deflyatori",
+    "items": [
+     "Mamlakatda ishlab chiqarilgan barcha tovarlar",
+     "Faqat ichki ishlab chiqarilgan tovarlar",
+     "Joriy yil tarkibi (Paashe)"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "YaIMning farovonlik o‘lchovi sifatida kamchiliklari",
+   "sub": "2.8. YaIM va ijtimoiy farovonlik",
+   "bullets": [
+    "Bo‘sh vaqt qiymati va nobozor faoliyat (uy mehnati, ko‘ngillilik) hisobga olinmaydi",
+    "Atrof-muhit holati va tabiiy resurslarning kamayishi aks etmaydi",
+    "Daromadlar taqsimoti ko‘rinmaydi: o‘rtacha o‘sish hammaning turmushi yaxshilanganini bildirmaydi",
+    "Mahsulot sifati, xilma-xilligi va norasmiy iqtisodiyot to‘liq qamrab olinmaydi",
+    "Shunga qaramay, YaIM va farovonlik o‘rtasida kuchli ijobiy bog‘liqlik bor"
+   ],
+   "note": "S. Kuznets 1934-yilda Kongressni milliy daromad farovonlik o‘lchovi emasligidan ogohlantirgan"
+  },
+  {
+   "type": "table",
+   "title": "YaIMga muqobil ko‘rsatkichlar",
+   "sub": "2.8. YaIM va ijtimoiy farovonlik",
+   "head": [
+    "Ko‘rsatkich",
+    "Ishlab chiquvchi",
+    "Nimani o‘lchaydi"
+   ],
+   "rows": [
+    [
+     "Inson taraqqiyoti indeksi",
+     "BMT Taraqqiyot dasturi",
+     "Daromad, ta’lim, umr davomiyligi"
+    ],
+    [
+     "Iqtisodiy farovonlik o‘lchovi",
+     "Nordxaus, Tobin (1972)",
+     "YaIM + bo‘sh vaqt + uy mehnati"
+    ],
+    [
+     "«Yashil» YaIM",
+     "BMT, MHT-SEEA",
+     "YaIM − resurslar kamayishi − ifloslanish"
+    ],
+    [
+     "Haqiqiy taraqqiyot (GPI)",
+     "Redefining Progress",
+     "26 ta iqtisodiy, ijtimoiy, ekologik komponent"
+    ],
+    [
+     "Jini koeffitsiyenti",
+     "K. Jini",
+     "Daromadlar tengsizligi"
+    ]
+   ],
+   "note": "2.6-jadval"
+  },
+  {
+   "type": "figure",
+   "title": "Kuzatilmaydigan iqtisodiyot",
+   "sub": "2.8. YaIM va ijtimoiy farovonlik",
+   "img": "image15.png",
+   "caption": "2.8-rasm. O‘zbekistonda kuzatilmaydigan iqtisodiyotning YaIMdagi ulushi, 2024-yil (foizda)"
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "YaIM – iqtisodiy hududda rezidentlar yaratgan yakuniy tovar va xizmatlarning bozor qiymati; MHT-2008 qo‘llaniladi",
+    "YaIM uch usulda: qo‘shilgan qiymat, xarajatlar (Y = C + I + G + NX) va boshlang‘ich daromadlar yig‘indisi",
+    "YaIM asosida YaMD, SIM, SMD, milliy, shaxsiy va tasarrufdagi daromad hisoblanadi",
+    "Asosiy ayniyat: (S − I) + (T − G) = NX – jamg‘arma, byudjet va savdo balansini bog‘laydi",
+    "Real YaIM o‘sishni o‘lchaydi; deflyator – Paashe, INI – Laspeyres, Fisher – ularning o‘rta geometrigi"
+   ]
+  }
+ ]
+}

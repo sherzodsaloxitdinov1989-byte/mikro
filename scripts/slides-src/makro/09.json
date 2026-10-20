@@ -1,0 +1,500 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Pul va uning funksiyalari",
+   "sub": "9.1. Pul tushunchasi va funksiyalari",
+   "bullets": [
+    "Mankyu: pul – bitimlarni amalga oshirish uchun ishlatiladigan aktivlar zaxirasi",
+    "Qiymat o‘lchovi: narxlar va qarzlar umumiy birlikda ifodalanadi; n ta tovarga n(n–1)/2 nisbiy narx kerak bo‘lardi",
+    "Ayirboshlash vositasi: «ehtiyojlarning ikki tomonlama mos kelishi» muammosini hal qiladi",
+    "Jamg‘arish vositasi: xarid qobiliyatini kelajakka o‘tkazadi, inflyatsiyada nomukammal",
+    "Likvidlik – aktivni tez va yo‘qotishsiz pulga aylantirish; likvidlik va daromadlilik teskari bog‘liq"
+   ],
+   "note": "Qo‘shimcha funksiyalar: to‘lov vositasi va jahon puli"
+  },
+  {
+   "type": "compare",
+   "title": "Tovar pul va fiat pul",
+   "sub": "9.1. Pul tushunchasi va funksiyalari",
+   "left": {
+    "head": "Tovar pul",
+    "items": [
+     "Ichki qiymatga ega: oltin, kumush, tuz, sigaretalar",
+     "Pul sifatida ishlatilmasa ham qiymati bor",
+     "Oltin standarti: oltinga erkin almashtiriladigan pul"
+    ]
+   },
+   "right": {
+    "head": "Fiat pul",
+    "items": [
+     "Ichki qiymati yo‘q, davlat farmoni bilan pul deb e’lon qilingan",
+     "Hozirgi barcha milliy valyutalar, jumladan so‘m",
+     "Qiymati markaziy bankka ishonchga tayanadi"
+    ]
+   }
+  },
+  {
+   "type": "table",
+   "title": "Pul agregatlari tizimi",
+   "sub": "9.2. Pul agregatlari",
+   "head": [
+    "Agregat",
+    "Tarkibi",
+    "Xususiyati"
+   ],
+   "rows": [
+    [
+     "M0",
+     "muomaladagi naqd pul",
+     "mutlaq likvid"
+    ],
+    [
+     "M1 («tor pul»)",
+     "M0 + talab qilib olinguncha depozitlar",
+     "to‘g‘ridan-to‘g‘ri to‘lov"
+    ],
+    [
+     "M2 («keng pul»)",
+     "M1 + muddatli va jamg‘arma depozitlari",
+     "O‘zbekistonda xorijiy valyuta ham kiradi"
+    ],
+    [
+     "M3",
+     "M2 + yirik depozitlar, sertifikatlar, repo",
+     "tarkibi mamlakatlarda farq qiladi"
+    ],
+    [
+     "L",
+     "M3 + boshqa yuqori likvid aktivlar",
+     "qisqa muddatli DQQ, tijorat qog‘ozlari"
+    ]
+   ],
+   "note": "Kvazi pullar – muddatli, jamg‘arma va xorijiy valyutadagi depozitlar (M2 va M1 farqi)"
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekistonda pul massasi va dollarlashuv",
+   "sub": "9.2. Pul agregatlari",
+   "bullets": [
+    "Naqdsiz to‘lovlar ulushi oshdi: plastik kartalar, Click, Payme, Uzum, QR-to‘lovlar",
+    "Natijada M0 ning M2 dagi ulushi pasaymoqda",
+    "Dollarlashuv – xorijiy valyutadagi depozit va kreditlar ulushi, Markaziy bank siyosatining mo‘ljali",
+    "Yuqori dollarlashuv monetar siyosat samaradorligini pasaytiradi",
+    "2026-yil may: aholining so‘mdagi muddatli depozitlari 122 trln so‘mga yetdi – dedollarlashuv belgisi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Miqdoriy nazariya: Fisher va Kembrij",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "items": [
+    {
+     "name": "Fisher: pulga talab",
+     "formula": "M^{D} = (1)/(V) · PY",
+     "note": "V = PY/M – pulning aylanish tezligi, institutsional omillarga bog‘liq"
+    },
+    {
+     "name": "Kembrij tenglamasi",
+     "formula": "M^{D} = k · PY",
+     "note": "k = 1/V – nominal daromadning pul shaklida saqlanadigan ulushi"
+    },
+    {
+     "name": "Real pul qoldiqlari",
+     "formula": "(M/P)^{D} = kY",
+     "note": "real talab real daromadga proporsional"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: aylanish tezligi va pul massasi",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "steps": [
+    "Berilgan: nominal YaIM = 2000 trln, M = 500 trln so‘m",
+    "a) V = PY/M = 2000/500 = 4; k = 1/V = 500/2000 = 0,25",
+    "b) MV = PY: ΔM/M ≈ ΔP/P + ΔY/Y = 8% + 6% = 14%, ya’ni ≈ 70 trln so‘m",
+    "c) V 2% kamaysa: ΔM/M ≈ 8% + 6% + 2% = 16%, ya’ni ≈ 80 trln so‘m",
+    "Aniq hisobda: 1,06 × 1,08 − 1 = 14,5% (V const) va 16,8% (V −2%)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Keynsning likvidlilikni afzal ko‘rish nazariyasi",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "bullets": [
+    "Bitimlar motivi: daromad va xarajat vaqti mos kelmaydi; talab daromadga bog‘liq",
+    "Ehtiyotkorlik motivi: kutilmagan xarajatlar uchun zaxira; asosan daromadga bog‘liq",
+    "Birgalikda: L_{1} = kY – daromadning funksiyasi",
+    "Spekulyativ motiv: obligatsiya narxi o‘zgarishi noaniq; pulni saqlashning muqobil qiymati – foiz stavkasi",
+    "Foiz yuqori bo‘lsa, kutiladigan narx o‘sishi obligatsiya sotib olishga undaydi: L_{2}(r) foizga teskari"
+   ],
+   "note": "Juda past foizda talab egri chizig‘i gorizontal – likvidlik tuzog‘i"
+  },
+  {
+   "type": "formula",
+   "title": "Obligatsiya narxi va pulga talab funksiyasi",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "items": [
+    {
+     "name": "Muddatsiz obligatsiya narxi",
+     "formula": "P_{obl} = (kupon)/(r)",
+     "note": "kupon 10 ming: r = 10% ⇒ 100 ming; 5% ⇒ 200 ming; 20% ⇒ 50 ming"
+    },
+    {
+     "name": "Keynscha pulga talab",
+     "formula": "(M/P)^{D} = L(r, Y) = kY − hr",
+     "note": "k – daromadga, h – foiz stavkasiga sezgirlik"
+    },
+    {
+     "name": "Fisher samarasi va portfel",
+     "formula": "(M/P)^{D} = L(r + π^{e}, Y)",
+     "note": "muqobil qiymat – nominal stavka i = r + π^{e}"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: obligatsiya narxi va kapital yo‘qotish",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "steps": [
+    "Kupon 15 ming so‘m, muddatsiz obligatsiya: P = 15/r",
+    "r = 10% ⇒ P = 150 ming so‘m",
+    "r = 12% ⇒ P = 125 ming so‘m",
+    "r = 15% ⇒ P = 100 ming; r = 20% ⇒ P = 75 ming so‘m",
+    "Stavka 10% dan 15% ga oshsa: kapital yo‘qotish = 150 − 100 = 50 ming so‘m"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Pulga talab nazariyalarining qiyosi",
+   "sub": "9.3. Pulga talab nazariyalari",
+   "head": [
+    "Nazariya",
+    "Mualliflar",
+    "Asosiy omillar",
+    "Foizga sezgirlik"
+   ],
+   "rows": [
+    [
+     "Fisher miqdoriy",
+     "I. Fisher",
+     "nominal daromad, V",
+     "yo‘q"
+    ],
+    [
+     "Kembrij",
+     "A. Marshall, A. Pigu",
+     "nominal daromad, boylik (k)",
+     "kam"
+    ],
+    [
+     "Likvidlilikni afzal ko‘rish",
+     "J.M. Keyns",
+     "daromad, foiz stavkasi",
+     "yuqori"
+    ],
+    [
+     "Portfel nazariyasi",
+     "J. Tobin, G. Markovits",
+     "aktivlar daromadi va xavfi, boylik",
+     "o‘rtacha"
+    ],
+    [
+     "Zamonaviy miqdoriy",
+     "M. Fridmen",
+     "permanent daromad, inflyatsiya",
+     "past"
+    ],
+    [
+     "Baumol–Tobin",
+     "U. Baumol, J. Tobin",
+     "daromad, foiz, bank xarajati",
+     "o‘rtacha"
+    ]
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Bank tizimida pul yaratilishi",
+   "sub": "9.4. Pul taklifi",
+   "items": [
+    {
+     "name": "Pul taklifi",
+     "formula": "M = C + D",
+     "note": "C – naqd pul, D – depozitlar"
+    },
+    {
+     "name": "Bank multiplikatori",
+     "formula": "m_{b} = (1)/(rr)",
+     "note": "rr = 10%, depozit 1000 ⇒ ΔD = 1000 × 1/0,1 = 10 000"
+    },
+    {
+     "name": "Ortiqcha zaxira bilan",
+     "formula": "m_{b} = (1)/(rr + er)",
+     "note": "er – ortiqcha zaxira normasi; multiplikator kichrayadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Kredit multiplikatsiyasi",
+   "sub": "9.4. Pul taklifi",
+   "img": "image65.png",
+   "caption": "9.4-rasm. Qisman zaxira tizimida bank tizimi tomonidan depozitlarning yaratilishi (rr = 10%)"
+  },
+  {
+   "type": "formula",
+   "title": "Pul bazasi va pul multiplikatori",
+   "sub": "9.4. Pul taklifi",
+   "items": [
+    {
+     "name": "Pul bazasi",
+     "formula": "B = C + R",
+     "note": "markaziy bank bevosita nazorat qiladi – yuqori quvvatli pul"
+    },
+    {
+     "name": "Zaxira normasi va deponentlash",
+     "formula": "rr = R/D,  cr = C/D",
+     "note": "cr aholi afzalliklariga, rr talab va bank siyosatiga bog‘liq"
+    },
+    {
+     "name": "Pul multiplikatori",
+     "formula": "m = (cr + 1)/(cr + rr)",
+     "note": "M/B = (C + D)/(C + R)"
+    },
+    {
+     "name": "Pul massasi",
+     "formula": "M = m × B",
+     "note": "rr va cr qancha kichik bo‘lsa, m shuncha katta"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Misol: pul massasini hisoblash",
+   "sub": "9.4. Pul taklifi",
+   "steps": [
+    "Berilgan: B = 150 trln, rr = 0,08, cr = 0,25",
+    "m = (0,25 + 1)/(0,25 + 0,08) = 1,25/0,33 ≈ 3,79; M ≈ 3,79 × 150 ≈ 568 trln so‘m",
+    "D = M/(1 + cr) = 568/1,25 ≈ 455; C = cr × D ≈ 114; R = rr × D ≈ 36 trln",
+    "Tekshirish: C + R = 114 + 36 = 150 = B",
+    "cr = 0,15 bo‘lsa: m = 1,15/0,23 = 5,0; M = 750 trln so‘m (+32%)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: majburiy zaxira 12% bo‘lganda",
+   "sub": "9.4. Pul taklifi",
+   "steps": [
+    "Mijoz 50 mln so‘m naqd pul qo‘ydi, rr = 12%",
+    "a) Kredit = 50 × (1 − 0,12) = 44 mln so‘m",
+    "b) Jami depozit = 50 × 1/0,12 ≈ 416,7 mln so‘m",
+    "c) Pul massasi = 416,7 − 50 (naqd depozitga o‘tdi) ≈ 366,7 mln so‘mga oshadi",
+    "d) er = 3%: multiplikator 1/0,15 ≈ 6,67; depozit ≈ 333,3, M ≈ 283,3 mln ga oshadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Markaziy bankning vositalari",
+   "sub": "9.5. Markaziy bank tomonidan pul taklifini nazorat qilish vositalari",
+   "bullets": [
+    "M = m × B: ta’sir yo‘llari – pul bazasi yoki pul multiplikatori",
+    "Ochiq bozor operatsiyalari: DQQ sotib olish bazani oshiradi, sotish kamaytiradi – eng egiluvchan vosita",
+    "Majburiy zaxira normasi: oshirilsa multiplikator kamayadi; juda kuchli, kam o‘zgartiriladi",
+    "Qayta moliyalash stavkasi: pasaytirilsa zaxiralarni qarzga olish arzonlashadi",
+    "O‘zbekiston Markaziy banki asosiy mo‘ljal sifatida qisqa foiz stavkalarini belgilaydi (foiz koridori)"
+   ],
+   "note": "Koridor: asosiy stavka atrofida overnayt depozit (pastki) va overnayt kredit (yuqori) stavkalari"
+  },
+  {
+   "type": "compare",
+   "title": "Nazorat nomukammal: ikki tarixiy misol",
+   "sub": "9.5. Markaziy bank tomonidan pul taklifini nazorat qilish vositalari",
+   "left": {
+    "head": "Buyuk depressiya (1929–33)",
+    "items": [
+     "Pul bazasi 18% oshdi, pul massasi 28% qisqardi",
+     "cr 0,17 dan 0,41 ga, rr 0,14 dan 0,21 ga oshdi",
+     "Sabab: banklarga ishonch yo‘qolishi, multiplikator keskin kamaydi"
+    ]
+   },
+   "right": {
+    "head": "Miqdoriy yumshatish (2007–14)",
+    "items": [
+     "AQSHda pul bazasi qariyb 5 baravar oshdi",
+     "M2 faqat taxminan 50% oshdi, inflyatsiya past qoldi",
+     "Banklar yangi zaxirani ortiqcha zaxira sifatida saqladi"
+    ]
+   }
+  },
+  {
+   "type": "steps",
+   "title": "Masala: pul multiplikatori va pul bazasi",
+   "sub": "9.5. Markaziy bank tomonidan pul taklifini nazorat qilish vositalari",
+   "steps": [
+    "Berilgan: B = 200 trln, rr = 0,1, cr = 0,3",
+    "a) m = 1,3/0,4 = 3,25; M = 3,25 × 200 = 650 trln so‘m",
+    "b) ochiq bozorda 10 trln obligatsiya sotib olish: ΔB = 10, ΔM = 3,25 × 10 = 32,5 trln",
+    "c) cr = 0,5: m = 1,5/0,6 = 2,5",
+    "M = 650 saqlash uchun B = 650/2,5 = 260 trln, ya’ni baza 60 trln so‘mga oshirilishi kerak"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Pul bozorida muvozanat",
+   "sub": "9.6. Pul bozorida qisqa muddatli muvozanat",
+   "img": "image68.png",
+   "caption": "9.7-rasm. Pul bozorida muvozanat: pul taklifi va daromad o‘zgarishining foiz stavkasiga ta’siri"
+  },
+  {
+   "type": "table",
+   "title": "Pul bozoridagi o‘zgarishlarning ta’siri",
+   "sub": "9.6. Pul bozorida qisqa muddatli muvozanat",
+   "head": [
+    "O‘zgarish",
+    "Egri chiziq siljishi",
+    "Foiz stavkasi"
+   ],
+   "rows": [
+    [
+     "Pul taklifi oshishi (M↑)",
+     "M^{s} o‘ngga",
+     "pasayadi"
+    ],
+    [
+     "Pul taklifi kamayishi (M↓)",
+     "M^{s} chapga",
+     "oshadi"
+    ],
+    [
+     "Real daromad oshishi (Y↑)",
+     "M^{D} o‘ngga",
+     "oshadi"
+    ],
+    [
+     "Narxlar oshishi (P↑)",
+     "real M^{s}/P chapga",
+     "oshadi"
+    ],
+    [
+     "Raqamli to‘lovlar rivojlanishi",
+     "M^{D} chapga",
+     "pasayadi"
+    ]
+   ],
+   "note": "Muvozanat: M/P̄ = L(r, Ȳ); ortiqcha pul obligatsiyalarga talabni oshirib, foizni tushiradi"
+  },
+  {
+   "type": "steps",
+   "title": "Masala: muvozanatli foiz stavkasi",
+   "sub": "9.6. Pul bozorida qisqa muddatli muvozanat",
+   "steps": [
+    "Talab (M/P)^{D} = 0,4Y − 20r; M/P = 600, Y = 2000",
+    "a) 600 = 800 − 20r ⇒ r = 10",
+    "b) M/P = 640: 640 = 800 − 20r ⇒ r = 8, foiz 2 punktga pasayadi",
+    "c) Y = 2100 (M/P = 600): 600 = 840 − 20r ⇒ r = 12",
+    "d) LM: r = 0,02Y − 0,05·M/P; M/P = 600 bo‘lsa r = 0,02Y − 30"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "LM egri chizig‘ini keltirib chiqarish",
+   "sub": "9.7. LM egri chizig‘i va keynscha pul siyosati",
+   "img": "image69.png",
+   "caption": "9.8-rasm. LM egri chizig‘ini keltirib chiqarish: pul bozori (a) va LM egri chizig‘i (b)"
+  },
+  {
+   "type": "formula",
+   "title": "LM egri chizig‘i",
+   "sub": "9.7. LM egri chizig‘i va keynscha pul siyosati",
+   "items": [
+    {
+     "name": "Pul bozori muvozanati",
+     "formula": "M/P = kY − hr",
+     "note": "Y oshsa talab o‘ngga siljiydi va r oshadi: LM yuqoriga egilgan"
+    },
+    {
+     "name": "LM tenglamasi",
+     "formula": "r = (k)/(h)Y − (1)/(h)·(M)/(P)",
+     "note": "qiyalik k/h: h katta bo‘lsa yotiq, k katta bo‘lsa tik"
+    },
+    {
+     "name": "Transmissiya mexanizmi",
+     "formula": "M↑ ⇒ r↓ ⇒ I↑ ⇒ AD↑ ⇒ Y↑",
+     "note": "M↑ yoki P↓ LMni pastga (o‘ngga) siljitadi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Pul siyosati qachon samarasiz",
+   "sub": "9.7. LM egri chizig‘i va keynscha pul siyosati",
+   "bullets": [
+    "Keynscha pul siyosati real iqtisodiyotga foiz stavkasi orqali ta’sir qiladi",
+    "Likvidlik tuzog‘i: foiz juda past, pulga talab cheksiz elastik, zanjirning birinchi bo‘g‘ini uziladi",
+    "Investitsiya tuzog‘i: investitsiyalar foizga sezgir emas, ikkinchi bo‘g‘in uziladi",
+    "Shu sababli Keyns chuqur retsessiyada fiskal siyosatga ko‘proq ishongan",
+    "2008 va 2020-yildan keyin stavkalar nolga yaqinlashdi, miqdoriy yumshatish qo‘llandi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Uzoq muddat: pulning neytralligi",
+   "sub": "9.8. Pul bozorida uzoq muddatli muvozanat",
+   "bullets": [
+    "Uzoq muddatda narxlar egiluvchan: pul massasi oshsa, narxlar ko‘tariladi",
+    "Real pul qoldiqlari M/P kamayadi, foiz stavkasi oldingi darajasiga qaytadi",
+    "Natija: narxlar proporsional oshadi, real o‘zgaruvchilar (Y, r) o‘zgarmaydi – pulning neytralligi",
+    "Pigu–Patinkin samarasi: narxlar pasayganda real qoldiqlar oshadi va iste’mol ko‘payadi",
+    "Monetaristlar: diskretsion siyosat ko‘pincha beqarorlashtiradi (kechikish, markaziy bank xatolari)"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Fridmen qoidasi va inflyatsiya",
+   "sub": "9.8. Pul bozorida uzoq muddatli muvozanat",
+   "items": [
+    {
+     "name": "Monetar qoida",
+     "formula": "ΔM/M = g_{Y} (+ π^{maqsad})",
+     "note": "pul massasi barqaror sur’atda o‘sadi, odatda 3–5 foiz"
+    },
+    {
+     "name": "Uzoq muddatli inflyatsiya",
+     "formula": "π = (ΔM)/(M) − (ΔY)/(Y)",
+     "note": "pulga talab daromad bo‘yicha elastikligi 1 bo‘lganda"
+    },
+    {
+     "name": "Kutilayotgan inflyatsiya",
+     "formula": "π^{e} = π,  i = r + π^{e}",
+     "note": "Fisher samarasi orqali nominal stavka belgilanadi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: Fridmen qoidasi bo‘yicha M ning o‘sishi",
+   "sub": "9.8. Pul bozorida uzoq muddatli muvozanat",
+   "steps": [
+    "Berilgan: real YaIM o‘sishi 5%, inflyatsiya maqsadi 5%",
+    "Aylanish tezligi yiliga 1% ga kamaymoqda (moliyaviy chuqurlashuv)",
+    "MV = PY: ΔM/M + ΔV/V = π + ΔY/Y",
+    "ΔM/M = 5% + 5% − (−1%) = 11%",
+    "Pul massasi yiliga taxminan 11% sur’atda o‘sishi kerak"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "9.8. Pul bozorida uzoq muddatli muvozanat",
+   "bullets": [
+    "Pul – ayirboshlash vositasi, qiymat o‘lchovi va jamg‘arish vositasi; agregatlar likvidlik bo‘yicha M0–L",
+    "Pulga talab: Fisher MV = PY, Kembrij M = kPY, Keyns M/P = L(r, Y), portfel nazariyalari",
+    "Banklar pul yaratadi: bank multiplikatori 1/rr, pul multiplikatori m = (cr+1)/(cr+rr), M = m × B",
+    "Markaziy bank ochiq bozor, zaxira normasi va stavka orqali ta’sir qiladi, lekin pulni to‘liq nazorat qila olmaydi",
+    "Pul massasi oshsa foiz tushadi (LM); uzoq muddatda pul neytral, Fridmen barqaror o‘sish qoidasini taklif qildi"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,474 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Yalpi talab (AD) tushunchasi",
+   "sub": "6.1. Yalpi talab tushunchasi va AD egri chizig‘i",
+   "bullets": [
+    "AD – narxlarning har bir darajasida sotib olinishi mumkin bo‘lgan yakuniy tovar va xizmatlarning real hajmi",
+    "AD-AS modelida alohida tovar emas, narxlarning umumiy darajasi (P) va real YaIM (Y) tahlil qilinadi",
+    "Narxlar darajasi o‘zgarsa, AD egri chizig‘i bo‘ylab harakat bo‘ladi (A nuqtadan B ga)",
+    "Egri chiziqning o‘zi faqat bahodan boshqa omillar ta’sirida siljiydi"
+   ],
+   "note": "AD egri chizig‘i pastga qarab egilgan: narxlar qancha past bo‘lsa, talab shuncha yuqori"
+  },
+  {
+   "type": "formula",
+   "title": "AD tarkibi va miqdoriy nazariya",
+   "sub": "6.1. Yalpi talab tushunchasi va AD egri chizig‘i",
+   "items": [
+    {
+     "name": "Yalpi talab tarkibi",
+     "formula": "AD = C+I+G+NX",
+     "note": "xarajatlar usulida hisoblangan YaIM tarkibiga mos"
+    },
+    {
+     "name": "Almashinuv tenglamasi",
+     "formula": "MV = PY",
+     "note": "M – pul taklifi, V – aylanish tezligi"
+    },
+    {
+     "name": "AD egri chizig‘i tenglamasi",
+     "formula": "Y = (M×V)/(P)",
+     "note": "P va Y o‘rtasida teskari bog‘liqlik, giperbola shaklida"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "AD pastga egilishining sabablari",
+   "sub": "6.1. Yalpi talab tushunchasi va AD egri chizig‘i",
+   "head": [
+    "Samara",
+    "Mexanizm",
+    "Komponent",
+    "Asos"
+   ],
+   "rows": [
+    [
+     "Foiz stavkasi samarasi",
+     "P↓ → pulga talab↓ → r↓ → I↑",
+     "I (va uzoq muddatli C)",
+     "J.M. Keyns"
+    ],
+    [
+     "Boylik samarasi",
+     "P↓ → real boylik↑ → iste’mol↑",
+     "C",
+     "A. Pigu, D. Patinkin"
+    ],
+    [
+     "Import xaridlari samarasi",
+     "P↓ → mahalliy tovar arzonlashadi → NX↑",
+     "NX",
+     "R. Mandell, J. Fleming"
+    ]
+   ],
+   "note": "Mikroiqtisodiyotdagi almashtirish va daromad samarasi bu yerda ishlamaydi: barcha narxlar birga o‘zgaradi"
+  },
+  {
+   "type": "figure",
+   "title": "Pulning miqdoriy nazariyasi va AD",
+   "sub": "6.1. Yalpi talab tushunchasi va AD egri chizig‘i",
+   "img": "image39.png",
+   "caption": "6.1-rasm. Pulning miqdoriy nazariyasi asosidagi yalpi talab egri chizig‘i"
+  },
+  {
+   "type": "steps",
+   "title": "Amaliy misol: AD egri chizig‘ini hisoblash",
+   "sub": "6.1. Yalpi talab tushunchasi va AD egri chizig‘i",
+   "steps": [
+    "Berilgan: M = 600 trln so‘m, V = 2,5; AD tenglamasi Y = (M×V)/(P) = 1500/(P)",
+    "P = 1,0 bo‘lsa, Y = 1500 trln so‘m",
+    "P = 1,25 bo‘lsa, Y = 1200 trln so‘m; P = 1,5 bo‘lsa, Y = 1000 trln so‘m",
+    "Markaziy bank M ni 720 trln so‘mgacha (20 foizga) oshirsa: Y = 1800/(P)",
+    "Endi P = 1,25 da Y = 1440 trln so‘m: AD o‘ngga siljidi, har bir P da talab 20 foizga oshdi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "AD ni siljituvchi omillar: C, I va G",
+   "sub": "6.2. Yalpi talabning bahodan boshqa omillari",
+   "bullets": [
+    "Iste’mol: boylik (aksiya, uy-joy narxi), kutishlar, qarzdorlik, soliq va transfertlar, pul o‘tkazmalari",
+    "Investitsiya: foiz stavkasi (siyosat), kutilayotgan foyda, biznes soliqlari, texnologiya, ortiqcha quvvat",
+    "Davlat xaridlarining oshishi AD ni bevosita oshiradi, agar soliq yoki foiz o‘sishi uni qoplamasa",
+    "Sof eksport: xorijdagi daromadlar, valyuta kursi, jahon narxlari (oltin, mis, paxta, gaz), savdo siyosati",
+    "Pul taklifi: miqdoriy nazariyada M↑ har bir P da AD ni oshiradi; keynschada foiz orqali I ga ta’sir qiladi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Omillar va AD ning siljishi",
+   "sub": "6.2. Yalpi talabning bahodan boshqa omillari",
+   "head": [
+    "Omil",
+    "AD o‘ngga (talab oshadi)",
+    "AD chapga (talab kamayadi)"
+   ],
+   "rows": [
+    [
+     "Iste’molchilar boyligi",
+     "Aksiya va uy-joy narxlari oshishi",
+     "Moliyaviy aktivlar qadrsizlanishi"
+    ],
+    [
+     "Kutishlar",
+     "Optimizm, daromad o‘sishini kutish",
+     "Pessimizm, ishsizlikdan qo‘rqish"
+    ],
+    [
+     "Foiz stavkasi (siyosat)",
+     "Asosiy stavka pasaytirilishi",
+     "Asosiy stavka oshirilishi"
+    ],
+    [
+     "Fiskal siyosat",
+     "G↑, T↓, transfertlar↑",
+     "G↓, T↑"
+    ],
+    [
+     "Valyuta kursi",
+     "Milliy valyuta qadrsizlanishi",
+     "Milliy valyuta qimmatlashishi"
+    ],
+    [
+     "Pul taklifi",
+     "M↑",
+     "M↓"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "2022-yilgi «kutilmagan» talab shoki",
+   "sub": "6.2. Yalpi talabning bahodan boshqa omillari",
+   "bullets": [
+    "Kutilgan: Rossiyadagi sanksiyalar migrant daromadlari va pul o‘tkazmalarini kamaytiradi",
+    "Haqiqatda pul o‘tkazmalari 2022-yilda rekord 16,9 mlrd dollarga yetdi (2021-yilda 8,1 mlrd dollar)",
+    "AD-AS tilida: kuchli ijobiy talab shoki, AD egri chizig‘i o‘ngga siljidi",
+    "Iqtisodiy o‘sish 5,7 foiz, inflyatsiya 10 foizdan 12,3 foizga tezlashdi; asosiy stavka vaqtincha 17 foizgacha ko‘tarildi"
+   ],
+   "note": "Saboq: tashqi shoklarning yo‘nalishi va kuchini oldindan aytish qiyin, siyosat egiluvchan bo‘lishi kerak"
+  },
+  {
+   "type": "compare",
+   "title": "Klassik va keynscha yalpi taklif",
+   "sub": "6.3. Yalpi taklif va AS egri chizig‘i",
+   "left": {
+    "head": "Klassik model (LRAS, vertikal)",
+    "items": [
+     "Narxlar va nominal ish haqi to‘liq egiluvchan",
+     "Y faqat real omillar (L, K, A) bilan belgilanadi",
+     "To‘liq bandlik; AD o‘zgarsa faqat P o‘zgaradi"
+    ]
+   },
+   "right": {
+    "head": "Keynscha model (SRAS, gorizontal)",
+    "items": [
+     "Narxlar va nominal ish haqi qisqa muddatda qat’iy",
+     "Ishlab chiqarish va bandlik talabga qarab o‘zgaradi",
+     "Foydalanilmayotgan resurslar bor; P o‘zgarmaydi"
+    ]
+   }
+  },
+  {
+   "type": "formula",
+   "title": "Klassik model: LRAS va neytrallik",
+   "sub": "6.3. Yalpi taklif va AS egri chizig‘i",
+   "items": [
+    {
+     "name": "Ishlab chiqarish funksiyasi",
+     "formula": "Y = A·F(K, L)",
+     "note": "mehnat (L), kapital (K) va texnologiya (A) bilan belgilanadi"
+    },
+    {
+     "name": "Uzoq muddatli yalpi taklif",
+     "formula": "Y = Ȳ = A·F(K̄, L̄)",
+     "note": "potensial YaIM darajasida vertikal egri chiziq"
+    },
+    {
+     "name": "Real ish haqi",
+     "formula": "(W)/(P) = const",
+     "note": "P 10% oshsa, W ham 10% oshadi; ishlab chiqarish o‘zgarmaydi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Narxlar nima uchun «yopishqoq»? (Blinder)",
+   "sub": "6.3. Yalpi taklif va AS egri chizig‘i",
+   "bullets": [
+    "Blinder ~200 ta AQSH firmasidan so‘radi: yarmi narxni yiliga bir martadan ko‘p o‘zgartirmaydi",
+    "Muvofiqlashtirish muammosi: «Raqobatchilar oshirmasa, men birinchi bo‘lib oshirmayman»",
+    "Xarajatlarga asoslangan narx belgilash, yashirin shartnomalar, psixologik chegaralar (9 990 so‘m)",
+    "Narxdan boshqa omillar o‘zgaradi: yetkazib berish muddati, xizmat sifati"
+   ],
+   "note": "Mankyu: narxlar qat’iyligi real hodisa, u pul va AD ning qisqa muddatli real ta’sirini tushuntiradi"
+  },
+  {
+   "type": "bullets",
+   "title": "AS egri chizig‘ining uch kesimi",
+   "sub": "6.3. Yalpi taklif va AS egri chizig‘i",
+   "bullets": [
+    "Keynscha (gorizontal) kesim: chuqur retsessiya, ishlab chiqarish narx oshmay kengayadi",
+    "Oraliq (ko‘tariluvchi) kesim: to‘liq bandlikka yaqin, resurslar taqchil, o‘sish narx oshishi bilan kechadi",
+    "Klassik (vertikal) kesim: potensial daraja Y*, resurslar to‘liq band, AD o‘sishi faqat narxni oshiradi",
+    "Klassik modelda AS faqat real omillar (mehnat, kapital, texnologiya, institutlar) ta’sirida siljiydi"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Yalpi taklifning bahodan boshqa omillari",
+   "sub": "6.3. Yalpi taklif va AS egri chizig‘i",
+   "head": [
+    "Omil",
+    "AS o‘ngga (taklif oshadi)",
+    "AS chapga (taklif kamayadi)"
+   ],
+   "rows": [
+    [
+     "Resurslar narxi",
+     "Neft, ish haqi, xom ashyo arzonlashishi",
+     "Energiya va xom ashyo qimmatlashishi"
+    ],
+    [
+     "Unumdorlik",
+     "Yangi texnologiyalar, malaka oshishi",
+     "Texnologik regress, kadrlar ketishi"
+    ],
+    [
+     "Biznes soliqlari",
+     "Stavkalar kamayishi, subsidiyalar",
+     "Soliqlar oshirilishi"
+    ],
+    [
+     "Tartibga solish",
+     "Deregulyatsiya, biznes muhiti yaxshilanishi",
+     "Ma’muriy to‘siqlar ko‘payishi"
+    ],
+    [
+     "Tabiiy omillar",
+     "Yaxshi hosil, qulay ob-havo",
+     "Qurg‘oqchilik, zilzila, pandemiya"
+    ],
+    [
+     "Valyuta kursi",
+     "Milliy valyuta qimmatlashishi",
+     "Milliy valyuta qadrsizlanishi"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Muvozanat va uni ta’minlash mexanizmi",
+   "sub": "6.4. AD-AS modelida makroiqtisodiy muvozanat",
+   "bullets": [
+    "Makroiqtisodiy muvozanat – AD = AS bo‘lgan holat; kesishish nuqtasi P* va Y* ni belgilaydi",
+    "Uzoq muddatli muvozanat: AD, SRAS va LRAS bitta nuqtada kesishadi, ishlab chiqarish potensial darajada",
+    "P muvozanatdan yuqori bo‘lsa: zaxira to‘planadi, firmalar ishlab chiqarish va narxni qisqartiradi",
+    "P past bo‘lsa: taqchillik, firmalar narx va ishlab chiqarishni oshiradi",
+    "Gorizontal SRAS da muvozanatga ishlab chiqarish moslashuvi orqali erishiladi, uzoq muddatda narxlar moslashadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Uzoq muddatli muvozanat",
+   "sub": "6.4. AD-AS modelida makroiqtisodiy muvozanat",
+   "img": "image43.png",
+   "caption": "6.5-rasm. AD-AS modelida uzoq muddatli muvozanat"
+  },
+  {
+   "type": "formula",
+   "title": "Umumiy muvozanat va Valras qonuni",
+   "sub": "6.4. AD-AS modelida makroiqtisodiy muvozanat",
+   "items": [
+    {
+     "name": "Valras qonuni",
+     "formula": "Σ_{i=1}^{n} P_{i}(D_{i}−S_{i}) = 0",
+     "note": "barcha bozorlardagi ortiqcha talablar qiymati yig‘indisi nolga teng"
+    },
+    {
+     "name": "Mohiyati",
+     "formula": "(n−1) bozor muvozanatda ⇒ n-bozor ham",
+     "note": "L. Valras, 1874; AD-AS – umumiy muvozanat modeli"
+    },
+    {
+     "name": "Makro darajada to‘rt bozor",
+     "formula": "tovar, mehnat, pul, obligatsiya",
+     "note": "uchtasini tahlil qilish yetarli; IS-LM da obligatsiyalar alohida ko‘rilmaydi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Salbiy talab shoki: qisqa va uzoq muddat",
+   "sub": "6.5. Talab shoklari va taklif shoklari",
+   "steps": [
+    "Boshlang‘ich holat: uzoq muddatli muvozanat (A nuqta), ishlab chiqarish Y* da",
+    "Shok (ishonch pasayishi, kredit cheklanishi, M qisqarishi): AD chapga, AD_{1}dan AD_{2}ga",
+    "Qisqa muddat: narxlar qat’iy, iqtisodiyot B nuqtaga o‘tadi, Y qisqaradi, ishsizlik oshadi",
+    "Uzoq muddat: narx va ish haqi pasayadi, SRAS pastga siljiydi",
+    "C nuqta: Y potensial darajaga qaytadi, narxlar darajasi esa avvalgidan past"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Salbiy talab shoki grafigi",
+   "sub": "6.5. Talab shoklari va taklif shoklari",
+   "img": "image45.png",
+   "caption": "6.7-rasm. Salbiy talab shoki: qisqa muddatda retsessiya, uzoq muddatda narxlarning pasayishi"
+  },
+  {
+   "type": "table",
+   "title": "Talab va taklif shoklarining oqibatlari",
+   "sub": "6.5. Talab shoklari va taklif shoklari",
+   "head": [
+    "Shok turi",
+    "Misol",
+    "Qisqa muddat",
+    "Uzoq muddat"
+   ],
+   "rows": [
+    [
+     "Ijobiy talab shoki",
+     "Pul o‘tkazmalari keskin oshishi",
+     "Y↑, P↑ (biroz)",
+     "Y potensialga, P↑"
+    ],
+    [
+     "Salbiy talab shoki",
+     "Moliyaviy inqiroz, ishonch pasayishi",
+     "Y↓, P↓ (biroz)",
+     "Y potensialga, P↓"
+    ],
+    [
+     "Salbiy taklif shoki",
+     "Energiya narxi oshishi, qurg‘oqchilik",
+     "Y↓, P↑",
+     "Y potensialga, P avvalgisiga"
+    ],
+    [
+     "Ijobiy taklif shoki",
+     "Neft arzonlashishi, texnologik yutuq",
+     "Y↑, P↓",
+     "Y potensialga, P↓"
+    ]
+   ],
+   "note": "Ijobiy taklif shokida texnologiya o‘zgarsa, uzoq muddatda Y ham oshadi"
+  },
+  {
+   "type": "bullets",
+   "title": "Taklif shoki va moslashtiruvchi siyosat",
+   "sub": "6.5. Talab shoklari va taklif shoklari",
+   "bullets": [
+    "Salbiy taklif shoki (neft narxi, qurg‘oqchilik, pandemiya) SRAS ni yuqoriga siljitadi: P↑, Y↓ – stagflyatsiya",
+    "Yo‘l 1: AD ni o‘zgartirmaslik – narx va ish haqi asta pasayadi, ammo retsessiya uzoq va og‘riqli",
+    "Yo‘l 2: moslashtiruvchi siyosat – AD o‘ngga, Y tez tiklanadi, lekin P doimiy yuqori qoladi",
+    "Moslashtirish inflyatsion spiral va inflyatsion kutishlar oshishi xavfini tug‘diradi"
+   ],
+   "note": "1724-yil Fransiya: M ~45% qisqardi, narxlar sekin pasaydi, sanoat ishlab chiqarishi qisqa muddatda 30% kamaydi"
+  },
+  {
+   "type": "bullets",
+   "title": "COVID-19: talab va taklif shoklari birga",
+   "sub": "6.5. Talab shoklari va taklif shoklari",
+   "bullets": [
+    "2020: karantin va ta’minot zanjirlarining uzilishi SRAS ni, iste’mol va investitsiya pasayishi AD ni chapga siljitdi",
+    "Natija: Y keskin qisqardi, narxlarga ta’sir dastlab noaniq; ko‘p mamlakatda inflyatsiya pasaydi",
+    "Siyosat: misli ko‘rilmagan rag‘batlantirish (AQSHda 5 trln dollardan ortiq)",
+    "2021–2022: AD tez tiklandi, SRAS sekin – AQSHda 2022-yil iyunda inflyatsiya 9,1 foiz, 40 yillik eng yuqori daraja"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Barqarorlashtirish siyosati vositalari",
+   "sub": "6.6. Barqarorlashtirish siyosati",
+   "head": [
+    "Vaziyat",
+    "Monetar siyosat",
+    "Fiskal siyosat",
+    "AD ga ta’siri"
+   ],
+   "rows": [
+    [
+     "Retsessiya",
+     "Stavkani pasaytirish, M↑",
+     "G↑, T↓",
+     "AD o‘ngga"
+    ],
+    [
+     "Qizib ketish",
+     "Stavkani oshirish, M↓",
+     "G↓, T↑",
+     "AD chapga"
+    ],
+    [
+     "Salbiy taklif shoki",
+     "Dilemma: moslashtirish yoki yo‘q",
+     "Manzilli qo‘llab-quvvatlash",
+     "Vaziyatga bog‘liq"
+    ]
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Siyosat cheklovlari va faol/passiv bahs",
+   "sub": "6.6. Barqarorlashtirish siyosati",
+   "bullets": [
+    "Laglar: shokni aniqlash, qaror qabul qilish va ta’sir namoyon bo‘lishi vaqt oladi",
+    "Potensial YaIMni baholash va shok turini (talab yoki taklif) aniqlash qiyin; kutishlar va ishonch muammosi",
+    "Siyosiy cheklovlar: saylov oldidan rag‘batlantirish, cheklovchi choralarning nopopulyarligi",
+    "Keynschilar faol siyosat tarafdori; monetaristlar va yangi klassiklar aniq qoidalar (Fridmen, Teylor) tarafdori"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1: pul massasi va AD",
+   "sub": "Masala va mashqlar",
+   "steps": [
+    "M = 500, V = 3: AD tenglamasi Y = 1500/(P)",
+    "P = 1 da Y = 1500; P = 1,2 da Y = 1250; P = 1,5 da Y = 1000",
+    "M 10% kamaysa, M = 450 va Y = 1350/(P)",
+    "Potensial Y = 1400 bo‘lsa, muvozanat narx P = 1500/1400 ≈ 1,07 (M kamayishidan oldin)",
+    "M kamayganidan keyin P = 1350/1400 ≈ 0,96"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 2–3: muvozanat va talab pasayishi",
+   "sub": "Masala va mashqlar",
+   "steps": [
+    "2-masala: YD = 3200 − 400P, P = 2 da Y = 3200 − 800 = 2400, potensial YaIMga teng",
+    "Demak, retsessiya ham, qizib ketish ham yo‘q: YaIM uzilishi 0, uzoq muddatda P o‘zgarmaydi",
+    "3-masala: YD = 2960 − 400P, P = 2 da Y = 2160; uzilish 2160 − 2400 = −240 (−10%)",
+    "Ouken koeffitsiyenti 2 bo‘lsa, tsiklik ishsizlik 10%/2 = 5 foiz punktga oshadi",
+    "Potensialga qaytarish uchun P = 2 da AD ni 240 ga oshirish kerak (3200 − 400P ga qaytish)"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 4: neft narxi shoki",
+   "sub": "Masala va mashqlar",
+   "steps": [
+    "Berilgan: Y* = 1000, P = 1; SRAS P = 1,2 gacha ko‘tarildi; AD: Y = 2000 − 1000P",
+    "Qisqa muddatli muvozanat: P = 1,2 da Y = 2000 − 1200 = 800 (Y* dan 200 past) – stagflyatsiya",
+    "To‘liq moslashtirish: AD (Y = 1000, P = 1,2) nuqtadan o‘tishi kerak, yangi AD: Y = 2200 − 1000P",
+    "Moslashtirilmasa, ishsizlik bosimida narx va ish haqi pasayadi, SRAS yana P = 1 ga qaytadi",
+    "Uzoq muddatda Y = 1000 va P = 1 tiklanadi, lekin retsessiya uzoq va og‘riqli bo‘ladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Xulosa",
+   "bullets": [
+    "AD = C+I+G+NX; AD pastga egilgan (foiz, boylik, import samaralari); bahodan boshqa omillar uni siljitadi.",
+    "Klassik AS (LRAS) vertikal, pul neytral; keynscha AS (SRAS) gorizontal, narxlar qat’iy; real AS uch kesimli.",
+    "Muvozanat AD va AS kesishgan nuqtada; Valras qonuni: n ta bozordan (n−1) tasi muvozanatda bo‘lsa, oxirgisi ham.",
+    "Talab shoklari qisqa muddatda Y ga, uzoq muddatda faqat P ga ta’sir qiladi; taklif shoklari stagflyatsiyani keltiradi.",
+    "Barqarorlashtirish siyosati (monetar va fiskal) tebranishlarni yumshatadi, ammo laglar va noaniqliklar bilan cheklangan."
+   ]
+  }
+ ]
+}

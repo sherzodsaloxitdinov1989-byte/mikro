@@ -1,0 +1,442 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Keynsning uchta tanqidi",
+   "sub": "8.1. Keynsning makroiqtisodiy muvozanat nazariyasi",
+   "bullets": [
+    "1) Jamg‘arish va investitsiya qarorlarini turli subyektlar turli sabablarga ko‘ra qabul qiladi",
+    "2) Jamg‘armalar foiz stavkasiga emas, asosan daromadga bog‘liq",
+    "3) Narxlar va ish haqi qisqa muddatda qat’iy: moslashuv ishlab chiqarish va bandlik orqali bo‘ladi",
+    "Rejalarning mos kelishi uchun hech qanday avtomatik kafolat yo‘q"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Keyns nazariyasining markaziy xulosasi",
+   "sub": "8.1. Keynsning makroiqtisodiy muvozanat nazariyasi",
+   "bullets": [
+    "Bozor mexanizmi muvozanatni doimo to‘liq bandlik darajasida ta’minlay olmaydi",
+    "Iqtisodiyot to‘liq bandlikdan past bo‘lgan har qanday darajada muvozanatga kelishi mumkin",
+    "Ishlab chiqarish hajmini samarali talab, ya’ni rejalashtirilgan yalpi xarajatlar belgilaydi",
+    "Mankyu: Keyns xochi – IS egri chizig‘iga birinchi qadam (13-bobda foiz stavkasi qo‘shiladi)"
+   ],
+   "note": "Model faraz qiladi: narxlar darajasi qayd etilgan, pul bozori hali hisobga olinmagan"
+  },
+  {
+   "type": "bullets",
+   "title": "Haqiqiy va rejalashtirilgan xarajatlar",
+   "sub": "8.2. Haqiqiy va rejalashtirilgan xarajatlar",
+   "bullets": [
+    "Haqiqiy xarajatlar har doim YaIMga teng: Y = C + I + G, sotilmagan mahsulot zaxiralarga investitsiya sanaladi",
+    "Rejalashtirilgan xarajatlar (PE) – sarflashga rejalashtirilgan mablag‘lar",
+    "Firmalar sotish rejasini bajarmasa yoki oshirib bajarsa, rejalashtirilmagan zaxira investitsiyalari paydo bo‘ladi",
+    "Kam sotilsa zaxiralar ko‘payadi, ko‘p sotilsa kutilmaganda kamayadi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Haqiqiy va rejalashtirilgan xarajatlar",
+   "sub": "8.2. Haqiqiy va rejalashtirilgan xarajatlar",
+   "items": [
+    {
+     "name": "Haqiqiy xarajatlar",
+     "formula": "Y = C + I + G",
+     "note": "har doim YaIMga teng"
+    },
+    {
+     "name": "Xarajatlar balansi",
+     "formula": "Haqiqiy xarajatlar = PE + Rejalashtirilmagan zaxiralar o‘zgarishi",
+     "note": "farq zaxira o‘zgarishida ko‘rinadi"
+    },
+    {
+     "name": "Rejalashtirilgan xarajatlar",
+     "formula": "PE = C + I + G",
+     "note": "yopiq iqtisodiyotda uch komponent"
+    }
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Rejalashtirilgan xarajatlar funksiyasi",
+   "sub": "8.2. Haqiqiy va rejalashtirilgan xarajatlar",
+   "items": [
+    {
+     "name": "Iste’mol funksiyasi",
+     "formula": "C = C_{a} + c(Y − T)",
+     "note": "c – iste’molga chegaraviy moyillik (MPC)"
+    },
+    {
+     "name": "Rejalashtirilgan xarajatlar",
+     "formula": "PE = (C_{a} − cT + I + G) + cY",
+     "note": "I, G va T qayd etilgan"
+    },
+    {
+     "name": "Avtonom xarajatlar bilan",
+     "formula": "PE = A + cY",
+     "note": "A = C_{a} − cT + I + G; qiyalik MPC ga teng"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Muvozanat sharti va «Keyns xochi»",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "bullets": [
+    "Muvozanat: haqiqiy xarajatlar rejalashtirilganga teng, rejalashtirilmagan zaxira o‘zgarishi nolga teng",
+    "Haqiqiy xarajatlar YaIMga teng bo‘lgani uchun muvozanat sharti Y = PE",
+    "Grafikda shart 45° chiziq bilan ifodalanadi: har nuqtada daromad xarajatga teng",
+    "PE chizig‘i 45° chiziq bilan kesishgan nuqta E – muvozanat; kesishish tufayli «Keyns xochi»"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Keyns xochi",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "img": "image55.png",
+   "caption": "8.1-rasm. Keyns xochi: rejalashtirilgan xarajatlar va muvozanatli daromad"
+  },
+  {
+   "type": "formula",
+   "title": "Muvozanatli daromad",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "items": [
+    {
+     "name": "Muvozanat sharti",
+     "formula": "Y = PE",
+     "note": "haqiqiy va rejalashtirilgan xarajatlar tengligi"
+    },
+    {
+     "name": "Algebraik yechim",
+     "formula": "Y = A + cY",
+     "note": "PE = A + cY ni Y ga tenglash"
+    },
+    {
+     "name": "Muvozanatli daromad",
+     "formula": "Y^{∗} = (A)/(1 − c) = (C_{a} − cT + I + G)/(1 − c)",
+     "note": "A – avtonom xarajatlar"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Zaxiralarning rejalashtirilmagan o‘zgarishi",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "bullets": [
+    "Y > Y^{∗}: PE < Y, sotilmagan tovarlar omborda to‘planadi, firmalar ishlab chiqarish va bandlikni qisqartiradi",
+    "Y < Y^{∗}: PE > Y, zaxiralar kutilmaganda kamayadi, firmalar ishlab chiqarishni oshiradi",
+    "Ikkala holatda Y muvozanatga yaqinlashadi",
+    "Muhim: moslashuvchi narxlar emas, ishlab chiqarish hajmi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Inyeksiyalar va chiqib ketishlar yondashuvi",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "items": [
+    {
+     "name": "Haqiqiy investitsiyalar",
+     "formula": "I_{h} = I_{r} + ΔZ",
+     "note": "ΔZ – rejalashtirilmagan zaxira o‘zgarishi"
+    },
+    {
+     "name": "Yopiq, davlatsiz iqtisodiyot",
+     "formula": "S = I_{r}",
+     "note": "muvozanatda ΔZ = 0; ex post S = I_{h}"
+    },
+    {
+     "name": "Umumiy ko‘rinish",
+     "formula": "S + T + IM = I + G + X",
+     "note": "chiqib ketishlar = inyeksiyalar"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Muvozanatli YaIMni ikki usulda topish",
+   "sub": "8.3. «Keyns xochi». Muvozanatga erishish mexanizmi",
+   "steps": [
+    "Berilgan (trln so‘m): C = 80 + 0,75(Y − 240); I = 200; G = 300; T = 240",
+    "1-usul: PE = 80 + 0,75(Y − 240) + 200 + 300 = 400 + 0,75Y; Y = PE ⇒ 0,25Y = 400 ⇒ Y^{∗} = 1600",
+    "2-usul: S = (Y − T) − C = −140 + 0,25Y; S + T = I + G ⇒ 0,25Y = 400 ⇒ Y^{∗} = 1600",
+    "Tekshirish: C = 80 + 0,75 · 1360 = 1100; PE = 1100 + 200 + 300 = 1600 = Y",
+    "Y = 1700 bo‘lsa: PE = 400 + 0,75 · 1700 = 1675; zaxiralarda 1700 − 1675 = 25 trln so‘m to‘planadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Multiplikator samarasi",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "bullets": [
+    "ΔG ga oshgan davlat xaridlari daromadni ΔG dan ko‘proq oshiradi – multiplikator samarasi",
+    "Misol: 100 mlrd so‘mlik yo‘l qurilishi birlamchi daromad bo‘ladi (1-raund)",
+    "MPC = 0,75 bo‘lsa, 75 mlrd so‘m sarflanadi (2-raund), keyin 0,75 · 75 = 56,25 mlrd so‘m (3-raund) va h.k.",
+    "Daromad ketma-ket raundlarda oshib boradi va cheksiz geometrik progressiya hosil qiladi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Multiplikator raundlari",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "img": "image58.png",
+   "caption": "8.4-rasm. Multiplikator jarayonining raundlari (MPC = 0,75)"
+  },
+  {
+   "type": "formula",
+   "title": "Multiplikator formulasi",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "items": [
+    {
+     "name": "Daromadning jami o‘sishi",
+     "formula": "ΔY = ΔG(1 + c + c^{2} + c^{3} + ...) = (ΔG)/(1 − c)",
+     "note": "cheksiz geometrik progressiya yig‘indisi"
+    },
+    {
+     "name": "Avtonom xarajatlar multiplikatori",
+     "formula": "k = (ΔY)/(ΔA) = 1/(1 − MPC) = 1/MPS",
+     "note": "har qanday avtonom xarajatga tegishli"
+    },
+    {
+     "name": "Investitsion multiplikator",
+     "formula": "ΔY = k · ΔI",
+     "note": "ΔI – investitsiyalar o‘zgarishi"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "MPC va multiplikator qiymati",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "head": [
+    "MPC",
+    "MPS",
+    "k = 1/(1 − MPC)",
+    "100 mlrd so‘mlik inyeksiya ta’siri"
+   ],
+   "rows": [
+    [
+     "0,50",
+     "0,50",
+     "2,0",
+     "200 mlrd so‘m"
+    ],
+    [
+     "0,60",
+     "0,40",
+     "2,5",
+     "250 mlrd so‘m"
+    ],
+    [
+     "0,75",
+     "0,25",
+     "4,0",
+     "400 mlrd so‘m"
+    ],
+    [
+     "0,80",
+     "0,20",
+     "5,0",
+     "500 mlrd so‘m"
+    ],
+    [
+     "0,90",
+     "0,10",
+     "10,0",
+     "1000 mlrd so‘m"
+    ]
+   ],
+   "note": "8.1-jadval. MPC qancha katta bo‘lsa, multiplikator shuncha katta; samara ikki tomonlama ishlaydi"
+  },
+  {
+   "type": "formula",
+   "title": "Ochiq iqtisodiyotda multiplikator",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "items": [
+    {
+     "name": "Import funksiyasi",
+     "formula": "IM = IM_{a} + mY",
+     "note": "m – importga chegaraviy moyillik (MPM)"
+    },
+    {
+     "name": "Sof eksport funksiyasi",
+     "formula": "NX = X − IM_{a} − mY = NX_{a} − mY",
+     "note": "daromad oshsa, sof eksport kamayadi"
+    },
+    {
+     "name": "Ochiq iqtisodiyot multiplikatori",
+     "formula": "k = 1/(1 − c + m) = 1/(MPS + MPM)",
+     "note": "soliqlarsiz"
+    },
+    {
+     "name": "Proporsional soliq bilan (T = tY)",
+     "formula": "k = 1/(1 − c(1 − t) + m)",
+     "note": "t – soliq stavkasi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "O‘zbekiston misolida multiplikator",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "steps": [
+    "Taxminiy baho: c ≈ 0,8; samarali soliq stavkasi t ≈ 0,2; importga moyillik m ≈ 0,3",
+    "k = 1/(1 − 0,8 · 0,8 + 0,3) = 1/0,66 ≈ 1,5",
+    "Yopiq iqtisodiyot formulasi bo‘yicha k = 5 bo‘lardi; soliq va import tufayli taxminan 1,5 gacha kamayadi",
+    "Rivojlanayotgan ochiq iqtisodiyotlarda davlat xarajatlari multiplikatori odatda 0,5–1,5 oralig‘ida"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Retsession va inflyatsion uzilishlar",
+   "sub": "8.5. Retsession va inflyatsion uzilishlar",
+   "bullets": [
+    "Muvozanatli daromad potensial (to‘liq bandlikdagi) daromadga teng bo‘lishi shart emas",
+    "Retsession uzilish (Y^{1} < Y^{∗}): to‘liq bandlik uchun rejalashtirilgan xarajatlarni oshirish zarur bo‘lgan miqdor",
+    "U yalpi talabning yetishmasligi va tsiklik ishsizlikni bildiradi",
+    "Inflyatsion uzilish: muvozanatli daromad potensialdan yuqori, xarajatlarni kamaytirish zarur"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Retsession va inflyatsion uzilishlar",
+   "sub": "8.5. Retsession va inflyatsion uzilishlar",
+   "img": "image60.png",
+   "caption": "8.6-rasm. Retsession va inflyatsion uzilishlar"
+  },
+  {
+   "type": "formula",
+   "title": "Uzilishni o‘lchash",
+   "sub": "8.5. Retsession va inflyatsion uzilishlar",
+   "items": [
+    {
+     "name": "YaIM uzilishi",
+     "formula": "Y^{∗} − Y_{1}",
+     "note": "potensial va muvozanatli daromad farqi"
+    },
+    {
+     "name": "Retsession uzilish",
+     "formula": "(Y^{∗} − Y_{1})/(k)",
+     "note": "retsession uzilish ≠ YaIM uzilishi"
+    },
+    {
+     "name": "Soliq multiplikatori",
+     "formula": "k_{T} = −(c)/(1 − c)",
+     "note": "11-bobda batafsil"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Uzilishni aniqlash va siyosat choralari",
+   "sub": "8.5. Retsession va inflyatsion uzilishlar",
+   "steps": [
+    "Berilgan: muvozanatli YaIM 1600 trln so‘m, MPC = 0,75 (k = 4), potensial YaIM 1700 trln so‘m",
+    "YaIM uzilishi: 1700 − 1600 = 100 trln so‘m (−5,9%); retsession uzilish: 100/4 = 25 trln so‘m",
+    "Davlat xaridlarini atigi 25 trln so‘mga oshirish YaIMni 100 ga oshiradi",
+    "Soliq multiplikatori −0,75/0,25 = −3: soliqlarni 100/3 ≈ 33,3 trln so‘mga kamaytirish kerak",
+    "Sabab: soliq kamayganda qo‘shimcha daromadning 25% jamg‘ariladi, birinchi raundda faqat 75% sarflanadi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Tejamkorlik paradoksi",
+   "sub": "8.6. Tejamkorlik paradoksi",
+   "img": "image61.png",
+   "caption": "8.7-rasm. Tejamkorlik paradoksi: jamg‘arishga intilishning oshishi daromadni kamaytiradi"
+  },
+  {
+   "type": "steps",
+   "title": "Paradoks mexanizmi",
+   "sub": "8.6. Tejamkorlik paradoksi",
+   "steps": [
+    "Boshlang‘ich muvozanat A nuqtada: rejalashtirilgan investitsiyalar jamg‘armaga teng, daromad Y_{1}",
+    "Uy xo‘jaliklari har daromadda ko‘proq jamg‘aradi: S funksiyasi yuqoriga, iste’mol funksiyasi pastga siljiydi",
+    "Rejalashtirilgan xarajatlar kamayadi, zaxiralar to‘planadi, firmalar ishlab chiqarishni qisqartiradi",
+    "Yangi muvozanat B nuqtada: daromad Y_{2} gacha kamaydi, jamg‘armalar avvalgi darajada qoldi",
+    "Investitsiyalar daromadga bog‘liq bo‘lsa (induksiyalangan), jamg‘armalar hatto kamayadi"
+   ]
+  },
+  {
+   "type": "compare",
+   "title": "Qisqa va uzoq muddatda jamg‘arish",
+   "sub": "8.6. Tejamkorlik paradoksi",
+   "left": {
+    "head": "Qisqa muddat",
+    "items": [
+     "Foydalanilmayotgan resurslar mavjud",
+     "Jamg‘armalar investitsiyalarga aylanmaydi",
+     "Iste’mol va yalpi talab qisqaradi"
+    ]
+   },
+   "right": {
+    "head": "Uzoq muddat",
+    "items": [
+     "Jamg‘arma normasi kapital jamg‘arishni oshiradi",
+     "Iqtisodiy o‘sish va turmush darajasi yuksaladi",
+     "Sharqiy Osiyo: Yaponiya, Janubiy Koreya, Xitoy"
+    ]
+   }
+  },
+  {
+   "type": "steps",
+   "title": "Masala: yopiq iqtisodiyotda muvozanat",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "steps": [
+    "C = 100 + 0,8Y_{d}, I = 150, G = 200, T = 150 (mlrd so‘m)",
+    "A = 100 − 0,8 · 150 + 150 + 200 = 330; Y^{∗} = 330/0,2 = 1650",
+    "C = 100 + 0,8 · 1500 = 1300; S = 1500 − 1300 = 200; byudjet qoldig‘i T − G = −50 (taqchillik)",
+    "k = 1/(1 − 0,8) = 5; investitsiya 50 ga kamaysa ΔY = −250, yangi Y = 1400"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala: ochiq iqtisodiyotda muvozanat",
+   "sub": "8.4. Avtonom xarajatlar multiplikatori",
+   "steps": [
+    "C = 50 + 0,8(Y − T), T = 0,25Y, I = 200, G = 250, X = 180, IM = 30 + 0,1Y",
+    "C = 50 + 0,6Y; PE = 650 + 0,5Y; Y = 650/0,5 = 1300; k = 1/(1 − 0,6 + 0,1) = 2",
+    "NX = 180 − 30 − 130 = 20; T = 325, byudjet qoldig‘i 325 − 250 = 75 (profitsit)",
+    "Eksport +40: ΔY = 2 · 40 = 80, Y = 1380; ΔNX = 40 − 0,1 · 80 = 32"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Tejamkorlik paradoksi: masala yechimi",
+   "sub": "8.6. Tejamkorlik paradoksi",
+   "items": [
+    {
+     "name": "S = −100 + 0,2Y, I = 200",
+     "formula": "Y = 1500, S = 200",
+     "note": "−100 + 0,2Y = 200"
+    },
+    {
+     "name": "S = −60 + 0,2Y, I = 200",
+     "formula": "Y = 1300, S = 200",
+     "note": "daromad kamaydi, jamg‘arma o‘zgarmadi"
+    },
+    {
+     "name": "I = 100 + 0,1Y, dastlabki S",
+     "formula": "Y = 2000, S = 300",
+     "note": "−100 + 0,2Y = 100 + 0,1Y"
+    },
+    {
+     "name": "I = 100 + 0,1Y, yangi S",
+     "formula": "Y = 1600, S = 260",
+     "note": "jamg‘arma hatto kamaydi"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "8.6. Tejamkorlik paradoksi",
+   "bullets": [
+    "Keyns: jamg‘arish va investitsiya qarorlari turli subyektlarniki; ishlab chiqarishni samarali talab belgilaydi",
+    "Keyns xochida haqiqiy va rejalashtirilgan xarajatlar farqlanadi; muvozanat sharti Y = PE",
+    "Muvozanatga zaxiralarning rejalashtirilmagan o‘zgarishi orqali erishiladi; k = 1/(1 − MPC)",
+    "Ochiq iqtisodiyotda k = 1/(1 − c(1 − t) + m); retsession uzilish = YaIM uzilishi / k",
+    "Tejamkorlik paradoksi: ko‘proq jamg‘arishga intilish qisqa muddatda daromadni kamaytiradi"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,451 @@
+{
+ "slides": [
+  {
+   "type": "bullets",
+   "title": "Davlat byudjeti va byudjet tizimi",
+   "sub": "10.1. Davlat byudjetining mohiyati, tarkibi va funksiyalari",
+   "bullets": [
+    "Davlat byudjeti – davlat funksiyalari uchun pul mablag‘lari markazlashgan fondini shakllantirish va sarflash rejasi",
+    "Byudjet ikki qismdan iborat: daromadlar (asosan soliqlar) va xarajatlar (davlat xaridlari va transfertlar)",
+    "Davlat byudjeti – respublika va mahalliy byudjetlar; byudjetdan tashqari fondlar – Pensiya va Yo‘l jamg‘armalari",
+    "Konsolidatsiyalashgan byudjet davlat byudjeti, maqsadli jamg‘armalar va Tiklanish jamg‘armasini birlashtiradi",
+    "Aynan u davlatning iqtisodiyotdagi haqiqiy ishtirokini aks ettiradi va xalqaro taqqoslashda qo‘llaniladi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Byudjet holatining uch turi",
+   "sub": "10.1. Davlat byudjetining mohiyati, tarkibi va funksiyalari",
+   "items": [
+    {
+     "name": "Muvozanatli (balanslashgan) byudjet",
+     "formula": "Daromadlar = Xarajatlar",
+     "note": "daromadlar xarajatlarga teng"
+    },
+    {
+     "name": "Byudjet taqchilligi (defitsit)",
+     "formula": "Xarajatlar > Daromadlar",
+     "note": "xarajatlar daromadlardan ko‘p"
+    },
+    {
+     "name": "Byudjet profitsiti",
+     "formula": "Daromadlar > Xarajatlar",
+     "note": "daromadlar xarajatlardan ko‘p"
+    }
+   ]
+  },
+  {
+   "type": "table",
+   "title": "Davlat byudjetining funksiyalari",
+   "sub": "10.1. Davlat byudjetining mohiyati, tarkibi va funksiyalari",
+   "head": [
+    "Funksiya",
+    "Mazmuni"
+   ],
+   "rows": [
+    [
+     "Qayta taqsimlash",
+     "Soliq va transfertlar orqali qayta taqsimlash"
+    ],
+    [
+     "Tartibga solish",
+     "Yalpi talabga ta’sir, ustuvor tarmoqlarni qo‘llash"
+    ],
+    [
+     "Fan-texnika",
+     "Tadqiqot, innovatsiya, oliy ta’lim moliyasi"
+    ],
+    [
+     "Ijtimoiy siyosat",
+     "Ta’lim, sog‘liq, pensiya, ijtimoiy himoya"
+    ],
+    [
+     "Nazorat",
+     "Maqsadli va samarali foydalanish nazorati"
+    ]
+   ],
+   "note": "Nazoratni Hisob palatasi, Moliya vazirligi organlari va parlament amalga oshiradi"
+  },
+  {
+   "type": "bullets",
+   "title": "Xarajatlar tasnifi va davlat ishtiroki",
+   "sub": "10.2. Davlat byudjeti xarajatlari",
+   "bullets": [
+    "Funksional tasnif: mudofaa, ta’lim, sog‘liqni saqlash, ijtimoiy himoya va boshqa davlat funksiyalari bo‘yicha",
+    "Iqtisodiy tasnif: ish haqi, xaridlar, subsidiyalar, transfertlar, qarzga xizmat, kapital xarajatlar",
+    "Muhim farq: davlat xaridlari (G) yalpi talabning bevosita komponenti, transfertlar (TR) – bilvosita",
+    "YaIMdagi ulush: Skandinaviya va Fransiya 50–57%, AQSH 36–40%, J. Koreya 25–30%, rivojlanayotganlar 15–25%",
+    "O‘zbekiston: konsolidatsiyalashgan byudjet xarajatlari 2025-yilda 541,7 trln so‘m (YaIMning taxminan 29%)"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "A. Vagner qonuni",
+   "sub": "10.2. Davlat byudjeti xarajatlari",
+   "bullets": [
+    "Vagner (1883): rivojlanish va jon boshiga daromad o‘sishi bilan xarajatlarning YaIMdagi ulushi oshadi",
+    "Birinchi sabab: ijtimoiy-ma’muriy funksiyalar murakkablashadi (sanoatlashuv, urbanizatsiya)",
+    "Ikkinchi sabab: ta’lim, sog‘liq, madaniyat «hashamatli ne’matlar» – daromad bo‘yicha elastikligi birdan katta",
+    "Uchinchi sabab: tabiiy monopoliyalar va yirik infratuzilma loyihalarini boshqarish zarurati",
+    "AQSHda ulush 1900-yildagi 7% dan 35% dan yuqoriga o‘sdi; 1980-yillardan keyin ko‘p joyda barqarorlashdi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Vagner qonuni",
+   "sub": "10.2. Davlat byudjeti xarajatlari",
+   "img": "image70.png",
+   "caption": "10.1-rasm. Vagner qonuni: aholi jon boshiga daromad va davlat xarajatlari ulushi (stilizatsiyalangan)"
+  },
+  {
+   "type": "compare",
+   "title": "Salbiy va ijobiy tashqi samaralar",
+   "sub": "10.2. Davlat byudjeti xarajatlari",
+   "left": {
+    "head": "Salbiy tashqi samara",
+    "items": [
+     "Uchinchi shaxslarga zarar: chiqindi, shovqin, tirbandlik",
+     "MPC < MSC: bozor ijtimoiy optimaldan ko‘p ishlab chiqaradi",
+     "Choralar: Pigu solig‘i, ekologik normativlar, huquqlar savdosi"
+    ]
+   },
+   "right": {
+    "head": "Ijobiy tashqi samara",
+    "items": [
+     "Uchinchi shaxslarga foyda: ta’lim, emlash, fundamental fan",
+     "MSB > MPB: bozor ijtimoiy optimaldan kam taklif qiladi",
+     "Choralar: subsidiyalar, bepul ta’lim va tibbiyot, grantlar"
+    ]
+   }
+  },
+  {
+   "type": "bullets",
+   "title": "Jamoat ne’matlari va xarajatlar tarkibi",
+   "sub": "10.2. Davlat byudjeti xarajatlari",
+   "bullets": [
+    "Jamoat ne’matlari: iste’molda raqobatsiz va chiqarib bo‘lmaydigan (mudofaa, mayoq, ko‘cha yoritilishi)",
+    "Bozor ularni ta’minlay olmaydi – «tekinxo‘rlik» (free-rider) muammosi, shuning uchun byudjetdan moliyalanadi",
+    "2025-yil: Davlat byudjeti xarajatlari 383,9 trln so‘m (+23,5%), ish haqi 149,6 trln so‘m (taxminan 39%)",
+    "Subsidiyalar 29,4 trln so‘m: gaz narxi farqi 7, maktabgacha ta’lim 3,95, issiqlik yo‘qotishlari 3,5 trln so‘m",
+    "Ijtimoiy sohalarga xarajatlar an’anaviy ravishda byudjet xarajatlarining yarmidan ko‘pini tashkil etadi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Byudjet daromadlari manbalari va soliq",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "bullets": [
+    "Soliqlar – asosiy manba (ko‘p mamlakatlarda daromadlarning 70–90%)",
+    "Nobyudjet to‘lovlar: davlat mulkidan daromad, yig‘imlar, bojlar, jarimalar, xususiylashtirish tushumlari",
+    "Rasmiy transfertlar – grantlar; qarz mablag‘lari esa daromad emas, taqchillikni moliyalashtirish manbai",
+    "Soliq – qonun asosida undiriladigan majburiy, qaytarilmaydigan, bevosita ekvivalentsiz to‘lov",
+    "Belgilari: majburiylik, qaytarilmaslik, ekvivalentsizlik, qonuniylik"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Soliqlarning funksiyalari",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "bullets": [
+    "Fiskal funksiya – davlat byudjeti daromadlarini shakllantirish",
+    "Tartibga soluvchi funksiya – stavkalar va imtiyozlar orqali ta’sir (masalan, zararli mahsulotlarga aksiz)",
+    "Qayta taqsimlash funksiyasi – progressiv soliq orqali daromadlar tengsizligini kamaytirish",
+    "Rag‘batlantiruvchi funksiya – innovatsiya, eksport, hududiy rivojlanish",
+    "Nazorat funksiyasi – iqtisodiy faoliyat va daromadlar ustidan nazorat"
+   ]
+  },
+  {
+   "type": "table",
+   "title": "O‘zbekistondagi asosiy soliqlar (2025–2026)",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "head": [
+    "Soliq",
+    "Turi",
+    "Asosiy stavka"
+   ],
+   "rows": [
+    [
+     "Qo‘shilgan qiymat solig‘i",
+     "Egri",
+     "12%"
+    ],
+    [
+     "Foyda solig‘i",
+     "To‘g‘ridan-to‘g‘ri",
+     "15%"
+    ],
+    [
+     "Jismoniy shaxslardan daromad solig‘i",
+     "To‘g‘ridan-to‘g‘ri",
+     "12% (tekis shkala)"
+    ],
+    [
+     "Ijtimoiy soliq",
+     "To‘g‘ridan-to‘g‘ri",
+     "12%"
+    ],
+    [
+     "Aylanmadan olinadigan soliq",
+     "To‘g‘ridan-to‘g‘ri",
+     "4% (asosiy)"
+    ],
+    [
+     "Dividendlarga soliq",
+     "To‘g‘ridan-to‘g‘ri",
+     "5% (rezidentlar)"
+    ]
+   ],
+   "note": "To‘g‘ridan-to‘g‘ri soliq daromad yoki mol-mulkka solinadi; egri soliq narxga qo‘shilib, iste’molchi to‘laydi"
+  },
+  {
+   "type": "bullets",
+   "title": "Soliqqa tortish tamoyillari",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "bullets": [
+    "A. Smit: adolatlilik, aniqlik, qulaylik, tejamkorlik",
+    "Adolatlilik: foyda olish tamoyili va to‘lovga qodirlik (gorizontal va vertikal adolat)",
+    "Samaradorlik: soliq qarorlarni minimal buzishi kerak; har bir soliq o‘lik yuk yo‘qotishiga olib keladi",
+    "Soddalik va neytrallik: tushunarli, barqaror qoidalar, turli faoliyatga teng munosabat",
+    "Adolatlilik va samaradorlik o‘rtasida muqobillik bor: kuchli progressiya ish va investitsiya rag‘batini kamaytiradi"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Soliq yuki",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "items": [
+    {
+     "name": "Soliq yuki (soliq bosimi)",
+     "formula": "(Soliqlar+Majburiy to‘lovlar)/(YaIM)·100%",
+     "note": "soliq va majburiy to‘lovlar jami summasining YaIMga nisbati"
+    },
+    {
+     "name": "Rivojlangan mamlakatlar",
+     "formula": "30–45%",
+     "note": "Fransiya, Daniya – 45% dan ortiq; AQSH – 27% atrofida"
+    },
+    {
+     "name": "Rivojlanayotgan mamlakatlar",
+     "formula": "15–25%",
+     "note": "O‘zbekistonda taxminan 20–25% atrofida"
+    }
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "O‘zbekiston byudjeti daromadlari, 2025-yil",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "bullets": [
+    "Davlat byudjeti daromadlari 359,8 trln so‘m, 2024-yilga nisbatan 31,1% ga oshdi",
+    "To‘g‘ridan-to‘g‘ri soliqlar – 117,8 trln so‘m (32,7%); egri soliqlar – 109,6 trln so‘m (30,5%)",
+    "Resurs va mol-mulk soliqlari – 44,9 trln so‘m (12,5%); boshqa daromadlar – 87,5 trln so‘m (24,3%)",
+    "Konsolidatsiyalashgan byudjet: daromadlar 502,6 trln so‘m, xarajatlar 541,7 trln so‘m",
+    "Daromadlar o‘sishi (31%) nominal YaIM o‘sishidan (taxminan 27%) yuqori bo‘ldi"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 1: soliq yuki va byudjet qoldig‘i",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "steps": [
+    "Berilgan: YaIM 1800, soliq 380, majburiy ijtimoiy 45, nobyudjet 60, xaridlar 400, transfert 90, foiz 25 (trln so‘m)",
+    "a) Soliq yuki = (380+45)/1800 = 23,6%",
+    "Daromadlar = 380+45+60 = 485; xarajatlar = 400+90+25 = 515 trln so‘m",
+    "b) Umumiy qoldiq = 485−515 = −30 trln so‘m (YaIMning −1,67%)",
+    "Birlamchi qoldiq = −30+25 = −5 trln so‘m (YaIMning −0,28%)",
+    "c) Xarajatlar ulushi = 515/1800 = 28,6%"
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masalalar 2–3: progressiv va regressiv soliq",
+   "sub": "10.3. Davlat byudjeti daromadlari. Soliqlar",
+   "steps": [
+    "2-masala: daromad 20, 60, 150, 400 mln so‘m; stavkalar 0%, 10%, 25% (30 va 100 mln dan)",
+    "Soliq: 0; 3; 7+12,5 = 19,5; 7+75 = 82 mln so‘m. O‘rtacha stavka: 0; 5; 13; 20,5%",
+    "Chegaraviy stavka 0 → 10 → 25% ga oshadi: tizim progressiv",
+    "3-masala: 1-oila QQS = 36·12/112 = 3,86 mln so‘m, daromadga nisbati 9,6%",
+    "2-oila QQS = 120·12/112 = 12,86 mln so‘m, daromadga nisbati 6,4%",
+    "Boy oila ulushi kam – QQS regressiv"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Soliq siyosati turlari",
+   "sub": "10.4. Soliq siyosati",
+   "bullets": [
+    "Soliq siyosati – soliqlarni belgilash, undirish va iqtisodiyotni tartibga solishda ishlatish chora-tadbirlari",
+    "Maksimal soliqlar siyosati – daromadlarni maksimallashtirish (urush, inqiroz davrida)",
+    "Iqtisodiy rivojlanish siyosati – soliq yukini kamaytirish, tadbirkorlik va investitsiyani rag‘batlantirish",
+    "Ijtimoiy yo‘naltirilgan siyosat – yuqori progressiv soliqlar va keng ijtimoiy dasturlar",
+    "Qayta taqsimlash samarasini baholash uchun daromadlar tengsizligini o‘lchash kerak"
+   ]
+  },
+  {
+   "type": "formula",
+   "title": "Lorens egri chizig‘i va Jini koeffitsiyenti",
+   "sub": "10.4. Soliq siyosati",
+   "items": [
+    {
+     "name": "Jini koeffitsiyenti",
+     "formula": "G = (A)/(A+B)",
+     "note": "A – tenglik chizig‘i va Lorens egri chizig‘i orasidagi maydon"
+    },
+    {
+     "name": "Qiymatlar oralig‘i",
+     "formula": "0 ≤ G ≤ 1",
+     "note": "0 – mutlaq tenglik, 1 – mutlaq tengsizlik"
+    },
+    {
+     "name": "Mamlakatlar bo‘yicha",
+     "formula": "0,25–0,28; 0,39–0,41; 0,50–0,63",
+     "note": "Skandinaviya; AQSH; Braziliya va Janubiy Afrika"
+    },
+    {
+     "name": "Soliq-transfert ta’siri",
+     "formula": "ΔG ≈ −0,10…−0,15",
+     "note": "rivojlangan mamlakatlarda Jini koeffitsiyentini kamaytiradi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Lorens egri chizig‘i",
+   "sub": "10.4. Soliq siyosati",
+   "img": "image74.png",
+   "caption": "10.5-rasm. Lorens egri chizig‘i: soliqlar va transfertlarning tengsizlikka ta’siri"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 4: Jini koeffitsiyenti",
+   "sub": "10.4. Soliq siyosati",
+   "steps": [
+    "Daromad ulushlari kvintillar bo‘yicha: 6, 11, 16, 23, 44%",
+    "To‘plangan ulushlar: 0,06; 0,17; 0,33; 0,56; 1,00",
+    "Trapetsiya usuli: Lorens ostidagi maydon = 0,03+0,115+0,25+0,445+0,78 = 1,62; 1,62·0,2 = 0,324",
+    "G = 1−2·0,324 ≈ 0,35",
+    "Soliq va transfertdan keyin: to‘plangan 0,08; 0,21; 0,38; 0,60; 1,00; maydon ≈ 0,354; G ≈ 0,29",
+    "Jini koeffitsiyenti taxminan 0,06 ga kamaydi"
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "Laffer egri chizig‘i",
+   "sub": "10.4. Soliq siyosati",
+   "img": "image75.png",
+   "caption": "10.6-rasm. Laffer egri chizig‘i: soliq stavkasi va soliq tushumlari"
+  },
+  {
+   "type": "formula",
+   "title": "Laffer samarasi va chegaraviy stavka",
+   "sub": "10.4. Soliq siyosati",
+   "items": [
+    {
+     "name": "Laffer egri chizig‘ining uchlari",
+     "formula": "t = 0% ⇒ T = 0;  t = 100% ⇒ T = 0",
+     "note": "oraliqda tushumlarni maksimallashtiruvchi t^{∗} mavjud"
+    },
+    {
+     "name": "Chegaraviy soliq stavkasi",
+     "formula": "MTR = (ΔT)/(ΔY)",
+     "note": "daromadning qo‘shimcha birligidan to‘lanadigan ulush"
+    },
+    {
+     "name": "Stavka t^{∗} dan yuqori (B nuqta)",
+     "formula": "t > t^{∗} ⇒ t↓ ⇒ T↑",
+     "note": "«taqiqlangan zona»: stavkani pasaytirish tushumni oshiradi"
+    },
+    {
+     "name": "Stavka t^{∗} dan past (A nuqta)",
+     "formula": "t < t^{∗} ⇒ t↓ ⇒ T↓",
+     "note": "stavkani pasaytirish tushumni kamaytiradi"
+    }
+   ]
+  },
+  {
+   "type": "steps",
+   "title": "Masala 5: Laffer egri chizig‘i",
+   "sub": "10.4. Soliq siyosati",
+   "steps": [
+    "Berilgan: T = 2000t−2500t^{2} (mlrd so‘m), t – stavka ulushda",
+    "a) dT/dt = 2000−5000t = 0 ⇒ t^{∗} = 0,4 (40%)",
+    "b) T_{max} = 2000·0,4−2500·0,16 = 800−400 = 400 mlrd so‘m",
+    "c) t = 50% da: T = 1000−625 = 375 mlrd so‘m",
+    "t = 40% ga tushirilsa: T = 400 mlrd so‘m",
+    "Tushum 25 mlrd so‘mga oshadi – 50% stavka «taqiqlangan zonada»"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Byudjet taqchilligi va davlat qarzi",
+   "sub": "10.5. Byudjet taqchilligi va davlat qarzi",
+   "bullets": [
+    "Taqchillik – xarajatlarning daromaddan oshgan summasi; absolyut miqdorda va YaIMga nisbatan foizda o‘lchanadi",
+    "Birlamchi taqchillik – qarz bo‘yicha foiz to‘lovlarisiz; joriy fiskal siyosat yo‘nalishini aniqroq ko‘rsatadi",
+    "O‘zbekiston: 2024-yilda 47,8 trln so‘m (3,3%), 2025-yilda 39,1 trln so‘m (2,1%); fiskal qoida – YaIMning 3%",
+    "Davlat qarzi – o‘tgan taqchilliklar yig‘indisi; taqchillik – oqim, qarz – zaxira ko‘rsatkichi",
+    "O‘zbekistonda qarz 2024-yilda YaIMning 30,9% i; qonun bo‘yicha 60% dan oshmasligi kerak"
+   ],
+   "note": "Qarz ichki (milliy valyutada) va tashqi (xalqaro moliya institutlari oldida) turlarga bo‘linadi"
+  },
+  {
+   "type": "formula",
+   "title": "Qarz yuki dinamikasi",
+   "sub": "10.5. Byudjet taqchilligi va davlat qarzi",
+   "items": [
+    {
+     "name": "Qarzning o‘zgarishi",
+     "formula": "D_{t} = D_{t−1}+Taqchillik_{t}",
+     "note": "taqchillik – oqim, qarz – zaxira"
+    },
+    {
+     "name": "Qarz nisbatining o‘zgarishi",
+     "formula": "Δd ≈ (r−g)·d−s",
+     "note": "r – real foiz stavkasi, g – real o‘sish, s – birlamchi profitsit"
+    },
+    {
+     "name": "Misol: d = 31%, r = 3%, g = 6%",
+     "formula": "Δd = −0,93+1,5 = +0,57",
+     "note": "birlamchi taqchillik 1,5% da qarz nisbati biroz oshadi"
+    },
+    {
+     "name": "Taqchillik 0,5% gacha kamayganda",
+     "formula": "Δd = −0,93+0,5 = −0,43",
+     "note": "g > r bo‘lsa, qarz nisbati pasayadi"
+    }
+   ]
+  },
+  {
+   "type": "figure",
+   "title": "O‘zbekiston byudjeti qoldig‘i",
+   "sub": "10.5. Byudjet taqchilligi va davlat qarzi",
+   "img": "image76.png",
+   "caption": "10.7-rasm. O‘zbekiston konsolidatsiyalashgan byudjeti qoldig‘i (YaIMga nisbatan, %)"
+  },
+  {
+   "type": "steps",
+   "title": "Masala 6: qarz nisbatini barqarorlashtirish",
+   "sub": "10.5. Byudjet taqchilligi va davlat qarzi",
+   "steps": [
+    "Berilgan: d = 40%, nominal stavka 9%, inflyatsiya 5%, real o‘sish 4%; real r = 9−5 = 4%",
+    "a) Δd = (r−g)·d−s = 0 ⇒ s = (0,04−0,04)·40 = 0",
+    "Barqarorlik uchun birlamchi qoldiq nolga teng bo‘lishi kerak",
+    "b) g = 2% da: s = (0,04−0,02)·40 = 0,8% YaIM birlamchi profitsit",
+    "c) Birlamchi taqchillik 2% (s = −2): r = g, shuning uchun Δd ≈ +2 punkt yiliga",
+    "5 yildan keyin qarz nisbati taxminan 40+5·2 = 50% bo‘ladi"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Asosiy xulosalar",
+   "sub": "Bob bo‘yicha xulosa",
+   "bullets": [
+    "Byudjet funksiyalari: qayta taqsimlash, tartibga solish, fan-texnika, ijtimoiy siyosat va nazorat",
+    "Vagner qonuni: xarajatlar ulushi oshadi; tashqi samaralar va jamoat ne’matlari davlat aralashuvini asoslaydi",
+    "Soliqlar to‘g‘ri va egri, progressiv, proporsional, regressiv; tamoyillari – adolatlilik, samaradorlik, soddalik",
+    "Jini koeffitsiyenti tengsizlikni o‘lchaydi; Laffer egri chizig‘i stavka va tushum bog‘liqligini ko‘rsatadi",
+    "Taqchillik – oqim, davlat qarzi – zaxira; O‘zbekistonda 2025-yilda taqchillik 2,1%, qarz taxminan 31% YaIM"
+   ]
+  }
+ ]
+}
