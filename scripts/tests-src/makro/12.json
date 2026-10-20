@@ -7,17 +7,19 @@
    "Tijorat banklari",
    "Markaziy bank"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Birinchi bosqichni Markaziy bank tashkil etadi, ikkinchisini tijorat banklari."
  },
  {
   "q": "Markaziy bankning funksiyasi emas:",
   "options": [
-   "Monetar siyosat",
-   "Bank nazorati",
+   "Monetar siyosatni yuritish",
+   "Bank nazoratini amalga oshirish",
    "Aholiga iste’mol krediti berish",
-   "Pul emissiyasi"
+   "Pul emissiyasini amalga oshirish"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Aholiga iste’mol krediti berish tijorat banklarining vazifasi."
  },
  {
   "q": "Tijorat bankining passiv operatsiyasi:",
@@ -27,7 +29,8 @@
    "Qimmatli qog‘oz sotib olish",
    "Depozit jalb qilish"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Depozit jalb qilish bank majburiyatlarini oshiradi, shuning uchun passiv operatsiya."
  },
  {
   "q": "Bank aktivlari 1000, kapitali 80 bo‘lsa, leveredj:",
@@ -37,7 +40,8 @@
    "8",
    "920"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Leveredj = aktivlar / kapital = 1000/80 = 12,5."
  },
  {
   "q": "O‘zbekiston Markaziy bankining bosh maqsadi:",
@@ -47,37 +51,41 @@
    "Byudjetni moliyalashtirish",
    "Iqtisodiy o‘sish"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Markaziy bankning bosh maqsadi narxlar barqarorligini ta’minlash."
  },
  {
   "q": "Fed ning mandati:",
   "options": [
-   "Faqat valyuta kursi",
-   "Faqat o‘sish",
+   "Faqat valyuta kursi barqarorligi",
+   "Faqat iqtisodiy o‘sish sur’ati",
    "Narxlar barqarorligi va maksimal bandlik",
    "Faqat narxlar barqarorligi"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Fed ikki tomonlama mandatga ega: narxlar barqarorligi va maksimal bandlik."
  },
  {
   "q": "Operatsion mo‘ljalga misol:",
   "options": [
-   "YaIM",
+   "YaIM o‘sish sur’ati",
    "Overnayt foiz stavkasi",
-   "Bandlik",
-   "Inflyatsiya"
+   "Bandlik darajasi",
+   "Yillik inflyatsiya"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Operatsion mo‘ljal sifatida Markaziy bank bozor foiz stavkasini (overnayt) boshqaradi."
  },
  {
   "q": "Majburiy zaxira normasining oshirilishi:",
   "options": [
    "Pul multiplikatorini kamaytiradi",
-   "Pul bazasini oshiradi",
+   "Pul bazasini bevosita oshiradi",
    "Pul multiplikatorini oshiradi",
    "Foiz stavkasini pasaytiradi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Zaxira normasi oshsa, banklar kamroq kredit beradi va multiplikator kamayadi."
  },
  {
   "q": "Markaziy bank ochiq bozorda obligatsiya sotsa:",
@@ -87,27 +95,30 @@
    "Foiz stavkasi pasayadi",
    "Ta’sir yo‘q"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Obligatsiya sotilganda bozordagi pul Markaziy bankka qaytadi, pul massasi kamayadi."
  },
  {
   "q": "REPO – bu:",
   "options": [
    "Qaytarib sotib olish sharti bilan qimmatli qog‘oz sotish",
-   "Uzoq muddatli kredit",
-   "Majburiy zaxira",
-   "Valyuta intervensiyasi"
+   "Uzoq muddatli kredit berish operatsiyasi",
+   "Majburiy zaxira jamg‘arish tartibi",
+   "Valyuta intervensiyasi vositasi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "REPO – qimmatli qog‘ozni qaytarib sotib olish sharti bilan sotish."
  },
  {
   "q": "Foiz koridorining yuqori chegarasi:",
   "options": [
-   "Inflyatsiya",
+   "Inflyatsiyaning maqsadli darajasi",
    "Overnayt depozit stavkasi",
-   "Asosiy stavka",
+   "Markaziy bankning asosiy stavkasi",
    "Overnayt kredit (REPO) stavkasi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Koridorning yuqori chegarasi – overnayt kredit (REPO) stavkasi."
  },
  {
   "q": "Qat’iy pul-kredit siyosati:",
@@ -117,7 +128,8 @@
    "Stavkani pasaytirish",
    "Zaxira normasini pasaytirish"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Qat’iy siyosat pulni qimmatlashtirish, ya’ni stavkani oshirish orqali amalga oshiriladi."
  },
  {
   "q": "Yumshoq pul-kredit siyosati qachon qo‘llaniladi?",
@@ -127,7 +139,8 @@
    "Retsessiyada",
    "Qizib ketishda"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Retsessiyada talabni rag‘batlantirish uchun yumshoq siyosat qo‘llaniladi."
  },
  {
   "q": "Transmissiya mexanizmining valyuta kursi kanalida stavka oshishi:",
@@ -137,17 +150,19 @@
    "Milliy valyutani qadrsizlantiradi",
    "Importni qimmatlashtiradi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Stavka oshsa, milliy valyutaga talab ortib, u mustahkamlanadi."
  },
  {
   "q": "Kutishlar kanali qachon eng samarali ishlaydi?",
   "options": [
    "Yo‘naltirilgan kreditlar ko‘p bo‘lganda",
-   "Inflyatsiya yuqori bo‘lganda",
+   "Inflyatsiya yuqori va beqaror bo‘lganda",
    "Markaziy bankka ishonch yuqori bo‘lganda",
-   "Dollarlashuv yuqori bo‘lganda"
+   "Dollarlashuv darajasi yuqori bo‘lganda"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Ishonch yuqori bo‘lsa, inflyatsion kutishlar Markaziy bank maqsadiga yaqinlashadi."
  },
  {
   "q": "Transmissiyani zaiflashtiruvchi omil:",
@@ -157,7 +172,8 @@
    "Past inflyatsion kutishlar",
    "Rivojlangan obligatsiyalar bozori"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Yuqori dollarlashuvda stavka ta’siri milliy valyutadagi operatsiyalar bilan cheklanadi."
  },
  {
   "q": "Teylor qoidasiga ko‘ra inflyatsiya maqsaddan 1 punkt oshsa, nominal stavka:",
@@ -167,7 +183,8 @@
    "0,5 punkt oshadi",
    "1 punkt oshadi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Teylor qoidasida inflyatsiya uchun koeffitsiyent 1,5: stavka 1,5 punkt oshadi."
  },
  {
   "q": "π = 4%, r∗ = 2%, π∗ = 2%, uzilish = 0 bo‘lsa, Teylor stavkasi:",
@@ -177,7 +194,8 @@
    "6%",
    "4%"
   ],
-  "c": 0
+  "c": 0,
+  "e": "i = 4 + 2 + 0,5·(4−2) + 0,5·0 = 7%."
  },
  {
   "q": "Vaqt bo‘yicha nomuvofiqlik muammosini kim tahlil qilgan?",
@@ -187,7 +205,8 @@
    "Kidlend va Preskott",
    "Mandell va Fleming"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Vaqt bo‘yicha nomuvofiqlik muammosini Kidlend va Preskott tahlil qilgan."
  },
  {
   "q": "Vaqt bo‘yicha nomuvofiqlikning yechimi emas:",
@@ -197,7 +216,8 @@
    "Qoidalarga asoslangan siyosat",
    "Siyosiy bosimni kuchaytirish"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Siyosiy bosimni kuchaytirish nomuvofiqlikni yumshatmaydi, aksincha kuchaytiradi."
  },
  {
   "q": "Monetar siyosatning qaysi lagi uzoq?",
@@ -207,17 +227,19 @@
    "Ichki",
    "Tashqi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Monetar siyosatning tashqi lagi (ta’sir kechikishi) ichki lagdan uzoq."
  },
  {
   "q": "Foiz stavkasi o‘zgarishining inflyatsiyaga maksimal ta’siri odatda:",
   "options": [
    "12–24 oyda",
-   "3 oyda",
-   "10 yilda",
-   "1 oyda"
+   "3 oy ichida",
+   "10 yildan keyin",
+   "1 oy ichida"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Stavka o‘zgarishining inflyatsiyaga ta’siri odatda 12–24 oyda eng kuchli bo‘ladi."
  },
  {
   "q": "Qat’iy monetar va rag‘batlantiruvchi fiskal siyosat kombinatsiyasi:",
@@ -227,37 +249,41 @@
    "Yalpi talabni kuchli kamaytiradi",
    "Foiz stavkasini pasaytiradi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Qat’iy monetar va rag‘batlantiruvchi fiskal siyosat foiz stavkasini kuchli oshiradi."
  },
  {
   "q": "Fiskal ustunlik – bu:",
   "options": [
-   "Fiskal siyosatning monetar siyosatni o‘z maqsadlariga bo‘ysundirishi",
-   "Byudjet profitsiti",
+   "Fiskal siyosatning monetar siyosatni bo‘ysundirishi",
+   "Byudjet profitsiti holati",
    "Markaziy bank mustaqilligi",
-   "Soliqlarning yuqoriligi"
+   "Soliqlarning yuqori darajasi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Fiskal ustunlikda fiskal siyosat monetar siyosatni o‘z maqsadlariga bo‘ysundiradi."
  },
  {
   "q": "Bazel standartlari nimani tartibga soladi?",
   "options": [
-   "Valyuta kursini",
-   "Soliqlarni",
-   "Inflyatsiyani",
+   "Valyuta kursi rejimini",
+   "Soliq stavkalarini",
+   "Inflyatsiya darajasini",
    "Bank kapitalining yetarliligini"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Bazel standartlari bank kapitalining yetarliligini tartibga soladi."
  },
  {
   "q": "Makroprudensial vositaga misol:",
   "options": [
-   "Daromad solig‘i",
-   "Import tarifi",
-   "Davlat xaridlari",
-   "Qarz yuki ko‘rsatkichi (DTI) chegarasi"
+   "Daromad solig‘i stavkasi",
+   "Import tarifi stavkasi",
+   "Davlat xaridlari hajmi",
+   "Qarz yuki (DTI) chegarasi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "DTI chegarasi qarz yukini cheklovchi makroprudensial vositadir."
  },
  {
   "q": "2025–2026-yillarda O‘zbekiston Markaziy banki asosiy stavkasi:",
@@ -267,7 +293,8 @@
    "14%",
    "13,5%"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Darslik ma’lumotiga ko‘ra, asosiy stavka 14% darajasida."
  },
  {
   "q": "Markaziy bank mustaqilligi va inflyatsiya o‘rtasidagi bog‘liqlikni aniqlagan tadqiqot mualliflari:",
@@ -277,7 +304,8 @@
    "Alesina va Sammers",
    "Modilyani va Miller"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Markaziy bank mustaqilligi va inflyatsiya bog‘liqligini Alesina va Sammers aniqlagan."
  },
  {
   "q": "Majburiy zaxira normasi qaysi mamlakatda 2020-yildan nolga tushirilgan?",
@@ -287,16 +315,18 @@
    "O‘zbekiston",
    "Xitoy"
   ],
-  "c": 0
+  "c": 0,
+  "e": "AQSHda majburiy zaxira normasi 2020-yildan nolga tushirilgan."
  },
  {
   "q": "2017-yildan beri O‘zbekistonda valyuta kursi qanday belgilanadi?",
   "options": [
-   "Dollarga bog‘langan",
+   "Dollarga bog‘langan holda",
    "Bozor tomonidan (egiluvchan)",
-   "Qayd etilgan",
-   "Valyuta kengashi"
+   "Qat’iy qayd etilgan holda",
+   "Valyuta kengashi orqali"
   ],
-  "c": 1
+  "c": 1,
+  "e": "2017-yildagi islohotdan beri so‘m kursi bozor tomonidan belgilanadi."
  }
 ]

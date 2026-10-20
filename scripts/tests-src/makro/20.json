@@ -3,41 +3,45 @@
   "q": "Ochiq iqtisodiyotda yalpi xarajatlar:",
   "options": [
    "C + I + G + NX",
-   "C + I + G",
+   "C + I + G + EX + IM",
    "C + S + T",
    "C + I – NX"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Yalpi xarajatlar ochiq iqtisodiyotda iste’mol, investitsiya, davlat xarajatlari va sof eksport yig‘indisidir."
  },
  {
   "q": "Savdo balansi qaysi farqqa teng?",
   "options": [
-   "C – I",
-   "G – T",
-   "S + I",
-   "Y – A (ishlab chiqarish minus ichki xarajatlar)"
+   "C – I (iste’mol va investitsiya farqi)",
+   "G – T (davlat xarajatlari va soliqlar farqi)",
+   "S + I (jamg‘arma va investitsiyalar yig‘indisi)",
+   "Y – A (ishlab chiqarish va xarajat farqi)"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Savdo balansi mamlakat ishlab chiqarishi (Y) bilan ichki xarajatlar (A) o‘rtasidagi farqqa teng."
  },
  {
   "q": "Keyns modelida eksport asosan nimaga bog‘liq?",
   "options": [
    "Xorijiy daromadlar va valyuta kursiga",
-   "Milliy daromadga",
-   "Milliy soliqlarga",
+   "Milliy daromadga va ichki talabga",
+   "Milliy soliqlar va byudjet taqchilligiga",
    "Milliy foiz stavkasiga"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Keyns modelida eksport xorijiy daromadlar va valyuta kursiga bog‘liq, milliy daromadga emas."
  },
  {
   "q": "Importga chegaraviy moyillik (MPM):",
   "options": [
-   "Importning YaIMdagi ulushi",
-   "Importning eksportga nisbati",
-   "Qo‘shimcha daromadning import tovarlariga sarflanadigan qismi",
-   "Import tariflari darajasi"
+   "Importning YaIMdagi o‘rtacha ulushi, ya’ni M/Y",
+   "Importning eksport hajmiga nisbati va qoplanish darajasi",
+   "Qo‘shimcha daromadning importga sarflanadigan ulushi",
+   "Import tariflarining o‘rtacha darajasi"
   ],
-  "c": 2
+  "c": 2,
+  "e": "MPM qo‘shimcha daromadning import tovarlariga ketadigan ulushini ko‘rsatadi."
  },
  {
   "q": "Milliy daromad oshganda sof eksport:",
@@ -47,17 +51,19 @@
    "O‘zgarmaydi",
    "Kamayadi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Daromad oshgani sari import ko‘payadi, shuning uchun sof eksport kamayadi."
  },
  {
   "q": "Ochiq iqtisodiyot multiplikatori (t – soliq stavkasi, m – importga moyillik):",
   "options": [
-   "1/(1 – MPC)",
+   "1/(1 – MPC(1 – t)) + m(1 – t)",
    "1/(1 – MPC(1 – t) + m)",
    "MPC/(1 – m)",
    "1/m"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Importga moyillik va soliq multiplikator maxrajini kattalashtirib, uni kamaytiradi."
  },
  {
   "q": "MPC = 0,8, t = 0, m = 0,3 bo‘lsa, ochiq iqtisodiyot multiplikatori:",
@@ -67,17 +73,19 @@
    "2",
    "5"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Multiplikator = 1/(1 – 0,8 + 0,3) = 1/0,5 = 2."
  },
  {
   "q": "Import xarajatlar oqimiga nisbatan:",
   "options": [
    "Chiqib ketish (sizib chiqish)",
-   "In’ektsiya",
+   "In’ektsiya (daromad oqimiga qo‘shilish)",
    "Multiplikatorni oshiradi",
    "Neytral"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Import daromad oqimidan chiqib ketadi, ya’ni sizib chiqish hisoblanadi."
  },
  {
   "q": "Eksport 100 ga oshsa, multiplikator 2 va m = 0,2 bo‘lsa, sof eksport qanchaga o‘zgaradi?",
@@ -87,17 +95,19 @@
    "–40",
    "+100"
   ],
-  "c": 1
+  "c": 1,
+  "e": "ΔY = 2 · 100 = 200, import 0,2 · 200 = 40 ga oshadi, sof eksport 100 – 40 = +60."
  },
  {
   "q": "«Egizak taqchilliklar» – bu:",
   "options": [
    "Ichki va tashqi qarz",
-   "Ikki mamlakatning savdo taqchilligi",
+   "Ikki mamlakat o‘rtasidagi o‘zaro savdo taqchilligi",
    "Byudjet va savdo balansi taqchilliklari",
    "Inflyatsiya va ishsizlik"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Egizak taqchilliklar byudjet taqchilligi va savdo balansi taqchilligining birga paydo bo‘lishidir."
  },
  {
   "q": "Mandell-Fleming modeli mualliflari:",
@@ -107,7 +117,8 @@
    "J. Xiks va A. Xansen",
    "M. Fridmen va A. Shvarts"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Modelni R. Mandell va M. Fleming ishlab chiqqan."
  },
  {
   "q": "Mandell-Fleming modelida kapitalning mukammal mobilligi:",
@@ -117,7 +128,8 @@
    "r > r∗",
    "r = r∗"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Kapitalning mukammal mobilligida ichki foiz stavkasi jahon foiz stavkasiga teng bo‘ladi."
  },
  {
   "q": "Mandell-Fleming modelida LM∗ egri chizig‘i:",
@@ -127,7 +139,8 @@
    "Gorizontal",
    "Pastga og‘ma"
   ],
-  "c": 1
+  "c": 1,
+  "e": "LM∗ egri chizig‘i vertikal, chunki u faqat daromad va pul taklifi bilan aniqlanadi, kursga bog‘liq emas."
  },
  {
   "q": "Mankyu belgilashida (e – 1 milliy valyutaga xorijiy valyuta) IS∗ egri chizig‘i:",
@@ -137,7 +150,8 @@
    "Gorizontal",
    "Vertikal"
   ],
-  "c": 1
+  "c": 1,
+  "e": "IS∗ egri chizig‘i pastga og‘ma: kurs qimmatlashsa sof eksport va daromad kamayadi."
  },
  {
   "q": "Suzuvchi kurs sharoitida fiskal ekspansiya:",
@@ -147,7 +161,8 @@
    "Ta’sir qilmaydi",
    "e ni oshiradi, Y o‘zgarmaydi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Fiskal ekspansiya kursni oshiradi (valyuta qimmatlashadi), sof eksport kamayib, daromad o‘zgarmaydi."
  },
  {
   "q": "Suzuvchi kurs sharoitida fiskal ekspansiya nimani siqib chiqaradi?",
@@ -157,17 +172,19 @@
    "Pul taklifini",
    "Iste’molni"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Qimmatlashgan milliy valyuta sof eksportni qisqartiradi, ya’ni fiskal ekspansiya uni siqib chiqaradi."
  },
  {
   "q": "Suzuvchi kurs sharoitida monetar ekspansiya:",
   "options": [
-   "Milliy valyutani qimmatlashtiradi",
+   "Milliy valyutani qimmatlashtirib, Y ni kamaytiradi",
    "Faqat inflyatsiyani oshiradi",
    "Y ga ta’sir qilmaydi",
-   "Milliy valyutani qadrsizlantirib, Y ni oshiradi"
+   "Valyutani qadrsizlantirib, Y ni oshiradi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Monetar ekspansiya milliy valyutani qadrsizlantiradi, sof eksportni oshiradi va Y ni o‘stiradi."
  },
  {
   "q": "Qayd etilgan kurs sharoitida eng samarali siyosat:",
@@ -177,7 +194,8 @@
    "Monetar siyosat",
    "Ikkalasi ham samarasiz"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Qayd etilgan kursda fiskal siyosat samarali, monetar siyosat esa samarasiz."
  },
  {
   "q": "Qayd etilgan kurs sharoitida monetar ekspansiya samarasiz, chunki:",
@@ -187,7 +205,8 @@
    "Soliqlar oshadi",
    "Markaziy bank kursni ushlab turish uchun pul taklifini qaytarishga majbur"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Kursni ushlab turish uchun markaziy bank ortiqcha pul taklifini qaytarishga majbur bo‘ladi."
  },
  {
   "q": "Qayd etilgan kurs sharoitida devalvatsiya:",
@@ -197,7 +216,8 @@
    "Y ni kamaytiradi",
    "Faqat importni oshiradi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Devalvatsiya sof eksportni oshiradi va qayd etilgan kursda Y ni ko‘paytiradi."
  },
  {
   "q": "Suzuvchi kurs sharoitida import kvotasi:",
@@ -207,7 +227,8 @@
    "e ni pasaytiradi",
    "NX ni oshiradi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Kvota sof eksportni o‘zgartirmaydi, faqat valyutani qimmatlashtiradi (e oshadi), Y esa o‘zgarmaydi."
  },
  {
   "q": "«Imkonsiz uchlik»ka kirmaydigan element:",
@@ -217,7 +238,8 @@
    "Muvozanatlashgan byudjet",
    "Mustaqil pul siyosati"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Imkonsiz uchlik: kapital erkinligi, qayd etilgan kurs va mustaqil pul siyosati; byudjet muvozanati unga kirmaydi."
  },
  {
   "q": "Yevrohudud mamlakatlari «imkonsiz uchlik»da nimadan voz kechgan?",
@@ -227,7 +249,8 @@
    "Kapital erkinligidan",
    "Hech narsadan"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Yevrohudud mamlakatlari yagona valyutani tanlab, mustaqil pul siyosatidan voz kechgan."
  },
  {
   "q": "Mamlakat xatari mukofoti oshsa, suzuvchi kurs sharoitida milliy valyuta:",
@@ -237,7 +260,8 @@
    "Qadrsizlanadi",
    "O‘zgarmaydi"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Xatar mukofoti oshsa kapital chiqib ketadi va suzuvchi kursda milliy valyuta qadrsizlanadi."
  },
  {
   "q": "Kapitalning mukammal mobilligida BP egri chizig‘i:",
@@ -247,7 +271,8 @@
    "Gorizontal",
    "Tik yuqoriga og‘ma"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Mukammal mobillikda BP egri chizig‘i jahon foiz stavkasi darajasida gorizontal bo‘ladi."
  },
  {
   "q": "BP egri chizig‘idan o‘ngda (pastda) joylashgan nuqtalarda:",
@@ -257,7 +282,8 @@
    "To‘lov balansi muvozanati",
    "To‘liq bandlik"
   ],
-  "c": 0
+  "c": 0,
+  "e": "BP egri chizig‘idan o‘ngda import ko‘p va foiz past, shuning uchun to‘lov balansi taqchil bo‘ladi."
  },
  {
   "q": "Kapitalning past mobilligi va suzuvchi kurs sharoitida fiskal ekspansiya:",
@@ -267,7 +293,8 @@
    "Milliy valyutani qimmatlashtiradi va samarasiz bo‘ladi",
    "Milliy valyutani qadrsizlantiradi va samarali bo‘ladi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Past mobillikda fiskal ekspansiya milliy valyutani qadrsizlantiradi va natijada daromadga ta’sir qiladi, shuning uchun samarali."
  },
  {
   "q": "Optimal valyuta hududi nazariyasi muallifi:",
@@ -277,7 +304,8 @@
    "R. Mandell",
    "P. Krugman"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Optimal valyuta hududi nazariyasining muallifi R. Mandell."
  },
  {
   "q": "1980-yillar boshida AQSHdagi siyosat kombinatsiyasi:",
@@ -287,7 +315,8 @@
    "Ikkalasi ham rag‘batlantiruvchi",
    "Fiskal konsolidatsiya + monetar yumshatish"
   ],
-  "c": 1
+  "c": 1,
+  "e": "1980-yillar boshida AQShda fiskal ekspansiya va qat’iy monetar siyosat birga qo‘llangan."
  },
  {
   "q": "O‘zbekistonda 2017-yildan qo‘llanilayotgan valyuta rejimi:",
@@ -297,6 +326,7 @@
    "Qat’iy qayd etilgan kurs",
    "Valyuta kengashi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "O‘zbekistonda 2017-yildan boshqariladigan suzuvchi kurs rejimi qo‘llanilmoqda."
  }
 ]
