@@ -2,301 +2,331 @@
  {
   "q": "Iqtisodiy tsiklning eng yuqori nuqtasi qanday ataladi?",
   "options": [
-   "Cho‘qqi",
    "Depressiya",
    "Tub nuqta",
-   "Amplituda"
+   "Amplituda",
+   "Cho‘qqi"
   ],
-  "c": 0
+  "c": 3,
+  "e": "Cho‘qqi (peak) — faollikning eng yuqori nuqtasi, undan keyin pasayish boshlanadi."
  },
  {
-  "q": "Retsessiyaning amaliy mezoni:",
+  "q": "Retsessiyaning amaliy (soddalashtirilgan) mezoni qaysi?",
   "options": [
-   "Ishsizlikning 5 foizdan oshishi",
-   "Valyuta kursining pasayishi",
+   "Ishsizlikning 5 foizdan oshishi bilan birga kechishi",
    "Real YaIMning ketma-ket ikki chorak qisqarishi",
-   "Inflyatsiya 10 foizdan oshishi"
+   "Milliy valyuta kursining ketma-ket pasayishi",
+   "Inflyatsiyaning 10 foizdan oshib ketishi"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Amaliyotda real YaIM ketma-ket ikki chorak qisqarsa, iqtisodiyot retsessiyada deb hisoblanadi."
  },
  {
   "q": "Salbiy YaIM uzilishi nimani bildiradi?",
   "options": [
+   "Inflyatsion bosim kuchaygan",
    "Haqiqiy YaIM potensialdan past",
-   "Inflyatsiya yuqori",
-   "Byudjet profitsiti",
+   "Byudjet profitsiti mavjud",
    "Haqiqiy YaIM potensialdan yuqori"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Salbiy uzilishda resurslardan to‘liq foydalanilmaydi, ishsizlik tabiiy darajadan yuqori bo‘ladi."
  },
  {
-  "q": "Jyuglyar tsikllarining davomiyligi:",
+  "q": "Jyuglyar tsikllarining davomiyligi qancha?",
   "options": [
    "3–4 yil",
    "7–11 yil",
    "15–25 yil",
    "45–60 yil"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Jyuglyar (o‘rta) tsikllari 7–11 yil davom etadi."
  },
  {
-  "q": "Kitchin tsikllarining asosiy sababi:",
+  "q": "Kitchin tsikllarining asosiy sababi nima?",
   "options": [
-   "Urushlar",
    "Tovar-moddiy zaxiralarining o‘zgarishi",
+   "Urushlar va siyosiy to‘ntarishlar",
    "Fundamental texnologik inqiloblar",
-   "Demografik o‘zgarishlar"
+   "Demografik va migratsion o‘zgarishlar"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Kitchin tsikllari firmalarning tovar zaxiralarini boshqarishi va axborot kechikishi bilan bog‘liq."
  },
  {
-  "q": "Uzun to‘lqinlar nazariyasi muallifi:",
+  "q": "Uzun to‘lqinlar nazariyasining muallifi kim?",
   "options": [
-   "K. Jyuglyar",
    "N. Kondratyev",
+   "K. Jyuglyar",
    "S. Kuznets",
    "J. Kitchin"
   ],
-  "c": 1
+  "c": 0,
+  "e": "45–60 yillik uzun to‘lqinlarni N. Kondratyev (1925) asoslagan."
  },
  {
   "q": "«Ijodiy buzilish» tushunchasi kimga tegishli?",
   "options": [
+   "Y. Shumpeter",
    "P. Samuelson",
    "M. Fridmen",
-   "Y. Shumpeter",
    "J.M. Keyns"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Shumpeter innovatsiyalarni iqtisodiy rivojlanish va tebranishlar manbai deb hisoblagan."
  },
  {
-  "q": "Siyosiy biznes-tsikl nazariyasi muallifi:",
+  "q": "Siyosiy biznes-tsikl nazariyasini 1975-yilda kim taklif qilgan?",
   "options": [
-   "U. Nordxaus",
    "A. Pigu",
+   "U. Nordxaus",
    "R. Lukas",
    "J. Xiks"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Nordxaus hukumatlar saylovlar oldidan iqtisodiyotni rag‘batlantirishini ko‘rsatgan."
  },
  {
-  "q": "Multiplikator-akselerator modelida cv > 1 bo‘lsa:",
+  "q": "Multiplikator-akselerator modelida cv > 1 bo‘lsa, tebranishlar qanday bo‘ladi?",
   "options": [
-   "Tebranishlar kuchayadi",
-   "Doimiy amplituda",
-   "Tebranish bo‘lmaydi",
-   "Tebranishlar so‘nadi"
+   "Doimiy amplitudada davom etadi",
+   "Umuman yuzaga kelmaydi",
+   "Kuchayib boradi",
+   "Asta-sekin so‘nib boradi"
   ],
-  "c": 0
+  "c": 2,
+  "e": "cv < 1 bo‘lsa tebranishlar so‘nadi, cv > 1 bo‘lsa kuchayadi."
  },
  {
   "q": "Keyns tsikllarning asosiy sababi deb nimani hisoblagan?",
   "options": [
-   "Texnologik shoklar",
-   "Pul taklifi",
-   "Quyosh dog‘lari",
-   "Investitsiyalarning beqarorligi"
+   "Texnologik shoklarni",
+   "Pul taklifining o‘zgarishini",
+   "Investitsiyalarning beqarorligi",
+   "Quyosh faolligini"
   ],
-  "c": 3
+  "c": 2,
+  "e": "Keyns bo‘yicha investitsiyalar kutishlarga bog‘liq bo‘lgani uchun beqaror, bu tsikl manbai."
  },
  {
   "q": "Taklif shoki ishlab chiqarish va narxlarni qanday o‘zgartiradi?",
   "options": [
-   "Faqat narxlarni",
+   "Faqat narxlarni o‘zgartiradi",
+   "Ikkalasini ham o‘zgartirmaydi",
    "Qarama-qarshi yo‘nalishda",
-   "O‘zgartirmaydi",
-   "Bir yo‘nalishda"
+   "Ikkalasini bir yo‘nalishda"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Taklif shokida (masalan, neft narxi oshganda) narxlar oshadi, ishlab chiqarish qisqaradi."
  },
  {
-  "q": "Quyidagilardan qaysi biri talab shoki?",
+  "q": "Quyidagilardan qaysi biri talab shoki hisoblanadi?",
   "options": [
-   "Neft narxining oshishi",
    "Iste’molchilar ishonchining keskin pasayishi",
-   "Qurg‘oqchilik",
-   "Yangi texnologiya"
+   "Neft narxining keskin oshishi",
+   "Qurg‘oqchilik tufayli hosilning kamayishi",
+   "Yangi texnologiyaning joriy etilishi"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Iste’molchilar ishonchi yalpi talabga ta’sir qiladi; boshqalari taklif shoklari."
  },
  {
   "q": "Qaysi tarmoq eng tsiklik hisoblanadi?",
   "options": [
    "Kommunal xizmatlar",
    "Farmatsevtika",
-   "Oziq-ovqat sanoati",
-   "Qurilish"
+   "Qurilish",
+   "Oziq-ovqat sanoati"
   ],
-  "c": 3
+  "c": 2,
+  "e": "Qurilish va mashinasozlik investitsiyaga bog‘liq bo‘lgani uchun eng tsiklik tarmoqlardir."
  },
  {
   "q": "YaIM komponentlaridan qaysi biri eng kuchli tebranadi?",
   "options": [
    "Oziq-ovqat iste’moli",
+   "Investitsiyalar",
    "Xizmatlar iste’moli",
-   "Davlat xaridlari",
-   "Investitsiyalar"
+   "Davlat xaridlari"
   ],
-  "c": 3
+  "c": 1,
+  "e": "Investitsiyalar va uzoq muddat foydalaniladigan tovarlar iste’moli YaIMga nisbatan kuchliroq tebranadi."
  },
  {
-  "q": "Real biznes-tsikllar nazariyasiga ko‘ra:",
+  "q": "Real biznes-tsikllar nazariyasiga ko‘ra, tebranishlar nima?",
   "options": [
-   "Tebranishlar texnologik shoklarga samarali javob",
-   "Narxlar qat’iy",
-   "Tsikllar pul massasidan kelib chiqadi",
-   "Davlat faol barqarorlashtirishi zarur"
+   "Narxlar qat’iyligidan kelib chiqadigan xato",
+   "Pul massasi o‘zgarishining natijasi",
+   "Davlat barqarorlashtirishini talab qiluvchi nuqson",
+   "Texnologik shoklarga samarali javob"
   ],
-  "c": 0
+  "c": 3,
+  "e": "RBC nazariyasi tebranishlarni texnologik shoklarga bozorning samarali javobi deb biladi."
  },
  {
-  "q": "«Buyuk mo‘’tadillik» qaysi davrni anglatadi?",
+  "q": "«Buyuk mo‘tadillik» qaysi davrni anglatadi?",
   "options": [
    "2008–2009",
-   "1950–1960",
    "1985–2007",
+   "1950–1960",
    "1929–1933"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Buyuk mo‘tadillik — tebranishlar sustlashgan 1985–2007-yillar davri."
  },
  {
-  "q": "2008-yilda bankrot bo‘lgan va moliyaviy vahimani keltirib chiqargan investitsiya banki:",
+  "q": "2008-yil sentabrda bankrot bo‘lib, moliyaviy vahimani keltirib chiqargan investitsiya banki qaysi?",
   "options": [
+   "Lehman Brothers",
    "JP Morgan",
    "Deutsche Bank",
-   "Goldman Sachs",
-   "Lehman Brothers"
+   "Goldman Sachs"
   ],
-  "c": 3
+  "c": 0,
+  "e": "Lehman Brothers bankrotligi 2008-yildagi global moliyaviy inqirozni kuchaytirdi."
  },
  {
   "q": "2020-yilda jahon YaIMi taxminan qancha qisqargan?",
   "options": [
-   "25%",
-   "10%",
    "0,1%",
+   "10%",
+   "25%",
    "2,7%"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Darslikka ko‘ra, COVID-19 tufayli jahon YaIMi 2,7 foizga qisqargan."
  },
  {
-  "q": "Ilg‘or indikatorga misol:",
+  "q": "Ilg‘or indikatorga qaysi biri misol bo‘ladi?",
   "options": [
    "Real YaIM",
    "Iste’mol narxlari indeksi",
-   "Ishsizlik davomiyligi",
-   "Qurilishga ruxsatnomalar soni"
+   "Qurilishga ruxsatnomalar soni",
+   "Ishsizlik davomiyligi"
   ],
-  "c": 3
+  "c": 2,
+  "e": "Qurilish ruxsatnomalari faollik o‘zgarishidan oldin o‘zgaradi, shuning uchun ilg‘or indikator."
  },
  {
-  "q": "PMI indeksi 50 dan yuqori bo‘lsa:",
+  "q": "PMI indeksi 50 dan yuqori bo‘lsa, bu nimani bildiradi?",
   "options": [
-   "Ishsizlik oshmoqda",
-   "Faollik kengaymoqda",
-   "Faollik qisqarmoqda",
-   "Inflyatsiya oshmoqda"
+   "Ishsizlik oshayotganini",
+   "Faollik qisqarayotganini",
+   "Inflyatsiya tezlashayotganini",
+   "Faollik kengayayotganini"
   ],
-  "c": 1
+  "c": 3,
+  "e": "PMI > 50 — kengayish, PMI < 50 — qisqarish."
  },
  {
-  "q": "«Sekulyar stagnatsiya» atamasini zamonaviy iqtisodiyotga qayta kiritgan olim:",
+  "q": "«Sekulyar stagnatsiya» atamasini zamonaviy iqtisodiyotga qayta kiritgan olim kim?",
   "options": [
+   "L. Sammers",
    "J. Tobin",
    "A. Ouken",
-   "L. Sammers",
    "R. Solou"
   ],
-  "c": 2
+  "c": 0,
+  "e": "Sammers rivojlangan mamlakatlardagi uzoq muddatli turg‘unlikni shunday atagan."
  },
  {
   "q": "Fridmen va Shvarts Buyuk depressiyaning chuqurlashuvini nima bilan bog‘lagan?",
   "options": [
-   "Texnologiyalar",
-   "Neft narxi",
-   "Pul massasining keskin qisqarishi",
-   "Davlat xarajatlari oshishi"
+   "Texnologik rivojlanishning sekinlashuvi",
+   "Neft narxining keskin tushishi",
+   "Davlat xarajatlarining oshishi",
+   "Pul massasining keskin qisqarishi"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Monetaristlar bo‘yicha, pul massasining qisqarishi pasayishni chuqurlashtirgan."
  },
  {
-  "q": "Kondratyev to‘lqinlari qanday omil bilan bog‘liq?",
+  "q": "Kondratyev to‘lqinlari qaysi omil bilan bog‘liq?",
   "options": [
-   "Saylovlar",
+   "Saylov davriyligi",
+   "Asosiy kapitalning yangilanishi",
    "Fundamental texnologik inqiloblar",
-   "Asosiy kapitalni yangilash",
-   "Zaxiralar"
+   "Tovar zaxiralarining o‘zgarishi"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Uzun to‘lqinlar texnologik inqiloblar va infratuzilma o‘zgarishlari bilan bog‘liq."
  },
  {
   "q": "Retsessiya davrida antitsiklik siyosat qanday bo‘lishi kerak?",
   "options": [
+   "Soliqlarni oshirish va xarajatlarni saqlash",
    "Davlat xarajatlarini oshirish va stavkalarni pasaytirish",
-   "Soliqlarni oshirish",
-   "Davlat xarajatlarini qisqartirish",
-   "Foiz stavkalarini oshirish"
+   "Xarajatlarni qisqartirish va stavkalarni oshirish",
+   "Faqat pul massasini cheklash"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Antitsiklik siyosat yalpi talabni rag‘batlantirishga qaratiladi."
  },
  {
   "q": "2020-yilda O‘zbekiston iqtisodiyoti qanday natija ko‘rsatdi?",
   "options": [
-   "1,9% o‘sdi",
-   "O‘zgarmadi",
-   "2,7% qisqardi",
-   "7,7% o‘sdi"
+   "2,7% ga qisqardi",
+   "O‘zgarishsiz qoldi",
+   "1,9% ga o‘sdi",
+   "7,7% ga o‘sdi"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Darslikka ko‘ra, pandemiyaga qaramay O‘zbekiston YaIMi 1,9 foizga o‘sgan."
  },
  {
-  "q": "Iqtisodiy tsiklning eng yuqori nuqtasi:",
+  "q": "Iqtisodiy faollikning eng past nuqtasi qanday ataladi?",
   "options": [
-   "Tiklanish",
-   "Tub nuqta",
    "Cho‘qqi",
-   "Retsessiya"
+   "Amplituda",
+   "Tiklanish",
+   "Tub nuqta"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Tub nuqta (trough) — undan keyin tiklanish boshlanadigan eng past nuqta."
  },
  {
-  "q": "Davomiyligi 7–11 yil bo‘lgan, asosiy kapitalning yangilanishi bilan bog‘liq tsikllar:",
+  "q": "Davomiyligi 7–11 yil bo‘lgan, asosiy kapitalning yangilanishi bilan bog‘liq tsikllar qaysilar?",
   "options": [
+   "Jyuglyar tsikllari",
    "Kitchin tsikllari",
    "Kondratyev to‘lqinlari",
-   "Kuznets tsikllari",
-   "Jyuglyar tsikllari"
+   "Kuznets tsikllari"
   ],
-  "c": 3
+  "c": 0,
+  "e": "Uskunalar 7–11 yil xizmat qilgani uchun ularni almashtirish Jyuglyar tsiklini beradi."
  },
  {
-  "q": "Amaliyotda retsessiyaning keng tarqalgan «texnik» ta’rifi:",
+  "q": "Retsessiyaning keng tarqalgan «texnik» ta’rifi qanday?",
   "options": [
-   "Ketma-ket ikki chorak real YaIMning qisqarishi",
-   "Eksportning kamayishi",
-   "Ishsizlikning 5% dan oshishi",
-   "Inflyatsiyaning 10% dan oshishi"
+   "Eksport hajmining bir yillik kamayishi",
+   "Ishsizlikning 5 foizdan oshishi",
+   "Narxlarning 10 foizdan ortiq o‘sishi",
+   "Real YaIMning ketma-ket ikki chorak qisqarishi"
   ],
-  "c": 0
+  "c": 3,
+  "e": "Texnik ta’rif real YaIMning ikki chorak ketma-ket qisqarishiga tayanadi."
  },
  {
   "q": "Ishsizlik darajasi qanday indikator hisoblanadi?",
   "options": [
-   "Mos keluvchi",
    "Kechikuvchi",
-   "Neytral",
-   "Ilg‘or"
+   "Ilg‘or",
+   "Mos keluvchi",
+   "Neytral"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Ishsizlik tsiklning tub nuqtasidan keyin ham oshishda davom etadi, ya’ni kechikadi."
  },
  {
-  "q": "Mankyuga ko‘ra qisqa muddatli iqtisodiy tebranishlarni tushunishning kaliti:",
+  "q": "Mankyuga ko‘ra, qisqa muddatli iqtisodiy tebranishlarni tushunishning kaliti nima?",
   "options": [
-   "Aholining o‘sishi",
-   "Texnologik taraqqiyot",
-   "Narxlarning qisqa muddatda qat’iyligi (yopishqoqligi)",
-   "Oltin standarti"
+   "Aholi sonining o‘sishi",
+   "Narxlarning qisqa muddatda qat’iyligi",
+   "Texnologik taraqqiyot sur’ati",
+   "Oltin standartining mavjudligi"
   ],
-  "c": 2
+  "c": 1,
+  "e": "Mankyu qisqa muddatda narxlar yopishqoq bo‘lishini tebranishlar kaliti deb hisoblaydi."
  }
 ]

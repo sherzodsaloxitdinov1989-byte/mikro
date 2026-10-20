@@ -3,101 +3,111 @@
   "q": "AD-AS modelida vertikal o‘qda nima ko‘rsatiladi?",
   "options": [
    "Narxlarning umumiy darajasi",
-   "Ish haqi",
-   "Alohida tovar narxi",
-   "Foiz stavkasi"
+   "Real ish haqining o‘rtacha darajasi",
+   "Alohida tovar bozoridagi narx",
+   "Nominal foiz stavkasi darajasi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Vertikal o‘qda umumiy narxlar darajasi (P), gorizontal o‘qda real ishlab chiqarish (Y) qo‘yiladi."
  },
  {
   "q": "AD egri chizig‘i pastga qarab egilganligining sababi emas:",
   "options": [
+   "Boylik samarasi (Pigu samarasi)",
    "Almashtirish samarasi (mikroiqtisodiy)",
-   "Boylik samarasi",
-   "Import xaridlari samarasi",
-   "Foiz stavkasi samarasi"
+   "Import xaridlari samarasi (Mandell–Fleming)",
+   "Foiz stavkasi samarasi (Keyns samarasi)"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Almashtirish samarasi mikroiqtisodiy tushuncha; AD ning pastga egilishi boylik, foiz stavkasi va import samaralari bilan izohlanadi."
  },
  {
   "q": "Boylik samarasi kimning nomi bilan bog‘liq?",
   "options": [
    "J.M. Keyns",
-   "A. Pigu",
    "R. Mandell",
+   "A. Pigu",
    "L. Valras"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Narxlar pasayganda real boylikning oshishi iste’molni rag‘batlantirishi Pigu samarasi deb ataladi."
  },
  {
   "q": "Narxlar darajasining pasayishi:",
   "options": [
    "AD egri chizig‘ini o‘ngga siljitadi",
-   "AS egri chizig‘ini siljitadi",
    "AD egri chizig‘ini chapga siljitadi",
+   "AS egri chizig‘ini o‘ngga siljitadi",
    "AD egri chizig‘i bo‘ylab harakatga olib keladi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Narx o‘zgarishi AD egri chizig‘i bo‘ylab harakat, narxdan boshqa omillar esa egri chiziqning siljishini beradi."
  },
  {
   "q": "Quyidagilardan qaysi biri AD ni o‘ngga siljitadi?",
   "options": [
    "Soliqlarning oshirilishi",
-   "Davlat xarajatlarining oshirilishi",
    "Pul taklifining kamayishi",
-   "Milliy valyutaning qimmatlashishi"
+   "Milliy valyutaning qimmatlashishi",
+   "Davlat xarajatlarining oshirilishi"
   ],
-  "c": 1
+  "c": 3,
+  "e": "Davlat xarajatlari AD tarkibiy qismi, ularning oshishi AD ni o‘ngga siljitadi."
  },
  {
   "q": "Klassik modelda AS egri chizig‘i:",
   "options": [
    "Gorizontal",
-   "Vertikal",
    "Pastga egilgan",
+   "Vertikal",
    "Yuqoriga egilgan"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Klassik modelda ishlab chiqarish hajmi resurslar bilan belgilanadi, shuning uchun AS vertikal."
  },
  {
   "q": "Keynscha qisqa muddatli AS egri chizig‘i:",
   "options": [
-   "Giperbola",
-   "Pastga egilgan",
    "Vertikal",
-   "Gorizontal"
+   "Gorizontal",
+   "Giperbola",
+   "Pastga egilgan"
   ],
-  "c": 3
+  "c": 1,
+  "e": "Keyns modelida narxlar qat’iy, shuning uchun qisqa muddatda AS gorizontal."
  },
  {
   "q": "Klassik modelda pul taklifining oshishi:",
   "options": [
-   "Foiz stavkasini oshiradi",
    "Faqat narxlar darajasini oshiradi",
+   "Foiz stavkasini pasaytiradi",
    "Ishsizlikni kamaytiradi",
    "Real YaIMni oshiradi"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Klassik modelda pul neytral: pul taklifi faqat nominal o‘zgaruvchilarga, ya’ni narxlarga ta’sir qiladi."
  },
  {
   "q": "Pulning neytralligi nimani anglatadi?",
   "options": [
-   "Pul aylanish tezligi o‘zgarmas",
+   "Pul aylanish tezligi o‘zgarmas bo‘ladi",
    "Pul real o‘zgaruvchilarga ta’sir qilmaydi",
-   "Pul inflyatsiyaga ta’sir qilmaydi",
-   "Pul taklifi o‘zgarmas"
+   "Pul narxlar darajasiga ta’sir qilmaydi",
+   "Pul taklifi vaqt davomida o‘zgarmaydi"
   ],
-  "c": 1
+  "c": 1,
+  "e": "Neytrallik — pul taklifi o‘zgarishi real YaIM, bandlik kabi real o‘zgaruvchilarga ta’sir qilmasligi."
  },
  {
   "q": "AS egri chizig‘ining keynscha kesimida yalpi talab oshsa:",
   "options": [
-   "Ikkalasi ham oshadi",
-   "Faqat narxlar oshadi",
-   "Faqat ishlab chiqarish oshadi",
-   "Hech narsa o‘zgarmaydi"
+   "Narxlar ham, ishlab chiqarish ham oshadi",
+   "Faqat narxlar darajasi oshadi",
+   "Ishlab chiqarish va narxlar o‘zgarmaydi",
+   "Faqat ishlab chiqarish oshadi"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Gorizontal kesimda narxlar o‘zgarmaydi, talab oshishi faqat Y ni oshiradi."
  },
  {
   "q": "AS egri chizig‘ining vertikal kesimida yalpi talab oshsa:",
@@ -105,119 +115,131 @@
    "Faqat narxlar oshadi",
    "Faqat ishlab chiqarish oshadi",
    "Narxlar pasayadi",
-   "Ikkalasi ham oshadi"
+   "Narxlar ham, ishlab chiqarish ham oshadi"
   ],
-  "c": 0
+  "c": 0,
+  "e": "Vertikal kesimda Y potensial darajada, shuning uchun talab oshishi faqat P ni oshiradi."
  },
  {
   "q": "Qaysi omil AS ni chapga siljitadi?",
   "options": [
-   "Deregulyatsiya",
-   "Texnologik taraqqiyot",
+   "Deregulyatsiya va yengillashtirish",
+   "Texnologik taraqqiyot sur’ati",
    "Energiya narxlarining oshishi",
    "Soliqlarning kamaytirilishi"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Resurs narxlari oshishi xarajatlarni oshirib, AS ni chapga siljitadi (salbiy taklif shoki)."
  },
  {
   "q": "Uzoq muddatli muvozanatda:",
   "options": [
+   "Faqat AD va LRAS kesishadi, SRAS yuqorida qoladi",
+   "SRAS egri chizig‘i vertikal holatga keladi",
    "AD, SRAS va LRAS bitta nuqtada kesishadi",
-   "Faqat AD va LRAS kesishadi",
-   "SRAS vertikal",
    "AD va SRAS kesishadi, LRAS dan uzoqda"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Uzoq muddatli muvozanatda ishlab chiqarish potensial darajada va uchala egri chiziq bir nuqtada kesishadi."
  },
  {
   "q": "Valras qonuniga ko‘ra, 4 ta bozordan 3 tasida muvozanat bo‘lsa:",
   "options": [
-   "To‘rtinchisida taqchillik bo‘ladi",
    "To‘rtinchisida ham muvozanat bo‘ladi",
-   "Aniqlab bo‘lmaydi",
-   "To‘rtinchisida ortiqchalik bo‘ladi"
+   "To‘rtinchisida taqchillik bo‘ladi",
+   "To‘rtinchisida ortiqchalik bo‘ladi",
+   "To‘rtinchisi holatini aniqlab bo‘lmaydi"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Valras qonuni: umumiy ortiqcha talablar yig‘indisi nolga teng, shuning uchun oxirgi bozor ham muvozanatda."
  },
  {
   "q": "Salbiy talab shoki qisqa muddatda:",
   "options": [
-   "Y ni kamaytiradi",
    "Faqat P ni oshiradi",
    "Y ni oshiradi",
-   "LRAS ni siljitadi"
+   "LRAS ni siljitadi",
+   "Y ni kamaytiradi"
   ],
-  "c": 0
+  "c": 3,
+  "e": "Talab pasayishi qisqa muddatda ishlab chiqarishni (va narxlarni) kamaytiradi."
  },
  {
   "q": "Salbiy talab shoki uzoq muddatda (siyosat aralashuvisiz):",
   "options": [
-   "Y doimiy past bo‘ladi",
+   "Y doimiy past darajada qoladi",
+   "Y potensialga qaytadi, P pasayadi",
    "Giperinflyatsiya boshlanadi",
-   "P oshadi",
-   "Y potensialga qaytadi, P pasayadi"
+   "Y potensialga qaytadi, P oshadi"
   ],
-  "c": 3
+  "c": 1,
+  "e": "Narxlar va ish haqi moslashgach SRAS pastga siljiydi, Y potensialga qaytadi, narx pasayadi."
  },
  {
   "q": "Salbiy taklif shoki natijasida:",
   "options": [
+   "Y↓, P↑",
    "Y↓, P↓",
    "Y↑, P↓",
-   "Y↑, P↑",
-   "Y↓, P↑"
+   "Y↑, P↑"
   ],
-  "c": 3
+  "c": 0,
+  "e": "Taklif shoki stagflyatsiyani keltiradi: ishlab chiqarish kamayadi, narxlar oshadi."
  },
  {
   "q": "Moslashtiruvchi siyosat taklif shokiga javoban:",
   "options": [
-   "AD ni o‘ngga siljitib, Y ni tiklaydi, ammo P yuqori qoladi",
-   "SRAS ni pastga siljitadi",
-   "LRAS ni siljitadi",
-   "AD ni chapga siljitadi"
+   "SRAS ni pastga siljitib, narxlarni tushiradi",
+   "LRAS ni o‘ngga siljitib, potensialni oshiradi",
+   "AD ni o‘ngga siljitadi, Y tiklanadi, P yuqori qoladi",
+   "AD ni chapga siljitib, narxlarni tushiradi"
   ],
-  "c": 0
+  "c": 2,
+  "e": "Moslashtiruvchi siyosat Y ni tiklaydi, lekin narxlar darajasi yuqoriligicha qoladi."
  },
  {
   "q": "Blinder tadqiqotiga ko‘ra narxlar qat’iyligining eng ko‘p tilga olingan sababi:",
   "options": [
+   "Davlat tomonidan narxlarni nazorat qilish",
    "Raqobatchilar bilan muvofiqlashtirish muammosi",
-   "Davlat nazorati",
-   "Soliqlar",
-   "Menyu xarajatlari"
+   "Soliqlarni qayta hisoblash murakkabligi",
+   "Menyu xarajatlarining yuqoriligi"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Blinder so‘rovida firmalar eng ko‘p muvofiqlashtirish muammosini sabab qilib ko‘rsatgan."
  },
  {
   "q": "Mankyu keltirgan 1724-yilgi Fransiya tajribasi nimani ko‘rsatadi?",
   "options": [
    "Fiskal siyosat samaradorligini",
-   "Narxlarning egiluvchanligini",
-   "Giperinflyatsiyani",
+   "Narxlarning to‘liq egiluvchanligini",
+   "Giperinflyatsiya sabablarini",
    "Pulning qisqa muddatda noneytralligini"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Tajribada pul massasi o‘zgarganda real ko‘rsatkichlar ham o‘zgargan: qisqa muddatda pul neytral emas."
  },
  {
   "q": "COVID-19 pandemiyasi qanday shok bo‘ldi?",
   "options": [
-   "Faqat taklif shoki",
-   "Faqat talab shoki",
-   "Ham talab, ham taklif shoki",
-   "Ijobiy talab shoki"
+   "Faqat salbiy taklif shoki",
+   "Faqat salbiy talab shoki",
+   "Ijobiy talab shoki",
+   "Ham talab, ham taklif shoki"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Pandemiya iste’molni ham, ishlab chiqarish imkoniyatlarini ham qisqartirdi."
  },
  {
   "q": "Klassik dixotomiya nimani anglatadi?",
   "options": [
-   "Real va nominal o‘zgaruvchilarni alohida tahlil qilish imkoniyati",
-   "Mikro va makroiqtisodiyot farqi",
-   "Ichki va tashqi bozor farqi",
-   "Talab va taklif tengligi"
+   "Mikro va makroiqtisodiyotning farqlanishini",
+   "Real va nominal o‘zgaruvchilarni alohida tahlil qilish mumkinligini",
+   "Ichki va tashqi bozorlarning ajralishini",
+   "Talab va taklif tengligini"
   ],
-  "c": 0
+  "c": 1,
+  "e": "Dixotomiyaga ko‘ra real o‘zgaruvchilar pul taklifiga bog‘liq emas va alohida tahlil qilinadi."
  },
  {
   "q": "Pul massasi 400, V = 3 bo‘lsa, AD tenglamasi:",
@@ -227,57 +249,63 @@
    "Y = 1200 / P",
    "Y = 400P"
   ],
-  "c": 2
+  "c": 2,
+  "e": "MV = PY dan Y = MV/P = 400 × 3 / P = 1200 / P."
  },
  {
   "q": "Barqarorlashtirish siyosatining muammosi emas:",
   "options": [
-   "Shok turini aniqlash qiyinligi",
    "Valras qonuni",
+   "Shok turini aniqlash qiyinligi",
    "Potensial YaIMni baholash qiyinligi",
-   "Vaqt kechikishlari"
+   "Siyosat ta’sirining vaqt kechikishlari"
   ],
-  "c": 1
+  "c": 0,
+  "e": "Valras qonuni muvozanat qoidasi, siyosat muammosi emas; qolganlari amaliy qiyinchiliklar."
  },
  {
   "q": "2022-yilda O‘zbekistonga pul o‘tkazmalarining keskin oshishi qanday shok bo‘ldi?",
   "options": [
    "Ijobiy taklif shoki",
-   "Salbiy talab shoki",
    "Ijobiy talab shoki",
+   "Salbiy talab shoki",
    "Salbiy taklif shoki"
   ],
-  "c": 2
+  "c": 1,
+  "e": "O‘tkazmalar daromad va iste’molni oshirib, AD ni o‘ngga siljitdi."
  },
  {
   "q": "Uzoq muddatli yalpi taklif egri chizig‘i (LRAS):",
   "options": [
+   "Vertikal",
    "Gorizontal",
    "Yuqoriga og‘ma",
-   "Pastga og‘ma",
-   "Vertikal"
+   "Pastga og‘ma"
   ],
-  "c": 3
+  "c": 0,
+  "e": "Uzoq muddatda Y potensial darajada, narxga bog‘liq emas."
  },
  {
   "q": "Narxlar darajasi pasayganda real boylikning oshishi iste’molni rag‘batlantirishi:",
   "options": [
    "Rikardo samarasi",
    "Fisher samarasi",
-   "Pigu samarasi",
-   "Keyns samarasi"
+   "Keyns samarasi",
+   "Pigu samarasi"
   ],
-  "c": 2
+  "c": 3,
+  "e": "Bu mexanizm boylik samarasi, ya’ni Pigu samarasi deb ataladi."
  },
  {
   "q": "Salbiy taklif shokiga markaziy bank yalpi talabni oshirish orqali javob bersa, bu siyosat:",
   "options": [
    "Neytral siyosat",
+   "Sterilizatsiya siyosati",
    "Moslashtiruvchi siyosat",
-   "Sterilizatsiya",
    "Cheklovchi siyosat"
   ],
-  "c": 1
+  "c": 2,
+  "e": "Shokka AD ni oshirib javob berish moslashtiruvchi siyosat deyiladi."
  },
  {
   "q": "Klassik dixotomiyaga ko‘ra pul taklifi uzoq muddatda ta’sir qiladi:",
@@ -285,18 +313,20 @@
    "Real foiz stavkasiga",
    "Real YaIMga",
    "Faqat nominal o‘zgaruvchilarga",
-   "Bandlikka"
+   "Bandlik darajasiga"
   ],
-  "c": 2
+  "c": 2,
+  "e": "Uzoq muddatda pul faqat narx va nominal ish haqi kabi nominal o‘zgaruvchilarni o‘zgartiradi."
  },
  {
   "q": "Qisqa muddatda yalpi talabning oshishi (SRAS yuqoriga og‘ma bo‘lganda):",
   "options": [
-   "Narxlarni pasaytiradi",
    "Faqat narxlarni oshiradi",
    "Faqat ishlab chiqarishni oshiradi",
+   "Narxlarni pasaytiradi",
    "Ishlab chiqarish va narxlarni oshiradi"
   ],
-  "c": 3
+  "c": 3,
+  "e": "Yuqoriga og‘ma SRAS da AD o‘ngga siljisa, Y ham, P ham oshadi."
  }
 ]
