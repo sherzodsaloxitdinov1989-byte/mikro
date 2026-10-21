@@ -2,7 +2,8 @@
 import { h, mount, loading, fmtDate, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
 import { toCSV } from "../stats.js";
-import { formByKey } from "../../data/course.js";
+import { formByKey, subjectOfGroup } from "../../data/course.js";
+import { SUBJECT_KEY } from "../../data/topics.js";
 
 const ICON = { screenshot: "📸", print: "🖨️", source: "🧑‍💻", save: "💾", copy: "📋", leave: "🪟", contextmenu: "🖱️" };
 const SEVERITY = { 3: ["Jiddiy", "badge-warn"], 2: ["O'rtacha", "badge-warn"], 1: ["Yengil", ""] };
@@ -10,6 +11,10 @@ const SEVERITY = { 3: ["Jiddiy", "badge-warn"], 2: ["O'rtacha", "badge-warn"], 1
 export async function teacherView(el) {
   mount(el, loading());
   const d = await api.get("admin/security");
+  // Faqat tanlangan fan guruhlari talabalari
+  const mine = (g) => subjectOfGroup(g).key === SUBJECT_KEY;
+  d.students = d.students.filter((s) => mine(s.group));
+  d.recent = d.recent.filter((e) => mine(e.group));
   if (!d.recent.length) return mount(el, emptyState("🛡️", "Hodisalar yo'q", "Platformada ekran surati, nusxalash, bosib chiqarish yoki oynadan chiqish urinishlari qayd etilmagan."));
   const types = d.types;
   let fType = "";

@@ -35,7 +35,7 @@ export function normalizeMeet(b, { formKeys, groups }) {
       startsAt: startsAt.toISOString(),
       durationMin,
       forms: (Array.isArray(b.forms) ? b.forms : []).filter((f) => formKeys.includes(f)),
-      groups: (Array.isArray(b.groups) ? b.groups : []).filter((g) => groups.includes(g)),
+      groups: (Array.isArray(b.groups) ? b.groups : []).filter((g) => groups.includes(g) && subjectOfGroup(g).key === subject),
       note: trim(b.note, 600),
     },
   };

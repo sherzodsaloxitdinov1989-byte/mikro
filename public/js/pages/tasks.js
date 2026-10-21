@@ -2,7 +2,7 @@
 import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, downloadFile } from "../ui.js";
 import { api } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE, formByKey, subjectOfGroup, subjectByKey } from "../../data/course.js";
+import { COURSE, formByKey, subjectOfGroup, subjectByKey, groupsOfSubject, formsOfSubject } from "../../data/course.js";
 import { SUBJECT_KEY } from "../../data/topics.js";
 import { extractText } from "../doctext.js";
 import { reviewView, saveBlob } from "./assignment.js";
@@ -234,7 +234,7 @@ function drawList(body, data, reload) {
 
 /** Fayl (Word, PDF, matn) yuklab, undan topshiriqlar loyihasini olish; o'qituvchi ko'rib chiqib, tanlanganlarini yaratadi. */
 function openImport(data, reload) {
-  const forms = COURSE.studyForms || [];
+  const forms = formsOfSubject(SUBJECT_KEY); // faqat shu fan guruhlari bor ta'lim shakllari
   const fileInput = h("input", { type: "file", accept: ".docx,.pdf,.txt,.md" });
   const status = h("p", { class: "small muted" }, "Topshiriqlar yozilgan Word (.docx), PDF yoki matn (.txt) faylni yuklang. AI undagi topshiriqlarni ajratib beradi, siz ko'rib chiqib tahrirlaysiz va yaratasiz.");
   const draftsBox = h("div", { class: "stack" });
@@ -322,7 +322,7 @@ function openImport(data, reload) {
           subject: SUBJECT_KEY, title: d.title, description: d.description, max: d.max > 0 ? d.max : Number(defMax.value) || 10, due: due.value, semester: 0, mode: mode.value,
           allowLate: true, aiEnabled: aiOn.checked, published: published.checked,
           forms: formBoxes.filter((x) => x.box.checked).map((x) => x.f.key),
-          groups: SUBJECT_KEY === "mikro" ? [] : [...(subjectByKey(SUBJECT_KEY)?.groups || [])],
+          groups: SUBJECT_KEY === "mikro" ? [] : groupsOfSubject(SUBJECT_KEY),
           rubric: d.rubric, reference: d.reference,
         });
         ok++;
@@ -338,8 +338,8 @@ function openImport(data, reload) {
 
 function openBuilder(task, data, reload) {
   // Yangi topshiriq tanlangan fan guruhlariga beriladi (asosiy fan — hammaga)
-  const t = task || { title: "", description: "", forms: [], groups: SUBJECT_KEY === "mikro" ? [] : [...(subjectByKey(SUBJECT_KEY)?.groups || [])], semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: false, aiEnabled: true, criteria: [], rubric: "", reference: "" };
-  const forms = COURSE.studyForms || [];
+  const t = task || { title: "", description: "", forms: [], groups: SUBJECT_KEY === "mikro" ? [] : groupsOfSubject(SUBJECT_KEY), semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: false, aiEnabled: true, criteria: [], rubric: "", reference: "" };
+  const forms = formsOfSubject(SUBJECT_KEY); // faqat shu fan guruhlari bor ta'lim shakllari
   const title = h("input", { type: "text", maxlength: 150, value: t.title, placeholder: "Masalan: Talab elastikligini hisoblash" });
   const description = h("textarea", { rows: 8, maxlength: 8000, placeholder: "Topshiriq sharti: nima qilish kerak, qanday ma'lumotlar beriladi, natija qanday bo'lishi kerak." }, t.description);
   const max = h("input", { type: "number", min: 1, max: 100, step: 0.5, value: t.max, style: { maxWidth: "110px" } });
@@ -352,7 +352,7 @@ function openBuilder(task, data, reload) {
   const rubric = h("textarea", { rows: 3, maxlength: 3000, placeholder: "AI uchun ko'rsatma (talabaga ko'rsatilmaydi). Masalan: formulani to'g'ri qo'llaganiga e'tibor ber." }, t.rubric);
   const reference = h("textarea", { rows: 4, maxlength: 6000, placeholder: "To'g'ri javob yoki namunaviy yechim (talabaga ko'rsatilmaydi). AI shu bilan solishtiradi." }, t.reference);
   const formBoxes = forms.map((f) => ({ f, box: h("input", { type: "checkbox", value: f.key, checked: t.forms.includes(f.key) }) }));
-  const groupBoxes = (COURSE.groups || []).map((g) => ({ g, box: h("input", { type: "checkbox", value: g, checked: t.groups.includes(g) }) }));
+  const groupBoxes = groupsOfSubject(SUBJECT_KEY).map((g) => ({ g, box: h("input", { type: "checkbox", value: g, checked: t.groups.includes(g) }) }));
   let crit = (t.criteria.length ? t.criteria : [{ name: "Mazmunning to'liqligi", max: 30 }, { name: "To'g'riligi va aniqligi", max: 30 }, { name: "Tahlil va asoslash", max: 25 }, { name: "Rasmiylashtirish va uslub", max: 15 }]).map((c) => ({ name: c.name, max: c.max }));
   const critBox = h("div", { class: "stack" });
   const sum = h("b", {});

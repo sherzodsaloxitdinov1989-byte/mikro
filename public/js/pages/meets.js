@@ -1,7 +1,7 @@
 // Jonli darslar (Google Meet): talaba o'z guruhining darslarini ko'radi va qo'shiladi; o'qituvchi dars jadvalini yuritadi.
 import { h, mount, toast, loading, modal, confirmDialog, emptyState } from "../ui.js";
 import { api } from "../api.js";
-import { COURSE, subjectByKey, subjectOfGroup, SUBJECTS } from "../../data/course.js";
+import { COURSE, subjectByKey, subjectOfGroup, SUBJECTS, groupsOfSubject, formsOfSubject } from "../../data/course.js";
 import { SUBJECT_KEY } from "../../data/topics.js";
 
 const WEEK = ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"];
@@ -60,10 +60,7 @@ export async function render(el) {
 
 // ---------------- O'qituvchi ----------------
 
-const subjectGroups = () => {
-  const s = subjectByKey(SUBJECT_KEY);
-  return s?.groups?.length ? [...s.groups] : (COURSE.groups || []).filter((g) => subjectOfGroup(g).key === SUBJECTS[0].key);
-};
+const subjectGroups = () => groupsOfSubject(SUBJECT_KEY);
 
 export async function teacherView(el) {
   mount(el, loading());
@@ -104,7 +101,7 @@ export async function teacherView(el) {
 }
 
 function openForm(m, reload) {
-  const forms = COURSE.studyForms || [];
+  const forms = formsOfSubject(SUBJECT_KEY);
   const groups = subjectGroups();
   const startLocal = m ? uz(m.startsAt) : null;
   const title = h("input", { type: "text", maxlength: 150, value: m?.title || "", placeholder: "Masalan: 3-mavzu bo'yicha onlayn dars" });

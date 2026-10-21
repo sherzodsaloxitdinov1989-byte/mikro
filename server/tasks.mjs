@@ -48,13 +48,14 @@ export function normalizeTask(b, { formKeys, groups }) {
   if (crit.error) return { error: crit.error };
   // Fan: ko'rsatilgan bo'lsa shu, aks holda birinchi guruhning fani (AI shu fan sohasi bo'yicha tekshiradi)
   const subject = SUBJECTS.some((x) => x.key === b.subject) ? b.subject : gr.length ? subjectOfGroup(gr[0]).key : SUBJECTS[0].key;
+  const subjGroups = gr.filter((g) => subjectOfGroup(g).key === subject); // guruhlar faqat shu fanga biriktirilganlardan
   return {
     task: {
       subject,
       title,
       description,
       forms,
-      groups: gr,
+      groups: subjGroups,
       semester,
       due,
       allowLate: b.allowLate !== false,
@@ -72,9 +73,11 @@ export function normalizeTask(b, { formKeys, groups }) {
 /** Talabaga ko'rinadigan maydonlar (o'qituvchining yashirin ko'rsatmalari va namunaviy javobi chiqarilmaydi). */
 export const studentView = ({ rubric, reference, createdBy, ...rest }) => rest;
 
-/** Topshiriq shu talabaga tegishlimi (nashr etilgan, ta'lim shakli va guruh bo'yicha). */
+/** Topshiriq shu talabaga tegishlimi (nashr etilgan, fan, ta'lim shakli va guruh bo'yicha). */
 export function forStudent(task, { form, group }) {
   if (!task.published) return false;
+  // Talaba faqat o'z guruhi o'qiydigan fanning topshiriqlarini ko'radi
+  if (subjectOfGroup(group).key !== (task.subject || SUBJECTS[0].key)) return false;
   if (task.forms?.length && !task.forms.includes(form)) return false;
   if (task.groups?.length && !task.groups.includes(group)) return false;
   return true;

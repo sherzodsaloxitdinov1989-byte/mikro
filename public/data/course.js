@@ -288,5 +288,17 @@ export function currentSemester(today = new Date()) {
   return list[0];
 }
 
+/** Fanga biriktirilgan guruhlar (asosiy fan — hech bir boshqa fanga biriktirilmagan barcha guruhlar). */
+export const groupsOfSubject = (key) => {
+  const s = subjectByKey(key) || SUBJECTS[0];
+  if (s.groups.length) return [...s.groups];
+  return (COURSE.studyForms || []).flatMap((f) => f.groups).filter((g) => subjectOfGroup(g).key === s.key);
+};
+/** Fanga tegishli ta'lim shakllari (shu shaklda fan guruhlari bor bo'lganlari). */
+export const formsOfSubject = (key) => {
+  const gs = new Set(groupsOfSubject(key));
+  return (COURSE.studyForms || []).filter((f) => f.groups.some((g) => gs.has(g)));
+};
+
 /** Guruhga faqat o'qituvchi yuklagan ro'yxat va shifr bilan kiriladimi. */
 export const isRosterGroup = (group) => SUBJECTS.some((s) => (s.rosterGroups || []).includes(group));

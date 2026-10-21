@@ -1523,7 +1523,7 @@ async function subjectRating(req) {
   const [users, tasks, subs] = await Promise.all([getMany("user/"), getMany("task/"), getMany("tasksub/")]);
   const mates = users.filter((u) => u.role === "student" && u.group === group);
   const formKey = formOfGroup(group)?.key;
-  const myTasks = new Map(tasks.filter((t) => t.published && (!t.groups?.length || t.groups.includes(group)) && (!t.forms?.length || t.forms.includes(formKey))).map((t) => [t.id, t]));
+  const myTasks = new Map(tasks.filter((t) => taskLib.forStudent(t, { form: formKey, group })).map((t) => [t.id, t])); // fan, ta'lim shakli va guruh bo'yicha
   const maxTotal = [...myTasks.values()].reduce((n, t) => n + t.max, 0);
   const totals = new Map();
   for (const sb of subs) {
