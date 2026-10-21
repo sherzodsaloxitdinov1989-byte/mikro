@@ -2,7 +2,7 @@
 import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } from "../ui.js";
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
-import { COURSE, formByKey, subjectOfGroup } from "../../data/course.js";
+import { COURSE, formByKey, subjectOfGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../../data/course.js";
 import { Report, saveBlobAs } from "../pdf-report.js";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
 
@@ -82,6 +82,7 @@ async function resultPdf(res, user) {
 // ---------------- Talaba: bosqichlar ro'yxati ----------------
 
 export async function render(el) {
+  if (session.user?.role === "student" && !hasAssignment(session.user.group)) return mount(el, emptyState("🔒", "Bu topshiriq sizning guruhingiz uchun emas", `20 ballik topshiriq faqat kunduzgi ta'limning ${ASSIGNMENT_GROUPS.join(", ")} guruhlariga beriladi.`, h("a", { class: "btn", href: "#/" }, "Bosh sahifa")));
   mount(el, loading());
   const res = await api.get("assignment");
   const form = res.form;
@@ -197,6 +198,7 @@ const mediaNote = (s) => (s?.media ? ` · ${s.media.images} ta rasm, ${s.media.c
 const sizeLabel = (n) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.ceil(n / 1024)} KB`);
 
 export async function renderStage(el, noParam) {
+  if (session.user?.role === "student" && !hasAssignment(session.user.group)) return mount(el, emptyState("🔒", "Bu topshiriq sizning guruhingiz uchun emas", `20 ballik topshiriq faqat kunduzgi ta'limning ${ASSIGNMENT_GROUPS.join(", ")} guruhlariga beriladi.`, h("a", { class: "btn", href: "#/" }, "Bosh sahifa")));
   const no = Number(noParam);
   mount(el, loading());
   const res = await api.get("assignment");
@@ -331,7 +333,7 @@ export async function renderStage(el, noParam) {
 
 export async function teacherView(el) {
   const [data, students] = await Promise.all([api.get("admin/assignment"), api.get("admin/students")]);
-  const allRows = students.filter((u) => u.role === "student" && subjectOfGroup(u.group).hasContent);
+  const allRows = students.filter((u) => u.role === "student" && hasAssignment(u.group)); // faqat kunduzgi 331-25 … 334-25
   const formOf = (u) => u.studyForm || "kunduzgi";
   let curForm = "kunduzgi";
   let A = assignmentFor(curForm);
@@ -372,11 +374,11 @@ export async function teacherView(el) {
   const sel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) });
   const fillGroups = () => {
     groupFilter = "";
-    sel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...(formByKey(curForm)?.groups || []).map((x) => h("option", { value: x }, x)));
+    sel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...ASSIGNMENT_GROUPS.map((x) => h("option", { value: x }, x)));
   };
   fillGroups();
   // Ta'lim shakli bo'yicha alohida topshiriq: kunduzgi va masofaviy topshiriqlar bosqichlari va matnlari farq qiladi
-  const formTabs = h("div", { class: "segmented role-switch" }, (COURSE.studyForms || []).map((f) => h("label", { class: `seg ${f.key === curForm ? "active" : ""}` }, h("input", { type: "radio", name: "assignForm", value: f.key, checked: f.key === curForm, onchange: () => {
+  const formTabs = h("div", { class: "segmented role-switch" }, (COURSE.studyForms || []).filter((f) => f.key === "kunduzgi").map((f) => h("label", { class: `seg ${f.key === curForm ? "active" : ""}` }, h("input", { type: "radio", name: "assignForm", value: f.key, checked: f.key === curForm, onchange: () => {
     curForm = f.key;
     A = assignmentFor(curForm);
     rows = allRows.filter((u) => formOf(u) === curForm);

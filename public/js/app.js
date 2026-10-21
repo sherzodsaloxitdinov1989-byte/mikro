@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session } from "./api.js";
-import { userHasContent, subjectOfGroup, SUBJECTS } from "../data/course.js";
+import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initCelebrations } from "./celebrate.js";
 import { initTools } from "./search.js";
@@ -92,7 +92,7 @@ function renderNav() {
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
   const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
-  let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)));
+  let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)) && !(user && !isTeacher && href === "#/assignment" && !hasAssignment(user.group))); // 20 ballik topshiriq — faqat 331–334-25
   const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
   const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi
   if (ownSubject) {

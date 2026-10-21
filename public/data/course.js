@@ -288,6 +288,10 @@ export function currentSemester(today = new Date()) {
   return list[0];
 }
 
+/** Mikroiqtisodiyot fanidagi 20 ballik (11 bosqichli) topshiriq faqat shu guruhlar uchun: kunduzgi ta'lim, 331-25 … 334-25. */
+export const ASSIGNMENT_GROUPS = ["331-25", "332-25", "333-25", "334-25"];
+export const hasAssignment = (group) => ASSIGNMENT_GROUPS.includes(group);
+
 /** Fanga biriktirilgan guruhlar (asosiy fan — hech bir boshqa fanga biriktirilmagan barcha guruhlar). */
 export const groupsOfSubject = (key) => {
   const s = subjectByKey(key) || SUBJECTS[0];

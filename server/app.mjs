@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup } from "../public/data/course.js";
+import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -943,14 +943,21 @@ function stageParam(no, form) {
 
 const assignView = (rec) => hideSimilar(rec);
 
+/** 20 ballik topshiriq faqat kunduzgi 331-25 … 334-25 guruhlari talabalari uchun (o'qituvchi — doim). */
+function assertAssignGroup(user) {
+  if (user.role === "student" && !hasAssignment(user.group)) throw new HttpError(403, `20 ballik topshiriq faqat kunduzgi ta'limning ${ASSIGNMENT_GROUPS.join(", ")} guruhlari uchun.`);
+}
+
 async function myAssignment(req) {
   const user = await requireUser(req);
+  assertAssignGroup(user);
   const items = await getMany(`assign/${user.id}/`);
   return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
 }
 
 async function assignUploadInit(req, no) {
   const user = await requireUser(req);
+  assertAssignGroup(user);
   stageParam(no, formKeyOf(user));
   const b = await body(req);
   const name = str(b.name, 200);
@@ -963,6 +970,7 @@ async function assignUploadInit(req, no) {
 
 async function assignUploadChunk(req, no, uploadId, i) {
   const user = await requireUser(req);
+  assertAssignGroup(user);
   stageParam(no, formKeyOf(user));
   if (!/^[\w-]{6,64}$/.test(uploadId) || !/^\d{1,3}$/.test(i)) throw new HttpError(400, "So'rov noto'g'ri");
   // Ombor to'lib ketmasligi uchun: bitta talaba kuniga ko'pi bilan 120 ta bo'lak (~360 MB) yuklay oladi
@@ -982,6 +990,7 @@ async function deleteAssignFile(uid, no, file) {
 
 async function assignSubmit(req, no) {
   const user = await requireUser(req);
+  assertAssignGroup(user);
   if (user.role !== "student") throw new HttpError(403, "Topshiriqni faqat talaba yuboradi");
   const form = formKeyOf(user);
   const stage = stageParam(no, form);
@@ -1061,6 +1070,7 @@ async function adminAssignReview(req, uid, no) {
 }
 
 async function doAssignReview(user, no, { limited }) {
+  assertAssignGroup(user);
   const form = formKeyOf(user);
   const stage = stageParam(no, form);
   const key = assignKey(user.id, stage.no);
@@ -1152,7 +1162,9 @@ async function myAssignFile(req, no) {
 
 async function adminAssignment(req) {
   await requireTeacher(req);
-  const items = await getMany("assign/");
+  // Faqat 331-25 … 334-25 guruhlari talabalarining ishlari
+  const allowed = new Set((await getMany("user/")).filter((u) => u.role === "student" && hasAssignment(u.group)).map((u) => u.id));
+  const items = (await getMany("assign/")).filter((i) => allowed.has(i.userId));
   return json({ items, criteria: ASSIGN_CRITERIA, now: new Date().toISOString() });
 }
 
