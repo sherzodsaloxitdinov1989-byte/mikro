@@ -149,7 +149,8 @@ async function adminAlerts(req) {
     all = all.filter((a) => !old.includes(a));
   }
   const unread = all.filter((a) => !a.ack);
-  if (url.searchParams.get("brief")) return json({ unread: unread.length, critical: unread.filter((a) => a.severity === "critical").length, latest: unread[0] || null });
+  const full = Date.now() - storageFullAt < 3600_000;
+  if (url.searchParams.get("brief")) return json({ unread: unread.length + (full ? 1 : 0), critical: unread.filter((a) => a.severity === "critical").length + (full ? 1 : 0), latest: full && !unread.some((a) => a.type === "storage_full") ? { id: "storage-full", title: "Ma'lumotlar bazasi to'lib qoldi: talabalar fayl yuklay olmayapti. «Ombor» bo'limida tozalang." } : unread[0] || null });
   return json({ alerts: all.slice(0, 200), unread: unread.length });
 }
 
@@ -943,6 +944,22 @@ function stageParam(no, form) {
 
 const assignView = (rec) => hideSimilar(rec);
 
+/** Bo'lak saqlanmay qolsa (masalan, baza to'lgan), shu yuklashning allaqachon yozilgan bo'laklarini o'chiradi. */
+async function saveChunk(key, data, cleanPrefix) {
+  try {
+    await db().setBinary(key, data);
+  } catch (e) {
+    await Promise.all((await db().list(cleanPrefix).catch(() => [])).map((k) => db().del(k).catch(() => {})));
+    throw e;
+  }
+}
+
+/** Yangi yuklash boshlanganda eski, topshirilmagan fayl bo'laklarini o'chiradi (baza to'lmasligi uchun). keepId — joriy topshirilgan fayl. */
+async function dropStaleChunks(prefix, keepId) {
+  const keys = (await db().list(prefix)).filter((k) => k.split("/")[3] !== keepId);
+  for (let i = 0; i < keys.length; i += 20) await Promise.all(keys.slice(i, i + 20).map((k) => db().del(k)));
+}
+
 /** 20 ballik topshiriq faqat kunduzgi 331-25 … 334-25 guruhlari talabalari uchun (o'qituvchi — doim). */
 function assertAssignGroup(user) {
   if (user.role === "student" && !hasAssignment(user.group)) throw new HttpError(403, `20 ballik topshiriq faqat kunduzgi ta'limning ${ASSIGNMENT_GROUPS.join(", ")} guruhlari uchun.`);
@@ -965,6 +982,7 @@ async function assignUploadInit(req, no) {
   if (!ASSIGN_EXT.test(name)) throw new HttpError(400, "Faqat Word (.docx) fayl qabul qilinadi");
   if (!Number.isFinite(size) || size <= 0) throw new HttpError(400, "Fayl hajmi noto'g'ri");
   if (size > ASSIGN_MAX_FILE) throw new HttpError(413, `Fayl juda katta: eng ko'pi ${ASSIGN_MAX_FILE / 1024 / 1024} MB`);
+  await dropStaleChunks(`assignbin/${user.id}/${no}/`, (await db().get(assignKey(user.id, no)))?.file?.uploadId).catch(() => {});
   return json({ uploadId: newId(), chunkSize: ASSIGN_CHUNK, chunks: Math.ceil(size / ASSIGN_CHUNK) });
 }
 
@@ -978,7 +996,7 @@ async function assignUploadChunk(req, no, uploadId, i) {
   if (!lim.ok) throw new HttpError(429, "Bugungi yuklash limiti tugadi. Ertaga qayta urinib ko'ring.");
   const data = await req.arrayBuffer();
   if (!data.byteLength || data.byteLength > ASSIGN_CHUNK) throw new HttpError(400, "Fayl bo'lagi hajmi noto'g'ri");
-  await db().setBinary(assignBin(user.id, no, uploadId, i), data);
+  await saveChunk(assignBin(user.id, no, uploadId, i), data, `assignbin/${user.id}/${no}/${uploadId}/`);
   return json({ ok: true });
 }
 
@@ -1227,6 +1245,7 @@ async function taskUploadInit(req, id) {
   if (!ASSIGN_EXT.test(name)) throw new HttpError(400, "Faqat Word (.docx) fayl qabul qilinadi");
   if (!Number.isFinite(size) || size <= 0) throw new HttpError(400, "Fayl hajmi noto'g'ri");
   if (size > ASSIGN_MAX_FILE) throw new HttpError(413, `Fayl juda katta: eng ko'pi ${ASSIGN_MAX_FILE / 1024 / 1024} MB`);
+  await dropStaleChunks(`tasksubbin/${id}/${user.id}/`, (await db().get(tsubKey(id, user.id)))?.file?.uploadId).catch(() => {});
   return json({ uploadId: newId(), chunkSize: ASSIGN_CHUNK, chunks: Math.ceil(size / ASSIGN_CHUNK) });
 }
 
@@ -1238,7 +1257,7 @@ async function taskUploadChunk(req, id, uploadId, i) {
   if (!lim.ok) throw new HttpError(429, "Bugungi yuklash limiti tugadi. Ertaga qayta urinib ko'ring.");
   const data = await req.arrayBuffer();
   if (!data.byteLength || data.byteLength > ASSIGN_CHUNK) throw new HttpError(400, "Fayl bo'lagi hajmi noto'g'ri");
-  await db().setBinary(tsubBin(id, user.id, uploadId, i), data);
+  await saveChunk(tsubBin(id, user.id, uploadId, i), data, `tasksubbin/${id}/${user.id}/${uploadId}/`);
   return json({ ok: true });
 }
 
@@ -2566,6 +2585,70 @@ async function adminSecurity(req) {
   return json({ types: SEC_TYPES, students: [...by.values()].sort((a, b) => b.score - a.score || b.total - a.total), recent: events.slice(0, 500) });
 }
 
+// ---------- Ombor: D1 hajmi, ortiqcha fayllarni tozalash, R2 ga ko'chirish ----------
+const mbOf = (n) => Math.round(((n || 0) / 1048576) * 10) / 10;
+const D1_LIMIT_MB = 500; // Cloudflare bepul tarifi: bitta baza 500 MB
+
+/** Topshirilmagan (hech qaysi yozuvga bog'lanmagan) fayl bo'laklari: yuklash uzilib qolgan yoki qayta yuklangan. */
+async function findOrphans() {
+  const store = db();
+  const [assigns, tsubs, abins, tbins] = await Promise.all([getMany("assign/"), getMany("tasksub/"), store.binSizes("assignbin/"), store.binSizes("tasksubbin/")]);
+  const refA = new Set(assigns.map((a) => a.file?.uploadId).filter(Boolean));
+  const refT = new Set(tsubs.map((a) => a.file?.uploadId).filter(Boolean));
+  const pick = (list, ref) => list.filter((b) => !ref.has(b.key.split("/")[3]));
+  return { assign: pick(abins, refA), tasksub: pick(tbins, refT) };
+}
+
+async function adminStorage(req) {
+  await requireTeacher(req);
+  const store = db();
+  if (!store.stats) return json({ supported: false });
+  const st = await store.stats();
+  const o = await findOrphans();
+  const sum = (arr) => arr.reduce((n, x) => n + (x.bytes || 0), 0);
+  const kvMB = mbOf(st.kv.reduce((n, r) => n + (r.b || 0), 0));
+  const binMB = mbOf(st.bin.reduce((n, r) => n + (r.b || 0), 0));
+  const tts = st.bin.find((r) => r.p === "ttsbin");
+  return json({
+    supported: true, hasR2: st.hasR2, limitMB: D1_LIMIT_MB, totalMB: Math.round((kvMB + binMB) * 10) / 10, kvMB, binMB,
+    bin: st.bin.map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), kv: st.kv.slice(0, 8).map((r) => ({ prefix: r.p, rows: r.n, mb: mbOf(r.b) })),
+    orphans: { assign: { files: o.assign.length, mb: mbOf(sum(o.assign)) }, tasksub: { files: o.tasksub.length, mb: mbOf(sum(o.tasksub)) } },
+    tts: { files: tts?.n || 0, mb: mbOf(tts?.b) }, counters: st.counters,
+  });
+}
+
+async function adminStorageCleanup(req) {
+  const t = await requireTeacher(req);
+  const b = await body(req);
+  const store = db();
+  if (!store.stats) throw new HttpError(400, "Bu omborda tozalash qo'llab-quvvatlanmaydi");
+  let freed = 0;
+  const delAll = async (keys) => { for (let i = 0; i < keys.length; i += 20) await Promise.all(keys.slice(i, i + 20).map((k) => store.del(k))); };
+  if (b.what === "orphans") {
+    const o = await findOrphans();
+    const all = [...o.assign, ...o.tasksub];
+    freed = mbOf(all.reduce((n, x) => n + (x.bytes || 0), 0));
+    await delAll(all.map((x) => x.key));
+  } else if (b.what === "tts") {
+    const l = await store.binSizes("ttsbin/");
+    freed = mbOf(l.reduce((n, x) => n + (x.bytes || 0), 0));
+    await delAll(l.map((x) => x.key));
+  } else if (b.what === "counters") {
+    freed = await store.cleanCounters();
+  } else throw new HttpError(400, "Noma'lum amal");
+  await securityAlert(req, "storage_cleanup", "info", `Ombor tozalandi (${b.what})`, `${t.name} omborni tozaladi.`, `${b.what}/${Date.now()}`, 1000).catch(() => {});
+  return json({ ok: true, freed });
+}
+
+async function adminStorageMigrate(req) {
+  await requireTeacher(req);
+  const store = db();
+  if (!store.migrateToR2) throw new HttpError(400, "Bu omborda R2 ga ko'chirish yo'q");
+  const r = await store.migrateToR2(Math.min(Number((await body(req)).limit) || 20, 40));
+  if (!r.r2) throw new HttpError(400, "R2 ulanmagan: avval Cloudflare'da R2 ni yoqib, Worker'ga ulang (CLOUDFLARE.md).");
+  return json(r);
+}
+
 // ---------- Sozlamalar va diagnostika ----------
 
 let secretReady = false;
@@ -2581,9 +2664,13 @@ async function ensureSecret() {
   secretReady = true;
 }
 
+const STORAGE_FULL = /Exceeded maximum DB size|SQLITE_FULL|database or disk is full/i;
+let storageFullAt = 0;
+
 function describeError(err) {
   const name = err?.name || "";
   const msg = String(err?.message || err);
+  if (STORAGE_FULL.test(msg)) return "Server xotirasi to'lib qolgan. Faylingiz saqlanmadi: o'qituvchiga xabar bering, u omborni tozalagach qayta yuklang.";
   if (name === "MissingBlobsEnvironmentError" || /Netlify Blobs/i.test(msg)) return "Ma'lumotlar ombori (Netlify Blobs) ulanmagan. /api/health sahifasini tekshiring.";
   if (/JWT_SECRET/.test(msg)) return "JWT_SECRET sozlanmagan.";
   return `Serverda kutilmagan xatolik yuz berdi (${name || "Error"}: ${msg.slice(0, 160)})`;
@@ -3054,6 +3141,9 @@ const routes = [
   ["GET", /^admin\/evidence$/, allEvidence],
   ["GET", /^admin\/overview$/, overview],
   ["GET", /^admin\/alerts$/, adminAlerts],
+  ["GET", /^admin\/storage$/, adminStorage],
+  ["POST", /^admin\/storage\/cleanup$/, adminStorageCleanup],
+  ["POST", /^admin\/storage\/migrate$/, adminStorageMigrate],
   ["POST", /^admin\/alerts\/ack$/, adminAlertsAck],
   ["GET", /^admin\/teachers$/, listTeachers],
   ["POST", /^admin\/teachers\/invite$/, inviteTeacher],
@@ -3084,6 +3174,10 @@ export async function handle(req) {
   } catch (err) {
     if (err instanceof HttpError) return json(err.code ? { error: err.message, code: err.code } : { error: err.message }, err.status);
     console.error(err);
+    if (STORAGE_FULL.test(String(err?.message || err))) {
+      storageFullAt = Date.now();
+      await securityAlert(req, "storage_full", "critical", "Ma'lumotlar bazasi to'lib qoldi", "Cloudflare D1 xotirasi (bepul tarifda 500 MB) to'ldi: talabalar fayl yuklay olmayapti. O'qituvchi paneli → «Ombor» bo'limida tozalang yoki fayllarni R2 ga ko'chiring.", "all", 3 * 3600_000).catch(() => {});
+    }
     return json({ error: describeError(err) }, 500);
   }
 }

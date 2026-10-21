@@ -43,6 +43,7 @@ const SECTIONS = [
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
+  { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
@@ -114,7 +115,52 @@ function subjectBar() {
     h("a", { class: "small", href: "#/teacher/subjects" }, "Fanlar sahifasi"));
 }
 
+const BIN_NAMES = { assignbin: "20 ballik topshiriq fayllari (Word)", tasksubbin: "Topshiriq fayllari (Word)", slidebin: "Yuklangan taqdimotlar", mediabin: "Video darslar", ttsbin: "AI ovoz keshi" };
+const KV_NAMES = { user: "Foydalanuvchilar", progress: "Talaba progressi", assign: "20 ballik topshiriq yozuvlari", tasksub: "Topshiriq yozuvlari", secevent: "Himoya hodisalari", alert: "Xavfsizlik ogohlantirishlari", practicereview: "Amaliyot natijalari", selfstudy: "Mustaqil ishlar", quiz: "Test natijalari" };
+
+async function storageView(el) {
+  mount(el, loading());
+  const draw = async () => {
+    const d = await api.get("admin/storage");
+    if (!d.supported) return mount(el, h("div", { class: "alert alert-info" }, "Bu omborda hajm hisoboti yo'q."));
+    const pct = Math.min(100, Math.round((d.totalMB / d.limitMB) * 100));
+    const warn = pct >= 80;
+    const op = d.orphans.assign.mb + d.orphans.tasksub.mb;
+    const act = (label, what, hint) => h("button", { class: "btn small ghost", title: hint, onclick: async () => {
+      if (!(await confirmDialog(`${label}? ${hint}`))) return;
+      try { const r = await api.post("admin/storage/cleanup", { what }); toast(`Tozalandi${typeof r.freed === "number" && what !== "counters" ? `: ${r.freed} MB bo'shadi` : ""}`, "ok"); draw(); } catch (e) { toast(e.message, "error"); }
+    } }, label);
+    const migrate = async (btn) => {
+      btn.disabled = true;
+      try {
+        let r;
+        do { r = await api.post("admin/storage/migrate", { limit: 20 }); btn.textContent = `Ko'chirilmoqda… qoldi: ${r.remaining} ta fayl`; } while (r.remaining > 0 && r.moved > 0);
+        toast("Barcha fayllar R2 ga ko'chirildi", "ok");
+        draw();
+      } catch (e) { toast(e.message, "error"); btn.disabled = false; btn.textContent = "R2 ga ko'chirish"; }
+    };
+    const mBtn = h("button", { class: "btn", onclick: (e) => migrate(e.target) }, "R2 ga ko'chirish");
+    mount(el,
+      h("div", { class: `alert ${warn ? "alert-warn" : "alert-info"}` }, h("b", {}, `Baza hajmi: ${d.totalMB} MB / ${d.limitMB} MB (${pct}%). `), warn ? "Baza to'lib borayapti: talabalar fayl yuklay olmasligi mumkin. Quyidagi tozalash va R2 ga ko'chirishni bajaring." : "Hozircha joy yetarli."),
+      h("div", { class: "card", style: { padding: "0" } }, h("div", { style: { height: "14px", borderRadius: "8px", background: "var(--surface-2)", overflow: "hidden" } }, h("div", { style: { width: `${pct}%`, height: "100%", background: warn ? "#d92d20" : "#16a34a" } }))),
+      h("div", { class: "grid cols-2" },
+        h("section", { class: "card stack" }, h("h3", {}, "📁 Fayllar (bo'laklar)"), h("p", { class: "muted small" }, `Jami ${d.binMB} MB`),
+          h("table", { class: "table" }, h("tbody", {}, d.bin.map((r) => h("tr", {}, h("td", {}, BIN_NAMES[r.prefix] || r.prefix), h("td", { class: "center" }, `${r.files} ta`), h("td", { class: "center" }, h("b", {}, `${r.mb} MB`))))))),
+        h("section", { class: "card stack" }, h("h3", {}, "🗂️ Yozuvlar"), h("p", { class: "muted small" }, `Jami ${d.kvMB} MB`),
+          h("table", { class: "table" }, h("tbody", {}, d.kv.map((r) => h("tr", {}, h("td", {}, KV_NAMES[r.prefix] || r.prefix), h("td", { class: "center" }, `${r.rows} ta`), h("td", { class: "center" }, h("b", {}, `${r.mb} MB`)))))))),
+      h("section", { class: "card stack" }, h("h3", {}, "🧹 Tozalash"),
+        h("p", { class: "small" }, `Topshirilmagan (uzilib qolgan yoki qayta yuklangan) fayl bo'laklari: ${d.orphans.assign.files + d.orphans.tasksub.files} ta, ${op} MB. AI ovoz keshi: ${d.tts.files} ta, ${d.tts.mb} MB (kerak bo'lsa qayta yaratiladi). Eski urinish hisoblagichlari: ${d.counters} ta.`),
+        h("div", { class: "row wrap" }, act("Ortiqcha fayllarni o'chirish", "orphans", "Talabalar hozir fayl yuklayotgan bo'lsa, ularning yuklashi uziladi (qayta urinadi). Topshirilgan ishlarga tegilmaydi."), act("AI ovoz keshini tozalash", "tts", "Ovozlar keyin qayta yaratiladi (AI limiti sarflanadi)."), act("Eski hisoblagichlarni tozalash", "counters", "Faqat 1 kundan eski urinishlar hisoblagichi."))),
+      h("section", { class: "card stack" }, h("h3", {}, "☁️ R2 (tavsiya etiladi)"),
+        d.hasR2
+          ? h("div", { class: "stack" }, h("p", { class: "small" }, "R2 ulangan: yangi fayllar R2 da saqlanadi (10 GB bepul). Eski fayllarni ham ko'chirsangiz, baza bo'shaydi."), mBtn)
+          : h("div", { class: "stack" }, h("p", { class: "small" }, "Fayllar hozir ma'lumotlar bazasining o'zida saqlanmoqda, shuning uchun baza (bepul tarifda 500 MB) tez to'ladi. Doimiy yechim — Cloudflare R2 (10 GB bepul): Cloudflare paneli → R2 Object Storage ni yoqing, so'ng menga «R2 yoqildi» deb yozing — men uni saytga ulayman. Shundan keyin yangi fayllar R2 ga tushadi, bu sahifadan eskilarini ko'chirasiz."))));
+  };
+  await draw();
+}
+
 const ALERT_TIPS = {
+  storage_full: "O'qituvchi paneli → «Ombor (xotira)» bo'limida ortiqcha fayllarni o'chiring va fayllarni R2 ga ko'chiring.",
   login_bruteforce: "Egasi bilan bog'lanib, parolni almashtirishni tavsiya eting. Hisob avtomatik bloklanadi, ammo kuchli parol muhim.",
   login_locked: "Manzil 15 daqiqaga bloklandi. Takrorlansa, Cloudflare → Security → WAF orqali manzilni bloklang.",
   ip_bruteforce: "Bitta manzil juda ko'p urinish qilmoqda. Cloudflare → Security → WAF (yoki Bot Fight Mode) orqali bloklash mumkin.",
@@ -157,7 +203,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi

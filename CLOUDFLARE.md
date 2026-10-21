@@ -114,3 +114,11 @@ Agar loyiha Cloudflare **Pages** sifatida yaratilgan bo'lsa, `functions/api/[[pa
 
 - **Kirish sahifalari ajratilgan.** Talabalar `#/login` va `#/register` da faqat talaba panelini ko'radi. O'qituvchilar uchun alohida (hech qayerda havola qilinmagan) manzillar: `#/ustoz` (kirish), `#/ustoz/register` (ro'yxatdan o'tish), `#/ustoz/forgot` (parolni tiklash). Masalan: `https://<sayt>/#/ustoz`.
 - **Test qayta topshirilganda** to'g'ri javoblar ko'rsatilmaydi (server qaytarmaydi), faqat to'g'ri/noto'g'ri belgisi beriladi; to'g'ri javoblar birinchi urinishdan keyin ko'rinadi.
+
+## Baza to'lib qolsa: «D1_ERROR: Exceeded maximum DB size»
+
+Bepul tarifda D1 bazasi 500 MB bilan cheklangan. Agar R2 ulanmagan bo'lsa, talabalar yuklagan Word fayllar, taqdimot va video bo'laklari shu bazaning ichida saqlanadi (hajmi ~1,33 baravar ko'proq) va baza tez to'ladi.
+
+1. O'qituvchi paneli → **Ombor (xotira)**: nima qancha joy egallaganini ko'ring va «Ortiqcha fayllarni o'chirish» (topshirilmagan, uzilib qolgan yuklashlar) hamda «AI ovoz keshini tozalash» tugmalarini bosing. Topshirilgan ishlarga tegilmaydi.
+2. Doimiy yechim — **R2** (10 GB bepul): Cloudflare paneli → **R2 Object Storage** ni yoqing. So'ng `wrangler.jsonc` ga `"r2_buckets": [{ "binding": "FILES", "bucket_name": "mikro-files" }]` qo'shiladi (deploy paytida bucket o'zi yaratiladi). Shundan keyin yangi fayllar R2 ga tushadi, «Ombor» sahifasidagi «R2 ga ko'chirish» tugmasi eski fayllarni ko'chirib, bazani bo'shatadi.
+3. Muqobil: Cloudflare Workers Paid ($5/oy) — D1 limiti ancha katta.

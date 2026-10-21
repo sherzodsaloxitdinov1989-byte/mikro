@@ -60,7 +60,8 @@ export function d1Store(DB, FILES) {
     async getBinary(key) {
       if (FILES) {
         const obj = await FILES.get(key);
-        return obj ? obj.arrayBuffer() : null;
+        if (obj) return obj.arrayBuffer();
+        // R2 ulanishdan oldin yuklangan fayllar hali D1 da bo'lishi mumkin: o'qiladi (keyin R2 ga ko'chiriladi)
       }
       await init();
       const { results } = await DB.prepare("SELECT data FROM bin WHERE key = ? ORDER BY part").bind(key).all();
@@ -75,6 +76,41 @@ export function d1Store(DB, FILES) {
       const stmts = [DB.prepare("DELETE FROM bin WHERE key = ?").bind(key)];
       for (let i = 0, part = 0; i < b64.length; i += PART, part++) stmts.push(DB.prepare("INSERT INTO bin (key, part, data) VALUES (?, ?, ?)").bind(key, part, b64.slice(i, i + PART)));
       await DB.batch(stmts);
+    },
+    /** Ombor hisoboti: D1 hajmi (JSON yozuvlar va fayl bo'laklari) turlar bo'yicha. */
+    async stats() {
+      await init();
+      const grp = (col, tbl, extra = "") => DB.prepare(`SELECT CASE WHEN instr(key,'/')>0 THEN substr(key,1,instr(key,'/')-1) ELSE key END AS p, COUNT(${extra || "*"}) AS n, SUM(length(${col})) AS b FROM ${tbl} GROUP BY p ORDER BY b DESC`).all();
+      const [kv, bin, cnt] = await Promise.all([grp("value", "kv"), grp("data", "bin", "DISTINCT key"), DB.prepare("SELECT COUNT(*) AS n FROM counters").first()]);
+      return { hasR2: Boolean(FILES), kv: kv.results, bin: bin.results, counters: cnt?.n || 0 };
+    },
+    /** Fayl kalitlari va hajmi (D1 dagi bo'laklar bo'yicha): [{ key, bytes }] */
+    async binSizes(prefix = "") {
+      await init();
+      const { results } = await DB.prepare("SELECT key, SUM(length(data)) AS b FROM bin WHERE key >= ? AND key < ? GROUP BY key").bind(prefix, upper(prefix)).all();
+      return results.map((r) => ({ key: r.key, bytes: r.b }));
+    },
+    /** Eski urinishlar hisoblagichlarini o'chiradi (1 kundan eski). */
+    async cleanCounters() {
+      await init();
+      const r = await DB.prepare("DELETE FROM counters WHERE ?1 - since > 86400000").bind(Date.now()).run();
+      return r.meta?.changes || 0;
+    },
+    /** D1 dagi fayllarni R2 ga ko'chiradi (R2 ulangan bo'lsa) va D1 dan o'chiradi: baza bo'shaydi. */
+    async migrateToR2(limit = 25) {
+      if (!FILES) return { moved: 0, remaining: 0, r2: false };
+      await init();
+      const { results } = await DB.prepare("SELECT DISTINCT key FROM bin LIMIT ?").bind(limit).all();
+      let moved = 0;
+      for (const { key } of results) {
+        const { results: parts } = await DB.prepare("SELECT data FROM bin WHERE key = ? ORDER BY part").bind(key).all();
+        const buf = Buffer.from(parts.map((r) => r.data).join(""), "base64");
+        await FILES.put(key, buf);
+        await DB.prepare("DELETE FROM bin WHERE key = ?").bind(key).run();
+        moved++;
+      }
+      const left = await DB.prepare("SELECT COUNT(DISTINCT key) AS n FROM bin").first();
+      return { moved, remaining: left?.n || 0, r2: true };
     },
     async list(prefix = "") {
       await init();
