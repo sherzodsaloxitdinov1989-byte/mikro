@@ -1,8 +1,7 @@
 // Cloudflare Worker sozlamalari. "npx wrangler deploy" birinchi marta ishlaganda D1 baza va R2 bucket
 // avtomatik yaratiladi (ID yozish shart emas). Maxfiy kalitlar (JWT_SECRET, TEACHER_CODE, GEMINI_API_KEY)
 // Cloudflare panelida: Worker → Settings → Variables and Secrets (turi: Secret).
-// R2 (FILES) ixtiyoriy: R2 bo'lmasa fayllar va AI ovozlari D1 bazasida saqlanadi. Katta videolar uchun R2 ni qo'shing:
-//   "r2_buckets": [{ "binding": "FILES", "bucket_name": "mikro-files" }]
+// R2 (FILES) ulangan: fayllar va AI ovozlari R2 da saqlanadi (D1 bazasida emas). R2 Cloudflare panelida yoqilgan bo'lishi shart.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mikro",
@@ -16,6 +15,8 @@
     "run_worker_first": ["/api/*", "/slides/*", "/img/book/*", "/data/book.js", "/data/layers-auto.js", "/data/practice-auto.js", "/data/tb/book.js", "/data/tb/layers-auto.js", "/data/tb/practice-auto.js", "/data/mikro2/book.js", "/data/mikro2/layers-auto.js", "/data/mikro2/practice-auto.js", "/data/makro/book.js", "/data/makro/layers-auto.js", "/data/makro/practice-auto.js", "/data/assignment.js", "/data/assignment-masofaviy.js"]
   },
   "d1_databases": [{ "binding": "DB", "database_name": "mikroiqtisodiyot-db" }],
+  // R2: talabalar yuklagan fayllar, taqdimot va video bo'laklari shu yerda saqlanadi (bepul: 10 GB). Bucket deploy paytida o'zi yaratiladi.
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "mikro-files" }],
   "keep_vars": true,
   "observability": { "enabled": true }
 }

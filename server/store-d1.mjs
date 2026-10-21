@@ -20,6 +20,17 @@ export function d1Store(DB, FILES) {
     ready = null;
     throw e;
   }));
+  /** R2 dagi barcha obyektlar (prefiks bo'yicha): [{ key, size }] */
+  const r2All = async (prefix = "") => {
+    const out = [];
+    let cursor;
+    do {
+      const page = await FILES.list({ prefix, cursor });
+      for (const o of page.objects) out.push({ key: o.key, size: o.size });
+      cursor = page.truncated ? page.cursor : undefined;
+    } while (cursor);
+    return out;
+  };
   return {
     /** Atomik hisoblagich (urinishlar cheklovi uchun): oyna ichida n ni bittaga oshiradi va { n, since } qaytaradi. */
     async hit(key, windowMs) {
@@ -82,13 +93,27 @@ export function d1Store(DB, FILES) {
       await init();
       const grp = (col, tbl, extra = "") => DB.prepare(`SELECT CASE WHEN instr(key,'/')>0 THEN substr(key,1,instr(key,'/')-1) ELSE key END AS p, COUNT(${extra || "*"}) AS n, SUM(length(${col})) AS b FROM ${tbl} GROUP BY p ORDER BY b DESC`).all();
       const [kv, bin, cnt] = await Promise.all([grp("value", "kv"), grp("data", "bin", "DISTINCT key"), DB.prepare("SELECT COUNT(*) AS n FROM counters").first()]);
-      return { hasR2: Boolean(FILES), kv: kv.results, bin: bin.results, counters: cnt?.n || 0 };
+      let r2 = [];
+      if (FILES) {
+        const by = new Map();
+        for (const o of await r2All()) {
+          const p = o.key.split("/")[0];
+          const r = by.get(p) || { p, n: 0, b: 0 };
+          r.n++;
+          r.b += o.size;
+          by.set(p, r);
+        }
+        r2 = [...by.values()].sort((a, b) => b.b - a.b);
+      }
+      return { hasR2: Boolean(FILES), kv: kv.results, bin: bin.results, r2, counters: cnt?.n || 0 };
     },
     /** Fayl kalitlari va hajmi (D1 dagi bo'laklar bo'yicha): [{ key, bytes }] */
     async binSizes(prefix = "") {
       await init();
       const { results } = await DB.prepare("SELECT key, SUM(length(data)) AS b FROM bin WHERE key >= ? AND key < ? GROUP BY key").bind(prefix, upper(prefix)).all();
-      return results.map((r) => ({ key: r.key, bytes: r.b }));
+      const out = results.map((r) => ({ key: r.key, bytes: r.b, where: "d1" }));
+      if (FILES) for (const o of await r2All(prefix)) out.push({ key: o.key, bytes: 0, r2Bytes: o.size, where: "r2" });
+      return out;
     },
     /** Eski urinishlar hisoblagichlarini o'chiradi (1 kundan eski). */
     async cleanCounters() {

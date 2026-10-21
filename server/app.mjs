@@ -2605,13 +2605,13 @@ async function adminStorage(req) {
   if (!store.stats) return json({ supported: false });
   const st = await store.stats();
   const o = await findOrphans();
-  const sum = (arr) => arr.reduce((n, x) => n + (x.bytes || 0), 0);
+  const sum = (arr) => arr.reduce((n, x) => n + (x.bytes || 0) + (x.r2Bytes || 0), 0);
   const kvMB = mbOf(st.kv.reduce((n, r) => n + (r.b || 0), 0));
   const binMB = mbOf(st.bin.reduce((n, r) => n + (r.b || 0), 0));
   const tts = st.bin.find((r) => r.p === "ttsbin");
   return json({
     supported: true, hasR2: st.hasR2, limitMB: D1_LIMIT_MB, totalMB: Math.round((kvMB + binMB) * 10) / 10, kvMB, binMB,
-    bin: st.bin.map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), kv: st.kv.slice(0, 8).map((r) => ({ prefix: r.p, rows: r.n, mb: mbOf(r.b) })),
+    bin: st.bin.map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), r2: (st.r2 || []).map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), r2MB: mbOf((st.r2 || []).reduce((n, r) => n + r.b, 0)), kv: st.kv.slice(0, 8).map((r) => ({ prefix: r.p, rows: r.n, mb: mbOf(r.b) })),
     orphans: { assign: { files: o.assign.length, mb: mbOf(sum(o.assign)) }, tasksub: { files: o.tasksub.length, mb: mbOf(sum(o.tasksub)) } },
     tts: { files: tts?.n || 0, mb: mbOf(tts?.b) }, counters: st.counters,
   });
@@ -2627,11 +2627,11 @@ async function adminStorageCleanup(req) {
   if (b.what === "orphans") {
     const o = await findOrphans();
     const all = [...o.assign, ...o.tasksub];
-    freed = mbOf(all.reduce((n, x) => n + (x.bytes || 0), 0));
+    freed = mbOf(all.reduce((n, x) => n + (x.bytes || 0) + (x.r2Bytes || 0), 0));
     await delAll(all.map((x) => x.key));
   } else if (b.what === "tts") {
     const l = await store.binSizes("ttsbin/");
-    freed = mbOf(l.reduce((n, x) => n + (x.bytes || 0), 0));
+    freed = mbOf(l.reduce((n, x) => n + (x.bytes || 0) + (x.r2Bytes || 0), 0));
     await delAll(l.map((x) => x.key));
   } else if (b.what === "counters") {
     freed = await store.cleanCounters();
