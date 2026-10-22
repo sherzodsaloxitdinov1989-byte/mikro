@@ -733,7 +733,18 @@ async function updateMe(req) {
 async function listStudents(req) {
   await requireTeacher(req);
   const all = await getMany("user/");
-  for (const u of all) await ensureCode(u);
+  // Kodlar bosqichma-bosqich beriladi (bir so'rovda ko'pi bilan 20 ta). Baza to'lgan bo'lsa ham ro'yxat ko'rsatiladi.
+  let made = 0;
+  for (const u of all) {
+    if (u.role !== "student" || u.code || made >= 20) continue;
+    try {
+      await ensureCode(u);
+      made++;
+    } catch (e) {
+      console.error("ensureCode:", e.message);
+      break;
+    }
+  }
   const users = all.map(publicUser).sort((a, b) => a.name.localeCompare(b.name));
   return json(users);
 }
