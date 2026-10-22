@@ -137,7 +137,7 @@ export async function render(el) {
 
 const STATUS = { done: ["✅", "To'liq"], partial: ["🟡", "Qisman"], missing: ["❌", "Yo'q"] };
 const itemList = (title, items, labels) =>
-  items?.length > 0 && h("div", {}, h("b", {}, title), h("ul", { class: "clean" }, items.map((i) => h("li", {}, `${STATUS[i.status][0]} `, h("b", {}, `${labels?.[i.n - 1] ? labels[i.n - 1].slice(0, 90) + (labels[i.n - 1].length > 90 ? "…" : "") : i.n + "-band"}`), ` — ${STATUS[i.status][1]}.`, i.note ? ` ${i.note}` : ""))));
+  items?.length > 0 && h("div", {}, h("b", {}, title), h("ul", { class: "clean" }, items.map((i) => h("li", {}, `${STATUS[i.status][0]} `, h("b", {}, `${i.text ? i.text.slice(0, 110) : labels?.[i.n - 1] ? labels[i.n - 1].slice(0, 90) + (labels[i.n - 1].length > 90 ? "…" : "") : i.n + "-band"}`), ` — ${STATUS[i.status][1]}.`, i.note ? ` ${i.note}` : ""))));
 
 const VERDICT = { original: ["✅", "O'z ijodi ko'rinadi", "alert-info"], suspicious: ["⚠️", "Shubhali: AI yordami yoki ko'chirish ehtimoli bor", "alert-warn"], likely: ["🚫", "AI tomonidan tayyorlangan yoki ko'chirilgan bo'lishi ehtimoli yuqori", "alert-warn"] };
 
@@ -160,11 +160,12 @@ export function reviewView(ai, criteria, stage) {
     h("div", { class: "row between wrap" },
       h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), ai.percentRaw != null && ai.percentRaw !== ai.percent && h("span", { class: "muted small" }, `(o'z ijodi pasaytirishigacha ${ai.percentRaw}%) `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
       h("span", { class: "muted small" }, fmtDate(ai.at))),
-    h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
+    h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name, ai.reasons?.[c.key] && h("div", { class: "muted small" }, ai.reasons[c.key])), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
     ai.summary && h("p", {}, ai.summary),
     originalityView(ai.originality),
     ai.copiedSample && h("div", { class: "alert alert-warn small" }, "⚠️ Namunadagi raqamlar/ma'lumotlar ko'chirilgan ko'rinadi. O'z sub'ektingiz ma'lumotlaridan foydalaning."),
     itemList("📋 Vazifalar bo'yicha", ai.tasks, stage?.tasks),
+    itemList("📋 Topshiriq talablari bo'yicha", ai.requirements),
     itemList("📦 Talab qilingan natija qismlari", ai.parts, parts),
     ai.checks?.length > 0 && h("div", {}, h("b", {}, "🧮 Hisob-kitoblarni qayta tekshirish"), h("div", { class: "table-wrap" }, h("table", { class: "table" },
       h("thead", {}, h("tr", {}, ["Nima", "Talaba", "To'g'ri", ""].map((x) => h("th", {}, x)))),

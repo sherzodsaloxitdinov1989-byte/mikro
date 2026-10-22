@@ -129,7 +129,7 @@ export async function renderTask(el, id) {
   const reviewBtn = h("button", { class: "btn ghost", disabled: !sub, onclick: async (e) => {
     const btn = e.target;
     btn.disabled = true;
-    btn.textContent = "🤖 AI tekshirmoqda… (10–40 soniya)";
+    btn.textContent = "🤖 AI tekshirmoqda… (30–90 soniya)";
     try {
       const rec = await api.post(`tasks/${id}/review`, {});
       Object.assign(sub, rec);
@@ -468,8 +468,24 @@ async function openSubmissions(body, id, listData, reloadList) {
     const closeGrade = modal(`${s.name} — ${task.title}`, h("div", { class: "stack" },
       h("p", { class: "muted small" }, `Guruh ${s.group || "—"} · yuborilgan: ${fmtDate(it.submittedAt)} · urinish: ${it.attempts}${it.late ? " · ⏰ KECH" : ""}`),
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/tasks/${id}/file/${it.userId}`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
-      it.text ? h("div", { class: "card" }, h("b", {}, "Javob matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q (faqat fayl)."),
+      (it.text || it.docText) ? h("div", { class: "card" }, h("b", {}, it.text ? "Javob matni" : "Fayldagi matn"), it.media && (it.media.images || it.media.charts) ? h("span", { class: "muted small" }, ` · faylda ${it.media.images || 0} ta rasm, ${it.media.charts || 0} ta diagramma`) : null, h("p", { class: "pre-wrap small" }, it.text || it.docText)) : h("p", { class: "muted small" }, "Matn yo'q (faqat fayl)."),
       it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, task.criteria)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
+      h("button", { class: "btn ghost small", onclick: async (e) => {
+        e.target.disabled = true;
+        e.target.textContent = "AI tekshirmoqda… (1 daqiqagacha)";
+        try {
+          const rec = await api.post(`admin/tasks/${id}/review/${it.userId}`, {});
+          Object.assign(it, rec);
+          toast("AI tekshiruvi yangilandi", "ok");
+          closeGrade();
+          openGrade(s, it);
+          draw();
+        } catch (ex) {
+          toast(ex.message, "error");
+          e.target.disabled = false;
+          e.target.textContent = it.ai ? "🤖 AI bilan qayta tekshirish" : "🤖 AI bilan tekshirish";
+        }
+      } }, it.ai ? "🤖 AI bilan qayta tekshirish" : "🤖 AI bilan tekshirish"),
       h("div", { class: "row wrap grade-form" },
         h("label", { class: "field" }, h("span", {}, `Ball (0–${fmtScore(task.max)})`), score),
         it.ai && h("button", { class: "btn ghost small", onclick: () => (score.value = it.ai.suggested) }, `AI taklifi: ${fmtScore(it.ai.suggested)}`),
