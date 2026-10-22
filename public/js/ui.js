@@ -108,3 +108,12 @@ export function fmtLongDate(d, { year = true } = {}) {
   const x = new Date(d);
   return `${x.getDate()}-${UZ_MONTHS[x.getMonth()]}${year ? `, ${x.getFullYear()}-yil` : ""}`;
 }
+
+/** Himoya hodisalari sababli baho kamaytirilgani haqida izoh (talaba va o'qituvchiga). */
+export function integrityAlert(i) {
+  if (!i) return null;
+  return h("div", { class: "alert alert-danger small" },
+    h("b", {}, `🚫 Qoida buzilgani uchun baho ${i.percent}% ga kamaytirildi`),
+    h("p", {}, i.text),
+    h("ul", {}, (i.items || []).map((x) => h("li", {}, `${x.label}: ${x.count} marta — ${x.rule}.`))));
+}

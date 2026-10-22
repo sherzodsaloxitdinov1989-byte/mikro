@@ -18,6 +18,7 @@ import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
+import { SEC_TYPES, integrityOf, reduceBy } from "./integrity.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { KEYS as QUIZ_KEYS_TB } from "./quiz-keys-tb.mjs";
 import { KEYS as QUIZ_KEYS_M2 } from "./quiz-keys-mikro2.mjs";
@@ -778,6 +779,14 @@ async function overview(req) {
 
 // ---------- Progress & self-study ----------
 
+/** Talabaning shu ish bo'yicha himoya hodisalari: match(e) — hodisa shu ishga tegishlimi; since — shu vaqtdan keyingilari. */
+async function integrityFor(userId, match, since = "") {
+  const events = (await getMany(`secevent/${userId}/`)).filter((e) => (!since || e.at > since) && match(e));
+  return integrityOf(events);
+}
+const onPage = (prefix) => (e) => String(e.page || "").split("?")[0] === prefix;
+const inZone = (topicId, zone) => (e) => String(e.page || "") === `#/topics/${topicId}` && String(e.action || "").startsWith(zone);
+
 /** Foydalanuvchi shu fan materiallaridan foydalana oladimi: o'qituvchi — hammasidan, talaba — faqat o'z guruhi fanidan. */
 const canUseSubject = (user, subject) => user.role === "teacher" || subjectOfGroup(user.group).key === subject;
 
@@ -810,15 +819,19 @@ async function quizSubmit(req, topicId) {
     return reveal ? { ok, correct: q.correct, explain: q.explain || "" } : { ok, explain: ok ? q.explain || "" : "" };
   });
   const correct = results.filter((r) => r.ok).length;
-  const score = Math.round((correct / topic.quiz.length) * 100);
+  const scoreRaw = Math.round((correct / topic.quiz.length) * 100);
+  const integrity = await integrityFor(user.id, inZone(topic.id, "Mavzu testi"), st.quizAt || "");
+  const score = Math.round(reduceBy(scoreRaw, integrity?.percent));
   st.quiz = Math.max(st.quiz ?? 0, score);
+  if (integrity) st.quizIntegrity = { ...integrity, before: scoreRaw, score, at: new Date().toISOString() };
+  else delete st.quizIntegrity;
   st.quizAttempts = (st.quizAttempts || 0) + 1;
   if (!Array.isArray(st.quizFirst)) st.quizFirst = answers;
   st.quizLast = answers;
   st.quizAt = new Date().toISOString();
   progress.updatedAt = st.quizAt;
   await db().set(key, progress);
-  return json({ score, correct, total: topic.quiz.length, reveal, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
+  return json({ score, scoreRaw, integrity, correct, total: topic.quiz.length, reveal, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
 }
 
 /** O'qituvchi uchun: test javob kalitlari (Word jamlanma va boshqalar uchun). */
@@ -897,6 +910,7 @@ async function submitSelfStudy(req, taskId) {
     link,
     submittedAt: new Date().toISOString(),
     // Qayta topshirilganda oldingi baho saqlanadi, ammo "qayta ko'rib chiqish" belgisi qo'yiladi.
+    integrity: await integrityFor(user.id, inZone(String(taskId).split("-")[0], "Mustaqil ish")),
     grade: prev?.grade ?? null,
     feedback: prev?.feedback ?? "",
     resubmitted: Boolean(prev),
@@ -1134,8 +1148,9 @@ async function doAssignReview(user, no, { limited }) {
   const others = (await getMany("assign/")).filter((o) => o.no === stage.no && o.form === form && o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
   const { orig, percentRaw, percent: percentOrig } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
   const lp = taskLib.withLatePenalty(percentOrig, rec.late);
-  const percent = lp.percent;
-  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
+  const integrity = await integrityFor(user.id, onPage(`#/assignment/${stage.no}`));
+  const percent = Math.round(reduceBy(lp.percent, integrity?.percent));
+  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, integrity: integrity && { ...integrity, before: lp.percent }, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
@@ -1413,8 +1428,9 @@ async function doTaskReview(user, task, { limited }) {
   const percentRaw = taskLib.percentOf(review.scores, task.criteria);
   const orig = combineOriginality({ ai: review.originality, heur: heuristics(text, rec.media?.meta), sim: similarity(text, others) });
   const lp = taskLib.withLatePenalty(Math.round(percentRaw * orig.factor), rec.late);
-  const percent = lp.percent;
-  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
+  const integrity = await integrityFor(user.id, onPage(`#/tasks/${id}`));
+  const percent = Math.round(reduceBy(lp.percent, integrity?.percent));
+  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, integrity: integrity && { ...integrity, before: lp.percent }, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
   await db().set(key, rec);
   if (limited) {
     quota.n++;
@@ -1790,12 +1806,16 @@ async function practiceReview(req, topicId) {
   }
   if (!review) review = { ...demoPracticeReview(sub), ...(aiEnabled() ? { summary: `${demoPracticeReview(sub).summary.replace(/\(AI kaliti ulanmagan[^)]*\)/, "")} (AI xizmati javob bermadi — baho avtomatik qoidalar asosida taxminiy.)` } : {}) };
   const calc = { correct: sub.tasks.filter((t) => t.ok).length, total: sub.tasks.length };
+  const prevPractice = (await getMany(`practicereview/${user.id}/${topicId}/`)).map((r) => r.createdAt || "").sort().pop() || "";
+  const integrity = await integrityFor(user.id, (e) => onPage(`#/practice/${topicId}`)(e) || inZone(topicId, "Amaliy bo'lim")(e), prevPractice);
+  const totalRaw = totalOf(review.scores);
   const rec = {
     id: newId(),
     userId: user.id,
     user: { name: user.name, group: user.group },
     topicId,
-    total: totalOf(review.scores),
+    total: Math.round(reduceBy(totalRaw, integrity?.percent) * 10) / 10,
+    integrity: integrity && { ...integrity, before: totalRaw },
     max: 10,
     calc,
     review,
@@ -2730,17 +2750,6 @@ async function recalcRating(req) {
 }
 
 // ---------- Himoya hodisalari: test/topshiriq paytida ekran surati yoki oynadan chiqish ----------
-
-// Har bir hodisa turi: nomi, buzilgan qoida va og'irligi (1 — yengil, 3 — jiddiy)
-const SEC_TYPES = {
-  screenshot: { label: "Ekran surati olishga urinish", rule: "Test va topshiriqlarning ekran suratini olish taqiqlanadi", weight: 3 },
-  print: { label: "Bosib chiqarish / PDF'ga saqlash urinishi", rule: "Platforma materiallarini bosib chiqarish va PDF qilish taqiqlanadi", weight: 3 },
-  source: { label: "Sahifa manbasi / dasturchi vositalarini ochish", rule: "Sahifa kodini ochish va dasturchi vositalaridan foydalanish taqiqlanadi", weight: 3 },
-  save: { label: "Sahifani saqlashga urinish (Ctrl+S)", rule: "Platforma materiallarini saqlab olish taqiqlanadi", weight: 2 },
-  copy: { label: "Matnni nusxalash / kesib olish urinishi", rule: "Darslik va topshiriq matnini nusxalash mualliflik huquqi bilan taqiqlanadi", weight: 2 },
-  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1 },
-  contextmenu: { label: "O'ng tugma (kontekst menyu)", rule: "Sahifada o'ng tugma bilan nusxalash va saqlash taqiqlanadi", weight: 1 },
-};
 
 async function securityEvent(req) {
   const user = await requireUser(req);

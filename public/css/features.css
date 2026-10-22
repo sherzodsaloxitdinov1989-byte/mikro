@@ -427,3 +427,6 @@
 .ask-reply input { flex: 1; border-radius: 10px; padding: 6px 10px; font: inherit; }
 @media (max-width: 640px) { .ask-fab b { display: none; } .ask-fab { width: 48px; padding: 0; justify-content: center; } .ask-wrap { left: 12px; bottom: 76px; } }
 @media print { .ask-wrap { display: none !important; } }
+.alert-danger { background: #fee2e2; color: #7f1d1d; border: 1px solid #fca5a5; border-radius: 12px; padding: 10px 14px; }
+.alert-danger p, .alert-danger ul { margin: 4px 0; }
+@media (prefers-color-scheme: dark) { .alert-danger { background: #3b0d0d; color: #fecaca; border-color: #7f1d1d; } }

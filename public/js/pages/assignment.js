@@ -1,5 +1,5 @@
 // 3-semestr topshirig'i: 11 bosqich, har bir bosqich alohida yuklanadi (talaba) va baholanadi (o'qituvchi).
-import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile } from "../ui.js";
+import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile, integrityAlert } from "../ui.js";
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../../data/course.js";
@@ -160,6 +160,7 @@ export function reviewView(ai, criteria, stage) {
     h("div", { class: "row between wrap" },
       h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), ai.percentRaw != null && ai.percentRaw !== ai.percent && h("span", { class: "muted small" }, `(o'z ijodi pasaytirishigacha ${ai.percentRaw}%) `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
       h("span", { class: "muted small" }, fmtDate(ai.at))),
+    integrityAlert(ai.integrity),
     ai.latePenalty && h("div", { class: "alert alert-warn small" }, `⏰ Ish muddatdan keyin topshirilgan: AI bahosidan ${ai.latePenalty.percent}% jarima ushlab qolindi (${ai.latePenalty.before}% → ${ai.percent}%).`),
     h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name, ai.reasons?.[c.key] && h("div", { class: "muted small" }, ai.reasons[c.key])), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
     ai.summary && h("p", {}, ai.summary),

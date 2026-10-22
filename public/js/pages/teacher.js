@@ -933,7 +933,7 @@ async function selfStudy(el) {
 function gradeForm(it, redraw) {
   const grade = h("select", {}, [5, 4, 3, 2].map((g) => h("option", { value: g, selected: it.grade === g }, g)));
   const fb = h("textarea", { rows: 2, placeholder: "Talabaga izoh va tavsiyalar" }, it.feedback || "");
-  return h(
+  const form = h(
     "div",
     { class: "row wrap grade-form" },
     h("label", { class: "field" }, h("span", {}, "Baho"), grade),
@@ -949,6 +949,8 @@ function gradeForm(it, redraw) {
       }
     } }, "Baholash")
   );
+  const iv = it.integrity;
+  return iv ? h("div", { class: "stack" }, h("div", { class: "alert alert-danger small" }, h("b", {}, "🚫 Ish bajarilayotganda qoida buzilgan: "), iv.items.map((x) => `${x.label} — ${x.count} marta`).join("; "), ". Bahoni kamaytirib, izohda sababini yozing."), form) : form;
 }
 
 

@@ -1,6 +1,6 @@
 // Amaliy mashg'ulot paneli: hisob-kitob topshiriqlari (darhol tekshiriladi), ochiq topshiriqlar (keys)
 // va sun'iy intellekt asosidagi tekshiruv + feedback (POST /api/practice/:topicId/review).
-import { h, toast, fmtDate } from "./ui.js";
+import { h, toast, fmtDate, integrityAlert } from "./ui.js";
 import { api, session } from "./api.js";
 import { topicState, updateTopic } from "./progress.js";
 import { checkField } from "../data/practice-lib.js";
@@ -56,7 +56,7 @@ export function practicePanel(topic) {
     reviewBox.replaceChildren(h("div", { class: "card ai-thinking" }, h("div", { class: "sv-spinner" }), h("p", {}, "Sun'iy intellekt hisob-kitoblaringiz, yechim yo'lingiz va xulosalaringizni 10 ballik mezon bo'yicha tekshirmoqda…")));
     try {
       const res = await api.post(`practice/${topic.id}/review`, payload);
-      const saved = { total: res.total, max: res.max, review: res.review, criteria: res.criteria, calc: res.calc, ai: res.ai, at: res.createdAt };
+      const saved = { integrity: res.integrity, total: res.total, max: res.max, review: res.review, criteria: res.criteria, calc: res.calc, ai: res.ai, at: res.createdAt };
       updateTopic(topic.id, (s) => (s.aiReview = saved));
       reviewBox.replaceChildren(reviewView(saved));
       reviewBox.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -160,6 +160,7 @@ export function reviewView(r) {
         h("h3", {}, r.ai ? "🤖 AI tekshiruvi natijasi" : "🧮 Avtomatik tekshiruv natijasi"),
         h("p", {}, rv.summary),
         h("p", { class: "muted small" }, `${r.calc ? `Hisob-kitoblar: ${r.calc.correct}/${r.calc.total} to'g'ri · ` : ""}${r.at ? fmtDate(r.at) : ""}${rv.estimated ? " · taxminiy baho" : ""}`))),
+    integrityAlert(r.integrity),
     crit.length > 0 && h("div", { class: "crit-bars" }, crit.map((c) => {
       const v = rv.scores?.[c.key] ?? 0;
       return h("div", { class: "crit-row" }, h("span", { class: "crit-name" }, c.name), h("span", { class: "crit-bar" }, h("i", { style: { width: `${(v / c.max) * 100}%` } })), h("b", {}, `${v}/${c.max}`));

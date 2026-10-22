@@ -1,4 +1,4 @@
-import { h, mount, toast, progressBar } from "../ui.js";
+import { h, mount, toast, progressBar, integrityAlert } from "../ui.js";
 import { api, session } from "../api.js";
 import { slideViewer } from "../slides.js";
 import { tutorDrawer } from "../tutor.js";
@@ -368,7 +368,7 @@ function quizTab(topic) {
         "div",
         { class: "card quiz-result" },
         h("div", { class: `score-ring ${cls}`, style: { "--pct": score } }, h("b", {}, `${score}%`), h("span", {}, `${correct}/${topic.quiz.length}`)),
-        h("div", {}, h("h3", {}, score >= 80 ? "A'lo natija! 🏆" : score >= 60 ? "Yaxshi, mavzu o'zlashtirildi 👍" : "Yana bir urinib ko'ring 💪"), h("p", { class: "muted" }, score >= 60 ? "Natijangiz saqlandi. Keyingi bo'limga o'tishingiz mumkin." : "Nazariy qismni qayta o'qib, testni qayta topshiring. O'tish balli — 60%."), h("button", { class: "btn ghost", onclick: () => wrap.replaceWith(quizTab(topic)) }, "🔁 Qayta topshirish"))
+        h("div", {}, res.integrity && integrityAlert(res.integrity), h("h3", {}, score >= 80 ? "A'lo natija! 🏆" : score >= 60 ? "Yaxshi, mavzu o'zlashtirildi 👍" : "Yana bir urinib ko'ring 💪"), h("p", { class: "muted" }, score >= 60 ? "Natijangiz saqlandi. Keyingi bo'limga o'tishingiz mumkin." : "Nazariy qismni qayta o'qib, testni qayta topshiring. O'tish balli — 60%."), h("button", { class: "btn ghost", onclick: () => wrap.replaceWith(quizTab(topic)) }, "🔁 Qayta topshirish"))
       )
     );
     result.scrollIntoView({ behavior: "smooth", block: "center" });

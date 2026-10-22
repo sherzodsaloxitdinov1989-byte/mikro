@@ -48,7 +48,7 @@ function showShield(reason) {
   if (!shield) {
     shield = document.createElement("div");
     shield.className = "secure-shield";
-    shield.innerHTML = `<div class="secure-shield-box"><div style="font-size:3rem">🔒</div><h2>Himoyalangan sahifa</h2><p class="secure-why"></p><p class="muted small">Test va topshiriqlarning ekran suratini olish yoki tarqatish taqiqlanadi. Bunday urinishlar o'qituvchiga qayd etiladi.</p><button type="button" class="btn lg">Davom etish</button></div>`;
+    shield.innerHTML = `<div class="secure-shield-box"><div style="font-size:3rem">🔒</div><h2>Himoyalangan sahifa</h2><p class="secure-why"></p><p class="muted small">Test va topshiriqlarning ekran suratini olish yoki tarqatish taqiqlanadi. Bunday urinishlar o'qituvchiga qayd etiladi va AI qo'ygan bahoni kamaytiradi.</p><button type="button" class="btn lg">Davom etish</button></div>`;
     shield.querySelector("button").addEventListener("click", () => {
       if (!document.hasFocus() || document.hidden) return;
       hideShield();
