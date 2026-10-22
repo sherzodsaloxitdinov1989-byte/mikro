@@ -2358,11 +2358,11 @@ async function livePlay(req, pin) {
 
 // ---------- AI Ustoz (mavzu bo'yicha yordamchi) ----------
 
-async function topicAsk(req, topicId) {
+async function topicAsk(req, topicId, preBody) {
   const user = await requireUser(req);
   const topic = findTopic(topicId);
   if (!topic || !canUseSubject(user, topic.subject)) throw new HttpError(404, "Mavzu topilmadi");
-  const b = await body(req);
+  const b = preBody || (await body(req));
   let raw = Array.isArray(b.messages) ? b.messages.slice(-11) : [];
   if (raw[0]?.role === "assistant") raw = raw.slice(1);
   const history = cleanHistory(raw);
@@ -2372,6 +2372,112 @@ async function topicAsk(req, topicId) {
   }
   const stream = streamText({ system: tutorSystem(topic), messages: history, maxTokens: 900, effort: "low" });
   return new Response(stream, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
+}
+
+// ---------- Talaba savollari: AI ga va o'qituvchiga murojaat ----------
+// Yozuvlar: question/<vaqt>-<id>. Talaba istalgan sahifadan savol yuboradi, o'qituvchi o'z fani doirasida javob beradi.
+const QUESTION_PREFIX = "question/";
+const Q_KEEP_MS = 180 * 86_400_000;
+const qView = (q, forTeacher) => ({ id: q.id, text: q.text, page: q.page || "", pageTitle: q.pageTitle || "", at: q.at, status: q.status, replies: q.replies, subject: q.subject, ...(forTeacher ? { userId: q.userId, name: q.name, group: q.group } : { unread: Boolean(q.unreadStudent) }) });
+
+async function loadQuestions() {
+  const all = (await getEntries(QUESTION_PREFIX)).map(([, v]) => v);
+  const old = all.filter((q) => Date.now() - Date.parse(q.at) > Q_KEEP_MS);
+  if (old.length) await Promise.all(old.map((q) => db().del(QUESTION_PREFIX + q.id)));
+  return all.filter((q) => !old.includes(q)).sort((a, b) => (a.at < b.at ? 1 : -1));
+}
+
+async function questionCreate(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Savol yuborish talabalar uchun");
+  const b = await body(req);
+  const text = str(b.text, 1500).trim();
+  if (text.length < 5) throw new HttpError(400, "Savolni to'liqroq yozing");
+  if (!(await bump(`qask/${user.id}`, 86_400_000, 10)).ok) throw new HttpError(429, "Bir kunda 10 tagacha savol yuborish mumkin. Ertaga yana urinib ko'ring.");
+  const at = new Date().toISOString();
+  const q = { id: `${at}-${newId().slice(0, 6)}`, userId: user.id, name: user.name, group: user.group || "", subject: subjectOfGroup(user.group).key, text, page: str(b.page, 200), pageTitle: str(b.pageTitle, 160), at, status: "open", replies: [], unreadTeacher: true };
+  await db().set(QUESTION_PREFIX + q.id, q);
+  return json({ ok: true, question: qView(q) });
+}
+
+async function questionsMine(req) {
+  const user = await requireUser(req);
+  const mine = (await loadQuestions()).filter((q) => q.userId === user.id);
+  const url = new URL(req.url);
+  if (url.searchParams.get("brief")) return json({ unread: mine.filter((q) => q.unreadStudent).length });
+  return json({ questions: mine.map((q) => qView(q)), unread: mine.filter((q) => q.unreadStudent).length });
+}
+
+async function questionSeen(req, id) {
+  const user = await requireUser(req);
+  const q = await db().get(QUESTION_PREFIX + id);
+  if (!q || q.userId !== user.id) throw new HttpError(404, "Savol topilmadi");
+  if (q.unreadStudent) await db().set(QUESTION_PREFIX + id, { ...q, unreadStudent: false });
+  return json({ ok: true });
+}
+
+/** Talaba o'z savoliga qo'shimcha yozadi (aniqlashtirish). */
+async function questionFollowup(req, id) {
+  const user = await requireUser(req);
+  const q = await db().get(QUESTION_PREFIX + id);
+  if (!q || q.userId !== user.id) throw new HttpError(404, "Savol topilmadi");
+  const text = str((await body(req)).text, 1500).trim();
+  if (text.length < 2) throw new HttpError(400, "Matn bo'sh");
+  if (q.replies.length >= 30) throw new HttpError(400, "Bu suhbat juda uzayib ketdi. Yangi savol yuboring.");
+  if (!(await bump(`qask/${user.id}`, 86_400_000, 10)).ok) throw new HttpError(429, "Bir kunda 10 tagacha xabar yuborish mumkin.");
+  const upd = { ...q, status: "open", unreadTeacher: true, replies: [...q.replies, { from: "student", text, at: new Date().toISOString() }] };
+  await db().set(QUESTION_PREFIX + id, upd);
+  return json({ ok: true, question: qView(upd) });
+}
+
+async function adminQuestions(req) {
+  await requireTeacher(req);
+  const all = await loadQuestions();
+  const url = new URL(req.url);
+  const subject = url.searchParams.get("subject");
+  const list = subject ? all.filter((q) => q.subject === subject) : all;
+  if (url.searchParams.get("brief")) return json({ unread: all.filter((q) => q.status === "open").length });
+  return json({ questions: list.slice(0, 300).map((q) => ({ ...qView(q, true), unreadTeacher: Boolean(q.unreadTeacher) })), open: list.filter((q) => q.status === "open").length });
+}
+
+async function adminQuestionReply(req, id) {
+  const t = await requireTeacher(req);
+  const q = await db().get(QUESTION_PREFIX + id);
+  if (!q) throw new HttpError(404, "Savol topilmadi");
+  const b = await body(req);
+  const text = str(b.text, 3000).trim();
+  if (!text && !b.close) throw new HttpError(400, "Javob matnini yozing");
+  const replies = text ? [...q.replies, { from: "teacher", name: t.name, text, at: new Date().toISOString() }] : q.replies;
+  const upd = { ...q, replies, status: "answered", unreadTeacher: false, unreadStudent: text ? true : q.unreadStudent };
+  await db().set(QUESTION_PREFIX + id, upd);
+  return json({ ok: true, question: qView(upd, true) });
+}
+
+async function adminQuestionDelete(req, id) {
+  await requireTeacher(req);
+  await db().del(QUESTION_PREFIX + id);
+  return json({ ok: true });
+}
+
+/** Mavzudan tashqari (istalgan sahifadagi) AI savol: fan konteksti bilan. */
+async function generalAsk(req) {
+  const user = await requireUser(req);
+  const b = await body(req);
+  if (b.topicId) {
+    const topic = findTopic(String(b.topicId));
+    if (topic && canUseSubject(user, topic.subject)) return topicAsk(req, topic.id, b);
+  }
+  let raw = Array.isArray(b.messages) ? b.messages.slice(-11) : [];
+  if (raw[0]?.role === "assistant") raw = raw.slice(1);
+  const history = cleanHistory(raw);
+  if (!history.length || history[history.length - 1].role !== "user") throw new HttpError(400, "Savol bo'sh");
+  if (!(await bump(`aiask/${user.id}`, 3600_000, 40)).ok) throw new HttpError(429, "Soatiga 40 tagacha savol berish mumkin. Biroz kutib turing.");
+  if (!aiEnabled()) return new Response("Hozir AI yordamchi o'chiq. Savolingizni «O'qituvchiga savol» bo'limi orqali yuboring.", { headers: { "content-type": "text/plain; charset=utf-8" } });
+  const subj = subjectOfGroup(user.group);
+  const course = courseOf(subj.key);
+  const system = `Sen "${course.brand}" platformasidagi yordamchisan. Talaba "${course.title}" fanini o'qiydi (${course.audience}). U hozir saytning "${str(b.pageTitle, 160) || "sahifa"}" sahifasida ishlayapti${b.page ? ` (${str(b.page, 120)})` : ""} va savoli tug'ildi.
+QOIDALAR: 1) Faqat o'zbek tilida (lotin) javob ber, aniq va qisqa (3–8 gap). 2) Fan va saytdan foydalanishga oid savollarga yordam ber; formulalarni oddiy matnda yoz. 3) Test yoki topshiriqning tayyor javobini berma — yo'naltiruvchi tushuntirish ber. 4) Mavzuga aloqasiz so'rovlarni muloyim rad et. 5) Markdown belgilari ishlatma. 6) Aniq bilmasang, taxmin qilma va talabaga «O'qituvchiga savol» yuborishni maslahat ber.`;
+  return new Response(streamText({ system, messages: history, maxTokens: 800, effort: "low" }), { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
 }
 
 // ---------- Reyting va sertifikat ----------
@@ -3213,6 +3319,14 @@ const routes = [
   ["GET", /^admin\/tts$/, adminTts],
   ["PUT", /^admin\/tts$/, setTtsSettings],
   ["POST", /^topics\/([\w-]+)\/ask$/, topicAsk],
+  ["POST", /^ask\/ai$/, generalAsk],
+  ["POST", /^questions$/, questionCreate],
+  ["GET", /^questions$/, questionsMine],
+  ["POST", /^questions\/([\w:.-]+)\/seen$/, questionSeen],
+  ["POST", /^questions\/([\w:.-]+)\/reply$/, questionFollowup],
+  ["GET", /^admin\/questions$/, adminQuestions],
+  ["POST", /^admin\/questions\/([\w:.-]+)\/reply$/, adminQuestionReply],
+  ["POST", /^admin\/questions\/([\w:.-]+)\/delete$/, adminQuestionDelete],
   ["GET", /^certificate$/, myCertificate],
   ["POST", /^certificate$/, issueCertificate],
   ["GET", /^certificate\/([A-Za-z]{1,4}-[0-9A-Fa-f]{8})$/, getCertificate],

@@ -42,6 +42,7 @@ const SECTIONS = [
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
   { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
@@ -178,6 +179,29 @@ const ALERT_TIPS = {
 };
 const SEV = { critical: ["Jiddiy", "badge-err"], high: ["Muhim", "badge-warn"], info: ["Ma'lumot", ""] };
 
+async function questionsView(el) {
+  const load = async () => {
+    const d = await api.get(`admin/questions?subject=${SUBJECT_KEY}`);
+    const card = (q) => {
+      const input = h("textarea", { rows: 3, maxlength: 3000, placeholder: "Javobingizni yozing…" });
+      const send = async (close) => {
+        try { await api.post(`admin/questions/${q.id}/reply`, { text: input.value, close }); load(); } catch (e) { toast(e.message, "error"); }
+      };
+      return h("div", { class: "card stack" },
+        h("div", { class: "row between wrap" }, h("b", {}, `${q.name} · ${q.group || "guruhsiz"}`), h("span", { class: q.status === "open" ? "badge badge-warn" : "badge badge-ok" }, q.status === "open" ? "Javobsiz" : "Javob berilgan")),
+        h("p", { class: "muted small" }, `${fmtDate(q.at)}${q.pageTitle ? ` · sahifa: ${q.pageTitle}` : ""}`),
+        h("div", { class: "ask-msg student" }, q.text),
+        q.replies.map((m) => h("div", { class: `ask-msg ${m.from}` }, h("b", { class: "small" }, m.from === "teacher" ? `👨‍🏫 ${m.name || "O'qituvchi"}` : "👤 Talaba"), h("div", {}, m.text))),
+        input,
+        h("div", { class: "row wrap" }, h("button", { class: "btn small", onclick: () => send(false) }, "Javob yuborish"), q.status === "open" && h("button", { class: "btn small ghost", onclick: () => send(true) }, "Javobsiz yopish"),
+          h("button", { class: "btn small ghost", onclick: async () => { if (await confirmDialog("Savolni o'chirasizmi?")) { await api.post(`admin/questions/${q.id}/delete`, {}); load(); } } }, "🗑 O'chirish")));
+    };
+    mount(el, h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "Talabalar savollari"), h("p", { class: "muted" }, `${d.open} ta javobsiz. Faqat tanlangan fan talabalari ko'rsatiladi. 6 oy saqlanadi.`))),
+      d.questions.length ? h("div", { class: "stack" }, d.questions.map(card)) : h("p", { class: "muted" }, "Hozircha savol yo'q."));
+  };
+  await load();
+}
+
 async function alertsView(el) {
   mount(el, loading());
   const load = async () => {
@@ -203,7 +227,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -291,6 +315,7 @@ async function overview(el) {
   // Ko'rsatkichlar tanlangan fan bo'yicha hisoblanadi (umumiy hisoblagich emas)
   const [stu, prs, sst] = await Promise.all([api.get("admin/students"), api.get("admin/practice-reviews").catch(() => ({ reviews: [] })), api.get("admin/self-study").catch(() => [])]);
   o.students = stu.filter((u) => u.role === "student" && inSubject(u.group)).length;
+  o.questionsOpen = (await api.get(`admin/questions?subject=${SUBJECT_KEY}`).catch(() => ({ open: 0 }))).open;
   o.alertsUnread = (await api.get("admin/alerts?brief=1").catch(() => ({ unread: 0 }))).unread;
   const own = prs.reviews.filter((r) => ownTopic(r.topicId));
   o.practiceReviews = own.length;
