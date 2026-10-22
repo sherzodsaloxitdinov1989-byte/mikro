@@ -47,7 +47,7 @@ export async function render(el) {
           h("a", { class: "card task-card", href: `#/tasks/${t.id}`, style: { display: "block", color: "inherit", textDecoration: "none" } },
             h("div", { class: "row between wrap" }, h("h3", {}, t.title), statusBadge(t)),
             h("p", { class: "small muted" }, t.description.slice(0, 160) + (t.description.length > 160 ? "…" : "")),
-            h("div", { class: "row wrap" }, dueChip(t, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(t.max)} ball`), t.semester > 0 && h("span", { class: "chip chip-soft" }, `${t.semester}-semestr`)))))
+            h("div", { class: "row wrap" }, dueChip(t, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(t.max)} ball`), h("span", { class: "chip chip-soft", title: "Javob yuborish urinishlari" }, `Urinish: ${t.sub?.attempts || 0} / ${(t.maxAttempts || 3) + (t.sub?.extraAttempts || 0)}`), t.semester > 0 && h("span", { class: "chip chip-soft" }, `${t.semester}-semestr`)))))
       : emptyState("📝", "Hozircha vazifa yo'q", "O'qituvchi yangi topshiriq qo'shganda shu yerda ko'rinadi.")
   );
 }
@@ -71,6 +71,9 @@ export async function renderTask(el, id) {
   const now = new Date(res.now);
   const sub = task.sub;
   const closed = task.due && !task.allowLate && now > new Date(`${task.due}T23:59:59+05:00`);
+  const limit = (task.maxAttempts || 3) + (sub?.extraAttempts || 0); // javob yuborish urinishlari
+  const used = sub?.attempts || 0;
+  const left = Math.max(0, limit - used);
   let picked = null;
   const text = h("textarea", { rows: 12, maxlength: 30000, placeholder: "Javob matni. PDF yoki Word fayl yuklasangiz, matn avtomatik to'ldiriladi." }, sub?.text || "");
   const fileInput = h("input", { type: "file", accept: ACCEPT });
@@ -106,8 +109,9 @@ export async function renderTask(el, id) {
   };
   drawAi(sub);
 
-  const submitBtn = h("button", { class: "btn lg", disabled: closed, onclick: async (e) => {
+  const submitBtn = h("button", { class: "btn lg", disabled: closed || left === 0, onclick: async (e) => {
     const btn = e.target;
+    if (!(await confirmDialog(`Bu ${used + 1}-urinish (jami ${limit} ta). Yuborgandan keyin ${left - 1} ta urinish qoladi${left - 1 === 0 ? " — keyin javobni o'zgartirib bo'lmaydi" : ""}. Yuborilsinmi?`))) return;
     btn.disabled = true;
     try {
       let file;
@@ -149,10 +153,11 @@ export async function renderTask(el, id) {
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, task.title), h("div", { class: "row wrap" }, dueChip(task, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(task.max)} ball`), h("span", { class: "chip chip-soft" }, MODES[task.mode]), statusBadge(task)))),
     closed && h("div", { class: "alert alert-warn" }, "Bu topshiriqning muddati tugagan, endi qabul qilinmaydi."),
     !closed && task.due && now > new Date(`${task.due}T23:59:59+05:00`) && h("div", { class: "alert alert-warn" }, "Muddat tugagan. Ish qabul qilinadi, ammo kech topshirilgan deb belgilanadi."),
+    h("div", { class: `alert ${left === 0 ? "alert-warn" : "alert-info"}` }, h("b", {}, `⚠️ Diqqat: bu topshiriqqa javobni ko'pi bilan ${limit} marta yuborish mumkin. `), left === 0 ? `Siz ${used} marta yuborgansiz — yangi urinish qolmadi. Zarur bo'lsa, o'qituvchiga murojaat qiling.` : `Yuborilgan: ${used} / ${limit} · qolgan urinish: ${left}. Yuborishdan oldin ishingizni AI bilan tekshirib, xatolarni to'g'rilab oling.`),
     h("div", { class: "card" }, h("h3", {}, "📝 Topshiriq sharti"), h("p", { class: "pre-wrap" }, task.description)),
     h("div", { class: "card stack" },
       h("h3", {}, "📤 Ishni yuklash"),
-      sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts}${sub.late ? " · kech" : ""}`),
+      sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts} / ${limit}${sub.late ? " · kech" : ""}`),
       h("label", { class: "field" }, h("span", {}, "Fayl (PDF, Word, Excel yoki rasm; 12 MB gacha)"), fileInput),
       fileNote,
       sub?.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`tasks/${id}/file`, sub.file.name) }, "⬇ Yuklangan faylni ko'rish"),
@@ -470,6 +475,17 @@ async function openSubmissions(body, id, listData, reloadList) {
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/tasks/${id}/file/${it.userId}`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
       (it.text || it.docText) ? h("div", { class: "card" }, h("b", {}, it.text ? "Javob matni" : "Fayldagi matn"), it.media && (it.media.images || it.media.charts) ? h("span", { class: "muted small" }, ` · faylda ${it.media.images || 0} ta rasm, ${it.media.charts || 0} ta diagramma`) : null, h("p", { class: "pre-wrap small" }, it.text || it.docText)) : h("p", { class: "muted small" }, "Matn yo'q (faqat fayl)."),
       it.ai ? h("div", { class: "card" }, h("h4", {}, "🤖 AI tekshiruvi"), reviewView(it.ai, task.criteria)) : h("p", { class: "muted small" }, "AI tekshiruvi hali o'tkazilmagan."),
+      h("button", { class: "btn ghost small", title: "Talaba 3 ta urinishni tugatgan bo'lsa, yana bitta imkon beradi", onclick: async (e) => {
+        e.target.disabled = true;
+        try {
+          const r = await api.post(`admin/tasks/${id}/retry/${it.userId}`, {});
+          it.extraAttempts = r.extraAttempts;
+          toast(`Talabaga qo'shimcha urinish berildi (jami ${r.limit} ta)`, "ok");
+        } catch (ex) {
+          toast(ex.message, "error");
+        }
+        e.target.disabled = false;
+      } }, `➕ Qo'shimcha urinish berish (${it.attempts} / ${3 + (it.extraAttempts || 0)})`),
       h("button", { class: "btn ghost small", onclick: async (e) => {
         e.target.disabled = true;
         e.target.textContent = "AI tekshirmoqda… (1 daqiqagacha)";

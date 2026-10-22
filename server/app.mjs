@@ -1236,9 +1236,16 @@ async function myTasks(req) {
   return json({ tasks, now: new Date().toISOString(), aiEnabled: aiEnabled() });
 }
 
+/** Javob yuborish urinishlari tugaganmi (har bir topshiriqqa 3 martagacha). */
+function assertAttemptsLeft(rec) {
+  const limit = taskLib.attemptLimit(rec);
+  if ((rec?.attempts || 0) >= limit) throw new HttpError(403, `Siz bu topshiriqqa javobni ${limit} marta yuborib bo'ldingiz — yangi urinish qolmadi. Zarur bo'lsa, o'qituvchiga murojaat qiling.`);
+}
+
 async function taskUploadInit(req, id) {
   const user = await requireUser(req);
   await visibleTask(user, id);
+  assertAttemptsLeft(await db().get(tsubKey(id, user.id)));
   const b = await body(req);
   const name = str(b.name, 200);
   const size = Number(b.size);
@@ -1278,6 +1285,7 @@ async function taskSubmit(req, id) {
   const text = str(b.text, 30000);
   const key = tsubKey(id, user.id);
   const prev = await db().get(key);
+  assertAttemptsLeft(prev);
   let file = prev?.file || null;
   let docText = prev?.docText || "";
   let media = prev?.media || null;
@@ -1333,6 +1341,18 @@ async function taskReview(req, id) {
   const task = await visibleTask(user, id);
   if (!task.aiEnabled) throw new HttpError(403, "Bu topshiriq uchun AI tekshiruvi o'chirilgan");
   return doTaskReview(user, task, { limited: true });
+}
+
+/** O'qituvchi talabaga bitta qo'shimcha urinish beradi (3 ta urinish tugagan bo'lsa ham). */
+async function adminTaskAllowRetry(req, id, uid) {
+  const teacher = await requireTeacher(req);
+  const key = tsubKey(id, uid);
+  const rec = await db().get(key);
+  if (!rec) throw new HttpError(404, "Talaba hali ish yubormagan");
+  rec.extraAttempts = (rec.extraAttempts || 0) + 1;
+  rec.extraBy = teacher.name;
+  await db().set(key, rec);
+  return json({ ok: true, extraAttempts: rec.extraAttempts, limit: taskLib.attemptLimit(rec) });
 }
 
 /** O'qituvchi talabaning ishini AI bilan qayta tekshiradi (talabaning kunlik limiti sarflanmaydi). */
@@ -3149,6 +3169,7 @@ const routes = [
   ["GET", /^admin\/tasks\/([\w-]+)\/file\/([\w-]+)$/, adminTaskFile],
   ["PUT", /^admin\/tasks\/([\w-]+)\/grade\/([\w-]+)$/, gradeTask],
   ["POST", /^admin\/tasks\/([\w-]+)\/review\/([\w-]+)$/, adminTaskReview],
+  ["POST", /^admin\/tasks\/([\w-]+)\/retry\/([\w-]+)$/, adminTaskAllowRetry],
   ["GET", /^assignment$/, myAssignment],
   ["POST", /^assignment\/(\d{1,2})\/upload$/, assignUploadInit],
   ["PUT", /^assignment\/(\d{1,2})\/upload\/([\w-]+)\/(\d{1,3})$/, assignUploadChunk],

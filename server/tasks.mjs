@@ -10,6 +10,9 @@ export const DEFAULT_CRITERIA = [
   { name: "Rasmiylashtirish va uslub", max: 15 },
 ];
 export const SUBMIT_MODES = ["any", "file", "text"];
+/** Talaba har bir topshiriqqa javobni ko'pi bilan shuncha marta yuborishi mumkin (o'qituvchi qo'shimcha urinish bera oladi). */
+export const MAX_ATTEMPTS = 3;
+export const attemptLimit = (rec) => MAX_ATTEMPTS + (Number(rec?.extraAttempts) || 0);
 
 const clip = (s, n) => String(s ?? "").slice(0, n);
 const trim = (v, n) => (typeof v === "string" ? v.trim().slice(0, n) : "");
@@ -71,7 +74,7 @@ export function normalizeTask(b, { formKeys, groups }) {
 }
 
 /** Talabaga ko'rinadigan maydonlar (o'qituvchining yashirin ko'rsatmalari va namunaviy javobi chiqarilmaydi). */
-export const studentView = ({ rubric, reference, createdBy, ...rest }) => rest;
+export const studentView = ({ rubric, reference, createdBy, ...rest }) => ({ ...rest, maxAttempts: MAX_ATTEMPTS });
 
 /** Topshiriq shu talabaga tegishlimi (nashr etilgan, fan, ta'lim shakli va guruh bo'yicha). */
 export function forStudent(task, { form, group }) {
