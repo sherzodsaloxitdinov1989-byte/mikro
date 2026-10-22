@@ -29,7 +29,7 @@ function statusBadge(task) {
   const sub = task.sub;
   if (!sub) return h("span", { class: "badge" }, "Topshirilmagan");
   if (sub.teacher?.score != null && !sub.resubmitted) return h("span", { class: "badge badge-ok" }, `${fmtScore(sub.teacher.score)} / ${fmtScore(task.max)} ball`);
-  return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
+  return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech, −20%) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
 }
 
 // ---------------- Talaba: ro'yxat ----------------
@@ -152,8 +152,9 @@ export async function renderTask(el, id) {
     h("p", { class: "breadcrumb" }, h("a", { href: "#/tasks" }, "Vazifalar"), ` / ${task.title}`),
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, task.title), h("div", { class: "row wrap" }, dueChip(task, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(task.max)} ball`), h("span", { class: "chip chip-soft" }, MODES[task.mode]), statusBadge(task)))),
     closed && h("div", { class: "alert alert-warn" }, "Bu topshiriqning muddati tugagan, endi qabul qilinmaydi."),
-    !closed && task.due && now > new Date(`${task.due}T23:59:59+05:00`) && h("div", { class: "alert alert-warn" }, "Muddat tugagan. Ish qabul qilinadi, ammo kech topshirilgan deb belgilanadi."),
+    !closed && task.due && now > new Date(`${task.due}T23:59:59+05:00`) && h("div", { class: "alert alert-warn" }, "⏰ Muddat tugagan. Ish qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
     h("div", { class: `alert ${left === 0 ? "alert-warn" : "alert-info"}` }, h("b", {}, `⚠️ Diqqat: bu topshiriqqa javobni ko'pi bilan ${limit} marta yuborish mumkin. `), left === 0 ? `Siz ${used} marta yuborgansiz — yangi urinish qolmadi. Zarur bo'lsa, o'qituvchiga murojaat qiling.` : `Yuborilgan: ${used} / ${limit} · qolgan urinish: ${left}. Yuborishdan oldin ishingizni AI bilan tekshirib, xatolarni to'g'rilab oling.`),
+    task.due && now <= new Date(`${task.due}T23:59:59+05:00`) && h("div", { class: "alert alert-info small" }, `⏰ Muddat: ${fmtDue(task.due)} gacha. Muddatdan keyin topshirilgan ishning AI bahosidan 20% jarima ushlab qolinadi.`),
     h("div", { class: "card" }, h("h3", {}, "📝 Topshiriq sharti"), h("p", { class: "pre-wrap" }, task.description)),
     h("div", { class: "card stack" },
       h("h3", {}, "📤 Ishni yuklash"),

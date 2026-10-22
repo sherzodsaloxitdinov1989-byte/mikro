@@ -1132,8 +1132,10 @@ async function doAssignReview(user, no, { limited }) {
   if (!review) review = demoAssignReview(input);
   review = finalizeReview(review, input);
   const others = (await getMany("assign/")).filter((o) => o.no === stage.no && o.form === form && o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
-  const { orig, percentRaw, percent } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
-  rec.ai = { ...review, originality: orig, percentRaw, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
+  const { orig, percentRaw, percent: percentOrig } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
+  const lp = taskLib.withLatePenalty(percentOrig, rec.late);
+  const percent = lp.percent;
+  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
@@ -1410,8 +1412,9 @@ async function doTaskReview(user, task, { limited }) {
   const others = (await getMany(`tasksub/${id}/`)).filter((o) => o.userId !== user.id && (o.text || o.docText)).map((o) => ({ name: o.user?.name, group: o.user?.group, text: taskLib.submissionText(o) }));
   const percentRaw = taskLib.percentOf(review.scores, task.criteria);
   const orig = combineOriginality({ ai: review.originality, heur: heuristics(text, rec.media?.meta), sim: similarity(text, others) });
-  const percent = Math.round(percentRaw * orig.factor);
-  rec.ai = { ...review, originality: orig, percentRaw, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
+  const lp = taskLib.withLatePenalty(Math.round(percentRaw * orig.factor), rec.late);
+  const percent = lp.percent;
+  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, consistency: "", percent, suggested: taskLib.suggestedScore(task.max, percent), max: task.max, forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString() };
   await db().set(key, rec);
   if (limited) {
     quota.n++;

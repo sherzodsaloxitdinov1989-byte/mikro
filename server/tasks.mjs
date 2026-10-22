@@ -232,6 +232,10 @@ export function finalizeReview(review, { task, text, media }) {
   return r;
 }
 
+/** Muddatdan keyin topshirilgan ishga AI bahosidan ushlab qolinadigan foiz. */
+export const LATE_PENALTY = 20;
+export const withLatePenalty = (percent, late) => (late ? { percent: Math.round(percent * (1 - LATE_PENALTY / 100)), latePenalty: { percent: LATE_PENALTY, before: percent } } : { percent, latePenalty: null });
+
 export const percentOf = (scores, criteria) => criteria.reduce((n, c) => n + (scores[c.key] || 0), 0);
 export const suggestedScore = (max, percent) => Math.round(((max * percent) / 100) * 100) / 100;
 

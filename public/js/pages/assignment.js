@@ -22,7 +22,7 @@ function deadlineChip(group, now) {
 function statusBadge(sub, form) {
   if (!sub) return h("span", { class: "badge" }, "Topshirilmagan");
   if (sub.teacher?.score != null && !sub.resubmitted) return h("span", { class: "badge badge-ok" }, `${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(sub.no, form))} ball`);
-  return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
+  return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech, −20%) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
 }
 
 // ---------------- Talaba: natija varaqasini PDF qilib yuklab olish ----------------
@@ -160,6 +160,7 @@ export function reviewView(ai, criteria, stage) {
     h("div", { class: "row between wrap" },
       h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), ai.percentRaw != null && ai.percentRaw !== ai.percent && h("span", { class: "muted small" }, `(o'z ijodi pasaytirishigacha ${ai.percentRaw}%) `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
       h("span", { class: "muted small" }, fmtDate(ai.at))),
+    ai.latePenalty && h("div", { class: "alert alert-warn small" }, `⏰ Ish muddatdan keyin topshirilgan: AI bahosidan ${ai.latePenalty.percent}% jarima ushlab qolindi (${ai.latePenalty.before}% → ${ai.percent}%).`),
     h("div", { class: "table-wrap" }, h("table", { class: "table" }, h("tbody", {}, criteria.map((c) => h("tr", {}, h("td", {}, c.name, ai.reasons?.[c.key] && h("div", { class: "muted small" }, ai.reasons[c.key])), h("td", { class: "num" }, `${ai.scores[c.key]} / ${c.max}`)))))),
     ai.summary && h("p", {}, ai.summary),
     originalityView(ai.originality),
@@ -309,7 +310,7 @@ export async function renderStage(el, noParam) {
           h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(max)} ball`),
           h("a", { class: "chip chip-soft", href: `#/topics/t${st.topic}` }, `📖 ${st.topic}-mavzu nazariyasi`)))),
     dep,
-    late && h("div", { class: "alert alert-warn" }, "Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi."),
+    late && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
     h("div", { class: "card" }, h("h3", {}, "🎯 Maqsad"), h("p", {}, st.goal), h("h3", {}, "📝 Bajariladigan vazifalar"), h("ol", {}, st.tasks.map((t) => h("li", {}, t))), h("h3", {}, "📦 Talab qilinadigan natija"), h("p", {}, st.result)),
     sample,
     h("div", { class: "card stack" },
