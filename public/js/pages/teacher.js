@@ -50,7 +50,7 @@ const SECTIONS = [
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "testbank", needsContent: true, icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
-  { key: "items", needsContent: true, icon: "📉", title: "Test tahlili", group: "analysis", desc: "Savollar qiyinligi, ajrata olish indeksi, distraktorlar va KR-20 ishonchliligi." },
+  { key: "items", needsContent: true, icon: "📉", title: "Test tahlili", group: "analysis", desc: "Talabalar qaysi mavzu testini ishlagan va necha ball olgan; savollar qiyinligi, ajrata olish indeksi va KR-20 ishonchliligi." },
   { key: "slides", needsContent: true, icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
@@ -229,7 +229,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: itemsView, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -495,6 +495,68 @@ const krText = (v) => (v === null ? "ma'lumot yetarli emas" : v >= 0.8 ? "a'lo" 
 const dClass = (d) => (d === null ? "" : d < 0 ? "lv-bad" : d < 0.2 ? "lv-warn" : d < 0.3 ? "lv-mid" : "lv-good");
 const dText = (d) => (d === null ? "—" : d < 0 ? "salbiy" : d < 0.2 ? "past" : d < 0.3 ? "qoniqarli" : d < 0.4 ? "yaxshi" : "a'lo");
 const pText = (p) => (p === null ? "—" : p > 0.8 ? "oson" : p < 0.3 ? "qiyin" : "o'rtacha");
+
+// ---------------- Test natijalari: talaba × mavzu ----------------
+
+async function testResultsView(el) {
+  const d = await api.get(`admin/test-results?subject=${SUBJECT_KEY}`);
+  const q = { group: "", text: "", sem: "" };
+  const box = h("div");
+  const groups = [...new Set(d.students.map((s) => s.group).filter(Boolean))].sort();
+  const sems = [...new Set(d.topics.map((t) => t.semester).filter(Boolean))];
+  const shown = () => d.topics.filter((t) => !q.sem || String(t.semester) === q.sem);
+  const colour = (v) => (v >= 80 ? "lv-good" : v >= 60 ? "lv-mid" : "lv-bad");
+  const rowsOf = () => d.students.filter((s) => (!q.group || s.group === q.group) && (!q.text || `${s.name} ${s.email}`.toLowerCase().includes(q.text)));
+  const stat = (s, tops) => {
+    const done = tops.filter((t) => s.results[t.id]);
+    return { done: done.length, avg: done.length ? Math.round(done.reduce((n, t) => n + s.results[t.id].best, 0) / done.length) : null };
+  };
+  const draw = () => {
+    const tops = shown();
+    const rows = rowsOf();
+    box.replaceChildren(
+      h("p", { class: "muted small" }, `${rows.length} talaba · ${tops.length} ta mavzu testi. Katakda — eng yaxshi natija (%). Rangi: yashil ≥80, sariq 60–79, qizil <60. Ustiga olib borsangiz — urinishlar soni va birinchi urinish natijasi ko'rinadi.`),
+      rows.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+        h("thead", {}, h("tr", {}, h("th", {}, "Talaba"), h("th", {}, "Guruh"), tops.map((t) => h("th", { class: "center", title: `${t.num}. ${t.title} (${t.count} ta savol)` }, t.num)), h("th", { class: "center" }, "Ishlagan"), h("th", { class: "center" }, "O'rtacha"))),
+        h("tbody", {}, rows.map((s) => {
+          const st = stat(s, tops);
+          return h("tr", {}, h("td", {}, s.name), h("td", { class: "small" }, s.group || "—"),
+            tops.map((t) => {
+              const r = s.results[t.id];
+              return h("td", { class: `center small ${r ? colour(r.best) : "muted"}`, title: r ? `${t.num}-mavzu: eng yaxshi ${r.best}% · urinish: ${r.attempts} · birinchi urinish: ${r.first ?? "—"}%${r.penalty ? ` · qoida buzilgani uchun −${r.penalty}%` : ""}${r.at ? ` · ${fmtDate(r.at)}` : ""}` : `${t.num}-mavzu: ishlamagan` }, r ? `${r.best}${r.penalty ? "*" : ""}` : "—");
+            }),
+            h("td", { class: "center" }, `${st.done}/${tops.length}`), h("td", { class: "center" }, st.avg === null ? "—" : h("b", {}, `${st.avg}%`)));
+        })))) : emptyState("👥", "Talabalar topilmadi"),
+      h("p", { class: "small muted" }, "* — qoida buzilgani (himoya hodisalari) sababli ball kamaytirilgan."));
+  };
+  const csv = () => {
+    const tops = shown();
+    downloadFile(`test-natijalari${q.group ? `-${q.group}` : ""}.csv`, toCSV([["F.I.Sh.", "Guruh", "Email", ...tops.map((t) => `${t.num}-mavzu (%)`), "Ishlagan", "O'rtacha (%)"], ...rowsOf().map((s) => { const st = stat(s, tops); return [s.name, s.group, s.email, ...tops.map((t) => s.results[t.id]?.best ?? ""), st.done, st.avg ?? ""]; })]));
+  };
+  mount(el,
+    h("div", { class: "row wrap" },
+      h("select", { onchange: (e) => ((q.group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
+      sems.length > 1 && h("select", { onchange: (e) => ((q.sem = e.target.value), draw()) }, h("option", { value: "" }, "Barcha semestrlar"), sems.map((n) => h("option", { value: String(n) }, `${n}-semestr`))),
+      h("input", { type: "search", placeholder: "Ism yoki email…", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
+      h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)")),
+    box);
+  draw();
+}
+
+/** «Test tahlili»: savollar tahlili va talabalar natijalari. */
+async function testsHome(el, topicParam) {
+  if (topicParam) return itemsView(el, topicParam);
+  const body = h("div");
+  let tab = "results";
+  const tabs = h("div", { class: "segmented" }, [["results", "👥 Talabalar natijalari"], ["items", "📉 Savollar tahlili"]].map(([k, l]) => h("button", { class: `seg ${k === tab ? "active" : ""}`, onclick: (e) => {
+    tab = k;
+    tabs.querySelectorAll(".seg").forEach((b) => b.classList.toggle("active", b === e.currentTarget));
+    show();
+  } }, l)));
+  const show = () => (tab === "results" ? testResultsView(body) : itemsView(body));
+  mount(el, tabs, body);
+  show();
+}
 
 async function itemsView(el, topicParam) {
   let cohort = "all";

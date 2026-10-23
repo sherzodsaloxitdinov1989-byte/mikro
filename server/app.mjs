@@ -2131,6 +2131,27 @@ async function adminItems(req) {
   });
 }
 
+/** O'qituvchi: har bir talaba qaysi mavzu testini ishlagan va necha ball olgan (fan bo'yicha). */
+async function adminTestResults(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const topics = (TOPICS_ALL[subject] || []).filter((t) => t.quiz?.length);
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
+  const progress = await Promise.all(users.map((u) => db().get(`progress/${u.id}`)));
+  const students = users.map((u, i) => {
+    const res = {};
+    for (const t of topics) {
+      const st = progress[i]?.topics?.[t.id];
+      if (st?.quiz === null || st?.quiz === undefined) continue;
+      const first = Array.isArray(st.quizFirst) && st.quizFirst.length === t.quiz.length ? Math.round((st.quizFirst.filter((a, k) => a === t.quiz[k].correct).length / t.quiz.length) * 100) : null;
+      res[t.id] = { best: st.quiz, attempts: st.quizAttempts || 1, at: st.quizAt || "", first, penalty: st.quizIntegrity?.percent || 0 };
+    }
+    return { id: u.id, name: u.name, group: u.group || "", form: formKeyOf(u), email: u.email, results: res };
+  }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return json({ topics: topics.map((t) => ({ id: t.id, num: t.num, title: t.title, count: t.quiz.length, semester: t.semester })), students });
+}
+
 // ---------- Live: jonli sinf viktorinasi ----------
 // O'yin hujjatiga faqat o'qituvchi yozadi; o'yinchilar va javoblar — alohida yozuvlar (bir vaqtda yozishda
 // bir-birini o'chirmaslik uchun). Reyting javoblar ochilganda hisoblanib, o'yin hujjatiga saqlanadi.
@@ -3337,6 +3358,7 @@ const routes = [
   ["POST", /^admin\/rating\/bonus\/remove$/, removeBonus],
   ["POST", /^admin\/rating\/recalc$/, recalcRating],
   ["GET", /^admin\/items$/, adminItems],
+  ["GET", /^admin\/test-results$/, adminTestResults],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],
