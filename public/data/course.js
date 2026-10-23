@@ -69,7 +69,7 @@ export const COURSE = {
   // startsAt / endsAt — o'qish muddati (reyting shu muddatda yig'iladi; muddat tugagach natija qotiriladi). null — cheklov yo'q.
   semesters: [
     { no: 3, course: 2, name: "3-semestr", term: "Kuzgi semestr, 2026–2027 o'quv yili", topics: [1, 11], startsAt: "2026-09-01", endsAt: "2026-12-26" },
-    { no: 4, course: 2, name: "4-semestr", term: "Bahorgi semestr, 2026–2027 o'quv yili", topics: [12, 21], startsAt: null, endsAt: null },
+    { no: 4, course: 2, name: "4-semestr", term: "Bahorgi semestr, 2026–2027 o'quv yili", topics: [12, 21], startsAt: "2027-02-08", endsAt: "2027-06-12" },
   ],
 
   // Bo'limlarni yoqish/o'chirish

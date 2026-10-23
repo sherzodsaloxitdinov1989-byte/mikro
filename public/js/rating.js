@@ -69,6 +69,23 @@ function longestRun(days) {
   return best;
 }
 
+/** Semestrda to'plash mumkin bo'lgan eng ko'p ball (manbalar bo'yicha): shu semestr mavzulari soniga qarab hisoblanadi. Rag'bat balli cheklanmagan. */
+export function ratingMax(semNo, form) {
+  const sem = semesterByNo(semNo);
+  const topics = TOPICS.filter((t) => sem && t.num >= sem.topics[0] && t.num <= sem.topics[1]);
+  const b = {
+    read: topics.length * 2,
+    quiz: topics.filter((t) => t.quiz?.length).length * 15,
+    methods: topics.reduce((n, t) => n + Math.min(4, t.methods.length), 0),
+    practice: topics.filter((t) => t.practice?.tasks?.length || t.practice?.open?.length).length * 15,
+    selfStudy: topics.reduce((n, t) => n + t.selfStudy.length * 10, 0),
+    assignment: sem && assignmentFor(form).semester === sem.no ? 100 : 0,
+    activity: 50,
+    bonus: 0,
+  };
+  return { breakdown: b, total: Object.values(b).reduce((n, v) => n + v, 0) };
+}
+
 /**
  * ev: { progress, reviews: [{topicId, total, teacher}], selfStudy: [{taskId, grade, resubmitted}],
  *       assign: [{no, teacher}], form, bonuses: [{points, sem}] }

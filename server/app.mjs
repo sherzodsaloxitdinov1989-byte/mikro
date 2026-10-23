@@ -8,7 +8,7 @@ import { computeGame, certificateStatus, makeContext } from "../public/js/gamifi
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
-import { computeRating, weeklyActivity, TIERS } from "../public/js/rating.js";
+import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
@@ -2699,7 +2699,7 @@ async function myRating(req) {
   const meForm = inForm.find((r) => r.id === user.id);
   const weeklyTop = [...inGroup].sort((a, b) => b.weekly - a.weekly)[0];
   return json({
-    sem: semInfo(sem), frozen, updatedAt: at, group: user.group || "", form,
+    sem: semInfo(sem), frozen, updatedAt: at, group: user.group || "", form, max: ratingMax(sem.no, form),
     me: mine ? { points: mine.points, breakdown: mine.breakdown, tier: mine.tier, groupRank: meGroup?.rank || null, groupSize: inGroup.length, formRank: meForm?.rank || null, formSize: inForm.length, weekly: mine.weekly } : null,
     groupList: inGroup.slice(0, 60).map((r) => view(r, r.id === user.id)),
     formTop: inForm.slice(0, 10).map((r) => view(r, r.id === user.id)),
