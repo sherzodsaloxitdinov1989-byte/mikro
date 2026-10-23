@@ -79,6 +79,8 @@ export async function render(el) {
 export async function teacherView(el) {
   let semNo = semFromHash();
   let groupFilter = "";
+  let formFilter = "";
+  let textFilter = "";
   let data = null;
   const body = h("div", { class: "stack" });
 
@@ -90,13 +92,24 @@ export async function teacherView(el) {
 
   function draw() {
     const sem = data.sem;
-    const list = data.rows.filter((r) => !groupFilter || r.group === groupFilter).sort((a, b) => (a.group || "~").localeCompare(b.group || "~") || a.rank - b.rank);
-    const semSel = h("select", { onchange: (e) => ((semNo = Number(e.target.value)), (groupFilter = ""), load()) }, COURSE.semesters.map((s) => h("option", { value: s.no, selected: s.no === semNo }, `${s.name} (${s.topics[0]}–${s.topics[1]}-mavzu)`)));
-    const grpSel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), (COURSE.studyForms || []).map((f) => h("optgroup", { label: f.title }, f.groups.map((g) => h("option", { value: g, selected: g === groupFilter }, g)))));
+    const matches = (r) => (!formFilter || r.form === formFilter) && (!groupFilter || r.group === groupFilter) && (!textFilter || `${r.fullName} ${r.email}`.toLowerCase().includes(textFilter));
+    const byGroupRank = (a, b) => (a.group || "~").localeCompare(b.group || "~") || a.rank - b.rank;
+    // Faqat talabasi bor guruhlar (ta'lim shakli tanlangan bo'lsa — shu shakldagilar), har birida talabalar soni
+    const groupCount = new Map();
+    for (const r of data.rows) if (!formFilter || r.form === formFilter) groupCount.set(r.group || "", (groupCount.get(r.group || "") || 0) + 1);
+    const groupNames = [...groupCount.keys()].sort((a, b) => (a || "~").localeCompare(b || "~"));
+    if (groupFilter && !groupCount.has(groupFilter)) groupFilter = "";
+    const forms = (COURSE.studyForms || []).filter((f) => data.rows.some((r) => r.form === f.key));
+    const semSel = h("select", { onchange: (e) => ((semNo = Number(e.target.value)), (groupFilter = ""), (formFilter = ""), load()) }, COURSE.semesters.map((s) => h("option", { value: s.no, selected: s.no === semNo }, `${s.name} (${s.topics[0]}–${s.topics[1]}-mavzu)`)));
+    const formSel = h("select", { onchange: (e) => ((formFilter = e.target.value), (groupFilter = ""), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), forms.map((f) => h("option", { value: f.key, selected: f.key === formFilter }, f.name)));
+    const grpSel = h("select", { onchange: (e) => ((groupFilter = e.target.value), draw()) }, h("option", { value: "" }, `Barcha guruhlar (${[...groupCount.values()].reduce((n, v) => n + v, 0)})`), groupNames.map((g) => h("option", { value: g, selected: g === groupFilter }, `${g || "Guruhsiz"} (${groupCount.get(g)})`)));
+    const search = h("input", { type: "search", placeholder: "Ism yoki email…", value: textFilter, oninput: (e) => ((textFilter = e.target.value.toLowerCase()), paintTable()) });
+    const tableBox = h("div");
+    const chips = h("div", { class: "row wrap" }, h("button", { class: `chip ${!groupFilter ? "" : "chip-soft"}`, onclick: () => ((groupFilter = ""), draw()) }, "Hammasi"), groupNames.map((g) => h("button", { class: `chip ${groupFilter === g ? "" : "chip-soft"}`, onclick: () => ((groupFilter = groupFilter === g ? "" : g), draw()) }, `${g || "Guruhsiz"} · ${groupCount.get(g)}`)));
     const csv = () =>
-      downloadFile(`reyting-${sem.name}.csv`, toCSV([
+      downloadFile(`reyting-${sem.name}${groupFilter ? `-${groupFilter}` : ""}.csv`, toCSV([
         ["Guruh", "O'rin", "Talaba", "Email", "Ta'lim shakli", "Jami ball", "Daraja", ...RATING_RULES.map((r) => r.name)],
-        ...data.rows.sort((a, b) => (a.group || "~").localeCompare(b.group || "~") || a.rank - b.rank).map((r) => [r.group, r.rank, r.fullName, r.email, formByKey(r.form)?.name || "", r.points, r.tier.name, ...RATING_RULES.map((x) => r.breakdown[x.key])]),
+        ...data.rows.filter(matches).sort(byGroupRank).map((r) => [r.group, r.rank, r.fullName, r.email, formByKey(r.form)?.name || "", r.points, r.tier.name, ...RATING_RULES.map((x) => r.breakdown[x.key])]),
       ]));
     const bonusModal = (r) => {
       const points = h("input", { type: "number", step: 0.5, min: -50, max: 50, placeholder: "masalan: 5", required: true, style: { maxWidth: "140px" } });
@@ -119,13 +132,10 @@ export async function teacherView(el) {
           h("button", { class: "btn", type: "submit" }, "Qo'shish")),
         mine.length > 0 && h("div", {}, h("b", {}, "Oldingi rag'bat ballari"), h("ul", {}, mine.map((b) => h("li", {}, `${b.points > 0 ? "+" : ""}${fmt(b.points)} — ${b.reason} `, h("span", { class: "muted small" }, `(${b.by}, ${fmtDate(b.at)}) `), h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/rating/bonus/remove", { userId: b.userId, id: b.id }); toast("O'chirildi", "ok"); close(); load(); } }, "O'chirish")))))), { wide: true });
     };
-    body.replaceChildren(
-      h("div", { class: "row between wrap" },
-        h("div", { class: "row wrap" }, semSel, grpSel),
-        h("div", { class: "row wrap" },
-          sem.ended && h("button", { class: "btn ghost", onclick: async () => { if (!confirm("Qotirilgan yakuniy natija qayta hisoblansinmi?")) return; await api.post("admin/rating/recalc", { sem: sem.no }); toast("Qayta hisoblandi", "ok"); load(); } }, "♻ Qayta hisoblash"),
-          h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"))),
-      h("div", { class: `alert ${data.frozen ? "alert-info" : "alert-info"} small` }, `${sem.name} — ${sem.term}. O'qish muddati: ${periodText(sem)}.${data.frozen ? " Yakuniy natija qotirilgan." : ""} Ball qoidalari: ${RATING_RULES.map((r) => `${r.icon} ${r.name} (${r.rule})`).join("; ")}.`),
+    const paintTable = () => {
+      const list = data.rows.filter(matches).sort(byGroupRank);
+      const avg = list.length ? list.reduce((n, r) => n + r.points, 0) / list.length : 0;
+      tableBox.replaceChildren(h("p", { class: "muted small" }, `Ko'rsatilmoqda: ${list.length} talaba${list.length ? ` · o'rtacha ball: ${fmt(avg)} · eng yuqori: ${fmt(Math.max(...list.map((r) => r.points)))}` : ""}`),
       list.length
         ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
             h("thead", {}, h("tr", {}, h("th", {}, "Guruh"), h("th", { class: "center" }, "O'rin"), h("th", {}, "Talaba"), h("th", {}, "Daraja"), h("th", { class: "center" }, "Jami"), RATING_RULES.map((r) => h("th", { class: "center", title: r.name }, r.icon)), h("th", {}, ""))),
@@ -137,10 +147,22 @@ export async function teacherView(el) {
               h("td", { class: "center" }, h("b", {}, fmt(r.points))),
               RATING_RULES.map((x) => h("td", { class: "center small" }, fmt(r.breakdown[x.key] || 0))),
               h("td", {}, h("button", { class: "btn small ghost", title: "Rag'bat balli berish", onclick: () => bonusModal(r) }, "🎁")))))))
-        : emptyState("👥", "Talabalar topilmadi"),
+        : emptyState("👥", "Talabalar topilmadi")
+      );
+    };
+    body.replaceChildren(
+      h("div", { class: "row between wrap" },
+        h("div", { class: "row wrap" }, semSel, formSel, grpSel, search),
+        h("div", { class: "row wrap" },
+          sem.ended && h("button", { class: "btn ghost", onclick: async () => { if (!confirm("Qotirilgan yakuniy natija qayta hisoblansinmi?")) return; await api.post("admin/rating/recalc", { sem: sem.no }); toast("Qayta hisoblandi", "ok"); load(); } }, "♻ Qayta hisoblash"),
+          h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"))),
+      h("div", { class: `alert ${data.frozen ? "alert-info" : "alert-info"} small` }, `${sem.name} — ${sem.term}. O'qish muddati: ${periodText(sem)}.${data.frozen ? " Yakuniy natija qotirilgan." : ""} Ball qoidalari: ${RATING_RULES.map((r) => `${r.icon} ${r.name} (${r.rule})`).join("; ")}.`),
+      chips,
+      tableBox,
       data.bonuses.length > 0 && h("details", { class: "card" }, h("summary", {}, h("b", {}, `🎁 Berilgan rag'bat ballari (${data.bonuses.length})`)),
         h("ul", {}, data.bonuses.slice(0, 50).map((b) => h("li", {}, `${b.name} (${b.group || "—"}): ${b.points > 0 ? "+" : ""}${fmt(b.points)} — ${b.reason} `, h("span", { class: "muted small" }, `${b.by}, ${fmtDate(b.at)}`)))))
     );
+    paintTable();
   }
 
   mount(el, body);
