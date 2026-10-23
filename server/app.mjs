@@ -2797,9 +2797,10 @@ const D1_LIMIT_MB = 500; // Cloudflare bepul tarifi: bitta baza 500 MB
 /** Topshirilmagan (hech qaysi yozuvga bog'lanmagan) fayl bo'laklari: yuklash uzilib qolgan yoki qayta yuklangan. */
 async function findOrphans() {
   const store = db();
-  const [assigns, tsubs, abins, tbins] = await Promise.all([getMany("assign/"), getMany("tasksub/"), store.binSizes("assignbin/"), store.binSizes("tasksubbin/")]);
-  const refA = new Set(assigns.map((a) => a.file?.uploadId).filter(Boolean));
-  const refT = new Set(tsubs.map((a) => a.file?.uploadId).filter(Boolean));
+  const [abins, tbins] = await Promise.all([store.binSizes("assignbin/"), store.binSizes("tasksubbin/")]);
+  const ids = async (prefix) => (store.uploadIds ? store.uploadIds(prefix) : (await getMany(prefix)).map((a) => a.file?.uploadId).filter(Boolean));
+  const refA = new Set(await ids("assign/"));
+  const refT = new Set(await ids("tasksub/"));
   const pick = (list, ref) => list.filter((b) => !ref.has(b.key.split("/")[3]));
   return { assign: pick(abins, refA), tasksub: pick(tbins, refT) };
 }
@@ -2809,7 +2810,13 @@ async function adminStorage(req) {
   const store = db();
   if (!store.stats) return json({ supported: false });
   const st = await store.stats();
-  const o = await findOrphans();
+  let o = { assign: [], tasksub: [] };
+  let orphanError = "";
+  try {
+    o = await findOrphans();
+  } catch (e) {
+    orphanError = e.message;
+  }
   const sum = (arr) => arr.reduce((n, x) => n + (x.bytes || 0) + (x.r2Bytes || 0), 0);
   const kvMB = mbOf(st.kv.reduce((n, r) => n + (r.b || 0), 0));
   const binMB = mbOf(st.bin.reduce((n, r) => n + (r.b || 0), 0));
@@ -2818,7 +2825,7 @@ async function adminStorage(req) {
     supported: true, hasR2: st.hasR2, limitMB: D1_LIMIT_MB, totalMB: Math.round((kvMB + binMB) * 10) / 10, kvMB, binMB,
     bin: st.bin.map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), r2: (st.r2 || []).map((r) => ({ prefix: r.p, files: r.n, mb: mbOf(r.b) })), r2MB: mbOf((st.r2 || []).reduce((n, r) => n + r.b, 0)), kv: st.kv.slice(0, 8).map((r) => ({ prefix: r.p, rows: r.n, mb: mbOf(r.b) })),
     orphans: { assign: { files: o.assign.length, mb: mbOf(sum(o.assign)) }, tasksub: { files: o.tasksub.length, mb: mbOf(sum(o.tasksub)) } },
-    tts: { files: tts?.n || 0, mb: mbOf(tts?.b) }, counters: st.counters,
+    tts: { files: tts?.n || 0, mb: mbOf(tts?.b) }, counters: st.counters, warnings: [...(st.errors || []), ...(orphanError ? [`Ortiqcha fayllar: ${orphanError}`] : [])],
   });
 }
 

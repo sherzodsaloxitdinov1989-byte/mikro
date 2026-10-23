@@ -91,8 +91,21 @@ export function d1Store(DB, FILES) {
     /** Ombor hisoboti: D1 hajmi (JSON yozuvlar va fayl bo'laklari) turlar bo'yicha. */
     async stats() {
       await init();
-      const grp = (col, tbl, extra = "") => DB.prepare(`SELECT CASE WHEN instr(key,'/')>0 THEN substr(key,1,instr(key,'/')-1) ELSE key END AS p, COUNT(${extra || "*"}) AS n, SUM(length(${col})) AS b FROM ${tbl} GROUP BY p ORDER BY b DESC`).all();
-      const [kv, bin, cnt] = await Promise.all([grp("value", "kv"), grp("data", "bin", "DISTINCT key"), DB.prepare("SELECT COUNT(*) AS n FROM counters").first()]);
+      // Katta jadvalda xotira yetmasligi (SQLITE_NOMEM) mumkin: so'rovlar ketma-ket, bayt hajmi sarlavhadan olinadi (octet_length), xato bo'lsa hisobot qisman chiqadi.
+      const errors = [];
+      const grp = async (col, tbl, extra = "") => {
+        for (const fn of ["octet_length", "length"]) {
+          try {
+            return (await DB.prepare(`SELECT CASE WHEN instr(key,'/')>0 THEN substr(key,1,instr(key,'/')-1) ELSE key END AS p, COUNT(${extra || "*"}) AS n, SUM(${fn}(${col})) AS b FROM ${tbl} GROUP BY p`).all()).results;
+          } catch (e) {
+            if (fn === "length") errors.push(`${tbl}: ${e.message}`);
+          }
+        }
+        return [];
+      };
+      const kv = { results: (await grp("value", "kv")).sort((a, b) => b.b - a.b) };
+      const bin = { results: (await grp("data", "bin")).sort((a, b) => b.b - a.b) };
+      const cnt = await DB.prepare("SELECT COUNT(*) AS n FROM counters").first().catch(() => null);
       let r2 = [];
       if (FILES) {
         const by = new Map();
@@ -105,15 +118,26 @@ export function d1Store(DB, FILES) {
         }
         r2 = [...by.values()].sort((a, b) => b.b - a.b);
       }
-      return { hasR2: Boolean(FILES), kv: kv.results, bin: bin.results, r2, counters: cnt?.n || 0 };
+      return { hasR2: Boolean(FILES), kv: kv.results, bin: bin.results, r2, counters: cnt?.n || 0, errors };
     },
     /** Fayl kalitlari va hajmi (D1 dagi bo'laklar bo'yicha): [{ key, bytes }] */
     async binSizes(prefix = "") {
       await init();
-      const { results } = await DB.prepare("SELECT key, SUM(length(data)) AS b FROM bin WHERE key >= ? AND key < ? GROUP BY key").bind(prefix, upper(prefix)).all();
+      let results;
+      try {
+        ({ results } = await DB.prepare("SELECT key, SUM(octet_length(data)) AS b FROM bin WHERE key >= ? AND key < ? GROUP BY key").bind(prefix, upper(prefix)).all());
+      } catch {
+        ({ results } = await DB.prepare("SELECT key, SUM(length(data)) AS b FROM bin WHERE key >= ? AND key < ? GROUP BY key").bind(prefix, upper(prefix)).all());
+      }
       const out = results.map((r) => ({ key: r.key, bytes: r.b, where: "d1" }));
       if (FILES) for (const o of await r2All(prefix)) out.push({ key: o.key, bytes: 0, r2Bytes: o.size, where: "r2" });
       return out;
+    },
+    /** Yozuvlardagi fayl identifikatorlari (uploadId): butun yozuvni o'qimasdan, SQL ichida ajratiladi. */
+    async uploadIds(prefix) {
+      await init();
+      const { results } = await DB.prepare("SELECT json_extract(value, '$.file.uploadId') AS u FROM kv WHERE key >= ? AND key < ? AND json_extract(value, '$.file.uploadId') IS NOT NULL").bind(prefix, upper(prefix)).all();
+      return results.map((r) => r.u);
     },
     /** Eski urinishlar hisoblagichlarini o'chiradi (1 kundan eski). */
     async cleanCounters() {

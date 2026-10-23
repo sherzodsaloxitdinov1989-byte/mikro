@@ -127,6 +127,7 @@ async function storageView(el) {
     const pct = Math.min(100, Math.round((d.totalMB / d.limitMB) * 100));
     const warn = pct >= 80;
     const op = d.orphans.assign.mb + d.orphans.tasksub.mb;
+    const warnings = d.warnings?.length ? h("div", { class: "alert alert-warn small" }, h("b", {}, "⚠️ Hisobot to'liq emas (baza xotirasi yetmadi): "), d.warnings.join("; "), ". Ortiqcha fayllarni o'chirish va R2 ga ko'chirish baribir ishlaydi.") : null;
     const act = (label, what, hint) => h("button", { class: "btn small ghost", title: hint, onclick: async () => {
       if (!(await confirmDialog(`${label}? ${hint}`))) return;
       try { const r = await api.post("admin/storage/cleanup", { what }); toast(`Tozalandi${typeof r.freed === "number" && what !== "counters" ? `: ${r.freed} MB bo'shadi` : ""}`, "ok"); draw(); } catch (e) { toast(e.message, "error"); }
@@ -142,6 +143,7 @@ async function storageView(el) {
     };
     const mBtn = h("button", { class: "btn", onclick: (e) => migrate(e.target) }, "R2 ga ko'chirish");
     mount(el,
+      warnings,
       h("div", { class: `alert ${warn ? "alert-warn" : "alert-info"}` }, h("b", {}, `Baza hajmi: ${d.totalMB} MB / ${d.limitMB} MB (${pct}%). `), warn ? "Baza to'lib borayapti: talabalar fayl yuklay olmasligi mumkin. Quyidagi tozalash va R2 ga ko'chirishni bajaring." : "Hozircha joy yetarli."),
       h("div", { class: "card", style: { padding: "0" } }, h("div", { style: { height: "14px", borderRadius: "8px", background: "var(--surface-2)", overflow: "hidden" } }, h("div", { style: { width: `${pct}%`, height: "100%", background: warn ? "#d92d20" : "#16a34a" } }))),
       h("div", { class: "grid cols-2" },
