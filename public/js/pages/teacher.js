@@ -42,6 +42,7 @@ const SECTIONS = [
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, metodlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
   { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
   { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
@@ -181,6 +182,42 @@ const ALERT_TIPS = {
 };
 const SEV = { critical: ["Jiddiy", "badge-err"], high: ["Muhim", "badge-warn"], info: ["Ma'lumot", ""] };
 
+async function allResultsView(el) {
+  const d = await api.get(`admin/results?subject=${SUBJECT_KEY}`);
+  const q = { group: "", text: "", sort: "group" };
+  const box = h("div");
+  const groups = [...new Set(d.students.map((s) => s.group).filter(Boolean))].sort();
+  const hasAsg = d.students.some((s) => s.assignment);
+  const cell = (done, total, avgText) => `${done}${total ? `/${total}` : ""}${avgText ? ` · ${avgText}` : ""}`;
+  const cols = [
+    ["Testlar", (s) => cell(s.tests.done, d.totals.tests, s.tests.avg === null ? "" : `${Math.round(s.tests.avg)}%`), (s) => s.tests.avg ?? -1],
+    ["Metodlar", (s) => cell(s.methods.done, d.totals.methods), (s) => s.methods.done],
+    ["Amaliyot (10)", (s) => cell(s.practice.done, d.totals.practice, s.practice.avg === null ? "" : String(s.practice.avg).replace(".", ",")), (s) => s.practice.avg ?? -1],
+    ["Mustaqil ish (2–5)", (s) => cell(s.selfStudy.done, d.totals.selfStudy, s.selfStudy.avg === null ? "" : String(s.selfStudy.avg).replace(".", ",")), (s) => s.selfStudy.avg ?? -1],
+    ["Vazifalar", (s) => cell(s.tasks.done, d.totals.tasks, s.tasks.avgPct === null ? "" : `${Math.round(s.tasks.avgPct)}%`), (s) => s.tasks.avgPct ?? -1],
+    ...(hasAsg ? [["Topshiriq (20 ball)", (s) => (s.assignment ? `${String(s.assignment.score).replace(".", ",")} / 20 · ${s.assignment.done} bosqich` : "—"), (s) => s.assignment?.score ?? -1]] : []),
+  ];
+  const rows = () => d.students.filter((s) => (!q.group || s.group === q.group) && (!q.text || `${s.name} ${s.email}`.toLowerCase().includes(q.text)));
+  const draw = () => {
+    const list = rows();
+    if (q.sort !== "group") { const c = cols[Number(q.sort)]; list.sort((a, b) => c[2](b) - c[2](a)); }
+    box.replaceChildren(
+      h("p", { class: "muted small" }, `${list.length} talaba. Katakda: bajarilgani/jami · o'rtacha natija. Vazifalar — o'qituvchi qo'ygan ball foizi; amaliyot — eng yaxshi AI/o'qituvchi bahosi (10 dan).`),
+      list.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+        h("thead", {}, h("tr", {}, h("th", {}, "№"), h("th", {}, "Guruh"), h("th", {}, "F.I.Sh."), cols.map((c) => h("th", { class: "center" }, c[0])))),
+        h("tbody", {}, list.map((s, i) => h("tr", {}, h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, s.group || "—"), h("td", {}, s.name), cols.map((c) => h("td", { class: "center small" }, c[1](s)))))))) : emptyState("👥", "Talabalar topilmadi"));
+  };
+  const csv = () => downloadFile(`barcha-natijalar${q.group ? `-${q.group}` : ""}.csv`, toCSV([["Guruh", "F.I.Sh.", "Email", ...cols.map((c) => c[0])], ...rows().map((s) => [s.group, s.name, s.email, ...cols.map((c) => c[1](s))])]));
+  mount(el,
+    h("div", { class: "row wrap" },
+      h("select", { onchange: (e) => ((q.group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
+      h("select", { onchange: (e) => ((q.sort = e.target.value), draw()) }, h("option", { value: "group" }, "Tartib: guruh va ism"), cols.map((c, i) => h("option", { value: String(i) }, `Tartib: ${c[0]} (yuqoridan)`))),
+      h("input", { type: "search", placeholder: "Ism yoki email…", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
+      h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)")),
+    box);
+  draw();
+}
+
 async function questionsView(el) {
   const load = async () => {
     const d = await api.get(`admin/questions?subject=${SUBJECT_KEY}`);
@@ -229,7 +266,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi

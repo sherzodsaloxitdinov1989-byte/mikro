@@ -8,6 +8,7 @@ import { computeGame, certificateStatus, makeContext } from "../public/js/gamifi
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { totalScore } from "../public/js/assignment-util.js";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -2131,6 +2132,50 @@ async function adminItems(req) {
   });
 }
 
+/** O'qituvchi: har bir talabaning barcha bo'limlar bo'yicha natijasi (test, metod, amaliyot, mustaqil ish, vazifalar, 20 ballik topshiriq). */
+async function adminAllResults(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const topics = TOPICS_ALL[subject] || [];
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
+  const [progress, reviews, selfs, tasks, tsubs, assigns] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries("selfstudy/"), getMany("task/"), getMany("tasksub/"), getEntries("assign/")]);
+  const uidOf = (key) => key.split("/")[1];
+  const by = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
+  const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
+  const rv = by(reviews), ss = by(selfs), as = by(assigns);
+  const ids = new Set(topics.map((t) => t.id));
+  const myTasks = new Map(tasks.filter((t) => t.subject === subject).map((t) => [t.id, t]));
+  const ts = new Map();
+  for (const x of tsubs) if (myTasks.has(x.taskId)) (ts.get(x.userId) || ts.set(x.userId, []).get(x.userId)).push(x);
+  const mean = (a) => (a.length ? Math.round((a.reduce((n, v) => n + v, 0) / a.length) * 10) / 10 : null);
+  const students = users.map((u) => {
+    const tp = prog.get(u.id)?.topics || {};
+    const quizzes = topics.filter((t) => t.quiz?.length && tp[t.id]?.quiz != null).map((t) => tp[t.id].quiz);
+    const methodsDone = topics.reduce((n, t) => n + t.methods.filter((m) => tp[t.id]?.methods?.[m.id]?.done).length, 0);
+    const best = new Map();
+    for (const r of rv.get(u.id) || []) if (ids.has(r.topicId)) { const v = r.teacher?.grade ?? r.total; if (Number.isFinite(v)) best.set(r.topicId, Math.max(best.get(r.topicId) ?? 0, v)); }
+    const selfs2 = (ss.get(u.id) || []).filter((x) => ids.has(String(x.taskId).split("-")[0]));
+    const mine = ts.get(u.id) || [];
+    const scored = mine.filter((x) => x.teacher?.score != null);
+    const form = formKeyOf(u);
+    const asg = hasAssignment(u.group) && subject === SUBJECTS[0].key ? as.get(u.id) || [] : null;
+    return {
+      id: u.id, name: u.name, group: u.group || "", email: u.email, form,
+      tests: { done: quizzes.length, avg: mean(quizzes) },
+      methods: { done: methodsDone },
+      practice: { done: best.size, avg: mean([...best.values()]) },
+      selfStudy: { done: selfs2.length, graded: selfs2.filter((x) => x.grade != null).length, avg: mean(selfs2.filter((x) => x.grade != null).map((x) => x.grade)) },
+      tasks: { done: mine.length, graded: scored.length, avgPct: mean(scored.map((x) => (x.teacher.score / (myTasks.get(x.taskId).max || 1)) * 100)) },
+      assignment: asg && { done: asg.length, score: Math.round(((totalScore(asg.map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form)) || 0) * 100) / 100, max: 20 },
+    };
+  }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return json({
+    totals: { tests: topics.filter((t) => t.quiz?.length).length, methods: topics.reduce((n, t) => n + t.methods.length, 0), practice: topics.filter((t) => t.practice).length, selfStudy: topics.reduce((n, t) => n + t.selfStudy.length, 0), tasks: myTasks.size },
+    students,
+  });
+}
+
 /** O'qituvchi: har bir talaba qaysi mavzu testini ishlagan va necha ball olgan (fan bo'yicha). */
 async function adminTestResults(req) {
   await requireTeacher(req);
@@ -3359,6 +3404,7 @@ const routes = [
   ["POST", /^admin\/rating\/recalc$/, recalcRating],
   ["GET", /^admin\/items$/, adminItems],
   ["GET", /^admin\/test-results$/, adminTestResults],
+  ["GET", /^admin\/results$/, adminAllResults],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],
