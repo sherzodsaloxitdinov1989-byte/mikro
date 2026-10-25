@@ -42,6 +42,7 @@ const SECTIONS = [
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
   { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, metodlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
   { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
@@ -218,6 +219,66 @@ async function allResultsView(el) {
   draw();
 }
 
+async function examsView(el) {
+  const { exams } = await api.get("admin/exams");
+  const list = exams.filter((e) => e.subject === SUBJECT_KEY);
+  if (!list.length) return mount(el, emptyState("📝", "Bu fanda nazorat testi yo'q"));
+  const wd = ["yakshanba", "dushanba", "seshanba", "chorshanba", "payshanba", "juma", "shanba"];
+  const uzAt = (iso) => { const d = new Date(new Date(iso).getTime() + 5 * 3600_000); const p = (n) => String(n).padStart(2, "0"); return `${d.getUTCFullYear()}-${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())} ${p(d.getUTCHours())}:${p(d.getUTCMinutes())}`; };
+  const body = h("div", { class: "stack" });
+  const L = "ABCD";
+  const bankDocx = async (e, withKeys) => {
+    const { bank, title } = await api.get(`admin/exams/${e.id}/bank`);
+    const blocks = [{ t: "h1", text: `${title} — savollar bazasi${withKeys ? " (javoblar bilan)" : ""}` }, { t: "p", text: `${bank.length} ta savol` }];
+    bank.forEach((b, i) => {
+      blocks.push({ t: "p", bold: true, text: `${i + 1}. [${b.t}-mavzu] ${b.q}`, after: 40 });
+      b.o.forEach((o, j) => blocks.push({ t: "p", indent: 360, after: 20, runs: [{ text: `${L[j]}) ${o}${withKeys && j === b.c ? "  ✓" : ""}`, bold: withKeys && j === b.c }] }));
+      if (withKeys && b.w) blocks.push({ t: "p", indent: 360, text: `Izoh: ${b.w}`, after: 40 });
+      blocks.push({ t: "p", text: "", after: 60 });
+    });
+    const { buildDocx } = await import("../docx.js");
+    downloadFile(`${e.id}-baza${withKeys ? "-javoblar" : ""}.docx`, buildDocx(blocks, title), "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  };
+  const one = async (e) => {
+    const d = await api.get(`admin/exams/${e.id}/results`);
+    const q = { group: "", text: "" };
+    const box = h("div");
+    const groups = [...new Set(d.rows.map((r) => r.group))].sort();
+    const rowsOf = () => d.rows.filter((r) => (!q.group || r.group === q.group) && (!q.text || `${r.name} ${r.email} ${r.idNumber}`.toLowerCase().includes(q.text)));
+    const stText = (r) => (r.status === "none" ? "Boshlamagan" : r.status === "running" ? "Jarayonda" : "Yakunlagan");
+    const draw = () => {
+      const rows = rowsOf();
+      const done = rows.filter((r) => r.result);
+      const avg = done.length ? Math.round(done.reduce((n, r) => n + r.result.percent, 0) / done.length) : null;
+      box.replaceChildren(
+        h("p", { class: "muted small" }, `${rows.length} talaba · yakunlagan: ${done.length} · jarayonda: ${rows.filter((r) => r.status === "running").length} · boshlamagan: ${rows.filter((r) => r.status === "none").length}${avg === null ? "" : ` · o'rtacha: ${avg}%`}`),
+        h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+          h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "ID", "Holati", "Boshlagan", "Javob", "To'g'ri", "Natija", ""].map((c) => h("th", {}, c)))),
+          h("tbody", {}, rows.map((r, i) => h("tr", {},
+            h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, r.group), h("td", {}, r.name), h("td", { class: "small" }, r.idNumber || "—"),
+            h("td", {}, h("span", { class: `badge ${r.status === "done" ? "badge-ok" : r.status === "running" ? "badge-warn" : ""}` }, stText(r), r.result?.auto ? " (vaqt tugadi)" : "")),
+            h("td", { class: "small" }, r.started ? uzAt(r.started).slice(5) : "—"),
+            h("td", { class: "center small" }, r.status === "none" ? "—" : `${r.answered}/${d.exam.count}`),
+            h("td", { class: "center" }, r.result ? `${r.result.correct}/${r.result.total}` : "—"),
+            h("td", { class: "center" }, r.result ? h("b", { title: r.result.integrity ? `Qoida buzilgani uchun −${r.result.integrity.percent}% (${r.result.percentRaw}% → ${r.result.percent}%)` : "" }, `${r.result.percent}%${r.result.integrity ? "*" : ""}`) : "—"),
+            h("td", {}, r.status !== "none" && h("button", { class: "btn small ghost", title: "Talabaga testni qayta topshirishga ruxsat (urinish o'chiriladi)", onclick: async () => { if (!(await confirmDialog(`${r.name} urinishi o'chirilib, test qayta topshirishga ochilsinmi?`))) return; await api.post(`admin/exams/${e.id}/reset/${r.userId}`, {}); mount(el, h("div"), await examsViewBody()); } }, "↺"))))))),
+        h("p", { class: "small muted" }, "* — test paytida qoida buzilgani (himoya hodisalari) sababli ball kamaytirilgan."));
+    };
+    const csv = () => downloadFile(`${e.id}-natijalar.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Email", "Holati", "Boshlagan", "Javob berilgan", "To'g'ri", "Jami", "Natija (%)", "Jarimagacha (%)"], ...rowsOf().map((r) => [r.group, r.name, r.idNumber, r.email, stText(r), r.started ? uzAt(r.started) : "", r.answered, r.result?.correct ?? "", r.result?.total ?? "", r.result?.percent ?? "", r.result?.percentRaw ?? ""])]));
+    return h("div", { class: "stack" },
+      h("div", { class: "card stack" }, h("h3", {}, e.title),
+        h("p", { class: "muted small" }, `Boshlanish: ${uzAt(e.startsAt)} (${wd[new Date(new Date(e.startsAt).getTime() + 5 * 3600_000).getUTCDay()]}) · tugash: ${uzAt(e.closesAt)} · ${e.durationMin} daqiqa · ${e.count} ta savol · baza: ${e.bank} ta · guruhlar: ${e.groups.join(", ")}`),
+        h("div", { class: "row wrap" }, h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"))),
+      h("div", { class: "row wrap" },
+        h("select", { onchange: (ev) => ((q.group = ev.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
+        h("input", { type: "search", placeholder: "Ism, email yoki ID…", oninput: (ev) => ((q.text = ev.target.value.toLowerCase()), draw()) }),
+        h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"), h("button", { class: "btn ghost", onclick: async () => mount(el, await examsViewBody()) }, "↻ Yangilash")),
+      box, (draw(), null));
+  };
+  const examsViewBody = async () => h("div", { class: "stack" }, await Promise.all(list.map(one)));
+  mount(el, await examsViewBody());
+}
+
 async function questionsView(el) {
   const load = async () => {
     const d = await api.get(`admin/questions?subject=${SUBJECT_KEY}`);
@@ -266,7 +327,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi

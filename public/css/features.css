@@ -430,3 +430,15 @@
 .alert-danger { background: #fee2e2; color: #7f1d1d; border: 1px solid #fca5a5; border-radius: 12px; padding: 10px 14px; }
 .alert-danger p, .alert-danger ul { margin: 4px 0; }
 @media (prefers-color-scheme: dark) { .alert-danger { background: #3b0d0d; color: #fecaca; border-color: #7f1d1d; } }
+
+/* ---------- Nazorat testi ---------- */
+.exam-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; position: sticky; top: 64px; z-index: 20; }
+.exam-time { font-size: 1.4rem; }
+.exam-timer { font-variant-numeric: tabular-nums; }
+.exam-timer.warn { color: #dc2626; animation: blink 1s infinite; }
+.exam-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.exam-dot { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; font: inherit; }
+.exam-dot.done { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); }
+.exam-dot.cur { outline: 2px solid var(--primary); font-weight: 700; }
+.exam-q { font-size: 1.1rem; line-height: 1.55; white-space: pre-wrap; }
+.alert-ok { background: #dcfce7; color: #14532d; border: 1px solid #86efac; border-radius: 12px; padding: 10px 14px; }

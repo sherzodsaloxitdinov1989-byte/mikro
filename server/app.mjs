@@ -9,6 +9,7 @@ import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
+import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -2197,6 +2198,144 @@ async function adminTestResults(req) {
   return json({ topics: topics.map((t) => ({ id: t.id, num: t.num, title: t.title, count: t.quiz.length, semester: t.semester })), students });
 }
 
+// ---------- Nazorat testlari (oraliq nazorat): har bir talabaga bazadan tasodifiy variant, boshlaganidan boshlab 45 daqiqa ----------
+
+const attemptKey = (eid, uid) => `examattempt/${eid}/${uid}`;
+const EXAM_GRACE_MS = 8_000; // tarmoq kechikishi uchun
+const toMs = (iso) => new Date(iso).getTime();
+
+function examFor(user, id) {
+  const exam = examById(id);
+  if (!exam || user.role !== "student" || !exam.groups.includes(user.group)) throw new HttpError(404, "Nazorat testi topilmadi");
+  return exam;
+}
+const examState = (exam, now = Date.now()) => (now < toMs(exam.startsAt) ? "soon" : now > toMs(exam.closesAt) ? "closed" : "open");
+
+/** Muddati o'tgan urinishni yakunlaydi (saqlangan javoblar bo'yicha baholanadi). */
+async function finalizeAttempt(exam, rec, force = false) {
+  if (rec.result) return rec;
+  if (!force && Date.now() <= toMs(rec.deadline) + EXAM_GRACE_MS) return rec;
+  const g = examGrade(exam, rec.items, rec.answers);
+  // Ish vaqtida qoida buzilgan bo'lsa (ekran surati, oynadan chiqish va h.k.) ball kamaytiriladi
+  const integrity = await integrityFor(rec.userId, onPage(`#/exam/${exam.id}`), rec.startedAt);
+  const percent = Math.round(reduceBy(g.percent, integrity?.percent));
+  rec.result = { ...g, percentRaw: g.percent, percent, integrity: integrity && { ...integrity, before: g.percent }, at: new Date().toISOString(), auto: !force };
+  rec.submittedAt = force ? new Date().toISOString() : rec.deadline;
+  await db().set(attemptKey(exam.id, rec.userId), rec);
+  return rec;
+}
+
+const attemptView = (exam, rec) => ({
+  id: exam.id, startedAt: rec.startedAt, deadline: rec.deadline, now: new Date().toISOString(), durationMin: exam.durationMin,
+  ...(rec.result ? { result: { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, integrity: rec.result.integrity, at: rec.result.at } } : { questions: examView(exam, rec.items), answers: rec.answers || {} }),
+});
+
+async function examList(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") return json({ exams: [], now: new Date().toISOString() });
+  const out = [];
+  for (const exam of examsOfGroup(user.group)) {
+    let rec = await db().get(attemptKey(exam.id, user.id));
+    if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
+    out.push({ id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, state: examState(exam), attempt: rec ? { startedAt: rec.startedAt, deadline: rec.deadline, finished: Boolean(rec.result), result: rec.result && { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent } } : null });
+  }
+  return json({ exams: out, now: new Date().toISOString() });
+}
+
+async function examStart(req, id) {
+  const user = await requireUser(req);
+  const exam = examFor(user, id);
+  let rec = await db().get(attemptKey(id, user.id));
+  if (rec) {
+    if (!rec.result) rec = await finalizeAttempt(exam, rec);
+    return json(attemptView(exam, rec));
+  }
+  const st = examState(exam);
+  if (st === "soon") throw new HttpError(403, `Test hali boshlanmagan. Boshlanish vaqti: ${exam.startsAt.slice(0, 10)} soat ${exam.startsAt.slice(11, 16)}`);
+  if (st === "closed") throw new HttpError(403, "Test vaqti tugagan");
+  const now = Date.now();
+  rec = { examId: id, userId: user.id, user: { name: user.name, group: user.group }, startedAt: new Date(now).toISOString(), deadline: new Date(now + exam.durationMin * 60_000).toISOString(), items: buildVariant(exam), answers: {}, result: null };
+  await db().set(attemptKey(id, user.id), rec);
+  return json(attemptView(exam, rec));
+}
+
+async function examAttempt(req, id) {
+  const user = await requireUser(req);
+  const exam = examFor(user, id);
+  let rec = await db().get(attemptKey(id, user.id));
+  if (!rec) throw new HttpError(404, "Test hali boshlanmagan");
+  if (!rec.result) rec = await finalizeAttempt(exam, rec);
+  return json(attemptView(exam, rec));
+}
+
+async function examAnswer(req, id) {
+  const user = await requireUser(req);
+  const exam = examFor(user, id);
+  const rec = await db().get(attemptKey(id, user.id));
+  if (!rec) throw new HttpError(404, "Test hali boshlanmagan");
+  if (rec.result || Date.now() > toMs(rec.deadline) + EXAM_GRACE_MS) {
+    await finalizeAttempt(exam, rec);
+    throw new HttpError(409, "Test vaqti tugadi");
+  }
+  const b = await body(req);
+  const n = Number(b.n), a = b.a === null ? null : Number(b.a);
+  if (!Number.isInteger(n) || n < 0 || n >= rec.items.length || !(a === null || (Number.isInteger(a) && a >= 0 && a < 4))) throw new HttpError(400, "Javob noto'g'ri");
+  if (a === null) delete rec.answers[n];
+  else rec.answers[n] = a;
+  await db().set(attemptKey(id, user.id), rec);
+  return json({ ok: true, answered: Object.keys(rec.answers).length });
+}
+
+async function examSubmit(req, id) {
+  const user = await requireUser(req);
+  const exam = examFor(user, id);
+  let rec = await db().get(attemptKey(id, user.id));
+  if (!rec) throw new HttpError(404, "Test hali boshlanmagan");
+  // Oxirgi javoblar bilan birga yuborilishi mumkin (uzilib qolgan saqlashlar uchun)
+  const b = await body(req).catch(() => ({}));
+  if (!rec.result && b?.answers && typeof b.answers === "object" && Date.now() <= toMs(rec.deadline) + EXAM_GRACE_MS) {
+    for (const [k, v] of Object.entries(b.answers)) if (Number.isInteger(+k) && +k >= 0 && +k < rec.items.length && Number.isInteger(v) && v >= 0 && v < 4) rec.answers[+k] = v;
+  }
+  rec = await finalizeAttempt(exam, rec, true);
+  return json(attemptView(exam, rec));
+}
+
+async function adminExams(req) {
+  await requireTeacher(req);
+  return json({ exams: EXAMS.map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
+}
+
+async function adminExamResults(req, id) {
+  await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group));
+  const rows = await Promise.all(users.map(async (u) => {
+    let rec = await db().get(attemptKey(id, u.id));
+    if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
+    return { userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
+  }));
+  rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, rows });
+}
+
+/** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
+async function adminExamReset(req, id, uid) {
+  const t = await requireTeacher(req);
+  if (!examById(id)) throw new HttpError(404, "Nazorat testi topilmadi");
+  await db().del(attemptKey(id, uid));
+  await securityAlert(req, "exam_reset", "info", "Nazorat testi qayta ochildi", `${t.name} bir talabaning (${uid.slice(0, 8)}) nazorat urinishini o'chirdi.`, `${id}/${uid}`, 60_000).catch(() => {});
+  return json({ ok: true });
+}
+
+/** O'qituvchi: savollar bazasi (javob kalitlari bilan) — Word'ga yuklab olish uchun. */
+async function adminExamBank(req, id) {
+  await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  return json({ title: exam.title, bank: exam.bank });
+}
+
 // ---------- Live: jonli sinf viktorinasi ----------
 // O'yin hujjatiga faqat o'qituvchi yozadi; o'yinchilar va javoblar — alohida yozuvlar (bir vaqtda yozishda
 // bir-birini o'chirmaslik uchun). Reyting javoblar ochilganda hisoblanib, o'yin hujjatiga saqlanadi.
@@ -3405,6 +3544,15 @@ const routes = [
   ["GET", /^admin\/items$/, adminItems],
   ["GET", /^admin\/test-results$/, adminTestResults],
   ["GET", /^admin\/results$/, adminAllResults],
+  ["GET", /^exams$/, examList],
+  ["POST", /^exams\/([\w-]+)\/start$/, examStart],
+  ["GET", /^exams\/([\w-]+)\/attempt$/, examAttempt],
+  ["POST", /^exams\/([\w-]+)\/answer$/, examAnswer],
+  ["POST", /^exams\/([\w-]+)\/submit$/, examSubmit],
+  ["GET", /^admin\/exams$/, adminExams],
+  ["GET", /^admin\/exams\/([\w-]+)\/results$/, adminExamResults],
+  ["GET", /^admin\/exams\/([\w-]+)\/bank$/, adminExamBank],
+  ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],

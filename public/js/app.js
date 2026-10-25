@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session } from "./api.js";
-import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment } from "../data/course.js";
+import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment, hasExam } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initCelebrations } from "./celebrate.js";
 import { initTools } from "./search.js";
@@ -11,6 +11,7 @@ import * as auth from "./pages/auth.js";
 import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
 import * as assignment from "./pages/assignment.js";
+import * as exam from "./pages/exam.js";
 import * as tasks from "./pages/tasks.js";
 import * as meets from "./pages/meets.js";
 import * as subject from "./pages/subject.js";
@@ -54,6 +55,8 @@ const routes = [
   [/^\/meets$/, meets.render, { auth: true, student: "#/teacher/meets" }],
   [/^\/tasks$/, tasks.render, { auth: true, student: "#/teacher/tasks" }],
   [/^\/tasks\/([\w-]+)$/, tasks.renderTask, { auth: true, student: "#/teacher/tasks" }],
+  [/^\/exam$/, exam.render, { auth: true, student: "#/teacher/exams" }],
+  [/^\/exam\/([\w-]+)$/, exam.renderExam, { auth: true, student: "#/teacher/exams" }],
   [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
   [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true, student: "#/teacher/assignment" }],
   [/^\/teacher(?:\/([\w-]+))?(?:\/([\w-]+))?$/, teacher.render, { teacher: true }],
@@ -75,6 +78,7 @@ const NAV = [
   ["#/media", "Mediateka", "🎬"],
   ["#/assignment", "Topshiriq", "📝"],
   ["#/tasks", "Vazifalar", "🗂️"],
+  ["#/exam", "Nazorat testi", "📝"],
   ["#/meets", "Jonli dars", "📹"],
   ["#/rating", "Reyting", "🏆"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
@@ -92,8 +96,8 @@ function renderNav() {
   const isTeacher = user?.role === "teacher";
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
-  const STUDENT_ONLY = ["#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
-  let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)) && !(user && !isTeacher && href === "#/assignment" && !hasAssignment(user.group))); // 20 ballik topshiriq — faqat 331–334-25
+  const STUDENT_ONLY = ["#/exam", "#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
+  let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)) && !(user && !isTeacher && href === "#/assignment" && !hasAssignment(user.group)) && !(href === "#/exam" && !(user && !isTeacher && hasExam(user.group)))); // 20 ballik topshiriq — faqat 331–334-25
   const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
   const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi
   if (ownSubject) {
@@ -147,7 +151,7 @@ async function route() {
   toggle.setAttribute("aria-expanded", "false");
   renderNav();
   // Test va topshiriq sahifalarida ekran surati himoyasi
-  setRouteSecure(/^\/(assignment|tasks|practice\/|live\/play\/)/.test(path));
+  setRouteSecure(/^\/(assignment|tasks|exam\/|practice\/|live\/play\/)/.test(path));
   // Darslik materiallari faqat tizimga kirgan foydalanuvchiga ko'rsatiladi
   const PUBLIC = /^\/(login|register|forgot|ustoz|ustoz\/register|ustoz\/forgot|qr)?$|^\/cert\/|^\/live(\/|$)/;
   if (!session.user && !PUBLIC.test(path)) {
