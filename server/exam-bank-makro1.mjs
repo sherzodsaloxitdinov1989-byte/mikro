@@ -518,18 +518,6 @@ export const BANK = [
 },
 {
 "t": 2,
-"q": "Fuqaro A xorijda 8 oy ishlab 30 mln so‘m ish haqi oldi (qisqa muddatli migrant). Fuqaro B bir necha yildan beri xorijda doimiy yashaydi va oilasiga 20 mln so‘m yubordi. Birinchi tartibdagi ta’sir qanday?",
-"o": [
-"YaMIDD 50 ga oshadi; YaIM o‘zgarmaydi",
-"YaMIDD 50 ga oshadi; YaIM ham 30 ga oshadi",
-"YaMIDD faqat 30 ga oshadi; B ning o‘tkazmasi hisobga olinmaydi",
-"YaMIDD 20 ga oshadi, chunki A ning ish haqi YaMDga kirmaydi"
-],
-"c": 0,
-"w": "A ning ish haqi (bir yildan kam) xorijdan olingan omil daromadi: YaMD va YaMIDD ortadi; B ning o‘tkazmasi joriy transfert: faqat YaMIDD ortadi. Xorijda yaratilgan mahsulot mamlakat YaIMiga kirmaydi."
-},
-{
-"t": 2,
 "q": "Koreya kompaniyasining filiali O‘zbekistonda uch yildan beri ishlaydi; joriy yilda 100 mlrd so‘m qo‘shilgan qiymat yaratdi, shundan 20 mlrd so‘mi foyda sifatida Koreyaga o‘tkazildi. Bu operatsiyalarning O‘zbekiston ko‘rsatkichlariga ta’siri qanday?",
 "o": [
 "YaIMga 80, YaMDga 80, chunki xorijga o‘tkazilgan foyda YaIMdan ham chiqariladi",
@@ -650,18 +638,6 @@ export const BANK = [
 },
 {
 "t": 2,
-"q": "Mamlakat statistikasi moddiy ishlab chiqarish balansidan (MIB) milliy hisoblar tizimiga (MHT) o‘tdi; real iqtisodiy faoliyat o‘zgarmadi. Hisoblangan umumiy mahsulot hajmiga ta’siri qanday?",
-"o": [
-"Ko‘rsatkich oshadi, chunki ta’lim, sog‘liqni saqlash, moliya kabi xizmatlar ham kiradi",
-"O‘zgarmaydi, chunki real iqtisodiy faoliyat hajmi o‘zgarmagan va faqat hisob usuli almashgan",
-"Kamayadi, chunki endi oraliq mahsulot qiymati ham takroriy hisob sifatida chiqarib tashlanadi",
-"Kamayadi, chunki sanoat va qishloq xo‘jaligi mahsuloti hisobdan chiqib ketadi"
-],
-"c": 0,
-"w": "MIBda faqat moddiy ishlab chiqarish «unumli» hisoblangan; MHTda xizmatlar ham qo‘shiladi, shu sababli o‘lchangan hajm oshadi."
-},
-{
-"t": 2,
 "q": "Iste’molchilar qimmatlashgan tovardan arzonlashgan tovarga o‘tdi (nisbiy narxlar o‘zgardi). Narxlar o‘sishini baholash bo‘yicha qaysi munosabat to‘g‘ri?",
 "o": [
 "Laspeyres (INI) < Fisher < Paashe (deflyator)",
@@ -695,6 +671,30 @@ export const BANK = [
 ],
 "c": 3,
 "w": "Formulada subsidiyalar ayiriladi: YaQQ o‘zgarmaganda subsidiyalar oshsa, mahsulotlarga sof soliqlar va YaIM kamayadi."
+},
+{
+"t": 2,
+"q": "Nominal YaIM 2024-yilda 600 trln, 2025-yilda 693 trln so‘m bo‘ldi. YaIM deflyatori shu davrda 100 dan 110 ga oshdi. Real YaIMning o‘sish sur’ati qancha?",
+"o": [
+"5,0%",
+"15,5%",
+"10,0%",
+"5,5%"
+],
+"c": 0,
+"w": "Real YaIM_2025 = 693 / 1,10 = 630; o‘sish = 630 / 600 – 1 = 5%. Nominal o‘sish (15,5%) narx ta’sirini ham o‘z ichiga oladi."
+},
+{
+"t": 2,
+"q": "Yalpi ichki mahsulot 500, amortizatsiya ajratmalari 60, bilvosita soliqlar 40, subsidiyalar 5 (chet eldan sof omil daromadlari nolga teng). Omil qiymatidagi sof ichki mahsulot (milliy daromad) qancha?",
+"o": [
+"445",
+"405",
+"440",
+"400"
+],
+"c": 1,
+"w": "Sof ichki mahsulot = 500 – 60 = 440; omil qiymatida = 440 – 40 + 5 = 405. Subsidiya qo‘shiladi, bilvosita soliq ayriladi."
 },
 {
 "t": 3,
@@ -3134,18 +3134,6 @@ export const BANK = [
 },
 {
 "t": 10,
-"q": "YaIM 800 trln so‘m, soliqlar 150 trln so‘m, majburiy ijtimoiy to‘lovlar 30 trln so‘m. Soliq yuki qancha?",
-"o": [
-"18,75%",
-"20%",
-"27,5%",
-"22,5%"
-],
-"c": 3,
-"w": "(150 + 30)/800 × 100 = 22,5%. 18,75 — majburiy to‘lovlar hisobga olinmagan."
-},
-{
-"t": 10,
 "q": "Daromad solig‘i: 100 mln so‘mgacha 10%, 100 mln dan oshgan qismiga 30%. Daromadi 300 mln so‘m bo‘lgan shaxsning o‘rtacha soliq stavkasi qancha?",
 "o": [
 "23,3%",
@@ -3479,6 +3467,18 @@ export const BANK = [
 ],
 "c": 1,
 "w": "Adolatlilik va samaradorlik o‘rtasida muqobillik bor; Laffer egri chizig‘iga ko‘ra yuqori stavkada tushum kamayishi ham mumkin."
+},
+{
+"t": 10,
+"q": "Yillik daromad 1000 so‘m bo‘lgan shaxs uchun progressiv shkala: daromadning dastlabki 400 so‘mi 10% bilan, qolgan qismi 30% bilan soliqqa tortiladi. Uning o‘rtacha soliq stavkasi qancha?",
+"o": [
+"30%",
+"20%",
+"22%",
+"25%"
+],
+"c": 2,
+"w": "Soliq = 0,10 × 400 + 0,30 × 600 = 40 + 180 = 220; o‘rtacha stavka = 220 / 1000 = 22%. 30% — chegaraviy stavka."
 },
 {
 "t": 11,
@@ -4358,18 +4358,6 @@ export const BANK = [
 },
 {
 "t": 13,
-"q": "Iqtisodiyot IS dan yuqorida va LM dan yuqorida joylashgan nuqtada. Moslashuv mexanizmi qanday kechadi?",
-"o": [
-"Avval daromad tez o‘zgaradi, foiz stavkasi keyin sekin moslashadi",
-"Ikkala o‘zgaruvchi bir xil tezlikda to‘g‘ridan-to‘g‘ri E nuqtaga o‘tadi",
-"r tez pasayib LM ga tushadi, so‘ng Y zaxiralar orqali sekin IS tomon moslashadi",
-"Moslashuv bo‘lmaydi, chunki bu nuqtada ikkala bozor ham muvozanatda"
-],
-"c": 2,
-"w": "Pul bozori (moliya bozorlari) tez moslashadi – r LM ga tomon harakatlanadi; tovarlar bozori sekinroq – Y zaxiralar o‘zgarishi orqali IS ga yaqinlashadi."
-},
-{
-"t": 13,
 "q": "Quyidagilardan qaysi biri IS egri chizig‘ini yotiqroq qiladi?",
 "o": [
 "Investitsiyalarning foizga sezgirligi (d) ning kamayishi",
@@ -4487,6 +4475,18 @@ export const BANK = [
 ],
 "c": 1,
 "w": "Fiskal multiplikator 1/((1 – c) + dk/h): d → 0 da u 1/(1 – c) ga yaqinlashadi. Monetar multiplikator (d/h)/(…) esa d bilan birga kamayadi."
+},
+{
+"t": 13,
+"q": "IS egri chizig‘i Y = 2600 – 100r, LM egri chizig‘i Y = 1000 + 100r (r — foiz punktlarida). Iste’molga chegaraviy moyillik 0,8. Davlat xarajatlari 50 ga oshsa, yangi muvozanatda Y qanchaga o‘zgaradi?",
+"o": [
+"+250",
+"+125",
+"+50",
+"+175"
+],
+"c": 1,
+"w": "IS gorizontal bo‘yicha k·ΔG = 5 × 50 = 250 ga siljiydi: Y = 2850 – 100r. LM bilan kesishuv: 2850 – 100r = 1000 + 100r → r = 9,25, Y = 1925 (oldin 1800). ΔY = +125: qolgan qismini siqib chiqarish yutadi."
 },
 {
 "t": 14,
@@ -4610,18 +4610,6 @@ export const BANK = [
 },
 {
 "t": 14,
-"q": "Mamlakatda s = 15%, v_r = 3, ishchi kuchi yiliga 2,5%, texnik taraqqiyot esa 3,5% ga o‘sishni ta’minlaydi. Xarrod modeliga ko‘ra uzoq muddatda nima kutiladi?",
-"o": [
-"G_w = 5% < G_n = 6%: ortiqcha quvvatlar va sekulyar stagnatsiya",
-"G_w = 6% > G_n = 5%: tarkibiy ishsizlik muqarrar",
-"G_w = G_n: oltin asr yo‘li o‘rnatiladi",
-"G_w = 5% < G_n = 6%: ishchi kuchi kapitaldan tez o‘sadi, tarkibiy ishsizlik"
-],
-"c": 3,
-"w": "G_w = 0,15/3 = 5%; G_n = 2,5 + 3,5 = 6%. G_w < G_n – jamg‘armalar yetishmaydi, mehnat kapitaldan tez o‘sadi, tarkibiy ishsizlik. Aksi (G_w > G_n) stagnatsiyaga olib keladi."
-},
-{
-"t": 14,
 "q": "Investitsiyalar YaIMning 30% ini tashkil etadi, kapital sig‘imi (ICOR) 5, aholi yiliga 1,5% ga o‘sadi. Domar mantiqiga ko‘ra aholi jon boshiga YaIM taxminan qanday sur’atda o‘sadi?",
 "o": [
 "6,0%",
@@ -4706,18 +4694,6 @@ export const BANK = [
 },
 {
 "t": 14,
-"q": "Quyidagi uch holatni omillar guruhlariga to‘g‘ri bog‘lang: (1) resurslar bor, lekin yalpi talab yetishmay, ular foydalanilmay qolgan; (2) samarasiz davlat korxonalarini qo‘llab-quvvatlash; (3) ta’lim darajasining oshishi.",
-"o": [
-"(1) talab; (2) taqsimot; (3) taklif omillari",
-"(1) taklif; (2) talab; (3) taqsimot omillari",
-"(1) taqsimot; (2) taklif; (3) talab omillari",
-"(1) talab; (2) taklif; (3) taqsimot omillari"
-],
-"c": 0,
-"w": "Yetishmayotgan talab – Keyns muammosi (talab omili); samarasiz davlat korxonalari – resurslarning samarasiz taqsimoti; ta’lim – mehnat resurslarining sifati (taklif omili)."
-},
-{
-"t": 14,
 "q": "Quyidagi xususiyatlardan qaysi biri Xarrod modelini Domar modelidan ajratib turadi?",
 "o": [
 "Akselerator prinsipi (I = vΔY) va haqiqiy, kafolatlangan, tabiiy sur’atlarni farqlash",
@@ -4799,5 +4775,29 @@ export const BANK = [
 ],
 "c": 1,
 "w": "Isterli ko‘rsatishicha, «zarur investitsiya = o‘sish × kapital sig‘imi» mexanik bog‘liqligi amalda kamdan-kam tasdiqlangan – o‘sishni samaradorlik va institutlar belgilaydi."
+},
+{
+"t": 14,
+"q": "Solou modelida y = k^0,5, jamg‘arish normasi s = 0,3, aholi o‘sishi n = 0,02, kapitalning yeyilishi δ = 0,08. Barqaror holatda jon boshiga iste’mol qancha?",
+"o": [
+"2,1",
+"0,9",
+"3,0",
+"2,7"
+],
+"c": 0,
+"w": "k* = (s/(n+δ))^2 = 3^2 = 9; y* = √9 = 3; c* = (1 – s)·y* = 0,7 × 3 = 2,1. 0,9 — jamg‘arma (investitsiya), 3,0 — mahsulot."
+},
+{
+"t": 14,
+"q": "Iqtisodiyotda real YaIM 5% ga, kapital 4% ga, mehnat 1% ga o‘sdi. Kapitalning ulushi α = 0,4. Solou qoldig‘i (umumiy omillar unumdorligi o‘sishi) qancha?",
+"o": [
+"2,2%",
+"2,4%",
+"2,8%",
+"0,0%"
+],
+"c": 2,
+"w": "g_A = g_Y – α·g_K – (1 – α)·g_L = 5 – 0,4×4 – 0,6×1 = 2,8%. Ulushlarni almashtirish 2,2% beradi."
 }
 ];
