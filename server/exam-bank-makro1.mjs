@@ -38,7 +38,7 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Uch tarmoqli balansda xizmatlar tarmog‘ining yalpi mahsuloti 300 mlrd so‘m, u sanoatdan 50 mlrd so‘mlik oraliq mahsulot sarflagan (sanoatning yalpi mahsuloti 400, qishloq xo‘jaligining 200 200 mlrd so‘m). Xizmatlarning 1 so‘mlik mahsuloti uchun sanoatdan bevosita sarf necha tiyin?",
+"q": "Uch tarmoqli balansda xizmatlar tarmog‘ining yalpi mahsuloti 300 mlrd so‘m, u sanoatdan 50 mlrd so‘mlik oraliq mahsulot sarflagan (sanoatning yalpi mahsuloti 400, qishloq xo‘jaliginiki 200 mlrd so‘m). Xizmatlarning 1 so‘mlik mahsuloti uchun sanoatdan bevosita sarf necha tiyin?",
 "o": [
 "12,5 tiyin",
 "16,7 tiyin",
