@@ -245,6 +245,35 @@ async function examsView(el) {
     const box = h("div");
     const groups = [...new Set(d.rows.map((r) => r.group))].sort();
     const rowsOf = () => d.rows.filter((r) => (!q.group || r.group === q.group) && (!q.text || `${r.name} ${r.email} ${r.idNumber}`.toLowerCase().includes(q.text)));
+    // Ruxsat o'zgarishlari «Saqlash» tugmasi bosilgunga qadar saqlanmaydi
+    const pending = new Map();
+    const saveBtn = h("button", { class: "btn", disabled: true }, "💾 Saqlash");
+    const cancelBtn = h("button", { class: "btn ghost hidden" }, "Bekor qilish");
+    const saveBtn2 = h("button", { class: "btn", disabled: true }, "💾 Saqlash");
+    const cancelBtn2 = h("button", { class: "btn ghost hidden" }, "Bekor qilish");
+    const paintSave = () => {
+      for (const b of [saveBtn, saveBtn2]) {
+        b.disabled = !pending.size;
+        b.textContent = pending.size ? `💾 Ruxsatlarni saqlash (${pending.size})` : "💾 Saqlash";
+      }
+      for (const b of [cancelBtn, cancelBtn2]) b.classList.toggle("hidden", !pending.size);
+    };
+    saveBtn.onclick = async () => {
+      const on = [...pending].filter(([, v]) => v).map(([k]) => k);
+      const off = [...pending].filter(([, v]) => !v).map(([k]) => k);
+      saveBtn.disabled = true;
+      try {
+        if (on.length) await api.post(`admin/exams/${e.id}/access`, { userIds: on, allowed: true });
+        if (off.length) await api.post(`admin/exams/${e.id}/access`, { userIds: off, allowed: false });
+        for (const r of d.rows) if (pending.has(r.userId)) r.allowed = pending.get(r.userId);
+        pending.clear();
+        toast(`Ruxsatlar saqlandi (${on.length} ta ochildi, ${off.length} ta yopildi)`, "ok");
+        draw();
+        paintSave();
+      } catch (ex) { toast(ex.message, "error"); paintSave(); }
+    };
+    saveBtn2.onclick = () => saveBtn.onclick();
+    cancelBtn.onclick = cancelBtn2.onclick = () => { pending.clear(); draw(); paintSave(); };
     const bulk = async (payload, msg) => {
       if (!(await confirmDialog(msg))) return;
       try { await api.post(`admin/exams/${e.id}/access`, payload); toast("Saqlandi", "ok"); mount(el, await examsViewBody()); } catch (ex) { toast(ex.message, "error"); }
@@ -260,7 +289,7 @@ async function examsView(el) {
           h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "ID", "Ruxsat", "Holati", "Boshlagan", "Javob", "To'g'ri", "Natija", ""].map((c) => h("th", {}, c)))),
           h("tbody", {}, rows.map((r, i) => h("tr", {},
             h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, r.group), h("td", {}, r.name), h("td", { class: "small" }, r.idNumber || "—"),
-            h("td", { class: "center" }, h("input", { type: "checkbox", checked: r.allowed, title: r.allowed ? "Ishlashi mumkin (bosilsa — yopiladi)" : "Ishlashi mumkin emas (bosilsa — ruxsat beriladi)", onchange: async (ev) => { try { await api.post(`admin/exams/${e.id}/access`, { userIds: [r.userId], allowed: ev.target.checked }); r.allowed = ev.target.checked; draw(); } catch (ex) { toast(ex.message, "error"); ev.target.checked = !ev.target.checked; } } })),
+            h("td", { class: "center" }, h("input", { type: "checkbox", checked: pending.has(r.userId) ? pending.get(r.userId) : r.allowed, title: r.allowed ? "Ishlashi mumkin (bosilsa — yopiladi)" : "Ishlashi mumkin emas (bosilsa — ruxsat beriladi)", onchange: (ev) => { if (ev.target.checked === r.allowed) pending.delete(r.userId); else pending.set(r.userId, ev.target.checked); paintSave(); } })),
             h("td", {}, h("span", { class: `badge ${r.status === "done" ? "badge-ok" : r.status === "running" ? "badge-warn" : ""}` }, stText(r), r.result?.auto ? " (vaqt tugadi)" : "")),
             h("td", { class: "small" }, r.started ? uzAt(r.started).slice(5) : "—"),
             h("td", { class: "center small" }, r.status === "none" ? "—" : `${r.answered}/${d.exam.count}`),
@@ -277,16 +306,16 @@ async function examsView(el) {
       h("div", { class: "row wrap" },
         h("select", { onchange: (ev) => ((q.group = ev.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
         h("input", { type: "search", placeholder: "Ism, email yoki ID…", oninput: (ev) => ((q.text = ev.target.value.toLowerCase()), draw()) }),
-        h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"), h("button", { class: "btn ghost", onclick: async () => mount(el, await examsViewBody()) }, "↻ Yangilash")),
+        h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"), h("button", { class: "btn ghost", onclick: async () => mount(el, await examsViewBody()) }, "↻ Yangilash"), saveBtn, cancelBtn),
       h("div", { class: "card stack" },
         h("b", {}, "🔐 Kim testni ishlashi mumkin"),
-        h("p", { class: "muted small" }, `Jadvaldagi «Ruxsat» katakchasi bilan har bir talabaga alohida ruxsat bering yoki yoping. Ruxsatsiz talaba testni boshlay olmaydi (allaqachon boshlaganlarga ta'sir qilmaydi). Hozir sukut bo'yicha: ${d.defaultAllow ? "hamma ishlay oladi" : "hech kim ishlay olmaydi (faqat ruxsat berilganlar)"}.`),
+        h("p", { class: "muted small" }, `Jadvaldagi «Ruxsat» katakchalarini belgilab/olib tashlab, «Saqlash» tugmasini bosing. Ruxsatsiz talaba testni boshlay olmaydi (allaqachon boshlaganlarga ta'sir qilmaydi). Hozir sukut bo'yicha: ${d.defaultAllow ? "hamma ishlay oladi" : "hech kim ishlay olmaydi (faqat ruxsat berilganlar)"}.`),
         h("div", { class: "row wrap" },
           h("button", { class: "btn small", onclick: () => bulk({ all: true, allowed: true }, "Hamma talabaga (shu jumladan keyin ro'yxatdan o'tganlarga) ruxsat berilsinmi?") }, "✅ Hammaga ruxsat"),
           h("button", { class: "btn small ghost", onclick: () => bulk({ all: true, allowed: false }, "Hamma uchun test yopilsinmi? Faqat keyin alohida ruxsat berilganlar ishlay oladi.") }, "⛔ Hammasini yopish"),
           h("button", { class: "btn small", onclick: () => (q.group ? bulk({ group: q.group, allowed: true }, `${q.group} guruhiga ruxsat berilsinmi?`) : toast("Avval yuqoridan guruhni tanlang", "warn")) }, "✅ Tanlangan guruhga ruxsat"),
           h("button", { class: "btn small ghost", onclick: () => (q.group ? bulk({ group: q.group, allowed: false }, `${q.group} guruhi uchun ruxsat yopilsinmi?`) : toast("Avval yuqoridan guruhni tanlang", "warn")) }, "⛔ Tanlangan guruhni yopish"))),
-      box, (draw(), null));
+      box, h("div", { class: "row end" }, cancelBtn2, saveBtn2), (draw(), null));
   };
   const examsViewBody = async () => h("div", { class: "stack" }, await Promise.all(list.map(one)));
   mount(el, await examsViewBody());
