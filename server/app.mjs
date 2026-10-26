@@ -2204,6 +2204,11 @@ const attemptKey = (eid, uid) => `examattempt/${eid}/${uid}`;
 const EXAM_GRACE_MS = 8_000; // tarmoq kechikishi uchun
 const toMs = (iso) => new Date(iso).getTime();
 
+// Kim ishlashi mumkin: examaccess/<test> = { defaultAllow, overrides: { <talaba>: true|false } } (o'qituvchi boshqaradi). Yozuv yo'q bo'lsa — hamma ruxsat etilgan.
+const accessKey = (eid) => `examaccess/${eid}`;
+const loadAccess = async (eid) => ({ defaultAllow: true, overrides: {}, ...((await db().get(accessKey(eid))) || {}) });
+const isAllowed = (acc, uid) => (uid in acc.overrides ? Boolean(acc.overrides[uid]) : acc.defaultAllow);
+
 function examFor(user, id) {
   const exam = examById(id);
   if (!exam || user.role !== "student" || !exam.groups.includes(user.group)) throw new HttpError(404, "Nazorat testi topilmadi");
@@ -2235,9 +2240,10 @@ async function examList(req) {
   if (user.role !== "student") return json({ exams: [], now: new Date().toISOString() });
   const out = [];
   for (const exam of examsOfGroup(user.group)) {
+    const allowed = isAllowed(await loadAccess(exam.id), user.id);
     let rec = await db().get(attemptKey(exam.id, user.id));
     if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
-    out.push({ id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, state: examState(exam), attempt: rec ? { startedAt: rec.startedAt, deadline: rec.deadline, finished: Boolean(rec.result), result: rec.result && { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent } } : null });
+    out.push({ allowed, id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, state: examState(exam), attempt: rec ? { startedAt: rec.startedAt, deadline: rec.deadline, finished: Boolean(rec.result), result: rec.result && { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent } } : null });
   }
   return json({ exams: out, now: new Date().toISOString() });
 }
@@ -2250,6 +2256,7 @@ async function examStart(req, id) {
     if (!rec.result) rec = await finalizeAttempt(exam, rec);
     return json(attemptView(exam, rec));
   }
+  if (!isAllowed(await loadAccess(id), user.id)) throw new HttpError(403, "Sizga bu testni ishlashga hozircha ruxsat berilmagan. O'qituvchiga murojaat qiling.");
   const st = examState(exam);
   if (st === "soon") throw new HttpError(403, `Test hali boshlanmagan. Boshlanish vaqti: ${exam.startsAt.slice(0, 10)} soat ${exam.startsAt.slice(11, 16)}`);
   if (st === "closed") throw new HttpError(403, "Test vaqti tugagan");
@@ -2310,13 +2317,41 @@ async function adminExamResults(req, id) {
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
   const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group));
+  const acc = await loadAccess(id);
   const rows = await Promise.all(users.map(async (u) => {
     let rec = await db().get(attemptKey(id, u.id));
     if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
-    return { userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
+    return { allowed: isAllowed(acc, u.id), userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
   }));
   rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
-  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, rows });
+  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, defaultAllow: acc.defaultAllow, rows });
+}
+
+/** O'qituvchi: kim testni ishlashi mumkin. Body: { userIds?: [], group?: "231-24", all?: true, allowed: bool }. all — hammaga (va yangi ro'yxatdan o'tganlarga) qo'llanadi. */
+async function adminExamAccess(req, id) {
+  const t = await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  const b = await body(req);
+  const allowed = Boolean(b.allowed);
+  const acc = await loadAccess(id);
+  let n = 0;
+  if (b.all) {
+    acc.defaultAllow = allowed;
+    n = Object.keys(acc.overrides).length;
+    acc.overrides = {};
+  } else {
+    let ids = Array.isArray(b.userIds) ? b.userIds.map(String) : [];
+    if (b.group) {
+      if (!exam.groups.includes(b.group)) throw new HttpError(400, "Bu guruh testga biriktirilmagan");
+      ids = ids.concat((await getMany("user/")).filter((u) => u.role === "student" && u.group === b.group).map((u) => u.id));
+    }
+    if (!ids.length) throw new HttpError(400, "Talaba yoki guruh tanlanmagan");
+    for (const uid of new Set(ids)) { acc.overrides[uid] = allowed; n++; }
+  }
+  await db().set(accessKey(id), acc);
+  await securityAlert(req, "exam_access", "info", "Nazorat testiga ruxsat o'zgartirildi", `${t.name}: ${b.all ? "hammaga" : b.group ? `${b.group} guruhiga` : `${n} ta talabaga`} ${allowed ? "ruxsat berdi" : "ruxsatni yopdi"}.`, `${id}/${Date.now()}`, 1000).catch(() => {});
+  return json({ ok: true, defaultAllow: acc.defaultAllow, changed: n });
 }
 
 /** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
@@ -3553,6 +3588,7 @@ const routes = [
   ["GET", /^admin\/exams\/([\w-]+)\/results$/, adminExamResults],
   ["GET", /^admin\/exams\/([\w-]+)\/bank$/, adminExamBank],
   ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
+  ["POST", /^admin\/exams\/([\w-]+)\/access$/, adminExamAccess],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],

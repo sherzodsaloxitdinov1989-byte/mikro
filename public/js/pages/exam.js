@@ -31,6 +31,7 @@ async function renderList(el) {
       const now = Date.now() + offset;
       const toStart = new Date(e.startsAt).getTime() - now;
       if (e.attempt?.finished) { status.replaceChildren(h("div", { class: "alert alert-info" }, `Test yakunlangan: ${e.attempt.result.correct} / ${e.attempt.result.total} to'g'ri — ${e.attempt.result.percent}%`)); btn.textContent = "Natijani ko'rish"; btn.disabled = false; return; }
+      if (!e.attempt && e.allowed === false) { btn.disabled = true; status.replaceChildren(h("div", { class: "alert alert-warn" }, "🔒 Sizga bu testni ishlashga hozircha ruxsat berilmagan. O'qituvchiga murojaat qiling.")); return; }
       if (e.attempt) { btn.textContent = "▶ Testni davom ettirish"; btn.disabled = false; status.replaceChildren(h("div", { class: "alert alert-warn" }, "Siz testni boshlagansiz. Vaqt to'xtamaydi — davom eting.")); return; }
       if (e.state === "closed") { btn.disabled = true; status.replaceChildren(h("div", { class: "alert alert-warn" }, "Test vaqti tugagan.")); return; }
       if (toStart > 0) { btn.disabled = true; status.replaceChildren(h("div", { class: "alert alert-info" }, `⏳ Test boshlanishiga ${countdown(toStart)} qoldi`)); return; }
