@@ -1,6 +1,6 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
-import { session } from "./api.js";
+import { session, api } from "./api.js";
 import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment, hasExam } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initCelebrations } from "./celebrate.js";
@@ -89,6 +89,18 @@ const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 const toggle = document.querySelector(".menu-toggle");
 let cleanup = null;
+let openTasks = 0; // talaba uchun: hali topshirilmagan vazifalar soni (menyuda belgi)
+let taskPoll = 0;
+async function refreshTaskBadge() {
+  if (session.user?.role !== "student") return void (openTasks && ((openTasks = 0), renderNav()));
+  try {
+    const r = await api.get("tasks");
+    const n = r.tasks.filter((t) => !t.sub).length;
+    if (n !== openTasks) ((openTasks = n), renderNav());
+  } catch {}
+}
+window.addEventListener("tt:auth", refreshTaskBadge);
+setInterval(() => document.visibilityState === "visible" && Date.now() - taskPoll > 90_000 && ((taskPoll = Date.now()), refreshTaskBadge()), 30_000);
 
 function renderNav() {
   const path = location.hash || "#/";
@@ -127,7 +139,7 @@ function renderNav() {
     : null;
   mount(
     nav,
-    items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label)),
+    items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label, href === "#/tasks" && openTasks > 0 && h("span", { class: "nav-badge", title: "Topshirilmagan vazifalar" }, openTasks))),
     switcher,
     user
       ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]), h("span", { class: `role-chip ${isTeacher ? "teacher" : "student"}` }, isTeacher ? "O'qituvchi" : "Talaba"))
@@ -217,6 +229,8 @@ initContentGuard();
 initSecureMode();
 initSecurityAlerts();
 initAsk();
+refreshTaskBadge();
+window.addEventListener("hashchange", () => session.user?.role === "student" && /^#\/tasks/.test(location.hash) && refreshTaskBadge());
 // Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz
 if (session.token && userHasContent(session.user) && !TOPICS.length && !sessionStorage.getItem("tt.cookie-try")) {
   sessionStorage.setItem("tt.cookie-try", "1");

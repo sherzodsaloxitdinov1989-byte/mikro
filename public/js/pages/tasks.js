@@ -34,6 +34,8 @@ function statusBadge(task) {
 
 // ---------------- Talaba: ro'yxat ----------------
 
+const isNew = (t, now) => !t.sub && now - new Date(t.createdAt) < 7 * 86400000;
+
 export async function render(el) {
   mount(el, loading());
   const res = await api.get("tasks");
@@ -45,7 +47,7 @@ export async function render(el) {
     res.tasks.length
       ? h("div", { class: "stack" }, res.tasks.map((t) =>
           h("a", { class: "card task-card", href: `#/tasks/${t.id}`, style: { display: "block", color: "inherit", textDecoration: "none" } },
-            h("div", { class: "row between wrap" }, h("h3", {}, t.title), statusBadge(t)),
+            h("div", { class: "row between wrap" }, h("h3", {}, isNew(t, now) && h("span", { class: "badge badge-ok", style: { marginRight: "8px" } }, "🆕 Yangi"), t.title), statusBadge(t)),
             h("p", { class: "small muted" }, t.description.slice(0, 160) + (t.description.length > 160 ? "…" : "")),
             h("div", { class: "row wrap" }, dueChip(t, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(t.max)} ball`), h("span", { class: "chip chip-soft", title: "Javob yuborish urinishlari" }, `Urinish: ${t.sub?.attempts || 0} / ${(t.maxAttempts || 3) + (t.sub?.extraAttempts || 0)}`), t.semester > 0 && h("span", { class: "chip chip-soft" }, `${t.semester}-semestr`)))))
       : emptyState("📝", "Hozircha vazifa yo'q", "O'qituvchi yangi topshiriq qo'shganda shu yerda ko'rinadi.")
@@ -250,7 +252,7 @@ function openImport(data, reload) {
   const defMax = h("input", { type: "number", min: 1, max: 100, step: 0.5, value: 10, style: { maxWidth: "110px" } });
   const mode = h("select", {}, Object.entries(MODES).map(([k, v]) => h("option", { value: k }, v)));
   const aiOn = h("input", { type: "checkbox", checked: true });
-  const published = h("input", { type: "checkbox" });
+  const published = h("input", { type: "checkbox", checked: true });
   const formBoxes = forms.map((f) => ({ f, box: h("input", { type: "checkbox", value: f.key }) }));
   let drafts = [];
 
@@ -308,7 +310,7 @@ function openImport(data, reload) {
         h("label", { class: "field" }, h("span", {}, "Ball (ko'rsatilmaganlar uchun)"), defMax),
         h("label", { class: "field" }, h("span", {}, "Talaba nima yuboradi"), mode)),
       chk(aiOn, "AI tekshiruvi yoqilgan"),
-      chk(published, h("b", {}, "Darhol nashr etilsin"), h("span", { class: "muted small" }, " (belgilanmasa — qoralama, talabalar ko'rmaydi)"))));
+      chk(published, h("b", {}, "Darhol nashr etilsin"), h("span", { class: "muted small" }, " (belgilanmasa — qoralama, talabalar ko'rmaydi; keyin ro'yxatdan «Nashr etish» tugmasi bilan ochasiz)"))));
 
   const close = modal("📥 Fayldan topshiriqlar yaratish", h("div", { class: "stack" },
     h("label", { class: "field" }, h("span", {}, "Fayl"), fileInput),
@@ -344,7 +346,7 @@ function openImport(data, reload) {
 
 function openBuilder(task, data, reload) {
   // Yangi topshiriq tanlangan fan guruhlariga beriladi (asosiy fan — hammaga)
-  const t = task || { title: "", description: "", forms: [], groups: SUBJECT_KEY === "mikro" ? [] : groupsOfSubject(SUBJECT_KEY), semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: false, aiEnabled: true, criteria: [], rubric: "", reference: "" };
+  const t = task || { title: "", description: "", forms: [], groups: SUBJECT_KEY === "mikro" ? [] : groupsOfSubject(SUBJECT_KEY), semester: 0, due: "", allowLate: true, max: 10, mode: "any", published: true, aiEnabled: true, criteria: [], rubric: "", reference: "" };
   const forms = formsOfSubject(SUBJECT_KEY); // faqat shu fan guruhlari bor ta'lim shakllari
   const title = h("input", { type: "text", maxlength: 150, value: t.title, placeholder: "Masalan: Talab elastikligini hisoblash" });
   const description = h("textarea", { rows: 8, maxlength: 8000, placeholder: "Topshiriq sharti: nima qilish kerak, qanday ma'lumotlar beriladi, natija qanday bo'lishi kerak." }, t.description);
@@ -414,7 +416,7 @@ function openBuilder(task, data, reload) {
         try {
           if (task) await api.put(`admin/tasks/${task.id}`, payload);
           else await api.post("admin/tasks", payload);
-          toast(task ? "Saqlandi" : "Topshiriq yaratildi", "ok");
+          toast(task ? "Saqlandi" : payload.published ? `Topshiriq yaratildi va talabalarga ko'rinadi: ${payload.groups.length ? payload.groups.join(", ") : "shu fanning barcha guruhlari"}` : "Topshiriq qoralama sifatida saqlandi — talabalar ko'rmaydi. Ro'yxatdan «Nashr etish» ni bosing", payload.published || task ? "ok" : "warn");
           close();
           reload();
         } catch (ex) {

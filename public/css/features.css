@@ -442,3 +442,5 @@
 .exam-dot.cur { outline: 2px solid var(--primary); font-weight: 700; }
 .exam-q { font-size: 1.1rem; line-height: 1.55; white-space: pre-wrap; }
 .alert-ok { background: #dcfce7; color: #14532d; border: 1px solid #86efac; border-radius: 12px; padding: 10px 14px; }
+
+.nav-badge { display: inline-block; min-width: 18px; margin-left: 6px; padding: 0 5px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 0.72rem; line-height: 18px; text-align: center; font-weight: 700; }
