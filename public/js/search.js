@@ -1,4 +1,5 @@
 // Tezkor qidiruv (Ctrl+K yoki "/"): sahifalar, mavzular, bo'limlar, va tushunchalar.
+import { hardRefresh } from "./update.js";
 import { h } from "./ui.js";
 import { api, session } from "./api.js";
 import { TOPICS, COURSE } from "../data/topics.js";
@@ -166,7 +167,8 @@ export function initTools() {
     themeBtn.setAttribute("aria-label", THEME_LABEL[theme]);
   } }, THEME_ICON[theme]);
   const searchBtn = h("button", { class: "tool-search", "aria-label": "Qidiruv (Ctrl+K)", title: "Qidiruv (Ctrl+K)", onclick: openSearch }, h("span", {}, "🔍"), h("span", { class: "tool-search-label" }, "Qidiruv"), h("kbd", {}, "Ctrl K"));
-  tools?.replaceChildren(searchBtn, themeBtn);
+  const refreshBtn = h("button", { class: "icon-btn tool-btn", "aria-label": "Sahifani yangilash", title: "Sahifani yangilash (eng yangi versiya)", onclick: hardRefresh }, "↻");
+  tools?.replaceChildren(searchBtn, refreshBtn, themeBtn);
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();

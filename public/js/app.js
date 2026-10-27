@@ -32,6 +32,7 @@ import { TOPICS, COURSE, SUBJECT_KEY } from "../data/topics.js";
 import { initContentGuard } from "./guard.js";
 import { initSecurityAlerts } from "./alerts.js";
 import { initAsk } from "./ask.js";
+import { initUpdates } from "./update.js";
 import { initSecureMode, setRouteSecure } from "./secure.js";
 
 const routes = [
@@ -229,6 +230,7 @@ initContentGuard();
 initSecureMode();
 initSecurityAlerts();
 initAsk();
+initUpdates();
 refreshTaskBadge();
 window.addEventListener("hashchange", () => session.user?.role === "student" && /^#\/tasks/.test(location.hash) && refreshTaskBadge());
 // Oldin kirgan foydalanuvchida himoya cookie'si bo'lmasligi mumkin: bir marta o'rnatib, sahifani qayta yuklaymiz

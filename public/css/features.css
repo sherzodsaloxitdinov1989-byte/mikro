@@ -444,3 +444,7 @@
 .alert-ok { background: #dcfce7; color: #14532d; border: 1px solid #86efac; border-radius: 12px; padding: 10px 14px; }
 
 .nav-badge { display: inline-block; min-width: 18px; margin-left: 6px; padding: 0 5px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 0.72rem; line-height: 18px; text-align: center; font-weight: 700; }
+
+/* Yangi versiya xabari */
+.update-bar { position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 300; display: flex; align-items: center; gap: 12px; max-width: min(680px, calc(100% - 24px)); padding: 10px 14px; border-radius: 14px; background: #1d4ed8; color: #fff; font-size: 0.9rem; box-shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.55); animation: page-in 0.4s var(--ease-out); }
+.update-bar .icon-btn { color: #fff; }
