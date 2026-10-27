@@ -2,7 +2,7 @@ import { h, mount, toast } from "../ui.js";
 import { session } from "../api.js";
 import { COURSE, TOPICS } from "../../data/topics.js";
 const LAB = COURSE.features.lab;
-import { loadProgress, topicCompletion, loadGame } from "../progress.js";
+import { loadProgress, topicCompletion } from "../progress.js";
 import { dueCount } from "./review.js";
 import { mountScene, LANDMARK_NAMES } from "../landmarks.js";
 import { UPDATES, CHECKED } from "../../data/updates.js";
@@ -63,7 +63,6 @@ function heroScene() {
 export async function render(el) {
   const user = session.user;
   await loadProgress();
-  const game = user?.role === "student" ? await loadGame() : null;
   const due = user?.role === "student" ? dueCount() : 0;
   const done = TOPICS.filter((t) => topicCompletion(t) === 100).length;
   const tests = TOPICS.reduce((s, t) => s + t.quiz.length, 0);
@@ -78,7 +77,6 @@ export async function render(el) {
     ["🧩", "Mustaqil ta'lim", "Shaxsiy o'quv rejasi, mustaqil ish topshiriqlari, o'qituvchi bahosi va refleksiv kundalik.", "#/self-study"],
     ["🎬", "Mediateka va audiokitob", "Animatsion darslar, dars taqdimotlari, video darslar va darslik matnini o'zbekcha AI ovozida tinglash.", "#/media"],
     ["🎮", "Live viktorina", "Sinfda Kahoot uslubidagi jonli musobaqa va so'z buluti: PIN yoki QR-kod orqali qo'shiling.", "#/live"],
-    ["🛂", COURSE.passportName, `XP, darajalar (${COURSE.levels[0][0]} → ${COURSE.levels[COURSE.levels.length - 1][0]}), nishonlar, reyting va kursni tugatganlik sertifikati.`, "#/passport"],
   ].filter(Boolean);
 
   mount(
@@ -114,10 +112,9 @@ export async function render(el) {
         { class: "card hero-card accent" },
         h("div", { class: "row between wrap" },
           h("div", { class: "row home-me" },
-            game && h("a", { href: "#/passport", class: "home-level", title: COURSE.passportName, style: { "--p": game.level.pct } }, h("span", {}, game.level.icon)),
-            h("div", {}, h("div", { class: "eyebrow" }, "Shaxsiy kabinet"), h("h3", {}, `Xush kelibsiz, ${user.name.split(" ")[0]}!`), h("p", { class: "muted small" }, game ? `${game.level.name} · ${game.xp} XP · 🔥 ${game.stats.streak} kunlik seriya · ${done}/${TOPICS.length} mavzu` : `${done} / ${TOPICS.length} mavzu to'liq o'zlashtirildi`))),
+            h("div", {}, h("div", { class: "eyebrow" }, "Shaxsiy kabinet"), h("h3", {}, `Xush kelibsiz, ${user.name.split(" ")[0]}!`), h("p", { class: "muted small" }, `${done} / ${TOPICS.length} mavzu to'liq o'zlashtirildi`))),
           h("div", { class: "row wrap" },
-            game && h("a", { href: "#/review", class: `btn ${due ? "" : "ghost"}` }, `🔁 Takrorlash${due ? ` (${due})` : ""}`),
+            user.role === "student" && h("a", { href: "#/review", class: `btn ${due ? "" : "ghost"}` }, `🔁 Takrorlash${due ? ` (${due})` : ""}`),
             h("a", { href: user.role === "teacher" ? "#/teacher" : "#/self-study", class: "btn" }, user.role === "teacher" ? "O'qituvchi paneli" : "O'quv rejam"),
             user.role === "student" && LAB && h("a", { href: "#/lab", class: "btn ghost" }, "🔬 Laboratoriya")))
       ),
@@ -139,7 +136,7 @@ export async function render(el) {
           ["Mustahkamlash", "Tushunchalar kartalari, nazorat savollari va test (o'tish balli 60%)."],
           ["Amaliy mashg'ulot", "Masalalarni yeching — javob darhol tekshiriladi; keys va xulosani yozib, AI dan 10 ballik feedback oling."],
           LAB && ["Tahlil laboratoriyasi", "Namuna yoki real korxonaning kompleks moliyaviy tahlilini bajarib, hisobotni AI va o'qituvchiga topshiring."],
-          ["Mustaqil ta'lim va reyting", "Mustaqil ishlarni topshiring, kunlik takrorlang, XP to'plab sertifikat oling."],
+          ["Natija", "Semestr oxirida ma'ruza va amaliy mashg'ulot ballari bo'yicha natijangizni PDF qilib yuklab oling."],
         ].filter(Boolean).map(([t, d], i) => h("li", { class: "reveal" }, h("span", { class: "t-num" }, i + 1), h("b", {}, t), h("p", { class: "muted small" }, d)))
       )
     )

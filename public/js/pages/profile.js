@@ -13,8 +13,6 @@ export async function render(el) {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form));
       if (!data.newPassword) delete data.newPassword;
-      if (user.role === "student") data.hideFromRating = !form.querySelector("[name=showInRating]").checked;
-      delete data.showInRating;
       try {
         const res = await api.put("me", data);
         if (res.token) session.set(res.token, res.user);
@@ -31,7 +29,6 @@ export async function render(el) {
     h("label", { class: "field" }, h("span", {}, "Ism-familiya"), h("input", { name: "name", value: user.name, required: true })),
     h("label", { class: "field" }, h("span", {}, "Ta'lim muassasasi"), h("input", { name: "college", value: user.college || "" })),
     user.role === "student" && groupField(user),
-    user.role === "student" && h("label", { class: "check-row" }, h("input", { type: "checkbox", name: "showInRating", checked: !user.hideFromRating }), " Reytingda ismim ko'rinsin (ism va familiyaning bosh harfi)"),
     h("h3", {}, "Parolni o'zgartirish"),
     h("div", { class: "grid cols-2" },
       h("label", { class: "field" }, h("span", {}, "Joriy parol"), h("input", { name: "password", type: "password", autocomplete: "current-password" })),

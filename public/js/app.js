@@ -3,7 +3,6 @@ import { h, mount, errorBox } from "./ui.js";
 import { session, api } from "./api.js";
 import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment, hasExam } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
-import { initCelebrations } from "./celebrate.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
 import * as home from "./pages/home.js";
@@ -16,10 +15,8 @@ import * as result from "./pages/result.js";
 import * as tasks from "./pages/tasks.js";
 import * as meets from "./pages/meets.js";
 import * as subject from "./pages/subject.js";
-import * as rating from "./pages/rating.js";
 import * as teacher from "./pages/teacher.js";
 import * as profile from "./pages/profile.js";
-import * as passport from "./pages/passport.js";
 import * as review from "./pages/review.js";
 import * as cert from "./pages/cert.js";
 import * as media from "./pages/media.js";
@@ -52,7 +49,7 @@ const routes = [
   [/^\/lab\/([\w-]+)$/, lab.renderProject, { auth: true }],
   [/^\/updates$/, updates.render],
   [/^\/self-study$/, selfStudy.render, { auth: true, student: "#/teacher/self-study" }],
-  [/^\/rating$/, rating.render, { auth: true, student: "#/teacher/rating" }],
+  [/^\/(rating|passport)$/, () => { location.hash = "#/result"; }],
   [/^\/fan(?:\/([\w-]+))?$/, subject.render, { auth: true }],
   [/^\/meets$/, meets.render, { auth: true, student: "#/teacher/meets" }],
   [/^\/tasks$/, tasks.render, { auth: true, student: "#/teacher/tasks" }],
@@ -64,7 +61,6 @@ const routes = [
   [/^\/assignment\/(\d{1,2})$/, assignment.renderStage, { auth: true, student: "#/teacher/assignment" }],
   [/^\/teacher(?:\/([\w-]+))?(?:\/([\w-]+))?$/, teacher.render, { teacher: true }],
   [/^\/profile$/, profile.render, { auth: true }],
-  [/^\/passport$/, passport.render, { auth: true }],
   [/^\/review$/, review.render],
   [/^\/media$/, media.render],
   [/^\/live$/, live.renderJoin],
@@ -84,7 +80,6 @@ const NAV = [
   ["#/exam", "Nazorat testi", "📝"],
   ["#/result", "Natijam", "📊"],
   ["#/meets", "Jonli dars", "📹"],
-  ["#/rating", "Reyting", "🏆"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
   UPDATES.length > 0 && ["#/updates", "Dolzarb", "🔄"],
 ].filter(Boolean);
@@ -112,13 +107,13 @@ function renderNav() {
   const isTeacher = user?.role === "teacher";
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
-  const STUDENT_ONLY = ["#/result", "#/exam", "#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
+  const STUDENT_ONLY = ["#/result", "#/exam", "#/assignment", "#/tasks", "#/meets", "#/self-study"];
   let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)) && !(user && !isTeacher && href === "#/assignment" && !hasAssignment(user.group)) && !(href === "#/exam" && !(user && !isTeacher && hasExam(user.group)))); // 20 ballik topshiriq — faqat 331–334-25
   const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
   const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi
   if (ownSubject) {
     // Asosiy fanning 3-semestr topshirig'i, reytingi va dolzarb ma'lumotlari unga ko'rinmaydi; fan sahifasi (semestr, guruh reytingi) qo'shiladi
-    items = items.filter(([href]) => !["#/assignment", "#/rating", "#/updates"].includes(href));
+    items = items.filter(([href]) => !["#/assignment", "#/updates"].includes(href));
     items.unshift(["#/fan", ownSubject.title, ownSubject.icon]);
     if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"], ["#/meets", "Jonli dars", "📹"]];
   } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
@@ -132,7 +127,6 @@ function renderNav() {
     }
   }
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
-  else if (user && (!ownSubject || ownSubject.hasContent)) items.push(["#/passport", ownSubject ? COURSE.passportName : "Talaba pasporti", "🛂"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
   // O'qituvchi uchun fan almashtirgich: tanlangan fan mavzulari, testlari va materiallari bilan ishlaydi (sahifa qayta yuklanadi)
   const switcher = isTeacher && SUBJECTS.length > 1
@@ -180,7 +174,7 @@ async function route() {
     const su = subjectOfGroup(session.user.group);
     const other = su.key !== SUBJECTS[0].key;
     const closed = !su.hasContent && (path === "/" || path === "" || /^\/(topics|practice|lab|media|self-study|updates)(\/|$)/.test(path));
-    if (closed || (other && /^\/(assignment|rating|lab|updates)(\/|$)/.test(path))) {
+    if (closed || (other && /^\/(assignment|lab|updates)(\/|$)/.test(path))) {
       location.hash = "#/fan";
       return;
     }
@@ -226,7 +220,6 @@ window.addEventListener("tt:auth", renderNav);
 main.setAttribute("tabindex", "-1");
 initTopbar();
 initTools();
-initCelebrations();
 initLightbox();
 watch(main);
 initContentGuard();

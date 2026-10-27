@@ -65,19 +65,10 @@ const localXp = () => {
 const otherXp = () => (evidenceCache ? computeGame({ ...evidenceCache, progress: {} }).xp - computeGame({ progress: {} }).xp : 0);
 
 function trackXp(fn) {
-  const before = localXp();
   const firstToday = !state.activity?.[today()];
   fn();
   state.activity ||= {};
   state.activity[today()] = (state.activity[today()] || 0) + 1;
-  const after = localXp();
-  const gain = after - before;
-  if (gain > 0) {
-    const other = otherXp();
-    const lvBefore = levelOf(other + before);
-    const lvAfter = levelOf(other + after);
-    window.dispatchEvent(new CustomEvent("vgt:xp", { detail: { gain, total: other + after, levelUp: lvAfter.index > lvBefore.index ? lvAfter : null } }));
-  }
   if (firstToday) {
     const streak = streakOf(state.activity);
     if (streak >= 2) window.dispatchEvent(new CustomEvent("vgt:streak", { detail: { streak } }));

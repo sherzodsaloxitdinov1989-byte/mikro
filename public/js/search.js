@@ -14,7 +14,7 @@ const PAGES = [
   ["🔄", "Dolzarb ma'lumotlar — yangilangan statistika va me'yorlar", "#/updates"],
   ["🎬", "Mediateka — animatsion darslar, videolar, taqdimotlar", "#/media"],
   ["🎮", "Live — jonli viktorinaga qo'shilish (PIN)", "#/live"],
-  ["🛂", `${COURSE.passportName} — XP, nishonlar, reyting`, "#/passport", true],
+  ["📊", "Mening natijam — ma'ruza va amaliy ballar, PDF", "#/result", true],
   ["🔁", "Kunlik takrorlash — tushunchalar kartalari", "#/review"],
   ["🧩", "Mustaqil ta'lim", "#/self-study", true],
   ["👤", "Profil", "#/profile", true],

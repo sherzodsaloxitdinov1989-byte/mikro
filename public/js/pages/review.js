@@ -128,7 +128,7 @@ export async function render(el) {
     const pct = Math.round((result.known / Math.max(1, result.known + result.again)) * 100);
     if (pct >= 70) confetti();
     stage.replaceChildren(h("div", { class: "card srs-done" }, h("div", { class: "empty-icon" }, pct >= 70 ? "🏆" : "💪"), h("h2", {}, "Takrorlash yakunlandi!"), h("p", {}, `Bildingiz: ${result.known} · Qayta ko'rildi: ${result.again} · Aniqlik: ${pct}%`), h("p", { class: "muted" }, "Har bir takrorlangan karta +1 XP beradi. Ertaga yana keling — seriyangizni uzmang! 🔥")));
-    actions.replaceChildren(h("a", { href: "#/passport", class: "btn" }, "🛂 Pasportim"), h("a", { href: "#/topics", class: "btn ghost" }, "📚 Mavzular"));
+    actions.replaceChildren(h("a", { href: "#/result", class: "btn" }, "📊 Natijam"), h("a", { href: "#/topics", class: "btn ghost" }, "📚 Mavzular"));
     counter.textContent = "";
   };
 

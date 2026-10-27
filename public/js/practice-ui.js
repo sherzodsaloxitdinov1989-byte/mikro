@@ -20,7 +20,7 @@ export function practicePanel(topic) {
     const ok = pr.tasks.filter((t) => st.practice[t.id]?.ok).length;
     summary.replaceChildren(
       h("div", { class: "ps-ring", style: { "--p": Math.round((ok / pr.tasks.length) * 100) } }, h("b", {}, `${ok}/${pr.tasks.length}`)),
-      h("div", {}, h("b", {}, ok === pr.tasks.length ? "Barcha hisob-kitoblar to'g'ri! 🎉" : "Hisob-kitoblar"), h("p", { class: "muted small" }, "Har bir to'g'ri yechilgan masala +10 XP. Javobni kasr bilan vergul yoki nuqta orqali yozishingiz mumkin (masalan: 2,14)."))
+      h("div", {}, h("b", {}, ok === pr.tasks.length ? "Barcha hisob-kitoblar to'g'ri! 🎉" : "Hisob-kitoblar"), h("p", { class: "muted small" }, "Javobni kasr bilan vergul yoki nuqta orqali yozishingiz mumkin (masalan: 2,14)."))
     );
   };
   drawSummary();
@@ -133,7 +133,7 @@ function taskCard(topic, task, idx, st, onChange) {
         status.className = `badge ${ok || wasOk ? "badge-ok" : ""}`;
         card.classList.toggle("ok", ok || Boolean(wasOk));
         solution.classList.remove("locked");
-        if (ok) toast(wasOk ? "To'g'ri!" : "To'g'ri! +10 XP", "ok");
+        if (ok) toast(wasOk ? "To'g'ri!" : "To'g'ri!", "ok");
         else {
           shake(card);
           toast(`${results.filter(Boolean).length}/${results.length} ta javob to'g'ri. Formulani va o'lchov birligini tekshiring.`, "warn");
