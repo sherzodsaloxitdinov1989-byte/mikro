@@ -65,8 +65,9 @@ async function renderTake(el, id) {
   let d;
   try { d = await api.get(`exams/${id}/attempt`); } catch (e) { location.hash = "#/exam"; return; }
   if (d.result) return showResult(el, d, id);
-  const offset = new Date(d.now).getTime() - Date.now();
-  const deadline = new Date(d.deadline).getTime();
+  let deadline = new Date(d.deadline).getTime();
+  let offset = new Date(d.now).getTime() - Date.now();
+  const syncDeadline = (r) => { if (r?.deadline) { deadline = new Date(r.deadline).getTime(); offset = new Date(r.now).getTime() - Date.now(); } };
   const answers = { ...(d.answers || {}) };
   const qs = d.questions;
   let cur = 0;
@@ -78,7 +79,7 @@ async function renderTake(el, id) {
     sending = true;
     while (queue.length && !finished) {
       const job = queue[0];
-      try { await api.post(`exams/${id}/answer`, job); queue.shift(); } catch (e) { if (/vaqti tugadi/.test(e.message)) { queue.length = 0; break; } await new Promise((r) => setTimeout(r, 2000)); }
+      try { syncDeadline(await api.post(`exams/${id}/answer`, job)); queue.shift(); } catch (e) { if (/vaqti tugadi/.test(e.message)) { queue.length = 0; break; } await new Promise((r) => setTimeout(r, 2000)); }
     }
     sending = false;
   };
@@ -104,7 +105,7 @@ async function renderTake(el, id) {
     finished = true;
     cleanup();
     mount(el, loading("Natija hisoblanmoqda..."));
-    try { const r = await api.post(`exams/${id}/submit`, { answers }); showResult(el, r, id); } catch (e) { toast(e.message, "error"); location.hash = "#/exam"; }
+    try { const r = await api.post(`exams/${id}/submit`, { answers, timeout: Boolean(auto) }); showResult(el, r, id); } catch (e) { toast(e.message, "error"); location.hash = "#/exam"; }
   };
   const tick = () => {
     const ms = deadline - (Date.now() + offset);
@@ -114,6 +115,8 @@ async function renderTake(el, id) {
   };
   window.onbeforeunload = () => (finished ? undefined : "Test davom etmoqda.");
   timers.push(setInterval(tick, 500));
+  // O'qituvchi vaqt qo'shgan bo'lsa, taymer yangilanadi
+  timers.push(setInterval(async () => { if (finished) return; try { const r = await api.get(`exams/${id}/attempt`); if (r.deadline && !r.result) { const was = deadline; syncDeadline(r); if (deadline > was) toast(`⏱ O'qituvchi vaqtingizga ${Math.round((deadline - was) / 60000)} daqiqa qo'shdi`, "ok"); } } catch {} }, 15_000));
   mount(el,
     h("div", { class: "exam-bar card" }, h("div", {}, h("b", {}, "📝 Nazorat testi"), h("div", { class: "muted small" }, `${Object.keys(answers).length} / ${qs.length} javob belgilandi`)), h("div", { class: "exam-time" }, "⏱ ", timer)),
     nav, box,

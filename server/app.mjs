@@ -2217,14 +2217,14 @@ function examFor(user, id) {
 const examState = (exam, now = Date.now()) => (now < toMs(exam.startsAt) ? "soon" : now > toMs(exam.closesAt) ? "closed" : "open");
 
 /** Muddati o'tgan urinishni yakunlaydi (saqlangan javoblar bo'yicha baholanadi). */
-async function finalizeAttempt(exam, rec, force = false) {
+async function finalizeAttempt(exam, rec, force = false, byTimeout = false) {
   if (rec.result) return rec;
   if (!force && Date.now() <= toMs(rec.deadline) + EXAM_GRACE_MS) return rec;
   const g = examGrade(exam, rec.items, rec.answers);
   // Ish vaqtida qoida buzilgan bo'lsa (ekran surati, oynadan chiqish va h.k.) ball kamaytiriladi
   const integrity = await integrityFor(rec.userId, onPage(`#/exam/${exam.id}`), rec.startedAt);
   const percent = Math.round(reduceBy(g.percent, integrity?.percent));
-  rec.result = { ...g, percentRaw: g.percent, percent, integrity: integrity && { ...integrity, before: g.percent }, at: new Date().toISOString(), auto: !force };
+  rec.result = { ...g, percentRaw: g.percent, percent, integrity: integrity && { ...integrity, before: g.percent }, at: new Date().toISOString(), auto: !force || byTimeout };
   rec.submittedAt = force ? new Date().toISOString() : rec.deadline;
   await db().set(attemptKey(exam.id, rec.userId), rec);
   return rec;
@@ -2290,7 +2290,7 @@ async function examAnswer(req, id) {
   if (a === null) delete rec.answers[n];
   else rec.answers[n] = a;
   await db().set(attemptKey(id, user.id), rec);
-  return json({ ok: true, answered: Object.keys(rec.answers).length });
+  return json({ ok: true, answered: Object.keys(rec.answers).length, deadline: rec.deadline, now: new Date().toISOString() });
 }
 
 async function examSubmit(req, id) {
@@ -2303,7 +2303,7 @@ async function examSubmit(req, id) {
   if (!rec.result && b?.answers && typeof b.answers === "object" && Date.now() <= toMs(rec.deadline) + EXAM_GRACE_MS) {
     for (const [k, v] of Object.entries(b.answers)) if (Number.isInteger(+k) && +k >= 0 && +k < rec.items.length && Number.isInteger(v) && v >= 0 && v < 4) rec.answers[+k] = v;
   }
-  rec = await finalizeAttempt(exam, rec, true);
+  rec = await finalizeAttempt(exam, rec, true, Boolean(b?.timeout));
   return json(attemptView(exam, rec));
 }
 
@@ -2321,7 +2321,7 @@ async function adminExamResults(req, id) {
   const rows = await Promise.all(users.map(async (u) => {
     let rec = await db().get(attemptKey(id, u.id));
     if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
-    return { allowed: isAllowed(acc, u.id), userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
+    return { allowed: isAllowed(acc, u.id), userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, extraMin: rec?.extraMin || 0, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
   }));
   rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, defaultAllow: acc.defaultAllow, rows });
@@ -2352,6 +2352,41 @@ async function adminExamAccess(req, id) {
   await db().set(accessKey(id), acc);
   await securityAlert(req, "exam_access", "info", "Nazorat testiga ruxsat o'zgartirildi", `${t.name}: ${b.all ? "hammaga" : b.group ? `${b.group} guruhiga` : `${n} ta talabaga`} ${allowed ? "ruxsat berdi" : "ruxsatni yopdi"}.`, `${id}/${Date.now()}`, 1000).catch(() => {});
   return json({ ok: true, defaultAllow: acc.defaultAllow, changed: n });
+}
+
+/** O'qituvchi: talabalar vaqtiga qo'shimcha daqiqa. Body: { minutes (1–60), userIds?: [], group?, allRunning?: true }.
+ * Test davom etayotganlarga qo'shiladi; vaqti tugab o'zi yakunlangan (auto) bo'lsa — qayta ochiladi va shu paytdan boshlab `minutes` beriladi. */
+async function adminExamExtend(req, id) {
+  const t = await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  const b = await body(req);
+  const minutes = Math.round(Number(b.minutes));
+  if (!Number.isFinite(minutes) || minutes < 1 || minutes > 60) throw new HttpError(400, "Qo'shimcha vaqt 1 dan 60 daqiqagacha bo'lishi kerak");
+  let ids = Array.isArray(b.userIds) ? b.userIds.map(String) : [];
+  if (b.allRunning || b.group) {
+    const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group) && (!b.group || u.group === b.group));
+    ids = ids.concat(users.map((u) => u.id));
+  }
+  if (!ids.length) throw new HttpError(400, "Talaba tanlanmagan");
+  let extended = 0, reopened = 0;
+  for (const uid of new Set(ids)) {
+    const rec = await db().get(attemptKey(id, uid));
+    if (!rec) continue;
+    if (!rec.result) {
+      rec.deadline = new Date(toMs(rec.deadline) + minutes * 60_000).toISOString();
+      extended++;
+    } else if (rec.result.auto && !b.allRunning) {
+      rec.result = null;
+      rec.submittedAt = null;
+      rec.deadline = new Date(Date.now() + minutes * 60_000).toISOString();
+      reopened++;
+    } else continue;
+    rec.extraMin = (rec.extraMin || 0) + minutes;
+    await db().set(attemptKey(id, uid), rec);
+  }
+  await securityAlert(req, "exam_extend", "info", "Nazorat testi vaqti uzaytirildi", `${t.name}: ${extended + reopened} ta talabaga +${minutes} daqiqa berdi (davom etayotgan: ${extended}, qayta ochilgan: ${reopened}).`, `${id}/${Date.now()}`, 1000).catch(() => {});
+  return json({ ok: true, extended, reopened, minutes });
 }
 
 /** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
@@ -3589,6 +3624,7 @@ const routes = [
   ["GET", /^admin\/exams\/([\w-]+)\/bank$/, adminExamBank],
   ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
   ["POST", /^admin\/exams\/([\w-]+)\/access$/, adminExamAccess],
+  ["POST", /^admin\/exams\/([\w-]+)\/extend$/, adminExamExtend],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],

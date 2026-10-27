@@ -274,6 +274,13 @@ async function examsView(el) {
     };
     saveBtn2.onclick = () => saveBtn.onclick();
     cancelBtn.onclick = cancelBtn2.onclick = () => { pending.clear(); draw(); paintSave(); };
+    const minutes = h("input", { type: "number", min: 1, max: 60, value: 15, style: { width: "70px" }, "aria-label": "Qo'shimcha daqiqa" });
+    const extend = async (target, who) => {
+      const m = Number(minutes.value);
+      if (!(m >= 1 && m <= 60)) return toast("Daqiqani 1–60 oralig'ida kiriting", "warn");
+      if (!(await confirmDialog(`${who} +${m} daqiqa qo'shilsinmi? (Vaqti tugab yakunlanganlar qayta ochiladi.)`))) return;
+      try { const r = await api.post(`admin/exams/${e.id}/extend`, { ...target, minutes: m }); toast(`+${m} daqiqa: ${r.extended} ta davom etayotgan, ${r.reopened} ta qayta ochildi`, "ok"); mount(el, await examsViewBody()); } catch (ex) { toast(ex.message, "error"); }
+    };
     const bulk = async (payload, msg) => {
       if (!(await confirmDialog(msg))) return;
       try { await api.post(`admin/exams/${e.id}/access`, payload); toast("Saqlandi", "ok"); mount(el, await examsViewBody()); } catch (ex) { toast(ex.message, "error"); }
@@ -295,7 +302,7 @@ async function examsView(el) {
             h("td", { class: "center small" }, r.status === "none" ? "—" : `${r.answered}/${d.exam.count}`),
             h("td", { class: "center" }, r.result ? `${r.result.correct}/${r.result.total}` : "—"),
             h("td", { class: "center" }, r.result ? h("b", { title: r.result.integrity ? `Qoida buzilgani uchun −${r.result.integrity.percent}% (${r.result.percentRaw}% → ${r.result.percent}%)` : "" }, `${r.result.percent}%${r.result.integrity ? "*" : ""}`) : "—"),
-            h("td", {}, r.status !== "none" && h("button", { class: "btn small ghost", title: "Talabaga testni qayta topshirishga ruxsat (urinish o'chiriladi)", onclick: async () => { if (!(await confirmDialog(`${r.name} urinishi o'chirilib, test qayta topshirishga ochilsinmi?`))) return; await api.post(`admin/exams/${e.id}/reset/${r.userId}`, {}); mount(el, h("div"), await examsViewBody()); } }, "↺"))))))),
+            h("td", {}, (r.status === "running" || r.result?.auto) && h("button", { class: "btn small", title: r.status === "running" ? "Shu talabaga qo'shimcha vaqt berish" : "Vaqti tugab yakunlangan: qayta ochib, qo'shimcha vaqt berish", onclick: () => extend({ userIds: [r.userId] }, `${r.name}ga`) }, "⏱+"), " ", r.status !== "none" && h("button", { class: "btn small ghost", title: "Talabaga testni qayta topshirishga ruxsat (urinish o'chiriladi)", onclick: async () => { if (!(await confirmDialog(`${r.name} urinishi o'chirilib, test qayta topshirishga ochilsinmi?`))) return; await api.post(`admin/exams/${e.id}/reset/${r.userId}`, {}); mount(el, h("div"), await examsViewBody()); } }, "↺"))))))),
         h("p", { class: "small muted" }, "* — test paytida qoida buzilgani (himoya hodisalari) sababli ball kamaytirilgan."));
     };
     const csv = () => downloadFile(`${e.id}-natijalar.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Email", "Ruxsat", "Holati", "Boshlagan", "Javob berilgan", "To'g'ri", "Jami", "Natija (%)", "Jarimagacha (%)"], ...rowsOf().map((r) => [r.group, r.name, r.idNumber, r.email, r.allowed ? "ha" : "yo'q", stText(r), r.started ? uzAt(r.started) : "", r.answered, r.result?.correct ?? "", r.result?.total ?? "", r.result?.percent ?? "", r.result?.percentRaw ?? ""])]));
@@ -314,6 +321,9 @@ async function examsView(el) {
           h("button", { class: "btn small", onclick: () => bulk({ all: true, allowed: true }, "Hamma talabaga (shu jumladan keyin ro'yxatdan o'tganlarga) ruxsat berilsinmi?") }, "✅ Hammaga ruxsat"),
           h("button", { class: "btn small ghost", onclick: () => bulk({ all: true, allowed: false }, "Hamma uchun test yopilsinmi? Faqat keyin alohida ruxsat berilganlar ishlay oladi.") }, "⛔ Hammasini yopish"),
           h("button", { class: "btn small", onclick: () => (q.group ? bulk({ group: q.group, allowed: true }, `${q.group} guruhiga ruxsat berilsinmi?`) : toast("Avval yuqoridan guruhni tanlang", "warn")) }, "✅ Tanlangan guruhga ruxsat"),
+          h("span", { class: "row", style: { gap: "6px", alignItems: "center" } }, "⏱ Qo'shimcha vaqt:", minutes, "daqiqa",
+            h("button", { class: "btn small", onclick: () => extend({ allRunning: true }, "Test hozir davom etayotgan barcha talabalarga") }, "Ishlayotganlarga qo'shish"),
+            h("button", { class: "btn small ghost", onclick: () => (q.group ? extend({ group: q.group }, `${q.group} guruhidagi talabalarga`) : toast("Avval yuqoridan guruhni tanlang", "warn")) }, "Tanlangan guruhga")),
           h("button", { class: "btn small ghost", onclick: () => (q.group ? bulk({ group: q.group, allowed: false }, `${q.group} guruhi uchun ruxsat yopilsinmi?`) : toast("Avval yuqoridan guruhni tanlang", "warn")) }, "⛔ Tanlangan guruhni yopish"))),
       box, h("div", { class: "row end" }, cancelBtn2, saveBtn2), (draw(), null));
   };
