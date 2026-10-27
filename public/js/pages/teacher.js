@@ -42,6 +42,7 @@ const SECTIONS = [
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "rating", only: "mikro", icon: "🏆", title: "Reyting va rag'bat", group: "class", desc: "Semestr bo'yicha guruhlarda talabalar reytingi, ball tarkibi, rag'bat balli berish va yakuniy natijani Excel'ga yuklash." },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
   { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
   { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, metodlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
   { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
@@ -217,6 +218,50 @@ async function allResultsView(el) {
       h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)")),
     box);
   draw();
+}
+
+async function scoresView(el) {
+  let semNo = 0;
+  let group = "";
+  let text = "";
+  const box = h("div", { class: "stack" });
+  const fmtS = (n) => String(Math.round((n ?? 0) * 100) / 100).replace(".", ",");
+  async function load(fresh) {
+    const d = await api.get(`admin/scores?subject=${SUBJECT_KEY}${semNo ? `&sem=${semNo}` : ""}${fresh ? "&fresh=1" : ""}`);
+    semNo = d.sem.no;
+    const groups = [...new Set(d.rows.map((r) => r.group).filter(Boolean))].sort();
+    const rows = () => d.rows.filter((r) => (!group || r.group === group) && (!text || `${r.name} ${r.email} ${r.idNumber}`.toLowerCase().includes(text)));
+    const sc0 = d.rows[0]?.scoring;
+    const csv = () => downloadFile(`ball-jadvali-${d.sem.name}${group ? `-${group}` : ""}.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Ta'lim shakli", "Ma'ruza", "Ma'ruza (eng ko'pi)", "Amaliy", "Amaliy (eng ko'pi)", "Oraliq nazorat (5 ballik)", "Jami", "Jami (eng ko'pi)"], ...rows().map((r) => [r.group, r.name, r.idNumber, formByKey(r.form)?.name || r.form, r.lecture.points, r.lecture.max, r.practice.points, r.practice.max, r.midtermGrade ?? "", r.total, r.totalMax])]));
+    const table = h("div");
+    const draw = () => {
+      const list = rows();
+      table.replaceChildren(list.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+        h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "Ma'ruza", "Amaliy", "Oraliq (0–5)", "Jami"].map((c, i) => h("th", { class: i > 2 ? "center" : "" }, c)))),
+        h("tbody", {}, list.map((r, i) => {
+          const inp = h("input", { type: "number", min: 0, max: 5, step: 0.5, value: r.midtermGrade ?? "", style: { width: "72px" }, title: r.midtermSource === "exam" ? "Nazorat testidan avtomatik olingan; o'zgartirsangiz sizning bahoyingiz ustun bo'ladi" : "0 dan 5 gacha (0,5 qadam)" });
+          const save = h("button", { class: "btn small ghost", onclick: async () => {
+            try { await api.put("admin/midterm", { subject: SUBJECT_KEY, sem: d.sem.no, userId: r.userId, grade: inp.value === "" ? null : Number(inp.value) }); toast("Saqlandi", "ok"); load(true); } catch (ex) { toast(ex.message, "error"); }
+          } }, "💾");
+          return h("tr", {}, h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, r.group || "—"), h("td", {}, r.name, h("div", { class: "muted small" }, formByKey(r.form)?.name || "")),
+            h("td", { class: "center small", title: `Testlar ${r.lecture.testsPct}%${r.lecture.tasksCount ? ` · topshiriqlar ${r.lecture.tasksPct}%` : ""}` }, `${fmtS(r.lecture.points)} / ${fmtS(r.lecture.max)}`),
+            h("td", { class: "center small", title: `Amaliyot ${r.practice.practicePct}%${r.practice.tasksCount ? ` · topshiriqlar ${r.practice.tasksPct}%` : ""}` }, `${fmtS(r.practice.points)} / ${fmtS(r.practice.max)}`),
+            h("td", { class: "center" }, inp, " ", save, r.midtermSource === "exam" && h("div", { class: "muted small" }, "nazorat testi")),
+            h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`)));
+        })))) : emptyState("👥", "Talabalar topilmadi"));
+    };
+    box.replaceChildren(
+      h("div", { class: "row wrap" },
+        d.semesters.length > 1 && h("select", { onchange: (e) => ((semNo = Number(e.target.value)), (group = ""), load()) }, d.semesters.map((s) => h("option", { value: s.no, selected: s.no === d.sem.no }, s.name))),
+        h("select", { onchange: (e) => ((group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g, selected: g === group }, g))),
+        h("input", { type: "search", placeholder: "Ism yoki ID…", oninput: (e) => ((text = e.target.value.toLowerCase()), draw()) }),
+        h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"), h("button", { class: "btn ghost", onclick: () => load(true) }, "↻ Yangilash")),
+      h("div", { class: "alert alert-info small" }, `${d.sem.name}${d.sem.endsAt ? ` (tugash: ${d.sem.endsAt}${d.sem.ended ? ", yakunlangan" : ""})` : ""}. Ball tizimi: ma'ruza — ${sc0 ? sc0.lecture : 10}, amaliy — ${sc0 ? sc0.practice : 10}${d.subject === "mikro" ? " (masofaviy ta'limda ma'ruza 30 ball — shundan 10 balli oraliq nazorat, amaliy 20 ball)" : ""}. Oraliq nazorat 5 ballik tizimda: masofaviy ta'limda ma'ruza balliga kiradi, boshqalarda alohida qo'shimcha ball. Ma'ruza ishi = mavzu testlari + «ma'ruza» turidagi topshiriqlar; amaliy = amaliy mashg'ulotlar + «amaliy» turidagi topshiriqlar.`),
+      table);
+    draw();
+  }
+  mount(el, box);
+  await load();
 }
 
 async function examsView(el) {
@@ -443,7 +488,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, rating: ratingView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi

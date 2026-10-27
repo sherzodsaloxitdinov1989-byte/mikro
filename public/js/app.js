@@ -12,6 +12,7 @@ import * as topics from "./pages/topics.js";
 import * as selfStudy from "./pages/selfstudy.js";
 import * as assignment from "./pages/assignment.js";
 import * as exam from "./pages/exam.js";
+import * as result from "./pages/result.js";
 import * as tasks from "./pages/tasks.js";
 import * as meets from "./pages/meets.js";
 import * as subject from "./pages/subject.js";
@@ -56,6 +57,7 @@ const routes = [
   [/^\/meets$/, meets.render, { auth: true, student: "#/teacher/meets" }],
   [/^\/tasks$/, tasks.render, { auth: true, student: "#/teacher/tasks" }],
   [/^\/tasks\/([\w-]+)$/, tasks.renderTask, { auth: true, student: "#/teacher/tasks" }],
+  [/^\/result$/, result.render, { auth: true, student: "#/teacher/scores" }],
   [/^\/exam$/, exam.render, { auth: true, student: "#/teacher/exams" }],
   [/^\/exam\/([\w-]+)$/, exam.renderExam, { auth: true, student: "#/teacher/exams" }],
   [/^\/assignment$/, assignment.render, { auth: true, student: "#/teacher/assignment" }],
@@ -80,6 +82,7 @@ const NAV = [
   ["#/assignment", "Topshiriq", "📝"],
   ["#/tasks", "Vazifalar", "🗂️"],
   ["#/exam", "Nazorat testi", "📝"],
+  ["#/result", "Natijam", "📊"],
   ["#/meets", "Jonli dars", "📹"],
   ["#/rating", "Reyting", "🏆"],
   ["#/self-study", "Mustaqil ta'lim", "🧩"],
@@ -109,7 +112,7 @@ function renderNav() {
   const isTeacher = user?.role === "teacher";
   document.documentElement.dataset.role = user ? user.role : "guest";
   // Talabaga xos bo'limlar (topshiriq, mustaqil ta'lim) o'qituvchi menyusida ko'rinmaydi: ular uchun o'qituvchi panelida alohida bo'lim bor.
-  const STUDENT_ONLY = ["#/exam", "#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
+  const STUDENT_ONLY = ["#/result", "#/exam", "#/assignment", "#/tasks", "#/meets", "#/self-study", "#/rating"];
   let items = NAV.filter(([href]) => !(isTeacher && STUDENT_ONLY.includes(href)) && !(user && !isTeacher && href === "#/assignment" && !hasAssignment(user.group)) && !(href === "#/exam" && !(user && !isTeacher && hasExam(user.group)))); // 20 ballik topshiriq — faqat 331–334-25
   const stu = user && !isTeacher ? subjectOfGroup(user.group) : null;
   const ownSubject = stu && stu.key !== SUBJECTS[0].key ? stu : null; // asosiy fandan boshqa fan talabasi

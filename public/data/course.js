@@ -310,3 +310,22 @@ export const formsOfSubject = (key) => {
 
 /** Guruhga faqat o'qituvchi yuklagan ro'yxat va shifr bilan kiriladimi. */
 export const isRosterGroup = (group) => SUBJECTS.some((s) => (s.rosterGroups || []).includes(group));
+
+// ---------- Ball tizimi: ma'ruza va amaliy mashg'ulot ----------
+// Har bir fan va semestr bo'yicha talaba ikki yo'nalishda ball yig'adi (har biri 10 ball). Faqat Mikroiqtisodiyotdan masofaviy ta'limda:
+// ma'ruza — 30 ball (shundan 10 balli oraliq nazorat), amaliy mashg'ulot — 20 ball.
+// Oraliq nazorat o'qituvchi tomonidan 5 ballik tizimda baholanadi; masofaviy ta'limdan tashqari u alohida qo'shimcha ball hisoblanadi.
+export const SCORING = {
+  default: { lecture: 10, practice: 10, midtermInLecture: 0 },
+  distance: { lecture: 30, practice: 20, midtermInLecture: 10 },
+};
+export const scoringOf = (subjectKey, form) => (subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : SCORING.default);
+
+/** Fanning semestrlari: [{ no, name, term, topics:[dan,gacha], startsAt, endsAt }]. Asosiy fan — course.semesters; boshqalar — bitta semestr (barcha mavzular). */
+export function semestersOfSubject(key) {
+  const sub = subjectByKey(key) || SUBJECTS[0];
+  if (sub.key === SUBJECTS[0].key) return COURSE.semesters.map((s) => ({ no: s.no, name: s.name, term: s.term, topics: s.topics, startsAt: s.startsAt, endsAt: s.endsAt }));
+  const s = sub.semester;
+  return s ? [{ no: s.no, name: `${s.no}-semestr`, term: s.term, topics: [1, 999], startsAt: s.startsAt || null, endsAt: s.endsAt || null }] : [];
+}
+export const semesterEnded = (sem, now = Date.now()) => Boolean(sem?.endsAt) && now > new Date(`${sem.endsAt}T23:59:59+05:00`).getTime();

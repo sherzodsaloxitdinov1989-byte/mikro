@@ -7,8 +7,9 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
+import { computeScore } from "./scores.mjs";
 import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
@@ -2435,6 +2436,102 @@ async function adminExamBank(req, id) {
   return json({ title: exam.title, bank: exam.bank });
 }
 
+// ---------- Ball tizimi: ma'ruza va amaliy mashg'ulot (semestr bo'yicha) ----------
+
+const midtermKey = (subject, sem, uid) => `midterm/${subject}/${sem}/${uid}`;
+const scoreCache = new Map();
+
+/** Topshiriq qaysi semestrga tegishli: ko'rsatilgan bo'lsa shu, aks holda yaratilgan sana bo'yicha (yoki yagona semestr). */
+function taskSemesterNo(task, sems) {
+  if (task.semester > 0 && sems.some((s) => s.no === task.semester)) return task.semester;
+  if (sems.length === 1) return sems[0].no;
+  const d = String(task.createdAt || "").slice(0, 10);
+  return (sems.find((s) => (!s.startsAt || d >= s.startsAt) && (!s.endsAt || d <= s.endsAt)) || sems[sems.length - 1]).no;
+}
+
+async function computeScoreRows(subject, semNo) {
+  const sems = semestersOfSubject(subject);
+  const sem = sems.find((s) => s.no === semNo) || sems[0];
+  if (!sem) throw new HttpError(404, "Semestr topilmadi");
+  const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))) }));
+  const topicIds = new Set(topics.map((t) => t.id));
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
+  const [progress, reviews, tasksAll, tsubs, mids, attempts] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getMany("task/"), getMany("tasksub/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/")]);
+  const uidOf = (key) => key.split("/")[1];
+  const group = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
+  const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
+  const rv = group(reviews);
+  const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
+  const tasks = tasksAll.filter((t) => t.published && (t.subject || SUBJECTS[0].key) === subject && taskSemesterNo(t, sems) === sem.no);
+  const subBy = new Map(tsubs.map((x) => [`${x.taskId}/${x.userId}`, x]));
+  // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
+  const examGrade = new Map();
+  if (sems.length === 1) for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result) examGrade.set(a.userId, fiveScale(a.result.percent)); }
+  const rows = users.map((u) => {
+    const form = formKeyOf(u);
+    const mine = tasks.filter((t) => taskLib.forStudent(t, { form, group: u.group })).map((t) => ({ kind: t.kind || "practice", max: t.max, score: subBy.get(`${t.id}/${u.id}`)?.teacher?.score ?? null }));
+    const manual = midBy.get(u.id);
+    const midterm = manual ? manual.grade : examGrade.get(u.id) ?? null;
+    const r = computeScore({ subject, form, topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), tasks: mine, midterm });
+    return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
+  }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
+}
+
+async function cachedScoreRows(subject, semNo) {
+  const key = `${subject}/${semNo}`;
+  const c = scoreCache.get(key);
+  if (c && Date.now() - c.at < 30_000) return c.data;
+  const data = await computeScoreRows(subject, semNo);
+  scoreCache.set(key, { at: Date.now(), data });
+  return data;
+}
+
+/** Talaba: o'z fanining semestr natijasi (ma'ruza, amaliy, oraliq, jami). PDF faqat semestr tugagach yuklanadi. */
+async function myResults(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Natijalar talabalar uchun");
+  const subject = subjectOfGroup(user.group).key;
+  const sems = semestersOfSubject(subject);
+  const q = Number(new URL(req.url).searchParams.get("sem"));
+  const semNo = sems.some((s) => s.no === q) ? q : (sems.find((s) => !semesterEnded(s)) || sems[sems.length - 1])?.no;
+  const { sem, rows } = await cachedScoreRows(subject, semNo);
+  const me = rows.find((r) => r.userId === user.id);
+  const sub = subjectByKey(subject);
+  return json({ subject: { key: subject, title: sub.title, icon: sub.icon, direction: sub.direction }, semesters: sems.map((s) => ({ no: s.no, name: s.name, term: s.term, endsAt: s.endsAt, ended: semesterEnded(s) })), sem, student: { name: user.name, group: user.group || "", idNumber: user.idNumber || "", form: formKeyOf(user) }, score: me || null, now: new Date().toISOString() });
+}
+
+async function adminScores(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const sems = semestersOfSubject(subject);
+  const q = Number(url.searchParams.get("sem"));
+  const semNo = sems.some((s) => s.no === q) ? q : (sems.find((s) => !semesterEnded(s)) || sems[sems.length - 1])?.no;
+  if (url.searchParams.get("fresh")) scoreCache.delete(`${subject}/${semNo}`);
+  const { sem, rows } = await cachedScoreRows(subject, semNo);
+  return json({ subject, semesters: sems.map((s) => ({ no: s.no, name: s.name })), sem, rows });
+}
+
+/** O'qituvchi: talabaning oraliq nazorat bahosini (5 ballik, 0,5 qadam) kiritadi yoki o'chiradi. */
+async function adminSetMidterm(req) {
+  const t = await requireTeacher(req);
+  const b = await body(req);
+  const subject = SUBJECTS.some((x) => x.key === b.subject) ? b.subject : null;
+  const sem = semestersOfSubject(subject || "").find((s) => s.no === Number(b.sem));
+  const user = await db().get(userKey(str(b.userId, 64)));
+  if (!subject || !sem || !user || user.role !== "student") throw new HttpError(404, "Fan, semestr yoki talaba topilmadi");
+  const key = midtermKey(subject, sem.no, user.id);
+  if (b.grade === null || b.grade === "" || b.grade === undefined) await db().del(key);
+  else {
+    const grade = Number(b.grade);
+    if (!Number.isFinite(grade) || grade < 0 || grade > 5 || Math.round(grade * 2) !== grade * 2) throw new HttpError(400, "Baho 0 dan 5 gacha (0,5 qadam bilan) bo'lishi kerak");
+    await db().set(key, { grade, by: t.name, at: new Date().toISOString() });
+  }
+  scoreCache.delete(`${subject}/${sem.no}`);
+  return json({ ok: true });
+}
+
 // ---------- Live: jonli sinf viktorinasi ----------
 // O'yin hujjatiga faqat o'qituvchi yozadi; o'yinchilar va javoblar — alohida yozuvlar (bir vaqtda yozishda
 // bir-birini o'chirmaslik uchun). Reyting javoblar ochilganda hisoblanib, o'yin hujjatiga saqlanadi.
@@ -3643,6 +3740,9 @@ const routes = [
   ["GET", /^admin\/items$/, adminItems],
   ["GET", /^admin\/test-results$/, adminTestResults],
   ["GET", /^admin\/results$/, adminAllResults],
+  ["GET", /^results$/, myResults],
+  ["GET", /^admin\/scores$/, adminScores],
+  ["PUT", /^admin\/midterm$/, adminSetMidterm],
   ["GET", /^exams$/, examList],
   ["POST", /^exams\/([\w-]+)\/start$/, examStart],
   ["GET", /^exams\/([\w-]+)\/attempt$/, examAttempt],

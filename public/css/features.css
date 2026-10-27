@@ -448,3 +448,12 @@
 /* Yangi versiya xabari */
 .update-bar { position: fixed; left: 50%; top: 12px; transform: translateX(-50%); z-index: 300; display: flex; align-items: center; gap: 12px; max-width: min(680px, calc(100% - 24px)); padding: 10px 14px; border-radius: 14px; background: #1d4ed8; color: #fff; font-size: 0.9rem; box-shadow: 0 14px 34px -12px rgba(0, 0, 0, 0.55); animation: page-in 0.4s var(--ease-out); }
 .update-bar .icon-btn { color: #fff; }
+
+/* Semestr natijasi varag'i (PDF uchun ham) */
+.result-sheet { background: #fff; color: #14213d; padding: 22px; border-radius: 12px; max-width: 794px; margin: 0 auto; }
+.result-sheet .table { color: #14213d; }
+.result-sheet .muted { color: #5a6577; }
+.result-head { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.result-logo { font-size: 2.4rem; }
+.result-head h2 { margin: 0; font-size: 1.25rem; }
+.result-info th { width: 28%; text-align: left; color: #5a6577; font-weight: 600; }

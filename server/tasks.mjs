@@ -60,6 +60,7 @@ export function normalizeTask(b, { formKeys, groups }) {
       forms,
       groups: subjGroups,
       semester,
+      kind: b.kind === "lecture" ? "lecture" : "practice", // ball tizimi: ma'ruza yoki amaliy mashg'ulot uchun
       due,
       allowLate: b.allowLate !== false,
       max,
