@@ -9,7 +9,7 @@ import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
-import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade } from "./exams.mjs";
+import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -20,7 +20,7 @@ import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
-import { SEC_TYPES, integrityOf, reduceBy } from "./integrity.mjs";
+import { SEC_TYPES, integrityOf, reduceBy, POINT_PERCENT, MAX_PENALTY } from "./integrity.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { KEYS as QUIZ_KEYS_TB } from "./quiz-keys-tb.mjs";
 import { KEYS as QUIZ_KEYS_M2 } from "./quiz-keys-mikro2.mjs";
@@ -2389,6 +2389,35 @@ async function adminExamExtend(req, id) {
   return json({ ok: true, extended, reopened, minutes });
 }
 
+/** O'qituvchi: to'liq hisobot — har bir talaba bo'yicha natija, 5 ballik baho, vaqt va test paytidagi nomaqbul harakatlar. */
+async function adminExamReport(req, id) {
+  await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group));
+  const acc = await loadAccess(id);
+  const rows = await Promise.all(users.map(async (u) => {
+    let rec = await db().get(attemptKey(id, u.id));
+    if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
+    const from = rec?.startedAt || "";
+    const to = rec ? (rec.submittedAt || rec.deadline) : "";
+    const events = rec ? (await getMany(`secevent/${u.id}/`)).filter((e) => String(e.page || "").split("?")[0] === `#/exam/${id}` && e.at >= from && e.at <= new Date(toMs(to) + 60_000).toISOString()).sort((a, b) => a.at.localeCompare(b.at)) : [];
+    const byType = {};
+    for (const e of events) (byType[e.type] ||= []).push(e.at);
+    const r = rec?.result;
+    return {
+      userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, allowed: isAllowed(acc, u.id),
+      status: !rec ? "none" : r ? "done" : "running", started: rec?.startedAt || null, finished: rec?.submittedAt || null, deadline: rec?.deadline || null, extraMin: rec?.extraMin || 0, auto: Boolean(r?.auto),
+      answered: rec ? Object.keys(rec.answers || {}).length : 0, correct: r?.correct ?? null, total: r?.total ?? exam.count,
+      percentRaw: r?.percentRaw ?? null, penalty: r?.integrity?.percent || 0, percent: r?.percent ?? null,
+      grade5: r ? fiveScale(r.percent) : null, grade5Raw: r ? fiveScale(r.percentRaw) : null,
+      violations: Object.entries(byType).map(([type, times]) => ({ type, label: SEC_TYPES[type]?.label || type, rule: SEC_TYPES[type]?.rule || "", count: times.length, first: times[0], last: times[times.length - 1] })),
+    };
+  }));
+  rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups, bank: exam.bank.length }, rows, generatedAt: new Date().toISOString(), penaltyRule: { perPoint: POINT_PERCENT, max: MAX_PENALTY } });
+}
+
 /** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
 async function adminExamReset(req, id, uid) {
   const t = await requireTeacher(req);
@@ -3625,6 +3654,7 @@ const routes = [
   ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
   ["POST", /^admin\/exams\/([\w-]+)\/access$/, adminExamAccess],
   ["POST", /^admin\/exams\/([\w-]+)\/extend$/, adminExamExtend],
+  ["GET", /^admin\/exams\/([\w-]+)\/report$/, adminExamReport],
   ["POST", /^live$/, liveCreate],
   ["GET", /^live\/(\d{6})\/host$/, liveHost],
   ["POST", /^live\/(\d{6})\/control$/, liveControl],

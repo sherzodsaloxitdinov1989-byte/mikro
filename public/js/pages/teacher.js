@@ -239,6 +239,70 @@ async function examsView(el) {
     const { buildDocx } = await import("../docx.js");
     downloadFile(`${e.id}-baza${withKeys ? "-javoblar" : ""}.docx`, buildDocx(blocks, title), "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
   };
+  const fmtDT = (iso) => (iso ? uzAt(iso) : "—");
+  const mins = (a, b) => (a && b ? Math.max(0, Math.round((new Date(b) - new Date(a)) / 60000)) : null);
+  const statusText = (r) => (r.status === "none" ? "Boshlamagan" : r.status === "running" ? "Jarayonda" : r.auto ? "Yakunlagan (vaqt tugadi)" : "Yakunlagan");
+  const vioText = (r) => (r.violations.length ? r.violations.map((v) => `${v.label}: ${v.count} marta`).join("; ") : "yo'q");
+  /** To'liq hisobot (Word): umumiy ko'rsatkichlar, guruhlar bo'yicha natijalar va nomaqbul harakatlar. */
+  const reportDocx = async (e) => {
+    const d = await api.get(`admin/exams/${e.id}/report`);
+    const done = d.rows.filter((r) => r.status === "done");
+    const avg = done.length ? Math.round(done.reduce((n, r) => n + r.percent, 0) / done.length) : 0;
+    const avg5 = done.length ? (done.reduce((n, r) => n + r.grade5, 0) / done.length).toFixed(2).replace(".", ",") : "—";
+    const dist = [5, 4, 3, 2].map((g) => done.filter((r) => r.grade5 === g).length);
+    const viol = d.rows.filter((r) => r.violations.length);
+    const blocks = [
+      { t: "h1", text: `${d.exam.title} — natijalar hisoboti` },
+      { t: "p", text: `Guruhlar: ${d.exam.groups.join(", ")} · Test boshlanishi: ${fmtDT(d.exam.startsAt)} · Har bir talabaga: ${d.exam.durationMin} daqiqa · Savollar: ${d.exam.count} ta (baza: ${d.exam.bank} ta, har bir talabaga tasodifiy variant)` },
+      { t: "p", text: `Hisobot tuzilgan vaqt: ${fmtDT(d.generatedAt)}` },
+      { t: "p", text: "5 ballik baho: 86–100% → 5 («a'lo»); 71–85% → 4 («yaxshi»); 55–70% → 3 («qoniqarli»); 55% dan past → 2 («qoniqarsiz»)." },
+      { t: "p", text: `Nomaqbul harakatlar uchun jarima: har bir jiddiylik balli uchun ${d.penaltyRule.perPoint}% (ko'pi bilan ${d.penaltyRule.max}%) — natija foizi shu miqdorda nisbatan kamaytiriladi, 5 ballik baho jarimadan keyingi foizga qarab qo'yiladi.` },
+      { t: "h2", text: "1. Umumiy ko'rsatkichlar" },
+      { t: "table", widths: [5200, 3800], rows: [
+        ["Ko'rsatkich", "Qiymat"],
+        ["Testga biriktirilgan talabalar (ro'yxatdan o'tganlar)", String(d.rows.length)],
+        ["Testni yakunlaganlar", String(done.length)],
+        ["Jarayonda", String(d.rows.filter((r) => r.status === "running").length)],
+        ["Boshlamaganlar", String(d.rows.filter((r) => r.status === "none").length)],
+        ["O'rtacha natija (to'g'ri javoblar foizi, jarimadan keyin)", `${avg}%`],
+        ["O'rtacha baho (5 ballik)", avg5],
+        ["«5» / «4» / «3» / «2» baho olganlar", dist.join(" / ")],
+        ["Nomaqbul harakat qayd etilgan talabalar", String(viol.length)],
+      ] },
+    ];
+    const groups = [...new Set(d.rows.map((r) => r.group))].sort();
+    groups.forEach((g, gi) => {
+      const rs = d.rows.filter((r) => r.group === g);
+      const gd = rs.filter((r) => r.status === "done");
+      blocks.push({ t: "h2", text: `${gi + 2}. ${g}-guruh natijalari`, pageBreak: gi > 0 });
+      blocks.push({ t: "p", text: `Talabalar: ${rs.length} · yakunlagan: ${gd.length} · o'rtacha: ${gd.length ? Math.round(gd.reduce((n, r) => n + r.percent, 0) / gd.length) : 0}%` });
+      blocks.push({ t: "table", widths: [500, 2400, 1300, 1000, 900, 1200, 1700], rows: [
+        ["№", "F.I.Sh.", "To'g'ri / jami", "To'g'ri %", "Jarima", "Yakuniy %", "5 ballik baho"],
+        ...rs.map((r, i) => [String(i + 1), r.name, r.correct === null ? statusText(r) : `${r.correct} / ${r.total}`, r.percentRaw === null ? "—" : `${r.percentRaw}%`, r.penalty ? `−${r.penalty}%` : "—", r.percent === null ? "—" : `${r.percent}%`, r.grade5 === null ? "—" : `${r.grade5}${r.grade5Raw !== r.grade5 ? ` (jarimasiz ${r.grade5Raw})` : ""}`]),
+      ] });
+    });
+    blocks.push({ t: "h2", text: `${groups.length + 2}. Nomaqbul harakatlar`, pageBreak: true });
+    if (!viol.length) blocks.push({ t: "p", text: "Test davomida nomaqbul harakat qayd etilmagan." });
+    else {
+      blocks.push({ t: "p", text: "Test oynasida qayd etilgan harakatlar: ekran surati olishga urinish, oynadan chiqish, nusxalash, bosib chiqarish va h.k. Har bir harakat qoida buzilishi hisoblanadi." });
+      blocks.push({ t: "table", widths: [2300, 900, 3300, 2500], rows: [
+        ["F.I.Sh. (guruh)", "Jarima", "Harakatlar", "Vaqti (birinchi – oxirgi)"],
+        ...viol.map((r) => [`${r.name} (${r.group})`, r.penalty ? `−${r.penalty}%` : "—", r.violations.map((v) => `${v.label} — ${v.count} marta`).join("; "), r.violations.map((v) => `${fmtDT(v.first).slice(11)} – ${fmtDT(v.last).slice(11)}`).join("; ")]),
+      ] });
+    }
+    blocks.push({ t: "h2", text: `${groups.length + 3}. Izoh` });
+    blocks.push({ t: "p", text: "Ushbu hisobot platforma ma'lumotlari asosida avtomatik tuzilgan. Test savollari sun'iy intellekt yordamida tayyorlangan, javoblar kaliti serverda saqlanadi." });
+    const { buildDocx } = await import("../docx.js");
+    downloadFile(`${e.id}-hisobot.docx`, buildDocx(blocks, d.exam.title), "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  };
+  /** To'liq hisobot (Excel / CSV): har bir talaba bo'yicha barcha ma'lumotlar bitta qatorda. */
+  const reportCsv = async (e) => {
+    const d = await api.get(`admin/exams/${e.id}/report`);
+    downloadFile(`${e.id}-hisobot.csv`, toCSV([
+      ["№", "Guruh", "F.I.Sh.", "ID raqami", "Email", "Holati", "Boshlagan", "Yakunlagan", "Sarflangan vaqt (daqiqa)", "Qo'shimcha vaqt (daqiqa)", "Javob berilgan", "To'g'ri javoblar", "Noto'g'ri yoki javobsiz", "Jami savol", "To'g'ri javoblar foizi (jarimagacha)", "Jarima (%)", "Yakuniy natija (%)", "5 ballik baho (jarimagacha)", "5 ballik baho (yakuniy)", "Nomaqbul harakatlar soni", "Nomaqbul harakatlar", "Harakat vaqtlari"],
+      ...d.rows.map((r, i) => [i + 1, r.group, r.name, r.idNumber, r.email, statusText(r), r.started ? uzAt(r.started) : "", r.finished ? uzAt(r.finished) : "", mins(r.started, r.finished) ?? "", r.extraMin || "", r.answered, r.correct ?? "", r.correct === null ? "" : r.total - r.correct, r.total, r.percentRaw ?? "", r.penalty || "", r.percent ?? "", r.grade5Raw ?? "", r.grade5 ?? "", r.violations.reduce((n, v) => n + v.count, 0), vioText(r), r.violations.map((v) => `${v.label}: ${fmtDT(v.first)} – ${fmtDT(v.last)}`).join("; ")]),
+    ]));
+  };
   const one = async (e) => {
     const d = await api.get(`admin/exams/${e.id}/results`);
     const q = { group: "", text: "" };
@@ -309,7 +373,7 @@ async function examsView(el) {
     return h("div", { class: "stack" },
       h("div", { class: "card stack" }, h("h3", {}, e.title),
         h("p", { class: "muted small" }, `Boshlanish: ${uzAt(e.startsAt)} (${wd[new Date(new Date(e.startsAt).getTime() + 5 * 3600_000).getUTCDay()]}) · tugash: ${uzAt(e.closesAt)} · ${e.durationMin} daqiqa · ${e.count} ta savol · baza: ${e.bank} ta · guruhlar: ${e.groups.join(", ")}`),
-        h("div", { class: "row wrap" }, h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"))),
+        h("div", { class: "row wrap" }, h("button", { class: "btn", onclick: () => reportDocx(e).catch((ex) => toast(ex.message, "error")) }, "📄 To'liq hisobot (Word)"), h("button", { class: "btn", onclick: () => reportCsv(e).catch((ex) => toast(ex.message, "error")) }, "📊 To'liq hisobot (Excel)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"))),
       h("div", { class: "row wrap" },
         h("select", { onchange: (ev) => ((q.group = ev.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
         h("input", { type: "search", placeholder: "Ism, email yoki ID…", oninput: (ev) => ((q.text = ev.target.value.toLowerCase()), draw()) }),

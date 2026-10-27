@@ -50,6 +50,9 @@ export function buildVariant(exam) {
 /** Savollar talabaga ko'rsatiladigan ko'rinishda (kalitsiz). */
 export const viewOf = (exam, items) => items.map((it, n) => ({ n, q: exam.bank[it.b].q, options: it.perm.map((k) => exam.bank[it.b].o[k]) }));
 
+/** 5 ballik baho (foizdan): 86–100 → 5, 71–85 → 4, 55–70 → 3, 55 dan past → 2. */
+export const fiveScale = (percent) => (percent >= 86 ? 5 : percent >= 71 ? 4 : percent >= 55 ? 3 : 2);
+
 export function grade(exam, items, answers) {
   let correct = 0;
   items.forEach((it, n) => {

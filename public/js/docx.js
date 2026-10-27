@@ -53,15 +53,15 @@ function para(b) {
   return `<w:p>${ppr}${runs.map(run).join("")}</w:p>`;
 }
 
-function table(rows) {
+function table(rows, widths) {
   const cell = (t, w) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:spacing w:after="0"/></w:pPr>${run({ text: t })}</w:p></w:tc>`;
   const b = ["top", "left", "bottom", "right", "insideH", "insideV"].map((s) => `<w:${s} w:val="single" w:sz="4" w:color="999999"/>`).join("");
-  return `<w:tbl><w:tblPr><w:tblBorders>${b}</w:tblBorders></w:tblPr>${rows.map((r) => `<w:tr>${r.map((c) => cell(c, 900)).join("")}</w:tr>`).join("")}</w:tbl><w:p/>`;
+  return `<w:tbl><w:tblPr><w:tblBorders>${b}</w:tblBorders></w:tblPr>${rows.map((r, ri) => `<w:tr>${r.map((c, ci) => cell(ri === 0 && widths ? `${c}` : c, widths?.[ci] || 900)).join("")}</w:tr>`).join("")}</w:tbl><w:p/>`;
 }
 
 /** blocks: para bloklari yoki { t:"table", rows } */
 export function buildDocx(blocks, title = "Hujjat") {
-  const body = blocks.map((b) => (b.t === "table" ? table(b.rows) : para(b))).join("");
+  const body = blocks.map((b) => (b.t === "table" ? table(b.rows, b.widths) : para(b))).join("");
   const W = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
   const files = [
     ["[Content_Types].xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>'],
