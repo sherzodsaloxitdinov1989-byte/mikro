@@ -255,7 +255,7 @@ async function examsView(el) {
       { t: "h1", text: `${d.exam.title} — natijalar hisoboti` },
       { t: "p", text: `Guruhlar: ${d.exam.groups.join(", ")} · Test boshlanishi: ${fmtDT(d.exam.startsAt)} · Har bir talabaga: ${d.exam.durationMin} daqiqa · Savollar: ${d.exam.count} ta (baza: ${d.exam.bank} ta, har bir talabaga tasodifiy variant)` },
       { t: "p", text: `Hisobot tuzilgan vaqt: ${fmtDT(d.generatedAt)}` },
-      { t: "p", text: "5 ballik baho: 86–100% → 5 («a'lo»); 71–85% → 4 («yaxshi»); 55–70% → 3 («qoniqarli»); 55% dan past → 2 («qoniqarsiz»)." },
+      { t: "p", text: "5 ballik baho: 90–100% → 5 («a'lo»); 71–89% → 4 («yaxshi»); 60–70% → 3 («qoniqarli»); 60% dan past → 2 («qoniqarsiz»)." },
       { t: "p", text: `Nomaqbul harakatlar uchun jarima: har bir jiddiylik balli uchun ${d.penaltyRule.perPoint}% (ko'pi bilan ${d.penaltyRule.max}%) — natija foizi shu miqdorda nisbatan kamaytiriladi, 5 ballik baho jarimadan keyingi foizga qarab qo'yiladi.` },
       { t: "h2", text: "1. Umumiy ko'rsatkichlar" },
       { t: "table", widths: [5200, 3800], rows: [

@@ -128,7 +128,7 @@ async function renderTake(el, id) {
 function showResult(el, d, id) {
   cleanup();
   const r = d.result;
-  const cls = r.percent >= 86 ? "score-high" : r.percent >= 60 ? "score-mid" : "score-low";
+  const cls = r.percent >= 90 ? "score-high" : r.percent >= 60 ? "score-mid" : "score-low";
   mount(el,
     h("div", { class: "page-head" }, h("h1", {}, "📝 Nazorat testi natijasi")),
     h("div", { class: "card quiz-result" },
