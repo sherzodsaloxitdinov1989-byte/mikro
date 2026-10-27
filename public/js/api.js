@@ -61,6 +61,15 @@ async function request(method, path, data, { raw = false } = {}) {
     session.clear();
     location.hash = wasTeacher ? "#/ustoz" : "#/login";
   }
+  if (res.status === 403 && session.token && !path.startsWith("auth/")) {
+    // Ro'yxat (ID raqam) bo'yicha qayta kirish talab etiladigan talaba: sessiya yopiladi, kirish sahifasiga yo'naltiriladi
+    const clone = await res.clone().json().catch(() => null);
+    if (clone?.code === "SHIFR_REQUIRED") {
+      session.clear();
+      sessionStorage.setItem("tt.relogin", clone.error);
+      location.hash = "#/login";
+    }
+  }
   if (!res.ok) {
     let message = `Xatolik (${res.status})`;
     let payload = null;

@@ -60,14 +60,14 @@ export async function render(el) {
     const claimed = g.entries.filter((e) => e.claimed).length;
     return h("section", { class: "card stack" },
       h("div", { class: "row between wrap" },
-        h("div", {}, h("h3", {}, `${g.group}-guruh`), h("p", { class: "muted small" }, g.entries.length ? `${g.entries.length} ta talaba · ${claimed} tasi ro'yxatdan o'tgan · yuklangan: ${fmtDate(g.uploadedAt)} (${g.by})` : "Ro'yxat hali yuklanmagan — talabalar bu guruhga kira olmaydi.")),
+        h("div", {}, h("h3", {}, `${g.group}-guruh`), h("p", { class: "muted small" }, g.entries.length ? `${g.entries.length} ta talaba · ${claimed} tasi ro'yxatdan o'tgan · yuklangan: ${fmtDate(g.uploadedAt)} (${g.by})${g.migration && g.unlinkedProfiles ? ` · ID raqamga hali bog'lanmagan eski profillar: ${g.unlinkedProfiles} ta (qayta kirganda bog'lanadi)` : ""}` : (g.migration ? "Ro'yxat hali yuklanmagan — hozircha talabalar avvalgidek kiradi. Ro'yxatni yuklaganingizdan keyin talabalar ID raqam (shifr) bilan qayta kiradi; ularning avvalgi barcha natijalari saqlanadi." : "Ro'yxat hali yuklanmagan — talabalar bu guruhga kira olmaydi."))),
         h("div", {}, h("button", { class: "btn", onclick: () => file.click() }, g.entries.length ? "📤 Ro'yxatni yangilash" : "📤 Ro'yxat yuklash"), file)),
       g.entries.length > 0 && h("div", { class: "table-wrap" }, h("table", { class: "table" },
         h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "Holati", "Email", ""].map((x) => h("th", {}, x)))),
         h("tbody", {}, g.entries.map((e) => h("tr", {},
           h("td", { class: "center muted" }, `${e.n}.`),
           h("td", {}, e.name),
-          h("td", {}, e.claimed ? h("span", { class: "badge badge-ok" }, "Ro'yxatdan o'tgan") : h("span", { class: "badge" }, "Kutilmoqda")),
+          h("td", {}, e.claimed ? h("span", { class: "badge badge-ok" }, "Ro'yxatdan o'tgan") : h("span", { class: "badge" }, "Kutilmoqda"), !e.claimed && e.hasOldProfile && h("div", { class: "muted small" }, "eski profili bor — natijalari saqlanadi")),
           h("td", { class: "small muted" }, e.claimed ? `${e.email || ""}${e.claimedAt ? ` · ${fmtDate(e.claimedAt)}` : ""}` : "—"),
           h("td", {}, e.claimed && h("button", { class: "btn ghost small", title: "Shifrni bo'shatish (talaba profilini yo'qotgan bo'lsa)", onclick: async () => {
             if (!(await confirmDialog(`${e.name} shifri bo'shatilsinmi? U shifr bilan qayta kirishi/ro'yxatdan o'tishi kerak bo'ladi.`))) return;

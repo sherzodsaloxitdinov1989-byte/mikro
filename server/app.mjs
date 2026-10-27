@@ -101,6 +101,7 @@ async function currentUser(req) {
 async function requireUser(req) {
   const user = await currentUser(req);
   if (!user) throw new HttpError(401, "Tizimga kiring");
+  await rosterSessionGate(user);
   return user;
 }
 
@@ -251,9 +252,27 @@ function nameMatches(entryName, typed) {
   return want.length >= 2 && want.every((t) => have.has(t));
 }
 
+/** Shu guruh uchun ro'yxat talabi hozir kuchdami: «migratsiya» fanlarida (mavjud talabalar bor) — faqat o'qituvchi ro'yxatni yuklagach. */
+async function rosterEnforced(group) {
+  if (!isRosterGroup(group)) return false;
+  const sub = SUBJECTS.find((s) => (s.rosterGroups || []).includes(group));
+  if (!sub?.rosterMigration) return true;
+  return Boolean((await db().get(rosterKey(group)))?.entries?.length);
+}
+const claimedCache = new Set();
+/** Migratsiya guruhi talabasi hali shifrga bog'lanmagan bo'lsa, qayta kirib shifr kiritishi shart (ro'yxat yuklangan bo'lsa). */
+async function rosterSessionGate(user) {
+  if (user.role !== "student" || claimedCache.has(user.id)) return;
+  const sub = SUBJECTS.find((s) => (s.rosterGroups || []).includes(user.group));
+  if (!sub?.rosterMigration || !(await rosterEnforced(user.group))) return;
+  const roster = await db().get(rosterKey(user.group));
+  if (roster.entries.some((e) => e.claimedBy === user.id)) return void claimedCache.add(user.id);
+  throw new HttpError(403, "Saytga endi o'qituvchi bergan ID raqam (shifr) bilan kirish talab etiladi. Qayta kiring: email, parol va ID raqamingizni kiriting — barcha natijalaringiz saqlanadi.", "SHIFR_REQUIRED");
+}
+
 /** Ro'yxat guruhi talabasi shifrga bog'lanmagan bo'lsa, parol tiklash orqali ham kira olmaydi: avval shifr bilan kirishi kerak. */
 async function rosterGate(user) {
-  if (user.role !== "student" || !isRosterGroup(user.group)) return;
+  if (user.role !== "student" || !(await rosterEnforced(user.group))) return;
   const roster = await db().get(rosterKey(user.group));
   if (!roster?.entries?.some((e) => e.claimedBy === user.id)) throw new HttpError(403, "Parol yangilandi. Endi «Kirish» sahifasida email, parol va o'qituvchi bergan shifr bilan kiring.", "SHIFR_REQUIRED");
 }
@@ -287,15 +306,20 @@ async function finishClaim(roster, entry, userId) {
 async function adminRoster(req) {
   await requireTeacher(req);
   const out = [];
+  const allUsers = (await getMany("user/")).filter((u) => u.role === "student");
   for (const s of SUBJECTS) {
     for (const group of s.rosterGroups || []) {
       const r = await db().get(rosterKey(group));
       const entries = [];
+      const inGroup = allUsers.filter((u) => u.group === group);
       for (const [i, e] of (r?.entries || []).entries()) {
         const u = e.claimedBy ? await db().get(userKey(e.claimedBy)) : null;
-        entries.push({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null, ...(u ? { email: u.email, idNumber: u.idNumber || "" } : {}) });
+        // Shifrga hali bog'lanmagan, lekin shu ismli eski profil bor — natijalari saqlanib qoladi (qayta kirganda bog'lanadi)
+        const old = !e.claimedBy && inGroup.some((x) => nameMatches(e.name, x.name) && !(r.entries || []).some((y) => y.claimedBy === x.id));
+        entries.push({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null, hasOldProfile: old, ...(u ? { email: u.email, idNumber: u.idNumber || "" } : {}) });
       }
-      out.push({ group, subject: s.key, uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries });
+      const claimedIds = new Set((r?.entries || []).map((e) => e.claimedBy).filter(Boolean));
+      out.push({ group, subject: s.key, migration: Boolean(s.rosterMigration), uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries, unlinkedProfiles: inGroup.filter((x) => !claimedIds.has(x.id)).length });
     }
   }
   return json({ groups: out });
@@ -379,10 +403,32 @@ async function register(req) {
     }
   }
   const store = db();
-  if (await store.get(emailKey(email))) throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
+  const rosterNeeded = role === "student" && (await rosterEnforced(str(b.group, 60)));
+  const existingRef = await store.get(emailKey(email));
+  if (existingRef) {
+    const ex = await store.get(userKey(existingRef.id));
+    if (rosterNeeded && ex?.role === "student" && ex.group === str(b.group, 60)) throw new HttpError(409, "Siz bu email bilan avval ro'yxatdan o'tgansiz. Qayta ro'yxatdan o'tish shart emas: «Kirish» sahifasida shu email, parol va ID raqamingizni kiriting — natijalaringiz saqlanadi.", "USE_LOGIN_SHIFR");
+    throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
+  }
   // Ro'yxat bo'yicha ochiladigan guruhlar: shifr va ism ro'yxatga mos bo'lishi shart
-  const rosterNeeded = role === "student" && isRosterGroup(str(b.group, 60));
   const claim = rosterNeeded ? await claimRoster(req, str(b.group, 60), b.shifr, name, null) : null;
+  // Qayta ro'yxatdan o'tish: shu guruhda shu ismli, hali shifrga bog'lanmagan eski profil bo'lsa — yangi profil ochilmaydi, eski profil yangilanadi (natijalar saqlanadi)
+  if (claim && SUBJECTS.find((s) => (s.rosterGroups || []).includes(claim.roster.group))?.rosterMigration) {
+    const claimedIds = new Set(claim.roster.entries.map((e) => e.claimedBy).filter(Boolean));
+    const cands = (await getMany("user/")).filter((u) => u.role === "student" && u.group === claim.roster.group && !claimedIds.has(u.id) && nameMatches(claim.entry.name, u.name));
+    if (cands.length) {
+      const prog = await Promise.all(cands.map((u) => db().get(`progress/${u.id}`)));
+      const old = cands[prog.reduce((bi, p, i) => ((p?.updatedAt || "") > (prog[bi]?.updatedAt || "") ? i : bi), 0)];
+      await store.del(emailKey(old.email));
+      Object.assign(old, { email, name: claim.entry.name, rosterOk: true, idNumber: claim.digits, pwdV: (old.pwdV || 0) + 1, readoptedAt: new Date().toISOString() }, await hashPassword(password));
+      await store.set(userKey(old.id), old);
+      await store.set(emailKey(email), { id: old.id });
+      await finishClaim(claim.roster, claim.entry, old.id);
+      claimedCache.add(old.id);
+      const tok = createToken(old);
+      return withCookie(json({ token: tok, user: publicUser(old), adopted: true }, 201), tok);
+    }
+  }
 
   const user = {
     id: newId(),
@@ -402,6 +448,7 @@ async function register(req) {
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
   if (claim) await finishClaim(claim.roster, claim.entry, user.id);
+  if (claim) claimedCache.add(user.id);
   if (role === "teacher") {
     await store.del(inviteKey(email));
     await securityAlert(req, "teacher_signup", "high", `Yangi o'qituvchi profili yaratildi: ${maskEmail(email)}`, `${name} nomli yangi o'qituvchi profili ochildi. Bu siz yoki ishonchli hamkasbingiz bo'lmasa, darhol «O'qituvchilar» bo'limidan profilni o'chiring va TEACHER_CODE ni almashtiring.`, user.id, 60_000);
@@ -447,7 +494,7 @@ async function login(req) {
   if ((await peekHit(keys[1][0], LOGIN_WINDOW_MS)).n >= 5) await securityAlert(req, "login_after_failures", user.role === "teacher" ? "critical" : "high", `Ko'p noto'g'ri urinishdan so'ng kirildi: ${maskEmail(email)}`, `${user.role === "teacher" ? "O'qituvchi" : "Talaba"} hisobiga kirishdan oldin kamida 5 marta noto'g'ri parol kiritilgan edi. Egasi adashgan yoki hisob buzilgan bo'lishi mumkin: egasi bilan bog'lanib tekshiring.`, user.id);
   await resetHit(keys[0][0]);
   // Ro'yxat bo'yicha ochiladigan guruh: profil ro'yxatdagi shifrga bog'langan bo'lishi shart
-  if (user.role === "student" && isRosterGroup(user.group)) {
+  if (user.role === "student" && (await rosterEnforced(user.group))) {
     const roster = await db().get(rosterKey(user.group));
     const entry = roster?.entries?.find((e) => e.claimedBy === user.id);
     if (!entry) {

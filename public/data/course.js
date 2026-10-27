@@ -107,6 +107,10 @@ export const SUBJECTS = [
     idPrefix: "t",
     slides: "slides",
     groups: [],
+    // Kunduzgi 331–334-25 guruhlar talabalari ID raqam (shifr) bilan qayta ro'yxatdan o'tadi. rosterMigration: mavjud profillar va ularning
+    // natijalari saqlanadi (shifr mavjud profilga bog'lanadi); o'qituvchi ro'yxatni yuklamaguncha hech kim to'silmaydi.
+    rosterGroups: ["331-25", "332-25", "333-25", "334-25"],
+    rosterMigration: true,
   },
   {
     key: "tadbirkorlik",
@@ -309,6 +313,7 @@ export const formsOfSubject = (key) => {
 };
 
 /** Guruhga faqat o'qituvchi yuklagan ro'yxat va shifr bilan kiriladimi. */
+export const isRosterMigration = (group) => SUBJECTS.some((s) => s.rosterMigration && (s.rosterGroups || []).includes(group));
 export const isRosterGroup = (group) => SUBJECTS.some((s) => (s.rosterGroups || []).includes(group));
 
 // ---------- Ball tizimi: ma'ruza va amaliy mashg'ulot ----------

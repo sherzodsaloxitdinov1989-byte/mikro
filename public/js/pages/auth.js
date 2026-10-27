@@ -1,7 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
-import { userHasContent, subjectOfGroup, isRosterGroup } from "../../data/course.js";
+import { userHasContent, subjectOfGroup, isRosterGroup, isRosterMigration } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
@@ -36,6 +36,10 @@ function loginPage(el, teacher) {
   };
   // Ro'yxat bo'yicha ochiladigan guruh talabalari uchun (server so'raganda ko'rinadi)
   const shifrBox = h("div", { class: "hidden" }, field("Shifr (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Ro'yxatdagi shifringiz" }));
+  // Server «ID raqam bilan qayta kiring» degan bo'lsa: xabar va shifr maydoni darhol ko'rinadi
+  let relogin = "";
+  try { relogin = sessionStorage.getItem("tt.relogin") || ""; sessionStorage.removeItem("tt.relogin"); } catch {}
+  if (relogin) { shifrBox.classList.remove("hidden"); err.replaceChildren(h("div", { class: "alert alert-warn" }, relogin)); }
   const form = h(
     "form",
     { class: "card auth-card", onsubmit: async (e) => {
@@ -337,7 +341,7 @@ function studentBlock(config) {
   select.addEventListener("change", () => {
     const on = isRosterGroup(select.value);
     shifrWrap.classList.toggle("hidden", !on);
-    shifrInput.required = on;
+    shifrInput.required = on && !isRosterMigration(select.value);
     if (!on) shifrInput.value = "";
   });
   return h("div", { class: "stack" }, h("div", {}, h("span", { class: "small" }, h("b", {}, "Ta'lim shakli")), tabs, note), h("label", { class: "field" }, h("span", {}, "Guruh"), select), shifrWrap);
