@@ -136,7 +136,7 @@ export async function render(el) {
         { class: "timeline" },
         [
           ["Nazariya", "Mavzuni darslik matni, dars taqdimoti yoki animatsion dars orqali o'rganing; “Dolzarb” belgilarida eskirgan ma'lumotlarning yangi qiymatini ko'ring."],
-          ["Mustahkamlash", "Tushunchalar kartalari, interaktiv metodlar va test (o'tish balli 60%)."],
+          ["Mustahkamlash", "Tushunchalar kartalari, nazorat savollari va test (o'tish balli 60%)."],
           ["Amaliy mashg'ulot", "Masalalarni yeching — javob darhol tekshiriladi; keys va xulosani yozib, AI dan 10 ballik feedback oling."],
           LAB && ["Tahlil laboratoriyasi", "Namuna yoki real korxonaning kompleks moliyaviy tahlilini bajarib, hisobotni AI va o'qituvchiga topshiring."],
           ["Mustaqil ta'lim va reyting", "Mustaqil ishlarni topshiring, kunlik takrorlang, XP to'plab sertifikat oling."],

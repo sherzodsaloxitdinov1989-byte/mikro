@@ -1,52 +1,65 @@
 // Semestr ball tizimi: ma'ruza va amaliy mashg'ulot (fan va ta'lim shakliga qarab), oraliq nazorat alohida.
-// Ma'ruza ishi = mavzu testlari + «ma'ruza» turidagi o'qituvchi topshiriqlari; amaliy ish = amaliy mashg'ulot (AI/o'qituvchi bahosi) + «amaliy» turidagi topshiriqlar.
-// Ikkala qism ham bo'lsa, ish ballining yarmi-yarmi; faqat bittasi bo'lsa — hammasi shunga tegishli.
+// Ma'ruza ishi (har mavzuda teng ulushda): 1) «Tushuncha va uning ta'rifi» (ochilgan kartalar), 2) «Nazorat savollariga javob» (yozilgan javoblar),
+// 3) «O'zingizni sinang» (mavzu testi natijasi). Amaliy ish: har mavzuning «Amaliy mashg'ulot» bo'limi — masalalarni to'g'ri yechish yoki AI/o'qituvchi bahosi (qaysi biri yuqori bo'lsa).
 import { scoringOf } from "../public/data/course.js";
 
 const r2 = (n) => Math.round(n * 100) / 100;
 const mean = (a) => (a.length ? a.reduce((n, v) => n + v, 0) / a.length : 0);
 
-/** Ikki ulushdan (test/mashq va topshiriqlar) umumiy ulush (0..1). tasks === null — topshiriq berilmagan. */
-const blend = (main, tasks) => (tasks === null ? main : (main + tasks) / 2);
-const taskShare = (list) => {
-  if (!list.length) return null;
-  const max = list.reduce((n, t) => n + t.max, 0);
-  return max ? Math.min(1, list.reduce((n, t) => n + (t.score ?? 0), 0) / max) : 0;
-};
-
 /**
  * in: { subject, form, topics:[{id, hasQuiz, hasPractice}], progress, reviews:[{topicId,total,teacher}], tasks:[{kind,max,score|null}], midterm: grade (0..5) | null }
  * Qaytaradi: { scoring, lecture:{max,workMax,work,midterm,points,tests,tasks}, practice:{max,points,...}, midtermGrade, total, totalMax, extra }
  */
+export const ANSWER_MIN_CHARS = 20; // nazorat savoliga yozilgan javob hisobga olinishi uchun eng kam belgi
+
 export function computeScore(inp) {
   const sc = scoringOf(inp.subject, inp.form);
   const prog = inp.progress?.topics || {};
-  const quizTopics = inp.topics.filter((t) => t.hasQuiz);
-  const testsShare = quizTopics.length ? mean(quizTopics.map((t) => Math.min(100, prog[t.id]?.quiz ?? 0) / 100)) : 0;
+  const notes = inp.progress?.notes || {};
   const best = new Map();
   for (const r of inp.reviews || []) {
     const v = r.teacher?.grade ?? r.total;
     if (Number.isFinite(v)) best.set(r.topicId, Math.max(best.get(r.topicId) ?? 0, v));
   }
-  const pracTopics = inp.topics.filter((t) => t.hasPractice);
-  const practiceShare = pracTopics.length ? mean(pracTopics.map((t) => Math.min(10, best.get(t.id) ?? 0) / 10)) : 0;
-  const lecTasks = inp.tasks.filter((t) => t.kind === "lecture");
-  const pracTasks = inp.tasks.filter((t) => t.kind !== "lecture");
-  const lecShare = blend(testsShare, taskShare(lecTasks));
-  const pracShare = blend(practiceShare, taskShare(pracTasks));
+  const g = [], q = [], t = [], lec = [], prc = [];
+  for (const tp of inp.topics) {
+    const st = prog[tp.id] || {};
+    const parts = [];
+    if (tp.glossary) {
+      const seen = st.flashcards ? 1 : Math.min(1, (Array.isArray(st.glossarySeen) ? new Set(st.glossarySeen).size : 0) / tp.glossary);
+      g.push(seen); parts.push(seen);
+    }
+    if (tp.questions) {
+      let n = 0;
+      for (let i = 0; i < tp.questions; i++) if (String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS) n++;
+      q.push(n / tp.questions); parts.push(n / tp.questions);
+    }
+    if (tp.hasQuiz) {
+      const v = Math.min(100, st.quiz ?? 0) / 100;
+      t.push(v); parts.push(v);
+    }
+    if (parts.length) lec.push(mean(parts));
+    if (tp.hasPractice) {
+      const ok = tp.practiceTaskIds?.length ? tp.practiceTaskIds.filter((id) => st.practice?.[id]?.ok).length / tp.practiceTaskIds.length : 0;
+      prc.push(Math.max(Math.min(10, best.get(tp.id) ?? 0) / 10, ok));
+    }
+  }
+  const lecShare = mean(lec);
+  const pracShare = mean(prc);
   const workMaxLec = sc.lecture - sc.midtermInLecture;
   const grade = inp.midterm === null || inp.midterm === undefined ? null : Number(inp.midterm);
   const midInLec = sc.midtermInLecture ? r2((sc.midtermInLecture * (grade ?? 0)) / 5) : 0;
   const lecWork = r2(workMaxLec * lecShare);
-  const prac = r2(sc.practice * pracShare);
+  const practice = r2(sc.practice * pracShare);
   const lecTotal = r2(lecWork + midInLec);
+  const pct = (a) => Math.round(mean(a) * 100);
   return {
     scoring: sc,
-    lecture: { max: sc.lecture, workMax: workMaxLec, work: lecWork, midterm: midInLec, midtermMax: sc.midtermInLecture, points: lecTotal, testsPct: Math.round(testsShare * 100), tasksPct: taskShare(lecTasks) === null ? null : Math.round(taskShare(lecTasks) * 100), tasksCount: lecTasks.length },
-    practice: { max: sc.practice, points: prac, practicePct: Math.round(practiceShare * 100), tasksPct: taskShare(pracTasks) === null ? null : Math.round(taskShare(pracTasks) * 100), tasksCount: pracTasks.length },
+    lecture: { max: sc.lecture, workMax: workMaxLec, work: lecWork, midterm: midInLec, midtermMax: sc.midtermInLecture, points: lecTotal, glossaryPct: pct(g), questionsPct: pct(q), testsPct: pct(t) },
+    practice: { max: sc.practice, points: practice, practicePct: Math.round(pracShare * 100) },
     midtermGrade: grade, // 5 ballik oraliq nazorat bahosi
     extra: sc.midtermInLecture ? 0 : grade ?? 0, // masofaviy bo'lmaganlarda oraliq nazorat — alohida qo'shimcha ball (5 ballik)
-    total: r2(lecTotal + prac),
+    total: r2(lecTotal + practice),
     totalMax: sc.lecture + sc.practice,
   };
 }

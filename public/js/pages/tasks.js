@@ -49,7 +49,7 @@ export async function render(el) {
           h("a", { class: "card task-card", href: `#/tasks/${t.id}`, style: { display: "block", color: "inherit", textDecoration: "none" } },
             h("div", { class: "row between wrap" }, h("h3", {}, isNew(t, now) && h("span", { class: "badge badge-ok", style: { marginRight: "8px" } }, "🆕 Yangi"), t.title), statusBadge(t)),
             h("p", { class: "small muted" }, t.description.slice(0, 160) + (t.description.length > 160 ? "…" : "")),
-            h("div", { class: "row wrap" }, dueChip(t, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(t.max)} ball`), h("span", { class: "chip chip-soft", title: "Javob yuborish urinishlari" }, `Urinish: ${t.sub?.attempts || 0} / ${(t.maxAttempts || 3) + (t.sub?.extraAttempts || 0)}`), t.semester > 0 && h("span", { class: "chip chip-soft" }, `${t.semester}-semestr`), h("span", { class: "chip chip-soft" }, t.kind === "lecture" ? "Ma'ruza" : "Amaliy")))))
+            h("div", { class: "row wrap" }, dueChip(t, now), h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(t.max)} ball`), h("span", { class: "chip chip-soft", title: "Javob yuborish urinishlari" }, `Urinish: ${t.sub?.attempts || 0} / ${(t.maxAttempts || 3) + (t.sub?.extraAttempts || 0)}`), t.semester > 0 && h("span", { class: "chip chip-soft" }, `${t.semester}-semestr`)))))
       : emptyState("📝", "Hozircha vazifa yo'q", "O'qituvchi yangi topshiriq qo'shganda shu yerda ko'rinadi.")
   );
 }
@@ -208,7 +208,7 @@ function drawList(body, data, reload) {
           h("thead", {}, h("tr", {}, ["Topshiriq", "Kimga", "Muddat", "Ball", "Topshirilgan", "Holati", ""].map((t) => h("th", {}, t)))),
           h("tbody", {}, data.tasks.map((t) =>
             h("tr", {},
-              h("td", {}, h("b", {}, t.title), h("div", { class: "muted small" }, `${t.kind === "lecture" ? "Ma'ruza" : "Amaliy"}${t.semester > 0 ? ` · ${t.semester}-semestr` : ""}`)),
+              h("td", {}, h("b", {}, t.title), t.semester > 0 && h("div", { class: "muted small" }, `${t.semester}-semestr`)),
               h("td", { class: "small" }, audienceText(t)),
               h("td", { class: "small" }, t.due ? fmtDue(t.due) : "—"),
               h("td", { class: "center" }, fmtScore(t.max)),
@@ -251,7 +251,6 @@ function openImport(data, reload) {
   const due = h("input", { type: "date" });
   const defMax = h("input", { type: "number", min: 1, max: 100, step: 0.5, value: 10, style: { maxWidth: "110px" } });
   const mode = h("select", {}, Object.entries(MODES).map(([k, v]) => h("option", { value: k }, v)));
-  const bulkKind = h("select", {}, h("option", { value: "practice" }, "Amaliy mashg'ulot"), h("option", { value: "lecture" }, "Ma'ruza"));
   const aiOn = h("input", { type: "checkbox", checked: true });
   const published = h("input", { type: "checkbox", checked: true });
   const formBoxes = forms.map((f) => ({ f, box: h("input", { type: "checkbox", value: f.key }) }));
@@ -309,7 +308,6 @@ function openImport(data, reload) {
       h("div", { class: "row wrap" },
         h("label", { class: "field" }, h("span", {}, "Muddat"), due),
         h("label", { class: "field" }, h("span", {}, "Ball (ko'rsatilmaganlar uchun)"), defMax),
-        h("label", { class: "field" }, h("span", {}, "Turi (ball tizimi)"), bulkKind),
         h("label", { class: "field" }, h("span", {}, "Talaba nima yuboradi"), mode)),
       chk(aiOn, "AI tekshiruvi yoqilgan"),
       chk(published, h("b", {}, "Darhol nashr etilsin"), h("span", { class: "muted small" }, " (belgilanmasa — qoralama, talabalar ko'rmaydi; keyin ro'yxatdan «Nashr etish» tugmasi bilan ochasiz)"))));
@@ -329,7 +327,7 @@ function openImport(data, reload) {
     for (const d of chosen) {
       try {
         await api.post("admin/tasks", {
-          subject: SUBJECT_KEY, title: d.title, description: d.description, max: d.max > 0 ? d.max : Number(defMax.value) || 10, due: due.value, semester: 0, kind: bulkKind.value, mode: mode.value,
+          subject: SUBJECT_KEY, title: d.title, description: d.description, max: d.max > 0 ? d.max : Number(defMax.value) || 10, due: due.value, semester: 0, mode: mode.value,
           allowLate: true, aiEnabled: aiOn.checked, published: published.checked,
           forms: formBoxes.filter((x) => x.box.checked).map((x) => x.f.key),
           groups: SUBJECT_KEY === "mikro" ? [] : groupsOfSubject(SUBJECT_KEY),
@@ -354,7 +352,6 @@ function openBuilder(task, data, reload) {
   const description = h("textarea", { rows: 8, maxlength: 8000, placeholder: "Topshiriq sharti: nima qilish kerak, qanday ma'lumotlar beriladi, natija qanday bo'lishi kerak." }, t.description);
   const max = h("input", { type: "number", min: 1, max: 100, step: 0.5, value: t.max, style: { maxWidth: "110px" } });
   const due = h("input", { type: "date", value: t.due });
-  const kind = h("select", {}, h("option", { value: "practice", selected: (t.kind || "practice") === "practice" }, "Amaliy mashg'ulot"), h("option", { value: "lecture", selected: t.kind === "lecture" }, "Ma'ruza"));
   const semester = h("select", {}, h("option", { value: 0 }, "Belgilanmagan"), [1, 2, 3, 4, 5, 6, 7, 8].map((n) => h("option", { value: n, selected: t.semester === n }, `${n}-semestr`)));
   const mode = h("select", {}, Object.entries(MODES).map(([k, v]) => h("option", { value: k, selected: t.mode === k }, v)));
   const allowLate = h("input", { type: "checkbox", checked: t.allowLate });
@@ -396,7 +393,6 @@ function openBuilder(task, data, reload) {
       h("label", { class: "field" }, h("span", {}, "Maksimal ball"), max),
       h("label", { class: "field" }, h("span", {}, "Topshirish muddati"), due),
       h("label", { class: "field" }, h("span", {}, "Semestr"), semester),
-      h("label", { class: "field" }, h("span", {}, "Turi (ball tizimi)"), kind),
       h("label", { class: "field" }, h("span", {}, "Talaba nima yuboradi"), mode)),
     chk(allowLate, "Muddatdan keyin ham qabul qilinsin (kech deb belgilanadi)"),
     h("div", { class: "card stack" },
@@ -412,7 +408,7 @@ function openBuilder(task, data, reload) {
       h("button", { class: "btn", onclick: async (e) => {
         e.target.disabled = true;
         const payload = {
-          subject: task?.subject || SUBJECT_KEY, title: title.value, description: description.value, max: Number(max.value), due: due.value, semester: Number(semester.value), kind: kind.value, mode: mode.value,
+          subject: task?.subject || SUBJECT_KEY, title: title.value, description: description.value, max: Number(max.value), due: due.value, semester: Number(semester.value), mode: mode.value,
           allowLate: allowLate.checked, aiEnabled: aiOn.checked, published: published.checked,
           forms: formBoxes.filter((x) => x.box.checked).map((x) => x.f.key), groups: groupBoxes.filter((x) => x.box.checked).map((x) => x.g),
           criteria: crit.map((c) => ({ name: c.name, max: Number(c.max) })), rubric: rubric.value, reference: reference.value,

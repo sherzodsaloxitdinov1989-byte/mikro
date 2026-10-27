@@ -27,7 +27,6 @@ export const XP_RULES = [
   ["Testda 100% natija", 20],
   ["Tushunchalar kartalarini ko'rib chiqish", 10],
   ["Animatsion darsni oxirigacha ko'rish", 10],
-  ["Interaktiv metodni bajarish", 15],
   ["Amaliy mashg'ulotdagi to'g'ri hisob-kitob", 10],
   ["Mustaqil ish bahosi", "baho × 10"],
   ...(lab ? [["Tahlil laboratoriyasi hisoboti bahosi", "ball / 2"]] : []),
@@ -66,13 +65,12 @@ export function longestStreak(activity = {}) {
 
 function topicPart(t, topic) {
   if (!t) return { xp: 0, pct: 0 };
-  const methodsDone = topic.methods.filter((m) => t.methods?.[m.id]?.done).length;
   const quizPass = t.quiz !== null && t.quiz !== undefined && t.quiz >= 60;
   const tasks = topic.practice?.tasks || [];
   const solved = tasks.filter((k) => t.practice?.[k.id]?.ok).length;
-  const xp = (t.read ? 20 : 0) + (quizPass ? 30 : 0) + (t.quiz === 100 ? 20 : 0) + (t.flashcards ? 10 : 0) + (t.watched ? 10 : 0) + methodsDone * 15 + solved * 10;
-  const parts = [t.read, quizPass, t.flashcards, ...topic.methods.map((m) => Boolean(t.methods?.[m.id]?.done)), ...tasks.map((k) => Boolean(t.practice?.[k.id]?.ok))];
-  return { xp, pct: Math.round((parts.filter(Boolean).length / parts.length) * 100), quiz: t.quiz ?? null, methodsDone, solved };
+  const xp = (t.read ? 20 : 0) + (quizPass ? 30 : 0) + (t.quiz === 100 ? 20 : 0) + (t.flashcards ? 10 : 0) + (t.watched ? 10 : 0) + solved * 10;
+  const parts = [t.read, quizPass, t.flashcards, ...tasks.map((k) => Boolean(t.practice?.[k.id]?.ok))];
+  return { xp, pct: Math.round((parts.filter(Boolean).length / parts.length) * 100), quiz: t.quiz ?? null, solved };
 }
 
 export function levelOf(xp, levels = LEVELS) {
@@ -107,7 +105,6 @@ export function computeGame(evidence = {}, today = new Date(), ctx = DEFAULT) {
     topicsStarted: topics.filter((t) => t.pct > 0).length,
     topicsDone: topics.filter((t) => t.pct === 100).length,
     perfectQuizzes: topics.filter((t) => t.quiz === 100).length,
-    methodsDone: topics.reduce((s, t) => s + (t.methodsDone || 0), 0),
     labsGraded: (evidence.labs || []).length,
     bestLab: Math.max(0, ...(evidence.labs || []).map((r) => r.total || 0)),
     solved: topics.reduce((s, t) => s + (t.solved || 0), 0),
@@ -131,7 +128,6 @@ export function badgesFor(topicCount, lab) {
   { id: "all-topics", icon: "🏆", title: "To'liq kurs", text: `${topicCount} ta mavzuning barchasini o'zlashtiring`, test: (s) => s.topicsDone >= topicCount, progress: (s) => s.topicsDone / topicCount },
   { id: "perfect", icon: "💯", title: "Bilimdon", text: "Testda 100% natija oling", test: (s) => s.perfectQuizzes >= 1 },
   { id: "perfect5", icon: "🧠", title: "Mutaxassis", text: "5 ta testda 100% natija", test: (s) => s.perfectQuizzes >= 5, progress: (s) => s.perfectQuizzes / 5 },
-  { id: "methods", icon: "🧩", title: "Faol ishtirokchi", text: "15 ta interaktiv metodni bajaring", test: (s) => s.methodsDone >= 15, progress: (s) => s.methodsDone / 15 },
   { id: "calc10", icon: "🧮", title: "Hisob-kitobchi", text: "Amaliy mashg'ulotlarda 10 ta masalani to'g'ri yeching", test: (s) => s.solved >= 10, progress: (s) => s.solved / 10 },
   { id: "calc50", icon: "📐", title: "Aniq raqamlar", text: "50 ta masalani to'g'ri yeching", test: (s) => s.solved >= 50, progress: (s) => s.solved / 50 },
   ...(lab

@@ -1,5 +1,5 @@
 // Semestr reytingi: har bir guruh talabalari o'qish muddati davomida ball yig'adi (frontend va server uchun umumiy, DOM'ga bog'liq emas).
-// Ballar o'qituvchi nazoratidagi va faol o'qishga asoslangan: nazariya, test, metod, amaliyot, mustaqil ish, topshiriq, faollik va rag'bat.
+// Ballar o'qituvchi nazoratidagi va faol o'qishga asoslangan: nazariya, test, amaliyot, mustaqil ish, topshiriq, faollik va rag'bat.
 import { TOPICS } from "../data/topics.js";
 import { semesterByNo } from "../data/course.js";
 import { assignmentFor, totalScore } from "./assignment-util.js";
@@ -7,7 +7,6 @@ import { assignmentFor, totalScore } from "./assignment-util.js";
 export const RATING_RULES = [
   { key: "read", icon: "📖", name: "Mavzu nazariyasini o'qish", rule: "mavzu uchun 2 ball" },
   { key: "quiz", icon: "✅", name: "Mavzu testi", rule: "natija ≥ 60% bo'lsa: 5 + natija/10 (100% → 15 ball)" },
-  { key: "methods", icon: "🧠", name: "Interaktiv metodlar", rule: "har bir metod 1 ball (mavzuga ko'pi bilan 4)" },
   { key: "practice", icon: "🧮", name: "Amaliy mashg'ulot", rule: "AI yoki o'qituvchi bahosi (0–10) × 1,5 (mavzuga 15 ball)" },
   { key: "selfStudy", icon: "🧩", name: "Mustaqil ish", rule: "«5» — 10, «4» — 7, «3» — 4 ball" },
   { key: "assignment", icon: "📝", name: "Semestr topshirig'i (20 ball)", rule: "o'qituvchi qo'ygan ball × 5 (20 ball → 100)" },
@@ -76,7 +75,6 @@ export function ratingMax(semNo, form) {
   const b = {
     read: topics.length * 2,
     quiz: topics.filter((t) => t.quiz?.length).length * 15,
-    methods: topics.reduce((n, t) => n + Math.min(4, t.methods.length), 0),
     practice: topics.filter((t) => t.practice?.tasks?.length || t.practice?.open?.length).length * 15,
     selfStudy: topics.reduce((n, t) => n + t.selfStudy.length * 10, 0),
     assignment: sem && assignmentFor(form).semester === sem.no ? 100 : 0,
@@ -94,7 +92,7 @@ export function computeRating(ev, semNo) {
   const sem = semesterByNo(semNo);
   const topics = TOPICS.filter((t) => sem && t.num >= sem.topics[0] && t.num <= sem.topics[1]);
   const prog = ev.progress?.topics || {};
-  const b = { read: 0, quiz: 0, methods: 0, practice: 0, selfStudy: 0, assignment: 0, activity: 0, bonus: 0 };
+  const b = { read: 0, quiz: 0, practice: 0, selfStudy: 0, assignment: 0, activity: 0, bonus: 0 };
   const best = new Map();
   for (const r of ev.reviews || []) {
     const v = r.teacher?.grade ?? r.total;
@@ -104,7 +102,6 @@ export function computeRating(ev, semNo) {
     const st = prog[t.id] || {};
     if (st.read) b.read += 2;
     if (st.quiz !== null && st.quiz !== undefined && st.quiz >= 60) b.quiz += 5 + st.quiz / 10;
-    b.methods += Math.min(4, t.methods.filter((m) => st.methods?.[m.id]?.done).length);
     if (best.has(t.id)) b.practice += Math.min(10, best.get(t.id)) * 1.5;
   }
   const ssPoints = { 5: 10, 4: 7, 3: 4 };

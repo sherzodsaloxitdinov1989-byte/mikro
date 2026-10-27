@@ -2201,7 +2201,6 @@ async function adminAllResults(req) {
   const students = users.map((u) => {
     const tp = prog.get(u.id)?.topics || {};
     const quizzes = topics.filter((t) => t.quiz?.length && tp[t.id]?.quiz != null).map((t) => tp[t.id].quiz);
-    const methodsDone = topics.reduce((n, t) => n + t.methods.filter((m) => tp[t.id]?.methods?.[m.id]?.done).length, 0);
     const best = new Map();
     for (const r of rv.get(u.id) || []) if (ids.has(r.topicId)) { const v = r.teacher?.grade ?? r.total; if (Number.isFinite(v)) best.set(r.topicId, Math.max(best.get(r.topicId) ?? 0, v)); }
     const selfs2 = (ss.get(u.id) || []).filter((x) => ids.has(String(x.taskId).split("-")[0]));
@@ -2212,7 +2211,6 @@ async function adminAllResults(req) {
     return {
       id: u.id, name: u.name, group: u.group || "", email: u.email, form,
       tests: { done: quizzes.length, avg: mean(quizzes) },
-      methods: { done: methodsDone },
       practice: { done: best.size, avg: mean([...best.values()]) },
       selfStudy: { done: selfs2.length, graded: selfs2.filter((x) => x.grade != null).length, avg: mean(selfs2.filter((x) => x.grade != null).map((x) => x.grade)) },
       tasks: { done: mine.length, graded: scored.length, avgPct: mean(scored.map((x) => (x.teacher.score / (myTasks.get(x.taskId).max || 1)) * 100)) },
@@ -2220,7 +2218,7 @@ async function adminAllResults(req) {
     };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return json({
-    totals: { tests: topics.filter((t) => t.quiz?.length).length, methods: topics.reduce((n, t) => n + t.methods.length, 0), practice: topics.filter((t) => t.practice).length, selfStudy: topics.reduce((n, t) => n + t.selfStudy.length, 0), tasks: myTasks.size },
+    totals: { tests: topics.filter((t) => t.quiz?.length).length, practice: topics.filter((t) => t.practice).length, selfStudy: topics.reduce((n, t) => n + t.selfStudy.length, 0), tasks: myTasks.size },
     students,
   });
 }
@@ -2488,38 +2486,27 @@ async function adminExamBank(req, id) {
 const midtermKey = (subject, sem, uid) => `midterm/${subject}/${sem}/${uid}`;
 const scoreCache = new Map();
 
-/** Topshiriq qaysi semestrga tegishli: ko'rsatilgan bo'lsa shu, aks holda yaratilgan sana bo'yicha (yoki yagona semestr). */
-function taskSemesterNo(task, sems) {
-  if (task.semester > 0 && sems.some((s) => s.no === task.semester)) return task.semester;
-  if (sems.length === 1) return sems[0].no;
-  const d = String(task.createdAt || "").slice(0, 10);
-  return (sems.find((s) => (!s.startsAt || d >= s.startsAt) && (!s.endsAt || d <= s.endsAt)) || sems[sems.length - 1]).no;
-}
-
 async function computeScoreRows(subject, semNo) {
   const sems = semestersOfSubject(subject);
   const sem = sems.find((s) => s.no === semNo) || sems[0];
   if (!sem) throw new HttpError(404, "Semestr topilmadi");
-  const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))) }));
+  const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, glossary: t.glossary?.length || 0, questions: t.questions?.length || 0, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))), practiceTaskIds: (t.practice?.tasks || []).map((k) => k.id) }));
   const topicIds = new Set(topics.map((t) => t.id));
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
-  const [progress, reviews, tasksAll, tsubs, mids, attempts] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getMany("task/"), getMany("tasksub/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/")]);
+  const [progress, reviews, mids, attempts] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/")]);
   const uidOf = (key) => key.split("/")[1];
   const group = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
   const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
   const rv = group(reviews);
   const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
-  const tasks = tasksAll.filter((t) => t.published && (t.subject || SUBJECTS[0].key) === subject && taskSemesterNo(t, sems) === sem.no);
-  const subBy = new Map(tsubs.map((x) => [`${x.taskId}/${x.userId}`, x]));
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
   if (sems.length === 1) for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result) examGrade.set(a.userId, fiveScale(a.result.percent)); }
   const rows = users.map((u) => {
     const form = formKeyOf(u);
-    const mine = tasks.filter((t) => taskLib.forStudent(t, { form, group: u.group })).map((t) => ({ kind: t.kind || "practice", max: t.max, score: subBy.get(`${t.id}/${u.id}`)?.teacher?.score ?? null }));
     const manual = midBy.get(u.id);
     const midterm = manual ? manual.grade : examGrade.get(u.id) ?? null;
-    const r = computeScore({ subject, form, topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), tasks: mine, midterm });
+    const r = computeScore({ subject, form, topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };

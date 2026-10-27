@@ -54,7 +54,7 @@ export async function render(el) {
     ),
     levelsTrack(game.xp),
     h("h2", { class: "section-title" }, "🛂 Viza muhrlari — mavzular"),
-    h("p", { class: "muted" }, "Har bir mavzuni to'liq o'zlashtirganingizda (nazariya, test, tushunchalar, interaktiv metodlar va amaliy hisob-kitoblar) pasportingizga muhr bosiladi."),
+    h("p", { class: "muted" }, "Har bir mavzuni to'liq o'zlashtirganingizda (nazariya, test, tushunchalar va amaliy hisob-kitoblar) pasportingizga muhr bosiladi."),
     stamps(game.topics),
     h("h2", { class: "section-title" }, "🏅 Nishonlar"),
     badges(game.badges),

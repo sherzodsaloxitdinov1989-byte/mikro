@@ -7,7 +7,6 @@ import { audiobook } from "../audiobook.js";
 import { allVideos, videoCard } from "../media.js";
 import { TOPICS, METHOD_INFO, COURSE, BOOK_INTRO, LITERATURE } from "../../data/topics.js";
 import { loadProgress, topicState, updateTopic, topicCompletion, setNote } from "../progress.js";
-import { renderMethod } from "../methods.js";
 import { practicePanel } from "../practice-ui.js";
 import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
@@ -30,7 +29,6 @@ export async function renderList(el) {
           h("div", { class: "topic-num" }, t.icon, h("span", {}, `${t.num}-mavzu`)),
           h("h3", {}, t.title),
           h("p", { class: "muted small clamp" }, t.goal),
-          h("div", { class: "chips" }, [...new Set(t.methods.map((m) => m.type))].map((type) => h("span", { class: "chip chip-soft" }, METHOD_INFO[type].icon, " ", METHOD_INFO[type].name))),
           h("div", { class: "row between small muted" }, h("span", {}, `📖 ${t.sections.length} bo'lim · ✅ ${t.quiz.length} test · 🧮 ${(t.practice?.tasks.length || 0) + (t.practice?.open?.length || 0)} masala${t.updates.length ? ` · 🔄 ${t.updates.length}` : ""}`), h("span", {}, pct ? `${pct}% bajarildi` : "Boshlanmagan")),
           progressBar(pct)
         );
@@ -65,7 +63,6 @@ const CHAPTERS = [
   ["videos", "📹", "Video darslar"],
   ["theory", "📖", "Nazariya"],
   ["glossary", "🃏", "Tushunchalar"],
-  ["methods", "🧠", "Interaktiv metodlar"],
   ["questions", "❓", "Nazorat savollari"],
   ["quiz", "✅", "Test"],
   ["practice", "🧮", "Amaliy mashg'ulot"],
@@ -89,7 +86,7 @@ export async function renderTopic(el, id) {
   const videos = videoList.filter((v) => v.topicId === topic.id);
   const player = lessonPlayer(topic, { onComplete: () => updateTopic(topic.id, (s) => (s.watched = true)) });
   const viewer = slides && slideViewer(slides);
-  const counts = { updates: topic.updates.length, video: "▶", videos: videos.length, slides: slides?.pages || (slides ? "▶" : 0), theory: topic.sections.length, glossary: topic.glossary.length, methods: topic.methods.length, questions: topic.questions.length, quiz: topic.quiz.length, practice: (topic.practice?.tasks.length || 0) + (topic.practice?.open?.length || 0), self: topic.selfStudy.length };
+  const counts = { updates: topic.updates.length, video: "▶", videos: videos.length, slides: slides?.pages || (slides ? "▶" : 0), theory: topic.sections.length, glossary: topic.glossary.length, questions: topic.questions.length, quiz: topic.quiz.length, practice: (topic.practice?.tasks.length || 0) + (topic.practice?.open?.length || 0), self: topic.selfStudy.length };
 
   // Progress halqasi
   const ring = h("div", { class: "hero-ring", style: { "--p": 0 } }, h("b", {}, "0%"), h("span", {}, "bajarildi"));
@@ -110,7 +107,6 @@ export async function renderTopic(el, id) {
     videos.length > 0 && chapter("videos", "📹", "Video darslar", `${videos.length} ta video — o'qituvchi tomonidan joylangan`, h("div", { class: "video-grid" }, videos.map((v) => videoCard(v)))),
     chapter("theory", "📖", "Nazariya", `${topic.sections.length} bo'lim · ~${minutes} daqiqa o'qish · 🎧 tinglash mumkin`, theoryBlock(topic, (sec) => book.start(sec))),
     chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
-    chapter("methods", "🧠", "Interaktiv metodlar", `${topic.methods.length} ta topshiriq`, methodsTab(topic)),
     chapter("questions", "❓", "Nazorat savollari", `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", `${topic.quiz.length} ta test (mavzu matni asosida)`, quizTab(topic)),
     topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", practicePanel(topic)),
@@ -267,7 +263,7 @@ const changed = () => window.dispatchEvent(new Event("vgt:progress"));
 
 function glossaryTab(topic) {
   const st = topicState(topic.id);
-  const seen = new Set();
+  const seen = new Set(Array.isArray(st.glossarySeen) ? st.glossarySeen : []);
   const status = h("p", { class: "muted small" });
   const drawStatus = () => (status.textContent = `${seen.size} / ${topic.glossary.length} ta karta ochildi`);
   drawStatus();
@@ -278,6 +274,7 @@ function glossaryTab(topic) {
         e.currentTarget.classList.toggle("flipped");
         seen.add(i);
         drawStatus();
+        updateTopic(topic.id, (s) => (s.glossarySeen = [...seen]));
         if (seen.size === topic.glossary.length && !st.flashcards) {
           updateTopic(topic.id, (s) => (s.flashcards = true));
           changed();
@@ -294,23 +291,6 @@ function glossaryTab(topic) {
     status,
     h("div", { class: "flash-grid" }, cards),
     h("div", { class: "card" }, h("h3", {}, "Tayanch tushunchalar lug'ati"), h("dl", { class: "glossary" }, topic.glossary.map((g) => [h("dt", {}, g.term), h("dd", {}, g.def)])))
-  );
-}
-
-function methodsTab(topic) {
-  const st = topicState(topic.id);
-  return h(
-    "div",
-    { class: "stack" },
-    topic.methods.map((m) =>
-      renderMethod(m, st.methods?.[m.id], (data, done) => {
-        updateTopic(topic.id, (s) => {
-          s.methods ||= {};
-          s.methods[m.id] = { data, done: done || Boolean(s.methods[m.id]?.done), at: new Date().toISOString() };
-        });
-        changed();
-      })
-    )
   );
 }
 

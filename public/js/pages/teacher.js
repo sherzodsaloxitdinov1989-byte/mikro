@@ -44,7 +44,7 @@ const SECTIONS = [
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
   { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
-  { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, metodlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
+  { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
   { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
   { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
@@ -193,7 +193,6 @@ async function allResultsView(el) {
   const cell = (done, total, avgText) => `${done}${total ? `/${total}` : ""}${avgText ? ` · ${avgText}` : ""}`;
   const cols = [
     ["Testlar", (s) => cell(s.tests.done, d.totals.tests, s.tests.avg === null ? "" : `${Math.round(s.tests.avg)}%`), (s) => s.tests.avg ?? -1],
-    ["Metodlar", (s) => cell(s.methods.done, d.totals.methods), (s) => s.methods.done],
     ["Amaliyot (10)", (s) => cell(s.practice.done, d.totals.practice, s.practice.avg === null ? "" : String(s.practice.avg).replace(".", ",")), (s) => s.practice.avg ?? -1],
     ["Mustaqil ish (2–5)", (s) => cell(s.selfStudy.done, d.totals.selfStudy, s.selfStudy.avg === null ? "" : String(s.selfStudy.avg).replace(".", ",")), (s) => s.selfStudy.avg ?? -1],
     ["Vazifalar", (s) => cell(s.tasks.done, d.totals.tasks, s.tasks.avgPct === null ? "" : `${Math.round(s.tasks.avgPct)}%`), (s) => s.tasks.avgPct ?? -1],

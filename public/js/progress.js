@@ -172,6 +172,6 @@ export function topicCompletion(topic) {
 export function completionFrom(progress, topic) {
   const t = progress?.topics?.[topic.id];
   if (!t) return 0;
-  const parts = [t.read, t.quiz !== null && t.quiz >= 60, t.flashcards, ...topic.methods.map((m) => Boolean(t.methods?.[m.id]?.done)), ...(topic.practice?.tasks || []).map((k) => Boolean(t.practice?.[k.id]?.ok))];
+  const parts = [t.read, t.quiz !== null && t.quiz >= 60, t.flashcards, ...(topic.practice?.tasks || []).map((k) => Boolean(t.practice?.[k.id]?.ok))];
   return Math.round((parts.filter(Boolean).length / parts.length) * 100);
 }
