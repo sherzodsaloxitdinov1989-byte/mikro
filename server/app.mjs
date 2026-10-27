@@ -2532,6 +2532,8 @@ async function myResults(req) {
   const { sem, rows } = await cachedScoreRows(subject, semNo);
   const me = rows.find((r) => r.userId === user.id);
   const sub = subjectByKey(subject);
+  const titles = Object.fromEntries((TOPICS_ALL[subject] || []).map((t) => [t.id, { num: t.num, title: t.title }]));
+  if (me) me.byTopic = me.byTopic.map((b) => ({ ...b, ...titles[b.id] }));
   return json({ subject: { key: subject, title: sub.title, icon: sub.icon, direction: sub.direction }, semesters: sems.map((s) => ({ no: s.no, name: s.name, term: s.term, endsAt: s.endsAt, ended: semesterEnded(s) })), sem, student: { name: user.name, group: user.group || "", idNumber: user.idNumber || "", form: formKeyOf(user) }, score: me || null, now: new Date().toISOString() });
 }
 
@@ -2544,7 +2546,31 @@ async function adminScores(req) {
   const semNo = sems.some((s) => s.no === q) ? q : (sems.find((s) => !semesterEnded(s)) || sems[sems.length - 1])?.no;
   if (url.searchParams.get("fresh")) scoreCache.delete(`${subject}/${semNo}`);
   const { sem, rows } = await cachedScoreRows(subject, semNo);
-  return json({ subject, semesters: sems.map((s) => ({ no: s.no, name: s.name })), sem, rows });
+  return json({ subject, semesters: sems.map((s) => ({ no: s.no, name: s.name })), sem, rows: rows.map(({ byTopic, ...r }) => r) });
+}
+
+/** O'qituvchi: bitta talabaning ball jadvali tafsiloti — qaysi mavzu va topshiriqdan necha ball olgani. */
+async function adminScoreDetail(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const semNo = Number(url.searchParams.get("sem"));
+  const { sem, rows } = await cachedScoreRows(subject, semNo);
+  const row = rows.find((r) => r.userId === url.searchParams.get("userId"));
+  if (!row) throw new HttpError(404, "Talaba topilmadi");
+  const titles = Object.fromEntries((TOPICS_ALL[subject] || []).map((t) => [t.id, { num: t.num, title: t.title }]));
+  const user = await db().get(userKey(row.userId));
+  const sems = semestersOfSubject(subject);
+  const inSem = (t) => {
+    if (t.semester > 0) return t.semester === sem.no;
+    if (sems.length === 1) return true;
+    const d = String(t.createdAt || "").slice(0, 10);
+    return (!sem.startsAt || d >= sem.startsAt) && (!sem.endsAt || d <= sem.endsAt);
+  };
+  const [tasks, subs] = await Promise.all([getMany("task/"), getMany(`tasksub/`)]);
+  const mine = new Map(subs.filter((x) => x.userId === row.userId).map((x) => [x.taskId, x]));
+  const assigned = tasks.filter((t) => t.published && (t.subject || SUBJECTS[0].key) === subject && inSem(t) && taskLib.forStudent(t, { form: row.form, group: user?.group }));
+  return json({ sem, row: { ...row, byTopic: row.byTopic.map((b) => ({ ...b, ...titles[b.id] })) }, tasks: assigned.map((t) => { const s = mine.get(t.id); return { id: t.id, title: t.title, max: t.max, due: t.due, submitted: Boolean(s), score: s?.teacher?.score ?? null, late: Boolean(s?.late), aiSuggested: s?.ai?.suggested ?? null }; }) });
 }
 
 /** O'qituvchi: talabaning oraliq nazorat bahosini (5 ballik, 0,5 qadam) kiritadi yoki o'chiradi. */
@@ -3776,6 +3802,7 @@ const routes = [
   ["GET", /^admin\/results$/, adminAllResults],
   ["GET", /^results$/, myResults],
   ["GET", /^admin\/scores$/, adminScores],
+  ["GET", /^admin\/scores\/detail$/, adminScoreDetail],
   ["PUT", /^admin\/midterm$/, adminSetMidterm],
   ["GET", /^exams$/, examList],
   ["POST", /^exams\/([\w-]+)\/start$/, examStart],

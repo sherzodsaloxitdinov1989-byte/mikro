@@ -13,6 +13,19 @@ const loadScript = (src) => new Promise((res, rej) => {
   document.head.append(s);
 });
 
+const dash = (v) => (v === null || v === undefined ? "—" : fmt(v));
+function topicTable(list) {
+  const head = ["Mavzu", "Tushunchalar", "Nazorat savollari", "Test", "Ma'ruza ball", "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c));
+  const rows = list.map((b) => h("tr", {},
+    h("td", {}, `${b.num}. ${b.title}`),
+    h("td", { class: "center" }, b.glossary ? `${b.glossary.seen}/${b.glossary.total}` : "—"),
+    h("td", { class: "center" }, b.questions ? `${b.questions.answered}/${b.questions.total}` : "—"),
+    h("td", { class: "center" }, b.quiz ? `${b.quiz.pct}%` : "—"),
+    h("td", { class: "center" }, dash(b.lecPoints)),
+    h("td", { class: "center" }, dash(b.pracPoints))));
+  return h("div", {}, h("h3", {}, "Mavzular bo'yicha"), h("table", { class: "table small" }, h("thead", {}, h("tr", {}, head)), h("tbody", {}, rows)));
+}
+
 /** Natija varag'i (A4 kengligida): ekranda ham, PDF uchun ham shu ko'rinish ishlatiladi. */
 function sheet(d) {
   const s = d.score;
@@ -32,6 +45,7 @@ function sheet(d) {
         row("Ma'ruza mashg'uloti", `${lecNote}${lec.midtermMax ? ` · jumladan oraliq nazorat: ${fmt(lec.midterm)} / ${fmt(lec.midtermMax)} (baho: ${s.midtermGrade ?? "—"} / 5)` : ""}`, lec.points, lec.max),
         row("Amaliy mashg'ulot", prcNote, prc.points, prc.max)),
       h("tfoot", {}, h("tr", {}, h("td", {}, h("b", {}, "JAMI")), h("td", { class: "center" }, h("b", {}, fmt(s.total))), h("td", { class: "center" }, h("b", {}, fmt(s.totalMax)))))),
+    s.byTopic?.length > 0 && topicTable(s.byTopic),
     !lec.midtermMax && h("p", {}, h("b", {}, "Oraliq nazorat (5 ballik tizimda, qo'shimcha ball): "), s.midtermGrade === null ? "hali baholanmagan" : `${s.midtermGrade} / 5`),
     h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
     d.sem.ended ? h("p", { class: "small" }, "✅ Semestr yakunlangan: bu yakuniy natija.") : h("p", { class: "small muted" }, "Semestr hali tugamagan: natija oraliq."));

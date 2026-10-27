@@ -21,29 +21,38 @@ export function computeScore(inp) {
     const v = r.teacher?.grade ?? r.total;
     if (Number.isFinite(v)) best.set(r.topicId, Math.max(best.get(r.topicId) ?? 0, v));
   }
-  const g = [], q = [], t = [], lec = [], prc = [];
+  const g = [], q = [], t = [], lec = [], prc = [], byTopic = [];
   for (const tp of inp.topics) {
     const st = prog[tp.id] || {};
     const parts = [];
+    const row = { id: tp.id, glossary: null, questions: null, quiz: null, practice: null, lecShare: null, pracShare: null };
     if (tp.glossary) {
       const seen = st.flashcards ? 1 : Math.min(1, (Array.isArray(st.glossarySeen) ? new Set(st.glossarySeen).size : 0) / tp.glossary);
       g.push(seen); parts.push(seen);
+      row.glossary = { seen: st.flashcards ? tp.glossary : Math.round(seen * tp.glossary), total: tp.glossary };
     }
     if (tp.questions) {
       let n = 0;
       for (let i = 0; i < tp.questions; i++) if (String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS) n++;
       q.push(n / tp.questions); parts.push(n / tp.questions);
+      row.questions = { answered: n, total: tp.questions };
     }
     if (tp.hasQuiz) {
       const v = Math.min(100, st.quiz ?? 0) / 100;
       t.push(v); parts.push(v);
+      row.quiz = { pct: Math.round(v * 100), attempts: st.quizAttempts || 0 };
     }
-    if (parts.length) lec.push(mean(parts));
+    if (parts.length) { lec.push(mean(parts)); row.lecShare = mean(parts); }
+    byTopic.push(row);
     if (tp.hasPractice) {
       const ok = tp.practiceTaskIds?.length ? tp.practiceTaskIds.filter((id) => st.practice?.[id]?.ok).length / tp.practiceTaskIds.length : 0;
-      prc.push(Math.max(Math.min(10, best.get(tp.id) ?? 0) / 10, ok));
+      const sh = Math.max(Math.min(10, best.get(tp.id) ?? 0) / 10, ok);
+      prc.push(sh);
+      row.pracShare = sh;
+      row.practice = { review: best.get(tp.id) ?? null, solved: tp.practiceTaskIds?.filter((id) => st.practice?.[id]?.ok).length || 0, tasks: tp.practiceTaskIds?.length || 0 };
     }
   }
+  const lecTopics = lec.length, pracTopics = prc.length;
   const lecShare = mean(lec);
   const pracShare = mean(prc);
   const workMaxLec = sc.lecture - sc.midtermInLecture;
@@ -57,6 +66,7 @@ export function computeScore(inp) {
     scoring: sc,
     lecture: { max: sc.lecture, workMax: workMaxLec, work: lecWork, midterm: midInLec, midtermMax: sc.midtermInLecture, points: lecTotal, glossaryPct: pct(g), questionsPct: pct(q), testsPct: pct(t) },
     practice: { max: sc.practice, points: practice, practicePct: Math.round(pracShare * 100) },
+    byTopic: byTopic.map((r) => ({ ...r, lecPoints: r.lecShare === null ? null : r2((workMaxLec * r.lecShare) / lecTopics), pracPoints: r.pracShare === null ? null : r2((sc.practice * r.pracShare) / pracTopics) })),
     midtermGrade: grade, // 5 ballik oraliq nazorat bahosi
     extra: sc.midtermInLecture ? 0 : grade ?? 0, // masofaviy bo'lmaganlarda oraliq nazorat — alohida qo'shimcha ball (5 ballik)
     total: r2(lecTotal + practice),

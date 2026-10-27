@@ -231,10 +231,33 @@ async function scoresView(el) {
     const sc0 = d.rows[0]?.scoring;
     const csv = () => downloadFile(`ball-jadvali-${d.sem.name}${group ? `-${group}` : ""}.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Ta'lim shakli", "Ma'ruza", "Ma'ruza (eng ko'pi)", "Amaliy", "Amaliy (eng ko'pi)", "Oraliq nazorat (5 ballik)", "Jami", "Jami (eng ko'pi)"], ...rows().map((r) => [r.group, r.name, r.idNumber, formByKey(r.form)?.name || r.form, r.lecture.points, r.lecture.max, r.practice.points, r.practice.max, r.midtermGrade ?? "", r.total, r.totalMax])]));
     const table = h("div");
+    const detail = async (r) => {
+      let x;
+      try { x = await api.get(`admin/scores/detail?subject=${SUBJECT_KEY}&sem=${d.sem.no}&userId=${r.userId}`); } catch (ex) { return toast(ex.message, "error"); }
+      const row = x.row;
+      const pts = (v, max) => (v === null || v === undefined ? "—" : fmtS(v));
+      const topicRows = row.byTopic.map((b) => h("tr", {},
+        h("td", {}, `${b.num}. ${b.title}`),
+        h("td", { class: "center small" }, b.glossary ? `${b.glossary.seen} / ${b.glossary.total}` : "—"),
+        h("td", { class: "center small" }, b.questions ? `${b.questions.answered} / ${b.questions.total}` : "—"),
+        h("td", { class: "center small" }, b.quiz ? `${b.quiz.pct}%${b.quiz.attempts ? ` (${b.quiz.attempts} urinish)` : ""}` : "—"),
+        h("td", { class: "center" }, h("b", {}, pts(b.lecPoints))),
+        h("td", { class: "center small" }, b.practice ? `${b.practice.tasks ? `${b.practice.solved}/${b.practice.tasks} masala` : ""}${b.practice.review !== null ? `${b.practice.tasks ? " · " : ""}baho ${fmtS(b.practice.review)}/10` : ""}` || "bajarilmagan" : "—"),
+        h("td", { class: "center" }, h("b", {}, pts(b.pracPoints)))));
+      const taskRows = x.tasks.map((t) => h("tr", {}, h("td", {}, t.title, t.late && h("span", { class: "muted small" }, " · kech")), h("td", { class: "center" }, t.submitted ? (t.score !== null ? h("b", {}, `${fmtS(t.score)} / ${fmtS(t.max)}`) : `baholanmagan${t.aiSuggested !== null ? ` (AI: ${fmtS(t.aiSuggested)})` : ""}`) : h("span", { class: "muted" }, `topshirmagan (0 / ${fmtS(t.max)})`))));
+      modal(`📋 ${row.name} — ${d.sem.name}`, h("div", { class: "stack" },
+        h("p", { class: "muted small" }, `${row.group || ""} · Ma'ruza: ${fmtS(row.lecture.points)} / ${fmtS(row.lecture.max)} · Amaliy: ${fmtS(row.practice.points)} / ${fmtS(row.practice.max)} · Jami: ${fmtS(row.total)} / ${fmtS(row.totalMax)}${row.midtermGrade !== null ? ` · Oraliq: ${row.midtermGrade} / 5` : ""}`),
+        h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+          h("thead", {}, h("tr", {}, ["Mavzu", "Tushunchalar", "Nazorat savollari", "O'zingizni sinang (test)", "Ma'ruza ball", "Amaliy mashg'ulot", "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c)))),
+          h("tbody", {}, topicRows))),
+        h("h4", {}, "🗂️ O'qituvchi vazifalari (Vazifalar bo'limi)"),
+        x.tasks.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Vazifa"), h("th", { class: "center" }, "Ball"))), h("tbody", {}, taskRows))) : h("p", { class: "muted small" }, "Bu semestrda vazifa berilmagan."),
+        h("p", { class: "small muted" }, "Vazifalar (o'qituvchi topshiriqlari) alohida baholanadi va ma'ruza/amaliy ballga qo'shilmaydi. Mavzu balli — shu mavzu ulushi: semestr bali mavzular soniga teng bo'linadi.")), { wide: true });
+    };
     const draw = () => {
       const list = rows();
       table.replaceChildren(list.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "Ma'ruza", "Amaliy", "Oraliq (0–5)", "Jami"].map((c, i) => h("th", { class: i > 2 ? "center" : "" }, c)))),
+        h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "Ma'ruza", "Amaliy", "Oraliq (0–5)", "Jami", ""].map((c, i) => h("th", { class: i > 2 ? "center" : "" }, c)))),
         h("tbody", {}, list.map((r, i) => {
           const inp = h("input", { type: "number", min: 0, max: 5, step: 0.5, value: r.midtermGrade ?? "", style: { width: "72px" }, title: r.midtermSource === "exam" ? "Nazorat testidan avtomatik olingan; o'zgartirsangiz sizning bahoyingiz ustun bo'ladi" : "0 dan 5 gacha (0,5 qadam)" });
           const save = h("button", { class: "btn small ghost", onclick: async () => {
@@ -244,7 +267,8 @@ async function scoresView(el) {
             h("td", { class: "center small", title: `Testlar ${r.lecture.testsPct}%${r.lecture.tasksCount ? ` · topshiriqlar ${r.lecture.tasksPct}%` : ""}` }, `${fmtS(r.lecture.points)} / ${fmtS(r.lecture.max)}`),
             h("td", { class: "center small", title: `Amaliyot ${r.practice.practicePct}%${r.practice.tasksCount ? ` · topshiriqlar ${r.practice.tasksPct}%` : ""}` }, `${fmtS(r.practice.points)} / ${fmtS(r.practice.max)}`),
             h("td", { class: "center" }, inp, " ", save, r.midtermSource === "exam" && h("div", { class: "muted small" }, "nazorat testi")),
-            h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`)));
+            h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`)),
+            h("td", {}, h("button", { class: "btn small ghost", title: "Qaysi mavzu va vazifadan necha ball olgani", onclick: () => detail(r) }, "📋 Batafsil")));
         })))) : emptyState("👥", "Talabalar topilmadi"));
     };
     box.replaceChildren(
@@ -253,7 +277,7 @@ async function scoresView(el) {
         h("select", { onchange: (e) => ((group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g, selected: g === group }, g))),
         h("input", { type: "search", placeholder: "Ism yoki ID…", oninput: (e) => ((text = e.target.value.toLowerCase()), draw()) }),
         h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)"), h("button", { class: "btn ghost", onclick: () => load(true) }, "↻ Yangilash")),
-      h("div", { class: "alert alert-info small" }, `${d.sem.name}${d.sem.endsAt ? ` (tugash: ${d.sem.endsAt}${d.sem.ended ? ", yakunlangan" : ""})` : ""}. Ball tizimi: ma'ruza — ${sc0 ? sc0.lecture : 10}, amaliy — ${sc0 ? sc0.practice : 10}${d.subject === "mikro" ? " (masofaviy ta'limda ma'ruza 30 ball — shundan 10 balli oraliq nazorat, amaliy 20 ball)" : ""}. Oraliq nazorat 5 ballik tizimda: masofaviy ta'limda ma'ruza balliga kiradi, boshqalarda alohida qo'shimcha ball. Ma'ruza ishi = mavzu testlari + «ma'ruza» turidagi topshiriqlar; amaliy = amaliy mashg'ulotlar + «amaliy» turidagi topshiriqlar.`),
+      h("div", { class: "alert alert-info small" }, `${d.sem.name}${d.sem.endsAt ? ` (tugash: ${d.sem.endsAt}${d.sem.ended ? ", yakunlangan" : ""})` : ""}. Ball tizimi: ma'ruza — ${sc0 ? sc0.lecture : 10}, amaliy — ${sc0 ? sc0.practice : 10}${d.subject === "mikro" ? " (masofaviy ta'limda ma'ruza 30 ball — shundan 10 balli oraliq nazorat, amaliy 20 ball)" : ""}. Oraliq nazorat 5 ballik tizimda: masofaviy ta'limda ma'ruza balliga kiradi, boshqalarda alohida qo'shimcha ball. Ma'ruza ishi = tushunchalar kartalari + nazorat savollariga javoblar + mavzu testi (har mavzuda teng ulush); amaliy = har mavzuning «Amaliy mashg'ulot» bo'limi. O'qituvchi vazifalari (Vazifalar) alohida baholanadi — «📋 Batafsil» da ko'rinadi.`),
       table);
     draw();
   }
