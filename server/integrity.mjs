@@ -9,7 +9,7 @@ export const SEC_TYPES = {
   source: { label: "Sahifa manbasi / dasturchi vositalarini ochish", rule: "Sahifa kodini ochish va dasturchi vositalaridan foydalanish taqiqlanadi", weight: 3, cap: 2 },
   save: { label: "Sahifani saqlashga urinish (Ctrl+S)", rule: "Platforma materiallarini saqlab olish taqiqlanadi", weight: 2, cap: 3 },
   copy: { label: "Matnni nusxalash / kesib olish urinishi", rule: "Darslik va topshiriq matnini nusxalash mualliflik huquqi bilan taqiqlanadi", weight: 2, cap: 3 },
-  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1, cap: 4, free: 3 },
+  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1, cap: 4, free: 5 },
   contextmenu: { label: "O'ng tugma (kontekst menyu)", rule: "Sahifada o'ng tugma bilan nusxalash va saqlash taqiqlanadi", weight: 1, cap: 3 },
 };
 

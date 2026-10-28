@@ -24,7 +24,7 @@ export async function teacherView(el) {
 
   const chips = (counts) => Object.entries(counts).sort((a, b) => (types[b[0]]?.weight || 0) - (types[a[0]]?.weight || 0)).map(([t, n]) => h("span", { class: "chip chip-soft", title: types[t]?.label || t }, `${ICON[t] || "•"} ${n}`));
 
-  const note = h("div", { class: "alert alert-info small" }, "ℹ️ Bitta topshiriq, test yoki amaliy mashg'ulot davomida oynadan chiqishning dastlabki 3 tasi jarimasiz kechiriladi (masalan, telefon ekrani taym-autga tushib o'chib-yonishi). Hodisa shu yerda baribir qayd etiladi; 4-sidan boshlab ball kamaytiriladi. Ekran surati, nusxalash va boshqa buzilishlar uchun kechirim yo'q.");
+  const note = h("div", { class: "alert alert-info small" }, "ℹ️ Bitta topshiriq, test yoki amaliy mashg'ulot davomida oynadan chiqishning dastlabki 5 tasi jarimasiz kechiriladi (masalan, telefon ekrani taym-autga tushib o'chib-yonishi). Hodisa shu yerda baribir qayd etiladi; 6-sidan boshlab ball kamaytiriladi. Ekran surati, nusxalash va boshqa buzilishlar uchun kechirim yo'q.");
   const drawSummary = () => {
     const rows = d.students.filter((s) => !q || `${s.name} ${s.idNumber} ${s.group}`.toLowerCase().includes(q));
     summary.replaceChildren(
