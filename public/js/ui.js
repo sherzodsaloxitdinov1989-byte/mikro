@@ -115,5 +115,5 @@ export function integrityAlert(i) {
   return h("div", { class: "alert alert-danger small" },
     h("b", {}, `🚫 Qoida buzilgani uchun baho ${i.percent}% ga kamaytirildi`),
     h("p", {}, i.text),
-    h("ul", {}, (i.items || []).map((x) => h("li", {}, `${x.label}: ${x.count} marta — ${x.rule}.`))));
+    h("ul", {}, (i.items || []).map((x) => h("li", {}, `${x.label}: ${x.count} marta${x.free ? ` (dastlabki ${x.free} tasi jarimasiz kechirildi)` : ""} — ${x.rule}.`))));
 }

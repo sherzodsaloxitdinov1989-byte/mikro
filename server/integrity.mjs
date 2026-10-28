@@ -9,7 +9,7 @@ export const SEC_TYPES = {
   source: { label: "Sahifa manbasi / dasturchi vositalarini ochish", rule: "Sahifa kodini ochish va dasturchi vositalaridan foydalanish taqiqlanadi", weight: 3, cap: 2 },
   save: { label: "Sahifani saqlashga urinish (Ctrl+S)", rule: "Platforma materiallarini saqlab olish taqiqlanadi", weight: 2, cap: 3 },
   copy: { label: "Matnni nusxalash / kesib olish urinishi", rule: "Darslik va topshiriq matnini nusxalash mualliflik huquqi bilan taqiqlanadi", weight: 2, cap: 3 },
-  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1, cap: 4 },
+  leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1, cap: 4, free: 3 },
   contextmenu: { label: "O'ng tugma (kontekst menyu)", rule: "Sahifada o'ng tugma bilan nusxalash va saqlash taqiqlanadi", weight: 1, cap: 3 },
 };
 
@@ -22,12 +22,14 @@ export function integrityOf(events) {
   for (const e of events) if (SEC_TYPES[e.type]) (by[e.type] ||= []).push(e);
   const items = Object.entries(by).map(([type, list]) => {
     const t = SEC_TYPES[type];
-    return { type, label: t.label, rule: t.rule, count: list.length, counted: Math.min(list.length, t.cap), weight: t.weight, last: list.map((x) => x.at).sort().pop() };
+    // free — bitta ish uchun jarimasiz kechiriladigan hodisalar soni (masalan, ekran taym-autga tushib o'chib-yonishi yoki tasodifan oynadan chiqish)
+    const free = Math.min(list.length, t.free || 0);
+    return { type, label: t.label, rule: t.rule, count: list.length, free, counted: Math.min(list.length - free, t.cap), weight: t.weight, last: list.map((x) => x.at).sort().pop() };
   });
-  if (!items.length) return null;
   const points = items.reduce((n, i) => n + i.counted * i.weight, 0);
   const percent = Math.min(MAX_PENALTY, points * POINT_PERCENT);
-  const parts = items.map((i) => `${i.label} — ${i.count} marta`).join("; ");
+  if (!points) return null; // faqat kechiriladigan hodisalar bo'lsa — jarima yo'q
+  const parts = items.map((i) => `${i.label} — ${i.count} marta${i.free ? ` (dastlabki ${i.free} tasi kechirildi)` : ""}`).join("; ");
   const text = `Ish bajarilayotganda platforma qoidalari buzilgani qayd etilgan: ${parts}. Shu sababli baho ${percent}% ga kamaytirildi (har bir jiddiylik balli uchun ${POINT_PERCENT}%, eng ko'pi ${MAX_PENALTY}%).`;
   return { percent, total: items.reduce((n, i) => n + i.count, 0), items, text };
 }
