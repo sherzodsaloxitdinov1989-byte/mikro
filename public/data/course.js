@@ -324,7 +324,11 @@ export const SCORING = {
   default: { lecture: 10, practice: 10, midtermInLecture: 0 },
   distance: { lecture: 30, practice: 20, midtermInLecture: 10 },
 };
-export const scoringOf = (subjectKey, form) => (subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : SCORING.default);
+// Mikroiqtisodiyot, kunduzgi 331–334-25 (3-semestr): ma'ruza 30 ball = 20 ballik topshiriq + 2 ta nazorat testi (5 ballik, jami 10);
+// amaliy topshiriq 20 ball = nazariy qism (tushunchalar, nazorat savollari, mavzu testlari: 10 ball) + darslik amaliy topshiriqlari (10 ball).
+SCORING.assignment = { lecture: 30, practice: 20, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 10, practiceMax: 10 };
+export const scoringOf = (subjectKey, form, group = "", semNo = 0) =>
+  subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : subjectKey === "mikro" && ASSIGNMENT_GROUPS.includes(group) && Number(semNo) === 3 ? SCORING.assignment : SCORING.default;
 
 /** Fanning semestrlari: [{ no, name, term, topics:[dan,gacha], startsAt, endsAt }]. Asosiy fan — course.semesters; boshqalar — bitta semestr (barcha mavzular). */
 export function semestersOfSubject(key) {

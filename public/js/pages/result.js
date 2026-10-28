@@ -14,8 +14,8 @@ const loadScript = (src) => new Promise((res, rej) => {
 });
 
 const dash = (v) => (v === null || v === undefined ? "—" : fmt(v));
-function topicTable(list) {
-  const head = ["Mavzu", "Tushunchalar", "Nazorat savollari", "Test", "Ma'ruza ball", "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c));
+function topicTable(list, asg) {
+  const head = ["Mavzu", "Tushunchalar", "Nazorat savollari", "Test", asg ? "Nazariy ball" : "Ma'ruza ball", asg ? "Amaliy topshiriq ball" : "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c));
   const rows = list.map((b) => h("tr", {},
     h("td", {}, `${b.num}. ${b.title}`),
     h("td", { class: "center" }, b.glossary ? `${b.glossary.seen}/${b.glossary.total}` : "—"),
@@ -41,13 +41,17 @@ function sheet(d) {
       [["Talaba", d.student.name], ["Guruh", d.student.group || "—"], d.student.idNumber && ["ID raqami", d.student.idNumber], ["Ta'lim shakli", formByKey(d.student.form)?.name || d.student.form], ["Fan", d.subject.title], ["Semestr", `${d.sem.name} · ${d.sem.term}${d.sem.endsAt ? ` (tugash: ${fmtIsoDate(d.sem.endsAt)})` : ""}`], ["Hisobot sanasi", new Date(d.now).toLocaleDateString("uz-UZ")]].filter(Boolean).map(([k, v]) => h("tr", {}, h("th", {}, k), h("td", { colspan: 2 }, v))))),
     h("h3", {}, "Ballar"),
     h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Yo'nalish"), h("th", { class: "center" }, "To'plagan ball"), h("th", { class: "center" }, "Eng ko'pi"))),
-      h("tbody", {},
+      h("tbody", {}, ...(sc.mode === "assignment" ? [
+        row("Ma'ruza mashg'uloti", `20 ballik topshiriq: ${fmt(lec.assignment)} / ${fmt(lec.assignmentMax)} · 1-nazorat testi: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat testi: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.points, lec.max),
+        row("Amaliy topshiriq", `Nazariy qism (tushunchalar, nazorat savollari, mavzu testlari): ${fmt(prc.theory)} / ${fmt(prc.theoryMax)} · darslikning amaliy topshiriqlari: ${fmt(prc.practiceOnly)} / ${fmt(prc.practiceMax)}`, prc.points, prc.max),
+      ] : [
         row("Ma'ruza mashg'uloti", `${lecNote}${lec.midtermMax ? ` · jumladan oraliq nazorat: ${fmt(lec.midterm)} / ${fmt(lec.midtermMax)} (baho: ${s.midtermGrade ?? "—"} / 5)` : ""}`, lec.points, lec.max),
-        row("Amaliy mashg'ulot", prcNote, prc.points, prc.max)),
+        row("Amaliy mashg'ulot", prcNote, prc.points, prc.max),
+      ])),
       h("tfoot", {}, h("tr", {}, h("td", {}, h("b", {}, "JAMI")), h("td", { class: "center" }, h("b", {}, fmt(s.total))), h("td", { class: "center" }, h("b", {}, fmt(s.totalMax)))))),
-    s.byTopic?.length > 0 && topicTable(s.byTopic),
-    !lec.midtermMax && h("p", {}, h("b", {}, "Oraliq nazorat (5 ballik tizimda, qo'shimcha ball): "), s.midtermGrade === null ? "hali baholanmagan" : `${s.midtermGrade} / 5`),
-    h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
+    s.byTopic?.length > 0 && topicTable(s.byTopic, sc.mode === "assignment"),
+    !lec.midtermMax && sc.mode !== "assignment" && h("p", {}, h("b", {}, "Oraliq nazorat (5 ballik tizimda, qo'shimcha ball): "), s.midtermGrade === null ? "hali baholanmagan" : `${s.midtermGrade} / 5`),
+    sc.mode === "assignment" ? h("p", { class: "small muted" }, "Ball tizimi: ma'ruza mashg'uloti — 30 ball (20 ballik topshiriq + 2 ta nazorat testi, har biri 5 ball); amaliy topshiriq — 20 ball (nazariy qismni va darslik topshiriqlarini bajarganlik uchun).") : h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
     d.sem.ended ? h("p", { class: "small" }, "✅ Semestr yakunlangan: bu yakuniy natija.") : h("p", { class: "small muted" }, "Semestr hali tugamagan: natija oraliq."));
 }
 

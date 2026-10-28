@@ -231,6 +231,15 @@ async function scoresView(el) {
     const sc0 = d.rows[0]?.scoring;
     const csv = () => downloadFile(`ball-jadvali-${d.sem.name}${group ? `-${group}` : ""}.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Ta'lim shakli", "Ma'ruza", "Ma'ruza (eng ko'pi)", "Amaliy", "Amaliy (eng ko'pi)", "Oraliq nazorat (5 ballik)", "Jami", "Jami (eng ko'pi)"], ...rows().map((r) => [r.group, r.name, r.idNumber, formByKey(r.form)?.name || r.form, r.lecture.points, r.lecture.max, r.practice.points, r.practice.max, r.midtermGrade ?? "", r.total, r.totalMax])]));
     const table = h("div");
+    // 331–334-25: ikkita nazorat testi (har biri 0–5), ikkalasi birga saqlanadi
+    const midCell = (r) => {
+      const mk = (v, n) => h("input", { type: "number", min: 0, max: 5, step: 0.5, value: v ?? "", placeholder: `NT${n}`, title: `${n}-nazorat testi (0–5)`, style: { width: "62px" } });
+      const a = mk(r.midtermGrade, 1), b2 = mk(r.midtermGrade2, 2);
+      const put = (slot, inp) => api.put("admin/midterm", { subject: SUBJECT_KEY, sem: d.sem.no, userId: r.userId, slot, grade: inp.value === "" ? null : Number(inp.value) });
+      return [a, " ", b2, " ", h("button", { class: "btn small ghost", title: "Saqlash", onclick: async () => {
+        try { await put(1, a); await put(2, b2); toast("Saqlandi", "ok"); load(true); } catch (ex) { toast(ex.message, "error"); }
+      } }, "💾")];
+    };
     const detail = async (r) => {
       let x;
       try { x = await api.get(`admin/scores/detail?subject=${SUBJECT_KEY}&sem=${d.sem.no}&userId=${r.userId}`); } catch (ex) { return toast(ex.message, "error"); }
@@ -246,9 +255,13 @@ async function scoresView(el) {
         h("td", { class: "center" }, h("b", {}, pts(b.pracPoints)))));
       const taskRows = x.tasks.map((t) => h("tr", {}, h("td", {}, t.title, t.late && h("span", { class: "muted small" }, " · kech")), h("td", { class: "center" }, t.submitted ? (t.score !== null ? h("b", {}, `${fmtS(t.score)} / ${fmtS(t.max)}`) : `baholanmagan${t.aiSuggested !== null ? ` (AI: ${fmtS(t.aiSuggested)})` : ""}`) : h("span", { class: "muted" }, `topshirmagan (0 / ${fmtS(t.max)})`))));
       modal(`📋 ${row.name} — ${d.sem.name}`, h("div", { class: "stack" },
-        h("p", { class: "muted small" }, `${row.group || ""} · Ma'ruza: ${fmtS(row.lecture.points)} / ${fmtS(row.lecture.max)} · Amaliy: ${fmtS(row.practice.points)} / ${fmtS(row.practice.max)} · Jami: ${fmtS(row.total)} / ${fmtS(row.totalMax)}${row.midtermGrade !== null ? ` · Oraliq: ${row.midtermGrade} / 5` : ""}`),
+        h("p", { class: "muted small" }, `${row.group || ""} · Ma'ruza: ${fmtS(row.lecture.points)} / ${fmtS(row.lecture.max)} · Amaliy: ${fmtS(row.practice.points)} / ${fmtS(row.practice.max)} · Jami: ${fmtS(row.total)} / ${fmtS(row.totalMax)}${row.scoring.mode !== "assignment" && row.midtermGrade !== null ? ` · Oraliq: ${row.midtermGrade} / 5` : ""}`),
+        row.scoring.mode === "assignment" && h("div", { class: "card" }, h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Ma'ruza mashg'uloti (30)"), h("th", { class: "center" }, "Ball"))),
+          h("tbody", {}, h("tr", {}, h("td", {}, "20 ballik topshiriq"), h("td", { class: "center" }, `${fmtS(row.lecture.assignment)} / ${fmtS(row.lecture.assignmentMax)}`)), h("tr", {}, h("td", {}, "1-nazorat testi (5 ballik)"), h("td", { class: "center" }, row.lecture.midterm1 === null ? "—" : `${fmtS(row.lecture.midterm1)} / 5`)), h("tr", {}, h("td", {}, "2-nazorat testi (5 ballik)"), h("td", { class: "center" }, row.lecture.midterm2 === null ? "—" : `${fmtS(row.lecture.midterm2)} / 5`))),
+          h("thead", {}, h("tr", {}, h("th", {}, "Amaliy topshiriq (20)"), h("th", { class: "center" }, "Ball"))),
+          h("tbody", {}, h("tr", {}, h("td", {}, "Nazariy qism: tushunchalar + nazorat savollari + mavzu testlari"), h("td", { class: "center" }, `${fmtS(row.practice.theory)} / ${fmtS(row.practice.theoryMax)}`)), h("tr", {}, h("td", {}, "Darslik amaliy topshiriqlari"), h("td", { class: "center" }, `${fmtS(row.practice.practiceOnly)} / ${fmtS(row.practice.practiceMax)}`))))),
         h("div", { class: "card table-wrap" }, h("table", { class: "table" },
-          h("thead", {}, h("tr", {}, ["Mavzu", "Tushunchalar", "Nazorat savollari", "O'zingizni sinang (test)", "Ma'ruza ball", "Amaliy mashg'ulot", "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c)))),
+          h("thead", {}, h("tr", {}, ["Mavzu", "Tushunchalar", "Nazorat savollari", "O'zingizni sinang (test)", row.scoring.mode === "assignment" ? "Nazariy ball (amaliyga)" : "Ma'ruza ball", "Amaliy mashg'ulot", row.scoring.mode === "assignment" ? "Darslik amaliy ball" : "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c)))),
           h("tbody", {}, topicRows))),
         h("h4", {}, "🗂️ O'qituvchi vazifalari (Vazifalar bo'limi)"),
         x.tasks.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Vazifa"), h("th", { class: "center" }, "Ball"))), h("tbody", {}, taskRows))) : h("p", { class: "muted small" }, "Bu semestrda vazifa berilmagan."),
@@ -257,16 +270,16 @@ async function scoresView(el) {
     const draw = () => {
       const list = rows();
       table.replaceChildren(list.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "Ma'ruza", "Amaliy", "Oraliq (0–5)", "Jami", ""].map((c, i) => h("th", { class: i > 2 ? "center" : "" }, c)))),
+        h("thead", {}, h("tr", {}, ["№", "Guruh", "F.I.Sh.", "Ma'ruza", "Amaliy", "Oraliq / nazorat testi (0–5)", "Jami", ""].map((c, i) => h("th", { class: i > 2 ? "center" : "" }, c)))),
         h("tbody", {}, list.map((r, i) => {
           const inp = h("input", { type: "number", min: 0, max: 5, step: 0.5, value: r.midtermGrade ?? "", style: { width: "72px" }, title: r.midtermSource === "exam" ? "Nazorat testidan avtomatik olingan; o'zgartirsangiz sizning bahoyingiz ustun bo'ladi" : "0 dan 5 gacha (0,5 qadam)" });
           const save = h("button", { class: "btn small ghost", onclick: async () => {
             try { await api.put("admin/midterm", { subject: SUBJECT_KEY, sem: d.sem.no, userId: r.userId, grade: inp.value === "" ? null : Number(inp.value) }); toast("Saqlandi", "ok"); load(true); } catch (ex) { toast(ex.message, "error"); }
           } }, "💾");
           return h("tr", {}, h("td", { class: "center muted" }, `${i + 1}.`), h("td", {}, r.group || "—"), h("td", {}, r.name, h("div", { class: "muted small" }, formByKey(r.form)?.name || "")),
-            h("td", { class: "center small", title: `Testlar ${r.lecture.testsPct}%${r.lecture.tasksCount ? ` · topshiriqlar ${r.lecture.tasksPct}%` : ""}` }, `${fmtS(r.lecture.points)} / ${fmtS(r.lecture.max)}`),
-            h("td", { class: "center small", title: `Amaliyot ${r.practice.practicePct}%${r.practice.tasksCount ? ` · topshiriqlar ${r.practice.tasksPct}%` : ""}` }, `${fmtS(r.practice.points)} / ${fmtS(r.practice.max)}`),
-            h("td", { class: "center" }, inp, " ", save, r.midtermSource === "exam" && h("div", { class: "muted small" }, "nazorat testi")),
+            h("td", { class: "center small", title: r.scoring.mode === "assignment" ? `20 ballik topshiriq ${fmtS(r.lecture.assignment)} + nazorat testlari ${fmtS(r.lecture.midterms)}` : `Tushunchalar ${r.lecture.glossaryPct}% · nazorat savollari ${r.lecture.questionsPct}% · test ${r.lecture.testsPct}%` }, `${fmtS(r.lecture.points)} / ${fmtS(r.lecture.max)}`),
+            h("td", { class: "center small", title: r.scoring.mode === "assignment" ? `Nazariy qism ${fmtS(r.practice.theory)} / ${fmtS(r.practice.theoryMax)} + darslik amaliy topshiriqlari ${fmtS(r.practice.practiceOnly)} / ${fmtS(r.practice.practiceMax)}` : `Amaliyot ${r.practice.practicePct}%` }, `${fmtS(r.practice.points)} / ${fmtS(r.practice.max)}`),
+            h("td", { class: "center" }, r.scoring.mode === "assignment" ? midCell(r) : [inp, " ", save, r.midtermSource === "exam" && h("div", { class: "muted small" }, "nazorat testi")]),
             h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`)),
             h("td", {}, h("button", { class: "btn small ghost", title: "Qaysi mavzu va vazifadan necha ball olgani", onclick: () => detail(r) }, "📋 Batafsil")));
         })))) : emptyState("👥", "Talabalar topilmadi"));

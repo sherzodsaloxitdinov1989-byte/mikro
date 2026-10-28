@@ -2493,11 +2493,12 @@ async function computeScoreRows(subject, semNo) {
   const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, glossary: t.glossary?.length || 0, questions: t.questions?.length || 0, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))), practiceTaskIds: (t.practice?.tasks || []).map((k) => k.id) }));
   const topicIds = new Set(topics.map((t) => t.id));
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
-  const [progress, reviews, mids, attempts] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/")]);
+  const [progress, reviews, mids, attempts, assigns] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : []]);
   const uidOf = (key) => key.split("/")[1];
   const group = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
   const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
   const rv = group(reviews);
+  const asBy = group(assigns);
   const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
@@ -2506,7 +2507,8 @@ async function computeScoreRows(subject, semNo) {
     const form = formKeyOf(u);
     const manual = midBy.get(u.id);
     const midterm = manual ? manual.grade : examGrade.get(u.id) ?? null;
-    const r = computeScore({ subject, form, topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
+    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: asg, midterms: manual ? [manual.grade ?? null, manual.grade2 ?? null] : [null, null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
@@ -2582,12 +2584,17 @@ async function adminSetMidterm(req) {
   const user = await db().get(userKey(str(b.userId, 64)));
   if (!subject || !sem || !user || user.role !== "student") throw new HttpError(404, "Fan, semestr yoki talaba topilmadi");
   const key = midtermKey(subject, sem.no, user.id);
-  if (b.grade === null || b.grade === "" || b.grade === undefined) await db().del(key);
+  const slot = Number(b.slot) === 2 ? 2 : 1; // 331–334-25 guruhlarda ikkita nazorat testi: 1 va 2
+  const field = slot === 2 ? "grade2" : "grade";
+  const cur = (await db().get(key)) || {};
+  if (b.grade === null || b.grade === "" || b.grade === undefined) delete cur[field];
   else {
     const grade = Number(b.grade);
     if (!Number.isFinite(grade) || grade < 0 || grade > 5 || Math.round(grade * 2) !== grade * 2) throw new HttpError(400, "Baho 0 dan 5 gacha (0,5 qadam bilan) bo'lishi kerak");
-    await db().set(key, { grade, by: t.name, at: new Date().toISOString() });
+    cur[field] = grade;
   }
+  if (cur.grade === undefined && cur.grade2 === undefined) await db().del(key);
+  else await db().set(key, { ...cur, by: t.name, at: new Date().toISOString() });
   scoreCache.delete(`${subject}/${sem.no}`);
   return json({ ok: true });
 }
