@@ -2224,6 +2224,88 @@ async function adminItems(req) {
   });
 }
 
+// ---------- Takroriy profillar: bir talaba ikki marta ro'yxatdan o'tgan bo'lsa, bittasini o'chirish ----------
+
+const dupKey = (u) => normName(u.name).split(" ").filter(Boolean).slice(0, 2).sort().join(" ");
+
+async function profileStats(u) {
+  const uid = u.id;
+  const [prog, reviews, selfs, assigns, tsubs, attempts] = await Promise.all([db().get(`progress/${uid}`), getMany(`practicereview/${uid}/`), getMany(`selfstudy/${uid}/`), getMany(`assign/${uid}/`), getEntries("tasksub/"), getEntries("examattempt/")]);
+  const topics = prog?.topics || {};
+  return {
+    quizzes: Object.values(topics).filter((t) => t?.quiz != null).length,
+    glossary: Object.values(topics).filter((t) => t?.flashcards || t?.glossarySeen?.length).length,
+    notes: Object.values(prog?.notes || {}).filter((v) => String(v || "").trim().length >= 20).length,
+    practice: reviews.length,
+    selfStudy: selfs.length,
+    assignment: assigns.length,
+    tasks: tsubs.filter(([k]) => k.endsWith(`/${uid}`)).length,
+    exams: attempts.filter(([k]) => k.endsWith(`/${uid}`)).length,
+    activityDays: Object.keys(prog?.activity || {}).length,
+    updatedAt: prog?.updatedAt || "",
+  };
+}
+
+async function adminDuplicates(req) {
+  await requireTeacher(req);
+  const students = (await getMany("user/")).filter((u) => u.role === "student");
+  const rosters = new Map();
+  const claimedBy = new Map();
+  for (const s of SUBJECTS) for (const g of s.rosterGroups || []) {
+    const r = await db().get(rosterKey(g));
+    for (const e of r?.entries || []) if (e.claimedBy) claimedBy.set(e.claimedBy, { group: g, name: e.name });
+  }
+  const byName = new Map();
+  for (const u of students) { const k = dupKey(u); if (k.split(" ").length >= 2) (byName.get(k) || byName.set(k, []).get(k)).push(u); }
+  const byId = new Map();
+  for (const u of students) if (u.idNumber) (byId.get(u.idNumber) || byId.set(u.idNumber, []).get(u.idNumber)).push(u);
+  const clusters = new Map();
+  for (const list of [...byName.values(), ...byId.values()]) if (list.length > 1) clusters.set(list.map((u) => u.id).sort().join("|"), list);
+  const out = [];
+  for (const list of clusters.values()) {
+    const members = await Promise.all(list.map(async (u) => ({ id: u.id, name: u.name, email: u.email, group: u.group || "", idNumber: u.idNumber || "", createdAt: u.createdAt, rosterClaim: claimedBy.has(u.id), stats: await profileStats(u) })));
+    out.push({ key: list[0].id, members });
+  }
+  return json({ clusters: out, rosters: rosters.size });
+}
+
+/** Talaba profilini va barcha ma'lumotlarini o'chiradi. keepId berilsa — ro'yxat (ID raqam) bog'lanishi shu profilga ko'chiriladi. */
+async function adminDeleteStudent(req, id) {
+  const t = await requireTeacher(req);
+  const store = db();
+  const user = await store.get(userKey(id));
+  if (!user || user.role !== "student") throw new HttpError(404, "Talaba profili topilmadi");
+  const b = await body(req).catch(() => ({}));
+  const keepId = str(b?.keepId, 64);
+  const keep = keepId && keepId !== id ? await store.get(userKey(keepId)) : null;
+  if (keepId && !keep) throw new HttpError(404, "Qoldiriladigan profil topilmadi");
+  // Ro'yxat (ID raqam) bog'lanishi: qoldiriladigan profilga ko'chiriladi yoki bo'shatiladi
+  for (const s of SUBJECTS) for (const g of s.rosterGroups || []) {
+    const r = await store.get(rosterKey(g));
+    const e = r?.entries?.find((x) => x.claimedBy === id);
+    if (!e) continue;
+    if (keep) {
+      e.claimedBy = keep.id;
+      Object.assign(keep, { rosterOk: true, idNumber: user.idNumber || keep.idNumber });
+      await store.set(userKey(keep.id), keep);
+      claimedCache.add(keep.id);
+    } else delete e.claimedBy, delete e.claimedAt;
+    await store.set(rosterKey(g), r);
+  }
+  claimedCache.delete(id);
+  const keys = [userKey(id), emailKey(user.email), `progress/${id}`, `certuser/${id}`];
+  for (const p of [`practicereview/${id}/`, `selfstudy/${id}/`, `assign/${id}/`, `secevent/${id}/`, `lab/${id}/`]) for (const [k] of await getEntries(p)) keys.push(k);
+  for (const [k] of await getEntries("tasksub/")) if (k.endsWith(`/${id}`)) keys.push(k);
+  for (const [k] of await getEntries("examattempt/")) if (k.endsWith(`/${id}`)) keys.push(k);
+  for (const [k] of await getEntries("midterm/")) if (k.endsWith(`/${id}`)) keys.push(k);
+  for (const [k] of await getEntries("question/")) if (k.includes(id)) { const q = await store.get(k); if (q?.userId === id) keys.push(k); }
+  if (store.binSizes) for (const pre of ["assignbin/", "tasksubbin/"]) for (const f of await store.binSizes(pre)) if (f.key.split("/")[pre === "assignbin/" ? 1 : 2] === id) keys.push(f.key);
+  for (let i = 0; i < keys.length; i += 20) await Promise.all(keys.slice(i, i + 20).map((k) => store.del(k).catch(() => {})));
+  scoreCache.clear();
+  await securityAlert(req, "student_deleted", "info", "Talaba profili o'chirildi", `${t.name} ${user.name} (${maskEmail(user.email)}, ${user.group || "guruhsiz"}) profilini o'chirdi${keep ? " (takroriy profil)" : ""}.`, `${id}`, 1000).catch(() => {});
+  return json({ ok: true, deleted: keys.length });
+}
+
 /** O'qituvchi: har bir talabaning barcha bo'limlar bo'yicha natijasi (test, metod, amaliyot, mustaqil ish, vazifalar, 20 ballik topshiriq). */
 async function adminAllResults(req) {
   await requireTeacher(req);
@@ -3904,6 +3986,8 @@ const routes = [
   ["POST", /^admin\/teachers\/([\w-]+)\/promote$/, promoteStudent],
   ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
   ["GET", /^admin\/students$/, listStudents],
+  ["GET", /^admin\/duplicates$/, adminDuplicates],
+  ["POST", /^admin\/students\/([\w-]+)\/delete$/, adminDeleteStudent],
   ["PUT", /^admin\/students\/([\w-]+)$/, updateStudent],
   ["POST", /^admin\/students\/([\w-]+)\/password$/, adminResetPassword],
   ["GET", /^admin\/self-study$/, allSelfStudy],

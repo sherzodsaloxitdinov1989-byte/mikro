@@ -1162,6 +1162,31 @@ async function videosManager(el) {
 
 // ---------------- Talabalar ----------------
 
+async function duplicatesModal(onDone) {
+  let d;
+  try { d = await api.get("admin/duplicates"); } catch (ex) { return toast(ex.message, "error"); }
+  const body = h("div", { class: "stack" });
+  let close = () => {};
+  const stats = (s) => `testlar: ${s.quizzes} · tushunchalar: ${s.glossary} · nazorat javoblari: ${s.notes} · amaliyot: ${s.practice} · mustaqil ish: ${s.selfStudy} · 20 ball topshiriq: ${s.assignment} · vazifalar: ${s.tasks} · faol kunlar: ${s.activityDays}`;
+  const score = (s) => s.quizzes * 3 + s.glossary + s.notes + s.practice * 3 + s.selfStudy * 2 + s.assignment * 3 + s.tasks * 3 + s.exams * 5 + s.activityDays;
+  const card = (c) => {
+    const best = [...c.members].sort((a, b) => score(b.stats) - score(a.stats) || String(a.createdAt).localeCompare(String(b.createdAt)))[0];
+    let keep = best.id;
+    const radios = c.members.map((m) => h("label", { class: "card", style: { display: "block", cursor: "pointer" } },
+      h("div", { class: "row between wrap" }, h("span", {}, h("input", { type: "radio", name: `k${c.key}`, checked: m.id === keep, onchange: () => (keep = m.id) }), " ", h("b", {}, m.name), ` · ${m.group || "guruhsiz"} · ${m.email}`), m.id === best.id && h("span", { class: "badge badge-ok" }, "ko'proq ma'lumot")),
+      h("div", { class: "muted small" }, `Ro'yxatdan o'tgan: ${fmtDate(m.createdAt)}${m.idNumber ? ` · ID: ${m.idNumber}` : ""}${m.rosterClaim ? " · ID raqamga bog'langan" : ""}`),
+      h("div", { class: "small" }, stats(m.stats))));
+    return h("div", { class: "card stack" }, h("b", {}, "Quyidagilar bitta talaba bo'lishi mumkin — qoldiriladigan profilni belgilang:"), ...radios,
+      h("div", { class: "row end" }, h("button", { class: "btn danger", onclick: async () => {
+        const drop = c.members.filter((m) => m.id !== keep);
+        if (!(await confirmDialog(`Qoldiriladigan: ${c.members.find((m) => m.id === keep).email}.\nO'chiriladigan profil(lar): ${drop.map((m) => m.email).join(", ")} — ularning barcha natijalari ham o'chadi. Davom etilsinmi?`))) return;
+        try { for (const m of drop) await api.post(`admin/students/${m.id}/delete`, { keepId: keep }); toast("Takroriy profil o'chirildi", "ok"); close(); onDone?.(); } catch (ex) { toast(ex.message, "error"); }
+      } }, "🗑 Qolganlarini o'chirish")));
+  };
+  body.replaceChildren(d.clusters.length ? h("div", { class: "stack" }, h("p", { class: "muted small" }, "Ismi (yoki ID raqami) bir xil bo'lgan profillar. O'chirilgan profilning natijalari qaytarilmaydi — odatda ko'proq ma'lumotli profilni qoldiring. ID raqamga bog'lanish qoldiriladigan profilga ko'chiriladi."), ...d.clusters.map(card)) : h("p", {}, "✅ Takroriy profil topilmadi."));
+  close = modal("👯 Takroriy profillar", body, { wide: true });
+}
+
 async function students(el) {
   const users = await api.get("admin/students");
   const list = users.filter((u) => u.role === "student" && inSubject(u.group)); // faqat tanlangan fan talabalari
@@ -1253,6 +1278,7 @@ async function students(el) {
         h("select", { onchange: (e) => ((q.group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
         h("div", { class: "grow" }),
         h("span", { class: "muted small" }, `Jami: ${list.length} talaba`),
+        h("button", { class: "btn ghost", title: "Ikki marta ro'yxatdan o'tgan talabalarni topish va bittasini o'chirish", onclick: () => duplicatesModal(() => students(el)) }, "👯 Takroriy profillar"),
         h("button", { class: "btn ghost", onclick: () => downloadFile("oquvchilar.csv", toCSV([["F.I.Sh.", "ID raqami", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...list.map((u) => [u.name, u.idNumber || "", u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
       ),
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "F.I.Sh."), h("th", {}, "ID raqami"), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
