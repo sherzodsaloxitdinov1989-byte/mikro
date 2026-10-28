@@ -35,7 +35,10 @@ function loginPage(el, teacher) {
     err.replaceChildren();
   };
   // Ro'yxat bo'yicha ochiladigan guruh talabalari uchun (server so'raganda ko'rinadi)
-  const shifrBox = h("div", { class: "hidden" }, field("Shifr (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Ro'yxatdagi shifringiz" }));
+  // ID raqam maydoni talabalar uchun doim ko'rinadi (331–334-25 va ro'yxat bo'yicha kiradigan guruhlar); F.I.Sh. maydoni ID raqam mos kelmaganda ochiladi
+  const nameField = h("div", { class: "hidden" }, field("F.I.Sh. (ro'yxatdagidek)", { name: "fullName", autocomplete: "name", placeholder: "Masalan: Aliyev Vali" }));
+  const shifrBox = h("div", { class: teacher ? "hidden" : "" }, field("ID raqam (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Faqat ID raqam talab qilinsa kiriting" }), nameField,
+    h("p", { class: "small muted", style: { margin: "4px 0 0" } }, "Mikroiqtisodiyot kunduzgi (331–334-25) va ID raqam bilan kiradigan guruh talabalari: email va parolingiz bilan birga ID raqamingizni ham kiriting — avvalgi natijalaringiz saqlanadi."))
   // Server «ID raqam bilan qayta kiring» degan bo'lsa: xabar va shifr maydoni darhol ko'rinadi
   let relogin = "";
   try { relogin = sessionStorage.getItem("tt.relogin") || ""; sessionStorage.removeItem("tt.relogin"); } catch {}
@@ -49,7 +52,7 @@ function loginPage(el, teacher) {
       btn.disabled = true;
       err.replaceChildren();
       try {
-        const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password"), shifr: fd.get("shifr") || undefined });
+        const res = await api.post("auth/login", { email: fd.get("email"), password: fd.get("password"), shifr: fd.get("shifr") || undefined, fullName: fd.get("fullName") || undefined });
         if (res.user.role !== role) {
           // Noto'g'ri sahifa: sessiya ochilmaydi (token darhol bekor qilinadi)
           fetch("/api/auth/logout", { method: "POST", headers: { authorization: `Bearer ${res.token}` } }).catch(() => {});
@@ -60,7 +63,7 @@ function loginPage(el, teacher) {
         toast("Xush kelibsiz!", "ok");
         afterLogin();
       } catch (ex) {
-        if (ex.data?.code === "SHIFR_REQUIRED") shifrBox.classList.remove("hidden");
+        if (["SHIFR_REQUIRED", "SHIFR_MISMATCH", "SHIFR_CLAIMED"].includes(ex.data?.code)) { shifrBox.classList.remove("hidden"); if (ex.data.code === "SHIFR_MISMATCH") nameField.classList.remove("hidden"); }
         err.replaceChildren(h("div", { class: "alert alert-error" }, ex.message));
       } finally {
         btn.disabled = false;

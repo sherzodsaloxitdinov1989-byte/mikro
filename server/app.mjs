@@ -243,13 +243,29 @@ const rosterKey = (group) => `roster/${group}`;
 const rosterPepper = () => process.env.JWT_SECRET || generatedSecretValue();
 const shifrDigits = (v) => String(v ?? "").replace(/\D/g, "");
 const shifrHash = (group, shifr) => crypto.createHmac("sha256", rosterPepper()).update(`roster:${group}:${shifrDigits(shifr)}`).digest("hex");
-const normName = (v) => String(v || "").toUpperCase().replace(/[ʻʼ‘’'`´]/g, "").replace(/[^\p{L}\s]/gu, " ").replace(/\s+/g, " ").trim();
+const CYR = { а: "a", б: "b", в: "v", г: "g", д: "d", е: "e", ё: "yo", ж: "j", з: "z", и: "i", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "x", ц: "ts", ч: "ch", ш: "sh", щ: "sh", ъ: "", ы: "i", ь: "", э: "e", ю: "yu", я: "ya", ў: "o", қ: "q", ғ: "g", ҳ: "h" };
+const toLatin = (v) => String(v || "").toLowerCase().replace(/[\u0400-\u04ff]/g, (c) => CYR[c] ?? c);
+// Ism solishtirish uchun: kirill → lotin, apostroflar tashlanadi, "oʻ/gʻ" → "o/g", "sh/ch" kabi yozilish farqlari bir xil ko'rinishga keltiriladi
+const normName = (v) => toLatin(v).toUpperCase().replace(/[ʻʼ‘’'`´]/g, "").replace(/[^\p{L}\s]/gu, " ").replace(/Y([AOUE])/g, "Y$1").replace(/\s+/g, " ").trim();
 const titleName = (v) => String(v || "").toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (_, a, b) => a + b.toUpperCase()).replace(/([oOgG])[ʻʼ‘’'`´]/g, "$1‘");
 /** Ro'yxatdagi familiya va ism talaba yozgan ismda bo'lishi shart (tartib va otasining ismi muhim emas). */
 function nameMatches(entryName, typed) {
   const want = normName(entryName).split(" ").slice(0, 2);
-  const have = new Set(normName(typed).split(" "));
-  return want.length >= 2 && want.every((t) => have.has(t));
+  const have = normName(typed).split(" ");
+  return want.length >= 2 && want.every((t) => have.includes(t));
+}
+const lev = (a, b) => {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+};
+/** Yumshoq moslik (faqat parol allaqachon tekshirilgan mavjud profil uchun): familiya va ismning har biri bir harf xato bilan ham mos keladi (Aliyev/Aliev, Xasanov/Hasanov). */
+function nameMatchesLoose(entryName, typed) {
+  const want = normName(entryName).split(" ").slice(0, 2);
+  const have = normName(typed).split(" ").filter(Boolean);
+  const near = (t) => have.some((h) => h === t || (Math.min(h.length, t.length) >= 4 && lev(h, t) <= 1) || (h.length >= 3 && t.length >= 3 && (h[0] === t[0]) && t.startsWith(h)));
+  return want.length >= 2 && want.every(near);
 }
 
 /** Shu guruh uchun ro'yxat talabi hozir kuchdami: «migratsiya» fanlarida (mavjud talabalar bor) — faqat o'qituvchi ro'yxatni yuklagach. */
@@ -277,24 +293,43 @@ async function rosterGate(user) {
   if (!roster?.entries?.some((e) => e.claimedBy === user.id)) throw new HttpError(403, "Parol yangilandi. Endi «Kirish» sahifasida email, parol va o'qituvchi bergan shifr bilan kiring.", "SHIFR_REQUIRED");
 }
 
-async function claimRoster(req, group, shifr, typedName, userId) {
-  if (!shifrDigits(shifr)) throw new HttpError(400, "Shifrni kiriting (ro'yxatda sizga berilgan raqam)", "SHIFR_REQUIRED");
+/** Muvaffaqiyatsiz ID raqam urinishlari jurnali (o'qituvchi «Talabalar ro'yxati» sahifasida ko'radi): talabalar nimada adashayotganini aniqlash uchun. Shifrning o'zi saqlanmaydi. */
+async function logShifrFail(req, group, reason, detail = {}) {
+  try {
+    const at = new Date().toISOString();
+    await db().set(`shifrfail/${at}-${newId().slice(0, 5)}`, { group, reason, at, ip: maskIp(clientIp(req)), ...detail });
+  } catch {}
+}
+
+async function claimRoster(req, group, shifr, typedName, userId, altName = "") {
   const ip = sha(clientIp(req)).slice(0, 24);
-  const keys = [[`ratelimit/shifr-ip/${ip}`, 12], [`ratelimit/shifr-group/${group}`, 150]];
-  for (const [k, lim] of keys) if ((await peekHit(k, 3600_000)).n >= lim) throw new HttpError(429, "Shifr bo'yicha urinishlar ko'p bo'ldi. Bir soatdan keyin qayta urinib ko'ring yoki o'qituvchiga murojaat qiling.");
+  const digits = shifrDigits(shifr);
+  if (!digits) throw new HttpError(400, "Shifrni kiriting (ro'yxatda sizga berilgan raqam)", "SHIFR_REQUIRED");
+  // Universitet Wi-Fi tarmog'ida ko'p talaba bitta manzildan (IP) kiradi: cheklov keng, faqat taxminiy tanlashga qarshi
+  const keys = [[`ratelimit/shifr-ip/${ip}`, 80], [`ratelimit/shifr-group/${group}`, 400]];
+  for (const [k, lim] of keys) if ((await peekHit(k, 3600_000)).n >= lim) {
+    await logShifrFail(req, group, "rate_limited", { name: str(typedName, 60) });
+    throw new HttpError(429, "Shifr bo'yicha urinishlar ko'p bo'ldi. Bir soatdan keyin qayta urinib ko'ring yoki o'qituvchiga murojaat qiling.");
+  }
   const roster = await db().get(rosterKey(group));
   if (!roster?.entries?.length) throw new HttpError(403, `${group} guruhi ro'yxati hali yuklanmagan. O'qituvchiga murojaat qiling.`);
   const h = shifrHash(group, shifr);
   const entry = roster.entries.find((e) => safeEqual(e.hash, h));
-  if (!entry || !nameMatches(entry.name, typedName)) {
+  // Ism: ro'yxatdagidek yozilgan bo'lsa yoki (mavjud profil, parol tekshirilgan) yumshoq mos kelsa — qabul
+  const okName = entry && (nameMatches(entry.name, typedName) || (altName && nameMatches(entry.name, altName)) || (userId && (nameMatchesLoose(entry.name, typedName) || (altName && nameMatchesLoose(entry.name, altName)))));
+  if (!entry || !okName) {
     const sh = await Promise.all(keys.map(([k]) => hit(k, 3600_000)));
-    if (sh[0].n === 6) await securityAlert(req, "shifr_guess", "high", `ID raqamni topishga urinish (${group})`, `Bitta manzildan bir soatda 6 marta noto'g'ri ID raqam yoki F.I.Sh. kiritildi (${group} guruhi). Boshqa talaba nomidan kirishga urinish bo'lishi mumkin.`, `${group}/${ip}`);
-    if (sh[1].n === 40) await securityAlert(req, "shifr_guess_group", "high", `${group} guruhida ID raqam bo'yicha ko'p xato urinishlar`, "Bir soatda guruh bo'yicha 40 ta noto'g'ri urinish bo'ldi (turli manzillardan bo'lishi mumkin).", group);
-    await new Promise((r) => setTimeout(r, 500));
-    throw new HttpError(403, "Shifr yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. Shifrni va ismingizni ro'yxatdagidek kiriting.");
+    await logShifrFail(req, group, !entry ? "shifr_not_found" : "name_mismatch", { name: str(typedName, 60), ...(altName ? { altName: str(altName, 60) } : {}), digitsLen: digits.length, ...(entry ? { rosterName: entry.name } : {}), existing: Boolean(userId) });
+    if (sh[0].n === 40) await securityAlert(req, "shifr_guess", "high", `ID raqamni topishga urinish (${group})`, `Bitta manzildan bir soatda 40 marta noto'g'ri ID raqam yoki F.I.Sh. kiritildi (${group} guruhi). Boshqa talaba nomidan kirishga urinish bo'lishi mumkin (universitet Wi-Fi tarmog'ida bir nechta talabaning xatosi ham bo'lishi mumkin).`, `${group}/${ip}`);
+    if (sh[1].n === 150) await securityAlert(req, "shifr_guess_group", "high", `${group} guruhida ID raqam bo'yicha ko'p xato urinishlar`, "Bir soatda guruh bo'yicha 150 ta noto'g'ri urinish bo'ldi (turli manzillardan bo'lishi mumkin).", group);
+    await new Promise((r) => setTimeout(r, 400));
+    throw new HttpError(403, "ID raqam yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. ID raqamni faqat raqamlar bilan (bo'shliqsiz) kiriting va F.I.Sh.ni ro'yxatdagidek yozing (familiya va ism).", "SHIFR_MISMATCH");
   }
-  if (entry.claimedBy && entry.claimedBy !== userId) throw new HttpError(409, "Bu shifr bilan allaqachon profil yaratilgan. Parolingizni unutgan bo'lsangiz «Parolni unutdingizmi?» dan foydalaning yoki o'qituvchiga murojaat qiling.");
-  return { roster, entry, digits: shifrDigits(shifr) };
+  if (entry.claimedBy && entry.claimedBy !== userId) {
+    await logShifrFail(req, group, "already_claimed", { name: str(typedName, 60), rosterName: entry.name });
+    throw new HttpError(409, "Bu ID raqam bilan allaqachon profil yaratilgan. Shu email va parolingiz bilan «Kirish» sahifasidan kiring; parolni unutgan bo'lsangiz «Parolni unutdingizmi?» dan foydalaning yoki o'qituvchiga murojaat qiling.", "SHIFR_CLAIMED");
+  }
+  return { roster, entry, digits };
 }
 
 async function finishClaim(roster, entry, userId) {
@@ -323,6 +358,14 @@ async function adminRoster(req) {
     }
   }
   return json({ groups: out });
+}
+
+async function adminShifrFails(req) {
+  await requireTeacher(req);
+  const list = (await getEntries("shifrfail/")).map(([, v]) => v).sort((a, b) => (a.at < b.at ? 1 : -1));
+  const by = {};
+  for (const x of list) by[x.reason] = (by[x.reason] || 0) + 1;
+  return json({ counts: by, recent: list.slice(0, 150) });
 }
 
 async function adminRosterUpload(req, group) {
@@ -499,7 +542,7 @@ async function login(req) {
     const entry = roster?.entries?.find((e) => e.claimedBy === user.id);
     if (!entry) {
       if (!str(b.shifr)) throw new HttpError(403, `${user.group} guruhiga kirish uchun o'qituvchi bergan shifr kerak. Shifrni kiriting.`, "SHIFR_REQUIRED");
-      const claim = await claimRoster(req, user.group, b.shifr, user.name, user.id);
+      const claim = await claimRoster(req, user.group, b.shifr, user.name, user.id, str(b.fullName, 120));
       await finishClaim(claim.roster, claim.entry, user.id);
       user.rosterOk = true;
       user.idNumber = claim.digits;
@@ -3764,6 +3807,7 @@ const routes = [
   ["PUT", /^admin\/meets\/([\w-]+)$/, saveMeet],
   ["DELETE", /^admin\/meets\/([\w-]+)$/, deleteMeet],
   ["GET", /^admin\/roster$/, adminRoster],
+  ["GET", /^admin\/roster-fails$/, adminShifrFails],
   ["PUT", /^admin\/roster\/([\w-]+)$/, adminRosterUpload],
   ["POST", /^admin\/roster\/([\w-]+)\/(\d{1,3})\/release$/, adminRosterRelease],
   ["POST", /^admin\/tasks$/, createTask],
