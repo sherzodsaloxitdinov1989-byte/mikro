@@ -2508,8 +2508,8 @@ async function computeScoreRows(subject, semNo) {
     const manual = midBy.get(u.id);
     const midterm = manual ? manual.grade : examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
-    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: asg, midterms: manual ? [manual.grade ?? null, manual.grade2 ?? null] : [null, null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
-    return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
+    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: manual ? [manual.grade ?? null, manual.grade2 ?? null] : [null, null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
 }
@@ -2584,16 +2584,17 @@ async function adminSetMidterm(req) {
   const user = await db().get(userKey(str(b.userId, 64)));
   if (!subject || !sem || !user || user.role !== "student") throw new HttpError(404, "Fan, semestr yoki talaba topilmadi");
   const key = midtermKey(subject, sem.no, user.id);
-  const slot = Number(b.slot) === 2 ? 2 : 1; // 331–334-25 guruhlarda ikkita nazorat testi: 1 va 2
-  const field = slot === 2 ? "grade2" : "grade";
+  const slot = [2, 3].includes(Number(b.slot)) ? Number(b.slot) : 1; // 331–334-25: 1, 2 — nazorat testlari; 3 — 20 ballik topshiriq (faqat 3-semestrdan boshqa semestrlarda qo'lda)
+  const field = slot === 3 ? "asg" : slot === 2 ? "grade2" : "grade";
   const cur = (await db().get(key)) || {};
   if (b.grade === null || b.grade === "" || b.grade === undefined) delete cur[field];
   else {
     const grade = Number(b.grade);
-    if (!Number.isFinite(grade) || grade < 0 || grade > 5 || Math.round(grade * 2) !== grade * 2) throw new HttpError(400, "Baho 0 dan 5 gacha (0,5 qadam bilan) bo'lishi kerak");
+    const top = slot === 3 ? 20 : 5;
+    if (!Number.isFinite(grade) || grade < 0 || grade > top || Math.round(grade * 4) !== grade * 4) throw new HttpError(400, slot === 3 ? "Topshiriq bali 0 dan 20 gacha bo'lishi kerak" : "Baho 0 dan 5 gacha (0,5 qadam bilan) bo'lishi kerak");
     cur[field] = grade;
   }
-  if (cur.grade === undefined && cur.grade2 === undefined) await db().del(key);
+  if (cur.grade === undefined && cur.grade2 === undefined && cur.asg === undefined) await db().del(key);
   else await db().set(key, { ...cur, by: t.name, at: new Date().toISOString() });
   scoreCache.delete(`${subject}/${sem.no}`);
   return json({ ok: true });

@@ -236,8 +236,9 @@ async function scoresView(el) {
       const mk = (v, n) => h("input", { type: "number", min: 0, max: 5, step: 0.5, value: v ?? "", placeholder: `NT${n}`, title: `${n}-nazorat testi (0–5)`, style: { width: "62px" } });
       const a = mk(r.midtermGrade, 1), b2 = mk(r.midtermGrade2, 2);
       const put = (slot, inp) => api.put("admin/midterm", { subject: SUBJECT_KEY, sem: d.sem.no, userId: r.userId, slot, grade: inp.value === "" ? null : Number(inp.value) });
-      return [a, " ", b2, " ", h("button", { class: "btn small ghost", title: "Saqlash", onclick: async () => {
-        try { await put(1, a); await put(2, b2); toast("Saqlandi", "ok"); load(true); } catch (ex) { toast(ex.message, "error"); }
+      const asgIn = r.asgManual ? h("input", { type: "number", min: 0, max: 20, step: 0.25, value: r.lecture.assignment || "", placeholder: "20 ball", title: "20 ballik topshiriq bali (0–20)", style: { width: "72px" } }) : null;
+      return [asgIn, asgIn && " ", a, " ", b2, " ", h("button", { class: "btn small ghost", title: "Saqlash", onclick: async () => {
+        try { if (asgIn) await put(3, asgIn); await put(1, a); await put(2, b2); toast("Saqlandi", "ok"); load(true); } catch (ex) { toast(ex.message, "error"); }
       } }, "💾")];
     };
     const detail = async (r) => {
