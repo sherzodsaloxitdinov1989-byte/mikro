@@ -64,11 +64,11 @@ export function computeScore(inp) {
     const theory = r2(sc.theoryMax * lecShare);
     const practiceOnly = r2(sc.practiceMax * pracShare);
     const lecPts = r2(asg + mids);
-    const pracPts = r2(theory + practiceOnly);
+    const pracPts = r2(Math.min(sc.practice, theory + practiceOnly)); // amaliy topshiriq 10 balldan oshmaydi
     return {
       scoring: sc,
       lecture: { max: sc.lecture, points: lecPts, assignment: asg, assignmentMax: sc.assignmentMax, midterms: mids, midtermsMax: sc.midtermInLecture, midterm1: m1, midterm2: m2, midtermMax: sc.midtermInLecture, work: asg, workMax: sc.assignmentMax, midterm: mids, glossaryPct: pct(g), questionsPct: pct(q), testsPct: pct(t) },
-      practice: { max: sc.practice, points: pracPts, theory, theoryMax: sc.theoryMax, practiceOnly, practiceMax: sc.practiceMax, practicePct: Math.round(pracShare * 100) },
+      practice: { max: sc.practice, points: pracPts, capped: theory + practiceOnly > sc.practice, rawSum: r2(theory + practiceOnly), theory, theoryMax: sc.theoryMax, practiceOnly, practiceMax: sc.practiceMax, practicePct: Math.round(pracShare * 100) },
       byTopic: byTopic.map((r) => ({ ...r, lecPoints: r.lecShare === null ? null : r2((sc.theoryMax * r.lecShare) / lecTopics), pracPoints: r.pracShare === null ? null : r2((sc.practiceMax * r.pracShare) / pracTopics) })),
       midtermGrade: m1, midtermGrade2: m2,
       extra: 0,
