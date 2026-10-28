@@ -43,7 +43,7 @@ function sheet(d) {
     h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Yo'nalish"), h("th", { class: "center" }, "To'plagan ball"), h("th", { class: "center" }, "Eng ko'pi"))),
       h("tbody", {}, ...(sc.mode === "assignment" ? [
         row("Ma'ruza mashg'uloti", `20 ballik topshiriq: ${fmt(lec.assignment)} / ${fmt(lec.assignmentMax)} · 1-nazorat testi: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat testi: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.points, lec.max),
-        row("Amaliy topshiriq", `Nazariy qism (tushunchalar, nazorat savollari, mavzu testlari): ${fmt(prc.theory)} · darslikning amaliy topshiriqlari: ${fmt(prc.practiceOnly)} · yig'indi ${fmt(prc.rawSum)}, ko'pi bilan ${fmt(prc.max)} ball hisoblanadi`, prc.points, prc.max),
+        row("Amaliy topshiriq", `Nazariy qism (tushunchalar, nazorat savollari, mavzu testlari): ${fmt(prc.theory)} / ${fmt(prc.theoryMax)} · darslikning amaliy topshiriqlari: ${fmt(prc.practiceOnly)} / ${fmt(prc.practiceMax)}`, prc.points, prc.max),
       ] : [
         row("Ma'ruza mashg'uloti", `${lecNote}${lec.midtermMax ? ` · jumladan oraliq nazorat: ${fmt(lec.midterm)} / ${fmt(lec.midtermMax)} (baho: ${s.midtermGrade ?? "—"} / 5)` : ""}`, lec.points, lec.max),
         row("Amaliy mashg'ulot", prcNote, prc.points, prc.max),
@@ -51,7 +51,7 @@ function sheet(d) {
       h("tfoot", {}, h("tr", {}, h("td", {}, h("b", {}, "JAMI")), h("td", { class: "center" }, h("b", {}, fmt(s.total))), h("td", { class: "center" }, h("b", {}, fmt(s.totalMax)))))),
     s.byTopic?.length > 0 && topicTable(s.byTopic, sc.mode === "assignment"),
     !lec.midtermMax && sc.mode !== "assignment" && h("p", {}, h("b", {}, "Oraliq nazorat (5 ballik tizimda, qo'shimcha ball): "), s.midtermGrade === null ? "hali baholanmagan" : `${s.midtermGrade} / 5`),
-    sc.mode === "assignment" ? h("p", { class: "small muted" }, "Ball tizimi: ma'ruza mashg'uloti — 30 ball (20 ballik topshiriq + 2 ta nazorat testi, har biri 5 ball); amaliy topshiriq — ko'pi bilan 10 ball (nazariy qismni va darslik topshiriqlarini bajarganlik uchun ballar qo'shiladi, yig'indi 10 dan oshmaydi).") : h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
+    sc.mode === "assignment" ? h("p", { class: "small muted" }, "Ball tizimi: ma'ruza mashg'uloti — 30 ball (20 ballik topshiriq + 2 ta nazorat testi, har biri 5 ball); amaliy topshiriq — 10 ball (nazariy qism 5 ball + darslik amaliy topshiriqlari 5 ball).") : h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
     d.sem.ended ? h("p", { class: "small" }, "✅ Semestr yakunlangan: bu yakuniy natija.") : h("p", { class: "small muted" }, "Semestr hali tugamagan: natija oraliq."));
 }
 

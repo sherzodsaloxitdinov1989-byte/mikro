@@ -325,8 +325,8 @@ export const SCORING = {
   distance: { lecture: 30, practice: 20, midtermInLecture: 10 },
 };
 // Mikroiqtisodiyot, kunduzgi 331–334-25 (3-semestr): ma'ruza 30 ball = 20 ballik topshiriq + 2 ta nazorat testi (5 ballik, jami 10);
-// amaliy topshiriq — ko'pi bilan 10 ball: nazariy qism (tushunchalar, nazorat savollari, mavzu testlari) va darslik amaliy topshiriqlari ballari qo'shiladi, yig'indi 10 dan oshmaydi.
-SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 10, practiceMax: 10 };
+// amaliy topshiriq — 10 ball: nazariy qism (tushunchalar, nazorat savollari, mavzu testlari) 5 ball + darslik amaliy topshiriqlari 5 ball (qat'iy bo'linadi).
+SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 5, practiceMax: 5 };
 export const scoringOf = (subjectKey, form, group = "", semNo = 0) =>
   subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : subjectKey === "mikro" && ASSIGNMENT_GROUPS.includes(group) && Number(semNo) === 3 ? SCORING.assignment : SCORING.default;
 
