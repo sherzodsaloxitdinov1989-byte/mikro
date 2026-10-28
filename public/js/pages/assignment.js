@@ -368,7 +368,7 @@ export async function teacherView(el) {
                 if (it.teacher?.score != null && !it.resubmitted) (label = fmtScore(it.teacher.score)), (cls = "");
                 else (label = it.late ? "⏰" : "●"), (cls = "warn-text");
               }
-              return h("td", { class: "center" }, it ? h("a", { href: "#", class: cls, title: `${s.title}${it.late ? " · kech" : ""}`, onclick: (e) => (e.preventDefault(), openModal(u, it, draw)) }, label) : h("span", { class: "muted" }, "·"));
+              return h("td", { class: "center" }, it ? h("a", { href: "#", class: cls, title: `${s.title}${it.late ? " · kech" : ""}${it.dup ? " · ⚠ boshqa talaba ishi bilan takrorlanish" : ""}`, onclick: (e) => (e.preventDefault(), openModal(u, it, draw)) }, label, it.dup && h("sup", { style: { color: "#dc2626" } }, "⚠")) : h("span", { class: "muted" }, "·"));
             }),
             h("td", { class: "center" }, h("b", {}, fmtScore(totalScore(subsOf(u), curForm)))))))));
     if (!list.length) table.append(emptyState("👥", "Talabalar topilmadi"));
@@ -442,6 +442,10 @@ export async function teacherView(el) {
       .filter(Boolean);
     const close = modal(`${u.name} — ${it.no}-bosqich`, h("div", { class: "stack" },
       h("p", { class: "muted small" }, `${st.title} · guruh ${u.group || "—"} · yuborilgan: ${fmtDate(it.submittedAt)} · urinish: ${it.attempts}${it.late ? " · ⏰ KECH" : ""}`),
+      it.dup && h("div", { class: "alert alert-danger small" }, h("b", {}, "⚠️ Takrorlanish aniqlandi"),
+        it.dup.work && h("p", {}, `Ish matni ${it.dup.work.with.name} (${it.dup.work.with.group || "—"}) ishi bilan ${it.dup.work.pct}% o'xshash. `, it.dup.work.pct >= 70 ? "Ko'chirilgan bo'lishi ehtimoli yuqori." : "Shubhali — solishtirib ko'ring."),
+        it.dup.object && h("p", {}, `Sub'ekt (ob'ekt) takrori: «${it.dup.object.name}» sub'ektini ${it.dup.object.with.name} (${it.dup.object.with.group || "—"}) ham tanlagan.`),
+        h("p", { class: "muted small" }, `Aniqlangan: ${fmtDate(it.dup.at)}. Bu avtomatik ehtimoliy baho — yakuniy qarorni o'qituvchi qabul qiladi.`)),
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/assignment/${it.userId}/${it.no}/file`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
       it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q."),
       prior.length > 0 && h("details", {}, h("summary", {}, `🔗 Oldingi bog'liq bosqichlar (${prior.map((p) => p.no).join(", ")}) — izchillikni tekshirish uchun`), prior.map((p) => h("div", { class: "card" }, h("b", {}, `${p.no}-bosqich`), h("p", { class: "pre-wrap small" }, (p.text || "(matn yo'q, faqat fayl)").slice(0, 4000))))),

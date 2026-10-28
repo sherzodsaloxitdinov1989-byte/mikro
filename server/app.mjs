@@ -18,7 +18,7 @@ import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, p
 import { mailEnabled, sendResetCode, sendAlertMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
 import * as meetLib from "./meets.mjs";
-import { heuristics, similarity, combineOriginality, hideSimilar } from "./originality.mjs";
+import { heuristics, similarity, combineOriginality, hideSimilar, objectNames } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
 import { SEC_TYPES, integrityOf, reduceBy, POINT_PERCENT, MAX_PENALTY } from "./integrity.mjs";
@@ -1180,8 +1180,41 @@ async function assignSubmit(req, no) {
     teacher: prev?.teacher || null,
     resubmitted: Boolean(prev?.teacher),
   };
+  // Boshqa talaba ishi bilan takrorlanish (matn va sub'ekt/ob'ekt): topshirilishi bilan tekshirilib, o'qituvchiga xabar beriladi
+  try { rec.dup = await checkAssignDuplicates(req, user, stage, rec); } catch (e) { console.error("dup check:", e.message); }
   await db().set(key, rec);
   return json(assignView(rec));
+}
+
+const DUP_TEXT_PCT = 40; // shundan boshlab o'qituvchiga xabar beriladi
+const DUP_SEVERE_PCT = 70;
+
+/** 20 ballik topshiriq: ish matni va tanlangan sub'ekt (1-bosqich) boshqa talabalarnikiga o'xshasa — o'qituvchiga ogohlantirish. Barcha ta'lim shakllari va guruhlar bo'yicha solishtiriladi. */
+async function checkAssignDuplicates(req, user, stage, rec) {
+  const all = (await getMany("assign/")).filter((o) => o.userId !== user.id);
+  const same = all.filter((o) => o.no === stage.no && o.text);
+  const sim = similarity(rec.text, same.map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text, userId: o.userId })));
+  const res = { at: new Date().toISOString(), stage: stage.no };
+  const pairKey = (otherId) => `${stage.no}/${[user.id, otherId].sort().join("-").slice(0, 60)}`;
+  if (sim.pct >= DUP_TEXT_PCT && sim.with) {
+    res.work = { pct: sim.pct, with: sim.with };
+    await securityAlert(req, "plagiarism_work", sim.pct >= DUP_SEVERE_PCT ? "critical" : "high", `20 ballik topshiriq (${stage.no}-bosqich): ish ${sim.pct}% takrorlangan`, `${user.name} (${user.group || "—"}) yuborgan ${stage.no}-bosqich hisoboti ${sim.with.name} (${sim.with.group || "—"}) ishi bilan ${sim.pct}% o'xshash. «Topshiriq (20 ball)» bo'limida ikkala ishni solishtiring.`, pairKey(sim.with.userId), 7 * 86_400_000);
+  }
+  // Sub'ekt (ob'ekt) takrori: 1-bosqich (sub'ekt tavsifi) — ikki talaba bir xil korxonani tanlagan bo'lsa
+  if (stage.no === 1) {
+    const samples = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
+    const mine = objectNames(rec.text, samples);
+    for (const o of same) {
+      const theirs = new Set(objectNames(o.text, samples));
+      const hit = mine.find((n) => theirs.has(n));
+      if (hit) {
+        res.object = { name: hit, with: { name: o.user?.name, group: o.user?.group, userId: o.userId } };
+        await securityAlert(req, "plagiarism_object", "high", `20 ballik topshiriq: bir xil sub'ekt tanlangan («${hit}»)`, `${user.name} (${user.group || "—"}) va ${o.user?.name} (${o.user?.group || "—"}) 1-bosqichda bir xil sub'ektni — «${hit}» ni — tanlagan. Har bir talaba o'z sub'ektini tanlashi kerak.`, `obj/${[user.id, o.userId].sort().join("-").slice(0, 60)}`, 7 * 86_400_000);
+        break;
+      }
+    }
+  }
+  return res.work || res.object ? res : null;
 }
 
 /** O'z ijodi: AI bahosi + qoidaviy belgilar + boshqa talabalar ishiga o'xshashlik → ball koeffitsiyenti. */

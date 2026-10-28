@@ -76,7 +76,7 @@ export function similarity(text, others) {
     let common = 0;
     for (const s of a) if (b.has(s)) common++;
     const pct = Math.round((common / Math.min(a.size, b.size)) * 100);
-    if (pct > best.pct) best = { pct, with: { name: o.name, group: o.group } };
+    if (pct > best.pct) best = { pct, with: { name: o.name, group: o.group, userId: o.userId } };
   }
   return best;
 }
@@ -103,4 +103,27 @@ export function combineOriginality({ ai, heur, sim }) {
 }
 
 /** Talabaga ko'rsatilmaydigan maydonni olib tashlaydi (kim bilan o'xshashligi). */
-export const hideSimilar = (rec) => (rec?.ai?.originality?.similarTo ? { ...rec, ai: { ...rec.ai, originality: { ...rec.ai.originality, similarTo: undefined } } } : rec);
+export const hideSimilar = (rec) => {
+  if (!rec) return rec;
+  let r = rec;
+  if (r.dup) r = { ...r, dup: undefined }; // takrorlanish belgisi faqat o'qituvchiga
+  if (r.ai?.originality?.similarTo) r = { ...r, ai: { ...r.ai, originality: { ...r.ai.originality, similarTo: undefined } } };
+  return r;
+};
+
+const GENERIC = /^(mchj|xk|ok|aj|yatt|llc|korxona|tashkilot|kompaniya|firma|sub'ekt|obyekt|ob'ekt|restoran|kafe|mehmonxona|mikrobiznes|biznes|do'kon|dokon)$/;
+/** Matndan sub'ekt (korxona) nomlarini ajratadi: «...», "...", “...”, «X MChJ» va «Sub'ekt nomi: ...» ko'rinishlari. */
+export function objectNames(text, exclude = []) {
+  const t = String(text || "").slice(0, 8000);
+  const found = new Set();
+  const norm = (s) => s.toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|mchj|xk|ok|aj|yatt|llc)\b/g, "").replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
+  const add = (s) => {
+    const n = norm(s);
+    if (n.length < 4 || n.length > 60 || GENERIC.test(n) || exclude.some((e) => e && (n === e || n.includes(e)))) return;
+    found.add(n);
+  };
+  for (const m of t.matchAll(/«([^»\n]{3,60})»|“([^”\n]{3,60})”|"([^"\n]{3,60})"/g)) add(m[1] || m[2] || m[3]);
+  for (const m of t.matchAll(/([A-ZА-ЯЎҚҒҲ][\p{L}'ʻ’\-]+(?:\s+[A-ZА-ЯЎҚҒҲ][\p{L}'ʻ’\-]+){0,2})\s+(?:MCHJ|MChJ|XK|OK|AJ|YaTT|LLC)\b/gu)) add(m[1]);
+  for (const m of t.matchAll(/(?:sub'?ekt|korxona|tashkilot|obyekt|ob'?ekt|firma|kompaniya)(?:ning)?\s+nomi\s*[:\-–—]\s*([^\n.;]{3,60})/gi)) add(m[1]);
+  return [...found];
+}
