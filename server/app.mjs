@@ -9,6 +9,7 @@ import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
+import { checkContent } from "./contentcheck.mjs";
 import { computeScore } from "./scores.mjs";
 import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
@@ -1214,6 +1215,13 @@ async function checkAssignDuplicates(req, user, stage, rec) {
       }
     }
   }
+  // Mazmun tekshiruvi: talablarga moslik, natija qismlari, sub'ekt bilan izchillik, takroriylik, mazmuniy o'xshashlik
+  const samples1 = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
+  const own1 = stage.no > 1 ? (await db().get(assignKey(user.id, 1)))?.text : "";
+  rec.content = checkContent({ stage, text: rec.text, ownObjects: own1 ? objectNames(own1, samples1) : [], others: same.map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text, userId: o.userId })) });
+  const high = rec.content.issues.filter((i) => i.level === "high" && i.kind !== "similar");
+  if (high.length) await securityAlert(req, "content_check", "high", `20 ballik topshiriq (${stage.no}-bosqich): ${user.name} ishining mazmuni talabga mos emas`, `${user.name} (${user.group || "—"}) ${stage.no}-bosqich hisoboti: ${high.map((i) => i.text).join(" ")}`, `${stage.no}/${user.id}`, 24 * 3600_000);
+  if (rec.content.similar && !res.work) await securityAlert(req, "plagiarism_content", "high", `20 ballik topshiriq (${stage.no}-bosqich): mazmuniy takrorlanish`, `${user.name} (${user.group || "—"}) ishi mazmuni ${rec.content.similar.with.name} (${rec.content.similar.with.group || "—"}) ishiga ${rec.content.similar.pct}% o'xshash (so'zlari o'zgartirilgan nusxa bo'lishi mumkin).`, pairKey(rec.content.similar.with.userId), 7 * 86_400_000);
   return res.work || res.object ? res : null;
 }
 

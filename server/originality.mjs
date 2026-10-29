@@ -107,6 +107,7 @@ export const hideSimilar = (rec) => {
   if (!rec) return rec;
   let r = rec;
   if (r.dup) r = { ...r, dup: undefined }; // takrorlanish belgisi faqat o'qituvchiga
+  if (r.content) r = { ...r, content: { ...r.content, similar: undefined, issues: r.content.issues.filter((i) => i.kind !== "similar") } }; // talabaga mazmuniy o'xshashlik ko'rsatilmaydi
   if (r.ai?.originality?.similarTo) r = { ...r, ai: { ...r.ai, originality: { ...r.ai.originality, similarTo: undefined } } };
   return r;
 };

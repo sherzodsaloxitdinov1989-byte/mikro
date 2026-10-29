@@ -317,6 +317,7 @@ export async function renderStage(el, noParam) {
     h("div", { class: "card stack" },
       h("h3", {}, "📤 Hisobotni yuklash"),
       sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts}${sub.late ? " · kech" : ""}`),
+      sub?.content?.issues?.length > 0 && h("div", { class: "alert alert-warn small" }, h("b", {}, "📋 Tezkor tekshiruv: ishda quyidagi kamchiliklar topildi — to'g'rilab qayta yuborishingiz mumkin"), h("ul", {}, sub.content.issues.map((i) => h("li", {}, i.text)))),
       h("label", { class: "field" }, h("span", {}, "Hisobot fayli — faqat Word (.docx), 12 MB gacha. Jadval, formula, rasm va grafiklarni shu faylga joylang"), fileInput),
       fileNote,
       sub?.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`assignment/${no}/file`, sub.file.name) }, "⬇ Yuklangan faylni yuklab olish"),
@@ -368,7 +369,7 @@ export async function teacherView(el) {
                 if (it.teacher?.score != null && !it.resubmitted) (label = fmtScore(it.teacher.score)), (cls = "");
                 else (label = it.late ? "⏰" : "●"), (cls = "warn-text");
               }
-              return h("td", { class: "center" }, it ? h("a", { href: "#", class: cls, title: `${s.title}${it.late ? " · kech" : ""}${it.dup ? " · ⚠ boshqa talaba ishi bilan takrorlanish" : ""}`, onclick: (e) => (e.preventDefault(), openModal(u, it, draw)) }, label, it.dup && h("sup", { style: { color: "#dc2626" } }, "⚠")) : h("span", { class: "muted" }, "·"));
+              return h("td", { class: "center" }, it ? h("a", { href: "#", class: cls, title: `${s.title}${it.late ? " · kech" : ""}${it.dup ? " · ⚠ boshqa talaba ishi bilan takrorlanish" : ""}${it.content?.issues?.some((i) => i.level === "high") ? " · 📋 mazmun talabga mos emas" : ""}`, onclick: (e) => (e.preventDefault(), openModal(u, it, draw)) }, label, it.dup && h("sup", { style: { color: "#dc2626" } }, "⚠"), it.content?.issues?.some((i) => i.level === "high") && h("sup", { style: { color: "#d97706" } }, "📋")) : h("span", { class: "muted" }, "·"));
             }),
             h("td", { class: "center" }, h("b", {}, fmtScore(totalScore(subsOf(u), curForm)))))))));
     if (!list.length) table.append(emptyState("👥", "Talabalar topilmadi"));
@@ -446,6 +447,10 @@ export async function teacherView(el) {
         it.dup.work && h("p", {}, `Ish matni ${it.dup.work.with.name} (${it.dup.work.with.group || "—"}) ishi bilan ${it.dup.work.pct}% o'xshash. `, it.dup.work.pct >= 70 ? "Ko'chirilgan bo'lishi ehtimoli yuqori." : "Shubhali — solishtirib ko'ring."),
         it.dup.object && h("p", {}, `Sub'ekt (ob'ekt) takrori: «${it.dup.object.name}» sub'ektini ${it.dup.object.with.name} (${it.dup.object.with.group || "—"}) ham tanlagan.`),
         h("p", { class: "muted small" }, `Aniqlangan: ${fmtDate(it.dup.at)}. Bu avtomatik ehtimoliy baho — yakuniy qarorni o'qituvchi qabul qiladi.`)),
+      it.content && h("div", { class: `alert ${it.content.issues.some((i) => i.level === "high") ? "alert-danger" : it.content.issues.length ? "alert-warn" : "alert-ok"} small` }, h("b", {}, "📋 Mazmun tekshiruvi (avtomatik)"),
+        h("p", { class: "muted small" }, `Hajm: ${it.content.words} so'z · talablarga moslik (tayanch tushunchalar): ${it.content.coverage}%${it.content.parts.length > 1 ? ` · natija qismlari: ${it.content.parts.filter((p) => p.ok).length}/${it.content.parts.length}` : ""}`),
+        it.content.issues.length ? h("ul", {}, it.content.issues.map((i) => h("li", {}, `${i.level === "high" ? "🔴" : "🟡"} ${i.text}`))) : h("p", {}, "✅ Muammo topilmadi (chuqur tahlil uchun «AI tekshiruvi»dan foydalaning)."),
+        h("p", { class: "muted small" }, "Bu tezkor ehtimoliy tekshiruv; hisob-kitoblar va asoslanganlikni AI tekshiruvi va o'qituvchi baholaydi.")),
       it.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`admin/assignment/${it.userId}/${it.no}/file`, it.file.name) }, `⬇ ${it.file.name} (${sizeLabel(it.file.size)})`),
       it.text ? h("div", { class: "card" }, h("b", {}, "Hisobot matni"), h("p", { class: "pre-wrap small" }, it.text)) : h("p", { class: "muted small" }, "Matn yo'q."),
       prior.length > 0 && h("details", {}, h("summary", {}, `🔗 Oldingi bog'liq bosqichlar (${prior.map((p) => p.no).join(", ")}) — izchillikni tekshirish uchun`), prior.map((p) => h("div", { class: "card" }, h("b", {}, `${p.no}-bosqich`), h("p", { class: "pre-wrap small" }, (p.text || "(matn yo'q, faqat fayl)").slice(0, 4000))))),
