@@ -1242,7 +1242,7 @@ async function students(el) {
   const countOf = (g) => list.filter((u) => (g === "—" ? !u.group : u.group === g) && (!q.form || u.studyForm === q.form)).length;
   const shown = h("span", { class: "muted small" });
   const chips = h("div", { class: "row wrap" });
-  const groupSel = h("select", { title: "Guruh bo'yicha filtr", onchange: (e) => { q.group = e.target.value; draw(); } });
+  const groupSel = h("select", { style: { minWidth: "200px" }, title: "Guruh bo'yicha filtr", onchange: (e) => { q.group = e.target.value; draw(); } });
   const noGroup = list.some((u) => !u.group);
   const paintChips = () => {
     const names = [...groups, ...(noGroup ? ["—"] : [])].filter((g) => countOf(g) > 0 || q.group === g);
@@ -1329,8 +1329,8 @@ async function students(el) {
       h(
         "div",
         { class: "row wrap" },
-        h("input", { type: "search", placeholder: "Ism yoki email bo'yicha qidirish", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
-        h("select", { onchange: (e) => ((q.form = e.target.value), (q.group = ""), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), (COURSE.studyForms || []).map((f) => h("option", { value: f.key }, f.name))),
+        h("input", { type: "search", style: { minWidth: "240px" }, placeholder: "Ism yoki email bo'yicha qidirish", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
+        h("select", { style: { minWidth: "200px" }, onchange: (e) => ((q.form = e.target.value), (q.group = ""), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), (COURSE.studyForms || []).map((f) => h("option", { value: f.key }, f.name))),
         groupSel,
         h("div", { class: "grow" }),
         shown,
