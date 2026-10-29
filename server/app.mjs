@@ -10,6 +10,8 @@ import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/
 import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
 import { checkContent } from "./contentcheck.mjs";
+import { cosine as cosineTf } from "./contentcheck.mjs";
+import { prepare as dupPrepare, comparePair, explain as dupExplain } from "./dupreport.mjs";
 import { computeScore } from "./scores.mjs";
 import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
@@ -1368,6 +1370,45 @@ async function myAssignFile(req, no) {
   stageParam(no, formKeyOf(user));
   return sendAssignFile(req, user.id, no);
 }
+
+let dupCache = new Map();
+/** O'qituvchi: 20 ballik topshiriq — bosqich bo'yicha barcha juft ishlar takrorlanishi (batafsil izoh bilan). */
+async function adminAssignDuplicates(req) {
+  await requireTeacher(req);
+  const url = new URL(req.url);
+  const no = Math.max(1, Math.min(11, Number(url.searchParams.get("no")) || 1));
+  const minPct = Math.max(10, Math.min(100, Number(url.searchParams.get("min")) || 30));
+  const ck = `${no}`;
+  const c = dupCache.get(ck);
+  let pairs;
+  if (c && Date.now() - c.at < 120_000 && !url.searchParams.get("fresh")) pairs = c.pairs;
+  else {
+    const samples = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
+    const recs = (await getMany("assign/")).filter((r) => r.no === no && r.text && r.text.length > 60);
+    const prep = recs.map((r) => dupPrepare(r, samples));
+    pairs = [];
+    for (let i = 0; i < prep.length; i++) for (let j = i + 1; j < prep.length; j++) {
+      const A = prep[i], B = prep[j];
+      const quick = [...A.sh].reduce((n, s) => n + (B.sh.has(s) ? 1 : 0), 0) / Math.max(1, Math.min(A.sh.size, B.sh.size));
+      const objHit = A.objs.some((o) => B.objs.includes(o));
+      if (quick * 100 < 8 && !objHit) { // tez chiqarib tashlash: mazmuniy o'xshashlikni faqat shubhali juftlarda hisoblaymiz
+        const cos = cosineQuick(A, B);
+        if (cos < 0.85) continue;
+      }
+      const cmp = comparePair(A, B);
+      const ex = dupExplain(cmp, no);
+      if (cmp.pct < 30 && cmp.cos < 85 && !cmp.objects.length && cmp.sharedNumberCount < 8) continue;
+      const who = (x) => ({ userId: x.rec.userId, name: x.rec.user?.name, group: x.rec.user?.group, form: x.rec.form, submittedAt: x.rec.submittedAt, file: x.rec.file?.name || "", words: x.tokens.length });
+      pairs.push({ a: who(A), b: who(B), ...cmp, level: ex.level, summary: ex.summary, verdict: ex.verdict });
+    }
+    pairs.sort((x, y) => ({ high: 0, medium: 1, low: 2 })[x.level] - ({ high: 0, medium: 1, low: 2 })[y.level] || y.pct - x.pct || y.cos - x.cos);
+    dupCache.set(ck, { at: Date.now(), pairs });
+    if (dupCache.size > 20) dupCache = new Map([[ck, { at: Date.now(), pairs }]]);
+  }
+  const submitted = (await getMany("assign/")).filter((r) => r.no === no).length;
+  return json({ no, minPct, submitted, pairs: pairs.filter((p) => p.pct >= minPct || p.cos >= 85 || p.objects.length || p.sharedNumberCount >= 8).slice(0, 150), total: pairs.length });
+}
+const cosineQuick = (A, B) => cosineTf(A.tf, B.tf);
 
 async function adminAssignment(req) {
   await requireTeacher(req);
@@ -3979,6 +4020,7 @@ const routes = [
   ["POST", /^assignment\/(\d{1,2})\/review$/, assignReview],
   ["GET", /^assignment\/(\d{1,2})\/file$/, myAssignFile],
   ["GET", /^admin\/assignment$/, adminAssignment],
+  ["GET", /^admin\/assignment-duplicates$/, adminAssignDuplicates],
   ["GET", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/file$/, adminAssignFile],
   ["PUT", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/grade$/, gradeAssignment],
   ["POST", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/review$/, adminAssignReview],

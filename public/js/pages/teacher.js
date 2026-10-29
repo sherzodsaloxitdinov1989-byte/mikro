@@ -40,6 +40,7 @@ const SECTIONS = [
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
+  { key: "dups", only: "mikro", icon: "🔍", title: "Takrorlanish tahlili (20 ball)", group: "class", desc: "20 ballik topshiriqda talabalar ishlari orasidagi takrorlanish: kim kim bilan, qaysi parchalar, raqamlar va sub'ektlar aynan bir xil — batafsil izoh bilan." },
   { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
   { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
   { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
@@ -215,6 +216,44 @@ async function allResultsView(el) {
       h("button", { class: "btn ghost", onclick: csv }, "⬇ CSV (Excel)")),
     box);
   draw();
+}
+
+async function dupsView(el) {
+  let no = 1;
+  let min = 30;
+  const box = h("div", { class: "stack" });
+  const LEVEL = { high: ["🔴", "Yuqori ehtimol", "alert-danger"], medium: ["🟡", "Shubhali", "alert-warn"], low: ["⚪", "Kichik o'xshashlik", "alert-info"] };
+  async function load(fresh) {
+    box.replaceChildren(loading());
+    let d;
+    try { d = await api.get(`admin/assignment-duplicates?no=${no}&min=${min}${fresh ? "&fresh=1" : ""}`); } catch (ex) { return box.replaceChildren(h("div", { class: "alert alert-error" }, ex.message)); }
+    const who = (x) => `${x.name} (${x.group || "—"}, ${x.form === "masofaviy" ? "masofaviy" : "kunduzgi"})`;
+    const card = (p) => {
+      const [ic, lab, cls] = LEVEL[p.level];
+      return h("div", { class: "card stack" },
+        h("div", { class: "row between wrap" }, h("b", {}, `${ic} ${who(p.a)} ↔ ${who(p.b)}`), h("span", { class: "badge" }, `${p.pct}% o'xshash`)),
+        h("div", { class: `alert ${cls} small` }, h("b", {}, `${lab}. `), p.verdict),
+        h("ul", {}, p.summary.map((s) => h("li", {}, s))),
+        h("div", { class: "row wrap small muted" },
+          h("span", { class: "chip chip-soft" }, `So'zma-so'z: ${p.pct}%`), h("span", { class: "chip chip-soft" }, `Mazmuniy: ${p.cos}%`), h("span", { class: "chip chip-soft" }, `Umumiy raqamlar: ${p.sharedNumberCount} (${p.numPct}%)`), h("span", { class: "chip chip-soft" }, `Hajm: ${p.a.words} / ${p.b.words} so'z`),
+          h("span", { class: "chip chip-soft" }, `Yuborilgan: ${fmtDate(p.a.submittedAt)} / ${fmtDate(p.b.submittedAt)}`)),
+        p.passages.length > 0 && h("details", { open: p.level === "high" }, h("summary", {}, h("b", {}, `📄 Umumiy parchalar (eng uzun ${p.passages.length} tasi, ${p.passageCount} tadan)`)),
+          p.passages.map((x, i) => h("div", { class: "card", style: { background: "var(--surface-2)" } }, h("div", { class: "muted small" }, `${i + 1}-parcha · ${x.words} so'z — ikkala ishda ham aynan shunday yozilgan`), h("p", { class: "pre-wrap small" }, x.text)))),
+        p.sharedNumbers.length > 0 && h("p", { class: "small" }, h("b", {}, "Bir xil raqamlar: "), p.sharedNumbers.join(", "), p.sharedNumberCount > p.sharedNumbers.length ? ` … (jami ${p.sharedNumberCount} ta)` : ""),
+        p.meta.length > 0 && h("p", { class: "small" }, h("b", {}, "Fayl ma'lumotlari: "), p.meta.join("; ")),
+        h("div", { class: "row wrap" },
+          h("button", { class: "btn small ghost", onclick: () => (location.hash = "#/teacher/assignment") }, "📝 Topshiriq jadvaliga o'tish")));
+    };
+    const counts = { high: 0, medium: 0, low: 0 };
+    for (const p of d.pairs) counts[p.level]++;
+    box.replaceChildren(
+      h("div", { class: "alert alert-info small" }, `${no}-bosqich: ${d.submitted} ta ish yuborilgan. Topilgan juftliklar: ${d.pairs.length} (🔴 ${counts.high} · 🟡 ${counts.medium} · ⚪ ${counts.low}). Natija — ehtimoliy baho: yakuniy qarorni o'qituvchi qabul qiladi.`),
+      d.pairs.length ? h("div", { class: "stack" }, d.pairs.map(card)) : emptyState("✅", "Takrorlanish topilmadi", `${no}-bosqichda ${min}% dan yuqori o'xshash ishlar yo'q.`));
+  }
+  const noSel = h("select", { onchange: (e) => ((no = Number(e.target.value)), load()) }, Array.from({ length: 11 }, (_, i) => h("option", { value: i + 1 }, `${i + 1}-bosqich`)));
+  const minSel = h("select", { onchange: (e) => ((min = Number(e.target.value)), load()) }, [30, 40, 50, 70].map((v) => h("option", { value: v, selected: v === min }, `kamida ${v}% o'xshash`)));
+  mount(el, h("div", { class: "row wrap" }, noSel, minSel, h("button", { class: "btn ghost", onclick: () => load(true) }, "↻ Qayta hisoblash")), box);
+  await load();
 }
 
 async function scoresView(el) {
@@ -523,7 +562,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
