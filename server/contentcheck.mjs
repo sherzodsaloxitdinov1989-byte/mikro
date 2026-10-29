@@ -69,3 +69,35 @@ export function checkContent({ stage, text, others = [] }) {
   }
   return { checkedAt: new Date().toISOString(), words: w.length, coverage: Math.round(cov * 100), parts, issues, similar: similar ? { pct: similar.pct, with: similar.with } : null };
 }
+
+export const CONTENT_PENALTY_MAX = 60; // jiddiy holatlar uchun ballni eng ko'pi bilan shuncha foizga kamaytirish
+
+/**
+ * Jiddiy mazmun kamchiliklari uchun ball jarimasi (foiz, ko'pi bilan 60). Holatiga qarab:
+ *  hajm juda kichik 40 · mavzuga umuman mos emas 50 · talab qilingan qismlarning yarmi yo'q 20–40 (yo'q qism ulushiga qarab) · qisman mos 15 ·
+ *  matn takroriy 10 · mazmuniy nusxa (so'zlari o'zgartirilgan) 40 · bir xil ob'ekt (boshqa talabaning tadbirkorlik sub'ekti) 30.
+ * Eng katta jarimaga qolganlarining yarmi qo'shiladi. Aynan nusxa (so'zma-so'z) uchun "o'z ijodi" koeffitsiyenti alohida ishlaydi.
+ * rec: { content, dup }
+ */
+export function contentPenalty(rec) {
+  const items = [];
+  const c = rec?.content;
+  for (const i of c?.issues || []) {
+    if (i.kind === "short" && i.level === "high") items.push([40, i.text]);
+    else if (i.kind === "short") items.push([10, i.text]);
+    else if (i.kind === "relevance" && i.level === "high") items.push([50, i.text]);
+    else if (i.kind === "relevance") items.push([15, i.text]);
+    else if (i.kind === "parts") {
+      const miss = (c.parts || []).filter((p) => !p.ok).length;
+      const share = c.parts?.length ? miss / c.parts.length : 0;
+      items.push([i.level === "high" ? Math.max(20, Math.round(share * 40)) : 10, i.text]);
+    } else if (i.kind === "repeat") items.push([10, i.text]);
+    else if (i.kind === "similar") items.push([40, i.text]);
+  }
+  if (rec?.dup?.object) items.push([30, `Boshqa talaba tanlagan tadbirkorlik sub'ekti («${rec.dup.object.name}») ishlatilgan.`]);
+  if (!items.length) return null;
+  items.sort((a, b) => b[0] - a[0]);
+  const extra = items.slice(1).reduce((n, x) => n + x[0], 0);
+  const percent = Math.min(CONTENT_PENALTY_MAX, items[0][0] + Math.round(extra / 2));
+  return { percent, reasons: items.map(([p, t]) => ({ percent: p, text: t })) };
+}

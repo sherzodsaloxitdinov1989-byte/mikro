@@ -9,7 +9,7 @@ import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore } from "../public/js/assignment-util.js";
-import { checkContent } from "./contentcheck.mjs";
+import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
 import { prepare as dupPrepare, comparePair, explain as dupExplain } from "./dupreport.mjs";
 import { computeScore } from "./scores.mjs";
@@ -1313,8 +1313,10 @@ async function doAssignReview(user, no, { limited }) {
   const { orig, percentRaw, percent: percentOrig } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
   const lp = taskLib.withLatePenalty(percentOrig, rec.late);
   const integrity = await integrityFor(user.id, onPage(`#/assignment/${stage.no}`));
-  const percent = Math.round(reduceBy(lp.percent, integrity?.percent));
-  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, integrity: integrity && { ...integrity, before: lp.percent }, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
+  const afterIntegrity = Math.round(reduceBy(lp.percent, integrity?.percent));
+  const cpen = contentPenalty(rec); // jiddiy mazmun kamchiliklari (hajm, mavzuga mosligi, natija qismlari, mazmuniy nusxa, takroriy ob'ekt) — ko'pi bilan 60%
+  const percent = Math.round(reduceBy(afterIntegrity, cpen?.percent));
+  rec.ai = { ...review, originality: orig, percentRaw, latePenalty: lp.latePenalty, integrity: integrity && { ...integrity, before: lp.percent }, contentPenalty: cpen && { ...cpen, before: afterIntegrity }, percent, suggested: suggestedScore(stage.no, percent, form), max: stageMax(stage.no, form), forSubmittedAt: rec.submittedAt, ai: !review.estimated, model: review.estimated ? null : modelName(), at: new Date().toISOString(), missing: prior.filter((p) => stage.dependsOn.includes(p.no) && !p.sub).map((p) => p.no) };
   await db().set(key, rec);
   quota.n++;
   await db().set(quotaKey, quota);
