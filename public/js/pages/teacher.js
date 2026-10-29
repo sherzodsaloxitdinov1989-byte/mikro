@@ -1231,7 +1231,7 @@ async function students(el) {
   const teachers = users.filter((u) => u.role === "teacher");
   const groups = [...new Set(list.map((u) => u.group).filter(Boolean))].sort();
   const q = { text: "", group: "", form: "" };
-  const tbody = h("tbody");
+  const holder = h("div", { class: "stack" });
 
   const setCohort = async (u, cohort) => {
     const res = await api.put(`admin/students/${u.id}`, { cohort });
@@ -1249,12 +1249,7 @@ async function students(el) {
     chips.replaceChildren(h("button", { class: `chip ${q.group ? "chip-soft" : ""}`, onclick: () => { q.group = ""; draw(); } }, `Hammasi · ${list.filter((u) => !q.form || u.studyForm === q.form).length}`), ...names.map((g) => h("button", { class: `chip ${q.group === g ? "" : "chip-soft"}`, onclick: () => { q.group = q.group === g ? "" : g; draw(); } }, `${g === "—" ? "Guruhsiz" : g} · ${countOf(g)}`)));
     groupSel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...names.map((g) => h("option", { value: g, selected: q.group === g }, `${g === "—" ? "Guruhsiz" : g} (${countOf(g)})`)));
   };
-  const draw = () => {
-    const rows = filtered();
-    shown.textContent = `Ko'rsatilmoqda: ${rows.length} / ${list.length} talaba`;
-    paintChips();
-    tbody.replaceChildren(
-      ...rows.map((u, idx) =>
+  const rowOf = (u, idx) =>
         h(
           "tr",
           {},
@@ -1293,10 +1288,35 @@ async function students(el) {
               toast(ex.message, "error");
             }
           } }, "👩‍🏫"))
-        )
-      )
-    );
-    if (!rows.length) tbody.append(h("tr", {}, h("td", { colspan: 9, class: "muted center" }, "Talabalar topilmadi")));
+        );
+  const THEAD = () => h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "ID raqami", "Email", "Guruh", "Muassasa", "Ro'yxatdan o'tgan", "Tadqiqot guruhi", "Parol"].map((c, i) => h("th", { class: i === 0 ? "center" : "" }, c))));
+  /** Talabalar ta'lim shakli va guruh bo'yicha ajratib ko'rsatiladi; guruh jadvali ochilganda qurilади (talabalar ko'p bo'lsa ham sahifa tez ochiladi). */
+  const groupBlock = (g, users, open) => {
+    const body = h("div");
+    const paint = () => body.replaceChildren(h("div", { class: "table-wrap" }, h("table", { class: "table" }, THEAD(), h("tbody", {}, ...users.map((u, idx) => rowOf(u, idx))))));
+    const det = h("details", { class: "card", open }, h("summary", {}, h("b", {}, g === "—" ? "Guruhsiz" : g), h("span", { class: "muted small" }, ` · ${users.length} talaba`)), body);
+    let built = false;
+    const ensure = () => { if (det.open && !built) { built = true; paint(); } };
+    det.addEventListener("toggle", ensure);
+    ensure();
+    return det;
+  };
+  const formBlock = (f, users, openAll) => {
+    const byGroup = new Map();
+    for (const u of users) (byGroup.get(u.group || "—") || byGroup.set(u.group || "—", []).get(u.group || "—")).push(u);
+    const names = [...byGroup.keys()].sort((a, b) => (a === "—") - (b === "—") || a.localeCompare(b));
+    return h("details", { class: "card stack", open: true }, h("summary", {}, h("h3", { style: { display: "inline" } }, `${f.icon || "🎓"} ${f.name} ta'lim shakli`), h("span", { class: "muted small" }, ` — ${users.length} talaba, ${names.length} guruh`)),
+      ...names.map((g, i) => groupBlock(g, byGroup.get(g), openAll || i === 0 && names.length === 1)));
+  };
+  const draw = () => {
+    const rows = filtered();
+    shown.textContent = `Ko'rsatilmoqda: ${rows.length} / ${list.length} talaba`;
+    paintChips();
+    const forms = (COURSE.studyForms || []).filter((f) => rows.some((u) => u.studyForm === f.key));
+    const other = rows.filter((u) => !(COURSE.studyForms || []).some((f) => f.key === u.studyForm));
+    const filtering = Boolean(q.group || q.text || q.form);
+    holder.replaceChildren(...forms.map((f) => formBlock(f, rows.filter((u) => u.studyForm === f.key), filtering)), ...(other.length ? [formBlock({ name: "Boshqa", icon: "🎓" }, other, filtering)] : []));
+    if (!rows.length) holder.append(h("p", { class: "muted center" }, "Talabalar topilmadi"));
   };
 
 
@@ -1318,8 +1338,9 @@ async function students(el) {
         h("button", { class: "btn ghost", onclick: () => downloadFile(`oquvchilar${q.group ? `-${q.group}` : ""}.csv`, toCSV([["F.I.Sh.", "ID raqami", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...filtered().map((u) => [u.name, u.idNumber || "", u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
       ),
       chips,
-      h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "F.I.Sh."), h("th", {}, "ID raqami"), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
+      null
     ),
+    holder,
     teachers.length > 0 && h("div", { class: "card" }, h("h3", {}, `O'qituvchilar (${teachers.length})`), h("ul", {}, teachers.map((t) => h("li", {}, `${t.name} — ${t.email}${t.college ? ` (${t.college})` : ""}`))))
   );
 }
