@@ -1238,8 +1238,21 @@ async function students(el) {
     u.cohort = res.cohort;
   };
 
+  const filtered = () => list.filter((u) => (!q.group || (q.group === "—" ? !u.group : u.group === q.group)) && (!q.form || u.studyForm === q.form) && (!q.text || `${u.name} ${u.email} ${u.idNumber || ""}`.toLowerCase().includes(q.text)));
+  const countOf = (g) => list.filter((u) => (g === "—" ? !u.group : u.group === g) && (!q.form || u.studyForm === q.form)).length;
+  const shown = h("span", { class: "muted small" });
+  const chips = h("div", { class: "row wrap" });
+  const groupSel = h("select", { title: "Guruh bo'yicha filtr", onchange: (e) => { q.group = e.target.value; draw(); } });
+  const noGroup = list.some((u) => !u.group);
+  const paintChips = () => {
+    const names = [...groups, ...(noGroup ? ["—"] : [])].filter((g) => countOf(g) > 0 || q.group === g);
+    chips.replaceChildren(h("button", { class: `chip ${q.group ? "chip-soft" : ""}`, onclick: () => { q.group = ""; draw(); } }, `Hammasi · ${list.filter((u) => !q.form || u.studyForm === q.form).length}`), ...names.map((g) => h("button", { class: `chip ${q.group === g ? "" : "chip-soft"}`, onclick: () => { q.group = q.group === g ? "" : g; draw(); } }, `${g === "—" ? "Guruhsiz" : g} · ${countOf(g)}`)));
+    groupSel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...names.map((g) => h("option", { value: g, selected: q.group === g }, `${g === "—" ? "Guruhsiz" : g} (${countOf(g)})`)));
+  };
   const draw = () => {
-    const rows = list.filter((u) => (!q.group || u.group === q.group) && (!q.form || u.studyForm === q.form) && (!q.text || `${u.name} ${u.email} ${u.idNumber || ""}`.toLowerCase().includes(q.text)));
+    const rows = filtered();
+    shown.textContent = `Ko'rsatilmoqda: ${rows.length} / ${list.length} talaba`;
+    paintChips();
     tbody.replaceChildren(
       ...rows.map((u, idx) =>
         h(
@@ -1312,13 +1325,14 @@ async function students(el) {
         "div",
         { class: "row wrap" },
         h("input", { type: "search", placeholder: "Ism yoki email bo'yicha qidirish", oninput: (e) => ((q.text = e.target.value.toLowerCase()), draw()) }),
-        h("select", { onchange: (e) => ((q.form = e.target.value), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), (COURSE.studyForms || []).map((f) => h("option", { value: f.key }, f.name))),
-        h("select", { onchange: (e) => ((q.group = e.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
+        h("select", { onchange: (e) => ((q.form = e.target.value), (q.group = ""), draw()) }, h("option", { value: "" }, "Barcha ta'lim shakllari"), (COURSE.studyForms || []).map((f) => h("option", { value: f.key }, f.name))),
+        groupSel,
         h("div", { class: "grow" }),
-        h("span", { class: "muted small" }, `Jami: ${list.length} talaba`),
+        shown,
         h("button", { class: "btn ghost", title: "Ikki marta ro'yxatdan o'tgan talabalarni topish va bittasini o'chirish", onclick: () => duplicatesModal(() => students(el)) }, "👯 Takroriy profillar"),
-        h("button", { class: "btn ghost", onclick: () => downloadFile("oquvchilar.csv", toCSV([["F.I.Sh.", "ID raqami", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...list.map((u) => [u.name, u.idNumber || "", u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
+        h("button", { class: "btn ghost", onclick: () => downloadFile(`oquvchilar${q.group ? `-${q.group}` : ""}.csv`, toCSV([["F.I.Sh.", "ID raqami", "Email", "Ta'lim shakli", "Guruh", "Muassasa", "Tadqiqot guruhi", "Ro'yxatdan o'tgan"], ...filtered().map((u) => [u.name, u.idNumber || "", u.email, formByKey(u.studyForm)?.name || "", u.group, u.college, COHORTS[u.cohort || "unassigned"], fmtDate(u.createdAt)])])) }, "⬇ CSV")
       ),
+      chips,
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", { class: "center" }, "№"), h("th", {}, "F.I.Sh."), h("th", {}, "ID raqami"), h("th", {}, "Email"), h("th", {}, "Guruh"), h("th", {}, "Muassasa"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, "Tadqiqot guruhi"), h("th", {}, "Parol"))), tbody)
     ),
     teachers.length > 0 && h("div", { class: "card" }, h("h3", {}, `O'qituvchilar (${teachers.length})`), h("ul", {}, teachers.map((t) => h("li", {}, `${t.name} — ${t.email}${t.college ? ` (${t.college})` : ""}`))))
