@@ -40,7 +40,7 @@ const SECTIONS = [
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
   { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
-  { key: "dups", only: "mikro", icon: "🔍", title: "Takrorlanish tahlili (20 ball)", group: "class", desc: "20 ballik topshiriqda talabalar ishlari orasidagi takrorlanish: kim kim bilan, qaysi parchalar, raqamlar va sub'ektlar aynan bir xil — batafsil izoh bilan." },
+  { key: "dups", only: "mikro", icon: "🔍", title: "Takrorlanish tahlili (20 ball)", group: "class", desc: "20 ballik topshiriqda talabalar ishlari orasidagi takrorlanish: kim kim bilan, qaysi parchalar, raqamlar va ob'ekt aynan bir xil — batafsil izoh bilan." },
   { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
   { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
   { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
@@ -240,7 +240,6 @@ async function dupsView(el) {
         p.passages.length > 0 && h("details", { open: p.level === "high" }, h("summary", {}, h("b", {}, `📄 Umumiy parchalar (eng uzun ${p.passages.length} tasi, ${p.passageCount} tadan)`)),
           p.passages.map((x, i) => h("div", { class: "card", style: { background: "var(--surface-2)" } }, h("div", { class: "muted small" }, `${i + 1}-parcha · ${x.words} so'z — ikkala ishda ham aynan shunday yozilgan`), h("p", { class: "pre-wrap small" }, x.text)))),
         p.sharedNumbers.length > 0 && h("p", { class: "small" }, h("b", {}, "Bir xil raqamlar: "), p.sharedNumbers.join(", "), p.sharedNumberCount > p.sharedNumbers.length ? ` … (jami ${p.sharedNumberCount} ta)` : ""),
-        p.meta.length > 0 && h("p", { class: "small" }, h("b", {}, "Fayl ma'lumotlari: "), p.meta.join("; ")),
         h("div", { class: "row wrap" },
           h("button", { class: "btn small ghost", onclick: () => (location.hash = "#/teacher/assignment") }, "📝 Topshiriq jadvaliga o'tish")));
     };

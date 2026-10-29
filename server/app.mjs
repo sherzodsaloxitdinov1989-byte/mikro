@@ -1241,15 +1241,13 @@ async function checkAssignDuplicates(req, user, stage, rec) {
       const hit = mine.find((n) => theirs.has(n));
       if (hit) {
         res.object = { name: hit, with: { name: o.user?.name, group: o.user?.group, userId: o.userId } };
-        await securityAlert(req, "plagiarism_object", "high", `20 ballik topshiriq: bir xil sub'ekt tanlangan («${hit}»)`, `${user.name} (${user.group || "—"}) va ${o.user?.name} (${o.user?.group || "—"}) 1-bosqichda bir xil sub'ektni — «${hit}» ni — tanlagan. Har bir talaba o'z sub'ektini tanlashi kerak.`, `obj/${[user.id, o.userId].sort().join("-").slice(0, 60)}`, 7 * 86_400_000);
+        await securityAlert(req, "plagiarism_object", "high", `20 ballik topshiriq: bir xil ob'ekt tanlangan («${hit}»)`, `${user.name} (${user.group || "—"}) va ${o.user?.name} (${o.user?.group || "—"}) 1-bosqichda bir xil ob'ektni — «${hit}» ni — tanlagan. Har bir talaba o'z ob'ektini tanlashi kerak.`, `obj/${[user.id, o.userId].sort().join("-").slice(0, 60)}`, 7 * 86_400_000);
         break;
       }
     }
   }
   // Mazmun tekshiruvi: talablarga moslik, natija qismlari, sub'ekt bilan izchillik, takroriylik, mazmuniy o'xshashlik
-  const samples1 = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
-  const own1 = stage.no > 1 ? (await db().get(assignKey(user.id, 1)))?.text : "";
-  rec.content = checkContent({ stage, text: rec.text, ownObjects: own1 ? objectNames(own1, samples1) : [], others: same.map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text, userId: o.userId })) });
+  rec.content = checkContent({ stage, text: rec.text, others: same.map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text, userId: o.userId })) });
   const high = rec.content.issues.filter((i) => i.level === "high" && i.kind !== "similar");
   if (high.length) await securityAlert(req, "content_check", "high", `20 ballik topshiriq (${stage.no}-bosqich): ${user.name} ishining mazmuni talabga mos emas`, `${user.name} (${user.group || "—"}) ${stage.no}-bosqich hisoboti: ${high.map((i) => i.text).join(" ")}`, `${stage.no}/${user.id}`, 24 * 3600_000);
   if (rec.content.similar && !res.work) await securityAlert(req, "plagiarism_content", "high", `20 ballik topshiriq (${stage.no}-bosqich): mazmuniy takrorlanish`, `${user.name} (${user.group || "—"}) ishi mazmuni ${rec.content.similar.with.name} (${rec.content.similar.with.group || "—"}) ishiga ${rec.content.similar.pct}% o'xshash (so'zlari o'zgartirilgan nusxa bo'lishi mumkin).`, pairKey(rec.content.similar.with.userId), 7 * 86_400_000);

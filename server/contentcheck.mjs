@@ -1,5 +1,5 @@
 // Yuborilgan ish mazmunini avtomatik tekshirish (AI chaqirmasdan, darhol): bosqich talablariga mosligi, talab qilingan natija qismlari,
-// sub'ekt (1-bosqich) bilan izchillik, matn takroriyligi va boshqa talabalar ishiga mazmuniy (so'zlari o'zgartirilgan) o'xshashlik.
+// matn takroriyligi va boshqa talabalar ishiga mazmuniy (so'zlari o'zgartirilgan) o'xshashlik.
 // Natija — ehtimoliy ogohlantirishlar; chuqur tahlil (hisob-kitoblar, asoslanganlik) uchun AI tekshiruvi bor.
 
 const STOP = /^(?:yozing|keltiring|ko'rsating|hisoblang|aniqlang|tushuntiring|izohlang|tahlil|bo'yicha|haqida|qilib|bo'lgan|bo'lsa|hamda|yoki|uchun|qiling|ishlating|tuzing|toping|sanab|o'ting|asosida|orqali|misolida|masalan|shuningdek|kerak|mumkin|qanday)/;
@@ -27,10 +27,10 @@ export function cosine(a, b) {
 }
 
 /**
- * in: { stage, text, ownObjects (1-bosqichdagi sub'ekt nomlari, 1-bosqichdan boshqasida), others: [{ name, group, text }] }
+ * in: { stage, text, others: [{ name, group, text }] }
  * out: { checkedAt, words, coverage (0–100), parts: [{ name, ok }], issues: [{ level: "high"|"medium", kind, text }], similar }
  */
-export function checkContent({ stage, text, ownObjects = [], others = [] }) {
+export function checkContent({ stage, text, others = [] }) {
   const w = words(text);
   const issues = [];
   const add = (level, kind, t) => issues.push({ level, kind, text: t });
@@ -50,11 +50,6 @@ export function checkContent({ stage, text, ownObjects = [], others = [] }) {
   });
   const miss = parts.filter((p) => !p.ok);
   if (parts.length > 1 && miss.length) add(miss.length >= Math.ceil(parts.length / 2) ? "high" : "medium", "parts", `Talab qilingan natija qismlari topilmadi yoki yoritilmagan: ${miss.map((p) => `«${p.name.slice(0, 70)}»`).join("; ")}.`);
-  // Sub'ekt bilan izchillik (1-bosqichdan keyingi bosqichlar)
-  if (stage.no > 1 && ownObjects.length && w.length >= 80) {
-    const low = String(text).toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "");
-    if (!ownObjects.some((n) => low.includes(n))) add("medium", "object", `1-bosqichda tanlangan sub'ekt nomi («${ownObjects[0]}») bu hisobotda tilga olinmagan: bir xil sub'ektda davom etganingizni ko'rsating.`);
-  }
   // Matn takroriyligi
   if (w.length >= 150) {
     const ttr = new Set(w).size / w.length;

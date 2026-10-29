@@ -445,7 +445,7 @@ export async function teacherView(el) {
       h("p", { class: "muted small" }, `${st.title} · guruh ${u.group || "—"} · yuborilgan: ${fmtDate(it.submittedAt)} · urinish: ${it.attempts}${it.late ? " · ⏰ KECH" : ""}`),
       it.dup && h("div", { class: "alert alert-danger small" }, h("b", {}, "⚠️ Takrorlanish aniqlandi"),
         it.dup.work && h("p", {}, `Ish matni ${it.dup.work.with.name} (${it.dup.work.with.group || "—"}) ishi bilan ${it.dup.work.pct}% o'xshash. `, it.dup.work.pct >= 70 ? "Ko'chirilgan bo'lishi ehtimoli yuqori." : "Shubhali — solishtirib ko'ring."),
-        it.dup.object && h("p", {}, `Sub'ekt (ob'ekt) takrori: «${it.dup.object.name}» sub'ektini ${it.dup.object.with.name} (${it.dup.object.with.group || "—"}) ham tanlagan.`),
+        it.dup.object && h("p", {}, `Ob'ekt takrori: «${it.dup.object.name}» ob'ektini ${it.dup.object.with.name} (${it.dup.object.with.group || "—"}) ham tanlagan.`),
         h("p", { class: "muted small" }, `Aniqlangan: ${fmtDate(it.dup.at)}. Bu avtomatik ehtimoliy baho — yakuniy qarorni o'qituvchi qabul qiladi.`)),
       it.content && h("div", { class: `alert ${it.content.issues.some((i) => i.level === "high") ? "alert-danger" : it.content.issues.length ? "alert-warn" : "alert-ok"} small` }, h("b", {}, "📋 Mazmun tekshiruvi (avtomatik)"),
         h("p", { class: "muted small" }, `Hajm: ${it.content.words} so'z · talablarga moslik (tayanch tushunchalar): ${it.content.coverage}%${it.content.parts.length > 1 ? ` · natija qismlari: ${it.content.parts.filter((p) => p.ok).length}/${it.content.parts.length}` : ""}`),
