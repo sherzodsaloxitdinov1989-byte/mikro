@@ -302,7 +302,7 @@ async function logShifrFail(req, group, reason, detail = {}) {
   } catch {}
 }
 
-async function claimRoster(req, group, shifr, typedName, userId, altName = "") {
+async function claimRoster(req, group, shifr, typedName, userId, altName = "", { allowClaimed = false } = {}) {
   const ip = sha(clientIp(req)).slice(0, 24);
   const digits = shifrDigits(shifr);
   if (!digits) throw new HttpError(400, "Shifrni kiriting (ro'yxatda sizga berilgan raqam)", "SHIFR_REQUIRED");
@@ -326,7 +326,7 @@ async function claimRoster(req, group, shifr, typedName, userId, altName = "") {
     await new Promise((r) => setTimeout(r, 400));
     throw new HttpError(403, "ID raqam yoki F.I.Sh. ro'yxatdagi ma'lumotga mos kelmadi. ID raqamni faqat raqamlar bilan (bo'shliqsiz) kiriting va F.I.Sh.ni ro'yxatdagidek yozing (familiya va ism).", "SHIFR_MISMATCH");
   }
-  if (entry.claimedBy && entry.claimedBy !== userId) {
+  if (!allowClaimed && entry.claimedBy && entry.claimedBy !== userId) {
     await logShifrFail(req, group, "already_claimed", { name: str(typedName, 60), rosterName: entry.name });
     throw new HttpError(409, "Bu ID raqam bilan allaqachon profil yaratilgan. Shu email va parolingiz bilan «Kirish» sahifasidan kiring; parolni unutgan bo'lsangiz «Parolni unutdingizmi?» dan foydalaning yoki o'qituvchiga murojaat qiling.", "SHIFR_CLAIMED");
   }
@@ -596,6 +596,35 @@ async function teacherCodeFailed(req) {
   if (n === 5) await securityAlert(req, "teacher_code_guess", "critical", "O'qituvchi kodini topishga urinish", "Bir soatda 5 marta noto'g'ri o'qituvchi kodi kiritildi. Kimdir o'qituvchi huquqini olishga urinmoqda. 30 ta urinishdan keyin kod vaqtincha bloklanadi.", "5");
   if (n === 30) await securityAlert(req, "teacher_code_locked", "critical", "O'qituvchi kodi bloklandi", "Bir soatda 30 marta noto'g'ri o'qituvchi kodi kiritildi. Kod bir soatga bloklandi. TEACHER_CODE ni almashtirishni o'ylab ko'ring.", "30");
   await new Promise((r) => setTimeout(r, 700));
+}
+
+/** Parolni tiklash (ID raqam bo'yicha): pochta va o'qituvchisiz. Talaba guruhi, ID raqami va F.I.Sh.ni kiritadi, yangi parol o'rnatadi (ixtiyoriy: yangi email). */
+async function resetByShifr(req) {
+  const b = await body(req);
+  const group = str(b.group, 60);
+  const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
+  checkPasswordStrength(newPassword, "Yangi parol");
+  if (!(await rosterEnforced(group))) throw new HttpError(400, "Bu guruh uchun ID raqam bo'yicha tiklash mavjud emas");
+  const lim = await bump(`ratelimit/shifr-reset/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 40);
+  if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
+  const claim = await claimRoster(req, group, b.shifr, str(b.fullName, 120), null, "", { allowClaimed: true });
+  const userId = claim.entry.claimedBy;
+  const user = userId && (await db().get(userKey(userId)));
+  if (!user || user.role !== "student") throw new HttpError(404, "Bu ID raqam bilan hali profil yaratilmagan. «Ro'yxatdan o'tish» sahifasidan foydalaning.", "NOT_REGISTERED");
+  const store = db();
+  const newEmail = str(b.email, 120).toLowerCase();
+  if (newEmail && newEmail !== user.email) {
+    if (!validEmail(newEmail)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+    if (await store.get(emailKey(newEmail))) throw new HttpError(409, "Bu email boshqa profilga tegishli");
+    await store.del(emailKey(user.email));
+    await store.set(emailKey(newEmail), { id: user.id });
+    user.email = newEmail;
+  }
+  Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
+  await store.set(userKey(user.id), user);
+  await securityAlert(req, "password_reset_id", "info", "Talaba parolini ID raqam orqali tikladi", `${user.name} (${user.group || "—"}) parolini ID raqam orqali o'zi tikladi.`, `${user.id}`, 3600_000).catch(() => {});
+  const token = createToken(user);
+  return withCookie(json({ token, user: publicUser(user), email: maskEmail(user.email) }), token);
 }
 
 async function forgotPassword(req) {
@@ -3877,6 +3906,7 @@ const routes = [
   ["POST", /^auth\/session$/, startSession],
   ["POST", /^auth\/logout$/, endSession],
   ["POST", /^auth\/forgot$/, forgotPassword],
+  ["POST", /^auth\/reset-id$/, resetByShifr],
   ["POST", /^auth\/reset-code$/, resetWithCode],
   ["POST", /^auth\/teacher-code$/, teacherSignupCode],
   ["POST", /^auth\/reset$/, resetPassword],
