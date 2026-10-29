@@ -1299,25 +1299,10 @@ async function students(el) {
     if (!rows.length) tbody.append(h("tr", {}, h("td", { colspan: 9, class: "muted center" }, "Talabalar topilmadi")));
   };
 
-  const bulkGroup = h("select", {}, h("option", { value: "" }, "Guruhni tanlang"), groups.map((g) => h("option", { value: g }, g)));
-  const bulkCohort = h("select", {}, Object.entries(COHORTS).map(([k, v]) => h("option", { value: k }, v)));
 
   draw();
   mount(
     el,
-    h(
-      "div",
-      { class: "card" },
-      h("h3", {}, "Tadqiqot guruhlarini belgilash"),
-      h("p", { class: "muted small" }, "Butun o'quv guruhini bir vaqtda Tajriba (TG) yoki Nazorat (NG) guruhiga biriktiring. Test tahlili shu bo'linma kesimida ko'rsatiladi."),
-      h("div", { class: "row wrap" }, bulkGroup, "→", bulkCohort, h("button", { class: "btn", onclick: async () => {
-        if (!bulkGroup.value) return toast("Guruhni tanlang", "warn");
-        const targets = list.filter((u) => u.group === bulkGroup.value);
-        await Promise.all(targets.map((u) => setCohort(u, bulkCohort.value)));
-        toast(`${targets.length} nafar talaba ${COHORTS[bulkCohort.value]} ga biriktirildi`, "ok");
-        draw();
-      } }, "Biriktirish"))
-    ),
     h(
       "div",
       { class: "card table-wrap" },
