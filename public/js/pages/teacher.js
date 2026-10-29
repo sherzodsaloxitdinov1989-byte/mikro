@@ -1249,6 +1249,22 @@ async function students(el) {
     chips.replaceChildren(h("button", { class: `chip ${q.group ? "chip-soft" : ""}`, onclick: () => { q.group = ""; draw(); } }, `Hammasi · ${list.filter((u) => !q.form || u.studyForm === q.form).length}`), ...names.map((g) => h("button", { class: `chip ${q.group === g ? "" : "chip-soft"}`, onclick: () => { q.group = q.group === g ? "" : g; draw(); } }, `${g === "—" ? "Guruhsiz" : g} · ${countOf(g)}`)));
     groupSel.replaceChildren(h("option", { value: "" }, "Barcha guruhlar"), ...names.map((g) => h("option", { value: g, selected: q.group === g }, `${g === "—" ? "Guruhsiz" : g} (${countOf(g)})`)));
   };
+  const nameKey = (u) => String(u.name || "").toLowerCase().replace(/[ʻʼ‘’'`´]/g, "").split(/\s+/).filter(Boolean).slice(0, 2).sort().join(" ");
+  const deleteStudent = async (u) => {
+    let info = null;
+    try { info = await api.get(`admin/students/${u.id}/stats`); } catch (ex) { return toast(ex.message, "error"); }
+    const s = info.stats;
+    const twins = list.filter((x) => x.id !== u.id && nameKey(x) === nameKey(u));
+    const data = `testlar: ${s.quizzes}, amaliyot: ${s.practice}, mustaqil ish: ${s.selfStudy}, 20 ball topshiriq: ${s.assignment}, vazifalar: ${s.tasks}, faol kunlar: ${s.activityDays}`;
+    const msg = `${u.name} (${u.email}, ${u.group || "guruhsiz"}) profili o'chirilsinmi?\n\nBu profildagi ma'lumotlar: ${data}.${info.rosterClaim ? "\nID raqamga bog'langan: bog'lanish bo'shatiladi." : ""}${twins.length ? `\n\nBir xil ismli boshqa profil: ${twins.map((x) => x.email).join(", ")}${twins.length === 1 ? " — ID raqam shu profilga ko'chiriladi" : ""}.` : "\n\nDiqqat: bir xil ismli boshqa profil topilmadi."}\n\nO'chirilgan profilning barcha natijalari qaytarilmaydi.`;
+    if (!(await confirmDialog(msg))) return;
+    try {
+      await api.post(`admin/students/${u.id}/delete`, twins.length === 1 ? { keepId: twins[0].id } : {});
+      list.splice(list.indexOf(u), 1);
+      toast("Profil o'chirildi", "ok");
+      draw();
+    } catch (ex) { toast(ex.message, "error"); }
+  };
   const rowOf = (u, idx) =>
         h(
           "tr",
@@ -1287,7 +1303,7 @@ async function students(el) {
             } catch (ex) {
               toast(ex.message, "error");
             }
-          } }, "👩‍🏫"))
+          } }, "👩‍🏫"), " ", h("button", { class: "btn small ghost", title: "Profilni o'chirish (ikki marta ro'yxatdan o'tgan bo'lsa)", onclick: () => deleteStudent(u) }, "🗑"))
         );
   const THEAD = () => h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "ID raqami", "Email", "Guruh", "Muassasa", "Ro'yxatdan o'tgan", "Tadqiqot guruhi", "Parol"].map((c, i) => h("th", { class: i === 0 ? "center" : "" }, c))));
   /** Talabalar ta'lim shakli va guruh bo'yicha ajratib ko'rsatiladi; guruh jadvali ochilganda qurilади (talabalar ko'p bo'lsa ham sahifa tez ochiladi). */

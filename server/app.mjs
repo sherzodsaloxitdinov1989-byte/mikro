@@ -2343,6 +2343,15 @@ async function profileStats(u) {
   };
 }
 
+async function adminStudentStats(req, id) {
+  await requireTeacher(req);
+  const u = await db().get(userKey(id));
+  if (!u || u.role !== "student") throw new HttpError(404, "Talaba topilmadi");
+  let rosterClaim = false;
+  for (const s of SUBJECTS) for (const g of s.rosterGroups || []) if ((await db().get(rosterKey(g)))?.entries?.some((e) => e.claimedBy === id)) rosterClaim = true;
+  return json({ stats: await profileStats(u), rosterClaim });
+}
+
 async function adminDuplicates(req) {
   await requireTeacher(req);
   const students = (await getMany("user/")).filter((u) => u.role === "student");
@@ -4086,6 +4095,7 @@ const routes = [
   ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
   ["GET", /^admin\/students$/, listStudents],
   ["GET", /^admin\/duplicates$/, adminDuplicates],
+  ["GET", /^admin\/students\/([\w-]+)\/stats$/, adminStudentStats],
   ["POST", /^admin\/students\/([\w-]+)\/delete$/, adminDeleteStudent],
   ["PUT", /^admin\/students\/([\w-]+)$/, updateStudent],
   ["POST", /^admin\/students\/([\w-]+)\/password$/, adminResetPassword],

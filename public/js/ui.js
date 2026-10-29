@@ -69,7 +69,7 @@ export function confirmDialog(message) {
     };
     close = modal(
       "Tasdiqlash",
-      h("div", {}, h("p", {}, message), h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => done(false) }, "Bekor qilish"), h("button", { class: "btn danger", onclick: () => done(true) }, "Ha, davom etish")))
+      h("div", {}, h("p", { style: { whiteSpace: "pre-line" } }, message), h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => done(false) }, "Bekor qilish"), h("button", { class: "btn danger", onclick: () => done(true) }, "Ha, davom etish")))
     );
   });
 }
