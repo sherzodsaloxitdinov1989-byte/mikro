@@ -113,6 +113,25 @@ export const hideSimilar = (rec) => {
 };
 
 const GENERIC = /^(mchj|xk|ok|aj|yatt|llc|korxona|tashkilot|kompaniya|firma|sub'ekt|obyekt|ob'ekt|restoran|kafe|mehmonxona|mikrobiznes|biznes|do'kon|dokon)$/;
+/** Ikki ob'ekt (tadbirkorlik sub'ekti) nomi bir xilmi: aynan teng, biri ikkinchisini o'z ichiga oladi yoki bir harf farq (imlo). */
+export function sameObject(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const [s, l] = a.length <= b.length ? [a, b] : [b, a];
+  if (s.length >= 5 && l.includes(s)) return true;
+  if (s.length >= 6 && Math.abs(a.length - b.length) <= 1) {
+    let d = 0, i = 0, j = 0;
+    // bir harflik farq (almashtirish/qo'shish/tushirish)
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) { i++; j++; continue; }
+      if (++d > 1) return false;
+      if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; }
+    }
+    return d + (a.length - i) + (b.length - j) <= 1;
+  }
+  return false;
+}
+
 /** Matndan sub'ekt (korxona) nomlarini ajratadi: «...», "...", “...”, «X MChJ» va «Sub'ekt nomi: ...» ko'rinishlari. */
 export function objectNames(text, exclude = []) {
   const t = String(text || "").slice(0, 8000);

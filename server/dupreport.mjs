@@ -1,6 +1,6 @@
 // 20 ballik topshiriq: ikki talaba ishi o'rtasidagi takrorlanishning batafsil tahlili (o'qituvchi uchun).
 // Umumiy parchalar (6 va undan ortiq so'zli aynan mos joylar), umumiy raqamlar, sub'ekt nomi, fayl muallifi/vaqti, mazmuniy o'xshashlik.
-import { objectNames } from "./originality.mjs";
+import { objectNames, sameObject } from "./originality.mjs";
 import { cosine } from "./contentcheck.mjs";
 
 const norm = (w) => w.toLowerCase().replace(/[ʻʼ‘’'`´]/g, "");
@@ -49,7 +49,7 @@ export function comparePair(A, B) {
   const used = new Map();
   for (const n of A.nums) if ((numsB.get(n) || 0) > (used.get(n) || 0)) { used.set(n, (used.get(n) || 0) + 1); shared.push(n); }
   const numPct = Math.round((shared.length / Math.max(1, Math.min(A.nums.length, B.nums.length))) * 100);
-  const objs = A.objs.filter((o) => B.objs.includes(o));
+  const objs = A.objs.filter((o) => B.objs.some((x) => sameObject(o, x)));
   const meta = []; // fayl ma'lumotlari (muallif, vaqt) endi hisobga olinmaydi: faqat tanlangan ob'ekt va mazmun
   return { pct, cos: Math.round(cos * 100), coveredWords, totalWords: ta.length, coveredPct: Math.round((coveredWords / Math.max(1, ta.length)) * 100), passages: runs.slice(0, 6).map((r) => ({ words: r.words, text: r.text.length > 420 ? `${r.text.slice(0, 420)}…` : r.text })), passageCount: runs.length, sharedNumbers: shared.slice(0, 14), sharedNumberCount: shared.length, numPct, objects: objs, meta };
 }
@@ -66,7 +66,7 @@ export function explain(c, stageNo) {
   else if (c.passageCount) out.push(`${c.passageCount} ta umumiy parcha topildi (jami ${c.coveredWords} so'z, birinchi ishning ${c.coveredPct}% i), lekin umumiy o'xshashlik ${c.pct}%.`);
   if (c.cos >= 85) out.push(`Mazmuniy o'xshashlik ${c.cos}%: ishlatilgan so'zlar va ularning chastotasi deyarli bir xil — so'zlari o'zgartirilgan nusxa bo'lishi mumkin.`);
   if (c.sharedNumberCount >= 5) out.push(`${c.sharedNumberCount} ta bir xil raqam mos tushgan (${c.numPct}%): narx, hajm yoki xarajat qiymatlari ham bir xil — mustaqil hisob-kitobda bunday tasodif juda kam uchraydi.`);
-  if (c.objects.length) out.push(`Bir xil ob'ekt tanlangan: «${c.objects[0]}» — har bir talaba o'z ob'ektini tanlashi kerak.`);
+  if (c.objects.length) out.push(`Bir xil tadbirkorlik sub'ekti (ob'ekt) tanlangan: «${c.objects[0]}» — har bir talaba o'z sub'ektini tanlashi kerak.`);
   const level = c.pct >= 70 || (c.pct >= 50 && c.sharedNumberCount >= 5) ? "high" : c.pct >= 40 || c.cos >= 85 || c.objects.length || (c.sharedNumberCount >= 8) ? "medium" : "low";
   const verdict = { high: "Ko'chirilgan bo'lishi ehtimoli yuqori — ikkala talabadan tushuntirish so'rash tavsiya etiladi.", medium: "Shubhali — ishlarni solishtirib ko'ring.", low: "Kichik o'xshashlik (umumiy ibora bo'lishi mumkin)." }[level];
   return { level, summary: out.length ? out : ["Sezilarli takrorlanish topilmadi."], verdict };

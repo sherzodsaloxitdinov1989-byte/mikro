@@ -21,7 +21,7 @@ import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, p
 import { mailEnabled, sendResetCode, sendAlertMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
 import * as meetLib from "./meets.mjs";
-import { heuristics, similarity, combineOriginality, hideSimilar, objectNames } from "./originality.mjs";
+import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
 import { SEC_TYPES, integrityOf, reduceBy, POINT_PERCENT, MAX_PENALTY } from "./integrity.mjs";
@@ -1220,16 +1220,18 @@ async function checkAssignDuplicates(req, user, stage, rec) {
     res.work = { pct: sim.pct, with: sim.with };
     await securityAlert(req, "plagiarism_work", sim.pct >= DUP_SEVERE_PCT ? "critical" : "high", `20 ballik topshiriq (${stage.no}-bosqich): ish ${sim.pct}% takrorlangan`, `${user.name} (${user.group || "—"}) yuborgan ${stage.no}-bosqich hisoboti ${sim.with.name} (${sim.with.group || "—"}) ishi bilan ${sim.pct}% o'xshash. «Topshiriq (20 ball)» bo'limida ikkala ishni solishtiring.`, pairKey(sim.with.userId), 7 * 86_400_000);
   }
-  // Sub'ekt (ob'ekt) takrori: 1-bosqich (sub'ekt tavsifi) — ikki talaba bir xil korxonani tanlagan bo'lsa
-  if (stage.no === 1) {
-    const samples = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
-    const mine = objectNames(rec.text, samples);
-    for (const o of same) {
-      const theirs = new Set(objectNames(o.text, samples));
-      const hit = mine.find((n) => theirs.has(n));
+  // Ob'ekt takrori: talaba tanlaydigan tadbirkorlik sub'ekti (korxona). 1-bosqichda tanlangan ob'ektlar solishtiriladi; keyingi bosqichlarda ham
+  // boshqa talabaning tanlagan ob'ekti nomi ishlatilgan bo'lsa (va o'zinikidan farq qilsa), ogohlantiriladi.
+  const samples = ["kunduzgi", "masofaviy"].map((f) => String(assignmentFor(f).sampleName || "").toLowerCase().replace(/[ʻʼ‘’'`´"«»“”]/g, "").replace(/\b(mchj|xk|ok|aj|yatt)\b/g, "").replace(/\s+/g, " ").trim());
+  const mine = objectNames(rec.text, samples);
+  const ownObj = stage.no === 1 ? [] : objectNames((await db().get(assignKey(user.id, 1)))?.text || "", samples);
+  if (mine.length) {
+    for (const o of all.filter((x) => x.no === 1 && x.text)) {
+      const theirs = objectNames(o.text, samples);
+      const hit = mine.find((n) => theirs.some((t) => sameObject(n, t)) && !ownObj.some((own) => sameObject(n, own)));
       if (hit) {
-        res.object = { name: hit, with: { name: o.user?.name, group: o.user?.group, userId: o.userId } };
-        await securityAlert(req, "plagiarism_object", "high", `20 ballik topshiriq: bir xil ob'ekt tanlangan («${hit}»)`, `${user.name} (${user.group || "—"}) va ${o.user?.name} (${o.user?.group || "—"}) 1-bosqichda bir xil ob'ektni — «${hit}» ni — tanlagan. Har bir talaba o'z ob'ektini tanlashi kerak.`, `obj/${[user.id, o.userId].sort().join("-").slice(0, 60)}`, 7 * 86_400_000);
+        res.object = { name: hit, stage: stage.no, with: { name: o.user?.name, group: o.user?.group, userId: o.userId } };
+        await securityAlert(req, "plagiarism_object", "high", `20 ballik topshiriq: bir xil ob'ekt tanlangan («${hit}»)`, `${user.name} (${user.group || "—"}) ${stage.no}-bosqichdagi ishida ${o.user?.name} (${o.user?.group || "—"}) tanlagan tadbirkorlik sub'ektini — «${hit}» ni — ishlatgan. Har bir talaba o'z tadbirkorlik sub'ektini (ob'ektini) tanlashi kerak.`, `obj/${stage.no}/${[user.id, o.userId].sort().join("-").slice(0, 60)}`, 7 * 86_400_000);
         break;
       }
     }
