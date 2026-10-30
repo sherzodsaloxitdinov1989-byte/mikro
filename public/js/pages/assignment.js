@@ -4,7 +4,7 @@ import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../../data/course.js";
 import { Report, saveBlobAs } from "../pdf-report.js";
-import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore } from "../assignment-util.js";
+import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore, assignmentClosed } from "../assignment-util.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 const fmtDue = (iso) => {
@@ -216,9 +216,10 @@ export async function renderStage(el, noParam) {
   const g = groupOf(no, form);
   const max = stageMax(no, form);
   const late = now > deadlineOf(no, form);
+  const closed = assignmentClosed(now);
 
   let picked = null;
-  const fileInput = h("input", { type: "file", accept: ".docx" });
+  const fileInput = h("input", { type: "file", accept: ".docx", disabled: closed });
   const fileNote = h("p", { class: "small muted" }, sub?.file ? `Yuklangan fayl: ${sub.file.name} (${sizeLabel(sub.file.size)})${mediaNote(sub)}` : "Fayl hali yuklanmagan.");
   const prog = h("div", { class: "hidden small muted" });
   const aiBox = h("div", { class: "stack" });
@@ -313,7 +314,9 @@ export async function renderStage(el, noParam) {
           h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(max)} ball`),
           h("a", { class: "chip chip-soft", href: `#/topics/t${st.topic}` }, `📖 ${st.topic}-mavzu nazariyasi`)))),
     dep,
-    late && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
+    closed && h("div", { class: "alert alert-warn" }, "🔒 Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi). Endi hisobotni yuklab ham, o'zgartirib ham bo'lmaydi."),
+    !closed && h("div", { class: "alert small" }, "🕒 Hisobotni 31-oktyabr soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi."),
+    late && !closed && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
     h("div", { class: "card" }, h("h3", {}, "🎯 Maqsad"), h("p", {}, st.goal), h("h3", {}, "📝 Bajariladigan vazifalar"), h("ol", {}, st.tasks.map((t) => h("li", {}, t))), h("h3", {}, "📦 Talab qilinadigan natija"), h("p", {}, st.result)),
     sample,
     h("div", { class: "card stack" },
@@ -325,7 +328,7 @@ export async function renderStage(el, noParam) {
       sub?.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`assignment/${no}/file`, sub.file.name) }, "⬇ Yuklangan faylni yuklab olish"),
       sub?.text && h("details", { class: "small" }, h("summary", {}, "Fayldan o'qilgan matn (AI shuni va rasmlarni ko'radi)"), h("p", { class: "pre-wrap" }, sub.text.slice(0, 6000))),
       prog,
-      h("div", { class: "row end" }, submitBtn)),
+      h("div", { class: "row end" }, closed ? h("span", { class: "muted small" }, "Yuklash yopilgan") : submitBtn)),
     h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi va izchillik"), reviewBtn), aiBox),
     sub?.teacher && h("div", { class: "card accent" },
       h("h3", {}, "👩‍🏫 O'qituvchi bahosi"),

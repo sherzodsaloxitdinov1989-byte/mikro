@@ -32,6 +32,9 @@ export const deadlineOf = (no, form) => {
   const g = groupOf(no, form);
   return g ? new Date(`${g.due}T23:59:59+05:00`) : null;
 };
+/** Topshiriqni yuklash/o'zgartirish yopiladigan oxirgi vaqt (Toshkent vaqti): shundan keyin hech kim yuklay ham, o'zgartira ham olmaydi. */
+export const ASSIGNMENT_CLOSE = new Date("2026-10-31T23:59:59+05:00");
+export const assignmentClosed = (now = new Date()) => now > ASSIGNMENT_CLOSE;
 export const fmtScore = (n) => (n == null ? "—" : String(Math.round(n * 100) / 100).replace(".", ","));
 /** Talabaning umumiy balli: faqat o'qituvchi qo'ygan ballar, har bir guruh uchun guruh maksimalidan oshmaydi. */
 export function totalScore(items, form) {

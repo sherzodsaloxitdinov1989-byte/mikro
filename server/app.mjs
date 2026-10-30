@@ -8,7 +8,7 @@ import { computeGame, certificateStatus, makeContext } from "../public/js/gamifi
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
-import { totalScore } from "../public/js/assignment-util.js";
+import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
 import { prepare as dupPrepare, comparePair, explain as dupExplain } from "./dupreport.mjs";
@@ -1165,12 +1165,17 @@ async function myAssignment(req) {
   const user = await requireUser(req);
   assertAssignGroup(user);
   const items = await getMany(`assign/${user.id}/`);
-  return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
+  return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), closeAt: "2026-10-31T23:59:59+05:00", closed: assignmentClosed(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
 }
+
+const assertAssignOpen = () => {
+  if (assignmentClosed()) throw new HttpError(403, "Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi).");
+};
 
 async function assignUploadInit(req, no) {
   const user = await requireUser(req);
   assertAssignGroup(user);
+  assertAssignOpen();
   stageParam(no, formKeyOf(user));
   const b = await body(req);
   const name = str(b.name, 200);
@@ -1185,6 +1190,7 @@ async function assignUploadInit(req, no) {
 async function assignUploadChunk(req, no, uploadId, i) {
   const user = await requireUser(req);
   assertAssignGroup(user);
+  assertAssignOpen();
   stageParam(no, formKeyOf(user));
   if (!/^[\w-]{6,64}$/.test(uploadId) || !/^\d{1,3}$/.test(i)) throw new HttpError(400, "So'rov noto'g'ri");
   // Ombor to'lib ketmasligi uchun: bitta talaba kuniga ko'pi bilan 120 ta bo'lak (~360 MB) yuklay oladi
@@ -1206,6 +1212,7 @@ async function assignSubmit(req, no) {
   const user = await requireUser(req);
   assertAssignGroup(user);
   if (user.role !== "student") throw new HttpError(403, "Topshiriqni faqat talaba yuboradi");
+  assertAssignOpen();
   const form = formKeyOf(user);
   const stage = stageParam(no, form);
   const b = await body(req);
