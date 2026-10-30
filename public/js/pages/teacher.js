@@ -45,7 +45,7 @@ const SECTIONS = [
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "dups", only: "mikro", icon: "🔍", title: "Takrorlanish tahlili (20 ball)", group: "class", desc: "20 ballik topshiriqda talabalar ishlari orasidagi takrorlanish: kim kim bilan, qaysi parchalar, raqamlar va ob'ekt aynan bir xil — batafsil izoh bilan." },
   { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
-  { key: "exams", only: "makro", icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
+  { key: "exams", only: ["makro", "mikro"], icon: "📝", title: "Nazorat testlari", group: "class", desc: "Oraliq nazorat testi: kim boshladi, kim yakunladi, necha ball oldi; savollar bazasini Word'ga yuklash; talabaga qayta urinish ruxsati." },
   { key: "results", icon: "📋", title: "Barcha natijalar", group: "class", desc: "Har bir talaba: guruhi, F.I.Sh. va barcha bo'limlar bo'yicha natijasi — testlar, amaliyot, mustaqil ish, vazifalar va 20 ballik topshiriq. Excel'ga yuklash mumkin." },
   { key: "questions", icon: "💬", title: "Talabalar savollari", group: "class", desc: "Talabalar sayt ishlayotgan paytda yuborgan savollar: o'z faningiz doirasida ko'rish va javob yozish. Javob talabaga darhol ko'rinadi.", badge: (o) => o.questionsOpen && [`${o.questionsOpen} ta javobsiz`, "warn"], meta: (o) => (o.questionsOpen ? `${o.questionsOpen} ta javobsiz` : "javobsiz savol yo'q") },
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
@@ -60,7 +60,7 @@ const SECTIONS = [
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || x.only === SUBJECT_KEY) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
+].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || [].concat(x.only).includes(SUBJECT_KEY)) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {
@@ -374,7 +374,7 @@ async function examsView(el) {
     const viol = d.rows.filter((r) => r.violations.length);
     const blocks = [
       { t: "h1", text: `${d.exam.title} — natijalar hisoboti` },
-      { t: "p", text: `Guruhlar: ${d.exam.groups.join(", ")} · Test boshlanishi: ${fmtDT(d.exam.startsAt)} · Har bir talabaga: ${d.exam.durationMin} daqiqa · Savollar: ${d.exam.count} ta (baza: ${d.exam.bank} ta, har bir talabaga tasodifiy variant)` },
+      { t: "p", text: `Guruhlar: ${d.exam.groups.join(", ")} · Test boshlanishi: ${d.exam.starts ? Object.entries(d.exam.starts).map(([g, t]) => `${g} — ${fmtDT(t)}`).join("; ") : fmtDT(d.exam.startsAt)} · Har bir talabaga: ${d.exam.durationMin} daqiqa · Savollar: ${d.exam.count} ta (baza: ${d.exam.bank} ta, har bir talabaga tasodifiy variant)` },
       { t: "p", text: `Hisobot tuzilgan vaqt: ${fmtDT(d.generatedAt)}` },
       { t: "p", text: "5 ballik baho: 90–100% → 5 («a'lo»); 71–89% → 4 («yaxshi»); 60–70% → 3 («qoniqarli»); 60% dan past → 2 («qoniqarsiz»)." },
       { t: "p", text: `Nomaqbul harakatlar uchun jarima: har bir jiddiylik balli uchun ${d.penaltyRule.perPoint}% (ko'pi bilan ${d.penaltyRule.max}%) — natija foizi shu miqdorda nisbatan kamaytiriladi, 5 ballik baho jarimadan keyingi foizga qarab qo'yiladi.` },
@@ -493,7 +493,7 @@ async function examsView(el) {
     const csv = () => downloadFile(`${e.id}-natijalar.csv`, toCSV([["Guruh", "F.I.Sh.", "ID raqami", "Email", "Ruxsat", "Holati", "Boshlagan", "Javob berilgan", "To'g'ri", "Jami", "Natija (%)", "Jarimagacha (%)"], ...rowsOf().map((r) => [r.group, r.name, r.idNumber, r.email, r.allowed ? "ha" : "yo'q", stText(r), r.started ? uzAt(r.started) : "", r.answered, r.result?.correct ?? "", r.result?.total ?? "", r.result?.percent ?? "", r.result?.percentRaw ?? ""])]));
     return h("div", { class: "stack" },
       h("div", { class: "card stack" }, h("h3", {}, e.title),
-        h("p", { class: "muted small" }, `Boshlanish: ${uzAt(e.startsAt)} (${wd[new Date(new Date(e.startsAt).getTime() + 5 * 3600_000).getUTCDay()]}) · tugash: ${uzAt(e.closesAt)} · ${e.durationMin} daqiqa · ${e.count} ta savol · baza: ${e.bank} ta · guruhlar: ${e.groups.join(", ")}`),
+        h("p", { class: "muted small" }, `Boshlanish: ${e.starts ? Object.entries(e.starts).map(([g, t]) => `${g} — ${uzAt(t)}`).join("; ") : `${uzAt(e.startsAt)} (${wd[new Date(new Date(e.startsAt).getTime() + 5 * 3600_000).getUTCDay()]})`} · tugash: ${uzAt(e.closesAt)} · ${e.durationMin} daqiqa · ${e.count} ta savol · baza: ${e.bank} ta · guruhlar: ${e.groups.join(", ")}`),
         h("div", { class: "row wrap" }, h("button", { class: "btn", onclick: () => reportDocx(e).catch((ex) => toast(ex.message, "error")) }, "📄 To'liq hisobot (Word)"), h("button", { class: "btn", onclick: () => reportCsv(e).catch((ex) => toast(ex.message, "error")) }, "📊 To'liq hisobot (Excel)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"))),
       h("div", { class: "row wrap" },
         h("select", { onchange: (ev) => ((q.group = ev.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),

@@ -13,7 +13,7 @@ import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
 import { prepare as dupPrepare, comparePair, explain as dupExplain } from "./dupreport.mjs";
 import { computeScore } from "./scores.mjs";
-import { examById, examsOfGroup, EXAMS, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
+import { examById, examsOfGroup, EXAMS, startOf as examStartOf, buildVariant, viewOf as examView, grade as examGrade, fiveScale } from "./exams.mjs";
 import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/rating.js";
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
@@ -2631,7 +2631,7 @@ function examFor(user, id) {
   if (!exam || user.role !== "student" || !exam.groups.includes(user.group)) throw new HttpError(404, "Nazorat testi topilmadi");
   return exam;
 }
-const examState = (exam, now = Date.now()) => (now < toMs(exam.startsAt) ? "soon" : now > toMs(exam.closesAt) ? "closed" : "open");
+const examState = (exam, group, now = Date.now()) => (now < toMs(examStartOf(exam, group)) ? "soon" : now > toMs(exam.closesAt) ? "closed" : "open");
 
 /** Muddati o'tgan urinishni yakunlaydi (saqlangan javoblar bo'yicha baholanadi). */
 async function finalizeAttempt(exam, rec, force = false, byTimeout = false) {
@@ -2660,7 +2660,7 @@ async function examList(req) {
     const allowed = isAllowed(await loadAccess(exam.id), user.id);
     let rec = await db().get(attemptKey(exam.id, user.id));
     if (rec && !rec.result) rec = await finalizeAttempt(exam, rec);
-    out.push({ allowed, id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, state: examState(exam), attempt: rec ? { startedAt: rec.startedAt, deadline: rec.deadline, finished: Boolean(rec.result), result: rec.result && { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent } } : null });
+    out.push({ allowed, id: exam.id, title: exam.title, startsAt: examStartOf(exam, user.group), closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, state: examState(exam, user.group), attempt: rec ? { startedAt: rec.startedAt, deadline: rec.deadline, finished: Boolean(rec.result), result: rec.result && { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent } } : null });
   }
   return json({ exams: out, now: new Date().toISOString() });
 }
@@ -2674,8 +2674,9 @@ async function examStart(req, id) {
     return json(attemptView(exam, rec));
   }
   if (!isAllowed(await loadAccess(id), user.id)) throw new HttpError(403, "Sizga bu testni ishlashga hozircha ruxsat berilmagan. O'qituvchiga murojaat qiling.");
-  const st = examState(exam);
-  if (st === "soon") throw new HttpError(403, `Test hali boshlanmagan. Boshlanish vaqti: ${exam.startsAt.slice(0, 10)} soat ${exam.startsAt.slice(11, 16)}`);
+  const st = examState(exam, user.group);
+  const startIso = examStartOf(exam, user.group);
+  if (st === "soon") throw new HttpError(403, `Test hali boshlanmagan. Boshlanish vaqti: ${startIso.slice(0, 10)} soat ${startIso.slice(11, 16)}`);
   if (st === "closed") throw new HttpError(403, "Test vaqti tugagan");
   const now = Date.now();
   rec = { examId: id, userId: user.id, user: { name: user.name, group: user.group }, startedAt: new Date(now).toISOString(), deadline: new Date(now + exam.durationMin * 60_000).toISOString(), items: buildVariant(exam), answers: {}, result: null };
@@ -2726,7 +2727,7 @@ async function examSubmit(req, id) {
 
 async function adminExams(req) {
   const tch = await requireTeacher(req);
-  return json({ exams: EXAMS.filter((e) => canTeach(tch, e.subject)).map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
+  return json({ exams: EXAMS.filter((e) => canTeach(tch, e.subject)).map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, starts: e.starts || null, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
 }
 
 async function adminExamResults(req, id) {
@@ -2742,7 +2743,7 @@ async function adminExamResults(req, id) {
     return { allowed: isAllowed(acc, u.id), userId: u.id, name: u.name, group: u.group, idNumber: u.idNumber || "", email: u.email, started: rec?.startedAt || null, deadline: rec?.deadline || null, submittedAt: rec?.submittedAt || null, extraMin: rec?.extraMin || 0, answered: rec ? Object.keys(rec.answers || {}).length : 0, status: !rec ? "none" : rec.result ? "done" : "running", result: rec?.result ? { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, auto: rec.result.auto, integrity: rec.result.integrity } : null };
   }));
   rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
-  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, defaultAllow: acc.defaultAllow, rows });
+  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, starts: exam.starts || null, durationMin: exam.durationMin, count: exam.count, groups: exam.groups }, defaultAllow: acc.defaultAllow, rows });
 }
 
 /** O'qituvchi: kim testni ishlashi mumkin. Body: { userIds?: [], group?: "231-24", all?: true, allowed: bool }. all — hammaga (va yangi ro'yxatdan o'tganlarga) qo'llanadi. */
@@ -2836,7 +2837,7 @@ async function adminExamReport(req, id) {
     };
   }));
   rows.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
-  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups, bank: exam.bank.length }, rows, generatedAt: new Date().toISOString(), penaltyRule: { perPoint: POINT_PERCENT, max: MAX_PENALTY } });
+  return json({ exam: { id: exam.id, title: exam.title, startsAt: exam.startsAt, starts: exam.starts || null, closesAt: exam.closesAt, durationMin: exam.durationMin, count: exam.count, groups: exam.groups, bank: exam.bank.length }, rows, generatedAt: new Date().toISOString(), penaltyRule: { perPoint: POINT_PERCENT, max: MAX_PENALTY } });
 }
 
 /** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
@@ -2880,14 +2881,14 @@ async function computeScoreRows(subject, semNo) {
   const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
-  if (sems.length === 1) for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result) examGrade.set(a.userId, fiveScale(a.result.percent)); }
+  for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, fiveScale(a.result.percent)); }
   const rows = users.map((u) => {
     const form = formKeyOf(u);
     const manual = midBy.get(u.id);
-    const midterm = manual ? manual.grade : examGrade.get(u.id) ?? null;
+    const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
-    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: manual ? [manual.grade ?? null, manual.grade2 ?? null] : [null, null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
-    return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
+    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
 }
