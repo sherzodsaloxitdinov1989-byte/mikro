@@ -89,7 +89,9 @@ export function combineOriginality({ ai, heur, sim }) {
   const signs = [...(ai?.signs || []), ...heur.signs];
   // AI bahosi bor bo'lsa — uni qoidaviy belgilar bilan birga; bo'lmasa faqat qoidaviy belgilar (taxminiy, 60 dan oshmaydi)
   const likelihood = ai ? Math.max(ai.aiLikelihood, Math.round(ai.aiLikelihood * 0.6 + heur.score * 0.4)) : Math.min(60, heur.score);
-  let factor = likelihood >= 85 ? 0.4 : likelihood >= 70 ? 0.6 : likelihood >= 55 ? 0.8 : 1;
+  // AI ehtimoli 10% dan oshsa jarima qo'llanadi: ehtimol qancha yuqori bo'lsa, jarima shuncha katta (10% → 0%, 100% → 60%)
+  // (AI kaliti bo'lmasa ehtimol faqat taxminiy qoidaviy belgilardan chiqadi — bunda eski, yumshoq chegaralar saqlanadi)
+  let factor = !ai ? (likelihood >= 85 ? 0.4 : likelihood >= 70 ? 0.6 : likelihood >= 55 ? 0.8 : 1) : likelihood >= 85 ? 0.4 : likelihood >= 70 ? 0.5 : likelihood >= 55 ? 0.6 : likelihood >= 41 ? 0.7 : likelihood >= 26 ? 0.8 : likelihood > 10 ? 0.9 : 1;
   const notes = [];
   if (factor < 1) notes.push(`AI tomonidan yozilgan bo'lish ehtimoli ${likelihood}% — ball ${Math.round((1 - factor) * 100)}% ga pasaytirildi.`);
   if (sim?.pct >= 50) {
