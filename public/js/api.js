@@ -55,7 +55,21 @@ async function request(method, path, data, { raw = false } = {}) {
   const binary = data instanceof Blob || data instanceof ArrayBuffer;
   const headers = { "content-type": binary ? "application/octet-stream" : "application/json" };
   if (session.token) headers.authorization = `Bearer ${session.token}`;
-  const res = await fetch(`/api/${path}`, { method, headers, body: data === undefined ? undefined : binary ? data : JSON.stringify(data) });
+  const send = () => fetch(`/api/${path}`, { method, headers, body: data === undefined ? undefined : binary ? data : JSON.stringify(data) });
+  // Cloudflare vaqtincha band bo'lsa (502/503/504, JSON javobsiz) so'rov o'zi qayta yuboriladi: talaba hech narsa yo'qotmaydi
+  let res;
+  for (let attempt = 0; ; attempt++) {
+    try {
+      res = await send();
+    } catch (e) {
+      if (attempt >= 3 || method === "POST") throw e;
+      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+      continue;
+    }
+    const transient = [502, 503, 504].includes(res.status) && !(res.headers.get("content-type") || "").includes("application/json");
+    if (!transient || attempt >= 3) break;
+    await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+  }
   if (res.status === 401 && session.token && !path.startsWith("auth/")) {
     const wasTeacher = session.user?.role === "teacher";
     session.clear();
@@ -71,7 +85,7 @@ async function request(method, path, data, { raw = false } = {}) {
     }
   }
   if (!res.ok) {
-    let message = `Xatolik (${res.status})`;
+    let message = [502, 503, 504].includes(res.status) ? "Server hozir band. Bir ozdan keyin qayta urinib ko‘ring (fayl saqlanib qoladi)." : `Xatolik (${res.status})`;
     let payload = null;
     try {
       payload = await res.json();
