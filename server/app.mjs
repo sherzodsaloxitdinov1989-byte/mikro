@@ -1213,6 +1213,23 @@ async function deleteAssignFile(uid, no, file) {
   await Promise.all(keys.map((k) => db().del(k)));
 }
 
+/** Talaba o'z yuklagan hisobotini o'chiradi (qayta yuklashdan oldin). Muddat yopilgach yoki o'qituvchi baholagach — mumkin emas. */
+async function assignDelete(req, no) {
+  const user = await requireUser(req);
+  assertAssignGroup(user);
+  if (user.role !== "student") throw new HttpError(403, "Faqat talaba o'z ishini o'chiradi");
+  const stage = stageParam(no, formKeyOf(user));
+  const key = assignKey(user.id, stage.no);
+  const prev = await db().get(key);
+  if (!prev) throw new HttpError(404, "O'chiriladigan ish yo'q");
+  await assertAssignOpen(user.id, stage.no);
+  if (prev.teacher?.score != null) throw new HttpError(403, "O'qituvchi baholagan ishni o'chirib bo'lmaydi. Uni qayta yuklash orqali almashtiring.");
+  if (prev.file) await deleteAssignFile(user.id, stage.no, prev.file);
+  await dropStaleChunks(`assignbin/${user.id}/${stage.no}/`, null).catch(() => {});
+  await db().del(key);
+  return json({ ok: true });
+}
+
 async function assignSubmit(req, no) {
   const user = await requireUser(req);
   assertAssignGroup(user);
@@ -4143,6 +4160,7 @@ const routes = [
   ["POST", /^assignment\/(\d{1,2})\/upload$/, assignUploadInit],
   ["PUT", /^assignment\/(\d{1,2})\/upload\/([\w-]+)\/(\d{1,3})$/, assignUploadChunk],
   ["POST", /^assignment\/(\d{1,2})\/submit$/, assignSubmit],
+  ["DELETE", /^assignment\/(\d{1,2})$/, assignDelete],
   ["POST", /^assignment\/(\d{1,2})\/review$/, assignReview],
   ["GET", /^assignment\/(\d{1,2})\/file$/, myAssignFile],
   ["GET", /^admin\/assignment$/, adminAssignment],

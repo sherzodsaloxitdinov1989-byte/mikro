@@ -1,5 +1,5 @@
 // 3-semestr topshirig'i: 11 bosqich, har bir bosqich alohida yuklanadi (talaba) va baholanadi (o'qituvchi).
-import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile, integrityAlert } from "../ui.js";
+import { h, mount, toast, loading, fmtDate, modal, emptyState, downloadFile, integrityAlert, confirmDialog } from "../ui.js";
 import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../../data/course.js";
@@ -328,7 +328,12 @@ export async function renderStage(el, noParam) {
       sub?.content?.issues?.length > 0 && h("div", { class: "alert alert-warn small" }, h("b", {}, "📋 Tezkor tekshiruv: ishda quyidagi kamchiliklar topildi — to'g'rilab qayta yuborishingiz mumkin. Jiddiy kamchiliklar AI bahosini 60% gacha kamaytiradi"), h("ul", {}, sub.content.issues.map((i) => h("li", {}, i.text)))),
       h("label", { class: "field" }, h("span", {}, "Hisobot fayli — faqat Word (.docx), 12 MB gacha. Jadval, formula, rasm va grafiklarni shu faylga joylang"), fileInput),
       fileNote,
-      sub?.file && h("button", { class: "btn ghost small", onclick: () => saveBlob(`assignment/${no}/file`, sub.file.name) }, "⬇ Yuklangan faylni yuklab olish"),
+      sub?.file && h("div", { class: "row wrap" },
+        h("button", { class: "btn ghost small", onclick: () => saveBlob(`assignment/${no}/file`, sub.file.name) }, "⬇ Yuklangan faylni yuklab olish"),
+        !closed && sub.teacher?.score == null && h("button", { class: "btn ghost small danger", onclick: async () => {
+          if (!(await confirmDialog("Yuklangan hisobot o'chiriladi (AI tekshiruvi natijasi ham). Keyin yangisini yuklaysiz. Davom etilsinmi?"))) return;
+          try { await api.del(`assignment/${no}`); toast("Eski hisobot o'chirildi. Endi yangisini yuklang.", "ok"); await renderStage(el, no); } catch (ex) { toast(ex.message, "error"); }
+        } }, "🗑 Eskisini o'chirish")),
       sub?.text && h("details", { class: "small" }, h("summary", {}, "Fayldan o'qilgan matn (AI shuni va rasmlarni ko'radi)"), h("p", { class: "pre-wrap" }, sub.text.slice(0, 6000))),
       prog,
       h("div", { class: "row end" }, closed ? h("span", { class: "muted small" }, "Yuklash yopilgan") : submitBtn)),
