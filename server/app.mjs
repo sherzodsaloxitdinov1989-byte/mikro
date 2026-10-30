@@ -18,7 +18,7 @@ import { computeRating, ratingMax, weeklyActivity, TIERS } from "../public/js/ra
 import { itemAnalysis } from "./itemstats.mjs";
 import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat } from "./tts.mjs";
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
-import { mailEnabled, sendResetCode, sendAlertMail } from "./mail.mjs";
+import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
@@ -115,11 +115,41 @@ async function requireTeacher(req) {
     if ((await bump(`adminforbid/${user.id}`, 600_000, 3)).n === 4) await securityAlert(req, "forbidden_admin", "high", "Talaba o'qituvchi bo'limlariga kirishga urinmoqda", `${user.name} (${maskEmail(user.email)}, ${user.group || "guruhsiz"}) 10 daqiqada o'qituvchi bo'limlariga bir necha marta murojaat qildi.`, user.id);
     throw new HttpError(403, "Bu bo'lim faqat o'qituvchilar uchun");
   }
+  const need = permFor(new URL(req.url).pathname);
+  if (need && !hasPerm(user, need)) throw new HttpError(403, "Bu bo'lim uchun sizga ruxsat berilmagan");
   return user;
 }
 
 // ---------- O'qituvchining fanlari: yangi o'qituvchi faqat o'ziga biriktirilgan fan(lar) bilan ishlaydi ----------
 // user.subjects — fan kalitlari ro'yxati; yo'q (undefined) bo'lsa — barcha fanlar va o'qituvchilarni boshqarish huquqi («bosh o'qituvchi»).
+// Huquqlar (dostup): user.perms — ruxsat etilgan bo'limlar guruhi; yo'q (undefined) bo'lsa — barcha bo'limlar.
+export const PERMS = [
+  { key: "students", title: "Talabalar va ro'yxatlar", desc: "Talabalar ro'yxati, ID raqam ro'yxati, parolni tiklash, ta'lim shakllari" },
+  { key: "results", title: "Natijalarni ko'rish", desc: "Barcha natijalar, ball jadvali, test tahlili, takrorlanish tahlili, himoya hodisalari" },
+  { key: "grading", title: "Baholash", desc: "Amaliyot, mustaqil ish, laboratoriya, 20 ballik topshiriq, oraliq nazorat — ball qo'yish" },
+  { key: "tasks", title: "Topshiriq va jonli darslar", desc: "Yangi topshiriq yaratish, Google Meet darslari" },
+  { key: "content", title: "Dars materiallari", desc: "Taqdimot, video, AI ovoz, test jamlanmasi, jonli viktorina" },
+  { key: "questions", title: "Talabalar savollari", desc: "Talabalar savollarini ko'rish va javob berish" },
+  { key: "system", title: "Xavfsizlik va ombor", desc: "Xavfsizlik ogohlantirishlari, ombor (xotira)" },
+];
+const PERM_KEYS = PERMS.map((x) => x.key);
+const cleanPerms = (a) => (Array.isArray(a) ? [...new Set(a.map(String).filter((k) => PERM_KEYS.includes(k)))] : null);
+const hasPerm = (t, k) => !Array.isArray(t?.perms) || t.perms.includes(k);
+const PERM_RULES = [
+  [/^admin\/(students|duplicates|roster|roster-fails)(\/|$)/, "students"],
+  [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|evidence|rating)(\/|$)/, "results"],
+  [/^admin\/(practice-reviews|self-study|labs|assignment|midterm|exams)(\/|$)/, "grading"],
+  [/^admin\/(tasks|meets)(\/|$)/, "tasks"],
+  [/^admin\/(slides|videos|tts|video-script|quiz-keys)(\/|$)/, "content"],
+  [/^admin\/questions(\/|$)/, "questions"],
+  [/^admin\/(alerts|storage)(\/|$)/, "system"],
+];
+/** So'rov yo'liga qaysi huquq kerakligi (null — talab qilinmaydi). */
+function permFor(pathname) {
+  const p = pathname.replace(/^\/api\//, "").replace(/^\//, "");
+  for (const [re, k] of PERM_RULES) if (re.test(p)) return k;
+  return null;
+}
 const isFullTeacher = (t) => !Array.isArray(t?.subjects);
 const teacherSubjectKeys = (t) => (isFullTeacher(t) ? SUBJECTS.map((s) => s.key) : t.subjects.filter((k) => SUBJECTS.some((s) => s.key === k)));
 const canTeach = (t, key) => teacherSubjectKeys(t).includes(key);
@@ -516,6 +546,7 @@ async function register(req) {
   if (role === "teacher") {
     const inv = await store.get(inviteKey(email)); // taklif qilingan fanlar (bo'sh bo'lsa — barcha fanlar)
     if (Array.isArray(inv?.subjects) && !envTeacherEmails().includes(email)) user.subjects = inv.subjects.filter((k) => SUBJECTS.some((x) => x.key === k));
+    if (Array.isArray(inv?.perms) && !envTeacherEmails().includes(email)) user.perms = cleanPerms(inv.perms);
   }
   if (claim) Object.assign(user, { rosterOk: true, idNumber: claim.digits });
   await store.set(userKey(user.id), user);
@@ -1914,14 +1945,15 @@ async function subjectRating(req) {
 async function listTeachers(req) {
   const me = await requireTeacher(req);
   const users = await getMany("user/");
-  const teachers = users.filter((u) => u.role === "teacher").map((u) => ({ id: u.id, name: u.name, email: u.email, createdAt: u.createdAt, me: u.id === me.id, subjects: Array.isArray(u.subjects) ? u.subjects : null })).sort((a, b) => a.name.localeCompare(b.name));
-  const invites = (await getMany("teacherinvite/")).map((i) => ({ email: i.email, by: i.by, at: i.at, subjects: Array.isArray(i.subjects) ? i.subjects : null })).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
-  return json({ full: isFullTeacher(me), mySubjects: teacherSubjectKeys(me), subjects: SUBJECTS.map((x) => ({ key: x.key, title: x.title, icon: x.icon })), teachers, invites, envEmails: envTeacherEmails(), mailEnabled: mailEnabled(), codeEnabled: Boolean(process.env.TEACHER_CODE) });
+  const teachers = users.filter((u) => u.role === "teacher").map((u) => ({ id: u.id, name: u.name, email: u.email, createdAt: u.createdAt, me: u.id === me.id, subjects: Array.isArray(u.subjects) ? u.subjects : null, perms: Array.isArray(u.perms) ? u.perms : null })).sort((a, b) => a.name.localeCompare(b.name));
+  const invites = (await getMany("teacherinvite/")).map((i) => ({ email: i.email, by: i.by, at: i.at, subjects: Array.isArray(i.subjects) ? i.subjects : null, perms: Array.isArray(i.perms) ? i.perms : null })).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+  return json({ full: isFullTeacher(me), permissions: PERMS, myPerms: Array.isArray(me.perms) ? me.perms : null, mySubjects: teacherSubjectKeys(me), subjects: SUBJECTS.map((x) => ({ key: x.key, title: x.title, icon: x.icon })), teachers, invites, envEmails: envTeacherEmails(), mailEnabled: mailEnabled(), codeEnabled: Boolean(process.env.TEACHER_CODE) });
 }
 
-async function promoteUser(user, subjects = null) {
+async function promoteUser(user, subjects = null, perms = null) {
   user.role = "teacher";
   if (Array.isArray(subjects)) user.subjects = subjects; else delete user.subjects;
+  if (Array.isArray(perms)) user.perms = perms; else delete user.perms;
   user.promotedAt = new Date().toISOString();
   delete user.cohort;
   delete user.cohortSource;
@@ -1936,15 +1968,30 @@ async function inviteTeacher(req) {
   // Biriktiriladigan fanlar: ro'yxat berilsa — faqat shular; berilmasa yoki «hammasi» bo'lsa — barcha fanlar
   const subjects = Array.isArray(b.subjects) && !b.allSubjects ? b.subjects.map(String).filter((k) => SUBJECTS.some((x) => x.key === k)) : null;
   if (Array.isArray(subjects) && !subjects.length) throw new HttpError(400, "Kamida bitta fanni tanlang yoki «Barcha fanlar» ni belgilang");
+  const perms = b.allPerms ? null : cleanPerms(b.perms);
+  if (Array.isArray(perms) && !perms.length) throw new HttpError(400, "Kamida bitta bo'limga ruxsat bering yoki «Barcha bo'limlar» ni belgilang");
   const ref = await db().get(emailKey(email));
   const user = ref && (await db().get(userKey(ref.id)));
+  const mail = { by: me.name, siteUrl: new URL(req.url).origin, subjects: subjects?.map((k) => subjectByKey(k)?.title || k), perms: perms?.map((k) => PERMS.find((x) => x.key === k)?.title || k) };
+  const sendMail = async (existing) => {
+    if (!mailEnabled() || b.noMail) return { mailSent: false };
+    try { await sendInviteMail(email, { ...mail, existing }); return { mailSent: true }; } catch (e) { console.error("invite mail:", e.message); return { mailSent: false, mailError: "Xat yuborilmadi: pochta xizmati xato berdi" }; }
+  };
   if (user) {
     if (user.role === "teacher") throw new HttpError(409, "Bu foydalanuvchi allaqachon o'qituvchi");
-    await promoteUser(user, subjects);
-    return json({ promoted: true, name: user.name });
+    await promoteUser(user, subjects, perms);
+    return json({ promoted: true, name: user.name, ...(await sendMail(true)) });
   }
-  await db().set(inviteKey(email), { email, by: me.name, at: new Date().toISOString(), ...(subjects ? { subjects } : {}) });
-  return json({ invited: true, mailEnabled: mailEnabled() });
+  await db().set(inviteKey(email), { email, by: me.name, at: new Date().toISOString(), ...(subjects ? { subjects } : {}), ...(perms ? { perms } : {}) });
+  return json({ invited: true, mailEnabled: mailEnabled(), ...(await sendMail(false)) });
+}
+
+/** Pochta ulanganini tekshirish: o'qituvchining o'z emailiga sinov xati. */
+async function mailTest(req) {
+  const me = requireFullTeacher(await requireTeacher(req));
+  if (!mailEnabled()) throw new HttpError(400, "Pochta xizmati ulanmagan (Cloudflare'da BREVO_API_KEY va MAIL_FROM kiritilmagan)");
+  try { await sendTestMail(me.email); } catch (e) { throw new HttpError(502, `Sinov xati yuborilmadi: ${e.message}`); }
+  return json({ ok: true, to: maskEmail(me.email) });
 }
 
 async function uninviteTeacher(req) {
@@ -1975,10 +2022,16 @@ async function setTeacherSubjects(req, id) {
   if (Array.isArray(list) && !list.length) throw new HttpError(400, "Kamida bitta fanni tanlang yoki «Barcha fanlar» ni belgilang");
   if (id === me.id && Array.isArray(list)) throw new HttpError(400, "O'z huquqingizni cheklay olmaysiz (bosh o'qituvchi bo'lib qolasiz)");
   if (list) user.subjects = list; else delete user.subjects;
+  if (b.perms !== undefined || b.allPerms) {
+    const pl = b.allPerms ? null : cleanPerms(b.perms);
+    if (Array.isArray(pl) && !pl.length) throw new HttpError(400, "Kamida bitta bo'limga ruxsat bering yoki «Barcha bo'limlar» ni belgilang");
+    if (id === me.id && Array.isArray(pl)) throw new HttpError(400, "O'z huquqingizni cheklay olmaysiz");
+    if (pl) user.perms = pl; else delete user.perms;
+  }
   user.pwdV = (user.pwdV || 0); // sessiya o'zgarmaydi; huquq keyingi so'rovdan kuchga kiradi
   await db().set(userKey(id), user);
   await securityAlert(req, "teacher_subjects", "info", "O'qituvchi fanlari o'zgartirildi", `${me.name}: ${user.name} (${maskEmail(user.email)}) — ${list ? list.map((k) => subjectByKey(k)?.title || k).join(", ") : "barcha fanlar"}.`, `${id}/${Date.now()}`, 1000).catch(() => {});
-  return json({ ok: true, subjects: list });
+  return json({ ok: true, subjects: list, perms: Array.isArray(user.perms) ? user.perms : null });
 }
 
 async function demoteTeacher(req, id) {
@@ -4156,6 +4209,7 @@ const routes = [
   ["GET", /^admin\/teachers$/, listTeachers],
   ["POST", /^admin\/teachers\/invite$/, inviteTeacher],
   ["POST", /^admin\/teachers\/uninvite$/, uninviteTeacher],
+  ["POST", /^admin\/mail-test$/, mailTest],
   ["POST", /^admin\/teachers\/([\w-]+)\/promote$/, promoteStudent],
   ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
   ["PUT", /^admin\/teachers\/([\w-]+)\/subjects$/, setTeacherSubjects],

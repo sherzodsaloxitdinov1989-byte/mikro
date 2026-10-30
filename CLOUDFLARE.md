@@ -32,7 +32,7 @@ Worker → **Settings** → **Variables and Secrets** → **Add**. Har birining 
 
 **O'qituvchi bo'lish (soddalashtirilgan):**
 1. Birinchi o'qituvchi: `TEACHER_EMAILS` ga o'z emailingizni yozing (pochta ulangan bo'lsin). Saytda **Ro'yxatdan o'tish → O'qituvchi** → emailingizni yozib **Tasdiqlash kodini yuborish** → emailga kelgan kodni kiriting.
-2. Boshqa o'qituvchilar: O'qituvchi paneli → **O'qituvchilar** → emailini qo'shing (yoki **Talabalar** bo'limida 👩‍🏫 tugmasi bilan mavjud talabani o'qituvchi qiling). Umumiy kodni hech kimga aytish shart emas.
+2. Boshqa o'qituvchilar: O'qituvchi paneli → **O'qituvchilar** → emailini qo'shing (yoki **Talabalar** bo'limida 👩‍🏫 tugmasi bilan mavjud talabani o'qituvchi qiling). Umumiy kodni hech kimga aytish shart emas. Email qo'shayotganda fan(lar)ni va ruxsat beriladigan bo'limlarni (talabalar, natijalar, baholash, topshiriq, materiallar, savollar, xavfsizlik) belgilang. Pochta ulangan bo'lsa, taklif xati avtomatik yuboriladi; **✉️ Sinov xati yuborish** tugmasi pochta ishlashini tekshiradi.
 3. Pochta hali ulanmagan bo'lsa: `TEACHER_CODE` qo'ying va ro'yxatdan o'tishda shu kodni kiriting.
 
 Kalitlarni qo'shgandan keyin **Deployments** → oxirgi deploy → **Retry**. Kalitlar keyingi deploy'larda ham saqlanib qoladi (`keep_vars`).

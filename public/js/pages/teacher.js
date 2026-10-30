@@ -32,6 +32,9 @@ const GROUPS = [
   ["content", "📚 O'quv kontenti", 32],
   ["live", "🎮 Interaktiv dars", 280],
 ];
+// Bo'lim → huquq (server bilan bir xil guruhlar). Ro'yxatda yo'q bo'limlar (umumiy ko'rinish, fanlar) har doim ochiq.
+const PERM_OF = { students: "students", roster: "students", forms: "students", results: "results", scores: "results", items: "results", dups: "results", security: "results", practice: "grading", labs: "grading", "self-study": "grading", assignment: "grading", exams: "grading", tasks: "tasks", meets: "tasks", slides: "content", videos: "content", voices: "content", testbank: "content", live: "content", questions: "questions", alerts: "system", storage: "system" };
+const permOk = (key) => !Array.isArray(session.user?.perms) || !PERM_OF[key] || session.user.perms.includes(PERM_OF[key]);
 const SECTIONS = [
   { key: "practice", needsContent: true, icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
   COURSE.features.lab && { key: "labs", needsContent: true, icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
@@ -57,7 +60,7 @@ const SECTIONS = [
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter((x) => x && (!x.only || x.only === SUBJECT_KEY) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
+].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || x.only === SUBJECT_KEY) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {
@@ -1432,24 +1435,37 @@ async function teachersView(el) {
       node.value = () => (all.checked ? { allSubjects: true } : { subjects: boxes.filter((x) => x.box.checked).map((x) => x.s.key) });
       return node;
     };
+    /** Huquq tanlash: «Barcha bo'limlar» yoki alohida guruhlar. */
+    const permPicker = (selected) => {
+      const all = h("input", { type: "checkbox", checked: !selected });
+      const boxes = d.permissions.map((p) => ({ p, box: h("input", { type: "checkbox", checked: Boolean(selected?.includes(p.key)), disabled: !selected }) }));
+      all.addEventListener("change", () => boxes.forEach(({ box }) => ((box.disabled = all.checked), all.checked && (box.checked = false))));
+      const node = h("div", { class: "stack" }, h("label", { class: "check" }, all, h("b", {}, "Barcha bo'limlar")), boxes.map(({ p, box }) => h("label", { class: "check", title: p.desc }, box, h("span", {}, h("b", {}, p.title), h("span", { class: "muted small" }, ` — ${p.desc}`)))));
+      node.value = () => (all.checked ? { allPerms: true } : { perms: boxes.filter((x) => x.box.checked).map((x) => x.p.key) });
+      return node;
+    };
+    const permChips = (list) => (list ? list.map((k) => h("span", { class: "chip chip-soft" }, d.permissions.find((p) => p.key === k)?.title || k)) : [h("span", { class: "chip" }, "Barcha bo'limlar")]);
     const email = h("input", { type: "email", placeholder: "yangi o'qituvchi emaili", required: true, style: { minWidth: "260px" } });
     const pick = picker(d.full ? [] : d.mySubjects.slice(0, 1));
-    if (!d.full) { pick.querySelectorAll("input").forEach((i) => (i.disabled = true)); }
+    const permPick = permPicker(d.full ? d.permissions.map((p) => p.key) : null);
+    if (!d.full) { pick.querySelectorAll("input").forEach((i) => (i.disabled = true)); permPick.querySelectorAll("input").forEach((i) => (i.disabled = true)); }
     const form = h("form", { class: "stack", onsubmit: async (e) => {
       e.preventDefault();
       try {
-        const res = await api.post("admin/teachers/invite", { email: email.value, ...pick.value() });
-        toast(res.promoted ? `${res.name} o'qituvchi qilindi` : "Email qo'shildi. U ro'yxatdan o'tishda «O'qituvchi» ni tanlab, emailiga kelgan kod bilan kiradi.", "ok");
+        const res = await api.post("admin/teachers/invite", { email: email.value, ...pick.value(), ...permPick.value() });
+        const base = res.promoted ? `${res.name} o'qituvchi qilindi` : "Email qo'shildi. U ro'yxatdan o'tishda «O'qituvchi» ni tanlab, emailiga kelgan kod bilan kiradi.";
+        toast(res.mailSent ? `${base} Taklif xati yuborildi.` : res.mailError ? `${base} ${res.mailError}.` : base, res.mailError ? "error" : "ok");
         draw();
       } catch (ex) {
         toast(ex.message, "error");
       }
-    } }, h("div", { class: "row wrap" }, email, h("button", { class: "btn", type: "submit" }, "➕ Qo'shish")), h("b", {}, "Qaysi fan(lar)ga biriktiriladi?"), pick);
+    } }, h("div", { class: "row wrap" }, email, h("button", { class: "btn", type: "submit" }, "➕ Qo'shish")), h("b", {}, "Qaysi fan(lar)ga biriktiriladi?"), pick, h("b", {}, "Fan doirasida nimalarga ruxsat?"), permPick);
     const editSubjects = (t) => {
       const p = picker(t.subjects);
-      const close = modal(`Fanlar: ${t.name}`, h("div", { class: "stack" }, h("p", { class: "muted small" }, "O'qituvchi faqat tanlangan fan(lar)ning talabalari, topshiriqlari, testlari va natijalarini ko'radi va boshqaradi. O'zgarish keyingi sahifa yangilanishida kuchga kiradi."), p,
+      const pp = permPicker(t.perms);
+      const close = modal(`Fanlar va ruxsatlar: ${t.name}`, h("div", { class: "stack" }, h("p", { class: "muted small" }, "O'qituvchi faqat tanlangan fan(lar)ning talabalari, topshiriqlari, testlari va natijalarini ko'radi va boshqaradi. O'zgarish keyingi sahifa yangilanishida kuchga kiradi."), p, h("b", {}, "Fan doirasida nimalarga ruxsat?"), pp,
         h("div", { class: "row end" }, h("button", { class: "btn", onclick: async () => {
-          try { await api.put(`admin/teachers/${t.id}/subjects`, p.value()); toast("Fanlar saqlandi", "ok"); close(); draw(); } catch (ex) { toast(ex.message, "error"); }
+          try { await api.put(`admin/teachers/${t.id}/subjects`, { ...p.value(), ...pp.value() }); toast("Fanlar saqlandi", "ok"); close(); draw(); } catch (ex) { toast(ex.message, "error"); }
         } }, "💾 Saqlash"))));
     };
     mount(el,
@@ -1457,13 +1473,15 @@ async function teachersView(el) {
       h("div", { class: "card stack" },
         h("h3", {}, "Yangi o'qituvchi qo'shish va fanga biriktirish"),
         h("p", { class: "muted small" }, "Emailni kiriting va qaysi fan(lar)ni o'qitishini belgilang. Shu email egasi saytda «Ro'yxatdan o'tish → O'qituvchi» ni tanlab, emailiga kelgan 6 xonali kod bilan profilini yaratadi — keyin faqat o'ziga biriktirilgan fan(lar) bilan ishlaydi. Mavjud talabani o'qituvchi qilish uchun uning emailini kiriting."),
-        !d.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta ulanmagan (BREVO_API_KEY va MAIL_FROM), shuning uchun kod yuborilmaydi. Hozircha talabani «Talabalar» bo'limidan 👩‍🏫 tugmasi bilan o'qituvchi qilishingiz mumkin."),
+        d.mailEnabled
+          ? h("div", { class: "alert small" }, "✅ Elektron pochta ulangan: taklif xati va tasdiqlash kodi emailga yuboriladi. ", d.full && h("button", { class: "btn small ghost", type: "button", onclick: async () => { try { const r = await api.post("admin/mail-test", {}); toast(`Sinov xati ${r.to} manziliga yuborildi`, "ok"); } catch (ex) { toast(ex.message, "error"); } } }, "✉️ Sinov xati yuborish"))
+          : h("div", { class: "alert alert-warn small" }, "Elektron pochta ulanmagan, shuning uchun taklif xati va kod yuborilmaydi. Ulash: Cloudflare → Workers → Settings → Variables and Secrets bo'limida BREVO_API_KEY va MAIL_FROM ni kiriting (Brevo.com'da bepul hisob; batafsil CLOUDFLARE.md da). Hozircha talabani «Talabalar» bo'limidan 👩‍🏫 tugmasi bilan o'qituvchi qilishingiz mumkin."),
         form,
-        d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, ...subjChips(i.subjects), h("span", { class: "muted small" }, ` (${i.by}, ${fmtDate(i.at)}) `), d.full && h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
+        d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, ...subjChips(i.subjects), ...permChips(i.perms), h("span", { class: "muted small" }, ` (${i.by}, ${fmtDate(i.at)}) `), d.full && h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
         d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS, barcha fanlar): ", d.envEmails.join(", "))),
       h("div", { class: "card table-wrap" }, h("h3", {}, `Hozirgi o'qituvchilar (${d.teachers.length})`),
-        h("table", { class: "table" }, h("thead", {}, h("tr", {}, ["F.I.Sh.", "Email", "Biriktirilgan fanlar", "Ro'yxatdan o'tgan", ""].map((c) => h("th", {}, c)))),
-          h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, h("div", { class: "row wrap" }, subjChips(t.subjects))), h("td", {}, fmtDate(t.createdAt)),
+        h("table", { class: "table" }, h("thead", {}, h("tr", {}, ["F.I.Sh.", "Email", "Biriktirilgan fanlar", "Ruxsat etilgan bo'limlar", "Ro'yxatdan o'tgan", ""].map((c) => h("th", {}, c)))),
+          h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, h("div", { class: "row wrap" }, subjChips(t.subjects))), h("td", {}, h("div", { class: "row wrap" }, permChips(t.perms))), h("td", {}, fmtDate(t.createdAt)),
             h("td", {}, d.full && !t.me && h("button", { class: "btn small ghost", title: "Fanlarni o'zgartirish", onclick: () => editSubjects(t) }, "📚 Fanlar"), " ", d.full && !t.me && h("button", { class: "btn small ghost", onclick: async () => {
               if (!confirm(`${t.name} o'qituvchilikdan chiqarilib, talabaga aylantirilsinmi?`)) return;
               try { await api.post(`admin/teachers/${t.id}/demote`, {}); toast("Talaba qilindi", "ok"); draw(); } catch (ex) { toast(ex.message, "error"); }
