@@ -1165,17 +1165,22 @@ async function myAssignment(req) {
   const user = await requireUser(req);
   assertAssignGroup(user);
   const items = await getMany(`assign/${user.id}/`);
-  return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), closeAt: "2026-10-31T23:59:59+05:00", closed: assignmentClosed(), criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
+  return json({ form: formKeyOf(user), items: items.map(assignView), now: new Date().toISOString(), closeAt: "2026-10-31T23:59:59+05:00", closed: assignmentClosed(), firstUploadPenalty: FIRST_UPLOAD_PENALTY, criteria: ASSIGN_CRITERIA, aiEnabled: aiEnabled() });
 }
 
-const assertAssignOpen = () => {
-  if (assignmentClosed()) throw new HttpError(403, "Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi).");
-};
+// 31-oktyabr 23:59 dan keyin: o'zgartirish va qayta yuklash butunlay yopiladi.
+// Faqat 1-bosqichni hali yuklamagan talaba birinchi marta yuklay oladi — bunda ball 50% kamaytiriladi.
+const FIRST_UPLOAD_PENALTY = 50;
+async function assertAssignOpen(uid, no) {
+  if (!assignmentClosed()) return;
+  if (Number(no) === 1 && !(await db().get(assignKey(uid, 1)))) return;
+  throw new HttpError(403, Number(no) === 1 ? "Topshiriqni o'zgartirish va qayta yuklash muddati tugagan (31-oktyabr 23:59 gacha edi)." : "Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi).");
+}
 
 async function assignUploadInit(req, no) {
   const user = await requireUser(req);
   assertAssignGroup(user);
-  assertAssignOpen();
+  await assertAssignOpen(user.id, no);
   stageParam(no, formKeyOf(user));
   const b = await body(req);
   const name = str(b.name, 200);
@@ -1190,7 +1195,7 @@ async function assignUploadInit(req, no) {
 async function assignUploadChunk(req, no, uploadId, i) {
   const user = await requireUser(req);
   assertAssignGroup(user);
-  assertAssignOpen();
+  await assertAssignOpen(user.id, no);
   stageParam(no, formKeyOf(user));
   if (!/^[\w-]{6,64}$/.test(uploadId) || !/^\d{1,3}$/.test(i)) throw new HttpError(400, "So'rov noto'g'ri");
   // Ombor to'lib ketmasligi uchun: bitta talaba kuniga ko'pi bilan 120 ta bo'lak (~360 MB) yuklay oladi
@@ -1212,7 +1217,7 @@ async function assignSubmit(req, no) {
   const user = await requireUser(req);
   assertAssignGroup(user);
   if (user.role !== "student") throw new HttpError(403, "Topshiriqni faqat talaba yuboradi");
-  assertAssignOpen();
+  await assertAssignOpen(user.id, no);
   const form = formKeyOf(user);
   const stage = stageParam(no, form);
   const b = await body(req);
@@ -1259,7 +1264,8 @@ async function assignSubmit(req, no) {
     file,
     media,
     submittedAt: now.toISOString(),
-    late: Boolean(due && now > due),
+    late: Boolean((due && now > due) || (assignmentClosed(now) && stage.no === 1)),
+    latePct: assignmentClosed(now) && stage.no === 1 ? FIRST_UPLOAD_PENALTY : undefined,
     attempts: (prev?.attempts || 0) + 1,
     ai: prev?.ai || null,
     teacher: prev?.teacher || null,
@@ -1376,7 +1382,7 @@ async function doAssignReview(user, no, { limited }) {
   review = finalizeReview(review, input);
   const others = (await getMany("assign/")).filter((o) => o.no === stage.no && o.form === form && o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
   const { orig, percentRaw, percent: percentOrig } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
-  const lp = taskLib.withLatePenalty(percentOrig, rec.late);
+  const lp = taskLib.withLatePenalty(percentOrig, rec.late, rec.latePct || undefined);
   const integrity = await integrityFor(user.id, onPage(`#/assignment/${stage.no}`));
   const afterIntegrity = Math.round(reduceBy(lp.percent, integrity?.percent));
   const cpen = contentPenalty(rec); // jiddiy mazmun kamchiliklari (hajm, mavzuga mosligi, natija qismlari, mazmuniy nusxa, takroriy ob'ekt) — ko'pi bilan 60%

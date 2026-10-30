@@ -22,7 +22,7 @@ function deadlineChip(group, now) {
 function statusBadge(sub, form) {
   if (!sub) return h("span", { class: "badge" }, "Topshirilmagan");
   if (sub.teacher?.score != null && !sub.resubmitted) return h("span", { class: "badge badge-ok" }, `${fmtScore(sub.teacher.score)} / ${fmtScore(stageMax(sub.no, form))} ball`);
-  return h("span", { class: "badge badge-warn" }, sub.late ? "Topshirildi (kech, −20%) · tekshirilmoqda" : "Topshirildi · tekshirilmoqda");
+  return h("span", { class: "badge badge-warn" }, sub.late ? `Topshirildi (kech, −${sub.latePct || 20}%) · tekshirilmoqda` : "Topshirildi · tekshirilmoqda");
 }
 
 // ---------------- Talaba: natija varaqasini PDF qilib yuklab olish ----------------
@@ -216,7 +216,9 @@ export async function renderStage(el, noParam) {
   const g = groupOf(no, form);
   const max = stageMax(no, form);
   const late = now > deadlineOf(no, form);
-  const closed = assignmentClosed(now);
+  const closedAll = assignmentClosed(now);
+  const firstOnly = closedAll && no === 1 && !sub; // 1-bosqich: yopilgandan keyin faqat birinchi marta yuklash (50% jarima)
+  const closed = closedAll && !firstOnly;
 
   let picked = null;
   const fileInput = h("input", { type: "file", accept: ".docx", disabled: closed });
@@ -314,14 +316,15 @@ export async function renderStage(el, noParam) {
           h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(max)} ball`),
           h("a", { class: "chip chip-soft", href: `#/topics/t${st.topic}` }, `📖 ${st.topic}-mavzu nazariyasi`)))),
     dep,
+    firstOnly && h("div", { class: "alert alert-warn" }, "⏰ Muddat (31-oktyabr 23:59) tugagan. Siz 1-bosqich hisobotini hali yuklamagansiz, shuning uchun birinchi marta yuklashingiz mumkin, lekin ball 50% kamaytiriladi. Yuklagandan keyin uni o'zgartirib yoki qayta yuklab bo'lmaydi."),
     closed && h("div", { class: "alert alert-warn" }, "🔒 Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi). Endi hisobotni yuklab ham, o'zgartirib ham bo'lmaydi."),
-    !closed && h("div", { class: "alert small" }, "🕒 Hisobotni 31-oktyabr soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi."),
-    late && !closed && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
+    !closedAll && h("div", { class: "alert small" }, "🕒 Hisobotni 31-oktyabr soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi."),
+    late && !closedAll && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
     h("div", { class: "card" }, h("h3", {}, "🎯 Maqsad"), h("p", {}, st.goal), h("h3", {}, "📝 Bajariladigan vazifalar"), h("ol", {}, st.tasks.map((t) => h("li", {}, t))), h("h3", {}, "📦 Talab qilinadigan natija"), h("p", {}, st.result)),
     sample,
     h("div", { class: "card stack" },
       h("h3", {}, "📤 Hisobotni yuklash"),
-      sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts}${sub.late ? " · kech" : ""}`),
+      sub && h("p", { class: "small muted" }, `Oxirgi yuborilgan: ${fmtDate(sub.submittedAt)} · urinish: ${sub.attempts}${sub.late ? ` · kech${sub.latePct ? ` (−${sub.latePct}%)` : ""}` : ""}`),
       sub?.content?.issues?.length > 0 && h("div", { class: "alert alert-warn small" }, h("b", {}, "📋 Tezkor tekshiruv: ishda quyidagi kamchiliklar topildi — to'g'rilab qayta yuborishingiz mumkin. Jiddiy kamchiliklar AI bahosini 60% gacha kamaytiradi"), h("ul", {}, sub.content.issues.map((i) => h("li", {}, i.text)))),
       h("label", { class: "field" }, h("span", {}, "Hisobot fayli — faqat Word (.docx), 12 MB gacha. Jadval, formula, rasm va grafiklarni shu faylga joylang"), fileInput),
       fileNote,
