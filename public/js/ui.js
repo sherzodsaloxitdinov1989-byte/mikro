@@ -117,3 +117,31 @@ export function integrityAlert(i) {
     h("p", {}, i.text),
     h("ul", {}, (i.items || []).map((x) => h("li", {}, `${x.label}: ${x.count} marta${x.free ? ` (dastlabki ${x.free} tasi jarimasiz kechirildi)` : ""} — ${x.rule}.`))));
 }
+
+// Barcha parol maydonlariga «ko'rsatish» tugmasi (👁) qo'shiladi: kiritilgan parolni tekshirib olish uchun.
+function addPasswordToggle(input) {
+  if (input.dataset.eye || !input.parentNode) return;
+  input.dataset.eye = "1";
+  const wrap = document.createElement("span");
+  wrap.className = "pw-wrap";
+  input.parentNode.insertBefore(wrap, input);
+  wrap.appendChild(input);
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "pw-eye";
+  btn.textContent = "👁";
+  btn.title = "Parolni ko'rsatish";
+  btn.setAttribute("aria-label", "Parolni ko'rsatish");
+  btn.addEventListener("click", () => {
+    const show = input.type === "password";
+    input.type = show ? "text" : "password";
+    btn.textContent = show ? "🙈" : "👁";
+    btn.title = btn.ariaLabel = show ? "Parolni yashirish" : "Parolni ko'rsatish";
+  });
+  wrap.appendChild(btn);
+}
+if (typeof document !== "undefined" && typeof MutationObserver !== "undefined") {
+  const scan = (root) => root.querySelectorAll?.("input[type=password]").forEach(addPasswordToggle);
+  new MutationObserver((muts) => muts.forEach((m) => m.addedNodes.forEach((n) => n.nodeType === 1 && (n.matches("input[type=password]") ? addPasswordToggle(n) : scan(n))))).observe(document.documentElement, { childList: true, subtree: true });
+  scan(document);
+}

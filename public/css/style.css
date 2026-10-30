@@ -655,3 +655,9 @@ body.secure-blur main { filter: blur(26px); pointer-events: none; }
 .alert-card.info { border-left: 5px solid #3b82f6; }
 :root[data-theme="dark"] .security-bar { background: #3a2a05; color: #ffd98a; border-bottom-color: #b37a00; }
 :root[data-theme="dark"] .security-bar.critical { background: #4a1414; color: #ffb4ab; border-bottom-color: #d92d20; }
+
+/* Parolni ko'rsatish tugmasi */
+.pw-wrap { position: relative; display: block; }
+.pw-wrap > input { width: 100%; padding-right: 44px; box-sizing: border-box; }
+.pw-eye { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); border: 0; background: transparent; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 8px; border-radius: 8px; }
+.pw-eye:hover { background: rgba(127, 127, 127, .15); }

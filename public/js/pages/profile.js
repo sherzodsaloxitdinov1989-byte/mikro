@@ -48,7 +48,6 @@ export async function render(el) {
     pw("password", "Joriy parol", "current-password"),
     pw("newPassword", "Yangi parol (kamida 8 belgi)", "new-password", { minlength: 8 }),
     pw("confirm", "Yangi parolni takrorlang", "new-password", { minlength: 8 }),
-    h("label", { class: "check small" }, h("input", { type: "checkbox", onchange: (e) => pwForm.querySelectorAll("input[type=password],input[data-pw]").forEach((i) => { i.type = e.target.checked ? "text" : "password"; i.dataset.pw = "1"; }) }), "Parolni ko'rsatish"),
     h("p", { class: "muted small" }, "Parolni unutgan bo'lsangiz, kirish oynasidagi «Parolni unutdim» orqali tiklang."),
     h("button", { class: "btn", type: "submit" }, "Parolni o'zgartirish"));
   mount(
