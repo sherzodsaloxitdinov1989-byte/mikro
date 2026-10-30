@@ -47,7 +47,11 @@ export function currentSubjectKey() {
     const u = JSON.parse(localStorage.getItem("tt.user") || "null");
     if (u?.role === "student") return subjectOfGroup(u.group).key;
     const pick = localStorage.getItem("tt.subject");
-    if (u?.role === "teacher" && pick && subjectByKey(pick)) return pick;
+    if (u?.role === "teacher") {
+      const allowed = Array.isArray(u.subjects) ? SUBJECTS.filter((s) => u.subjects.includes(s.key)) : SUBJECTS;
+      if (pick && allowed.some((s) => s.key === pick)) return pick;
+      if (allowed.length) return allowed[0].key;
+    }
   } catch {}
   return SUBJECTS[0].key;
 }

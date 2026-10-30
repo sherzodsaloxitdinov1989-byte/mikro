@@ -118,6 +118,28 @@ async function requireTeacher(req) {
   return user;
 }
 
+// ---------- O'qituvchining fanlari: yangi o'qituvchi faqat o'ziga biriktirilgan fan(lar) bilan ishlaydi ----------
+// user.subjects — fan kalitlari ro'yxati; yo'q (undefined) bo'lsa — barcha fanlar va o'qituvchilarni boshqarish huquqi («bosh o'qituvchi»).
+const isFullTeacher = (t) => !Array.isArray(t?.subjects);
+const teacherSubjectKeys = (t) => (isFullTeacher(t) ? SUBJECTS.map((s) => s.key) : t.subjects.filter((k) => SUBJECTS.some((s) => s.key === k)));
+const canTeach = (t, key) => teacherSubjectKeys(t).includes(key);
+function requireFullTeacher(t) {
+  if (!isFullTeacher(t)) throw new HttpError(403, "Bu amal faqat bosh o'qituvchi (barcha fanlarga huquqli) uchun");
+  return t;
+}
+function assertSubject(t, key) {
+  if (!canTeach(t, key)) throw new HttpError(403, "Bu fan sizga biriktirilmagan");
+  return key;
+}
+/** So'rovdagi `subject` parametri (yoki birinchi ruxsat etilgan fan); o'qituvchiga biriktirilmagan fan bo'lsa — rad etiladi. */
+function subjParam(urlOrReq, t) {
+  const url = typeof urlOrReq === "string" ? new URL(urlOrReq) : urlOrReq.url ? new URL(urlOrReq.url) : urlOrReq;
+  const q = url.searchParams.get("subject");
+  const key = SUBJECTS.some((x) => x.key === q) ? q : teacherSubjectKeys(t)[0] || SUBJECTS[0].key;
+  return assertSubject(t, key);
+}
+const subjectOfUserKey = (u) => subjectOfGroup(u.group).key;
+
 // ---------- Xavfsizlik ogohlantirishlari: buzib kirishga urinishlar o'qituvchiga ko'rsatiladi ----------
 // Yozuvlar: alert/<vaqt>-<id>. Bir xil hodisa (tur + obyekt) soatiga bir marta qayd etiladi. Jiddiy (critical/high) holatlarda,
 // pochta xizmati sozlangan bo'lsa, o'qituvchilarga xat ham yuboriladi (turi bo'yicha 6 soatda bir marta, kuniga ko'pi bilan 10 ta).
@@ -342,10 +364,10 @@ async function finishClaim(roster, entry, userId) {
 }
 
 async function adminRoster(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const out = [];
   const allUsers = (await getMany("user/")).filter((u) => u.role === "student");
-  for (const s of SUBJECTS) {
+  for (const s of SUBJECTS.filter((x) => canTeach(tch, x.key))) {
     for (const group of s.rosterGroups || []) {
       const r = await db().get(rosterKey(group));
       const entries = [];
@@ -373,6 +395,7 @@ async function adminShifrFails(req) {
 
 async function adminRosterUpload(req, group) {
   const teacher = await requireTeacher(req);
+  assertSubject(teacher, subjectOfGroup(group).key);
   if (!isRosterGroup(group)) throw new HttpError(400, "Bu guruh uchun ro'yxat talab qilinmaydi");
   const b = await body(req);
   const list = Array.isArray(b.entries) ? b.entries.slice(0, 400) : [];
@@ -397,7 +420,7 @@ async function adminRosterUpload(req, group) {
 
 /** Talabaning shifrini bo'shatish (profil yo'qolgan bo'lsa): u qayta shifr bilan kiradi/ro'yxatdan o'tadi. */
 async function adminRosterRelease(req, group, n) {
-  await requireTeacher(req);
+  assertSubject(await requireTeacher(req), subjectOfGroup(group).key);
   const r = await db().get(rosterKey(group));
   const e = r?.entries?.[Number(n) - 1];
   if (!e) throw new HttpError(404, "Ro'yxatda bunday qator yo'q");
@@ -490,6 +513,10 @@ async function register(req) {
     ...(await hashPassword(password)),
   };
   if (role === "student") user.code = await nextCode();
+  if (role === "teacher") {
+    const inv = await store.get(inviteKey(email)); // taklif qilingan fanlar (bo'sh bo'lsa — barcha fanlar)
+    if (Array.isArray(inv?.subjects) && !envTeacherEmails().includes(email)) user.subjects = inv.subjects.filter((k) => SUBJECTS.some((x) => x.key === k));
+  }
   if (claim) Object.assign(user, { rosterOk: true, idNumber: claim.digits });
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
@@ -856,8 +883,8 @@ async function updateMe(req) {
 // ---------- Teacher: students, results ----------
 
 async function listStudents(req) {
-  await requireTeacher(req);
-  const all = await getMany("user/");
+  const tch = await requireTeacher(req);
+  const all = (await getMany("user/")).filter((u) => u.role !== "student" || canTeach(tch, subjectOfUserKey(u)));
   const users = all.map(publicUser).sort((a, b) => a.name.localeCompare(b.name));
   return json(users);
 }
@@ -960,8 +987,8 @@ async function quizSubmit(req, topicId) {
 
 /** O'qituvchi uchun: test javob kalitlari (Word jamlanma va boshqalar uchun). */
 async function adminQuizKeys(req) {
-  await requireTeacher(req);
-  const subject = new URL(req.url).searchParams.get("subject") || SUBJECTS[0].key;
+  const tch = await requireTeacher(req);
+  const subject = subjParam(req, tch);
   return json(KEYS_BY_SUBJECT[subject] || {});
 }
 
@@ -1682,8 +1709,9 @@ async function myTaskFile(req, id) {
 // --- O'qituvchi: yaratish, tahrirlash, o'chirish, ishlarni ko'rish va baholash ---
 
 async function adminTasks(req) {
-  await requireTeacher(req);
-  const [tasks, subs] = await Promise.all([getMany("task/"), getMany("tasksub/")]);
+  const tch = await requireTeacher(req);
+  const [tasksAll, subs] = await Promise.all([getMany("task/"), getMany("tasksub/")]);
+  const tasks = tasksAll.filter((t) => canTeach(tch, t.subject || SUBJECTS[0].key));
   const stat = new Map();
   for (const s of subs) {
     const st = stat.get(s.taskId) || { submitted: 0, graded: 0 };
@@ -1781,6 +1809,7 @@ async function createTask(req) {
   const teacher = await requireTeacher(req);
   const r = taskLib.normalizeTask(await body(req), taskCtx());
   if (r.error) throw new HttpError(400, r.error);
+  assertSubject(teacher, r.task.subject);
   const now = new Date().toISOString();
   const task = { id: newId(), ...r.task, createdBy: teacher.name, createdAt: now, updatedAt: now };
   await db().set(taskKey(task.id), task);
@@ -1788,12 +1817,14 @@ async function createTask(req) {
 }
 
 async function updateTask(req, id) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   if (!TASK_ID.test(id)) throw new HttpError(404, "Topshiriq topilmadi");
   const prev = await db().get(taskKey(id));
   if (!prev) throw new HttpError(404, "Topshiriq topilmadi");
+  assertSubject(tch, prev.subject || SUBJECTS[0].key);
   const r = taskLib.normalizeTask(await body(req), taskCtx());
   if (r.error) throw new HttpError(400, r.error);
+  assertSubject(tch, r.task.subject);
   const task = { ...prev, ...r.task, id, updatedAt: new Date().toISOString() };
   await db().set(taskKey(id), task);
   return json(task);
@@ -1883,13 +1914,14 @@ async function subjectRating(req) {
 async function listTeachers(req) {
   const me = await requireTeacher(req);
   const users = await getMany("user/");
-  const teachers = users.filter((u) => u.role === "teacher").map((u) => ({ id: u.id, name: u.name, email: u.email, createdAt: u.createdAt, me: u.id === me.id })).sort((a, b) => a.name.localeCompare(b.name));
-  const invites = (await getMany("teacherinvite/")).map((i) => ({ email: i.email, by: i.by, at: i.at })).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
-  return json({ teachers, invites, envEmails: envTeacherEmails(), mailEnabled: mailEnabled(), codeEnabled: Boolean(process.env.TEACHER_CODE) });
+  const teachers = users.filter((u) => u.role === "teacher").map((u) => ({ id: u.id, name: u.name, email: u.email, createdAt: u.createdAt, me: u.id === me.id, subjects: Array.isArray(u.subjects) ? u.subjects : null })).sort((a, b) => a.name.localeCompare(b.name));
+  const invites = (await getMany("teacherinvite/")).map((i) => ({ email: i.email, by: i.by, at: i.at, subjects: Array.isArray(i.subjects) ? i.subjects : null })).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+  return json({ full: isFullTeacher(me), mySubjects: teacherSubjectKeys(me), subjects: SUBJECTS.map((x) => ({ key: x.key, title: x.title, icon: x.icon })), teachers, invites, envEmails: envTeacherEmails(), mailEnabled: mailEnabled(), codeEnabled: Boolean(process.env.TEACHER_CODE) });
 }
 
-async function promoteUser(user) {
+async function promoteUser(user, subjects = null) {
   user.role = "teacher";
+  if (Array.isArray(subjects)) user.subjects = subjects; else delete user.subjects;
   user.promotedAt = new Date().toISOString();
   delete user.cohort;
   delete user.cohortSource;
@@ -1897,39 +1929,60 @@ async function promoteUser(user) {
 }
 
 async function inviteTeacher(req) {
-  const me = await requireTeacher(req);
+  const me = requireFullTeacher(await requireTeacher(req));
   const b = await body(req);
   const email = str(b.email, 120).toLowerCase();
   if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  // Biriktiriladigan fanlar: ro'yxat berilsa — faqat shular; berilmasa yoki «hammasi» bo'lsa — barcha fanlar
+  const subjects = Array.isArray(b.subjects) && !b.allSubjects ? b.subjects.map(String).filter((k) => SUBJECTS.some((x) => x.key === k)) : null;
+  if (Array.isArray(subjects) && !subjects.length) throw new HttpError(400, "Kamida bitta fanni tanlang yoki «Barcha fanlar» ni belgilang");
   const ref = await db().get(emailKey(email));
   const user = ref && (await db().get(userKey(ref.id)));
   if (user) {
     if (user.role === "teacher") throw new HttpError(409, "Bu foydalanuvchi allaqachon o'qituvchi");
-    await promoteUser(user);
+    await promoteUser(user, subjects);
     return json({ promoted: true, name: user.name });
   }
-  await db().set(inviteKey(email), { email, by: me.name, at: new Date().toISOString() });
+  await db().set(inviteKey(email), { email, by: me.name, at: new Date().toISOString(), ...(subjects ? { subjects } : {}) });
   return json({ invited: true, mailEnabled: mailEnabled() });
 }
 
 async function uninviteTeacher(req) {
-  await requireTeacher(req);
+  requireFullTeacher(await requireTeacher(req));
   const b = await body(req);
   await db().del(inviteKey(str(b.email, 120).toLowerCase()));
   return json({ ok: true });
 }
 
 async function promoteStudent(req, id) {
-  await requireTeacher(req);
+  const me = await requireTeacher(req);
   const user = await db().get(userKey(id));
   if (!user) throw new HttpError(404, "Foydalanuvchi topilmadi");
   if (user.role === "teacher") throw new HttpError(409, "Bu foydalanuvchi allaqachon o'qituvchi");
-  await promoteUser(user);
+  // Cheklangan o'qituvchi yangi o'qituvchini faqat o'z fanlari bilan qo'sha oladi (talaba shu fan talabasi bo'lsa)
+  if (!isFullTeacher(me)) assertSubject(me, subjectOfUserKey(user));
+  await promoteUser(user, isFullTeacher(me) ? null : [subjectOfUserKey(user)]);
   return json({ ok: true });
 }
 
+/** Bosh o'qituvchi: o'qituvchiga fan(lar)ni biriktiradi. subjects: [kalitlar] yoki null — barcha fanlar. */
+async function setTeacherSubjects(req, id) {
+  const me = requireFullTeacher(await requireTeacher(req));
+  const b = await body(req);
+  const user = await db().get(userKey(id));
+  if (!user || user.role !== "teacher") throw new HttpError(404, "O'qituvchi topilmadi");
+  const list = Array.isArray(b.subjects) && !b.allSubjects ? b.subjects.map(String).filter((k) => SUBJECTS.some((x) => x.key === k)) : null;
+  if (Array.isArray(list) && !list.length) throw new HttpError(400, "Kamida bitta fanni tanlang yoki «Barcha fanlar» ni belgilang");
+  if (id === me.id && Array.isArray(list)) throw new HttpError(400, "O'z huquqingizni cheklay olmaysiz (bosh o'qituvchi bo'lib qolasiz)");
+  if (list) user.subjects = list; else delete user.subjects;
+  user.pwdV = (user.pwdV || 0); // sessiya o'zgarmaydi; huquq keyingi so'rovdan kuchga kiradi
+  await db().set(userKey(id), user);
+  await securityAlert(req, "teacher_subjects", "info", "O'qituvchi fanlari o'zgartirildi", `${me.name}: ${user.name} (${maskEmail(user.email)}) — ${list ? list.map((k) => subjectByKey(k)?.title || k).join(", ") : "barcha fanlar"}.`, `${id}/${Date.now()}`, 1000).catch(() => {});
+  return json({ ok: true, subjects: list });
+}
+
 async function demoteTeacher(req, id) {
-  const me = await requireTeacher(req);
+  const me = requireFullTeacher(await requireTeacher(req));
   if (id === me.id) throw new HttpError(400, "O'zingizni o'qituvchilikdan chiqara olmaysiz");
   const user = await db().get(userKey(id));
   if (!user || user.role !== "teacher") throw new HttpError(404, "O'qituvchi topilmadi");
@@ -2304,11 +2357,11 @@ async function adminTts(req) {
 // ---------- Test tahlili (item-analiz) ----------
 
 async function adminItems(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const url = new URL(req.url);
   const cohort = url.searchParams.get("cohort") || "all";
   const topicId = url.searchParams.get("topic");
-  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const subject = subjParam(req, tch);
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject && (cohort === "all" || (u.cohort || "unassigned") === cohort));
   const progress = await Promise.all(users.map((u) => db().get(`progress/${u.id}`)));
   const responsesOf = (t) => progress.map((p) => p?.topics?.[t.id]?.quizFirst).filter((r) => Array.isArray(r) && r.length === t.quiz.length && r.every((x) => Number.isInteger(x)));
@@ -2418,9 +2471,9 @@ async function adminDeleteStudent(req, id) {
 
 /** O'qituvchi: har bir talabaning barcha bo'limlar bo'yicha natijasi (test, metod, amaliyot, mustaqil ish, vazifalar, 20 ballik topshiriq). */
 async function adminAllResults(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const url = new URL(req.url);
-  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const subject = subjParam(req, tch);
   const topics = TOPICS_ALL[subject] || [];
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
   const [progress, reviews, selfs, tasks, tsubs, assigns] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries("selfstudy/"), getMany("task/"), getMany("tasksub/"), getEntries("assign/")]);
@@ -2460,9 +2513,9 @@ async function adminAllResults(req) {
 
 /** O'qituvchi: har bir talaba qaysi mavzu testini ishlagan va necha ball olgan (fan bo'yicha). */
 async function adminTestResults(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const url = new URL(req.url);
-  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const subject = subjParam(req, tch);
   const topics = (TOPICS_ALL[subject] || []).filter((t) => t.quiz?.length);
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
   const progress = await Promise.all(users.map((u) => db().get(`progress/${u.id}`)));
@@ -2589,14 +2642,15 @@ async function examSubmit(req, id) {
 }
 
 async function adminExams(req) {
-  await requireTeacher(req);
-  return json({ exams: EXAMS.map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
+  const tch = await requireTeacher(req);
+  return json({ exams: EXAMS.filter((e) => canTeach(tch, e.subject)).map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
 }
 
 async function adminExamResults(req, id) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(tch, exam.subject);
   const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group));
   const acc = await loadAccess(id);
   const rows = await Promise.all(users.map(async (u) => {
@@ -2613,6 +2667,7 @@ async function adminExamAccess(req, id) {
   const t = await requireTeacher(req);
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(t, exam.subject);
   const b = await body(req);
   const allowed = Boolean(b.allowed);
   const acc = await loadAccess(id);
@@ -2641,6 +2696,7 @@ async function adminExamExtend(req, id) {
   const t = await requireTeacher(req);
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(t, exam.subject);
   const b = await body(req);
   const minutes = Math.round(Number(b.minutes));
   if (!Number.isFinite(minutes) || minutes < 1 || minutes > 60) throw new HttpError(400, "Qo'shimcha vaqt 1 dan 60 daqiqagacha bo'lishi kerak");
@@ -2672,9 +2728,10 @@ async function adminExamExtend(req, id) {
 
 /** O'qituvchi: to'liq hisobot — har bir talaba bo'yicha natija, 5 ballik baho, vaqt va test paytidagi nomaqbul harakatlar. */
 async function adminExamReport(req, id) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(tch, exam.subject);
   const users = (await getMany("user/")).filter((u) => u.role === "student" && exam.groups.includes(u.group));
   const acc = await loadAccess(id);
   const rows = await Promise.all(users.map(async (u) => {
@@ -2702,7 +2759,9 @@ async function adminExamReport(req, id) {
 /** O'qituvchi: talabaga testni qayta topshirishga ruxsat (texnik nosozlik bo'lsa). */
 async function adminExamReset(req, id, uid) {
   const t = await requireTeacher(req);
-  if (!examById(id)) throw new HttpError(404, "Nazorat testi topilmadi");
+  const exm = examById(id);
+  if (!exm) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(t, exm.subject);
   await db().del(attemptKey(id, uid));
   await securityAlert(req, "exam_reset", "info", "Nazorat testi qayta ochildi", `${t.name} bir talabaning (${uid.slice(0, 8)}) nazorat urinishini o'chirdi.`, `${id}/${uid}`, 60_000).catch(() => {});
   return json({ ok: true });
@@ -2710,9 +2769,10 @@ async function adminExamReset(req, id, uid) {
 
 /** O'qituvchi: savollar bazasi (javob kalitlari bilan) — Word'ga yuklab olish uchun. */
 async function adminExamBank(req, id) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const exam = examById(id);
   if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(tch, exam.subject);
   return json({ title: exam.title, bank: exam.bank });
 }
 
@@ -2775,9 +2835,9 @@ async function myResults(req) {
 }
 
 async function adminScores(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const url = new URL(req.url);
-  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const subject = subjParam(req, tch);
   const sems = semestersOfSubject(subject);
   const q = Number(url.searchParams.get("sem"));
   const semNo = sems.some((s) => s.no === q) ? q : (sems.find((s) => !semesterEnded(s)) || sems[sems.length - 1])?.no;
@@ -2788,9 +2848,9 @@ async function adminScores(req) {
 
 /** O'qituvchi: bitta talabaning ball jadvali tafsiloti — qaysi mavzu va topshiriqdan necha ball olgani. */
 async function adminScoreDetail(req) {
-  await requireTeacher(req);
+  const tch = await requireTeacher(req);
   const url = new URL(req.url);
-  const subject = SUBJECTS.some((x) => x.key === url.searchParams.get("subject")) ? url.searchParams.get("subject") : SUBJECTS[0].key;
+  const subject = subjParam(req, tch);
   const semNo = Number(url.searchParams.get("sem"));
   const { sem, rows } = await cachedScoreRows(subject, semNo);
   const row = rows.find((r) => r.userId === url.searchParams.get("userId"));
@@ -2818,6 +2878,7 @@ async function adminSetMidterm(req) {
   const sem = semestersOfSubject(subject || "").find((s) => s.no === Number(b.sem));
   const user = await db().get(userKey(str(b.userId, 64)));
   if (!subject || !sem || !user || user.role !== "student") throw new HttpError(404, "Fan, semestr yoki talaba topilmadi");
+  assertSubject(t, subject);
   const key = midtermKey(subject, sem.no, user.id);
   const slot = [2, 3].includes(Number(b.slot)) ? Number(b.slot) : 1; // 331–334-25: 1, 2 — nazorat testlari; 3 — 20 ballik topshiriq (faqat 3-semestrdan boshqa semestrlarda qo'lda)
   const field = slot === 3 ? "asg" : slot === 2 ? "grade2" : "grade";
@@ -4097,6 +4158,7 @@ const routes = [
   ["POST", /^admin\/teachers\/uninvite$/, uninviteTeacher],
   ["POST", /^admin\/teachers\/([\w-]+)\/promote$/, promoteStudent],
   ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
+  ["PUT", /^admin\/teachers\/([\w-]+)\/subjects$/, setTeacherSubjects],
   ["GET", /^admin\/students$/, listStudents],
   ["GET", /^admin\/duplicates$/, adminDuplicates],
   ["GET", /^admin\/students\/([\w-]+)\/stats$/, adminStudentStats],

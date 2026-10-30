@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session, api } from "./api.js";
-import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment, hasExam } from "../data/course.js";
+import { userHasContent, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
@@ -129,11 +129,11 @@ function renderNav() {
   if (isTeacher) items.push(["#/teacher", "O'qituvchi paneli", "👩‍🏫"]);
   const active = (href) => (href === "#/" ? path === "#/" || path === "" : path.startsWith(href));
   // O'qituvchi uchun fan almashtirgich: tanlangan fan mavzulari, testlari va materiallari bilan ishlaydi (sahifa qayta yuklanadi)
-  const switcher = isTeacher && SUBJECTS.length > 1
+  const switcher = isTeacher && teacherSubjects(user).length > 1
     ? h("select", { class: "subject-switch", title: "Fan", "aria-label": "Fan", onchange: (e) => {
         try { localStorage.setItem("tt.subject", e.target.value); sessionStorage.setItem("tt.subject-picked", "1"); } catch {}
         location.reload();
-      } }, SUBJECTS.map((s) => h("option", { value: s.key, selected: s.key === SUBJECT_KEY }, `${s.icon} ${s.title}`)))
+      } }, teacherSubjects(user).map((s) => h("option", { value: s.key, selected: s.key === SUBJECT_KEY }, `${s.icon} ${s.title}`)))
     : null;
   mount(
     nav,

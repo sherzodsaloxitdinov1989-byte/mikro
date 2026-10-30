@@ -2,7 +2,7 @@
 // Darsligi hali yuklanmagan fanlar uchun asosiy sahifa (talaba) — #/fan; o'qituvchi uchun #/fan fanlar ro'yxati.
 import { h, mount, loading, emptyState } from "../ui.js";
 import { api, session } from "../api.js";
-import { SUBJECTS, subjectByKey, subjectOfGroup, formByKey } from "../../data/course.js";
+import { SUBJECTS, subjectByKey, subjectOfGroup, formByKey, teacherSubjects } from "../../data/course.js";
 import { TOPICS, SUBJECT_KEY } from "../../data/topics.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
@@ -43,7 +43,7 @@ export async function render(el, key) {
   if (user.role === "teacher" && !key) {
     return mount(el,
       h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "Fanlar"), h("p", { class: "muted" }, "Platformadagi fanlar va ularga biriktirilgan guruhlar."))),
-      h("div", { class: "grid cols-2" }, SUBJECTS.map((s) =>
+      h("div", { class: "grid cols-2" }, teacherSubjects(user).map((s) =>
         h("a", { class: "card", href: s.hasContent ? "#/topics" : `#/fan/${s.key}`, style: { display: "block", color: "inherit", textDecoration: "none" } },
           h("h3", {}, `${s.icon} ${s.title}`),
           h("p", { class: "muted small" }, s.direction + (s.semester ? ` · ${s.semester.no}-semestr` : "")),

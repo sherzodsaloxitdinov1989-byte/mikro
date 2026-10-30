@@ -272,6 +272,8 @@ export const SUBJECTS = [
 ];
 /** Guruhga biriktirilgan fan; biriktirilmagan guruh — asosiy fan. */
 export const subjectOfGroup = (group) => SUBJECTS.find((s) => s.groups.includes(group)) || SUBJECTS[0];
+/** O'qituvchiga biriktirilgan fanlar (user.subjects yo'q bo'lsa — hammasi). */
+export const teacherSubjects = (user) => (Array.isArray(user?.subjects) ? SUBJECTS.filter((s) => user.subjects.includes(s.key)) : SUBJECTS);
 export const subjectByKey = (key) => SUBJECTS.find((s) => s.key === key) || null;
 /** Talaba (yoki o'qituvchi) uchun asosiy fan kontenti (darslik, test, topshiriq, reyting) ochiqmi. O'qituvchi — doim. */
 /** Talaba asosiy fan (Mikroiqtisodiyot) guruhidami: reyting, 3-semestr topshirig'i va tahlillar faqat shu talabalar uchun. */

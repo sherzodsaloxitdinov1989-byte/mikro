@@ -1,7 +1,7 @@
 // O'qituvchi (admin) paneli: umumiy ko'rsatkichlar, amaliy mashg'ulotlar (AI tekshiruvlari), tahlil laboratoriyasi
 // hisobotlarini baholash, test tahlili, talabalar, mustaqil ishlar va o'quv kontenti.
 import { h, mount, toast, loading, fmtDate, modal, confirmDialog, emptyState, downloadFile } from "../ui.js";
-import { api } from "../api.js";
+import { api, session } from "../api.js";
 import { mean, sd, fmt, toCSV } from "../stats.js";
 import { TOPICS, COURSE, SUBJECT_KEY } from "../../data/topics.js";
 import { refreshSecurityAlerts } from "../alerts.js";
@@ -20,7 +20,7 @@ import { teacherView as assignmentView } from "./assignment.js";
 import { teacherView as securityView } from "./security.js";
 import { view as testbankView } from "./testbank.js";
 import { teacherView as tasksView } from "./tasks.js";
-import { formByKey, SUBJECTS, subjectOfGroup, subjectByKey } from "../../data/course.js";
+import { formByKey, SUBJECTS, subjectOfGroup, subjectByKey, teacherSubjects } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
 
 const COHORTS = { experimental: "Tajriba (TG)", control: "Nazorat (NG)", unassigned: "Belgilanmagan" };
@@ -49,7 +49,7 @@ const SECTIONS = [
   { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
-  { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchi emailini qo'shish, talabani o'qituvchi qilish. Umumiy maxfiy kod kerak emas.", meta: () => "kirish huquqi" },
+  { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchini qo'shish va fan(lar)ga biriktirish: u faqat o'z fanining talabalari, topshiriqlari va natijalarini ko'radi. Fanlarni keyin o'zgartirish mumkin.", meta: () => "fanlarga biriktirish" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
   { key: "testbank", needsContent: true, icon: "📄", title: "Test jamlanmasi (Word)", group: "content", desc: "Barcha mavzular bo'yicha test savollari va to'g'ri javoblarni Word faylga yuklab olish.", meta: () => `${TOPICS.reduce((s, t) => s + t.quiz.length, 0)} ta test` },
   { key: "items", needsContent: true, icon: "📉", title: "Test tahlili", group: "analysis", desc: "Talabalar qaysi mavzu testini ishlagan va necha ball olgan; savollar qiyinligi, ajrata olish indeksi va KR-20 ishonchliligi." },
@@ -89,7 +89,7 @@ function pickSubject(key) {
 async function subjectsView(el) {
   const users = await api.get("admin/students");
   const students = users.filter((u) => u.role === "student");
-  const list = SUBJECTS;
+  const list = teacherSubjects(session.user);
   mount(
     el,
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "Fanni tanlang"), h("p", { class: "muted" }, "Har bir fan alohida: o'z talabalari, mavzulari, testlari, topshiriqlari va baholash bo'limlari. Istalgan paytda boshqa fanga o'tishingiz mumkin."))),
@@ -108,7 +108,7 @@ async function subjectsView(el) {
 
 /** Panel tepasida: hozirgi fan va boshqa fanga o'tish tugmalari. */
 function subjectBar() {
-  const list = SUBJECTS;
+  const list = teacherSubjects(session.user);
   if (list.length < 2) return null;
   const cur = subjectByKey(SUBJECT_KEY);
   return h("div", { class: "subject-bar" },
@@ -1421,29 +1421,50 @@ function gradeForm(it, redraw) {
 async function teachersView(el) {
   const draw = async () => {
     const d = await api.get("admin/teachers");
+    const title = (k) => { const x = d.subjects.find((s) => s.key === k); return x ? `${x.icon} ${x.title}` : k; };
+    const subjChips = (list) => (list ? list.map((k) => h("span", { class: "chip chip-soft" }, title(k))) : [h("span", { class: "chip" }, "Barcha fanlar")]);
+    /** Fan tanlash: «Barcha fanlar» yoki alohida fanlar. */
+    const picker = (selected) => {
+      const all = h("input", { type: "checkbox", checked: !selected });
+      const boxes = d.subjects.map((s) => ({ s, box: h("input", { type: "checkbox", checked: Boolean(selected?.includes(s.key)), disabled: !selected }) }));
+      all.addEventListener("change", () => boxes.forEach(({ box }) => ((box.disabled = all.checked), all.checked && (box.checked = false))));
+      const node = h("div", { class: "stack" }, h("label", { class: "check" }, all, h("b", {}, "Barcha fanlar (bosh o'qituvchi)")), h("div", { class: "row wrap" }, boxes.map(({ s, box }) => h("label", { class: "check" }, box, `${s.icon} ${s.title}`))));
+      node.value = () => (all.checked ? { allSubjects: true } : { subjects: boxes.filter((x) => x.box.checked).map((x) => x.s.key) });
+      return node;
+    };
     const email = h("input", { type: "email", placeholder: "yangi o'qituvchi emaili", required: true, style: { minWidth: "260px" } });
-    const form = h("form", { class: "row wrap", onsubmit: async (e) => {
+    const pick = picker(d.full ? [] : d.mySubjects.slice(0, 1));
+    if (!d.full) { pick.querySelectorAll("input").forEach((i) => (i.disabled = true)); }
+    const form = h("form", { class: "stack", onsubmit: async (e) => {
       e.preventDefault();
       try {
-        const res = await api.post("admin/teachers/invite", { email: email.value });
+        const res = await api.post("admin/teachers/invite", { email: email.value, ...pick.value() });
         toast(res.promoted ? `${res.name} o'qituvchi qilindi` : "Email qo'shildi. U ro'yxatdan o'tishda «O'qituvchi» ni tanlab, emailiga kelgan kod bilan kiradi.", "ok");
         draw();
       } catch (ex) {
         toast(ex.message, "error");
       }
-    } }, email, h("button", { class: "btn", type: "submit" }, "➕ Qo'shish"));
+    } }, h("div", { class: "row wrap" }, email, h("button", { class: "btn", type: "submit" }, "➕ Qo'shish")), h("b", {}, "Qaysi fan(lar)ga biriktiriladi?"), pick);
+    const editSubjects = (t) => {
+      const p = picker(t.subjects);
+      const close = modal(`Fanlar: ${t.name}`, h("div", { class: "stack" }, h("p", { class: "muted small" }, "O'qituvchi faqat tanlangan fan(lar)ning talabalari, topshiriqlari, testlari va natijalarini ko'radi va boshqaradi. O'zgarish keyingi sahifa yangilanishida kuchga kiradi."), p,
+        h("div", { class: "row end" }, h("button", { class: "btn", onclick: async () => {
+          try { await api.put(`admin/teachers/${t.id}/subjects`, p.value()); toast("Fanlar saqlandi", "ok"); close(); draw(); } catch (ex) { toast(ex.message, "error"); }
+        } }, "💾 Saqlash"))));
+    };
     mount(el,
+      d.full ? null : h("div", { class: "alert alert-warn small" }, `Siz faqat ${d.mySubjects.map(title).join(", ")} fanlari bo'yicha o'qituvchisiz. Yangi o'qituvchini fanlarga biriktirishni bosh o'qituvchi (barcha fanlarga huquqli) bajaradi.`),
       h("div", { class: "card stack" },
-        h("h3", {}, "Yangi o'qituvchi qo'shish"),
-        h("p", { class: "muted small" }, "Emailni kiriting. Shu email egasi saytda «Ro'yxatdan o'tish → O'qituvchi» ni tanlab, emailiga kelgan 6 xonali kod bilan o'qituvchi profilini yaratadi. Agar bu email bilan talaba profili bo'lsa, u darhol o'qituvchiga aylantiriladi."),
-        !d.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta ulanmagan (BREVO_API_KEY va MAIL_FROM), shuning uchun kod yuborilmaydi. Hozircha talabani «Talabalar» bo'limida 👩‍🏫 tugmasi bilan o'qituvchi qiling" + (d.codeEnabled ? " yoki umumiy o'qituvchi kodidan foydalaning." : ".")),
+        h("h3", {}, "Yangi o'qituvchi qo'shish va fanga biriktirish"),
+        h("p", { class: "muted small" }, "Emailni kiriting va qaysi fan(lar)ni o'qitishini belgilang. Shu email egasi saytda «Ro'yxatdan o'tish → O'qituvchi» ni tanlab, emailiga kelgan 6 xonali kod bilan profilini yaratadi — keyin faqat o'ziga biriktirilgan fan(lar) bilan ishlaydi. Mavjud talabani o'qituvchi qilish uchun uning emailini kiriting."),
+        !d.mailEnabled && h("div", { class: "alert alert-warn small" }, "Elektron pochta ulanmagan (BREVO_API_KEY va MAIL_FROM), shuning uchun kod yuborilmaydi. Hozircha talabani «Talabalar» bo'limidan 👩‍🏫 tugmasi bilan o'qituvchi qilishingiz mumkin."),
         form,
-        d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, h("span", { class: "muted small" }, `(${i.by}, ${fmtDate(i.at)}) `), h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
-        d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS): ", d.envEmails.join(", "))),
+        d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, ...subjChips(i.subjects), h("span", { class: "muted small" }, ` (${i.by}, ${fmtDate(i.at)}) `), d.full && h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
+        d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS, barcha fanlar): ", d.envEmails.join(", "))),
       h("div", { class: "card table-wrap" }, h("h3", {}, `Hozirgi o'qituvchilar (${d.teachers.length})`),
-        h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "F.I.Sh."), h("th", {}, "Email"), h("th", {}, "Ro'yxatdan o'tgan"), h("th", {}, ""))),
-          h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, fmtDate(t.createdAt)),
-            h("td", {}, !t.me && h("button", { class: "btn small ghost", onclick: async () => {
+        h("table", { class: "table" }, h("thead", {}, h("tr", {}, ["F.I.Sh.", "Email", "Biriktirilgan fanlar", "Ro'yxatdan o'tgan", ""].map((c) => h("th", {}, c)))),
+          h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, h("div", { class: "row wrap" }, subjChips(t.subjects))), h("td", {}, fmtDate(t.createdAt)),
+            h("td", {}, d.full && !t.me && h("button", { class: "btn small ghost", title: "Fanlarni o'zgartirish", onclick: () => editSubjects(t) }, "📚 Fanlar"), " ", d.full && !t.me && h("button", { class: "btn small ghost", onclick: async () => {
               if (!confirm(`${t.name} o'qituvchilikdan chiqarilib, talabaga aylantirilsinmi?`)) return;
               try { await api.post(`admin/teachers/${t.id}/demote`, {}); toast("Talaba qilindi", "ok"); draw(); } catch (ex) { toast(ex.message, "error"); }
             } }, "Talaba qilish"))))))));
