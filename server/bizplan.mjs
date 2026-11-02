@@ -53,7 +53,7 @@ Talablar: barcha raqamlar o'zaro mos bo'lsin (jadvallar yig'indisi, tushum = haj
     groups: BIZPLAN_GROUPS,
     semester: 0,
     due: BIZPLAN_DUE,
-    allowLate: true,
+    allowLate: false, // muddatdan (semestr tugashidan) keyin yuklab bo'lmaydi
     max: BIZPLAN_MAX,
     mode: "file",
     published: true,

@@ -1544,6 +1544,12 @@ async function ensureBizplan() {
     if (t && !t.due) await db().set(taskKey(BIZPLAN_ID), { ...t, due: BIZPLAN_DUE, updatedAt: new Date().toISOString() });
     await db().set("taskseed/bizplan-due", { at: new Date().toISOString() });
   }
+  // Muddatdan keyin qabul qilinmaydi (semestr tugaydi): avval yaratilgan topshiriq uchun bir marta
+  if (!(await db().get("taskseed/bizplan-nolate"))) {
+    const t = await db().get(taskKey(BIZPLAN_ID));
+    if (t && t.allowLate !== false) await db().set(taskKey(BIZPLAN_ID), { ...t, allowLate: false, updatedAt: new Date().toISOString() });
+    await db().set("taskseed/bizplan-nolate", { at: new Date().toISOString() });
+  }
   bizplanSeeded = true;
 }
 
@@ -1574,7 +1580,9 @@ function assertAttemptsLeft(rec) {
 
 async function taskUploadInit(req, id) {
   const user = await requireUser(req);
-  await visibleTask(user, id);
+  const task = await visibleTask(user, id);
+  const due = taskLib.dueDate(task);
+  if (due && new Date() > due && !task.allowLate) throw new HttpError(403, "Bu topshiriqning muddati tugagan, endi qabul qilinmaydi");
   assertAttemptsLeft(await db().get(tsubKey(id, user.id)));
   const b = await body(req);
   const name = str(b.name, 200);
