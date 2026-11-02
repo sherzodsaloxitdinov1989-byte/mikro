@@ -264,10 +264,10 @@ export const BANK = [
 "t": 1,
 "q": "Biznes-inkubator va akselerator o‘rtasidagi asosiy farq nima?",
 "o": [
-"Ikkalasi bir xil tashkilot bo‘lib, faqat nomi bilan bir-biridan farq qiladi",
-"Inkubator faqat tayyor yirik kompaniyalar bilan ishlaydi, akselerator esa g‘oya bosqichini qo‘llab-quvvatlaydi",
+"Ikkalasi mohiyatan bir xil tashkilot bo‘lib, ular o‘rtasidagi farq faqat nomlanishi va rasmiy ro‘yxatdan o‘tish shaklida",
+"Inkubator faqat tayyor yirik kompaniyalar bilan ishlaydi, akselerator esa g‘oya bosqichidagi loyihalarni qo‘llab-quvvatlaydi",
 "Inkubator g‘oya bosqichidagi loyihalarga joy va maslahat beradi, akselerator esa tayyor startapni qisqa muddatda tezlashtiradi",
-"Inkubator faqat grant beradi, akselerator esa faqat bank kreditini tashkil etadi"
+"Inkubator faqat grant mablag‘i ajratadi, akselerator esa faqat bank krediti tashkil etib beradigan moliyaviy tuzilma hisoblanadi"
 ],
 "c": 2,
 "w": "Inkubator — erta bosqich (g‘oya); akselerator — qisqa intensiv dastur.",
@@ -499,9 +499,9 @@ export const BANK = [
 "q": "Tadbirkorlik turlaridan «ichki tadbirkorlik» (intrapreneurship) nimani bildiradi?",
 "o": [
 "Mavjud kompaniya ichida xodimlarning yangi g‘oyalarni tashabbus bilan amalga oshirishini",
-"Oila a’zolari o‘rtasida mulkni meros sifatida taqsimlashni",
-"Tadbirkorning o‘z mamlakatidan tashqarida biznes ochishini",
-"Davlat xizmatchisining tijorat faoliyati bilan shug‘ullanishini"
+"Oila a’zolari o‘rtasida mavjud biznesning mulkini meros yoki sovg‘a sifatida qayta taqsimlashni",
+"Tadbirkorning o‘z mamlakatidan tashqarida xorijiy bozorlarda yangi biznes ochib, filial tarmog‘ini yaratishini",
+"Davlat xizmatchisining o‘z lavozimi bilan bir qatorda tijorat faoliyati bilan shug‘ullanib daromad olishini"
 ],
 "c": 0,
 "w": "Intrapreneur — kompaniya ichidagi tadbirkor.",
@@ -550,10 +550,10 @@ export const BANK = [
 "t": 1,
 "q": "«Bozorga mos mahsulot» (product-market fit) qachon erishilgan hisoblanadi?",
 "o": [
-"Mahsulot yaratilib, uning sifati ichki xodimlar tomonidan yuqori baholanganda",
+"Mahsulot yaratilib, uning sifati ichki xodimlar tomonidan yuqori baholanib, ichki test muvaffaqiyatli o‘tganda",
 "Mahsulot aniq segment ehtiyojini shunday qondirsaki, mijozlar takror xarid qilib, boshqalarga tavsiya qilganda",
-"Reklama xarajatlari oshirilib, mahsulotning nomi keng ommaga tanilganda",
-"Raqobatchilar bozordan chiqib ketib, kompaniya yagona sotuvchi bo‘lib qolganda"
+"Reklama xarajatlari oshirilib, mahsulot nomi keng ommaga tanilib, ijtimoiy tarmoqlarda ko‘p muhokama qilinganda",
+"Raqobatchilar bozordan chiqib ketib, kompaniya yagona sotuvchi bo‘lib qolgani sababli narxni belgilay olganda"
 ],
 "c": 1,
 "w": "PMF — takroriy xarid va tavsiya.",
@@ -602,10 +602,10 @@ export const BANK = [
 "t": 1,
 "q": "Tadbirkor uchun «bozor» ustuni ekotizimda nimani anglatadi?",
 "o": [
-"Bank omonatlari bo‘yicha foiz stavkalarining ochiqligini",
+"Bank omonatlari bo‘yicha foiz stavkalarining ochiqligini va tadbirkorlarga moliyaviy xizmatlarning mavjudligini",
 "Mijozlar, tarmoqlar va bozorlarga kirish imkoniyati hamda talab mavjudligini",
-"Universitetlarda tadbirkorlik fanlari o‘qitilishini",
-"Ro‘yxatdan o‘tish xizmatlari narxining pastligini"
+"Universitetlarda tadbirkorlik fanlari o‘qitilishini hamda yoshlar uchun treninglar o‘tkazilishini",
+"Ro‘yxatdan o‘tish xizmatlari narxining pastligini va hujjat topshirish tartibining soddaligini"
 ],
 "c": 1,
 "w": "Market: mijoz va tarmoq imkoniyati.",
@@ -667,10 +667,10 @@ export const BANK = [
 "t": 1,
 "q": "Biznes imkoniyatini baholashda «bozor hajmi» mezoni nimani aniqlaydi?",
 "o": [
-"Mijozlarning o‘rtacha yoshi va yashash joyini",
-"Mahsulotni ishlab chiqarish uchun zarur xomashyo hajmini",
+"Mijozlarning o‘rtacha yoshi va yashash joyini hamda ularning umumiy tavsifini",
+"Mahsulotni ishlab chiqarish uchun zarur xomashyo hajmini va uni yetkazib beruvchilar sonini",
 "Potensial mijozlar soni va ularning yillik sarfi asosida daromad salohiyatini",
-"Tadbirkor o‘z ofisida ishlaydigan xodimlar sonini"
+"Tadbirkor o‘z ofisida ishlaydigan xodimlar sonini va ularning o‘rtacha ish haqi miqdorini"
 ],
 "c": 2,
 "w": "Market size — daromad salohiyati.",
@@ -680,10 +680,10 @@ export const BANK = [
 "t": 1,
 "q": "Biznes imkoniyatlarini aniqlashda «xarajat/foyda» tahlili nimani ko‘rsatadi?",
 "o": [
-"Mahsulotning raqobatchilarnikidan sifat jihatidan qanchalik farq qilishini",
+"Mahsulotning raqobatchilarnikidan sifat jihatidan qanchalik farq qilishini hamda texnik ko‘rsatkichlarini",
 "Imkoniyat uchun sarflanadigan resurslar kutiladigan foydadan qanchalik oz yoki ko‘pligini",
-"Mijozlarning mahsulot haqidagi ijobiy fikrlari sonini",
-"Tadbirkorning shaxsiy qiziqishi darajasini"
+"Mijozlarning mahsulot haqidagi ijobiy fikrlari sonini va ijtimoiy tarmoqlardagi sharhlar sonini",
+"Tadbirkorning shaxsiy qiziqishi darajasini va g‘oyaga bo‘lgan ishtiyoqining kuchini"
 ],
 "c": 1,
 "w": "Cost-benefit analysis.",
@@ -811,9 +811,9 @@ export const BANK = [
 "q": "Yo‘naltiruvchi (leading) savol nima uchun intervyuda xato hisoblanadi?",
 "o": [
 "U javobni oldindan belgilab, mijoz haqiqiy fikri o‘rniga so‘rovchiga yoqadigan javob berishiga olib keladi",
-"U savollar sonini ko‘paytirib, so‘rovnoma natijalarini tahlil qilishni qiyinlashtiradi",
-"U mijozning shaxsiy ma’lumotlarini qonunga zid ravishda to‘plashga sabab bo‘ladi",
-"U mijozni charchatib, suhbat vaqtini ortiqcha cho‘zib yuboradi"
+"U savollar sonini ko‘paytirib, so‘rovnoma natijalarini tahlil qilishni qiyinlashtiradi hamda vaqtni oladi",
+"U mijozning shaxsiy ma’lumotlarini qonunga zid ravishda to‘plashga olib kelib, huquqiy xavf tug‘diradi",
+"U mijozni charchatib, suhbat vaqtini ortiqcha cho‘zib yuboradi va intervyu natijalarining hajmini oshiradi"
 ],
 "c": 0,
 "w": "Leading question — javobga ta’sir qiladi.",
@@ -979,9 +979,9 @@ export const BANK = [
 "t": 2,
 "q": "Concierge MVP usulining mohiyati nima?",
 "o": [
-"Mahsulotni tayyor holda sotib, mijozdan fikr so‘ramaslik",
-"Xizmatni to‘liq avtomatlashtirib, mijozga ko‘rinmas holda ishlatish",
-"Faqat xizmat haqidagi videoni tarqatib, sotuvni boshlamaslik",
+"Mahsulotni tayyor holda sotib, mijozdan hech qanday fikr so‘ramasdan keyingi versiyani chiqarish",
+"Xizmatni to‘liq avtomatlashtirib, mijozga ko‘rinmas holda orqada ishlatib, jarayonni mijozdan yashirish",
+"Faqat xizmat haqidagi qisqa videoni tarqatib, sotuvni umuman boshlamasdan qiziqish sonini hisoblash",
 "Xizmatni boshida qo‘lda, mijoz bilan yaqin ishlab ko‘rsatib, uning haqiqiy ehtiyojlarini o‘rganish"
 ],
 "c": 3,
@@ -1018,10 +1018,10 @@ export const BANK = [
 "t": 2,
 "q": "Sinov natijasini baholashda «muvaffaqiyat mezoni» nima uchun oldindan belgilanadi?",
 "o": [
-"Investorlar faqat oldindan belgilangan mezon bo‘lsa pul beradi",
+"Investorlar faqat oldindan belgilangan mezon bo‘lsa pul ajratgani uchun, mezon har doim rasman talab qilinadi",
 "Natija chiqqandan keyin mezonni o‘zgartirib, o‘z g‘oyasini oqlashga urinishning oldini olish uchun",
-"Mezon bo‘lmasa sinovni o‘tkazish qonun bilan taqiqlangani uchun",
-"Mezon xodimlar ish haqini hisoblashda asos bo‘lgani uchun"
+"Mezon bo‘lmasa sinovni o‘tkazish qonun bilan taqiqlangani va jarimaga olib kelishi sababli oldindan belgilanadi",
+"Mezon xodimlarga ish haqini hisoblashda asos bo‘lgani va mukofot miqdorini belgilagani uchun oldindan yoziladi"
 ],
 "c": 1,
 "w": "Oldindan belgilangan mezon — ob’ektiv xulosa.",
@@ -1031,10 +1031,10 @@ export const BANK = [
 "t": 2,
 "q": "Konversiya (aylanish) ko‘rsatkichi funnel (voronka) tahlilida nimani ko‘rsatadi?",
 "o": [
-"Mahsulotning o‘rtacha tannarxi qanchaga kamayganini",
+"Mahsulotning o‘rtacha tannarxi sotuv hajmi oshgani sari qanchaga kamayganini va foyda o‘sganini",
 "Har bir bosqichda mijozlarning qanchasi keyingi bosqichga o‘tganini",
-"Xodimlarning bir kunda bajargan ishlari sonini",
-"Raqobatchilar narxining o‘rtacha o‘zgarishini"
+"Xodimlarning bir kunda bajargan ishlari soni va ularning mehnat unumdorligi darajasini",
+"Raqobatchilar narxining o‘rtacha o‘zgarishini va bozordagi umumiy narx tendensiyasini"
 ],
 "c": 1,
 "w": "Funnel: ko‘rish → bosish → buyurtma → to‘lov.",
@@ -1083,9 +1083,9 @@ export const BANK = [
 "t": 2,
 "q": "Dizayn tafakkurida «empatiya» bosqichi nimaga qaratilgan?",
 "o": [
-"Tayyor mahsulotning texnik xususiyatlarini bayon qilishga",
-"G‘oyalarni tezda baholab, eng arzonini tanlashga",
-"Raqobatchilarning moliyaviy hisobotlarini tahlil qilishga",
+"Tayyor mahsulotning texnik xususiyatlarini bayon qilib, uni mijozlarga taqdim etishga",
+"G‘oyalarni tezda baholab, eng arzon va amalga oshirish oson bo‘lganini darhol tanlashga",
+"Raqobatchilarning moliyaviy hisobotlarini tahlil qilib, ularning narx siyosatini o‘rganishga",
 "Foydalanuvchining his-tuyg‘ulari, motivlari va vaziyatini chuqur tushunishga"
 ],
 "c": 3,
@@ -1097,9 +1097,9 @@ export const BANK = [
 "q": "Innovatsiya buxgalteriyasi (innovation accounting) qanday vaziyat uchun mo‘ljallangan?",
 "o": [
 "Noaniqlik yuqori bo‘lgan loyihalarda o‘rganish ko‘rsatkichlari asosida progressni o‘lchash uchun",
-"Xodimlarning mehnat haqini hisoblash va to‘lash uchun",
-"Barqaror ishlayotgan korxonada soliq hisobotini tayyorlash uchun",
-"Yirik davlat tashkilotlarida byudjet mablag‘ini nazorat qilish uchun"
+"Xodimlarning mehnat haqini hisoblash, to‘lash va tegishli ushlanmalarni rasmiylashtirish uchun",
+"Barqaror ishlayotgan korxonada soliq hisobotini tayyorlash va rasmiy hisob yuritish tartibini yo‘lga qo‘yish uchun",
+"Yirik davlat tashkilotlarida byudjet mablag‘ining sarflanishini nazorat qilish va hisobotini tuzish uchun"
 ],
 "c": 0,
 "w": "Eric Ries: actionable metrics vs vanity metrics.",
@@ -1109,10 +1109,10 @@ export const BANK = [
 "t": 2,
 "q": "«Vanity metric» (ko‘rinishdagi ko‘rsatkich) nimasi bilan xavfli?",
 "o": [
-"U har doim past qiymat ko‘rsatib, jamoani ruhdan tushiradi",
-"U faqat moliyaviy hisobotda ko‘rsatilib, mijozlarga ko‘rinmaydi",
+"U har doim past qiymat ko‘rsatib, jamoani ruhdan tushiradi va tadbirkorda noto‘g‘ri taassurot qoldiradi",
+"U faqat moliyaviy hisobotda ko‘rsatilib, mijozlarga ko‘rinmaydi va hech qanday qaror uchun ishlatilmaydi",
 "U yaxshi ko‘rinadi (masalan, umumiy ko‘rishlar), lekin biznesning haqiqiy muvaffaqiyati haqida qaror qabul qilishga yordam bermaydi",
-"U juda murakkab hisoblanadi va mutaxassis bo‘lmasa, uni tushunib bo‘lmaydi"
+"U juda murakkab hisoblanadi va mutaxassis bo‘lmasa, uni tushunib bo‘lmaydi hamda hisoblash imkoni yo‘q"
 ],
 "c": 2,
 "w": "Vanity vs actionable.",
@@ -1136,9 +1136,9 @@ export const BANK = [
 "q": "G‘oyaning «hayotiyligi» (viability) deganda nima tushuniladi?",
 "o": [
 "G‘oya iqtisodiy jihatdan o‘zini oqlashi va daromad keltirishi imkoniyati",
-"G‘oya yangi va hech kimda yo‘qligi",
-"G‘oya texnik jihatdan yaratilishi mumkinligi",
-"G‘oyani odamlar yoqtirishi va maqtashi"
+"G‘oya yangi bo‘lib, bozorda hech kimda yo‘qligi va raqobatchilar tomonidan takrorlanmasligi",
+"G‘oya texnik jihatdan mavjud resurs bilan yaratilishi mumkinligi va jamoa uni bajara olishi imkoniyati",
+"G‘oyani odamlar yoqtirishi, maqtashi va uni boshqalarga ham tavsiya qilishi ehtimoli"
 ],
 "c": 0,
 "w": "Desirability, feasibility, viability.",
@@ -1161,9 +1161,9 @@ export const BANK = [
 "t": 2,
 "q": "«Feasibility» (amalga oshirish mumkinligi) mezoni nimani tekshiradi?",
 "o": [
-"Yechim raqobatchilardan farqlanishini",
-"Mijozlar yechimni sotib olishga tayyorligini",
-"Yechim daromad keltirishini va xarajatni qoplashini",
+"Yechim raqobatchilardan farqlanishini va mijoz ongida alohida o‘rin egallashini",
+"Mijozlar yechimni sotib olishga tayyorligini va uning uchun to‘lashga rozi bo‘lishini",
+"Yechim daromad keltirishini hamda xarajatni qoplab, foyda qoldirishini",
 "Jamoa mavjud resurs va texnologiya bilan yechimni yarata olishini"
 ],
 "c": 3,
@@ -1227,9 +1227,9 @@ export const BANK = [
 "q": "Landing page (qo‘nish sahifasi) orqali talabni sinashda qaysi ko‘rsatkich asosiy hisoblanadi?",
 "o": [
 "Tashrif buyuruvchilarning qancha qismi ro‘yxatdan o‘tgani yoki oldindan buyurtma bergani (konversiya)",
-"Sahifa yaratish uchun sarflangan vaqt miqdori",
-"Sahifaga kiritilgan rasmlar soni va dizayn murakkabligi",
-"Sahifada joylashtirilgan matn hajmi va so‘zlar soni"
+"Sahifani yaratish uchun sarflangan vaqt miqdori hamda ishga jalb qilingan dizaynerlar soni",
+"Sahifaga kiritilgan rasmlar soni, ranglar uyg‘unligi va dizayn murakkabligi darajasi",
+"Sahifada joylashtirilgan matn hajmi, so‘zlar soni va mahsulot tavsifining batafsilligi"
 ],
 "c": 0,
 "w": "Konversiya — talab signali.",
@@ -1239,9 +1239,9 @@ export const BANK = [
 "t": 2,
 "q": "Kam xarajat bilan sinashning asosiy afzalligi qaysi?",
 "o": [
-"Mahsulotning sifati avtomatik ravishda yuqori bo‘lib qoladi",
-"Raqobatchilar yangi mahsulotdan xabar topmaydi",
-"Soliq majburiyatlari to‘liq bekor qilinadi",
+"Mahsulotning sifati avtomatik ravishda yuqori bo‘lib qoladi va qo‘shimcha tekshiruvga ehtiyoj qolmaydi",
+"Raqobatchilar yangi mahsulotdan umuman xabar topmaydi va bozorga kirish imkoniyati yopiladi",
+"Soliq majburiyatlari to‘liq bekor qilinadi va tadbirkor hisobot topshirishdan ozod bo‘ladi",
 "Noto‘g‘ri taxmin aniqlansa, kam pul yo‘qotiladi va tezroq to‘g‘ri yo‘nalishga o‘tish mumkin"
 ],
 "c": 3,
@@ -1265,9 +1265,9 @@ export const BANK = [
 "t": 2,
 "q": "Fikr-mulohaza siklida «tezlik» nima uchun muhim?",
 "o": [
-"Tez ishlaganda mijozlar ko‘p sonda ro‘yxatdan o‘tadi",
-"Tez ishlash natijalarni har doim aniqroq qiladi",
-"Tezlik soliq imtiyozlarini olishga imkon beradi",
+"Tez ishlaganda mijozlar ko‘p sonda ro‘yxatdan o‘tib, sotuv hajmi o‘z-o‘zidan oshib boradi",
+"Tez ishlash natijalarni har doim aniqroq qiladi va xatolar ehtimolini butunlay yo‘qotadi",
+"Tezlik soliq imtiyozlarini olishga imkon berib, davlat qo‘llab-quvvatlashini avtomatik ta’minlaydi",
 "Qancha tez sinov o‘tkazilsa, shuncha tez va arzon o‘rganib, xatolarni tuzatish mumkin"
 ],
 "c": 3,
@@ -1279,9 +1279,9 @@ export const BANK = [
 "q": "Qaysi holat «muammo-yechim mosligi» (problem-solution fit) erishilganini bildiradi?",
 "o": [
 "Maqsadli mijozlar aniq muammoga ega ekani va taklif etilgan yechim uni hal qilishi tasdiqlanganda",
-"Mahsulot katta bozorga chiqib, millionlab dona sotilganda",
-"Tadbirkor mahsulotni yaratib, uning chiroyli ishlashidan mamnun bo‘lganda",
-"Investor loyihaga mablag‘ ajratishga va'da berganda"
+"Mahsulot katta bozorga chiqib, millionlab dona sotilib, tanilib ketganda va daromad oshganda",
+"Tadbirkor mahsulotni yaratib, uning chiroyli ishlashidan va tashqi ko‘rinishidan mamnun bo‘lganda",
+"Investor loyihaga mablag‘ ajratishga va’da berib, birinchi bosqich moliyalashtirishni tasdiqlaganda"
 ],
 "c": 0,
 "w": "Problem-solution fit — PMF dan oldingi bosqich.",
@@ -1305,9 +1305,9 @@ export const BANK = [
 "q": "Qiyinchilikni emas, «ish»ni tushunishga qaratilgan yondashuv qaysi?",
 "o": [
 "Jobs to be Done — mijoz mahsulotni qaysi ishni bajarish uchun «yollashi»ni o‘rganish",
-"ABC tahlili — zaxiralarni qiymati bo‘yicha guruhlash",
-"PEST tahlili — tashqi muhit omillarini tasniflash",
-"SWOT tahlili — kuchli va zaif tomonlarni sanab chiqish"
+"ABC tahlili — zaxiralarni qiymati va ahamiyati bo‘yicha guruhlarga ajratib boshqarish usuli",
+"PEST tahlili — tashqi muhit omillarini siyosiy, iqtisodiy, ijtimoiy va texnologik guruhlarga tasniflash usuli",
+"SWOT tahlili — tashkilotning kuchli va zaif tomonlarini hamda imkoniyat va xavflarni sanab chiqish usuli"
 ],
 "c": 0,
 "w": "JTBD — mijozning «ishi».",
@@ -1317,10 +1317,10 @@ export const BANK = [
 "t": 2,
 "q": "Nega 5–10 ta chuqur intervyu ko‘pincha ko‘p yuzlab so‘rovnomadan oldin o‘tkaziladi?",
 "o": [
-"Intervyu doim so‘rovnomadan arzonroq bo‘lib, hech qanday vaqt talab qilmaydi",
+"Intervyu doim so‘rovnomadan arzonroq bo‘lib, hech qanday vaqt talab qilmaydi va tez natija beradi",
 "Dastlab naqshlar va sabablarni topish kerak, so‘rovnoma esa ularni miqdoran tasdiqlash uchun ishlatiladi",
-"So‘rovnoma qonun bilan taqiqlangan va intervyu yagona yo‘l hisoblanadi",
-"Intervyu natijalari statistik jihatdan so‘rovnomadan aniqroq bo‘ladi"
+"So‘rovnoma ayrim sharoitda qonun bilan taqiqlangani uchun intervyu yagona qonuniy yo‘l hisoblanadi",
+"Intervyu natijalari statistik jihatdan so‘rovnomadan aniqroq bo‘lib, umumlashtirish uchun ishonchliroq hisoblanadi"
 ],
 "c": 1,
 "w": "Sifat → miqdor ketma-ketligi.",
@@ -1330,10 +1330,10 @@ export const BANK = [
 "t": 2,
 "q": "Qaysi ko‘rsatkich g‘oyaning «ishonch» (confidence) qismini oshiradi?",
 "o": [
-"Reklama xarajatlarining oshirilishi",
+"Reklama xarajatlarining oshirilishi va ijtimoiy tarmoqlardagi ko‘rishlar sonining ko‘payishi",
 "Mijozlar bilan o‘tkazilgan sinovlar va real ma’lumotlar to‘planishi",
-"Do‘stlar va oila a’zolarining g‘oyani maqtashi",
-"Tadbirkorning g‘oyaga bo‘lgan shaxsiy ishonchi kuchayishi"
+"Do‘stlar va oila a’zolarining g‘oyani maqtashi hamda uni qo‘llab-quvvatlashga va’da berishi",
+"Tadbirkorning g‘oyaga bo‘lgan shaxsiy ishonchi kuchayishi va uning ishtiyoqi oshishi"
 ],
 "c": 1,
 "w": "Ishonch — dalil bilan o‘sadi.",
@@ -1343,10 +1343,10 @@ export const BANK = [
 "t": 2,
 "q": "Quyidagilardan qaysi biri «prototip»ning vazifasi?",
 "o": [
-"Xodimlar ish haqini hisoblash va to‘lash",
+"Xodimlar ish haqini hisoblash, to‘lash va ularning mehnat shartnomalarini rasmiylashtirish",
 "G‘oyani tez va arzon tarzda ko‘rinadigan shaklga keltirib, mijoz fikrini olishga imkon berish",
-"Soliq hisobotini tayyorlash va davlat ro‘yxatidan o‘tish",
-"Mahsulotni ommaviy ishlab chiqarishni boshlash va sotuvga chiqarish"
+"Soliq hisobotini tayyorlash va davlat ro‘yxatidan o‘tish jarayonini rasmiy yakunlash",
+"Mahsulotni ommaviy ishlab chiqarishni boshlash va uni keng sotuvga chiqarishni ta’minlash"
 ],
 "c": 1,
 "w": "Prototip — o‘rganish vositasi.",
@@ -1356,10 +1356,10 @@ export const BANK = [
 "t": 2,
 "q": "Muammoni o‘rganishda «ikkilamchi ma’lumot» manbayiga qaysi biri kiradi?",
 "o": [
-"Tadbirkor o‘zi tuzgan so‘rovnomaning yangi natijalari",
+"Tadbirkor o‘zi tuzgan so‘rovnomaning yangi natijalari va respondentlar javoblari to‘plami",
 "Statistika qo‘mitasi hisobotlari va ilgari e’lon qilingan bozor tadqiqotlari",
-"Tadbirkor o‘zi kuzatgan mijozlar xatti-harakati qaydlari",
-"Tadbirkor o‘zi o‘tkazgan chuqur intervyu yozuvlari"
+"Tadbirkor o‘zi kuzatgan mijozlar xatti-harakati qaydlari va dala sharoitidagi eslatmalar",
+"Tadbirkor o‘zi o‘tkazgan chuqur intervyularning yozuvlari va ulardan olingan dastlabki xulosalar"
 ],
 "c": 1,
 "w": "Secondary — allaqachon mavjud ma’lumot.",
@@ -1370,9 +1370,9 @@ export const BANK = [
 "q": "Qaysi holda muammo «yetarlicha katta» hisoblanadi?",
 "o": [
 "Ko‘p mijozlarda takroran uchrab, ularga sezilarli vaqt, pul yoki asab sarflatganda",
-"Faqat bitta mijozda bir marta uchragan, ammo juda g‘alati bo‘lganda",
-"Tadbirkorga qiziqarli tuyulgan, ammo mijozlar uni sezmaganda",
-"Davlat tomonidan hech qachon e’tibor berilmaganda"
+"Faqat bitta mijozda bir marta uchragan, ammo juda g‘alati va o‘ziga xos ko‘ringan holatda",
+"Tadbirkorga qiziqarli tuyulgan, ammo mijozlar uni deyarli sezmaydigan va ahamiyat bermaydigan holatda",
+"Davlat tomonidan hech qachon e’tibor berilmagan, ammo ijtimoiy tarmoqlarda muhokama qilingan holatda"
 ],
 "c": 0,
 "w": "Chastota va og‘riq darajasi.",
@@ -1383,9 +1383,9 @@ export const BANK = [
 "q": "Sinov natijasi salbiy chiqsa, tadbirkor uchun eng to‘g‘ri xulosa qaysi?",
 "o": [
 "Bu foydali ma’lumot: nima ishlamayotganini aniqlab, gipotezani o‘zgartirish yoki burilish qilish kerak",
-"Bu mijozlarning xatosi: ular noto‘g‘ri javob berishgan",
-"Bu tasodif: sinovni takrorlamasdan reja bo‘yicha davom etish kerak",
-"Bu muvaffaqiyatsizlik: tadbirkorlikdan butunlay voz kechish kerak"
+"Bu mijozlarning xatosi: ular noto‘g‘ri javob berishgan, shuning uchun natijani hisobga olmaslik kerak",
+"Bu tasodif: sinovni takrorlamasdan va natijani o‘zgartirmasdan, avvalgi reja bo‘yicha davom etish kerak",
+"Bu muvaffaqiyatsizlik: tadbirkorlikdan butunlay voz kechib, boshqa faoliyat turini tanlash kerak"
 ],
 "c": 0,
 "w": "Salbiy natija ham o‘rganish.",
@@ -1408,9 +1408,9 @@ export const BANK = [
 "t": 2,
 "q": "G‘oyalarni tanlashda «matritsa» (masalan, ta’sir–osonlik) usulining foydasi nima?",
 "o": [
-"Barcha g‘oyalarni bir xil deb hisoblab, tanlovdan qochishga imkon beradi",
-"G‘oyalarning mualliflarini aniqlab, ularni mukofotlashga xizmat qiladi",
-"Faqat eng murakkab g‘oyani tanlab, osonlarini rad etishga yordam beradi",
+"Barcha g‘oyalarni bir xil darajada muhim deb hisoblab, tanlovdan butunlay qochishga imkon beradi",
+"G‘oyalarning mualliflarini aniqlab, ularni rasmiy tarzda mukofotlash va rag‘batlantirishga xizmat qiladi",
+"Faqat eng murakkab va qimmat g‘oyani tanlab, osonlarini rad etishga yordam beradigan usul",
 "Ko‘p g‘oya orasidan eng katta ta’sirli va amalga oshirish oson bo‘lganlarini ob’ektiv ajratishga yordam beradi"
 ],
 "c": 3,
@@ -1512,10 +1512,10 @@ export const BANK = [
 "t": 3,
 "q": "Differensial to‘lov annuitetdan qanday farq qiladi?",
 "o": [
-"Faqat foiz to‘lanadi, asosiy qarz esa muddat tugagach bir yo‘la to‘lanadi",
-"To‘lov summasi mijoz xohishiga ko‘ra har oy erkin tarzda belgilanadi",
+"Faqat foiz to‘lanib, asosiy qarz esa kredit muddati tugagach bir yo‘la to‘lanadi va oraliq to‘lov bo‘lmaydi",
+"To‘lov summasi mijoz xohishiga ko‘ra har oy erkin tarzda belgilanadi va bank bunga aralashmaydi",
 "Asosiy qarz teng qismlarga bo‘linadi, shuning uchun dastlabki to‘lovlar katta, keyingilari kichrayib boradi",
-"Barcha oylar uchun to‘lov bir xil bo‘lib, jami foiz xarajati doim yuqori bo‘ladi"
+"Barcha oylar uchun to‘lov bir xil bo‘lib, qoldiq tez kamaymagani sababli jami foiz xarajati doim yuqori bo‘ladi"
 ],
 "c": 2,
 "w": "Differensial: dastlab og‘irroq, jami foiz kamroq.",
@@ -1525,10 +1525,10 @@ export const BANK = [
 "t": 3,
 "q": "Jami foiz xarajatini kamaytirmoqchi bo‘lgan tadbirkorga odatda qaysi usul qulayroq?",
 "o": [
-"Muddat oxirida bir martalik to‘lov, chunki foiz doim oshib boradi",
+"Muddat oxirida bir martalik to‘lov, chunki foiz vaqt o‘tishi bilan doim oshib boradi va qoplanadi",
 "Differensial to‘lov, chunki qarz qoldig‘i tezroq kamayadi, lekin dastlabki to‘lovlar og‘irroq bo‘ladi",
-"Faqat imtiyozli davrsiz kredit, chunki foiz hisoblanmaydi",
-"Annuitet to‘lov, chunki qarz qoldig‘i hamma vaqt bir xil saqlanib turadi"
+"Faqat imtiyozli davrsiz kredit, chunki imtiyozli davrda foiz umuman hisoblanmaydi va tejaladi",
+"Annuitet to‘lov, chunki qarz qoldig‘i hamma vaqt bir xil saqlanib turadi va foiz kamaymaydi"
 ],
 "c": 1,
 "w": "Differensial usulda foiz kamroq, ammo boshlang‘ich yuk katta.",
@@ -1577,9 +1577,9 @@ export const BANK = [
 "t": 3,
 "q": "DSCR (qarz xizmati qoplash koeffitsiyenti) nimani ko‘rsatadi?",
 "o": [
-"Kompaniyaning jami aktivlarining jami majburiyatlariga nisbatini va likvidligini",
-"Mahsulot sotishdan olingan foydaning umumiy tushumga nisbatini",
-"Kredit olish uchun bankka to‘lanadigan komissiya miqdorini",
+"Kompaniyaning jami aktivlarining jami majburiyatlariga nisbatini va uning umumiy likvidligini ko‘rsatadi",
+"Mahsulot sotishdan olingan foydaning umumiy tushumga nisbatini va sotuv rentabelligini ko‘rsatadi",
+"Kredit olish uchun bankka to‘lanadigan komissiya miqdorini va xizmat haqining umumiy summasini ko‘rsatadi",
 "Sof operatsion pul oqimining kredit to‘lovlarini (asosiy qarz + foiz) qoplashga yetarlilik darajasini"
 ],
 "c": 3,
@@ -1590,9 +1590,9 @@ export const BANK = [
 "t": 3,
 "q": "DSCR 1 dan past bo‘lsa, bu nimani anglatadi?",
 "o": [
-"Biznes juda foydali bo‘lib, kredit to‘lovi qiyinchiliksiz qoplanadi",
-"Kredit to‘liq to‘langan va qarz majburiyati qolmagan",
-"Bank qo‘shimcha kredit berishga majbur bo‘ladi",
+"Biznes juda foydali bo‘lib, kredit to‘lovi qiyinchiliksiz qoplanadi va hatto ortib qoladi",
+"Kredit to‘liq to‘langan va qarz majburiyati butunlay tugagan, hisob yopilgan holatni bildiradi",
+"Bank qo‘shimcha kredit berishga majbur bo‘ladi va foiz stavkasi avtomatik pasaytiriladi",
 "Pul oqimi kredit to‘lovini qoplashga yetmaydi va qaytarish manbayi yetishmaydi"
 ],
 "c": 3,
@@ -1642,9 +1642,9 @@ export const BANK = [
 "t": 3,
 "q": "Biznes krediti va iste’mol krediti o‘rtasidagi asosiy farq nimada?",
 "o": [
-"Biznes krediti shaxsiy ehtiyoj uchun, iste’mol krediti esa uskuna sotib olish uchun beriladi",
-"Biznes krediti hech qachon garov talab qilmaydi, iste’mol krediti esa har doim talab qiladi",
-"Ikkala kredit mohiyatan bir xil bo‘lib, faqat bank nomi bilan farqlanadi",
+"Biznes krediti shaxsiy ehtiyoj uchun, iste’mol krediti esa uskuna sotib olish uchun beriladi va foiz stavkasi teng",
+"Biznes krediti hech qachon garov talab qilmaydi, iste’mol krediti esa har doim ko‘chmas mulk garovini talab qiladi",
+"Ikkala kredit mohiyatan bir xil bo‘lib, faqat bank nomi bilan farqlanadi hamda qaytarish manbayi bir xil",
 "Biznes krediti daromad keltiruvchi aktivga yo‘naltiriladi va pul oqimiga tayanadi, iste’mol krediti esa shaxsiy ehtiyojga"
 ],
 "c": 3,
@@ -1669,9 +1669,9 @@ export const BANK = [
 "q": "«5 C» modelidagi Capital (kapital) mezoni nimani baholaydi?",
 "o": [
 "Tadbirkor loyihaga o‘zining qancha mablag‘ini kiritganini",
-"Mijozlarning to‘lov qobiliyatini",
-"Bankning o‘z kapitalining yetarliligini",
-"Loyiha uchun zarur xomashyo narxini"
+"Mijozlarning mahsulotni to‘lash qobiliyati va ularning daromadi darajasini baholashni",
+"Bankning o‘z kapitalining yetarliligi va uning moliyaviy barqarorligini baholashni",
+"Loyiha uchun zarur xomashyo narxi va uni yetkazib berish shartlarini baholashni"
 ],
 "c": 0,
 "w": "O‘z ulushi — majburiyat belgisi.",
@@ -1681,10 +1681,10 @@ export const BANK = [
 "t": 3,
 "q": "«5 C» modelidagi Collateral (garov) mezoni nima uchun muhim?",
 "o": [
-"Garov kredit foizini nolga tushiradi va to‘lovni bekor qiladi",
-"Garov kredit olish uchun yagona va yetarli shart hisoblanadi",
+"Garov kredit foizini nolga tushiradi va to‘lovni butunlay bekor qilib, qarzni yopib yuboradi",
+"Garov kredit olish uchun yagona va yetarli shart hisoblanib, boshqa mezonlar talab etilmaydi",
 "To‘lov amalga oshmaganda bank zararini qoplash uchun ikkilamchi himoya vazifasini bajaradi",
-"Garov tadbirkorni soliqdan to‘liq ozod qiladi"
+"Garov tadbirkorni soliqdan to‘liq ozod qilib, hisobot topshirish majburiyatini bekor qiladi"
 ],
 "c": 2,
 "w": "Collateral — ikkilamchi himoya.",
@@ -1721,9 +1721,9 @@ export const BANK = [
 "q": "Kafillik (garantiya) garovdan nimasi bilan farq qiladi?",
 "o": [
 "Kafil uchinchi shaxs bo‘lib, qarz oluvchi to‘lamasa, javobgarlikni o‘z zimmasiga oladi, garovda esa mol-mulk topshiriladi",
-"Kafillik faqat mol-mulk bilan, garov esa faqat shaxsiy va’da bilan beriladi",
-"Kafillikda qarz oluvchi javobgar bo‘lmay, bank barcha xavfni o‘zi ko‘taradi",
-"Kafillik va garov bir xil tushuncha bo‘lib, faqat nomi bilan farq qiladi"
+"Kafillik faqat mol-mulk bilan, garov esa faqat shaxsiy va’da bilan beriladi hamda yozma shakl talab qilinmaydi",
+"Kafillikda qarz oluvchi javobgar bo‘lmay, bank barcha xavfni o‘zi ko‘taradi va kafil faqat shahodat beradi",
+"Kafillik va garov bir xil tushuncha bo‘lib, ular faqat nomi bilan farq qiladi va huquqiy oqibati bir xil"
 ],
 "c": 0,
 "w": "Kafil — shaxsiy javobgarlik.",
@@ -1733,10 +1733,10 @@ export const BANK = [
 "t": 3,
 "q": "Lizingning kreditga nisbatan afzalligi qaysi?",
 "o": [
-"Lizing faqat qisqa muddatga beriladi va uskuna hech qachon ishlatilmaydi",
+"Lizing faqat qisqa muddatga beriladi va uskuna hech qachon haqiqiy ishlatilmaydi, faqat saqlanadi",
 "Uskunaning o‘zi ta’minot vazifasini bajargani uchun qo‘shimcha garov odatda talab qilinmaydi",
-"Lizingda foiz hech qachon to‘lanmaydi va soliq hisoblanmaydi",
-"Lizingda uskuna bepul beriladi va to‘lov talab qilinmaydi"
+"Lizingda foiz hech qachon to‘lanmaydi va soliq hisoblanmaydi hamda hisobot talab etilmaydi",
+"Lizingda uskuna bepul beriladi va to‘lov talab qilinmaydi hamda foiz hisoblanmaydi"
 ],
 "c": 1,
 "w": "Lizing — uskuna ijara/bo‘lib to‘lash.",
@@ -1759,9 +1759,9 @@ export const BANK = [
 "t": 3,
 "q": "Investitsion kredit qaysi maqsadga mo‘ljallangan?",
 "o": [
-"Xodimlarga oylik maosh to‘lash va kundalik xarajatlarni qoplash uchun",
-"Soliq to‘lovlarini muddatidan oldin to‘lash uchun",
-"Mahsulotni reklama qilib, qisqa muddatli sotuvni oshirish uchun",
+"Xodimlarga oylik maosh to‘lash va kundalik xarajatlarni qoplash hamda joriy hisob-kitoblarni amalga oshirish uchun",
+"Soliq to‘lovlarini muddatidan oldin to‘lab, jarima va penyalardan butunlay xalos bo‘lish uchun",
+"Mahsulotni reklama qilib, qisqa muddatli sotuvni oshirish va mijozlar e’tiborini jalb etish uchun",
 "Uskuna, bino kabi uzoq muddat foydalaniladigan asosiy vositalarni sotib olish yoki kengaytirish uchun"
 ],
 "c": 3,
@@ -1798,10 +1798,10 @@ export const BANK = [
 "t": 3,
 "q": "«Kelajakka qadam» markazi tayyor loyihalar bilan nima qiladi?",
 "o": [
-"Loyihani to‘liq o‘z hisobidan amalga oshirib, daromadini o‘ziga oladi",
-"Loyihalarni xorijiy davlatlarga sotib, valyuta tushumini taqsimlaydi",
+"Loyihani to‘liq o‘z hisobidan amalga oshirib, uning barcha daromadini o‘ziga olib qo‘yadi",
+"Loyihalarni xorijiy davlatlarga sotib, valyuta tushumini ishtirokchilar o‘rtasida taqsimlaydi",
 "Treninglar o‘tkazib, g‘oyani qo‘llab-quvvatlaydi va tayyor loyihani bank filialiga yo‘naltiradi",
-"Loyihalarni rad etib, faqat nazariy ma’ruza o‘qiydi"
+"Loyihalarni rad etib, faqat umumiy nazariy ma’ruza o‘qiydi va amaliy yordam ko‘rsatmaydi"
 ],
 "c": 2,
 "w": "Markaz — o‘qitish va bank bilan bog‘lash.",
@@ -1811,10 +1811,10 @@ export const BANK = [
 "t": 3,
 "q": "Biznes-reja nima uchun kredit olishda muhim?",
 "o": [
-"Biznes-reja kreditorga faqat chiroyli taqdimot sifatida ko‘rsatiladi va tekshirilmaydi",
+"Biznes-reja kreditorga faqat chiroyli taqdimot sifatida ko‘rsatiladi va hech qachon tekshirilmaydi",
 "Biznes maqsadi, bozor, xarajat va moliyaviy kutilmalarini ko‘rsatib, kreditorni ishontiradigan asos hujjat bo‘lgani uchun",
-"Biznes-reja faqat soliq hisobotida ishlatiladi, bank uni so‘ramaydi",
-"Biznes-reja bo‘lmasa kredit foizi avtomatik nolga tenglashadi"
+"Biznes-reja faqat soliq hisobotida ishlatiladi, bank esa uni so‘ramaydi va ko‘rib chiqmaydi",
+"Biznes-reja bo‘lmasa kredit foizi avtomatik nolga tenglashadi va bank garov talab qilmaydi"
 ],
 "c": 1,
 "w": "Biznes-reja — qaror asosi.",
@@ -1825,9 +1825,9 @@ export const BANK = [
 "q": "Moliyaviy yo‘l xaritasini tuzishning maqsadi nima?",
 "o": [
 "Pul kirimi va chiqimini vaqt bo‘yicha rejalashtirib, mablag‘ yetishmovchiligi davrlarini oldindan ko‘rish",
-"Mahsulotni reklama qilish uchun slogan va logotip tayyorlash",
-"Soliq organiga ko‘rsatish uchun sun’iy ravishda foydani kamaytirish",
-"Xodimlar o‘rtasida mas’uliyatni taqsimlab, lavozim yo‘riqnomasini yozish"
+"Mahsulotni reklama qilish uchun jozibali slogan va logotip tayyorlab, brend obrazini shakllantirish",
+"Soliq organiga ko‘rsatish uchun sun’iy ravishda foydani kamaytirib, hisobotni boshqacha ko‘rsatish",
+"Xodimlar o‘rtasida mas’uliyatni taqsimlab, har bir lavozim bo‘yicha yo‘riqnoma yozib chiqish"
 ],
 "c": 0,
 "w": "Cash-flow rejalashtirish.",
@@ -1850,10 +1850,10 @@ export const BANK = [
 "t": 3,
 "q": "Biznes foydali bo‘lsa-da, nima uchun u pul yetishmovchiligidan yopilib qolishi mumkin?",
 "o": [
-"Foyda har doim pul yetishmovchiligini avtomatik bartaraf etadi",
+"Foyda har doim pul yetishmovchiligini avtomatik bartaraf etadi va qo‘shimcha rejalashtirish talab qilmaydi",
 "Sotuvdan tushum kechiksa (nasiya) va xarajatlar oldin to‘lansa, real pul yetishmasligi paydo bo‘ladi",
-"Foydali biznesda pul hech qachon yetishmay qolmaydi",
-"Pul yetishmovchiligi faqat soliq to‘lanmaganda yuz beradi"
+"Foydali biznesda pul hech qachon yetishmay qolmaydi, chunki foyda to‘liq naqd pul shaklida bo‘ladi",
+"Pul yetishmovchiligi faqat soliq to‘lanmaganda yuz beradi va boshqa sabab bilan bog‘liq bo‘lmaydi"
 ],
 "c": 1,
 "w": "Likvidlik muammosi.",
@@ -1863,10 +1863,10 @@ export const BANK = [
 "t": 3,
 "q": "Moliyalashtirish manbalari orasida «o‘z mablag‘i»ning afzalligi nima?",
 "o": [
-"Faqat bank orqali olinishi va garov talab qilinishi",
-"Hajmi doimo cheksiz bo‘lib, hech qanday xavf keltirmasligi",
+"Faqat bank orqali olinadi va garov talab qilinadi hamda qat’iy to‘lov jadvali bilan beriladi",
+"Hajmi doimo cheksiz bo‘lib, hech qanday xavf keltirmaydi hamda boshqa manbaga ehtiyoj qoldirmaydi",
 "Foiz to‘lovi va qaytarish majburiyati yo‘qligi, ammo hajm odatda cheklangan bo‘lishi",
-"Davlat nazorati ostida bo‘lib, undan biznesga ishlatish taqiqlanishi"
+"Davlat nazorati ostida bo‘lib, undan biznes maqsadida foydalanish qonun bilan taqiqlanadi"
 ],
 "c": 2,
 "w": "Bootstrapping.",
@@ -1876,10 +1876,10 @@ export const BANK = [
 "t": 3,
 "q": "Venchur investorining kreditordan asosiy farqi nima?",
 "o": [
-"Investor qarz beradi va foiz oladi, kreditor esa ulush oladi",
+"Investor qarz beradi va foiz oladi, kreditor esa biznes ulushini oladi hamda boshqaruvda qatnashadi",
 "Investor biznes ulushiga ega bo‘lib, o‘sishdan foyda ko‘radi, kreditor esa belgilangan foiz bilan qaytarish kutadi",
-"Ikkalasi bir xil bo‘lib, faqat nomi bilan farqlanadi",
-"Investor faqat davlat vakili bo‘lib, kreditor esa xususiy shaxs hisoblanadi"
+"Ikkalasi mohiyatan bir xil bo‘lib, faqat nomi bilan farqlanadi hamda huquqiy oqibati bir xil bo‘ladi",
+"Investor faqat davlat vakili bo‘lib, kreditor esa faqat xususiy shaxs hisoblanadi va ulush olmaydi"
 ],
 "c": 1,
 "w": "Equity vs debt.",
@@ -1915,10 +1915,10 @@ export const BANK = [
 "t": 3,
 "q": "Kredit sug‘urtasi nimani himoya qiladi?",
 "o": [
-"Kreditning foiz stavkasini nolga tushirib, qarzni kechib yuboradi",
-"Mahsulot narxining oshishini va inflyatsiyani to‘liq bartaraf etadi",
+"Kreditning foiz stavkasini nolga tushirib, qarzni kechib yuboradi va bankning zararini davlat qoplaydi",
+"Mahsulot narxining oshishini va inflyatsiyani to‘liq bartaraf etib, tadbirkor daromadini kafolatlaydi",
 "Qarz oluvchi to‘lay olmaydigan holatda (kasallik, yo‘qotish) qarzni qoplash orqali tomonlar xavfini kamaytiradi",
-"Soliq hisobotidagi xatolarni to‘g‘rilab, jarimalarni bekor qiladi"
+"Soliq hisobotidagi xatolarni to‘g‘rilab, jarimalarni bekor qiladi va penyalar hisoblanishini to‘xtatadi"
 ],
 "c": 2,
 "w": "Xavfni taqsimlash.",
@@ -1928,9 +1928,9 @@ export const BANK = [
 "t": 3,
 "q": "Bank qarori qanday omillarga tayanadi?",
 "o": [
-"Faqat tadbirkor kiyimi va ofis ko‘rinishiga",
-"Faqat tadbirkorning yoshi va shaxsiy tanishlari soniga",
-"Faqat tasodifiy tanlov (qur’a) natijasiga",
+"Faqat tadbirkorning kiyimi va ofisining tashqi ko‘rinishiga qarab, moliyaviy ko‘rsatkichlarsiz",
+"Faqat tadbirkorning yoshi va shaxsiy tanishlari soniga qarab, boshqa mezonlarni hisobga olmasdan",
+"Faqat tasodifiy tanlov (qur’a) natijasiga qarab, hujjat va ko‘rsatkichlarni tekshirmasdan",
 "Pul oqimi, kredit tarixi, o‘z ulushi, garov va biznes-reja sifati kabi mezonlar majmuasiga"
 ],
 "c": 3,
@@ -1941,9 +1941,9 @@ export const BANK = [
 "t": 3,
 "q": "Kredit olishda «oldindan ma’qullash» va rasmiy qaror o‘rtasidagi farq qaysi javobda to‘g‘ri?",
 "o": [
-"Oldindan ma’qullash faqat grant uchun qo‘llanadi, kreditga tegishli emas",
-"Oldindan ma’qullash kreditni to‘liq beradi va keyingi tekshiruv bo‘lmaydi",
-"Rasmiy qaror kredit arizasidan oldin chiqariladi",
+"Oldindan ma’qullash faqat grant uchun qo‘llanadi, kreditga esa tegishli emas va ahamiyatsiz",
+"Oldindan ma’qullash kreditni to‘liq berib, keyingi tekshiruv va hujjat talab qilinmaydi",
+"Rasmiy qaror kredit arizasi topshirilishidan oldin chiqariladi va ma’qullashga bog‘liq bo‘lmaydi",
 "Oldindan ma’qullash dastlabki baho bo‘lib, yakuniy qaror to‘liq hujjatlar va tekshiruvdan keyin chiqadi"
 ],
 "c": 3,
@@ -1954,10 +1954,10 @@ export const BANK = [
 "t": 3,
 "q": "Kredit shartnomasida qaysi band eng muhim e’tibor talab qiladi?",
 "o": [
-"Faqat bank logotipi va hujjat sarlavhasi rangi",
+"Faqat bank logotipi, hujjat sarlavhasi rangi va shartnoma tashqi ko‘rinishi hamda muhrning joylashuvi",
 "Effektiv stavka, to‘lov jadvali, jarimalar va muddatidan oldin qaytarish shartlari",
-"Faqat bank xodimining ism-sharifi va lavozimi",
-"Faqat shartnoma raqami va sanasi"
+"Faqat bank xodimining ism-sharifi, lavozimi va ish joyining joylashuvi hamda aloqa ma’lumotlari",
+"Faqat shartnoma raqami, sanasi va tomonlarning rekvizitlari hamda sahifalar soni"
 ],
 "c": 1,
 "w": "Shartnomani to‘liq o‘qish.",
@@ -1967,10 +1967,10 @@ export const BANK = [
 "t": 3,
 "q": "Kredit muddatidan oldin to‘lash (erta qaytarish) odatda qanday ta’sir ko‘rsatadi?",
 "o": [
-"Jami foiz xarajati oshadi va qarz ko‘payadi",
-"Kredit tarixi avtomatik bekor qilinadi",
+"Jami foiz xarajati oshadi va qarz ko‘payadi, chunki bank qo‘shimcha foiz hisoblaydi",
+"Kredit tarixi avtomatik bekor qilinadi va tadbirkor yangi kredit olish huquqidan mahrum bo‘ladi",
 "Jami foiz xarajati kamayadi, ammo ba’zi shartnomalarda komissiya yoki cheklov bo‘lishi mumkin",
-"Garov bank mulkiga aylanadi"
+"Garov bank mulkiga aylanadi va tadbirkor uni qaytarib olish huquqini yo‘qotadi"
 ],
 "c": 2,
 "w": "Erta qaytarish shartlariga e’tibor.",
@@ -2006,10 +2006,10 @@ export const BANK = [
 "t": 3,
 "q": "Kafillik fondi (kafolat mexanizmi) qanday ishlaydi?",
 "o": [
-"Banklarga foiz stavkasini oshirishni majburlaydi",
-"Tadbirkorga naqd pul beradi va qaytarishni talab qilmaydi",
+"Banklarga foiz stavkasini oshirishni majburlab, ularning daromadini kafolatlaydigan tuzilma hisoblanadi",
+"Tadbirkorga naqd pul berib, qaytarishni talab qilmaydi va foiz hisoblamaydi hamda hisobot so‘ramaydi",
 "Garovi yetarli bo‘lmagan tadbirkor uchun bank oldida qisman kafolat berib, kredit olishni osonlashtiradi",
-"Tadbirkorning barcha qarzlarini davlat hisobidan to‘liq yopib beradi"
+"Tadbirkorning barcha qarzlarini davlat hisobidan to‘liq yopib berib, uni majburiyatdan ozod qiladi"
 ],
 "c": 2,
 "w": "Credit guarantee — garov kamchiligini to‘ldiradi.",
@@ -2032,10 +2032,10 @@ export const BANK = [
 "t": 3,
 "q": "Nima uchun kredit summasi biznes ehtiyojidan ortiq so‘ralmasligi kerak?",
 "o": [
-"Ortiqcha qarz kredit tarixini avtomatik yaxshilaydi",
+"Ortiqcha qarz kredit tarixini avtomatik yaxshilab, keyingi kreditlarni arzonlashtiradi",
 "Ortiqcha qarz foiz yukini oshiradi va to‘lov qobiliyatini pasaytirib, xavfni ko‘paytiradi",
-"Ortiqcha qarz soliqni nolga tushiradi va foiz hisoblanmaydi",
-"Ortiqcha qarz bank uchun zarar bo‘lib, uni darhol rad etishga majbur qiladi"
+"Ortiqcha qarz soliqni nolga tushiradi va foiz hisoblanmaydi hamda to‘lov muddati cho‘ziladi",
+"Ortiqcha qarz bank uchun zarar bo‘lib, uni darhol rad etishga majbur qiladi va tarix buziladi"
 ],
 "c": 1,
 "w": "Optimal qarz yuki.",
@@ -2058,10 +2058,10 @@ export const BANK = [
 "t": 3,
 "q": "Aylanma mablag‘ yetishmasligining oldini olishda qaysi amaliyot yordam beradi?",
 "o": [
-"Barcha pulni bir yo‘la xarajat qilib, zaxira qoldirmaslik",
+"Barcha pulni bir yo‘la xarajat qilib, zaxira qoldirmaslik va keyingi davrni o‘ylamaslik",
 "Pul kirim-chiqimini oldindan rejalashtirish va zaxira mablag‘ saqlash",
-"Mijozlarga nasiyani cheksiz muddatga berish",
-"Xarajatlarni yozmasdan, taxminan boshqarish"
+"Mijozlarga nasiyani cheksiz muddatga berib, to‘lov kelishini kutib o‘tirish va nazorat qilmaslik",
+"Xarajatlarni yozmasdan, taxminan va ko‘z bilan boshqarib, hisobni faqat xotirada saqlash"
 ],
 "c": 1,
 "w": "Likvidlik boshqaruvi.",
@@ -2071,9 +2071,9 @@ export const BANK = [
 "t": 3,
 "q": "Qaysi tuzilma «kredit + o‘z ulushi» aralash moliyalashtirishga misol bo‘ladi?",
 "o": [
-"Loyiha qiymatining barchasi faqat grant hisobidan qoplanishi",
-"Loyiha qiymatining barchasi faqat do‘stlardan olingan qarz hisobidan qoplanishi",
-"Loyihaga hech qanday mablag‘ kiritilmasdan boshlanishi",
+"Loyiha qiymatining barchasi faqat grant hisobidan qoplanib, tadbirkor o‘z mablag‘ini kiritmasligi",
+"Loyiha qiymatining barchasi faqat do‘stlardan olingan qarz hisobidan qoplanishi va rasmiylashtirilmasligi",
+"Loyihaga hech qanday mablag‘ kiritilmasdan, faqat g‘oya asosida boshlanib, keyin pul izlanishi",
 "Loyiha qiymatining bir qismi tadbirkor o‘z mablag‘i, qolgani bank krediti hisobidan qoplanishi"
 ],
 "c": 3,
@@ -2084,10 +2084,10 @@ export const BANK = [
 "t": 3,
 "q": "Crowdfunding (ommaviy moliyalashtirish) nimaga asoslanadi?",
 "o": [
-"Faqat bank kreditining ko‘paytirilgan miqdoriga",
+"Faqat bank kreditining ko‘paytirilgan miqdoriga va uzaytirilgan muddatiga",
 "Ko‘p sonli kichik hissadorlardan onlayn platforma orqali mablag‘ to‘plashga",
-"Faqat bitta yirik investorning katta hissasiga",
-"Faqat davlat byudjetidan ajratiladigan subsidiyaga"
+"Faqat bitta yirik investorning katta hissasiga va uning shaxsiy qaroriga",
+"Faqat davlat byudjetidan ajratiladigan subsidiyaga va maxsus dastur mablag‘iga"
 ],
 "c": 1,
 "w": "Crowdfunding.",
@@ -2097,10 +2097,10 @@ export const BANK = [
 "t": 3,
 "q": "Qarz yukini baholashda «qarz/kapital» nisbati nimani ko‘rsatadi?",
 "o": [
-"Mijozlarning mahsulotdan mamnunlik darajasini",
+"Mijozlarning mahsulotdan mamnunlik darajasini va takroriy xarid ehtimolini",
 "Biznes qarz mablag‘iga o‘z kapitalidan qanchalik ko‘p bog‘liq ekanini",
-"Xodimlarning bir soatlik ish haqi darajasini",
-"Mahsulotning sotuv hajmining o‘sish sur’atini"
+"Xodimlarning bir soatlik ish haqi darajasini va mehnat unumdorligining o‘zgarishini",
+"Mahsulotning sotuv hajmi o‘sish sur’atini va mijozlar sonining ko‘payishini"
 ],
 "c": 1,
 "w": "Debt-to-equity.",
@@ -2110,9 +2110,9 @@ export const BANK = [
 "t": 3,
 "q": "Quyidagilardan qaysi biri kredit olishda xavf-xatarni kamaytiradi?",
 "o": [
-"Kredit to‘lovini daromaddan ko‘p qilib belgilash",
-"Zaxirasiz, barcha pulni biznesga solish",
-"Kredit shartlarini o‘qimasdan imzolash",
+"Kredit to‘lovini daromaddan ko‘p qilib belgilash va qolgan xarajatlarni keyinga qoldirish",
+"Zaxirasiz, barcha mavjud pulni biznesga solib, kutilmagan xarajatlar uchun mablag‘ qoldirmaslik",
+"Kredit shartlarini o‘qimasdan imzolab, bank xodimining og‘zaki tushuntirishiga to‘liq ishonish",
 "Kredit to‘lovini daromadning ma’lum ulushidan oshirmaslik va zaxira jamg‘armasini yaratish"
 ],
 "c": 3,
@@ -2149,10 +2149,10 @@ export const BANK = [
 "t": 4,
 "q": "Davlat ro‘yxatidan o‘tgan tadbirkorlik subyektiga soliq va statistika organlarida hisobga qo‘yilganda qaysi raqam beriladi?",
 "o": [
-"Pasport seriyasi va raqami",
-"Kadastr hujjati identifikatori",
+"Pasport seriyasi va raqami hamda shaxsiy identifikatsiya kodi (PINFL)",
+"Kadastr hujjati identifikatori va mulk joylashgan manzilning rasmiy kodi",
 "Soliq to‘lovchining identifikatsiya raqami (STIR)",
-"Bank hisobraqamining yagona kodi"
+"Bank hisobraqamining yagona kodi va xizmat ko‘rsatuvchi bank filialining raqami"
 ],
 "c": 2,
 "w": "STIR — soliq to‘lovchi raqami.",
@@ -2202,9 +2202,9 @@ export const BANK = [
 "q": "Ustav fondi nima?",
 "o": [
 "Yuridik shaxsning ta’sischilar kiritgan mulk yoki pul hissalaridan tashkil topgan dastlabki kapitali",
-"Bank tomonidan yuridik shaxsga berilgan kredit limiti",
-"Yuridik shaxsning yil yakuni bo‘yicha taqsimlanadigan sof foydasi",
-"Davlat byudjetidan yuridik shaxsga ajratiladigan subsidiya miqdori"
+"Bank tomonidan yuridik shaxsga berilgan va hali qaytarilmagan kredit qarzining umumiy limiti",
+"Yuridik shaxsning yil yakuni bo‘yicha ta’sischilar o‘rtasida taqsimlanadigan sof foydasi",
+"Davlat byudjetidan yuridik shaxsga ajratiladigan subsidiya va moliyaviy yordam miqdori"
 ],
 "c": 0,
 "w": "Charter capital.",
@@ -2215,9 +2215,9 @@ export const BANK = [
 "q": "Xususiy korxona (XK) va MChJ o‘rtasidagi asosiy farq qaysi?",
 "o": [
 "MChJ bir yoki bir necha ta’sischi tomonidan tashkil etilib, javobgarlik hissa doirasida cheklanadi",
-"MChJ faqat xorijiy kapital bilan tashkil etiladi",
-"MChJ davlat mulki bo‘lib, ta’sischilar bo‘lmaydi",
-"MChJ faqat bitta jismoniy shaxsga tegishli bo‘lib, mulkiy javobgarlik cheksizdir"
+"MChJ faqat xorijiy kapital bilan tashkil etilib, mahalliy fuqarolar ishtirok etishi qonun bilan taqiqlanadi",
+"MChJ davlat mulki bo‘lib, ta’sischilar bo‘lmaydi hamda faoliyat byudjet mablag‘i hisobidan olib boriladi",
+"MChJ faqat bitta jismoniy shaxsga tegishli bo‘lib, mulkiy javobgarlik cheksiz va butun mol-mulk bilan bo‘ladi"
 ],
 "c": 0,
 "w": "MChJ — cheklangan javobgarlik.",
@@ -2241,9 +2241,9 @@ export const BANK = [
 "q": "Elektron raqamli imzo (ERI) nima?",
 "o": [
 "Qo‘lyozma imzoning huquqiy ekvivalenti bo‘lgan, elektron hujjatlarni tasdiqlovchi kalit",
-"Telefon raqamiga yuboriladigan bir martalik SMS kod",
-"Faqat bank kartasining maxfiy raqamlar kombinatsiyasi",
-"Hujjatning rasmga olingan nusxasi"
+"Telefon raqamiga yuboriladigan bir martalik SMS kod bo‘lib, faqat to‘lovni tasdiqlash uchun ishlatiladi",
+"Faqat bank kartasining maxfiy raqamlar kombinatsiyasi bo‘lib, hujjatni tasdiqlash vazifasini bajarmaydi",
+"Hujjatning rasmga olingan nusxasi bo‘lib, uni elektron shaklda saqlash va uzatish imkonini beradi"
 ],
 "c": 0,
 "w": "ERI — hujjatni tasdiqlash vositasi.",
@@ -2253,10 +2253,10 @@ export const BANK = [
 "t": 4,
 "q": "ERI kalitini boshqa shaxsga berish nega xavfli?",
 "o": [
-"Kalit boshqa shaxsga berilsa, u avtomatik ravishda bekor bo‘ladi",
+"Kalit boshqa shaxsga berilsa, u avtomatik ravishda bekor bo‘ladi va egasining huquqlari saqlanib qoladi",
 "Kalit egasi nomidan hujjat imzolanib, huquqiy javobgarlik egasiga tushishi mumkin",
-"Kalitni berish soliq imtiyozlarini oshiradi",
-"Kalit faqat bir marta ishlatilishi mumkin va qayta ishlamaydi"
+"Kalitni berish soliq imtiyozlarini oshirib, tadbirkorning hisobot topshirish majburiyatini kamaytiradi",
+"Kalit faqat bir marta ishlatilishi mumkin va qayta ishlamaydi, shuning uchun xavf yo‘q"
 ],
 "c": 1,
 "w": "ERI — shaxsiy va maxfiy.",
@@ -2279,10 +2279,10 @@ export const BANK = [
 "t": 4,
 "q": "Davlat ro‘yxatidan o‘tish bosqichlariga odatda qaysi ketma-ketlik mos keladi?",
 "o": [
-"Bank krediti olish, so‘ngra ro‘yxatdan o‘tish haqida o‘ylash",
+"Bank krediti olish, so‘ngra ro‘yxatdan o‘tish haqida o‘ylash va hujjatlarni to‘plash tartibi",
 "Faoliyat shaklini tanlash, ariza va hujjat topshirish, ro‘yxatdan o‘tganlik guvohnomasi/ma’lumotini olish, hisobga qo‘yilish",
-"Mahsulot sotishni boshlash, so‘ngra faoliyat shaklini tanlash va hujjat topshirish",
-"Soliq hisoboti topshirish, so‘ngra davlat ro‘yxatidan o‘tish"
+"Mahsulot sotishni boshlash, so‘ngra faoliyat shaklini tanlash va hujjatlarni keyinroq topshirish tartibi",
+"Soliq hisoboti topshirish, so‘ngra davlat ro‘yxatidan o‘tish va hisobga qo‘yilish tartibi"
 ],
 "c": 1,
 "w": "Rasmiylashtirish bosqichlari.",
@@ -2292,10 +2292,10 @@ export const BANK = [
 "t": 4,
 "q": "Faoliyat turini (IFUT kodi) tanlash nima uchun muhim?",
 "o": [
-"U faqat mahsulot rangi va qadoqlash turini belgilaydi",
-"U tadbirkorning shaxsiy yashash manzilini aniqlaydi",
+"U faqat mahsulotning rangi va qadoqlash turini belgilab, soliq va litsenziya talablariga ta’sir qilmaydi",
+"U tadbirkorning shaxsiy yashash manzilini aniqlab, faqat pochta xabarlarini yuborish uchun ishlatiladi",
 "U tadbirkor qaysi turdagi faoliyat bilan shug‘ullanishini rasman belgilab, soliq va litsenziya talablariga ta’sir qiladi",
-"U faqat xodimlar sonini ko‘rsatadi"
+"U faqat xodimlar sonini ko‘rsatib, soliq rejimi va hisobot shakliga hech qanday ta’sir qilmaydi"
 ],
 "c": 2,
 "w": "Faoliyat turi — huquqiy asos.",
@@ -2305,10 +2305,10 @@ export const BANK = [
 "t": 4,
 "q": "Litsenziya qanday hujjat?",
 "o": [
-"Har qanday tadbirkor avtomatik oladigan va yangilanmaydigan hujjat",
+"Har qanday tadbirkor avtomatik oladigan, yangilanmaydigan va barcha faoliyat turlari uchun yagona hujjat",
 "Yuqori xavfli yoki alohida tartibga solinadigan faoliyat uchun maxsus davlat organi beradigan ruxsat hujjati",
-"Faqat xorijiy kompaniyalarga beriladigan savdo shartnomasi",
-"Mahsulotning reklama qilinishiga ruxsat beruvchi izoh"
+"Faqat xorijiy kompaniyalarga beriladigan savdo shartnomasi bo‘lib, mahalliy faoliyatga tegishli emas",
+"Mahsulotning reklama qilinishiga ruxsat beruvchi izoh bo‘lib, faoliyat turini tartibga solmaydi"
 ],
 "c": 1,
 "w": "License — maxsus ruxsat.",
@@ -2332,9 +2332,9 @@ export const BANK = [
 "q": "Ruxsatnoma (permit) va litsenziya o‘rtasidagi mantiqiy farq nimada?",
 "o": [
 "Ruxsatnoma faoliyat turining o‘zi uchun, litsenziya esa bir martalik harakat uchun beriladi",
-"Ruxsatnoma faqat xorijiy kompaniyalarga beriladi",
+"Ruxsatnoma faqat xorijiy kompaniyalarga beriladi, litsenziya esa faqat jismoniy shaxslarga",
 "Litsenziya faoliyat turining o‘zi uchun, ruxsatnoma esa muayyan harakat yoki ob’ekt uchun beriladi",
-"Ular bir xil hujjat bo‘lib, faqat rangi bilan farqlanadi"
+"Ular bir xil hujjat bo‘lib, faqat rangi va berilish joyi bilan bir-biridan farqlanadi"
 ],
 "c": 2,
 "w": "Faoliyat vs ob’ekt.",
@@ -2357,10 +2357,10 @@ export const BANK = [
 "t": 4,
 "q": "Shartnomaning predmeti nima?",
 "o": [
-"Shartnomaga imzo chekkan guvohlar soni",
-"Shartnoma tuzilgan shahar va uning aholisi soni",
+"Shartnomaga imzo chekkan guvohlar soni va ularning shaxsiy ma’lumotlari hamda ishonchnomalari",
+"Shartnoma tuzilgan shahar, uning aholisi soni va shartnoma imzolangan bino hamda manzil to‘g‘risidagi ma’lumot",
 "Tomonlar nima bo‘yicha kelishgani: tovar, ish yoki xizmatning turi, miqdori va sifati",
-"Tomonlarning shaxsiy manfaatlari va xohish-istaklari"
+"Tomonlarning shaxsiy manfaatlari, xohish-istaklari va kelgusidagi hamkorlikka bo‘lgan umumiy munosabati"
 ],
 "c": 2,
 "w": "Predmet — aniq bo‘lishi kerak.",
@@ -2383,9 +2383,9 @@ export const BANK = [
 "t": 4,
 "q": "Shartnoma tuzishda tomonlarning rekvizitlari nima uchun yoziladi?",
 "o": [
-"Shartnomani avtomatik ravishda bekor qilish uchun",
-"Soliq stavkasini kamaytirish uchun",
-"Shartnomani chiroyli qilib, hajmini oshirish uchun",
+"Shartnomani istalgan paytda avtomatik ravishda bekor qilish va majburiyatlardan chiqish imkonini berish uchun",
+"Soliq stavkasini kamaytirish va hisobotda tushumni kamroq ko‘rsatishga huquqiy asos yaratish uchun",
+"Shartnomani chiroyli ko‘rsatib, hujjat hajmini oshirish va unga ko‘proq rasmiy tus berish uchun",
 "Tomonlarni aniq identifikatsiya qilish va ularga to‘lov hamda murojaat qilish imkonini berish uchun"
 ],
 "c": 3,
@@ -2396,9 +2396,9 @@ export const BANK = [
 "t": 4,
 "q": "Shartnomada javobgarlik bandi nimani belgilaydi?",
 "o": [
-"Mahsulotning rangi va qadoqlanish usulini",
-"Tomonlarning ismlari va telefon raqamlarini",
-"Shartnoma imzolangan kunning ob-havosini",
+"Mahsulotning rangi, shakli va qadoqlanish usulini hamda yetkazib berish transportini",
+"Tomonlarning ismlari, telefon raqamlari va ularning manzillarini hamda aloqa vositalarini",
+"Shartnoma imzolangan kunning sanasi va joyini hamda hujjatning nusxalari sonini",
 "Majburiyat buzilganda tomonlarning qanday oqibatlarga (jarima, penya, zararni qoplash) duch kelishini"
 ],
 "c": 3,
@@ -2409,9 +2409,9 @@ export const BANK = [
 "t": 4,
 "q": "Nizolarni hal etish tartibini shartnomada oldindan belgilash nima uchun foydali?",
 "o": [
-"Sud orqali murojaat qilishni butunlay taqiqlaydi",
-"Shartnoma soliq to‘lashdan ozod qilinishiga olib keladi",
-"Nizo bo‘lishi mumkin emasligini kafolatlaydi",
+"Sud orqali murojaat qilish huquqini butunlay taqiqlaydi va nizoni faqat og‘zaki hal qilishni majbur qiladi",
+"Shartnoma bo‘yicha soliq to‘lashdan ozod qilinishiga va hisobotlar topshirmaslikka olib keladi",
+"Nizo bo‘lishi mumkin emasligini kafolatlaydi va tomonlarning kelishmovchiligini butunlay bartaraf etadi",
 "Kelishmovchilik yuz berganda qaysi yo‘l (muzokara, sud, arbitraj) bilan hal qilinishi oldindan ma’lum bo‘ladi"
 ],
 "c": 3,
@@ -2422,10 +2422,10 @@ export const BANK = [
 "t": 4,
 "q": "Maxfiylik shartnomasi (NDA) nimani tartibga soladi?",
 "o": [
-"Soliq stavkalarini belgilashni",
-"Xodimlarning ish vaqti va dam olish kunlarini",
+"Soliq stavkalarini belgilash va hisobotlarni topshirish muddatlarini kelishib olishni",
+"Xodimlarning ish vaqti, dam olish kunlari va ta’til tartibini belgilovchi qoidalarni",
 "Maxfiy ma’lumotni oshkor qilmaslik bo‘yicha tomonlarning majburiyatlarini",
-"Mahsulot narxining oshirilishi va tushumning taqsimlanishini"
+"Mahsulot narxining oshirilishi va tushumning tomonlar o‘rtasida taqsimlanishi tartibini"
 ],
 "c": 2,
 "w": "NDA.",
@@ -2475,9 +2475,9 @@ export const BANK = [
 "q": "Mualliflik huquqi odatda qaysi ob’ektni himoya qiladi?",
 "o": [
 "Adabiy, badiiy, dasturiy asarlar kabi ijodiy mahsulotlarni",
-"Faqat ishlab chiqarish texnologiyasini",
-"Faqat tovarning tashqi qadog‘ini",
-"Faqat brend nomi va savdo belgisini"
+"Faqat ishlab chiqarish texnologiyasi va texnik yechimlarni himoya qiladi, ijodiy asarlarni emas",
+"Faqat tovarning tashqi qadog‘i va uning dizaynini himoya qiladi, boshqa narsani emas",
+"Faqat brend nomi va savdo belgisini hamda ularning rangi va shaklini himoya qiladi"
 ],
 "c": 0,
 "w": "Copyright.",
@@ -2488,9 +2488,9 @@ export const BANK = [
 "q": "Brend nomini ro‘yxatdan o‘tkazmagan tadbirkor qanday xavfga duch keladi?",
 "o": [
 "Boshqa shaxs o‘xshash nomni ro‘yxatdan o‘tkazib, undan foydalanishni taqiqlashi mumkin",
-"Brend nomi darhol barcha mijozlar uchun bepul bo‘ladi",
-"Brend avtomatik ravishda davlat mulkiga o‘tadi",
-"Hech qanday xavf yo‘q, chunki nom doimo kimga ishlatilsa shunga tegishli"
+"Brend nomi darhol barcha mijozlar uchun bepul bo‘lib, har kim undan erkin foydalanishi mumkin bo‘ladi",
+"Brend avtomatik ravishda davlat mulkiga o‘tib, tadbirkor undan foydalanish huquqini yo‘qotadi",
+"Hech qanday xavf yo‘q, chunki nomga huquq doimo uni birinchi ishlatgan shaxsga tegishli bo‘ladi"
 ],
 "c": 0,
 "w": "Brendni himoya qilish.",
@@ -2500,10 +2500,10 @@ export const BANK = [
 "t": 4,
 "q": "Franshiza beruvchi (franchisor) franshiza oluvchiga nimani taqdim etadi?",
 "o": [
-"Faqat mahsulot namunalarini, boshqa hech narsasiz",
-"O‘z kompaniyasining barcha aksiyalarini bepul",
+"Faqat mahsulot namunalarini va reklama materiallarini, boshqa hech qanday huquq yoki yordamsiz",
+"O‘z kompaniyasining barcha aksiyalarini bepul berib, boshqaruv huquqini ham to‘liq topshiradi",
 "Brend, biznes-jarayon va qo‘llab-quvvatlashdan haq evaziga foydalanish huquqini",
-"Davlat litsenziyasini va soliq imtiyozlarini"
+"Davlat litsenziyasini va soliq imtiyozlarini, shuningdek, hisobot topshirishdan ozod qilishni"
 ],
 "c": 2,
 "w": "Franchise.",
@@ -2513,10 +2513,10 @@ export const BANK = [
 "t": 4,
 "q": "Royalti nima?",
 "o": [
-"Bank kreditiga hisoblanadigan foiz",
-"Davlatga to‘lanadigan majburiy jarima",
+"Bank kreditiga hisoblanadigan foiz va kredit xizmati uchun olinadigan muntazam komissiya",
+"Qonun buzilganda davlat tomonidan undiriladigan majburiy jarima yoki unga teng bo‘lgan to‘lov",
 "Franshiza oluvchi yoki litsenziat tomonidan brend va tizimdan foydalanganlik uchun muntazam to‘lanadigan haq",
-"Xodimlarga to‘lanadigan yillik mukofot"
+"Xodimlarga yil yakuni bo‘yicha to‘lanadigan mukofot yoki ularning ish haqiga qo‘shimcha to‘lov"
 ],
 "c": 2,
 "w": "Royalty.",
@@ -2526,9 +2526,9 @@ export const BANK = [
 "t": 4,
 "q": "Nega biznes va shaxsiy mablag‘larni aralashtirmaslik muhim?",
 "o": [
-"Aralashtirish kredit foizini nolga tushiradi",
-"Aralashtirish bank hisobraqamini darhol yopadi",
-"Aralashtirish soliq stavkasini avtomatik pasaytiradi",
+"Aralashtirish kredit foizini nolga tushiradi va bank kredit berishni osonlashtiradi",
+"Aralashtirish bank hisobraqamini darhol yopishga olib keladi va tadbirkor faoliyatini to‘xtatadi",
+"Aralashtirish soliq stavkasini avtomatik pasaytirib, tadbirkorning soliq yukini sezilarli kamaytiradi",
 "Soliq tekshiruvida savol tug‘iladi, haqiqiy xarajat va foydani hisoblash qiyinlashadi hamda mulkiy xavf ortadi"
 ],
 "c": 3,
@@ -2539,10 +2539,10 @@ export const BANK = [
 "t": 4,
 "q": "Ikki hamkor ta’sis hujjatlarini shoshilinch tayyorladi, ulush, dividend va biznesdan chiqish tartibi yozilmagan. Qaysi xavf paydo bo‘ladi?",
 "o": [
-"Mijozlar soni avtomatik ortishi",
-"Soliq to‘lash majburiyati bekor bo‘lishi",
+"Mijozlar soni avtomatik ortib, sotuv hajmi oshishi hamda biznes tez rivojlanishi",
+"Soliq to‘lash majburiyati bekor bo‘lishi va tadbirkorlar hisobot topshirishdan ozod etilishi",
 "Ta’sischilar o‘rtasida ulush, dividend va chiqish bo‘yicha nizolar kelib chiqishi",
-"Kredit foizi kamayishi"
+"Kredit foizi kamayib, banklar imtiyozli shartlar taklif qilishi va garov talab qilmasligi"
 ],
 "c": 2,
 "w": "Hamkorlik shartlarini oldindan yozish.",
@@ -2566,9 +2566,9 @@ export const BANK = [
 "q": "Ro‘yxatdan o‘tgandan keyin tadbirkorning majburiyatlariga qaysi biri kiradi?",
 "o": [
 "Soliq hisobotini topshirish, soliqlarni to‘lash va birlamchi hujjatlarni yuritish",
-"Hisobotlarni faqat so‘ralgandagina yozish",
-"Faoliyat to‘g‘risida hech kimga ma’lumot bermaslik",
-"Barcha daromadni davlatga topshirish"
+"Hisobotlarni faqat soliq organi so‘ragandagina yozib, boshqa vaqt hujjat yuritmaslik",
+"Faoliyat to‘g‘risida hech kimga ma’lumot bermaslik va hisobotlarni umuman topshirmaslik",
+"Barcha daromadni davlatga topshirish va tadbirkorning o‘ziga hech narsa qoldirmaslik majburiyati"
 ],
 "c": 0,
 "w": "Rasmiy majburiyatlar.",
@@ -2578,10 +2578,10 @@ export const BANK = [
 "t": 4,
 "q": "Tadbirkor tomonidan eng ko‘p uchraydigan tizimli xato qaysi?",
 "o": [
-"Soliqlarni to‘liq va o‘z vaqtida to‘lash",
+"Soliqlarni to‘liq va o‘z vaqtida to‘lab, barcha operatsiyalarni hujjat bilan tasdiqlab borish",
 "Hujjatlarni va xarajatlarni yuritmaslik hamda hisobot muddatlarini o‘tkazib yuborish",
-"Hisobotlarni muddatidan oldin topshirish",
-"Barcha hujjatlarni o‘z vaqtida tayyorlash va saqlash"
+"Hisobotlarni muddatidan ancha oldin topshirib, hujjatlarni tartibli yuritish va nazorat qilish",
+"Barcha hujjatlarni o‘z vaqtida tayyorlab, ularni muntazam saqlash va hisobot muddatiga rioya qilish"
 ],
 "c": 1,
 "w": "Compliance xatolari.",
@@ -2592,9 +2592,9 @@ export const BANK = [
 "q": "«Yagona darcha» (single window) tamoyilining mohiyati nima?",
 "o": [
 "Tadbirkor ko‘p idoralarga alohida murojaat qilmasdan, bitta joyda yoki platformada xizmatlarni olishi",
-"Barcha xizmatlar faqat bitta bank orqali amalga oshirilishi",
-"Xizmatlar faqat bitta kunda ko‘rsatilishi va keyingi kuni to‘xtatilishi",
-"Xizmatlarni faqat bitta mijoz uchun yuritilishi"
+"Barcha xizmatlar faqat bitta bank orqali amalga oshirilib, boshqa kanallar yopiq bo‘lishi",
+"Xizmatlar faqat bitta kunda ko‘rsatilib, keyingi kuni to‘xtatilishi va qayta ochilmasligi",
+"Xizmatlarning faqat bitta mijoz uchun yuritilishi va boshqa tadbirkorlarga ko‘rsatilmasligi"
 ],
 "c": 0,
 "w": "One-stop shop.",
@@ -2604,10 +2604,10 @@ export const BANK = [
 "t": 4,
 "q": "my.soliq.uz platformasi tadbirkorga nimalar uchun kerak?",
 "o": [
-"Faqat ijtimoiy tarmoqdagi reklamani joylash uchun",
-"Faqat xodimlarning ta’tilini rasmiylashtirish uchun",
+"Ijtimoiy tarmoqlarda reklama joylash, mijozlar bilan yozishish va mahsulotni targ‘ib qilish uchun",
+"Xodimlarning ta’tilini rasmiylashtirish, ish vaqtini hisoblash va mehnat daftarchalarini yuritish uchun",
 "Soliq hisobotini topshirish, qarzdorlikni ko‘rish va soliq rejimini boshqarish uchun",
-"Faqat mahsulot rasmlarini saqlash uchun"
+"Mahsulot rasmlarini saqlash, katalog yuritish va mijozlarga katalogni yuborish uchun"
 ],
 "c": 2,
 "w": "Soliq kabineti.",
@@ -2618,9 +2618,9 @@ export const BANK = [
 "q": "Tashkiliy-huquqiy shakl tanlashda eng muhim mezonlardan biri qaysi?",
 "o": [
 "Mulkiy javobgarlik darajasi, ta’sischilar soni, soliq yuki va kelajakdagi kengayish rejasi",
-"Faqat birinchi ko‘rgan shaklni tasodifan tanlash",
-"Faqat do‘stning shu shaklni tanlagani",
-"Faqat tadbirkorning sevimli rangi va ofis dizayni"
+"Birinchi ko‘ringan shaklni tasodifan tanlash va qolgan mezonlarni hisobga olmasdan qaror qilish",
+"Do‘stining shu shaklni tanlagani hamda tanish yuristning shaxsiy odati va afzalligi",
+"Tadbirkorning sevimli rangi, ofis dizayni va brendning tashqi ko‘rinishi hamda tanishlarining fikri"
 ],
 "c": 0,
 "w": "Shakl tanlash mezonlari.",
@@ -2630,10 +2630,10 @@ export const BANK = [
 "t": 4,
 "q": "Mehnat shartnomasi tuzmasdan xodim yollash qanday oqibatga olib kelishi mumkin?",
 "o": [
-"Soliq to‘lovlari avtomatik kamayishi",
-"Xodim ish haqisiz ishlashga majbur bo‘lishi va bu qonuniy hisoblanishi",
+"Soliq to‘lovlari avtomatik kamayishi va xodimga ijtimoiy kafolatlar kengayishi",
+"Xodim ish haqisiz ishlashga majbur bo‘lishi va bu holat qonuniy hisoblanishi hamda jazolanmasligi",
 "Huquqiy nizolar, jarima va xodim huquqlarining himoyasiz qolishi",
-"Hech qanday oqibat bo‘lmasligi"
+"Hech qanday oqibat bo‘lmasligi, chunki mehnat munosabatlari norasmiy ham himoyalangan bo‘ladi"
 ],
 "c": 2,
 "w": "Rasmiy mehnat munosabatlari.",
@@ -2643,10 +2643,10 @@ export const BANK = [
 "t": 4,
 "q": "Yuridik manzil nima uchun kerak?",
 "o": [
-"Faqat direktor yashash manzili sifatida",
-"Faqat reklama taxtasi o‘rnatiladigan joy sifatida",
+"Faqat direktor yashash manzili sifatida, ish haqi to‘lovlari va xatlar uchun",
+"Faqat reklama taxtasi o‘rnatiladigan va mijozlar kelishi mumkin bo‘lgan joy sifatida",
 "Yuridik shaxsning rasmiy joylashgan joyi bo‘lib, hujjat va xabarlar shu manzilga yuboriladi",
-"Faqat mahsulot omborining manzili sifatida"
+"Faqat mahsulot omborining manzili sifatida, uni yetkazib berish va saqlash uchun"
 ],
 "c": 2,
 "w": "Legal address.",
@@ -2657,9 +2657,9 @@ export const BANK = [
 "q": "Raqamli ro‘yxatdan o‘tish xizmatlarida to‘lov qanday amalga oshirilishi mumkin?",
 "o": [
 "Onlayn, yagona to‘lov (masalan, QR-kod) orqali",
-"To‘lov mutlaqo mavjud emas",
-"Faqat xorijiy valyutada",
-"Faqat naqd pulda va shaxsan kassaga"
+"To‘lov talab qilinmaydi, chunki barcha ro‘yxatdan o‘tish xizmatlari butunlay bepul ko‘rsatiladi",
+"Faqat xorijiy valyutada, bank o‘tkazmasi orqali va oldindan kelishilgan kurs bilan",
+"Faqat naqd pulda va shaxsan kassaga kelib, chek olish orqali amalga oshiriladi"
 ],
 "c": 0,
 "w": "Digital payments.",
@@ -2669,9 +2669,9 @@ export const BANK = [
 "t": 4,
 "q": "Biznes nomini tanlashda nimaga e’tibor berish kerak?",
 "o": [
-"Nom juda uzun va murakkab bo‘lishiga",
-"Nom faqat chet tilida bo‘lishiga",
-"Nom iloji boricha mashhur kompaniyanikiga o‘xshash bo‘lishiga",
+"Nom juda uzun, murakkab va eslab qolish qiyin bo‘lishiga, shunda u noyob ko‘rinadi",
+"Nom faqat chet tilida bo‘lishiga, shunda u mahalliy raqobatchilardan farqlanadi va ishonch uyg‘otadi",
+"Nom iloji boricha mashhur kompaniyanikiga o‘xshash bo‘lishiga, shunda mijozlar tezroq tanib oladi",
 "Nom boshqalarnikiga o‘xshash bo‘lmasligi va keyinchalik tovar belgisi sifatida himoyalanishi mumkinligiga"
 ],
 "c": 3,
@@ -2682,10 +2682,10 @@ export const BANK = [
 "t": 4,
 "q": "Tadbirkor soliq organiga murojaat qilmasdan faoliyat yuritsa, qanday xavf mavjud?",
 "o": [
-"Soliq stavkasi avtomatik nolga tushadi",
-"Hech qanday xavf yo‘q va soliqdan to‘liq ozod bo‘ladi",
+"Soliq stavkasi avtomatik ravishda nolga tushib, tadbirkor hisobot topshirmaydigan bo‘ladi",
+"Hech qanday xavf yo‘q, chunki rasmiy ro‘yxatdan o‘tmagan tadbirkor soliqdan to‘liq ozod bo‘ladi",
 "Jarima, bank hisobraqamining to‘xtatilishi va keyingi huquqiy oqibatlar xavfi",
-"Davlat mukofot beradi"
+"Davlat norasmiy tadbirkorlarga mukofot to‘lab, ularning faoliyatini qo‘llab-quvvatlaydi"
 ],
 "c": 2,
 "w": "Norasmiy biznes xavfi.",
@@ -2695,10 +2695,10 @@ export const BANK = [
 "t": 4,
 "q": "Shartnomani og‘zaki tuzishning kamchiligi nima?",
 "o": [
-"Og‘zaki shartnoma har doim yozmaga qaraganda kuchliroq",
+"Og‘zaki shartnoma har doim yozmaga qaraganda kuchliroq bo‘lib, isbotlash talab qilinmaydi",
 "Nizo chiqqanda shartlarni isbotlash qiyin bo‘lib, tomonlar o‘rtasida noaniqlik paydo bo‘ladi",
-"Og‘zaki shartnoma qonun bilan taqiqlangan",
-"Og‘zaki shartnoma soliq stavkasini oshiradi"
+"Og‘zaki shartnoma qonun bilan taqiqlangan va uni tuzgan shaxs jarimaga tortiladi",
+"Og‘zaki shartnoma soliq stavkasini oshirib, tadbirkorning qo‘shimcha to‘lov to‘lashiga olib keladi"
 ],
 "c": 1,
 "w": "Yozma shakl — dalil.",
@@ -2708,10 +2708,10 @@ export const BANK = [
 "t": 4,
 "q": "Franshiza oluvchi sifatida biznes boshlashning afzalligi qaysi?",
 "o": [
-"Brend tanilmagan bo‘lsa ham mijozlar avtomatik kelishi",
+"Brend tanilmagan bo‘lsa ham mijozlar avtomatik kelishi va reklama xarajati talab qilinmasligi",
 "Tayyor brend, sinalgan biznes-model va qo‘llab-quvvatlash tufayli xavf nisbatan kam bo‘lishi",
-"Mustaqil qaror qabul qilish erkinligi to‘liq saqlanishi",
-"To‘lovlar umuman bo‘lmasligi va hisobot talab qilinmasligi"
+"Mustaqil qaror qabul qilish erkinligi to‘liq saqlanib, biznes-jarayonni xohlagancha o‘zgartirish mumkin bo‘lishi",
+"To‘lovlar umuman bo‘lmasligi va hisobot talab qilinmasligi hamda nazorat qilinmasligi"
 ],
 "c": 1,
 "w": "Franchise afzalligi.",
@@ -2721,9 +2721,9 @@ export const BANK = [
 "t": 4,
 "q": "Ta’sis hujjatlari (ustav) nimani belgilaydi?",
 "o": [
-"Reklama roliklarining mazmunini",
-"Xodimlarning kunlik ish rejasini",
-"Mahsulotning sotuv narxi va chegirmalarini",
+"Reklama roliklarining mazmuni va ularni tarqatish kanallarini hamda reklama xarajatlari miqdorini",
+"Xodimlarning kunlik ish rejasi, ish vaqti va dam olish tartibini hamda jarimalar jadvalini",
+"Mahsulotning sotuv narxi, chegirmalar va to‘lov shartlarini hamda mijozlar bilan hisob-kitob tartibini",
 "Yuridik shaxsning faoliyat maqsadi, boshqaruv tartibi, ta’sischilar huquq va majburiyatlarini"
 ],
 "c": 3,
@@ -2735,9 +2735,9 @@ export const BANK = [
 "q": "Hujjat almashinuvida elektron shaklning afzalligi qaysi?",
 "o": [
 "Tezlik, arzonlik va tekshirish imkoniyati hamda saqlash qulayligi",
-"Faqat bir marta ishlatish mumkinligi",
-"Faqat yirik kompaniyalar uchun mavjudligi",
-"Hujjatning huquqiy kuchi yo‘qligi"
+"Faqat bir marta ishlatish mumkinligi va qayta tekshirishning imkonsizligi",
+"Faqat yirik kompaniyalar uchun mavjudligi va kichik tadbirkorlarga ruxsat etilmasligi",
+"Hujjatning huquqiy kuchi yo‘qligi va uni faqat tanishuv uchun ishlatish mumkinligi"
 ],
 "c": 0,
 "w": "Digitalization.",
@@ -2747,10 +2747,10 @@ export const BANK = [
 "t": 4,
 "q": "Sotuvchi va xaridor o‘rtasida oldi-sotdi shartnomasining majburiy elementi qaysi?",
 "o": [
-"Tomonlarning sevimli ranglari",
+"Tomonlarning sevimli ranglari va ularning shaxsiy odatlari hamda o‘zaro munosabat tarixi",
 "Tovarning nomi, miqdori va narxi hamda yetkazish va to‘lov shartlari",
-"Shartnoma imzolangan kunning ob-havosi",
-"Tomonlarning ota-onasi ismlari"
+"Shartnoma imzolangan kunning ob-havosi va imzolash joyining manzili hamda guvohlar soni",
+"Tomonlarning ota-onasi ismlari va tug‘ilgan joylari hamda oilaviy ahvoli haqida ma’lumot"
 ],
 "c": 1,
 "w": "Oldi-sotdi.",
@@ -2760,10 +2760,10 @@ export const BANK = [
 "t": 4,
 "q": "Intellektual mulkni himoya qilmaslik qaysi xavfni keltirib chiqaradi?",
 "o": [
-"Mahsulot narxi avtomatik oshishi",
+"Mahsulot narxi avtomatik ravishda oshib, tadbirkorning daromadi kafolatlangan holda ko‘payishi",
 "Boshqalar g‘oya, nom yoki mahsulotdan ruxsatsiz foydalanib, tadbirkorning qiymati pasayishi",
-"Soliq stavkasi nolga tushishi",
-"Mijozlar soni cheksiz ortishi"
+"Soliq stavkasi nolga tushib, tadbirkor barcha soliqlardan ozod bo‘lishi hamda imtiyoz olishi",
+"Mijozlar soni cheksiz ortib, raqobatchilar bozordan butunlay chiqib ketishi hamda tanqislik"
 ],
 "c": 1,
 "w": "IP protection.",
@@ -2774,9 +2774,9 @@ export const BANK = [
 "q": "Shaxsiy kartaga mijozlardan to‘lov qabul qilishning xavfi nimada?",
 "o": [
 "Daromadni biznes daromadidan ajratish qiyinlashadi va soliq hamda bank nuqtayi nazaridan shubha tug‘iladi",
-"Soliq avtomatik ravishda kamayadi",
-"Hech qanday xavf yo‘q va bu eng qulay yo‘l hisoblanadi",
-"Kredit foizi nolga tushadi"
+"Soliq avtomatik ravishda kamayib, tadbirkor hisobot topshirishdan ozod bo‘lib qoladi hamda tekshirilmaydi",
+"Hech qanday xavf yo‘q va bu hamma tadbirkorlar uchun eng qulay hamda eng xavfsiz yo‘l hisoblanadi",
+"Kredit foizi nolga tushib, bank tadbirkorga imtiyozli shartlarda qo‘shimcha kredit taklif qiladi"
 ],
 "c": 0,
 "w": "Hisobraqamlarni ajratish.",
@@ -2787,9 +2787,9 @@ export const BANK = [
 "q": "Tadbirkorlik faoliyatini tugatish (likvidatsiya) nima uchun tartib bilan amalga oshirilishi kerak?",
 "o": [
 "Qarzlar, soliqlar va majburiyatlar hal etilmasa, javobgarlik saqlanib qoladi",
-"Tugatish hech qanday hujjat talab qilmaydi",
-"Tugatish faqat xorijiy tadbirkorlar uchun talab qilinadi",
-"Tugatilgach barcha qarzlar avtomatik bekor bo‘ladi"
+"Tugatish hech qanday hujjat talab qilmaydi va tadbirkor faoliyatni istalgan paytda to‘xtata oladi",
+"Tugatish faqat xorijiy tadbirkorlar uchun talab qilinadi, mahalliylar uchun esa shart emas",
+"Tugatilgach barcha qarzlar avtomatik bekor bo‘ladi va soliq majburiyatlari ham yo‘qoladi"
 ],
 "c": 0,
 "w": "Rasmiy tugatish.",
@@ -2800,9 +2800,9 @@ export const BANK = [
 "q": "Kompaniya nomi bilan tovar belgisi o‘rtasidagi farq nimada?",
 "o": [
 "Kompaniya nomi yuridik shaxsni ko‘rsatadi, tovar belgisi esa mahsulot yoki xizmatni ajratib turadi",
-"Ular mutlaqo bir xil tushuncha bo‘lib, farq yo‘q",
-"Tovar belgisi faqat kompaniya direktorining ismi bo‘lishi mumkin",
-"Kompaniya nomi faqat chet tilida bo‘ladi"
+"Ular mutlaqo bir xil tushuncha bo‘lib, ular o‘rtasida huquqiy jihatdan hech qanday farq yo‘q",
+"Tovar belgisi faqat kompaniya direktorining ismi bo‘lishi mumkin, kompaniya nomi esa logotipdir",
+"Kompaniya nomi faqat chet tilida bo‘lib, tovar belgisi esa faqat davlat tilida bo‘ladi"
 ],
 "c": 0,
 "w": "Firma nomi va savdo belgisi.",
@@ -2813,9 +2813,9 @@ export const BANK = [
 "q": "Elektron hujjat aylanishida ERI nima vazifani bajaradi?",
 "o": [
 "Hujjat muallifini tasdiqlab, uning o‘zgartirilmaganligini kafolatlaydi",
-"Hujjatning hajmini kamaytiradi",
-"Hujjatni bepul chop etadi",
-"Hujjatni avtomatik tarjima qiladi"
+"Hujjatning hajmini kamaytirib, uni siqadi va saqlash joyini tejaydi hamda tezlashtiradi",
+"Hujjatni bepul chop etib, uni qog‘ozga ko‘chiradi va nusxalaydi hamda tarqatadi",
+"Hujjatni avtomatik tarjima qiladi va uni boshqa tilga o‘giradi hamda tahrir qiladi"
 ],
 "c": 0,
 "w": "Authentication + integrity.",
@@ -2825,10 +2825,10 @@ export const BANK = [
 "t": 4,
 "q": "Sub’ekt ro‘yxatdan o‘tgach, birinchi navbatda qaysi amalni bajarish tavsiya etiladi?",
 "o": [
-"Xodimlarni rasmiylashtirmasdan ishga olish",
+"Xodimlarni rasmiylashtirmasdan ishga olib, soliq to‘lovlarini kamaytirishga harakat qilish",
 "Bank hisobraqami ochish va soliq rejimini to‘g‘ri tanlash hamda hujjat yuritishni boshlash",
-"Barcha pulni naqd shaklda uyda saqlash",
-"Hisobot topshirishni keyingi yilgacha kechiktirish"
+"Barcha pulni naqd shaklda uyda saqlab, bank hisobraqami ochmaslik va hisobni yuritmaslik",
+"Hisobot topshirishni keyingi yilgacha kechiktirib, hujjatlarni to‘plash bilan shug‘ullanmaslik"
 ],
 "c": 1,
 "w": "Birinchi qadamlar.",
@@ -2838,9 +2838,9 @@ export const BANK = [
 "t": 4,
 "q": "Mijoz bilan to‘lov kechiktirilgan taqdirda shartnoma qaysi himoyani beradi?",
 "o": [
-"Mijozga qo‘shimcha chegirma berishni",
-"Tadbirkorni soliqdan ozod qilishni",
-"To‘lovni avtomatik bekor qilishni",
+"Mijozga qo‘shimcha chegirma berish va to‘lov muddatini cheksiz uzaytirish imkonini",
+"Tadbirkorni soliq majburiyatidan ozod qilish va hisobot topshirishdan chetlatish imkonini",
+"To‘lovni avtomatik bekor qilish va mijozdan hech qanday talab qo‘ymaslik imkonini",
 "Penya yoki jarima undirish va sud orqali talab qilish imkonini"
 ],
 "c": 3,
@@ -2852,9 +2852,9 @@ export const BANK = [
 "q": "Qaysi biri tadbirkorlik subyektini rasmiylashtirmaslikning kamchiligi?",
 "o": [
 "Bank krediti, davlat qo‘llab-quvvatlash va yirik hamkorlar bilan shartnoma imkoniyatlaridan mahrum bo‘lish",
-"Soliq to‘lash majburiyati kamayishi va imtiyozlar oshishi",
-"Mijozlar ishonchi oshishi",
-"Kreditni osonroq olish"
+"Soliq to‘lash majburiyati kamayishi, imtiyozlar oshishi va nazorat butunlay to‘xtashi",
+"Mijozlar ishonchi oshishi va yirik hamkorlar bilan tez shartnoma tuzish imkoni paydo bo‘lishi",
+"Kreditni osonroq olish va bank bilan yaxshi munosabat o‘rnatish hamda foiz pasayishi"
 ],
 "c": 0,
 "w": "Rasmiylashtirmaslik.",
@@ -2864,9 +2864,9 @@ export const BANK = [
 "t": 4,
 "q": "Hamkor bilan ulush taqsimotini yozma belgilashning ma’nosi nima?",
 "o": [
-"Ulushni soliq organidan yashirish",
-"Hamkorni ishdan olish huquqini cheklash",
-"Hamkorlikni abadiy qilib, hech qachon o‘zgartirib bo‘lmasligi",
+"Ulushni soliq organidan yashirish va daromadni kamroq ko‘rsatish imkonini yaratish",
+"Hamkorni ishdan olish huquqini cheklab, boshqaruvni faqat bir tomonga topshirish",
+"Hamkorlikni abadiy qilib, hech qachon o‘zgartirib bo‘lmasligi hamda har ikki tomonni majburlashi",
 "Kelajakdagi o‘zaro munosabat, dividend va chiqish tartibi bo‘yicha nizolarning oldini olish"
 ],
 "c": 3,
@@ -2877,9 +2877,9 @@ export const BANK = [
 "t": 4,
 "q": "Tadbirkor faoliyatini yuritishda qaysi yo‘nalish «compliance» (qonunga muvofiqlik) deb ataladi?",
 "o": [
-"Xodimlarning bayram tadbirlarini tashkil etish",
-"Mijozlar sonini ko‘paytirish",
-"Raqobatchilarning narxlariga tez moslashish",
+"Xodimlarning bayram tadbirlarini tashkil etish va jamoaviy kechalarni muntazam o‘tkazish",
+"Mijozlar sonini ko‘paytirish va sotuv hajmini oshirish hamda reklama byudjetini kengaytirish",
+"Raqobatchilarning narxlariga tez moslashib, narxni doimiy ravishda ularnikidan past ushlab turish",
 "Qonun, soliq, mehnat va litsenziya talablariga muntazam rioya qilish"
 ],
 "c": 3,
@@ -2890,10 +2890,10 @@ export const BANK = [
 "t": 4,
 "q": "Davlat xizmatlarini raqamli olishning tadbirkor uchun asosiy foydasi nima?",
 "o": [
-"Soliqlar to‘lanmasligi va hisobot talab etilmasligi",
-"Jarayon doim qog‘ozda bajarilishi",
+"Soliqlar to‘lanmasligi va hisobot talab etilmasligi hamda tadbirkor nazoratdan to‘liq chetda qolishi",
+"Jarayon doim qog‘ozda bajarilib, har bir hujjat shaxsan topshirilishi va qayta tekshirilishi",
 "Vaqt va xarajatni tejab, qog‘ozbozlikni kamaytirish va jarayonni shaffoflashtirish",
-"Xizmat faqat kechasi ko‘rsatilishi"
+"Xizmat faqat kechasi ko‘rsatilib, kunduzi ishlamasligi va navbat uzayib ketishi"
 ],
 "c": 2,
 "w": "E-government.",
@@ -2929,10 +2929,10 @@ export const BANK = [
 "t": 5,
 "q": "Soliqning tartibga soluvchi funksiyasi nimani bildiradi?",
 "o": [
-"Tadbirkorlarning shaxsiy xarajatlarini nazorat qilishni",
-"Soliq to‘lovchilar sonini cheklab, ro‘yxatni yopishni",
+"Tadbirkorlarning shaxsiy xarajatlarini nazorat qilib, ularning turmush tarzini tartibga solishni",
+"Soliq to‘lovchilar sonini cheklab, ro‘yxatni yopib qo‘yishni hamda yangilarini qabul qilmaslikni",
 "Imtiyoz va stavkalar orqali ayrim faoliyat turlarini rag‘batlantirish yoki cheklashni",
-"Faqat byudjet daromadini maksimal oshirishni"
+"Faqat byudjet daromadini maksimal oshirishni va davlat xarajatlarini qoplashni, boshqa maqsadsiz"
 ],
 "c": 2,
 "w": "Regulyativ funksiya.",
@@ -2942,10 +2942,10 @@ export const BANK = [
 "t": 5,
 "q": "Soliq bazasi nimani ko‘rsatadi?",
 "o": [
-"Soliq to‘lovchining yashash manzilini va ro‘yxat raqamini",
+"Soliq to‘lovchining yashash manzilini, ro‘yxat raqamini va aloqa ma’lumotlarini",
 "Soliq nimadan hisoblanishini: tushum, foyda, qo‘shilgan qiymat yoki mol-mulk qiymatini",
-"Soliq jarimasining eng yuqori miqdorini",
-"Soliq qaysi muddatda to‘lanishini va qaysi kunda hisobot topshirilishini"
+"Soliq jarimasining eng yuqori miqdorini va uni undirish tartibini hamda muddatlarini",
+"Soliq qaysi muddatda to‘lanishini va qaysi kunda hisobot topshirilishi lozimligini"
 ],
 "c": 1,
 "w": "Tax base.",
@@ -2955,9 +2955,9 @@ export const BANK = [
 "t": 5,
 "q": "Soliq stavkasi nima?",
 "o": [
-"Soliq to‘lovchilar ro‘yxatidagi tartib raqami",
-"Soliq organining ish vaqti",
-"Soliq hisobotining shakli va hajmi",
+"Soliq to‘lovchilar ro‘yxatidagi tartib raqami va uning ro‘yxatga olingan sanasi",
+"Soliq organining ish vaqti va tadbirkorlarni qabul qilish tartibi hamda jadvali",
+"Soliq hisobotining shakli, hajmi va unga ilova qilinadigan hujjatlar ro‘yxati",
 "Soliq bazasining bir birligidan undiriladigan soliq miqdori yoki foizi"
 ],
 "c": 3,
@@ -2968,10 +2968,10 @@ export const BANK = [
 "t": 5,
 "q": "Soliq imtiyozi nimani anglatadi?",
 "o": [
-"Barcha soliq to‘lovchilar uchun soliqning oshirilishini",
-"Soliq to‘lash muddatining bekor qilinishini",
+"Barcha soliq to‘lovchilar uchun soliqning umumiy oshirilishini va stavkalarning ko‘tarilishini",
+"Soliq to‘lash muddatining butunlay bekor qilinishi va hisobotlarning topshirilmasligini",
 "Ayrim soliq to‘lovchilarga soliqni kamaytirish yoki to‘lashdan ozod qilish huquqini",
-"Soliqning faqat bank orqali to‘lanishini"
+"Soliqning faqat bank orqali to‘lanishi va boshqa usullarning taqiqlanishini"
 ],
 "c": 2,
 "w": "Tax benefit.",
@@ -2981,9 +2981,9 @@ export const BANK = [
 "t": 5,
 "q": "To‘g‘ri va egri soliqlar o‘rtasidagi farq qaysi javobda to‘g‘ri?",
 "o": [
-"Ikkalasi bir xil bo‘lib, faqat to‘lov usuli bilan bir-biridan farq qiladi",
-"To‘g‘ri soliq tovar narxiga qo‘shiladi, egri soliq esa faqat jismoniy shaxslardan olinadi",
-"To‘g‘ri soliq faqat xorijiy kompaniyalardan, egri soliq faqat mahalliylardan olinadi",
+"Ikkalasi bir xil soliq turi bo‘lib, ular o‘rtasida farq faqat to‘lov usulida bo‘ladi",
+"To‘g‘ri soliq tovar narxiga qo‘shilib, egri soliq esa faqat jismoniy shaxslardan bevosita olinadi",
+"To‘g‘ri soliq faqat xorijiy kompaniyalardan, egri soliq esa faqat mahalliy kompaniyalardan olinadi",
 "To‘g‘ri soliq daromad yoki mol-mulkdan bevosita undiriladi, egri soliq esa tovar narxiga qo‘shilib iste’molchi orqali to‘lanadi"
 ],
 "c": 3,
@@ -2994,10 +2994,10 @@ export const BANK = [
 "t": 5,
 "q": "Quyidagilardan qaysi biri egri soliq hisoblanadi?",
 "o": [
-"Yer solig‘i",
-"Jismoniy shaxslardan olinadigan daromad solig‘i",
+"Yer solig‘i, chunki u mulkdorning yer uchastkasidan bevosita undiriladi",
+"Jismoniy shaxslardan olinadigan daromad solig‘i (JShDS), chunki u bevosita daromaddan ushlanadi",
 "Qo‘shilgan qiymat solig‘i (QQS)",
-"Mol-mulk solig‘i"
+"Mol-mulk solig‘i, chunki u mulk egasidan bevosita va qiymatiga qarab undiriladi"
 ],
 "c": 2,
 "w": "VAT — egri soliq.",
@@ -3008,9 +3008,9 @@ export const BANK = [
 "q": "QQS (qo‘shilgan qiymat solig‘i)ning mohiyati nima?",
 "o": [
 "Har bir bosqichda yaratilgan qo‘shilgan qiymatdan olinib, sotuvdagi QQS bilan xariddagi QQS farqi byudjetga to‘lanadi",
-"Faqat korxona foydasining ma’lum ulushi sifatida hisoblanadi",
-"Faqat yakuniy iste’molchi to‘laydi va biznes hech qanday hisob yuritmaydi",
-"Faqat xodimlar ish haqidan ushlab qolinadi"
+"Faqat korxona foydasining ma’lum ulushi sifatida hisoblanib, xaridlarga bog‘liq bo‘lmaydi",
+"Faqat yakuniy iste’molchi to‘laydi va biznes hech qanday hisob yuritmaydi hamda hisobot topshirmaydi",
+"Faqat xodimlar ish haqidan ushlab qolinib, tovar va xizmat sotuviga hech qanday aloqasi yo‘q"
 ],
 "c": 0,
 "w": "Output VAT − input VAT.",
@@ -3020,9 +3020,9 @@ export const BANK = [
 "t": 5,
 "q": "QQS to‘lovchi korxonaning xaridda to‘lagan QQS i qanday hisobga olinadi?",
 "o": [
-"Butunlay yo‘qoladi va hech qachon qaytarilmaydi",
-"Davlatga qo‘shimcha ravishda ikki baravar to‘lanadi",
-"Faqat xodimning shaxsiy hisobiga o‘tkaziladi",
+"Butunlay yo‘qoladi va hech qachon qaytarilmaydi hamda hisobga olinmaydi",
+"Davlatga qo‘shimcha ravishda ikki baravar miqdorda to‘lanadi va jarima sifatida undiriladi",
+"Faqat xodimning shaxsiy hisobiga o‘tkazilib, korxonaga hech qanday aloqasi bo‘lmaydi",
 "Sotuvdagi QQS dan ayrilib, faqat farq byudjetga o‘tkaziladi (hisobga olish)"
 ],
 "c": 3,
@@ -3046,9 +3046,9 @@ export const BANK = [
 "t": 5,
 "q": "Nega foyda marjasi juda past bizneslarda aylanma solig‘i og‘ir bo‘lishi mumkin?",
 "o": [
-"Aylanma solig‘i faqat foyda bo‘lganda hisoblanadi",
-"Aylanma solig‘i marja past bo‘lsa avtomatik bekor bo‘ladi",
-"Aylanma solig‘i faqat xorijga sotuvdan olinadi",
+"Aylanma solig‘i faqat foyda bo‘lgandagina hisoblanadi, shuning uchun marja pastligi unga ta’sir qilmaydi",
+"Aylanma solig‘i marja past bo‘lsa avtomatik bekor bo‘lib, tadbirkor undan ozod qilinadi",
+"Aylanma solig‘i faqat xorijga sotuvdan olinadi, mahalliy sotuvda esa hisoblanmaydi",
 "Soliq tushumdan hisoblanadi, shuning uchun foyda kam bo‘lsa ham to‘lanadi va foydaning katta qismini oladi"
 ],
 "c": 3,
@@ -3060,9 +3060,9 @@ export const BANK = [
 "q": "Umumbelgilangan soliq tartibi qachon ba’zan qulayroq bo‘ladi?",
 "o": [
 "Xarajatlar (xomashyo, uskuna) katta va asosiy hamkorlar QQS to‘lovchi bo‘lganda",
-"Xarajat deyarli bo‘lmaganda va mijozlar faqat jismoniy shaxslar bo‘lganda",
-"Biznes hali ro‘yxatdan o‘tmagan bo‘lganda",
-"Tushum juda kam bo‘lib, hisobot yuritish istalmaganda"
+"Xarajat deyarli bo‘lmaganda va mijozlar faqat jismoniy shaxslar bo‘lib, hisob-faktura talab etilmaganda",
+"Biznes hali ro‘yxatdan o‘tmagan, hisob-kitob yuritilmaydigan va tushumi kuzatilmaydigan holatda",
+"Tushum juda kam bo‘lib, tadbirkor hisobot yuritishni xohlamaganda va hujjatlarni saqlamaganda"
 ],
 "c": 0,
 "w": "Hamkorlar QQS talab qilsa.",
@@ -3072,10 +3072,10 @@ export const BANK = [
 "t": 5,
 "q": "Mahalliy soliqlar qatoriga qaysi biri kiradi?",
 "o": [
-"Aktsiz solig‘i",
-"Foyda solig‘i",
+"Aktsiz solig‘i va boj to‘lovlari hamda ijtimoiy soliq va yig‘imlar",
+"Foyda solig‘i va jismoniy shaxslardan olinadigan daromad solig‘i hamda bojxona to‘lovlari",
 "Yer solig‘i va mol-mulk solig‘i",
-"Qo‘shilgan qiymat solig‘i"
+"Qo‘shilgan qiymat solig‘i va aktsiz solig‘i, ular davlat byudjetiga to‘lanadi"
 ],
 "c": 2,
 "w": "Mahalliy soliqlar.",
@@ -3098,9 +3098,9 @@ export const BANK = [
 "t": 5,
 "q": "Soliq agenti kim hisoblanadi?",
 "o": [
-"Faqat bank xodimi",
-"Faqat soliq inspektori va uning yordamchisi",
-"Faqat mijoz va xaridor",
+"Faqat bank xodimi, u soliq to‘lovlarini qabul qilib, hisobraqamdan o‘tkazishni bajaradi",
+"Faqat soliq inspektori va uning yordamchisi, ular soliq to‘lovchilardan hisobotlarni qabul qiladi",
+"Faqat mijoz va xaridor, ular tovar uchun to‘lovni amalga oshiradi va soliqni to‘laydi",
 "Boshqa shaxs daromadidan soliqni ushlab, byudjetga o‘tkazish majburiyati yuklatilgan tashkilot yoki tadbirkor"
 ],
 "c": 3,
@@ -3111,10 +3111,10 @@ export const BANK = [
 "t": 5,
 "q": "Birlamchi hujjat nima?",
 "o": [
-"Reklama bukleti va narxlar ro‘yxati",
+"Reklama bukleti, narxlar ro‘yxati va mahsulot katalogi hamda tijoriy taklif",
 "Xo‘jalik operatsiyasi amalga oshganini tasdiqlovchi dastlabki hujjat (hisob-faktura, akt, yuk xati, chek)",
-"Soliq to‘lovchining shaxsiy xati",
-"Yil yakunida tuziladigan yig‘ma hisobot"
+"Soliq to‘lovchining shaxsiy xati va davlat organiga yo‘llagan murojaati hamda arizasi",
+"Yil yakunida tuziladigan yig‘ma moliyaviy hisobot va undagi barcha ko‘rsatkichlar jamlanmasi"
 ],
 "c": 1,
 "w": "Primary documents.",
@@ -3124,10 +3124,10 @@ export const BANK = [
 "t": 5,
 "q": "Fiskal chek (NKM) birlamchi hujjat sifatida nimani tasdiqlaydi?",
 "o": [
-"Xodimlar mehnat shartnomasini",
-"Kreditning to‘liq to‘langanini",
+"Xodimlar mehnat shartnomasini va ularning ish haqi miqdorini hamda lavozim vazifalarini",
+"Kreditning to‘liq to‘langanini va bank oldidagi barcha majburiyatlar bajarilganini",
 "Chakana sotuvda naqd yoki karta orqali to‘lov amalga oshirilganini va tushum hisobga olinganini",
-"Mahsulotning sifat sertifikatini"
+"Mahsulotning sifat sertifikatini va uning standartlarga mosligini hamda yaroqlilik muddatini"
 ],
 "c": 2,
 "w": "Online cash register.",
@@ -3151,9 +3151,9 @@ export const BANK = [
 "q": "Hujjatsiz qilingan xarajat soliq nuqtayi nazaridan qanday baholanadi?",
 "o": [
 "Tekshiruvda tan olinmasligi va hisobga qabul qilinmasligi mumkin",
-"Soliqni avtomatik ikki baravar kamaytiradi",
-"Bank tomonidan qaytariladi",
-"Doimo to‘liq hisobga olinadi"
+"Soliqni avtomatik ikki baravar kamaytiradi va tadbirkor qo‘shimcha imtiyoz oladi",
+"Bank tomonidan qaytariladi va tadbirkorga qo‘shimcha kompensatsiya to‘lanadi hamda hisobga olinadi",
+"Doimo to‘liq hisobga olinadi va tekshiruvda hech qanday savol tug‘dirmaydi hamda tan olinadi"
 ],
 "c": 0,
 "w": "Hujjatlar — xarajatni tasdiqlaydi.",
@@ -3163,10 +3163,10 @@ export const BANK = [
 "t": 5,
 "q": "Hisob-faktura nima va u qaysi holatda muhim?",
 "o": [
-"Mijozning sevimli mahsulotlari ro‘yxati",
+"Mijozning sevimli mahsulotlari ro‘yxati va uning xarid odatlari haqidagi ma’lumotlar to‘plami",
 "Sotuv va QQS ni rasmiylashtiruvchi hujjat; QQS to‘lovchi hamkorlar xarid QQS ini hisobga olish uchun talab qiladi",
-"Bank kartasining parolini saqlash varaqasi",
-"Xodimning ta’til arizasi"
+"Bank kartasining parolini saqlash varaqasi va uning maxfiy kodlari hamda to‘lov limitlari ro‘yxati",
+"Xodimning ta’til arizasi va uning ish vaqti hamda dam olish tartibini rasmiylashtiruvchi hujjat"
 ],
 "c": 1,
 "w": "Invoice.",
@@ -3176,10 +3176,10 @@ export const BANK = [
 "t": 5,
 "q": "Akt (bajarilgan ish dalolatnomasi) qanday vazifani bajaradi?",
 "o": [
-"Mahsulot narxini oshirishga ruxsat beradi",
-"Xodimni ishdan bo‘shatadi",
+"Mahsulot narxini oshirishga ruxsat beradi va tadbirkorga qo‘shimcha daromad olishga imkon yaratadi",
+"Xodimni ishdan bo‘shatadi va mehnat shartnomasini bekor qiladi hamda hisob-kitobni yakunlaydi",
 "Xizmat yoki ish bajarilganini va qabul qilinganini tasdiqlaydi hamda to‘lov asosi bo‘ladi",
-"Soliq stavkasini o‘zgartiradi"
+"Soliq stavkasini o‘zgartiradi va tadbirkorni ayrim soliqlardan ozod qiladi hamda hisobotdan chetlatadi"
 ],
 "c": 2,
 "w": "Act of acceptance.",
@@ -3189,9 +3189,9 @@ export const BANK = [
 "t": 5,
 "q": "Soliq rejimini tanlashda nimalarni solishtirish kerak?",
 "o": [
-"Faqat ofisning joylashgan qavatini",
-"Faqat do‘konning ish vaqtini",
-"Faqat tadbirkorning yoshi va oilaviy ahvolini",
+"Faqat ofisning joylashgan qavati, uning dizayni va ijara narxi hamda kommunal xarajatlari",
+"Faqat do‘konning ish vaqti, uning joylashuvi va mijozlar oqimi hamda reklama ko‘rinishi",
+"Faqat tadbirkorning yoshi, oilaviy ahvoli va uning shaxsiy xohishi hamda tanishlarining tavsiyasi",
 "Tushum, xarajat, hamkorlar QQS talabi va tadbirkorning hisob yuritish imkoniyatini"
 ],
 "c": 3,
@@ -3202,10 +3202,10 @@ export const BANK = [
 "t": 5,
 "q": "Kichik biznes tushumi umumbelgilangan tartibga majburiy o‘tish chegarasiga yaqinlashmoqda. Tadbirkor nima qilishi mantiqiy?",
 "o": [
-"Chegarani e’tiborsiz qoldirib, hisobotsiz ishlashni davom ettirishi",
+"Chegarani e’tiborsiz qoldirib, hisobotsiz ishlashni davom ettirishi va tekshiruv kelishini kutishi",
 "Tushumni chegara bilan muntazam solishtirib, rejimni oldindan hisob-kitob bilan qayta baholashi",
-"Faoliyatni norasmiy qoldirib, tushumni yashirishi",
-"Mijozlarga chek bermay sotishni boshlashi"
+"Faoliyatni norasmiy qoldirib, tushumni yashirishi va hujjatlarni rasmiylashtirmasligi hamda soliq to‘lamasligi",
+"Mijozlarga chek bermay sotishni boshlashi va tushumni hisobda aks ettirmasligi hamda yashirishi"
 ],
 "c": 1,
 "w": "Chegara monitoringi.",
@@ -3215,10 +3215,10 @@ export const BANK = [
 "t": 5,
 "q": "Asosiy mijozlari QQS to‘lovchi yirik kompaniyalar bo‘lib, hisob-faktura talab qilmoqda. Qaysi rejim mos kelishi mumkin?",
 "o": [
-"Faqat QQS to‘lovchi bo‘lmagan, soddalashtirilgan rejim",
+"Faqat QQS to‘lovchi bo‘lmagan, soddalashtirilgan rejim, chunki unda hisob-faktura talab qilinmaydi",
 "Umumbelgilangan tartib yoki QQS to‘lovchi sifatida ishlash imkonini beruvchi rejim",
-"Rejim tanlash shart emas, hisob-faktura kerak emas",
-"Faoliyatni to‘xtatish"
+"Rejim tanlash shart emas, chunki hisob-faktura talabi soliq rejimiga hech qanday aloqasi yo‘q",
+"Faoliyatni to‘xtatib, yirik mijozlar bilan ishlashdan butunlay voz kechish zarur hisoblanadi"
 ],
 "c": 1,
 "w": "Mijozlar talabi rejimga ta’sir qiladi.",
@@ -3229,9 +3229,9 @@ export const BANK = [
 "q": "Shaxsiy kabinet orqali soliq to‘lovchi qanday amallarni bajaradi?",
 "o": [
 "Hisobot topshirish, to‘lovlarni ko‘rish va soliq rejimi hamda qarzdorlik haqida ma’lumot olish",
-"Faqat reklama roliklarini yuklash",
-"Faqat mahsulot rasmlarini saqlash",
-"Faqat xodimlar bilan yozishish"
+"Faqat reklama roliklarini yuklash va mijozlar bilan yozishishni amalga oshirish, boshqa imkoniyatsiz",
+"Faqat mahsulot rasmlarini saqlash va mijozlarga katalog yuborishni ta’minlash, boshqa imkoniyatsiz",
+"Faqat xodimlar bilan yozishish va ularning davomatini hisobga olish, boshqa imkoniyatsiz"
 ],
 "c": 0,
 "w": "Taxpayer cabinet.",
@@ -3241,10 +3241,10 @@ export const BANK = [
 "t": 5,
 "q": "Elektron hisobot topshirishning asosiy afzalligi nima?",
 "o": [
-"Faqat yirik kompaniyalar uchun mavjudligi",
+"Faqat yirik kompaniyalar uchun mavjudligi va kichik tadbirkorlarga ruxsat etilmasligi hamda cheklanishi",
 "Vaqtni tejash, xatolarni avtomatik tekshirish va qog‘oz hujjat ehtiyojini kamaytirish",
-"Soliq hisobotini umuman topshirmaslik imkoni",
-"Soliq stavkasini kamaytirish"
+"Soliq hisobotini umuman topshirmaslik imkoni va tadbirkorning nazoratdan to‘liq chetda qolishi",
+"Soliq stavkasini kamaytirish va tadbirkorga qo‘shimcha imtiyoz berilishi hamda to‘lovlar yengillashishi"
 ],
 "c": 1,
 "w": "e-reporting.",
@@ -3255,9 +3255,9 @@ export const BANK = [
 "q": "Soliq hisobotini kechiktirish qanday oqibatga olib kelishi mumkin?",
 "o": [
 "Jarima va penya hisoblanishi hamda keyingi tekshiruv xavfi",
-"Davlat mukofot to‘lashi",
-"Hech qanday oqibat bo‘lmasligi",
-"Soliq avtomatik ravishda bekor qilinishi"
+"Davlat tadbirkorga mukofot to‘lashi va hisobot muddati qo‘shimcha uzaytirilishi hamda imtiyoz berilishi",
+"Hech qanday oqibat bo‘lmasligi, chunki kechikish qonun bo‘yicha jazolanmaydi hamda hisobga olinmaydi",
+"Soliq avtomatik ravishda bekor qilinishi va tadbirkor qarzdan butunlay ozod bo‘lishi hamda hisobot yopilishi"
 ],
 "c": 0,
 "w": "Penalty.",
@@ -3267,10 +3267,10 @@ export const BANK = [
 "t": 5,
 "q": "Penya nima?",
 "o": [
-"Soliq to‘lovchiga beriladigan mukofot",
-"Xodimga beriladigan ish haqi",
+"Soliq to‘lovchiga o‘z vaqtida to‘lagani uchun beriladigan mukofot yoki chegirma hamda imtiyoz",
+"Xodimga beriladigan ish haqi yoki unga qo‘shimcha hisoblanadigan to‘lov va ushlanma",
 "Soliq o‘z vaqtida to‘lanmagan har bir kun uchun qarz summasiga hisoblanadigan qo‘shimcha to‘lov",
-"Soliq stavkasining pasayishi"
+"Soliq stavkasining pasayishi va tadbirkor uchun hisoblanadigan qo‘shimcha imtiyoz hamda soddalashtirish"
 ],
 "c": 2,
 "w": "Late payment charge.",
@@ -3280,9 +3280,9 @@ export const BANK = [
 "t": 5,
 "q": "Kameral soliq nazorati nimani anglatadi?",
 "o": [
-"Tadbirkorning o‘z-o‘zini tekshirishini",
-"Soliq inspektorining tadbirkor ofisida bir necha oy ishlashini",
-"Faqat bank tomonidan o‘tkaziladigan auditni",
+"Tadbirkorning o‘z-o‘zini tekshirishini va natijani soliq organiga yuborishini hamda tasdiqlashini",
+"Soliq inspektorining tadbirkor ofisida bir necha oy davomida doimiy ishlab, hujjatlarni joyida tekshirishini",
+"Faqat bank tomonidan o‘tkaziladigan auditni va uning xulosasini soliq organiga taqdim etishni",
 "Soliq organining hujjat va hisobotlarni joyga bormay, ma’lumotlar asosida tekshirishini"
 ],
 "c": 3,
@@ -3293,10 +3293,10 @@ export const BANK = [
 "t": 5,
 "q": "Soliq intizomi tadbirkor uchun qanday foyda beradi?",
 "o": [
-"Soliq to‘lamaslik huquqini beradi",
+"Soliq to‘lamaslik huquqini beradi va tadbirkorni barcha tekshiruvlardan abadiy ozod qiladi",
 "Obro‘ni mustahkamlab, kredit olish, davlat qo‘llab-quvvatlashi va yirik hamkorlar bilan ishlashni osonlashtiradi",
-"Hamma hujjatni yo‘qotishga ruxsat beradi",
-"Raqobatchilarni bozordan chiqaradi"
+"Hamma hujjatni yo‘qotishga ruxsat beradi va hisobotlarni topshirish majburiyatini bekor qiladi",
+"Raqobatchilarni bozordan chiqarib, tadbirkorni yagona sotuvchiga aylantiradi hamda narx belgilashga imkon beradi"
 ],
 "c": 1,
 "w": "Reputatsiya.",
@@ -3306,9 +3306,9 @@ export const BANK = [
 "t": 5,
 "q": "Marketpleysda sotuvchi aylanma soliq rejimida bo‘lsa, platforma komissiyasi soliq bazasiga qanday ta’sir qiladi?",
 "o": [
-"Komissiya soliq stavkasini nolga tushiradi",
-"Komissiya soliqni ikki baravar oshiradi",
-"Komissiya soliq bazasidan to‘liq ayriladi",
+"Komissiya soliq stavkasini nolga tushiradi va tadbirkor hisobotni soddalashtirilgan shaklda topshiradi",
+"Komissiya soliqni ikki baravar oshiradi, chunki platforma xizmati qo‘shimcha soliq obyekti hisoblanadi",
+"Komissiya soliq bazasidan to‘liq ayriladi va natijada soliq to‘lovi sezilarli kamayadi hamda tushum pasayadi",
 "Ta’sir qilmaydi, chunki baza tushumning o‘zi bo‘lib, komissiya xarajat sifatida ayrilmaydi"
 ],
 "c": 3,
@@ -3319,10 +3319,10 @@ export const BANK = [
 "t": 5,
 "q": "Marketpleys orqali sotuvda tadbirkorga qaysi hujjat/hisob muhim?",
 "o": [
-"Faqat mijozlar fikri va sharhlari",
-"Faqat platforma reklamasi va reytingi",
+"Faqat mijozlar fikri va sharhlari hamda ularning soni, chunki ular soliq bazasini belgilaydi",
+"Faqat platforma reklamasi va reytingi hamda uning ko‘rinishi, chunki ular soliq hisobiga ta’sir qiladi",
 "Platforma orqali tushgan tushumni va komissiyani alohida yuritib, hisobotga to‘g‘ri aks ettirish",
-"Hech qanday hisob yuritmaslik"
+"Hech qanday hisob yuritmaslik va platformaning o‘z hisobotiga ishonib, hamma narsani unga qoldirish"
 ],
 "c": 2,
 "w": "Marketplace accounting.",
@@ -3333,9 +3333,9 @@ export const BANK = [
 "q": "Xorijiy marketpleysda sotib, tushumni O‘zbekistonga olgan tadbirkor soliq jihatidan qanday holatda bo‘ladi?",
 "o": [
 "Tushum O‘zbekiston soliq qonunchiligiga muvofiq soliqqa tortilishi mumkin va hisobda aks etishi kerak",
-"Faqat xorijiy davlat soliq to‘laydi",
-"Xorijiy tushum umuman soliqqa tortilmaydi va hisobga olinmaydi",
-"Tushum bank tomonidan avtomatik bekor qilinadi"
+"Faqat xorijiy davlat soliq to‘laydi, O‘zbekiston soliq qonunchiligi esa bu tushumga tegishli emas",
+"Xorijiy tushum umuman soliqqa tortilmaydi va uni hisobda aks ettirish ham talab etilmaydi",
+"Tushum bank tomonidan avtomatik ravishda bekor qilinadi va soliq hisobiga umuman kiritilmaydi"
 ],
 "c": 0,
 "w": "Eksport tushumi.",
@@ -3345,9 +3345,9 @@ export const BANK = [
 "t": 5,
 "q": "Nega rasmiylashtirilmagan «soyadagi» biznes uzoq muddatda o‘sishda qiyinchilikka duch keladi?",
 "o": [
-"Soyadagi biznes cheksiz kredit oladi",
-"Soyadagi biznes avtomatik ravishda yuqori foyda keltiradi",
-"Soyadagi biznes hech qachon tekshirilmaydi",
+"Soyadagi biznes cheksiz kredit olish huquqini qo‘lga kiritadi va davlat qo‘llab-quvvatlashini oladi",
+"Soyadagi biznes avtomatik ravishda yuqori foyda keltiradi va uzoq muddatda yanada tez o‘sadi",
+"Soyadagi biznes hech qachon tekshirilmaydi, shuning uchun uzoq muddatda ham to‘siqsiz o‘sadi",
 "Daromadi tasdiqlanmagani uchun bank krediti, hamkorlik va investitsiya olish deyarli imkonsiz bo‘ladi"
 ],
 "c": 3,
@@ -3358,10 +3358,10 @@ export const BANK = [
 "t": 5,
 "q": "Tadbirkor mijozlardan to‘lovni shaxsiy kartasiga olib, biznes xarajatlarini ham shu kartadan to‘lasa, qanday xavf yuzaga keladi?",
 "o": [
-"Bank kartani sovg‘a qiladi",
+"Bank kartani sovg‘a qilib, tadbirkorga qo‘shimcha imtiyozlar va keshbek taklif etadi hamda yengillik beradi",
 "Soliq bazasini aniqlashda nizo chiqadi va operatsiyalar shubhali deb baholanishi mumkin",
-"Hech qanday xavf yo‘q, chunki bu eng yaxshi usul",
-"Soliq avtomatik kamayadi"
+"Hech qanday xavf yo‘q, chunki bu eng yaxshi va eng qulay usul bo‘lib, hisobni soddalashtiradi",
+"Soliq avtomatik kamayadi, chunki shaxsiy kartadagi tushum biznes daromadi hisoblanmaydi hamda hisobga olinmaydi"
 ],
 "c": 1,
 "w": "Hisobni ajratish.",
@@ -3371,10 +3371,10 @@ export const BANK = [
 "t": 5,
 "q": "Hamkor «hisobotni tezroq topshiray» deb ERI kalitingizni so‘radi. Qanday yo‘l tutish to‘g‘ri?",
 "o": [
-"Kalit parolini ijtimoiy tarmoqda yozish",
+"Kalit parolini ijtimoiy tarmoqda yozib qoldirish, shunda hamkor uni istalgan vaqt topib olishi mumkin",
 "Kalitni boshqa shaxsga bermay, o‘zida saqlash va muddatini kuzatib borish",
-"Kalitni ishonib topshirish, chunki hamkor ishonchli",
-"Kalitni bir necha kishiga nusxalash"
+"Kalitni ishonib topshirish, chunki hamkor ishonchli va hisobotni tezroq hamda xatosiz topshira oladi",
+"Kalitni bir necha kishiga nusxalab berish, shunda hisobotni ular navbatma-navbat topshirishi mumkin bo‘ladi"
 ],
 "c": 1,
 "w": "ERI — shaxsiy.",
@@ -3384,10 +3384,10 @@ export const BANK = [
 "t": 5,
 "q": "Bazaviy hisoblash miqdori (BHM) nimaga xizmat qiladi?",
 "o": [
-"Xodimlar sonini cheklash",
-"Mahsulotning sotuv narxini belgilash",
+"Korxonadagi xodimlar sonini cheklash va ish o‘rinlari kvotasini belgilash uchun ishlatiladigan summa",
+"Mahsulotning sotuv narxini belgilash va savdo ustamasi miqdorini hisoblash uchun qo‘llaniladigan summa",
 "Soliq, jarima va boshqa to‘lovlarni hisoblash uchun ishlatiladigan davlat belgilagan asos summa",
-"Mijozlarga beriladigan chegirmalar miqdorini belgilash"
+"Mijozlarga beriladigan chegirmalar va aksiyalar miqdorini belgilash uchun ishlatiladigan o‘lchov birligi"
 ],
 "c": 2,
 "w": "BHM — hisoblash asosi.",
@@ -3398,9 +3398,9 @@ export const BANK = [
 "q": "Aktsiz solig‘i qaysi tovarlarga odatda qo‘llanadi?",
 "o": [
 "Ayrim iste’molni cheklash yoki byudjetga qo‘shimcha tushum uchun belgilangan tovarlarga (masalan, spirtli ichimlik, tamaki)",
-"Barcha oziq-ovqat mahsulotlariga",
-"Faqat kitoblarga",
-"Faqat qishloq xo‘jaligi texnikasiga"
+"Barcha oziq-ovqat mahsulotlariga, chunki ular aholining kundalik iste’molida eng ko‘p ishlatiladi",
+"Faqat kitoblarga, o‘quv qo‘llanmalariga va boshqa nashr mahsulotlariga hamda qog‘ozga",
+"Faqat qishloq xo‘jaligi texnikasiga va ehtiyot qismlariga hamda yoqilg‘i materiallariga"
 ],
 "c": 0,
 "w": "Excise.",
@@ -3411,9 +3411,9 @@ export const BANK = [
 "q": "Foyda solig‘i qaysi bazadan hisoblanadi?",
 "o": [
 "Tushumdan asoslangan xarajatlarni ayirgandan keyin qolgan foydadan",
-"Mol-mulk qiymatidan",
-"Xodimlar soni bo‘yicha belgilangan summadan",
-"Faqat tushumdan, xarajatlarni hisobga olmasdan"
+"Korxona mol-mulkining qoldiq qiymatidan, tushum va xarajatlarni hisobga olmasdan hisoblanib",
+"Xodimlar soni bo‘yicha belgilangan qat’iy summadan, foyda miqdoridan qat’i nazar hisoblanib",
+"Faqat tushumdan, xarajatlarni hisobga olmasdan va ularning hujjatlashtirilishini talab qilmasdan"
 ],
 "c": 0,
 "w": "CIT.",
@@ -3423,10 +3423,10 @@ export const BANK = [
 "t": 5,
 "q": "Ish haqi fondi qaysi soliq/to‘lovlarga ta’sir qiladi?",
 "o": [
-"Faqat QQSga",
-"Hech qaysi soliqqa",
+"Faqat QQSga ta’sir qiladi, chunki ish haqi tovar narxiga to‘liq qo‘shilib ketadi",
+"Hech qaysi soliqqa ta’sir qilmaydi, chunki ish haqi soliq bazasiga kirmaydi va hisobga olinmaydi",
 "JShDS va ijtimoiy soliq hamda boshqa ish haqiga bog‘liq to‘lovlarga",
-"Faqat yer solig‘iga"
+"Faqat yer solig‘iga ta’sir qiladi, chunki yer maydoni ish haqi bilan bog‘liq bo‘ladi"
 ],
 "c": 2,
 "w": "Payroll.",
@@ -3437,9 +3437,9 @@ export const BANK = [
 "q": "Buxgalteriya hisobining asosiy vazifasi nima?",
 "o": [
 "Xo‘jalik operatsiyalarini tizimli qayd etib, moliyaviy holat va soliq bazasi haqida ishonchli ma’lumot berish",
-"Mijozlar bazasini ko‘paytirish",
-"Xodimlar o‘rtasidagi nizolarni hal etish",
-"Mahsulot reklamasini tayyorlash"
+"Mijozlar bazasini ko‘paytirish va yangi sotuv kanallarini ochish hamda tarmoqni kengaytirish",
+"Xodimlar o‘rtasidagi nizolarni hal etish va mehnat intizomini ta’minlashni nazorat qilish",
+"Mahsulot reklamasini tayyorlash va uni mijozlar o‘rtasida tarqatish hamda sotuv hajmini oshirish"
 ],
 "c": 0,
 "w": "Accounting.",
@@ -3449,10 +3449,10 @@ export const BANK = [
 "t": 5,
 "q": "Kichik tadbirkor buxgalterni qachon yollashi yoki tashqi xizmatdan foydalanishi mantiqiy?",
 "o": [
-"Faqat korxona yopilgandan keyin",
-"Hech qachon, chunki hisob keraksiz",
+"Faqat korxona yopilgandan keyin, chunki hisob-kitob oxirgi hisobot uchun kerak bo‘ladi",
+"Hech qachon, chunki hisob keraksiz va uni soliq organi o‘zi yuritib beradi hamda tekshiradi",
 "Operatsiyalar soni, hisobot murakkabligi va xato xavfi oshganda, shuningdek QQS yoki xodimlar bilan ishlaganda",
-"Faqat reklama kampaniyasi paytida"
+"Faqat reklama kampaniyasi paytida, chunki reklama xarajatlarini hisobga olish zarur bo‘ladi"
 ],
 "c": 2,
 "w": "Outsourcing.",
@@ -3463,9 +3463,9 @@ export const BANK = [
 "q": "Soliq rejimini o‘zgartirish odatda qaysi shartlarga bog‘liq?",
 "o": [
 "Qonunda belgilangan muddat va talablar, shuningdek tushum hamda faoliyat turiga",
-"Bankning ruxsatiga qarab",
-"Mijozlarning ovoz berishiga qarab",
-"Tadbirkorning xohishiga qarab, istalgan kunda, shartsiz"
+"Bankning ruxsatiga qarab, chunki rejimni bank tasdiqlaydi va soliq organi bunga aralashmaydi",
+"Mijozlarning ovoz berishiga qarab, chunki rejim ularning ko‘pchilik fikriga muvofiq belgilanadi",
+"Tadbirkorning xohishiga qarab, istalgan kunda va hech qanday shartsiz hamda muddatsiz"
 ],
 "c": 0,
 "w": "Rejimni o‘zgartirish.",
@@ -3475,9 +3475,9 @@ export const BANK = [
 "t": 5,
 "q": "Xarajatni soliq hisobida tan olinishi uchun qaysi shart zarur?",
 "o": [
-"Faqat naqd pulda to‘langan bo‘lishi",
-"Tadbirkorning shaxsiy xohishiga ko‘ra, hujjatsiz yozilishi",
-"Faqat chet elda amalga oshirilgan bo‘lishi",
+"Faqat naqd pulda to‘langan bo‘lishi va bank orqali o‘tkazilmagan hamda cheksiz bo‘lishi",
+"Tadbirkorning shaxsiy xohishiga ko‘ra, hujjatsiz va isbotsiz yozilgan bo‘lishi hamda tasdiqlanmasligi",
+"Faqat chet elda amalga oshirilgan va xorijiy valyutada to‘langan bo‘lishi hamda eksportga aloqador",
 "U biznes faoliyatiga aloqador, asoslangan va hujjat bilan tasdiqlangan bo‘lishi"
 ],
 "c": 3,
@@ -3488,10 +3488,10 @@ export const BANK = [
 "t": 5,
 "q": "Shaxsiy kabinetda qarzdorlik (nedoimka) ko‘rinsa, tadbirkor nima qilishi kerak?",
 "o": [
-"Hamkorlarga tushuntirmasdan faoliyatni to‘xtatish",
+"Hamkorlarga tushuntirmasdan faoliyatni to‘xtatib, hisobotlarni topshirmaslik va yashirinish",
 "Sababini aniqlab, qarzni to‘lash yoki asoslantirib, soliq organi bilan masalani hal etish",
-"Hech narsa qilmasdan, qarz o‘z-o‘zidan yo‘qolishini kutish",
-"Kabinetni yopib, kirmaslik"
+"Hech narsa qilmasdan, qarz o‘z-o‘zidan yo‘qolishini va muddat o‘tib ketishini kutish",
+"Kabinetni yopib, unga kirmaslik va qarz haqidagi xabarlarni e’tiborsiz qoldirish hamda bildirmaslik"
 ],
 "c": 1,
 "w": "Qarzni nazorat qilish.",
@@ -3501,10 +3501,10 @@ export const BANK = [
 "t": 5,
 "q": "Elektron tijoratdagi soliq xavfi nimada?",
 "o": [
-"Faqat xorijiy sotuvchi javobgar",
+"Faqat xorijiy sotuvchi javobgar bo‘ladi, mahalliy tadbirkor esa hech qanday javobgar emas",
 "Onlayn tushum shaffof bo‘lgani uchun uni hisobda aks ettirmaslik tezda aniqlanishi mumkin",
-"Onlayn tushum hech qachon aniqlanmaydi",
-"Onlayn savdoda soliq umuman yo‘q"
+"Onlayn tushum hech qachon aniqlanmaydi, chunki raqamli to‘lovlar kuzatilmaydi va qayd etilmaydi",
+"Onlayn savdoda soliq umuman yo‘q, chunki elektron tijorat soliqdan to‘liq ozod hisoblanadi"
 ],
 "c": 1,
 "w": "E-commerce compliance.",
@@ -3515,9 +3515,9 @@ export const BANK = [
 "q": "Daromadni kamaytirib ko‘rsatish qaysi oqibatga olib keladi?",
 "o": [
 "Jarima, qo‘shimcha soliq undirilishi va jiddiy holatda huquqiy javobgarlik",
-"Mukofot va soliq imtiyozi",
-"Kredit foizi pasayishi",
-"Raqobatchilarning bozordan chiqishi"
+"Mukofot va qo‘shimcha soliq imtiyozi, chunki kamroq soliq davlat byudjetiga yengillik beradi",
+"Kredit foizi pasayishi va bank tomonidan qo‘shimcha imtiyozli shartlar taklif etilishi",
+"Raqobatchilarning bozordan chiqishi va tadbirkorning bozordagi ulushi avtomatik oshishi"
 ],
 "c": 0,
 "w": "Soliq xatolari.",
@@ -3528,9 +3528,9 @@ export const BANK = [
 "q": "Soliq xatosi aniqlansa, tadbirkor uchun eng to‘g‘ri xatti-harakat qaysi?",
 "o": [
 "Xatoni o‘zi aniqlab, aniqlashtirilgan hisobot topshirish va qarz bo‘lsa to‘lash",
-"Hisobotni qaytadan topshirmaslik",
-"Xatoni yashirib, hujjatlarni yo‘q qilish",
-"Soliq organiga murojaat qilmay faoliyatni yopish"
+"Hisobotni qaytadan topshirmaslik va xato aniqlanmaguncha jim turib kutish hamda e’tibor bermaslik",
+"Xatoni yashirib, hujjatlarni yo‘q qilish va hech narsa bo‘lmagandek faoliyatni davom ettirish",
+"Soliq organiga murojaat qilmay faoliyatni yopib, boshqa nom bilan yangi biznes ochish"
 ],
 "c": 0,
 "w": "Aniqlashtirilgan hisobot.",
@@ -3540,10 +3540,10 @@ export const BANK = [
 "t": 5,
 "q": "Hujjatlarni saqlash muddatiga rioya qilish nima uchun muhim?",
 "o": [
-"Hujjat saqlash tushumni oshiradi",
-"Hujjat saqlash faqat yirik kompaniyalarga kerak",
+"Hujjat saqlash tushumni oshirib, soliq stavkasini kamaytiradi hamda tekshiruv ehtimolini yo‘qotadi",
+"Hujjat saqlash faqat yirik kompaniyalarga kerak, kichik tadbirkorlar uchun esa talab etilmaydi",
 "Tekshiruv yoki nizo bo‘lganda operatsiyalarni tasdiqlash uchun hujjat kerak bo‘ladi",
-"Hujjat saqlash hech qanday ahamiyatga ega emas"
+"Hujjat saqlash hech qanday ahamiyatga ega emas, chunki soliq organi hamma ma’lumotni o‘zi biladi"
 ],
 "c": 2,
 "w": "Document retention.",
@@ -3553,9 +3553,9 @@ export const BANK = [
 "t": 5,
 "q": "Naqd pulda hisob-kitob qilishning soliq xavfi nimada?",
 "o": [
-"Naqd pul soliq stavkasini nolga tushiradi",
-"Naqd pul bank xizmatini bepul qiladi",
-"Naqd pul hech qachon soliq organi e’tiborini tortmaydi",
+"Naqd pul soliq stavkasini nolga tushiradi va tadbirkorni hisobotlardan ozod qiladi hamda tekshiruvdan",
+"Naqd pul bank xizmatini bepul qilib, tadbirkorga qo‘shimcha imtiyoz va chegirmalar beradi",
+"Naqd pul hech qachon soliq organi e’tiborini tortmaydi va uni hujjatlashtirish talab etilmaydi",
 "Tushum va xarajatni hujjatlashtirish qiyin bo‘lib, bazani yashirish xavfi sifatida baholanishi mumkin"
 ],
 "c": 3,
@@ -3566,9 +3566,9 @@ export const BANK = [
 "t": 5,
 "q": "Tadbirkor uchun «soliq rejalashtirish» (tax planning) nimani bildiradi?",
 "o": [
-"Soliqdan yashirish yo‘llarini qidirishni",
-"Hisobotni soxtalashtirishni",
-"Faoliyatni norasmiy olib borishni",
+"Soliqdan yashirish yo‘llarini qidirib, daromadning bir qismini hisobotdan chiqarib qoldirishni",
+"Hisobotni soxtalashtirib, xarajatlarni o‘ylab topilgan hujjatlar bilan ko‘paytirib ko‘rsatishni",
+"Faoliyatni norasmiy olib borib, soliq organi e’tiboridan chetda qolishga harakat qilishni",
 "Qonun doirasida eng maqbul rejim va imtiyozni tanlab, soliq yukini oqilona boshqarishni"
 ],
 "c": 3,
@@ -3580,9 +3580,9 @@ export const BANK = [
 "q": "Soliq to‘lashning iqtisodiy ma’nosi tadbirkor uchun nimada?",
 "o": [
 "Jamoat tovarlari va infratuzilma uchun hissa, shuningdek rasmiy biznes huquqlaridan foydalanish evazi",
-"Faqat reklama xarajati",
-"Faqat jarima to‘lash shakli",
-"Faqat bank foydasini oshirish usuli"
+"Faqat reklama xarajati bo‘lib, tadbirkorning obro‘sini oshirish maqsadida to‘lanadi",
+"Faqat jarima to‘lash shakli bo‘lib, qonun buzgan tadbirkorlarga nisbatan qo‘llaniladigan chora hisoblanadi",
+"Faqat bank foydasini oshirish usuli bo‘lib, soliq tushumi tijorat banklariga o‘tadi"
 ],
 "c": 0,
 "w": "Fiskal ijtimoiy shartnoma.",
@@ -3593,9 +3593,9 @@ export const BANK = [
 "q": "Kassa apparati (NKM) talabi nima uchun mavjud?",
 "o": [
 "Chakana tushumni to‘liq hisobga olib, soliq bazasini shaffof qilish uchun",
-"Xodimlar sonini kamaytirish uchun",
-"Reklamani kuchaytirish uchun",
-"Mijozlarga chegirma berish uchun"
+"Xodimlar sonini kamaytirish va ish haqi xarajatlarini qisqartirish hamda boshqaruvni soddalashtirish uchun",
+"Reklamani kuchaytirish va mijozlar e’tiborini jalb qilib, savdo hajmini oshirish uchun",
+"Mijozlarga chegirma berish va ular bilan hisob-kitobni soddalashtirish hamda sodiqlik dasturini yuritish uchun"
 ],
 "c": 0,
 "w": "NKM maqsadi.",
@@ -3605,9 +3605,9 @@ export const BANK = [
 "t": 5,
 "q": "Soliq va yig‘imlarni to‘lashda «muddat» nimani bildiradi?",
 "o": [
-"Soliq stavkasi o‘zgaradigan sana",
-"Mahsulot ishlab chiqarilgan sana",
-"Xodimlar ta’tili boshlanadigan sana",
+"Soliq stavkasi o‘zgaradigan sana va yangi stavkaning amalga kiritilishi lozim bo‘lgan kun",
+"Mahsulot ishlab chiqarilgan sana va uning yaroqlilik muddati hamda partiya raqami",
+"Xodimlar ta’tili boshlanadigan sana va dam olish kunlari ro‘yxati hamda ta’til jadvali",
 "Soliq to‘lanishi yoki hisobot topshirilishi lozim bo‘lgan oxirgi sana"
 ],
 "c": 3,
@@ -3618,9 +3618,9 @@ export const BANK = [
 "t": 5,
 "q": "Daromad solig‘ini tadbirkor uchun hisoblashda «sof foyda» nimaga teng?",
 "o": [
-"Faqat tushumning o‘ziga",
-"Faqat kreditdan olingan summaga",
-"Faqat xarajatlar yig‘indisiga",
+"Faqat tushumning o‘ziga teng bo‘ladi, chunki xarajatlar soliq hisobiga ta’sir qilmaydi",
+"Faqat kreditdan olingan summaga teng bo‘ladi, chunki qarz mablag‘i daromad hisoblanadi",
+"Faqat xarajatlar yig‘indisiga teng bo‘ladi, chunki tushum soliq bazasini belgilamaydi",
 "Tushumdan asoslangan xarajatlar ayirilgandan qolgan summaga"
 ],
 "c": 3,
@@ -3631,10 +3631,10 @@ export const BANK = [
 "t": 5,
 "q": "Raqamli soliq xizmatlariga o‘tishning tadbirkor uchun asosiy ta’siri qaysi?",
 "o": [
-"Barcha tadbirkorlar bir xil soliq to‘laydi",
+"Barcha tadbirkorlar bir xil soliq to‘laydi, chunki rejimlar raqamlashtirish bilan birlashtiriladi",
 "Shaffoflik oshib, qog‘ozbozlik kamayadi, ammo hisobning aniqligiga talab kuchayadi",
-"Soliqlar butunlay bekor qilinadi",
-"Hisobotlar umuman talab qilinmaydi"
+"Soliqlar butunlay bekor qilinadi va tadbirkorlar faqat ixtiyoriy to‘lov amalga oshiradi",
+"Hisobotlar umuman talab qilinmaydi, chunki barcha ma’lumot avtomatik ravishda yig‘iladi"
 ],
 "c": 1,
 "w": "Digital tax admin.",
@@ -3684,9 +3684,9 @@ export const BANK = [
 "q": "BMC markazida qaysi blok turadi?",
 "o": [
 "Qiymat taklifi (value proposition) — mijozga beriladigan noyob foyda",
-"Xarajat tuzilmasi — barcha harajatlar ro‘yxati",
-"Asosiy resurslar — uskuna va binolar",
-"Daromad oqimlari — tushum manbalari"
+"Xarajat tuzilmasi — kompaniyaning barcha xarajatlari ro‘yxati va ularning taqsimoti hamda miqdori",
+"Asosiy resurslar — uskuna, bino va xodimlar kabi zarur aktivlar majmui hamda ularning qiymati",
+"Daromad oqimlari — mijozlardan keladigan tushum manbalari va ularning shakllari hamda hajmi"
 ],
 "c": 0,
 "w": "Qiymat taklifi — markaz.",
@@ -3696,10 +3696,10 @@ export const BANK = [
 "t": 6,
 "q": "BMC dagi «Kanallar» bloki qaysi savolga javob beradi?",
 "o": [
-"Biznesning asosiy xarajatlari qanday tuzilgan?",
-"Mijoz bilan uzoq muddatli munosabat qanday saqlanadi?",
+"Biznesning asosiy xarajatlari qanday tuzilgan va qaysi biri eng katta ulushni egallaydi?",
+"Mijoz bilan uzoq muddatli munosabat qanday saqlanadi va qanday rag‘batlantiriladi hamda qo‘llab-quvvatlanadi?",
 "Qiymat mijozga qaysi yo‘l bilan yetkaziladi va u bilan qanday bog‘lanamiz?",
-"Asosiy hamkorlar kimlar va ular nima beradi?"
+"Asosiy hamkorlar kimlar va ular kompaniyaga qanday resurs hamda xizmat beradi?"
 ],
 "c": 2,
 "w": "Channels.",
@@ -3709,9 +3709,9 @@ export const BANK = [
 "t": 6,
 "q": "BMC dagi «Mijozlar bilan munosabat» bloki nimani tavsiflaydi?",
 "o": [
-"Mahsulotni ishlab chiqarish texnologiyasini",
-"Xodimlarning ish haqi tizimini",
-"Soliq to‘lash tartibini",
+"Mahsulotni ishlab chiqarish texnologiyasini va uskunalarni hamda ishlab chiqarish jarayoni ketma-ketligini",
+"Xodimlarning ish haqi tizimini va ularni rag‘batlantirish usullarini hamda mukofot tartibini",
+"Soliq to‘lash tartibini va hisobot topshirish muddatlarini hamda tegishli hujjatlar ro‘yxatini",
 "Mijozni jalb qilish, saqlab qolish va undan takroriy xarid olish usullarini"
 ],
 "c": 3,
@@ -3722,10 +3722,10 @@ export const BANK = [
 "t": 6,
 "q": "BMC dagi «Asosiy faoliyatlar» bloki nimani ko‘rsatadi?",
 "o": [
-"Kompaniya egalarining shaxsiy rejalarini",
-"Raqobatchilarning reklama faoliyatini",
+"Kompaniya egalarining shaxsiy rejalari va uzoq muddatli maqsadlarini hamda ularning shaxsiy qiziqishlarini",
+"Raqobatchilarning reklama faoliyatini va ularning bozordagi harakatlarini hamda narx siyosatini",
 "Qiymat taklifini amalga oshirish uchun kompaniya bajarishi shart bo‘lgan eng muhim harakatlarni",
-"Mijozlarning sevimli mahsulotlari ro‘yxatini"
+"Mijozlarning sevimli mahsulotlari ro‘yxatini va ularning xarid odatlarini hamda didlari tavsifini"
 ],
 "c": 2,
 "w": "Key activities.",
@@ -3735,10 +3735,10 @@ export const BANK = [
 "t": 6,
 "q": "BMC dagi «Asosiy hamkorlar» bloki nima uchun kerak?",
 "o": [
-"Xodimlarni nazorat qilish uchun",
-"Hamkorlar ro‘yxatini soliq organiga ko‘rsatish uchun",
+"Xodimlarni nazorat qilish va ularning ish natijalarini baholash hamda mukofotlashni yo‘lga qo‘yish uchun",
+"Hamkorlar ro‘yxatini soliq organiga ko‘rsatish va rasmiy hisobotda aks ettirish uchun majburiy hujjat sifatida",
 "Kompaniya o‘zi bajara olmaydigan resurs va faoliyatlarni tashqi hamkorlar orqali ta’minlashi uchun",
-"Mijozlar sonini hisoblash uchun"
+"Mijozlar sonini hisoblash va ularning ro‘yxatini yuritish hamda mijozlar bazasini kengaytirish uchun"
 ],
 "c": 2,
 "w": "Key partners.",
@@ -3748,10 +3748,10 @@ export const BANK = [
 "t": 6,
 "q": "BMC dagi «Daromad oqimlari» bloki nimani aniqlaydi?",
 "o": [
-"Xodimlarning qanday malakaga egaligini",
-"Biznes qancha xarajat qilishini",
+"Xodimlarning qanday malakaga egaligini va ularning ish tajribasi hamda ta’lim darajasini",
+"Biznes qancha xarajat qilishini va qaysi xarajat turlari mavjudligini hamda ularning umumiy miqdorini",
 "Mijozdan qaysi qiymat uchun, qanday usulda (sotuv, obuna, komissiya) pul olinishini",
-"Mijozlar qaysi shaharda yashashini"
+"Mijozlar qaysi shaharda yashashini va ularning demografik tavsifini hamda xarid odatlarini"
 ],
 "c": 2,
 "w": "Revenue streams.",
@@ -3787,10 +3787,10 @@ export const BANK = [
 "t": 6,
 "q": "Milkshake misolida (Christensen) JTBD nimani ko‘rsatadi?",
 "o": [
-"Narx pasaytirilsa, har qanday mahsulot ko‘proq sotilishini",
+"Narx pasaytirilsa, har qanday mahsulot ko‘proq sotilishini va narx sotuvning yagona omili ekanini",
 "Bir xil mahsulot turli mijoz uchun turli «ish»ni bajarishi mumkin, shuning uchun demografiya emas, vaziyat muhim",
-"Milkshake faqat bolalar uchun mo‘ljallangan mahsulot ekanini",
-"Reklama miqdori sotuvni to‘g‘ridan-to‘g‘ri belgilashini"
+"Milkshake faqat bolalar uchun mo‘ljallangan mahsulot ekanini va unga faqat ular ehtiyoj sezishini",
+"Reklama miqdori sotuvni to‘g‘ridan-to‘g‘ri belgilashini va sifat ahamiyatsiz ekanini"
 ],
 "c": 1,
 "w": "Context matters.",
@@ -3800,10 +3800,10 @@ export const BANK = [
 "t": 6,
 "q": "Obuna (subscription) modelida daromad qanday shakllanadi?",
 "o": [
-"Mijoz faqat reklama ko‘rib, hech narsa to‘lamaydi",
-"Mijoz mahsulotni kreditga olib, qaytarmaydi",
+"Mijoz faqat reklama ko‘rib, hech narsa to‘lamaydi va daromad faqat reklama beruvchidan keladi",
+"Mijoz mahsulotni kreditga olib, uni qaytarmaydi va qarz hisobdan chiqariladi hamda yopiladi",
 "Mijoz muntazam (oylik/yillik) to‘lov qilib, xizmatdan foydalanish huquqini saqlaydi",
-"Mijoz mahsulotni bir marta sotib olib, boshqa to‘lov qilmaydi"
+"Mijoz mahsulotni bir marta sotib olib, keyin hech qanday to‘lov qilmaydi va munosabat tugaydi"
 ],
 "c": 2,
 "w": "Recurring revenue.",
@@ -3826,9 +3826,9 @@ export const BANK = [
 "t": 6,
 "q": "Obuna va freemium modellari o‘rtasidagi asosiy farq nimada?",
 "o": [
-"Obunada mijoz hech narsa to‘lamaydi, freemiumda esa hamma to‘laydi",
-"Obuna faqat tovarlar uchun, freemium faqat davlat xizmati uchun",
-"Ikkalasi bir xil bo‘lib, faqat nomi bilan farq qiladi",
+"Obunada mijoz hech narsa to‘lamaydi, freemiumda esa hamma foydalanuvchi to‘lov qilishi shart bo‘ladi",
+"Obuna faqat tovarlar uchun, freemium esa faqat davlat xizmati uchun qo‘llaniladigan modeldir",
+"Ikkalasi mohiyatan bir xil bo‘lib, faqat nomi bilan farq qiladi hamda daromad manbayi bir xil",
 "Obunada mijoz boshidan to‘laydi, freemiumda asosiy funksiya bepul va kichik ulush pullikka o‘tadi"
 ],
 "c": 3,
@@ -3852,10 +3852,10 @@ export const BANK = [
 "t": 6,
 "q": "Marketpleysdagi «tovuq va tuxum» muammosi nimadan iborat?",
 "o": [
-"Tovarlar tez buzilib, saqlash qiyinligi",
+"Tovarlar tez buzilib, ularni saqlash va tashish qiyinligi hamda logistika xarajatlari ortishi",
 "Xaridor kelishi uchun sotuvchi, sotuvchi kelishi uchun xaridor kerak: ikki tomonni birdaniga jalb qilish qiyin",
-"Platformada sotuvchilar juda ko‘p bo‘lib, xaridor kam bo‘lmasligi",
-"Tovuq va tuxum mahsulotlari bozorda eng ko‘p sotilishi"
+"Platformada sotuvchilar juda ko‘p bo‘lib, xaridor kam bo‘lmasligi va buning natijasida narx tushishi",
+"Tovuq va tuxum mahsulotlari bozorda eng ko‘p sotilishi va ularga talab yuqori ekanligi hamda barqarorligi"
 ],
 "c": 1,
 "w": "Cold start problem.",
@@ -3866,9 +3866,9 @@ export const BANK = [
 "q": "Tarmoq effekti (network effect) nimani bildiradi?",
 "o": [
 "Foydalanuvchilar ko‘paygani sari platformaning har bir foydalanuvchi uchun qiymati oshishini",
-"Foydalanuvchilar ko‘paygani sari platforma narxining pasayishini",
-"Foydalanuvchilar ko‘paygani sari xizmat sifatining doimo yomonlashishini",
-"Foydalanuvchilar orasida raqobat kuchayishini"
+"Foydalanuvchilar ko‘paygani sari platforma xizmati narxining pasayishi va xarajatning kamayishini",
+"Foydalanuvchilar ko‘paygani sari xizmat sifatining doimo yomonlashishi va ishonchning tushishini",
+"Foydalanuvchilar orasida raqobat kuchayib, platformaning jozibadorligi pasayishini va chiqib ketishini"
 ],
 "c": 0,
 "w": "Network effect.",
@@ -3878,9 +3878,9 @@ export const BANK = [
 "t": 6,
 "q": "Franshiza biznes-modelining mohiyati nima?",
 "o": [
-"Mahsulotni faqat o‘zi ishlab chiqarib sotish",
-"Faqat xorijda ishlash",
-"Barcha mahsulotni bepul tarqatish",
+"Mahsulotni faqat o‘zi ishlab chiqarib, faqat o‘z do‘konlarida sotish va hech kimga huquq bermaslik",
+"Faqat xorijda ishlab, mahalliy bozorga chiqmaslik va faqat eksportga tayanish hamda mahsulotni sotish",
+"Barcha mahsulotni bepul tarqatib, daromadni faqat reklama hisobidan olish va foydalanuvchilarni jalb qilish",
 "Brend va tayyor tizimdan foydalanish huquqini haq evaziga berish"
 ],
 "c": 3,
@@ -3891,10 +3891,10 @@ export const BANK = [
 "t": 6,
 "q": "«Razor & Blades» (ustara va tig‘lar) modeli qanday ishlaydi?",
 "o": [
-"Asosiy mahsulot juda qimmat, sarf materiallari esa bepul beriladi",
+"Asosiy mahsulot juda qimmat sotiladi, sarf materiallari esa mijozga bepul yoki arzon beriladi",
 "Asosiy mahsulot arzon yoki zararga sotiladi, daromad esa takroriy sotiladigan sarf materiallaridan keladi",
-"Faqat bitta mahsulot bir marta sotiladi va boshqa daromad yo‘q",
-"Mahsulot faqat ijaraga beriladi va hech qachon sotilmaydi"
+"Faqat bitta mahsulot bir marta sotiladi va undan keyin boshqa daromad manbayi bo‘lmaydi",
+"Mahsulot faqat ijaraga beriladi va hech qachon sotilmaydi, sarf materiali esa mavjud emas"
 ],
 "c": 1,
 "w": "Printer & cartridges.",
@@ -3904,10 +3904,10 @@ export const BANK = [
 "t": 6,
 "q": "Lizing/ijara asosidagi modelda daromad qanday olinadi?",
 "o": [
-"Mijoz mahsulotni bir yo‘la sotib olib, egasi bo‘ladi",
-"Mijoz faqat reklama ko‘radi",
+"Mijoz mahsulotni bir yo‘la to‘liq narxda sotib olib, uning egasi bo‘ladi va keyin to‘lamaydi",
+"Mijoz faqat reklama ko‘radi va daromad faqat reklama beruvchidan keladi hamda mijoz to‘lamaydi",
 "Mijoz mahsulotga egalik qilmasdan, muntazam to‘lov evaziga foydalanadi",
-"Mijoz hech qachon to‘lov qilmaydi"
+"Mijoz hech qachon to‘lov qilmaydi, chunki mahsulotdan foydalanish davlat tomonidan ta’minlanadi"
 ],
 "c": 2,
 "w": "Rental model.",
@@ -3918,9 +3918,9 @@ export const BANK = [
 "q": "Komissiya asosidagi (brokerlik) model qachon samarali?",
 "o": [
 "Tadbirkor bitim ishtirokchilarini topib berib, o‘z aktivi bo‘lmasdan har bir bitimdan ulush olganda",
-"Tadbirkor faqat davlat buyurtmalarini bajarganda",
-"Tadbirkor mijozlardan oldindan to‘lov olmasdan ishlaganda",
-"Tadbirkor barcha mahsulotni o‘zi ishlab chiqarganda"
+"Tadbirkor faqat davlat buyurtmalarini bajarib, xususiy mijozlar bilan ishlamaganda",
+"Tadbirkor mijozlardan oldindan to‘lov olmasdan ishlab, barcha xavfni o‘zi ko‘targanda",
+"Tadbirkor barcha mahsulotni o‘zi ishlab chiqarib, ularni o‘z omborida saqlab sotganda"
 ],
 "c": 0,
 "w": "Brokerage.",
@@ -3931,9 +3931,9 @@ export const BANK = [
 "q": "Nega «bizning raqibimiz yo‘q» degan fikr xato hisoblanadi?",
 "o": [
 "Raqib — mijoz muammosini boshqacha hal qiladigan har qanday variant, masalan, mijozning o‘zi qilishi",
-"Raqib faqat bir xil mahsulot sotadigan kompaniya, boshqalari esa raqib emas",
-"Raqib bo‘lmasa, bozor katta bo‘lib, har doim yaxshi hisoblanadi",
-"Raqib faqat xorijiy kompaniyalar bo‘ladi"
+"Raqib faqat bir xil mahsulot sotadigan kompaniya bo‘lib, boshqa yechimlar raqib hisoblanmaydi",
+"Raqib bo‘lmasa, bozor katta bo‘lib, u har doim yaxshi imkoniyat sifatida baholanadi",
+"Raqib faqat xorijiy kompaniyalar bo‘lib, mahalliy kompaniyalar raqobatchi hisoblanmaydi"
 ],
 "c": 0,
 "w": "Indirect competition.",
@@ -3943,10 +3943,10 @@ export const BANK = [
 "t": 6,
 "q": "Farqlanish ustunligi qanday xususiyatga ega bo‘lishi kerak?",
 "o": [
-"Faqat mahsulot nomini o‘zgartirish",
-"Faqat narxni pasaytirish orqali, chunki narxni hamma ham pasaytira oladi",
+"Faqat mahsulot nomini o‘zgartirish orqali bo‘lishi kerak, chunki nomni nusxalab bo‘lmaydi",
+"Faqat narxni pasaytirish orqali bo‘lishi kerak, chunki narxni raqobatchilar tezda pasaytira olmaydi",
 "Raqiblar tez nusxa ko‘chira olmasligi, masalan, mijoz ishonchi yoki noyob hunar",
-"Faqat chiroyli reklama, chunki uni tezda takrorlab bo‘lmaydi"
+"Faqat chiroyli reklama orqali bo‘lishi kerak, chunki reklamani tezda takrorlab bo‘lmaydi"
 ],
 "c": 2,
 "w": "Moat / sustainable advantage.",
@@ -3956,10 +3956,10 @@ export const BANK = [
 "t": 6,
 "q": "Qaysi farqlanish turi nusxa ko‘chirishga eng bardoshli?",
 "o": [
-"Mahsulot qadog‘ining rangi",
-"Reklama roligining uzunligi",
+"Mahsulot qadog‘ining rangi va dizayni, chunki uni raqobatchilar nusxalay olmaydi",
+"Reklama roligining uzunligi va ko‘p takrorlanishi, chunki u mijoz xotirasida qoladi",
 "Brend ishonchi, noyob bilim yoki tarmoq effekti kabi to‘plangan ustunlik",
-"Vaqtinchalik chegirma yoki aksiya"
+"Vaqtinchalik chegirma yoki aksiya, chunki u mijozlarni tez jalb qiladi va uzoq saqlanadi"
 ],
 "c": 2,
 "w": "Durable differentiation.",
@@ -3969,10 +3969,10 @@ export const BANK = [
 "t": 6,
 "q": "Nega Business Model Canvasni bir marta yozib qo‘yish yetarli emas?",
 "o": [
-"Canvas faqat qog‘ozda saqlanib, o‘zgarmaydi",
-"Canvas faqat investorga ko‘rsatish uchun mo‘ljallangan",
+"Canvas faqat qog‘ozda saqlanib, o‘zgarmaydi va bir marta tuzilgach, uni qayta ko‘rib chiqish talab etilmaydi",
+"Canvas faqat investorga ko‘rsatish uchun mo‘ljallangan hujjat bo‘lib, jamoa ichida ishlatilmaydi",
 "Bloklar gipoteza bo‘lib, mijoz bilan sinalib, yangi ma’lumot kelgach yangilanadi",
-"Canvas bir marta tuzilgach, qonuniy hujjatga aylanadi"
+"Canvas bir marta tuzilgach, qonuniy hujjatga aylanadi va uni o‘zgartirish taqiqlanadi"
 ],
 "c": 2,
 "w": "Living document.",
@@ -3982,9 +3982,9 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-modelning sog‘lomligini tekshiruvchi savollardan biri qaysi?",
 "o": [
-"Xodimlar necha kishi va qaysi shaharda yashaydi?",
-"Ofis qaysi qavatda joylashgan?",
-"Reklama roliklari qancha minut davom etadi?",
+"Xodimlar necha kishi, ular qaysi shaharda yashaydi va qanday ta’lim olgan hamda ish tajribasi qancha?",
+"Ofis qaysi qavatda joylashgan, uning dizayni qanday va ijara narxi qanchani tashkil etadi?",
+"Reklama roliklari qancha minut davom etadi va ular qaysi kanallarda ko‘rsatiladi hamda qanday ko‘rinadi?",
 "Mijozni jalb qilish narxi (CAC) uning umr bo‘yi keltiradigan daromaddan (LTV) kam bo‘ladimi?"
 ],
 "c": 3,
@@ -3995,9 +3995,9 @@ export const BANK = [
 "t": 6,
 "q": "LTV (mijoz umri qiymati) nimani anglatadi?",
 "o": [
-"Mijozni bir marta jalb qilish uchun sarflangan reklama xarajati",
-"Kompaniyaning yillik jami tushumi",
-"Mijozning bir kunda sarflaydigan vaqti",
+"Mijozni bir marta jalb qilish uchun sarflangan reklama xarajati va unga ketgan umumiy sarf",
+"Kompaniyaning yillik jami tushumi va uning barcha mijozlardan olgan umumiy daromadi",
+"Mijozning bir kunda kompaniya xizmatidan foydalanishga sarflaydigan vaqti va faolligi",
 "Bitta mijoz kompaniya bilan hamkorlik davomida keltiradigan jami daromad (yoki foyda)"
 ],
 "c": 3,
@@ -4008,10 +4008,10 @@ export const BANK = [
 "t": 6,
 "q": "CAC (mijozni jalb qilish narxi) nimani anglatadi?",
 "o": [
-"Mijoz to‘laydigan soliq summasi",
-"Bitta mijoz keltiradigan jami foyda",
+"Mijoz mahsulotni sotib olganda to‘laydigan soliq summasi va qo‘shimcha yig‘imlar miqdori",
+"Bitta mijoz kompaniya bilan hamkorlik davomida keltiradigan jami foyda va uning qiymati",
 "Bitta yangi mijozni jalb qilish uchun o‘rtacha sarflangan marketing va sotuv xarajati",
-"Mahsulotning ishlab chiqarish tannarxi"
+"Mahsulotning ishlab chiqarish tannarxi va uni sotishga tayyorlash uchun ketgan xarajatlar"
 ],
 "c": 2,
 "w": "Customer acquisition cost.",
@@ -4021,10 +4021,10 @@ export const BANK = [
 "t": 6,
 "q": "LTV/CAC nisbati 1 dan past bo‘lsa, bu nimani bildiradi?",
 "o": [
-"Raqobat umuman mavjud emas",
-"Soliq majburiyati yo‘q",
+"Raqobat umuman mavjud emas va kompaniya bozorda yagona sotuvchi bo‘lib qolgan",
+"Soliq majburiyati yo‘q va tadbirkor daromadidan hech narsa to‘lamaydi hamda ozod",
 "Mijoz keltiradigan daromad uni jalb qilish xarajatini qoplamayapti, model zararli",
-"Biznes juda foydali va mijozlar ko‘p"
+"Biznes juda foydali va mijozlar ko‘p, shuning uchun model kengaytirishga to‘liq tayyor"
 ],
 "c": 2,
 "w": "Unit economics broken.",
@@ -4034,9 +4034,9 @@ export const BANK = [
 "t": 6,
 "q": "Mijozlar bir martalik xarid qiladi, takroriy ehtiyoj yo‘q. Qaysi yo‘l mantiqiy?",
 "o": [
-"Mijozlarga qayta murojaat qilmay, faqat birinchi xaridga e’tibor berish",
-"Barcha mijozlarni yo‘qotib, yangi biznesga o‘tish",
-"Narxni oshirib, sotuvni to‘xtatish",
+"Mijozlarga qayta murojaat qilmay, faqat birinchi xaridga e’tibor berib, keyingi aloqani to‘xtatish",
+"Barcha mavjud mijozlarni yo‘qotib, butunlay yangi biznesga o‘tish va g‘oyani yopish",
+"Narxni keskin oshirib, sotuvni to‘xtatish va faqat bitta buyurtmaga tayanib qolish",
 "Sotuvdan keyingi xizmat va tavsiya orqali qayta xarid yoki yangi mijoz oqimini oshirish"
 ],
 "c": 3,
@@ -4047,10 +4047,10 @@ export const BANK = [
 "t": 6,
 "q": "Mijoz segmenti pivoti nima?",
 "o": [
-"Mahsulot butunlay o‘zgaradi va mijoz saqlanadi",
+"Mahsulot butunlay o‘zgaradi va avvalgi mijozlar saqlanadi hamda yangi mahsulot ularga taklif etiladi",
 "Mahsulot deyarli o‘zgarmaydi, ammo uni boshqa mijoz guruhiga taklif qilish",
-"Kompaniya yopilib, yangisi ochiladi",
-"Barcha xodimlar almashtiriladi"
+"Kompaniya yopilib, yangisi ochiladi va avvalgi biznes-modelning qismlari saqlanmaydi",
+"Barcha xodimlar almashtirilib, kompaniyaning rahbariyati tubdan yangilanadi va jamoa o‘zgaradi"
 ],
 "c": 1,
 "w": "Customer segment pivot.",
@@ -4060,10 +4060,10 @@ export const BANK = [
 "t": 6,
 "q": "B2C dan B2B ga yo‘naltirilganda qaysi BMC bloklari o‘zgaradi?",
 "o": [
-"Faqat kompaniya nomi",
+"Faqat kompaniya nomi va logotipi, chunki boshqa bloklar bu yo‘nalish o‘zgarganda ham o‘zgarmaydi",
 "Mijoz segmentlari, kanallar va mijozlar bilan munosabat bloklari",
-"Faqat ofis manzili",
-"Faqat xodimlar soni"
+"Faqat ofis manzili va ijaraga olingan bino, chunki bloklar jismoniy joyga bog‘liq bo‘ladi",
+"Faqat xodimlar soni va ularning lavozimlari, chunki qolgan bloklar o‘zgarmaydi hamda saqlanadi"
 ],
 "c": 1,
 "w": "Segment o‘zgarsa, kanal va munosabat ham o‘zgaradi.",
@@ -4074,9 +4074,9 @@ export const BANK = [
 "q": "Kanalga haddan tashqari bog‘lanish (masalan, faqat bitta marketpleysga) qanday xavf tug‘diradi?",
 "o": [
 "Platforma shartlarini o‘zgartirsa yoki to‘xtatsa, daromadning katta qismi birdaniga yo‘qolishi mumkin",
-"Mijozlar soni avtomatik oshadi",
-"Soliq majburiyati kamayadi",
-"Xavf yo‘q, chunki bitta kanal eng ishonchli"
+"Mijozlar soni avtomatik oshadi, chunki bitta kanalga jamlanish xizmat sifatini yaxshilaydi",
+"Soliq majburiyati kamayadi, chunki bitta kanal orqali sotuv hisobotni soddalashtiradi hamda tekshiruvni kamaytiradi",
+"Xavf yo‘q, chunki bitta kanal eng ishonchli hisoblanadi va uning shartlari doim o‘zgarmaydi"
 ],
 "c": 0,
 "w": "Channel concentration risk.",
@@ -4086,9 +4086,9 @@ export const BANK = [
 "t": 6,
 "q": "Qaysi yo‘l kanalga bog‘liqlikni kamaytiradi?",
 "o": [
-"Faqat bitta platformada qolish",
-"Mijozlar bilan aloqani to‘xtatish",
-"Mahsulot nomini tez-tez o‘zgartirish",
+"Faqat bitta platformada qolib, uning imkoniyatlarini to‘liq o‘zlashtirish va boshqasiga chiqmaslik",
+"Mijozlar bilan aloqani to‘xtatib, faqat platforma orqali kelgan buyurtmalarni qabul qilish",
+"Mahsulot nomini tez-tez o‘zgartirib, har safar yangi mijozlarni jalb qilishga harakat qilish",
 "O‘z sahifasi va mijozlar bazasini yaratib, kanallarni ko‘paytirish"
 ],
 "c": 3,
@@ -4099,9 +4099,9 @@ export const BANK = [
 "t": 6,
 "q": "Qiymat taklifining kuchli ko‘rinishi qanday bo‘ladi?",
 "o": [
-"Faqat chiroyli so‘zlardan iborat bo‘lib, aniq foyda ko‘rsatmaydi",
-"Barcha mijozlarga hamma narsani va'da qiladi",
-"Faqat mahsulot narxini ko‘rsatadi",
+"Faqat chiroyli va ta’sirchan so‘zlardan iborat bo‘lib, aniq foyda va natijani ko‘rsatmaydi",
+"Barcha mijozlarga hamma narsani va’da qilib, har qanday ehtiyojni qondirishga tayyor ekanini bildiradi",
+"Faqat mahsulot narxini ko‘rsatib, uning boshqa afzalliklari va farqlari haqida gapirmaydi",
 "Aniq mijoz uchun aniq muammoni hal qilib, raqobatchidan farqini qisqa va tushunarli ifodalaydi"
 ],
 "c": 3,
@@ -4112,10 +4112,10 @@ export const BANK = [
 "t": 6,
 "q": "Qiymat taklifi mijoz uchun nimalarni o‘z ichiga olishi mumkin?",
 "o": [
-"Faqat kompaniya binosining ko‘rinishi",
-"Faqat tadbirkorning shaxsiy hikoyasi",
+"Faqat kompaniya binosining ko‘rinishini va uning joylashuvini hamda ichki bezagini",
+"Faqat tadbirkorning shaxsiy hikoyasini va uning muvaffaqiyatga erishish yo‘lini hamda tajribasini",
 "Yangilik, unumdorlik, qulaylik, narx, brend yoki xavfni kamaytirish kabi foydalarni",
-"Faqat xodimlar soni"
+"Faqat xodimlar sonini va ularning malakasini hamda ish tajribasini"
 ],
 "c": 2,
 "w": "Value types.",
@@ -4126,9 +4126,9 @@ export const BANK = [
 "q": "Barqaror biznes-modelda daromad va xarajat qanday nisbatda bo‘lishi kerak?",
 "o": [
 "Bir mijozdan keladigan daromad uni jalb qilish va xizmat ko‘rsatish xarajatidan yuqori bo‘lishi kerak",
-"Daromad va xarajat bir xil bo‘lishi shart",
-"Xarajat doimo daromaddan yuqori bo‘lishi kerak",
-"Nisbat ahamiyatsiz"
+"Daromad va xarajat doim bir xil bo‘lishi shart, chunki shunda biznes barqaror turadi",
+"Xarajat doimo daromaddan yuqori bo‘lishi kerak, chunki shunda biznes tez o‘sadi va kengayadi",
+"Nisbat ahamiyatsiz, chunki faqat umumiy mijozlar soni biznes muvaffaqiyatini belgilaydi"
 ],
 "c": 0,
 "w": "Unit economics.",
@@ -4138,10 +4138,10 @@ export const BANK = [
 "t": 6,
 "q": "Sinov natijasida biznes-modelning asosiy gipotezasi rad etilsa, nima qilish kerak?",
 "o": [
-"Mijozlarni ayblash",
+"Mijozlarni ayblab, ularning fikrini e’tiborsiz qoldirib, taklifni o‘zgartirmaslik",
 "Ma’lumotga tayanib modelning bir qismini o‘zgartirish (pivot) yoki yangi gipotezani sinash",
-"Loyihani darhol yopib, barchasini unutish",
-"Sinov natijasini e’tiborsiz qoldirib, o‘sha model bilan davom etish"
+"Loyihani darhol yopib, barchasini unutib, boshqa soha bilan shug‘ullanishni boshlash",
+"Sinov natijasini e’tiborsiz qoldirib, o‘sha model bilan davom etish va natijani kutish"
 ],
 "c": 1,
 "w": "Pivot decision.",
@@ -4151,9 +4151,9 @@ export const BANK = [
 "t": 6,
 "q": "Platforma modelida «ikki tomonlilik» (two-sided) nimani anglatadi?",
 "o": [
-"Platformada faqat ikkita xodim ishlashini",
-"Platformada ikkita mahsulot sotilishini",
-"Platforma ikki xil valyutada ishlashini",
+"Platformada faqat ikkita xodim ishlashini va ular har ikkala tomonga xizmat ko‘rsatishini",
+"Platformada faqat ikkita mahsulot sotilishini va boshqa mahsulotlar kiritilmasligini",
+"Platforma ikki xil valyutada ishlashini va to‘lovlarni ikki valyutada qabul qilishini",
 "Platforma ikki xil guruhga (masalan, sotuvchi va xaridor) xizmat qilib, ular bir-biriga qiymat yaratishini"
 ],
 "c": 3,
@@ -4164,9 +4164,9 @@ export const BANK = [
 "t": 6,
 "q": "Tarmoq effekti kuchli platformada yangi raqobatchi uchun kirish to‘sig‘i qanday bo‘ladi?",
 "o": [
-"Past: chunki yangi platforma darhol hamma foydalanuvchini oladi",
-"Mavjud emas",
-"Faqat narxga bog‘liq",
+"Past: chunki yangi platforma darhol hamma foydalanuvchini o‘ziga tortib, bazani egallay oladi",
+"Mavjud emas: chunki tarmoq effekti kirish to‘sig‘ini yaratmaydi, aksincha yo‘qotadi",
+"Faqat narxga bog‘liq: arzonroq platforma doim g‘olib chiqadi va mijozlarni oladi",
 "Yuqori: mavjud foydalanuvchilar bazasini egallash qiyin bo‘lgani uchun"
 ],
 "c": 3,
@@ -4177,10 +4177,10 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-modelni sinashda «gipoteza» nimani anglatadi?",
 "o": [
-"Raqobatchi bergan tavsiya",
-"Isbotlangan va qayta tekshirilmaydigan fakt",
+"Raqobatchi bergan tavsiya bo‘lib, uni o‘zgartirmasdan qabul qilish lozim hisoblanadi",
+"Isbotlangan va qayta tekshirilmaydigan fakt bo‘lib, uni o‘zgartirish yoki sinash talab etilmaydi",
 "Bloklardagi tekshirilishi kerak bo‘lgan taxmin (masalan, mijoz shu narxga to‘laydi)",
-"Faqat tadbirkorning xohishi"
+"Faqat tadbirkorning shaxsiy xohishi bo‘lib, uni mijozlar bilan tekshirish shart bo‘lmaydi"
 ],
 "c": 2,
 "w": "Hypothesis.",
@@ -4190,10 +4190,10 @@ export const BANK = [
 "t": 6,
 "q": "Qaysi ko‘rsatkich biznes-modelning o‘sish potensialini ko‘rsatadi?",
 "o": [
-"Instagramdagi rasmlar soni",
-"Ofis maydoni va xodimlar soni",
+"Instagramdagi rasmlar soni va ularning ko‘rilish hajmi hamda obunachilar soni",
+"Ofis maydoni va xodimlar soni, chunki ular biznes hajmini ko‘rsatadi va o‘sishni belgilaydi",
 "Takroriy xaridorlar ulushi, mijoz ushlab qolish darajasi va unit-ekonomika",
-"Reklama roliklarining davomiyligi"
+"Reklama roliklarining davomiyligi va ular tarqatilgan kanallar soni hamda xarajati"
 ],
 "c": 2,
 "w": "Retention + unit economics.",
@@ -4203,10 +4203,10 @@ export const BANK = [
 "t": 6,
 "q": "Daromad modeli sifatida «reklama» qachon ishlaydi?",
 "o": [
-"Faqat bir martalik sotuvda",
-"Faqat yirik kompaniyalar uchun",
+"Faqat bir martalik sotuvda, chunki takroriy auditoriya reklamani rad etadi hamda e’tibor bermaydi",
+"Faqat yirik kompaniyalar uchun, chunki kichik platformalarda reklama daromad keltirmaydi",
 "Platformada katta auditoriya bo‘lib, reklama beruvchilar shu auditoriyaga chiqishni xohlaganda",
-"Faqat auditoriya yo‘q bo‘lganda"
+"Faqat auditoriya yo‘q bo‘lganda, chunki shunda reklama beruvchilar mahsulotni ko‘proq izlaydi"
 ],
 "c": 2,
 "w": "Ad-based model.",
@@ -4216,9 +4216,9 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-modelda «xarajat tuzilmasi» qanday turlarga bo‘linadi?",
 "o": [
-"Faqat reklama va soliq xarajatlariga",
-"Faqat bank foizlariga",
-"Faqat bir martalik xarajatlarga",
+"Faqat reklama va soliq xarajatlariga, chunki boshqa xarajat turlari tuzilmaga kirmaydi",
+"Faqat bank foizlariga va kredit xizmati uchun to‘lovlarga, boshqa xarajatlarsiz",
+"Faqat bir martalik xarajatlarga, chunki muntazam to‘lovlar xarajat tuzilmasiga kirmaydi",
 "Doimiy (ijara, maosh) va o‘zgaruvchan (xomashyo, komissiya) xarajatlarga"
 ],
 "c": 3,
@@ -4229,10 +4229,10 @@ export const BANK = [
 "t": 6,
 "q": "Masshtablanuvchi (scalable) biznes-model nimasi bilan ajralib turadi?",
 "o": [
-"Faqat bir mijozga xizmat qiladi",
-"Faqat qo‘lda ishlaydi",
+"Faqat bir mijozga xizmat qiladi va boshqa mijozlarni qabul qilishga tayyor bo‘lmaydi",
+"Faqat qo‘lda ishlaydi va jarayonni avtomatlashtirish imkoniga ega bo‘lmaydi hamda kengaymaydi",
 "Daromad ortishi bilan xarajat nisbatan sekin o‘sadi, ya’ni marja kengayadi",
-"Xarajat daromaddan tezroq o‘sadi"
+"Xarajat daromaddan tezroq o‘sadi va marja kengayish o‘rniga qisqarib boradi hamda foyda kamayadi"
 ],
 "c": 2,
 "w": "Scalability.",
@@ -4242,9 +4242,9 @@ export const BANK = [
 "t": 6,
 "q": "Qaysi holatda biznes-model «moslashuvchan» hisoblanadi?",
 "o": [
-"Faqat tadbirkor qarori bilan, ma’lumotsiz o‘zgarganda",
-"Faqat bir yo‘nalishda ishlaganda",
-"Hech qachon o‘zgarmaganda",
+"Faqat tadbirkor qarori bilan, ma’lumotsiz va sinovsiz o‘zgarganda, chunki tezlik muhim",
+"Faqat bir yo‘nalishda ishlaganda, chunki ixtisoslashuv har qanday o‘zgarishga tayyorlik beradi",
+"Hech qachon o‘zgarmaganda, chunki barqarorlik moslashuvchanlikning asosiy belgisi hisoblanadi",
 "Bozor o‘zgarganda bloklarini tez sinab, o‘zgartira olganda"
 ],
 "c": 3,
@@ -4255,9 +4255,9 @@ export const BANK = [
 "t": 6,
 "q": "Milliy qo‘l mehnati mahsulotlarini onlayn sotishda qaysi biznes-model bloki alohida e’tibor talab qiladi?",
 "o": [
-"Faqat davlat ro‘yxatidan o‘tmaslik",
-"Faqat uskuna sotib olish",
-"Faqat xodimlarni kamaytirish",
+"Faqat davlat ro‘yxatidan o‘tmaslik va soliq to‘lamaslik hamda hisobotlardan qochish",
+"Faqat uskuna sotib olish va ishlab chiqarish quvvatini oshirish hamda xodimlarni ko‘paytirish",
+"Faqat xodimlarni kamaytirish va xarajatlarni qisqartirish hamda boshqaruvni soddalashtirish",
 "Kanallar va logistika hamda brend hikoyasi orqali qiymat taklifini aniq yetkazish"
 ],
 "c": 3,
@@ -4268,9 +4268,9 @@ export const BANK = [
 "t": 6,
 "q": "«Qiymat taklifi–mijoz» mosligi qachon yo‘qoladi?",
 "o": [
-"Ofis boshqa joyga ko‘chirilganda",
-"Reklama miqdori kamayganda",
-"Xodimlar soni o‘zgarganda",
+"Ofis boshqa joyga ko‘chirilganda, chunki shu paytda mijozlar manzilni topa olmaydi",
+"Reklama miqdori kamayganda, chunki shu paytda mijozlar mahsulotni darhol unutib qo‘yadi",
+"Xodimlar soni o‘zgarganda, chunki mijoz muammosi xodimlar soniga to‘g‘ridan-to‘g‘ri bog‘liq",
 "Taklif mijozning haqiqiy «ish»iga yoki muammosiga mos kelmaganda"
 ],
 "c": 3,
@@ -4281,10 +4281,10 @@ export const BANK = [
 "t": 6,
 "q": "Daromadning bir manbaga haddan tashqari bog‘liqligi nimasi bilan xavfli?",
 "o": [
-"Mijozlar soni oshadi",
+"Mijozlar soni avtomatik oshadi, chunki yagona manba mijozlarni o‘ziga jalb qiladi hamda saqlaydi",
 "O‘sha manba pasaysa, butun biznes xavf ostida qoladi",
-"Soliq avtomatik oshadi",
-"Xavf yo‘q, chunki bitta manba barqaror"
+"Soliq avtomatik ravishda oshadi, chunki yagona manba soliq bazasini kengaytiradi hamda stavkani ko‘taradi",
+"Xavf yo‘q, chunki bitta manba eng barqaror bo‘lib, hech qachon pasaymaydi hamda doim saqlanadi"
 ],
 "c": 1,
 "w": "Revenue concentration.",
@@ -4294,10 +4294,10 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-modelni tahlil qilishda raqobat va farqlanishni qaysi blok bilan bog‘lash mumkin?",
 "o": [
-"Faqat xarajat tuzilmasi bilan",
-"Faqat kompaniya nomi bilan",
+"Faqat xarajat tuzilmasi bilan, chunki farq faqat narx va tannarxdan iborat bo‘ladi",
+"Faqat kompaniya nomi bilan, chunki mijoz tanlovida faqat nom ahamiyatga ega bo‘ladi",
 "Qiymat taklifi va mijoz segmentlari bilan, chunki farq mijoz uchun foydada namoyon bo‘ladi",
-"Faqat soliq bilan"
+"Faqat soliq bilan, chunki raqobat soliq to‘lovlari orqali belgilanadi hamda o‘lchanadi"
 ],
 "c": 2,
 "w": "Differentiation lives in value prop.",
@@ -4308,9 +4308,9 @@ export const BANK = [
 "q": "Qaysi holatda platforma modeli yaxshi tanlov?",
 "o": [
 "Ikki tomon bir-birini topishga muhtoj bo‘lib, tarmoq effekti kuchaysa",
-"Mahsulot bir marta sotiladigan va tarmoq kerak bo‘lmaganda",
-"Ishlab chiqarish qo‘lda va kichik hajmda bo‘lganda",
-"Faqat bitta mijoz bo‘lganda"
+"Mahsulot bir marta sotiladigan va tarmoq kerak bo‘lmaganda, chunki platforma ortiqcha murakkablik",
+"Ishlab chiqarish qo‘lda va kichik hajmda bo‘lganda, chunki platforma bunday ishlab chiqarishga mos",
+"Faqat bitta mijoz bo‘lganda, chunki platforma bir tomonli xizmat uchun ham yetarli hisoblanadi"
 ],
 "c": 0,
 "w": "Platform fit.",
@@ -4320,10 +4320,10 @@ export const BANK = [
 "t": 6,
 "q": "Kichik tadbirkor biznes-modelni soddalashtirish uchun qaysi savoldan boshlashi samarali?",
 "o": [
-"Qaysi mashhur shaxs bizni reklama qiladi?",
-"Qancha xodim yollaymiz va qaysi rangdagi formada ishlaymiz?",
+"Qaysi mashhur shaxs bizni reklama qiladi va unga qancha haq to‘laymiz?",
+"Qancha xodim yollaymiz, qaysi rangdagi formada ishlaymiz va ofisni qanday jihozlaymiz?",
 "Kim, qaysi muammo uchun, nima uchun to‘laydi va biz buni qanday yetkazamiz?",
-"Qaysi shahar markazida eng katta ofis ochamiz?"
+"Qaysi shahar markazida eng katta ofis ochamiz va unga qancha ijara to‘laymiz?"
 ],
 "c": 2,
 "w": "Core questions.",
@@ -4333,10 +4333,10 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-model innovatsiyasi (business model innovation) nimani bildiradi?",
 "o": [
-"Faqat ofis dizaynini yangilashni",
-"Faqat yangi logotip yaratishni",
+"Faqat ofis dizaynini yangilab, ish muhitini qulaylashtirishni va xodimlar ruhini ko‘tarishni",
+"Faqat yangi logotip yaratib, brend tashqi ko‘rinishini yangilashni hamda reklama uslubini almashtirishni",
 "Mahsulot emas, qiymat yaratish, yetkazish yoki daromad olish usulini yangicha tashkil etishni",
-"Faqat narxni pasaytirishni"
+"Faqat narxni pasaytirib, raqobatchilar bilan narx urushini boshlashni va mijozlarni jalb qilishni"
 ],
 "c": 2,
 "w": "BMI.",
@@ -4346,9 +4346,9 @@ export const BANK = [
 "t": 6,
 "q": "Hamkorlik (partnership) orqali xavfni kamaytirishga qaysi misol mos keladi?",
 "o": [
-"Hamkorni aldab, mablag‘ni o‘zlashtirish",
-"Hamkor bilan shartnoma tuzmaslik",
-"Barcha jarayonni yolg‘iz bajarib, hamkor izlamaslik",
+"Hamkorni aldab, uning mablag‘ini o‘zlashtirish va majburiyatlardan qochish orqali",
+"Hamkor bilan shartnoma tuzmasdan, og‘zaki kelishuv asosida ish yuritish orqali xarajatni kamaytirish",
+"Barcha jarayonni yolg‘iz bajarib, hamkor izlamaslik va hamma resursni o‘zida jamlash orqali",
 "Uskunani sotib olmay, hamkordan ijaraga olib, boshlang‘ich xarajatni kamaytirish"
 ],
 "c": 3,
@@ -4359,10 +4359,10 @@ export const BANK = [
 "t": 6,
 "q": "Mijoz «ishi»ni noto‘g‘ri aniqlash qanday oqibatga olib keladi?",
 "o": [
-"Mijozlar soni avtomatik ortadi",
+"Mijozlar soni avtomatik ortadi, chunki noto‘g‘ri taklif keng auditoriyaga ta’sir qiladi hamda tarqaladi",
 "Mahsulot mijozning haqiqiy ehtiyojini qondirmay, sotuv va takroriy xarid past bo‘ladi",
-"Soliq majburiyati kamayadi",
-"Mahsulot avtomatik ravishda bozor yetakchisiga aylanadi"
+"Soliq majburiyati kamayadi, chunki noto‘g‘ri aniqlangan ish soliq bazasiga hech qanday ta’sir qilmaydi",
+"Mahsulot avtomatik ravishda bozor yetakchisiga aylanadi, chunki mijoz baribir uni sotib oladi"
 ],
 "c": 1,
 "w": "Misaligned job.",
@@ -4372,10 +4372,10 @@ export const BANK = [
 "t": 6,
 "q": "Qaysi ko‘rsatkich platforma modelida «likvidlik» (liquidity) deyiladi?",
 "o": [
-"Xodimlarning ish haqi darajasi",
-"Reklama xarajatlarining miqdori",
+"Xodimlarning ish haqi darajasi va ularning soni hamda malaka tarkibi",
+"Reklama xarajatlarining miqdori va ularning marketing kanallari bo‘yicha taqsimlanishi",
 "Bir tomon ikkinchi tomonni tez topishi va bitimlar muntazam amalga oshishi",
-"Platformaning bank hisobidagi pul miqdori"
+"Platformaning bank hisobidagi pul miqdori va uning umumiy aylanmasi hamda foyda darajasi"
 ],
 "c": 2,
 "w": "Marketplace liquidity.",
@@ -4385,10 +4385,10 @@ export const BANK = [
 "t": 6,
 "q": "Biznes-model qaysi savolga javob bermasa, to‘liq hisoblanmaydi?",
 "o": [
-"Direktor nechta tilni bilishi haqida",
-"Ofis devorlari qaysi rangda ekani haqida",
+"Direktor nechta tilni bilishi va qaysi universitetda o‘qiganligi hamda tajribasi haqida",
+"Ofis devorlari qaysi rangda ekani va qanday jihozlangani haqida hamda ichki dizayni haqida",
 "Kompaniya qanday pul topishi (daromad manbayi va xarajat tuzilmasi) haqida",
-"Xodimlar qaysi liboslarda ishlashi haqida"
+"Xodimlar qaysi liboslarda ishlashi va qanday ish intizomiga rioya qilishi haqida"
 ],
 "c": 2,
 "w": "Money logic.",
@@ -4411,9 +4411,9 @@ export const BANK = [
 "t": 7,
 "q": "Ehtiyoj, istak va talab o‘rtasidagi farq qaysi javobda to‘g‘ri?",
 "o": [
-"Ehtiyoj — to‘lov qobiliyati bilan mustahkamlangan istak, talab — yetishmovchilik hissi",
-"Uchalasi ham bir xil tushuncha bo‘lib, faqat atamasi farq qiladi",
-"Istak — faqat davlat belgilagan, talab — faqat sotuvchi belgilagan tushuncha",
+"Ehtiyoj — to‘lov qobiliyati bilan mustahkamlangan istak, talab — yetishmovchilik hissi va uning anglanishi",
+"Uchalasi ham mohiyatan bir xil tushuncha bo‘lib, faqat atamasi va qo‘llanish sohasi bilan farq qiladi",
+"Istak — faqat davlat belgilagan me’yor, talab — faqat sotuvchi belgilagan va rejalashtirilgan hajm",
 "Ehtiyoj — yetishmovchilik hissi, istak — uni qondirishning aniq shakli, talab — to‘lov qobiliyati bilan qo‘llab-quvvatlangan istak"
 ],
 "c": 3,
@@ -4451,9 +4451,9 @@ export const BANK = [
 "q": "B2C va B2B mijozlari o‘rtasidagi asosiy farq nimada?",
 "o": [
 "B2C — individual iste’molchi, B2B — tashkilot; B2B da qaror odatda ko‘p kishi ishtirokida, uzoqroq va mantiqiy asosda qabul qilinadi",
-"B2B faqat chet el mijozlari, B2C faqat mahalliy mijozlar uchun",
-"B2C va B2B o‘rtasida hech qanday farq yo‘q va ular bir xil sotuv jarayoniga ega",
-"B2C — tashkilot, B2B — individual iste’molchi, qarorlar ikkalasida ham bir xil tezlikda qabul qilinadi"
+"B2B faqat chet el mijozlari bilan, B2C faqat mahalliy mijozlar bilan ishlaydigan sotuv turlaridir",
+"B2C va B2B o‘rtasida hech qanday farq yo‘q, ular bir xil sotuv jarayoni va mezonlarga ega bo‘ladi",
+"B2C — tashkilot, B2B — individual iste’molchi; qarorlar ikkalasida ham bir xil tezlikda va bir xil mezonlar bilan qabul qilinadi"
 ],
 "c": 0,
 "w": "B2B murakkabroq.",
@@ -4476,10 +4476,10 @@ export const BANK = [
 "t": 7,
 "q": "B2B xarid markazida axborot oqimini nazorat qiladigan (masalan, kotib yoki yordamchi) shaxs qaysi rolni bajaradi?",
 "o": [
-"Foydalanuvchi",
-"Qaror qabul qiluvchi",
+"Foydalanuvchi (user) — mahsulotdan bevosita kundalik foydalanadigan va uni baholaydigan xodim",
+"Qaror qabul qiluvchi (decider) — yakuniy tanlovni belgilaydigan va mablag‘ni tasdiqlaydigan shaxs",
 "Eshik qo‘riqchisi (gatekeeper)",
-"To‘lovchi"
+"To‘lovchi (payer) — xaridga ajratilgan mablag‘ni to‘laydigan va hisob-kitobni amalga oshiradigan shaxs"
 ],
 "c": 2,
 "w": "Buying center roles.",
@@ -4489,10 +4489,10 @@ export const BANK = [
 "t": 7,
 "q": "Xarid markazidagi «ta’sir etuvchi» (influencer) roli nimani bildiradi?",
 "o": [
-"Shartnomani imzolaydigan rahbar",
+"Shartnomani imzolaydigan rahbar, ya’ni yakuniy qarorni rasman tasdiqlovchi va javobgar shaxs",
 "Qarorga o‘z fikri bilan ta’sir ko‘rsatadigan, ammo yakuniy qaror qilmaydigan shaxs",
-"Mahsulotdan kundalik foydalanadigan xodim",
-"Mahsulotni yetkazib beruvchi kompaniya vakili"
+"Mahsulotdan kundalik foydalanadigan xodim, ya’ni uning amaliy qulayligini baholovchi shaxs",
+"Mahsulotni yetkazib beruvchi kompaniya vakili, ya’ni sotuvchi tomondan muzokara olib boruvchi shaxs"
 ],
 "c": 1,
 "w": "Influencer.",
@@ -4502,10 +4502,10 @@ export const BANK = [
 "t": 7,
 "q": "Bolalar to‘garagi xizmatida ota-ona pulni to‘laydi, bola esa qatnashadi. Ota-ona qaysi rolni bajaradi?",
 "o": [
-"Faqat raqobatchi",
+"Faqat raqobatchi, chunki u xizmat narxiga ta’sir qilib, tanlovni o‘zgartiradi",
 "To‘lovchi (va ko‘pincha qaror qabul qiluvchi)",
-"Faqat foydalanuvchi",
-"Faqat eshik qo‘riqchisi"
+"Faqat foydalanuvchi (user), chunki mahsulotdan bevosita faqat shu shaxs foydalanadi",
+"Faqat eshik qo‘riqchisi (gatekeeper), chunki axborot oqimini faqat u nazorat qiladi"
 ],
 "c": 1,
 "w": "Payer vs user.",
@@ -4528,10 +4528,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz ehtiyojini aniqlashda eng ishonchli usul qaysi?",
 "o": [
-"Faqat mijozdan «sizga nima kerak?» deb bir marta so‘rash",
-"Faqat raqobatchining mahsulot ro‘yxatini ko‘chirish",
+"Faqat mijozdan «sizga nima kerak?» deb bir marta so‘rash va uning javobiga to‘liq ishonish",
+"Faqat raqobatchining mahsulot ro‘yxatini ko‘chirib olish va ularning narxlarini takrorlash",
 "Mijozni o‘z muhitida kuzatish va uning real xatti-harakati hamda tanlovlarini o‘rganish",
-"Faqat o‘z taxminlariga tayanish"
+"Faqat o‘z taxminlariga tayanish va mijoz bilan umuman suhbatlashmasdan qaror qilish"
 ],
 "c": 2,
 "w": "Behavioral insight.",
@@ -4541,9 +4541,9 @@ export const BANK = [
 "t": 7,
 "q": "STP modelida segmentlash (S) nimani bildiradi?",
 "o": [
-"Narxni belgilashni",
-"Mahsulotning mijoz ongida o‘rnini belgilashni",
-"Maqsadli guruhni tanlashni",
+"Narxni belgilash va chegirmalar tizimini tuzishni hamda sotuv shartlarini kelishib olishni",
+"Mahsulotning mijoz ongida o‘rnini belgilash va uni boshqalardan ajratib ko‘rsatishni hamda tanitishni",
+"Maqsadli guruhni tanlash va unga yo‘naltirilgan taklifni shakllantirishni hamda resurslarni jamlashni",
 "Bozorni o‘xshash ehtiyoj va xulqli guruhlarga ajratishni"
 ],
 "c": 3,
@@ -4554,10 +4554,10 @@ export const BANK = [
 "t": 7,
 "q": "STP modelidagi targeting (T) bosqichida nima qilinadi?",
 "o": [
-"Mahsulotning logotipi chiziladi",
+"Mahsulotning logotipi chiziladi va brend uslubi tanlanadi hamda reklama materiallari tayyorlanadi",
 "Segmentlar baholanib, maqsadli segment(lar) tanlanadi",
-"Mijozlar bazasi o‘chiriladi",
-"Bozor shaharlar bo‘yicha ajratiladi"
+"Mijozlar bazasi o‘chirilib, yangidan to‘planadi va barcha avvalgi ma’lumotlar yo‘qotiladi hamda yangilanadi",
+"Bozor shaharlar bo‘yicha ajratiladi va har bir shahar uchun alohida narx belgilanadi hamda hisobot yuritiladi"
 ],
 "c": 1,
 "w": "Targeting.",
@@ -4567,9 +4567,9 @@ export const BANK = [
 "t": 7,
 "q": "STP modelidagi pozitsiyalash (P) nima?",
 "o": [
-"Narxni raqobatchidan doim past belgilash",
-"Xodimlarni lavozimlarga taqsimlash",
-"Mahsulotni omborga joylashtirish",
+"Narxni raqobatchidan doim past belgilash va shu orqali mijoz ongida arzon obrazni shakllantirish",
+"Xodimlarni lavozimlarga taqsimlash va ularning vazifalarini belgilash hamda tashkiliy tuzilmani yaratish",
+"Mahsulotni omborga joylashtirish va uni mijozga yetkazish yo‘lini hamda saqlash tartibini belgilash",
 "Mahsulotning maqsadli mijoz ongida aniq va farqli o‘rnini shakllantirish"
 ],
 "c": 3,
@@ -4594,9 +4594,9 @@ export const BANK = [
 "q": "Har kuni tushlik sotib oladiganlar va faqat aksiyalarni kuzatuvchilarga ajratish segmentlashning qaysi mezoniga kiradi?",
 "o": [
 "Xulq-atvor (behavioral) mezoniga",
-"Demografik mezonga",
-"Psixografik mezonga",
-"Geografik mezonga"
+"Demografik mezonga, chunki mijozlar yoshi va jinsiga qarab guruhlanadi hamda tahlil qilinadi",
+"Psixografik mezonga, chunki mijozlar qadriyatlari va hayot tarziga qarab guruhlanadi hamda baholanadi",
+"Geografik mezonga, chunki mijozlar yashash hududiga qarab ajratiladi va tavsiflanadi"
 ],
 "c": 0,
 "w": "Behavioral.",
@@ -4606,9 +4606,9 @@ export const BANK = [
 "t": 7,
 "q": "Psixografik segmentlash nimaga tayanadi?",
 "o": [
-"Faqat daromadiga",
-"Faqat yashash joyiga",
-"Faqat yoshi va jinsiga",
+"Faqat mijozning daromadiga va xarajatlar miqdoriga hamda to‘lov qobiliyatiga",
+"Faqat mijozning yashash joyiga hamda iqlim sharoitiga, ya’ni geografik ma’lumotlarga",
+"Faqat mijozning yoshi va jinsiga hamda oilaviy ahvoliga, ya’ni demografik ma’lumotlarga",
 "Mijozning qadriyatlari, hayot tarzi va shaxsiy xususiyatlariga"
 ],
 "c": 3,
@@ -4620,9 +4620,9 @@ export const BANK = [
 "q": "Yaxshi segmentning xususiyati qaysi?",
 "o": [
 "O‘lchanadigan, yetib boriladigan, yetarlicha katta va ehtiyoji bo‘yicha boshqalardan farqlanadigan bo‘lishi",
-"Barcha mijozlarni birlashtirgan bo‘lishi",
-"Ehtiyoji boshqa segmentlar bilan aynan bir xil bo‘lishi",
-"Juda kichik va yetib bo‘lmaydigan bo‘lishi"
+"Barcha mijozlarni birlashtirgan va hech qanday farqsiz keng guruh bo‘lishi hamda aniqlanmasligi",
+"Ehtiyoji boshqa segmentlar bilan aynan bir xil bo‘lib, alohida taklifni talab qilmasligi hamda farqlanmasligi",
+"Juda kichik va yetib bo‘lmaydigan bo‘lishi hamda tashkil etuvchilari kam bo‘lib, tavsiflab bo‘lmasligi"
 ],
 "c": 0,
 "w": "MASA criteria.",
@@ -4658,10 +4658,10 @@ export const BANK = [
 "t": 7,
 "q": "Pozitsiyalash xaritasi (perceptual map) nimani ko‘rsatadi?",
 "o": [
-"Brendlarning soliq to‘lovlari miqdorini",
+"Brendlarning soliq to‘lovlari miqdorini taqqoslab, ularning byudjetga qo‘shgan hissasini ko‘rsatadi",
 "Brendlarning mijoz ongidagi o‘rnini ikki muhim mezon bo‘yicha taqqoslab ko‘rsatadi",
-"Brendlarning xodimlar sonini",
-"Brendlarning ishlab chiqarish hajmini oylar bo‘yicha"
+"Brendlarning xodimlar sonini taqqoslab, ularning kadrlar salohiyatini va tashkiliy hajmini ko‘rsatadi",
+"Brendlarning ishlab chiqarish hajmini oylar bo‘yicha taqqoslab, ularning o‘sish sur’atini ko‘rsatadi"
 ],
 "c": 1,
 "w": "Perceptual map.",
@@ -4671,10 +4671,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz portreti (persona) nima?",
 "o": [
-"Mijozning rasmi va uning ismi, hech qanday ma’lumotsiz",
-"Aniq bir mijozning shaxsiy hujjatlari nusxasi",
+"Mijozning rasmi va ismi, hech qanday ehtiyoj yoki xulq-atvor ma’lumotisiz tuzilgan shaklli tasvir",
+"Aniq bir mijozning shaxsiy hujjatlari nusxasi va unga tegishli ma’lumotlar to‘plami hamda manzili",
 "Maqsadli mijozning real ma’lumotlarga asoslangan, tipik namuna sifatida tavsiflangan obrazi",
-"Tadbirkorning o‘zi haqida yozgan tavsifi"
+"Tadbirkorning o‘zi haqida yozgan tavsifi va o‘z xohishi hamda qiziqishlari asosida tuzilgan obraz"
 ],
 "c": 2,
 "w": "Persona.",
@@ -4684,10 +4684,10 @@ export const BANK = [
 "t": 7,
 "q": "Taxminiy persona (assumption persona) nima?",
 "o": [
-"Tekshirish shart bo‘lmagan yakuniy haqiqat",
+"Tekshirish shart bo‘lmagan yakuniy haqiqat bo‘lib, uni mijozlar bilan sinab ko‘rish talab etilmaydi",
 "Real intervyularda tasdiqlanishi yoki rad etilishi lozim bo‘lgan boshlang‘ich gipoteza",
-"Faqat raqobatchining mijozlari ro‘yxati",
-"Faqat davlat statistikasi"
+"Faqat raqobatchining mijozlari ro‘yxati bo‘lib, uni o‘z mijozlariga ko‘chirib qo‘llash kifoya",
+"Faqat davlat statistikasi ma’lumotlariga asoslangan va mijoz bilan suhbatsiz tuziladigan obraz"
 ],
 "c": 1,
 "w": "Hypothesis persona.",
@@ -4697,10 +4697,10 @@ export const BANK = [
 "t": 7,
 "q": "Persona tuzishda eng ko‘p uchraydigan xato qaysi?",
 "o": [
-"Persona ga mijozning maqsad va og‘riqlarini kiritish",
+"Persona ga mijozning maqsad va og‘riqlarini kiritish hamda ularni intervyular bilan asoslash",
 "Intervyu va kuzatuvsiz, faqat taxmin va stereotiplarga asoslanish",
-"Persona ni mijoz fikri bilan yangilash",
-"Persona uchun real ma’lumotlarni yig‘ish"
+"Persona ni mijoz fikri bilan muntazam yangilab turish va yangi ma’lumotlar kelganda tuzatish",
+"Persona uchun real ma’lumotlarni yig‘ish va mijoz bilan suhbatlar o‘tkazib, ularni tahlil qilish"
 ],
 "c": 1,
 "w": "Stereotip xavfi.",
@@ -4723,10 +4723,10 @@ export const BANK = [
 "t": 7,
 "q": "Xarid qarorining odatiy bosqichlari qaysi javobda to‘g‘ri berilgan?",
 "o": [
-"To‘lov, xarid, axborot, ehtiyoj, baho",
+"To‘lov, xarid, axborot izlash, ehtiyoj va xariddan keyingi baho tartibida ketma-ket amalga oshiriladi",
 "Ehtiyojni anglash, axborot izlash, variantlarni baholash, xarid qarori, xariddan keyingi baho",
-"Xarid, axborot izlash, ehtiyojni anglash, baholash, to‘lov",
-"Reklama, xarid, baho, ehtiyoj, axborot"
+"Xarid, axborot izlash, ehtiyojni anglash, variantlarni baholash va to‘lov tartibida ketma-ket amalga oshiriladi",
+"Reklama, xarid, baho, ehtiyoj va axborot izlash tartibida ketma-ket amalga oshiriladi"
 ],
 "c": 1,
 "w": "Purchase decision process.",
@@ -4749,9 +4749,9 @@ export const BANK = [
 "t": 7,
 "q": "Mijozning «og‘riqli nuqtasi» (pain point) va «foyda» (gain) o‘rtasidagi farq nimada?",
 "o": [
-"Og‘riq — reklama, foyda — sotuv",
-"Ular bir xil tushuncha",
-"Og‘riq — mijoz to‘lagan narx, foyda — mahsulot narxi",
+"Og‘riq — reklama xarajati, foyda — sotuv hajmi, ya’ni ikkalasi ham tadbirkor ko‘rsatkichlaridir",
+"Ular bir xil tushuncha bo‘lib, mijoz muammosi va xohlagan natijasi o‘rtasida farq mavjud emas",
+"Og‘riq — mijoz to‘lagan narx, foyda — mahsulot narxi, shuning uchun ular aynan bir xil narsani bildiradi",
 "Og‘riq — muammo, noqulaylik va xavf; foyda — mijoz xohlagan natija va afzallik"
 ],
 "c": 3,
@@ -4763,9 +4763,9 @@ export const BANK = [
 "q": "TAM, SAM va SOM bozor hajmining qanday uch qatlamini bildiradi?",
 "o": [
 "Umumiy mavjud bozor, xizmat ko‘rsata oladigan qismi va real egallash mumkin bo‘lgan qismi",
-"Eng arzon, o‘rta va eng qimmat narx guruhlarini",
-"Uch xil mamlakat bozorini",
-"Uch xil raqobatchi ulushini"
+"Eng arzon, o‘rta va eng qimmat narx guruhlarini, ya’ni bozor narx bo‘yicha uch qatlamga bo‘linishini",
+"Uch xil mamlakat bozorini, ya’ni mahalliy, mintaqaviy va xalqaro bozor hajmini birlashtirishni",
+"Uch xil raqobatchi ulushini, ya’ni yirik, o‘rta va kichik kompaniyalarning bozordagi o‘rnini"
 ],
 "c": 0,
 "w": "TAM > SAM > SOM.",
@@ -4776,9 +4776,9 @@ export const BANK = [
 "q": "SAM (Serviceable Addressable Market) nimani anglatadi?",
 "o": [
 "TAM ning geografiya, kanal va model bo‘yicha xizmat ko‘rsata oladigan qismi",
-"Raqobatchilarning bozordagi umumiy ulushi",
-"Butun dunyodagi barcha potensial mijozlar bozori",
-"Birinchi yilda real egallash mumkin bo‘lgan ulush"
+"Raqobatchilarning bozordagi umumiy ulushi, ya’ni ularning birgalikdagi sotuv hajmi va qamrovi",
+"Butun dunyodagi barcha potensial mijozlar bozori, ya’ni mahsulotga ehtiyoj sezishi mumkin bo‘lgan umumiy hajm",
+"Birinchi yilda real egallash mumkin bo‘lgan ulush, ya’ni eng kichik va aniq o‘lchanadigan qism"
 ],
 "c": 0,
 "w": "SAM.",
@@ -4789,9 +4789,9 @@ export const BANK = [
 "q": "SOM (Serviceable Obtainable Market) nimani bildiradi?",
 "o": [
 "SAM ning tadbirkor real egallashi mumkin bo‘lgan, resurs va raqobatni hisobga olgan qismi",
-"Eng kichik bozor hajmi va umuman daromadsiz qism",
-"Eng katta umumiy bozor hajmi",
-"Faqat xorijiy bozor hajmi"
+"Eng kichik bozor hajmi va umuman daromadsiz qism, ya’ni hech qachon sotib olinmaydigan bozor ulushi",
+"Eng katta umumiy bozor hajmi, ya’ni mahsulotga ehtiyoj sezishi mumkin bo‘lgan barcha mijozlar yig‘indisi",
+"Faqat xorijiy bozor hajmi, ya’ni mahalliy bozor hisobga olinmaydigan eksport yo‘nalishidagi qismi"
 ],
 "c": 0,
 "w": "SOM.",
@@ -4802,9 +4802,9 @@ export const BANK = [
 "q": "«Yuqoridan pastga» (top-down) usulining kamchiligi nima?",
 "o": [
 "Katta bozor raqamiga tayanib, real mijoz soni va xarid chastotasini hisobga olmasdan, hajmni oshirib yuborishi mumkin",
-"U hech qanday ma’lumot talab qilmaydi",
-"U faqat mijozlar bilan intervyu o‘tkazishni talab qiladi",
-"U juda aniq va har doim to‘g‘ri natija beradi"
+"U hech qanday ma’lumot talab qilmaydi va faqat tadbirkorning xohishiga qarab raqam chiqaradi",
+"U faqat mijozlar bilan chuqur intervyu o‘tkazishni talab qiladi va boshqa ma’lumotni qabul qilmaydi",
+"U juda aniq va har doim to‘g‘ri natija beradi, chunki rasmiy statistikaga tayanadi hamda tekshiriladi"
 ],
 "c": 0,
 "w": "Top-down overestimation.",
@@ -4815,9 +4815,9 @@ export const BANK = [
 "q": "Nega investor va banklar «pastdan yuqoriga» (bottom-up) hisobni ishonchliroq deb biladi?",
 "o": [
 "U real narx, mijoz soni va xarid chastotasidan kelib chiqadi hamda tekshirilishi mumkin",
-"U faqat ulkan raqamlarni ko‘rsatib, taassurot qoldiradi",
-"U faqat tadbirkorning xohishiga tayanadi",
-"U ma’lumotni umuman talab qilmaydi"
+"U faqat ulkan raqamlarni ko‘rsatib, taassurot qoldiradi va aniq hisob-kitob talab qilmaydi",
+"U faqat tadbirkorning xohishiga tayanadi va tekshirish imkoniyatini bermaydi hamda taxminga asoslanadi",
+"U ma’lumotni umuman talab qilmaydi va hech qanday dalilsiz natija chiqarib beradi hamda tez bo‘ladi"
 ],
 "c": 0,
 "w": "Bottom-up credibility.",
@@ -4827,9 +4827,9 @@ export const BANK = [
 "t": 7,
 "q": "Raqobatchilarni bevosita va bilvosita turlarga ajratishning mohiyati nima?",
 "o": [
-"Bevosita raqib faqat xorijiy kompaniya, bilvosita raqib esa faqat mahalliy",
-"Ikkalasi bir xil",
-"Bevosita raqib mijoz, bilvosita raqib esa ta’minotchi",
+"Bevosita raqib faqat xorijiy kompaniya, bilvosita raqib esa faqat mahalliy kompaniya hisoblanadi",
+"Ikkalasi mohiyatan bir xil tushuncha bo‘lib, farq faqat atamada va qo‘llanishda bo‘ladi",
+"Bevosita raqib — mijoz, bilvosita raqib esa — ta’minotchi, ya’ni ular bozorning turli tomonlari",
 "Bevosita raqib o‘xshash mahsulot sotadi, bilvosita raqib esa boshqa mahsulot bilan o‘sha ehtiyojni qondiradi"
 ],
 "c": 3,
@@ -4840,9 +4840,9 @@ export const BANK = [
 "t": 7,
 "q": "Taksi xizmati ochmoqchi tadbirkor uchun shahar metrosi qanday raqobatchi hisoblanadi?",
 "o": [
-"Bevosita — xuddi shu mahsulotni sotadi",
-"Hamkor",
-"Raqobatchi emas",
+"Bevosita — xuddi shu mahsulotni sotadi va bir xil mijozlarga bir xil xizmatni taklif qiladi",
+"Hamkor — chunki metro va taksi bir-birini to‘ldirib, mijozlarni o‘zaro almashtiradi hamda taqsimlaydi",
+"Raqobatchi emas, chunki metro davlat xizmati bo‘lib, tijorat bozorida ishtirok etmaydi hamda daromad olmaydi",
 "Bilvosita — boshqa mahsulot bilan o‘sha ehtiyojni (qatnovni) qondiradi"
 ],
 "c": 3,
@@ -4853,10 +4853,10 @@ export const BANK = [
 "t": 7,
 "q": "Raqobatchilar tahlilida qaysi savollar muhim?",
 "o": [
-"Ularning ofisida nechta stol bor",
-"Ularning logotipi qaysi rangda",
+"Ularning ofisida nechta stol borligi va ofis qaysi rangda bezatilgani hamda jihozlari",
+"Ularning logotipi qaysi rangda ekani va qaysi shriftdan foydalanishi hamda reklama uslubi",
 "Ularning mijozlari kim, qiymat taklifi, narxi, kuchli va zaif tomonlari nima",
-"Ularning direktori qaysi shaharda yashaydi"
+"Ularning direktori qaysi shaharda yashashi va uning shaxsiy hayoti hamda qaysi mashinada yurishi"
 ],
 "c": 2,
 "w": "Competitor analysis.",
@@ -4866,10 +4866,10 @@ export const BANK = [
 "t": 7,
 "q": "«Raqobat mukammal xaritasi»da bo‘sh katak nimani anglatishi mumkin?",
 "o": [
-"Albatta talab yo‘q va bozor yopiq",
+"Albatta talab yo‘q va bozor yopiq, shuning uchun bu yo‘nalishni umuman o‘rganmaslik kerak",
 "Hali xizmat ko‘rsatilmayotgan segment yoki taklif bo‘shlig‘i, ammo talab mavjudligini tekshirish kerak",
-"Albatta katta imkoniyat va talab bor",
-"Raqobatchilar yashirinib turgan"
+"Albatta katta imkoniyat va talab bor, shuning uchun darhol ishlab chiqarishga o‘tish lozim",
+"Raqobatchilar yashirinib turgan, shuning uchun ular bilan kelishib narxni belgilash lozim"
 ],
 "c": 1,
 "w": "Gap ≠ demand automatically.",
@@ -4879,9 +4879,9 @@ export const BANK = [
 "t": 7,
 "q": "Birlamchi ma’lumot nima?",
 "o": [
-"Eski bozor tadqiqoti natijalari",
-"Statistika qo‘mitasining tayyor hisoboti",
-"Boshqa tadqiqotchining e’lon qilgan maqolasi",
+"Eski bozor tadqiqoti natijalari va ularning arxivdagi nusxalari hamda hisobotlari",
+"Statistika qo‘mitasining tayyor hisoboti va undagi ommaviy ko‘rsatkichlar hamda jadvallar",
+"Boshqa tadqiqotchining e’lon qilgan maqolasi va undagi xulosalar hamda tavsiyalar",
 "Tadbirkor o‘zi to‘playdigan yangi ma’lumot (intervyu, so‘rovnoma, kuzatuv)"
 ],
 "c": 3,
@@ -4905,10 +4905,10 @@ export const BANK = [
 "t": 7,
 "q": "Kontekstual intervyu nima?",
 "o": [
-"Ko‘cha reklamasi orqali tarqatiladigan anketa",
+"Ko‘cha reklamasi orqali tarqatiladigan anketa va uni to‘ldirib qaytarish tartibi hamda natijalari",
 "Mijoz bilan uning o‘z muhitida (ish joyi, uy) o‘tkaziladigan suhbat",
-"Raqobatchi bilan suhbat",
-"Telefon orqali bir daqiqalik so‘rov"
+"Raqobatchi bilan o‘tkaziladigan suhbat va uning mijozlari haqida axborot olish hamda taqqoslash",
+"Telefon orqali o‘tkaziladigan bir daqiqalik qisqa so‘rov va undagi tezkor javoblar yig‘indisi"
 ],
 "c": 1,
 "w": "Contextual inquiry.",
@@ -4919,9 +4919,9 @@ export const BANK = [
 "q": "Kontekstual intervyuning ustunligi nimada?",
 "o": [
 "Mijoz muhitidagi haqiqiy muammolar va xatti-harakatlarni ko‘rib, aytilmagan ehtiyojlarni aniqlash mumkin",
-"U eng arzon va eng tez usul bo‘lib, hech qanday vaqt talab qilmaydi",
-"U mijozning ismini bilib olish uchun",
-"U faqat statistik hajm beradi"
+"U eng arzon va eng tez usul bo‘lib, hech qanday vaqt talab qilmaydi hamda natija tez chiqadi",
+"U mijozning ismi va aloqa ma’lumotlarini bilib olib, keyin reklama yuborish imkonini beradi",
+"U faqat statistik hajm berib, minglab mijozdan bir vaqtda javob yig‘ishga imkon yaratadi"
 ],
 "c": 0,
 "w": "Latent needs.",
@@ -4945,9 +4945,9 @@ export const BANK = [
 "q": "Nega mijoz aytgan va qilgan xatti-harakat o‘rtasida farq bo‘lishi mumkin?",
 "o": [
 "Mijoz odobdan, noto‘g‘ri xotira yoki o‘zini yaxshi ko‘rsatish istagidan haqiqatni to‘liq aytmasligi mumkin",
-"Mijoz har doim yolg‘on gapiradi",
-"Mijoz hech qachon fikrini o‘zgartirmaydi",
-"Mijoz faqat tadbirkor aytganini takrorlaydi"
+"Mijoz har doim ataylab yolg‘on gapiradi, chunki u tadbirkorni aldashni yaxshi ko‘radi hamda xohlaydi",
+"Mijoz hech qachon fikrini o‘zgartirmaydi, shuning uchun aytgani bilan qilgani bir xil bo‘ladi",
+"Mijoz faqat tadbirkor aytganini takrorlaydi, chunki o‘z fikriga ega bo‘lmaydi hamda tayanmaydi"
 ],
 "c": 0,
 "w": "Say–do gap.",
@@ -4957,9 +4957,9 @@ export const BANK = [
 "t": 7,
 "q": "«Mijoz segmenti» va «mijoz portreti» o‘rtasidagi nisbat qaysi?",
 "o": [
-"Ular bir xil",
-"Segment — bitta shaxs, portret — butun bozor",
-"Portret — soliq hujjati",
+"Ular mohiyatan bir xil tushuncha bo‘lib, faqat hujjatlarda turlicha nomlanadi hamda yoziladi",
+"Segment — bitta shaxs, portret — butun bozor, ya’ni portret segmentdan kengroq tushunchadir",
+"Portret — soliq hujjati, segment esa — mijoz hujjati bo‘lib, ular rasmiy hisobotda ishlatiladi",
 "Segment — katta guruh, portret (persona) esa shu guruhning tipik vakili haqidagi aniq obraz"
 ],
 "c": 3,
@@ -4970,10 +4970,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz ehtiyojlari turlaridan «yashirin (latent)» ehtiyoj nima?",
 "o": [
-"Mijoz ochiq aytgan va barchaga ma’lum ehtiyoj",
-"Davlat belgilagan ehtiyoj",
+"Mijoz ochiq aytgan va barchaga ma’lum ehtiyoj, ya’ni so‘rovnomada oson aniqlanadigan istak",
+"Davlat belgilagan ehtiyoj, ya’ni qonun yoki me’yoriy hujjat bilan majburiy qilingan talab",
 "Mijoz o‘zi anglamagan yoki ifoda eta olmagan, kuzatuv orqali topiladigan ehtiyoj",
-"Mahsulot narxi bilan bog‘liq ehtiyoj"
+"Mahsulot narxi bilan bog‘liq ehtiyoj, ya’ni mijoz arzonroq narxni xohlashi hamda taqqoslashi"
 ],
 "c": 2,
 "w": "Latent needs.",
@@ -4983,10 +4983,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz sodiqligini oshirishning asosiy omili qaysi?",
 "o": [
-"Doimiy narxni oshirish",
-"Mijozlar bilan aloqani to‘xtatish",
+"Doimiy narxni oshirib borish, chunki yuqori narx mijozda sifat va obro‘ taassurotini kuchaytiradi",
+"Mijozlar bilan aloqani to‘xtatib, ularni xaridga faqat o‘zlari kelishiga ishontirish hamda kutish",
 "Va’da qilingan qiymatni izchil yetkazish va muammolarni tez hal qilish",
-"Reklamani kamaytirib, sifatni o‘zgartirish"
+"Reklamani kamaytirib, sifatni o‘zgartirib turish, chunki yangilik mijozni doim qiziqtiradi hamda saqlaydi"
 ],
 "c": 2,
 "w": "Loyalty.",
@@ -4996,9 +4996,9 @@ export const BANK = [
 "t": 7,
 "q": "Segmentlash xatolaridan biri qaysi?",
 "o": [
-"Segmentni aniq va o‘lchanadigan qilish",
-"Segmentni real intervyu bilan tekshirish",
-"Segment ehtiyojini aniq yozish",
+"Segmentni aniq va o‘lchanadigan qilib belgilash hamda uning ehtiyojini batafsil tavsiflash",
+"Segmentni real intervyu bilan tekshirib, uning mavjudligi va hajmini tasdiqlash hamda baholash",
+"Segment ehtiyojini aniq yozib, uni qiymat taklifi bilan bog‘lash va sinab ko‘rish",
 "Segmentni juda keng (masalan, «hamma odamlar») qilib belgilash"
 ],
 "c": 3,
@@ -5009,9 +5009,9 @@ export const BANK = [
 "t": 7,
 "q": "«Nish» mijoz segmentida raqobat qanday xususiyatga ega bo‘ladi?",
 "o": [
-"Eng yuqori bo‘ladi va hamma bu segmentga kiradi",
-"Mutlaqo mavjud emas va hech qachon paydo bo‘lmaydi",
-"Faqat narxga bog‘liq",
+"Eng yuqori bo‘ladi va hamma tadbirkor aynan shu segmentga kirib, narx urushi boshlanadi",
+"Mutlaqo mavjud emas va hech qachon paydo bo‘lmaydi, chunki tor segmentga hech kim qiziqmaydi",
+"Faqat narxga bog‘liq bo‘ladi, shuning uchun nish segmentida ixtisoslashuv ahamiyatga ega emas",
 "Odatda kamroq bo‘lib, ixtisoslashgan taklif bilan ishonch qozonish osonroq bo‘ladi"
 ],
 "c": 3,
@@ -5023,9 +5023,9 @@ export const BANK = [
 "q": "Maxsus ehtiyojli tor mijoz guruhiga xizmat ko‘rsatishning savdo jihatidan afzalligi nima?",
 "o": [
 "Mijoz ehtiyojini aniq bilib, mos taklif va kanal tanlash hamda og‘izdan-og‘izga tarqalishni oshirish imkoni",
-"Marketing xarajati nolga tushishi",
-"Raqobatchilar umuman bo‘lmasligi kafolatlanishi",
-"Mijozlar soni cheksiz bo‘lishi"
+"Marketing xarajati nolga tushib, reklamasiz ham mijozlar o‘zi kelishi hamda sotuv oshishi",
+"Raqobatchilar umuman bo‘lmasligi kafolatlanishi va narxni xohlagancha belgilash imkoni",
+"Mijozlar soni cheksiz bo‘lishi va har bir mijoz katta xarid qilishi hamda sodiq qolishi"
 ],
 "c": 0,
 "w": "Focus advantage.",
@@ -5035,9 +5035,9 @@ export const BANK = [
 "t": 7,
 "q": "Mijozning «to‘lash tayyorligi» (willingness to pay) qanday aniqlanadi?",
 "o": [
-"Faqat so‘rovnomada «qimmat emas» degan javob bo‘yicha",
-"Faqat tadbirkorning taxmini bo‘yicha",
-"Faqat raqobatchi narxini ko‘chirish bilan",
+"Faqat so‘rovnomada «qimmat emas» degan javobga qarab, real xarid xatti-harakatini kuzatmasdan",
+"Faqat tadbirkorning taxmini bo‘yicha, chunki mijoz o‘z to‘lov tayyorligini o‘zi bilmaydi hamda ayta olmaydi",
+"Faqat raqobatchi narxini ko‘chirib, uni o‘z mahsulotiga aynan qo‘llash orqali aniqlanadi",
 "Narx bo‘yicha sinov, oldindan buyurtma va real xarid xatti-harakatini kuzatish orqali"
 ],
 "c": 3,
@@ -5048,9 +5048,9 @@ export const BANK = [
 "t": 7,
 "q": "B2B xaridda qaror qabul qilish jarayoni B2C dan nimasi bilan farq qiladi?",
 "o": [
-"Qaror hech qachon qabul qilinmaydi",
-"Qaror bir daqiqada qabul qilinadi va faqat his-tuyg‘ularga tayanadi",
-"Qaror faqat bitta shaxs tomonidan, hech qanday mezonsiz qabul qilinadi",
+"Qaror hech qachon qabul qilinmaydi, chunki tashkilotlar xaridni doimo keyinga qoldiradi hamda kutadi",
+"Qaror bir daqiqada qabul qilinadi va faqat his-tuyg‘ularga tayanadi hamda mantiqiy mezonlar hisobga olinmaydi",
+"Qaror faqat bitta shaxs tomonidan, hech qanday mezon va maslahatsiz qabul qilinadi hamda tasdiqlanmaydi",
 "Ishtirokchilar ko‘p, qaror uzoqroq davom etadi va mantiqiy mezonlar (narx, xavf, ishonchlilik) ustun bo‘ladi"
 ],
 "c": 3,
@@ -5062,9 +5062,9 @@ export const BANK = [
 "q": "B2B sotuvda «qaror qabul qiluvchi» (decider) shaxsni aniqlash nima uchun muhim?",
 "o": [
 "Taklif aynan shu shaxsning mezonlari va xavotirlariga moslab tayyorlansa, kelishuv ehtimoli oshadi",
-"Faqat shartnoma raqamini yozish uchun",
-"Qaror qabul qiluvchi doim sotuvchi bo‘lgani uchun",
-"Boshqa ishtirokchilarni butunlay e’tiborsiz qoldirish uchun"
+"Faqat shartnoma raqamini yozish uchun, chunki qaror qabul qiluvchi shartnomaning rasmiy qismini belgilaydi",
+"Qaror qabul qiluvchi doim sotuvchi bo‘lgani uchun, mijoz tomonida esa qaror qabul qiluvchi bo‘lmaydi",
+"Boshqa ishtirokchilarni butunlay e’tiborsiz qoldirish uchun, chunki ularning fikri qarorga ta’sir qilmaydi"
 ],
 "c": 0,
 "w": "Stakeholder mapping.",
@@ -5074,10 +5074,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz «ishonch»ni shakllantirishda tadbirkorga nimalar yordam beradi?",
 "o": [
-"Faqat chiroyli logotip",
-"Faqat past narx",
+"Faqat chiroyli logotip, chunki mijoz brendga uning tashqi ko‘rinishi bo‘yicha ishonadi hamda tanlaydi",
+"Faqat past narx, chunki mijoz ishonchi faqat eng arzon taklifga qarab shakllanadi hamda mustahkamlanadi",
 "Sharhlar, kafolatlar, ochiq ma’lumot va izchil xizmat sifati",
-"Faqat reklama hajmi"
+"Faqat reklama hajmi, chunki qancha ko‘p ko‘rsatilsa, shuncha ko‘p ishonch paydo bo‘ladi hamda oshadi"
 ],
 "c": 2,
 "w": "Trust drivers.",
@@ -5087,10 +5087,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz ehtiyoji bo‘yicha «muammo kuchi»ni baholashda qaysi omil muhim?",
 "o": [
-"Muammo haqida ijtimoiy tarmoqda nechta post borligi",
-"Muammoning nomi qanchalik chiroyli ekani",
+"Muammo haqida ijtimoiy tarmoqda nechta post borligi va ularning ko‘rilish hamda tarqalish soni",
+"Muammoning nomi qanchalik chiroyli va esda qolarli ekani hamda qanday jaranglashi",
 "Muammoning chastotasi, mijozga ta’siri va hozirgi yechimning qoniqarsizligi",
-"Tadbirkorning muammoga shaxsiy munosabati"
+"Tadbirkorning muammoga shaxsiy munosabati va uni qanchalik muhim deb hisoblashi hamda qiziqishi"
 ],
 "c": 2,
 "w": "Pain intensity.",
@@ -5101,9 +5101,9 @@ export const BANK = [
 "q": "Mijozni o‘rganishda «tasdiqlash yanglishuvi»dan qochish uchun nima qilish kerak?",
 "o": [
 "G‘oyaga zid dalillarni ham faol qidirib, turli mijozlar bilan suhbatlashish",
-"Qarshi fikrlarni yozmasdan tashlab yuborish",
-"Faqat g‘oyani yoqtirganlar bilan gaplashish",
-"Suhbatlarni umuman o‘tkazmaslik"
+"Qarshi fikrlarni yozmasdan tashlab yuborish va faqat ma’qullaydigan javoblarni saqlab qolish hamda hisobga olish",
+"Faqat g‘oyani yoqtirganlar bilan gaplashib, ularning fikrini umumiy xulosa sifatida qabul qilish",
+"Suhbatlarni umuman o‘tkazmasdan, faqat o‘z fikriga tayanib qaror qabul qilish va rejalashtirish"
 ],
 "c": 0,
 "w": "Counter-evidence.",
@@ -5113,10 +5113,10 @@ export const BANK = [
 "t": 7,
 "q": "Segmentlar bo‘yicha qiymat taklifini alohida moslashtirish qachon zarur?",
 "o": [
-"Barcha segmentlar bir xil bo‘lganda",
-"Segmentlar soni nolga teng bo‘lganda",
+"Barcha segmentlar bir xil bo‘lganda, chunki ehtiyoj, to‘lov tayyorligi va kanal bir xil bo‘ladi",
+"Segmentlar soni nolga teng bo‘lganda, chunki mijozlar guruhlarga ajratilmasdan qoladi hamda umumlashadi",
 "Segmentlarning ehtiyoji, to‘lash tayyorligi va kanallari sezilarli farq qilganda",
-"Mijoz hech narsa xohlamaganda"
+"Mijoz hech narsa xohlamaganda, chunki shunda qiymat taklifi har qanday segment uchun mos keladi"
 ],
 "c": 2,
 "w": "Tailored value prop.",
@@ -5126,10 +5126,10 @@ export const BANK = [
 "t": 7,
 "q": "Bozor hajmini baholashda eng ishonchli yondashuv qaysi?",
 "o": [
-"Faqat bitta ommaviy statistikaga ko‘r-ko‘rona ishonish",
+"Faqat bitta ommaviy statistikaga ko‘r-ko‘rona ishonib, uni tekshirmasdan va aniqlashtirmasdan qo‘llash",
 "Bir necha usulni (yuqoridan-pastga va pastdan-yuqoriga) solishtirib, farqlarni izohlash",
-"Faqat shaxsiy taxminga tayanish",
-"Faqat raqobatchi aytgan raqamni olish"
+"Faqat shaxsiy taxminga tayanish va hech qanday ma’lumotni solishtirmasdan raqam chiqarish hamda qabul qilish",
+"Faqat raqobatchi aytgan raqamni olish va uni o‘z hisob-kitobiga tekshirmasdan ko‘chirib yozish"
 ],
 "c": 1,
 "w": "Triangulation.",
@@ -5140,9 +5140,9 @@ export const BANK = [
 "q": "Mijozni jalb qilish kanalini tanlashda nimaga e’tibor qaratish lozim?",
 "o": [
 "Maqsadli mijoz qayerda vaqt o‘tkazishi va qaysi kanalga ishonishiga",
-"Faqat tadbirkorga yoqqan kanalga",
-"Faqat raqobatchi ishlatayotgan kanalga",
-"Faqat eng arzon kanalga"
+"Faqat tadbirkorga yoqqan kanalga qarab, mijozning odatlari va ishonchini inobatga olmasdan",
+"Faqat raqobatchi ishlatayotgan kanalga qarab, uni aynan takrorlash va boshqa variantlarni ko‘rmaslik",
+"Faqat eng arzon kanalga qarab, mijoz u yerda bor-yo‘qligiga e’tibor bermasdan va hisoblamasdan"
 ],
 "c": 0,
 "w": "Channel-customer fit.",
@@ -5152,10 +5152,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz tanlovida «almashtirish xarajati» (switching cost) nima?",
 "o": [
-"Reklama xarajati",
-"Mahsulotni ishlab chiqarish tannarxi",
+"Reklama xarajati va mijozni jalb qilishga sarflangan marketing mablag‘i hamda vaqt miqdori",
+"Mahsulotni ishlab chiqarish tannarxi va uni sotuvga tayyorlashga ketgan xarajatlar yig‘indisi",
 "Mijoz bir mahsulotdan boshqasiga o‘tganda sarflashi kerak bo‘lgan vaqt, pul va qulaylik yo‘qotishi",
-"Soliq stavkasi"
+"Soliq stavkasi va davlat byudjetiga to‘lanadigan majburiy to‘lovlar miqdori hamda foizi"
 ],
 "c": 2,
 "w": "Switching cost.",
@@ -5165,10 +5165,10 @@ export const BANK = [
 "t": 7,
 "q": "Qaysi holatda mijoz yangi mahsulotga o‘tishga ko‘proq tayyor bo‘ladi?",
 "o": [
-"Mijoz mavjud yechimdan to‘liq mamnun bo‘lganda",
+"Mijoz mavjud yechimdan to‘liq mamnun bo‘lganda, chunki shunda u yangi yechimni sinab ko‘rishga qiziqadi",
 "Yangi yechim mavjud yechimdan sezilarli yaxshi va o‘tish xarajati past bo‘lganda",
-"Yangi yechim haqida hech kim bilmaganda",
-"Yangi yechim biroz yomonroq va o‘tish qimmat bo‘lganda"
+"Yangi yechim haqida hech kim bilmaganda, chunki bunday holda mijoz uni tezroq tanlaydi hamda qabul qiladi",
+"Yangi yechim biroz yomonroq va o‘tish qimmat bo‘lganda, chunki mijoz yangilikka intilishni yoqtiradi"
 ],
 "c": 1,
 "w": "Adoption.",
@@ -5178,10 +5178,10 @@ export const BANK = [
 "t": 7,
 "q": "Mijoz haqida ma’lumot yig‘ishda shaxsiy ma’lumotlarni himoya qilishning ahamiyati nima?",
 "o": [
-"Hech qanday ahamiyati yo‘q",
+"Hech qanday ahamiyati yo‘q, chunki ma’lumotlar tijorat sirlari bo‘lmagani uchun himoya talab etmaydi",
 "Mijoz ishonchini saqlash va qonuniy talablarga rioya qilish uchun zarur",
-"Faqat yirik kompaniyalar uchun muhim",
-"Faqat reklama uchun kerak"
+"Faqat yirik kompaniyalar uchun muhim, kichik tadbirkorlar mijoz ma’lumotini himoya qilishi shart emas",
+"Faqat reklama uchun kerak, chunki ma’lumotni himoya qilish mijozlar sonini oshirishga xizmat qiladi"
 ],
 "c": 1,
 "w": "Data privacy.",
@@ -5191,10 +5191,10 @@ export const BANK = [
 "t": 7,
 "q": "Maqsadli mijoz segmentini tanlashda «yetib borish» (reachability) nima?",
 "o": [
-"Segment soni ko‘pligi",
-"Segmentning faqat shahar markazida yashashi",
+"Segmentlar soni ko‘pligi va ularni sanash hamda qamrab olish imkoniyati hamda bir-biriga o‘xshashligi",
+"Segmentning faqat shahar markazida yashashi va boshqa hududlardagi mijozlarni hisobga olmasligi",
 "Segmentga mavjud kanallar orqali oqilona xarajat bilan yetib borish imkoniyati",
-"Segmentning eng boy bo‘lishi"
+"Segmentning eng boy bo‘lishi va ular har qanday narxga rozi bo‘lishi hamda tez qaror qilishi"
 ],
 "c": 2,
 "w": "Reachable segment.",
