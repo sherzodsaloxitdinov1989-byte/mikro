@@ -24,6 +24,7 @@ import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
+import { BIZPLAN_ID, bizplanTask } from "./bizplan.mjs";
 import { SEC_TYPES, integrityOf, reduceBy, POINT_PERCENT, MAX_PENALTY } from "./integrity.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { KEYS as QUIZ_KEYS_TB } from "./quiz-keys-tb.mjs";
@@ -1529,7 +1530,19 @@ const tsubBin = (tid, uid, uploadId, i) => `tasksubbin/${tid}/${uid}/${uploadId}
 const TASK_ID = /^[\w-]{6,64}$/;
 const taskAudience = (user) => ({ form: formKeyOf(user), group: user.group || "" });
 
+/** «Biznes-reja» topshirig'i (Tadbirkorlik asoslari) birinchi so'rovda bir marta yaratiladi; keyin o'qituvchi uni tahrirlashi yoki o'chirishi mumkin. */
+let bizplanSeeded = false;
+async function ensureBizplan() {
+  if (bizplanSeeded) return;
+  if (!(await db().get("taskseed/bizplan"))) {
+    if (!(await db().get(taskKey(BIZPLAN_ID)))) await db().set(taskKey(BIZPLAN_ID), bizplanTask());
+    await db().set("taskseed/bizplan", { at: new Date().toISOString() });
+  }
+  bizplanSeeded = true;
+}
+
 async function visibleTask(user, id) {
+  await ensureBizplan();
   if (!TASK_ID.test(id)) throw new HttpError(404, "Topshiriq topilmadi");
   const task = await db().get(taskKey(id));
   if (!task || !taskLib.forStudent(task, taskAudience(user))) throw new HttpError(404, "Topshiriq topilmadi");
@@ -1539,6 +1552,7 @@ async function visibleTask(user, id) {
 async function myTasks(req) {
   const user = await requireUser(req);
   if (user.role !== "student") return json({ tasks: [], now: new Date().toISOString(), aiEnabled: aiEnabled() });
+  await ensureBizplan();
   const aud = taskAudience(user);
   const all = (await getMany("task/")).filter((t) => taskLib.forStudent(t, aud));
   const tasks = await Promise.all(all.map(async (t) => ({ ...taskLib.studentView(t), sub: hideSimilar((await db().get(tsubKey(t.id, user.id))) || null) })));
@@ -1771,6 +1785,7 @@ async function myTaskFile(req, id) {
 
 async function adminTasks(req) {
   const tch = await requireTeacher(req);
+  await ensureBizplan();
   const [tasksAll, subs] = await Promise.all([getMany("task/"), getMany("tasksub/")]);
   const tasks = tasksAll.filter((t) => canTeach(tch, t.subject || SUBJECTS[0].key));
   const stat = new Map();
@@ -2907,12 +2922,16 @@ async function computeScoreRows(subject, semNo) {
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
   for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, fiveScale(a.result.percent)); }
+  const planSubs = subject === "tadbirkorlik" ? new Map((await getMany(`tasksub/${BIZPLAN_ID}/`)).map((x) => [x.userId, x])) : new Map();
   const rows = users.map((u) => {
     const form = formKeyOf(u);
     const manual = midBy.get(u.id);
+    const ps = planSubs.get(u.id);
+    const planScore = ps ? ps.teacher?.score ?? ps.ai?.suggested ?? 0 : 0;
+    const planSource = ps ? (ps.teacher?.score != null ? "teacher" : ps.ai?.suggested != null ? "ai" : null) : null;
     const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
-    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };

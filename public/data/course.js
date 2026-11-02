@@ -328,9 +328,12 @@ export const SCORING = {
 };
 // Mikroiqtisodiyot, kunduzgi 331–334-25 (3- va 4-semestr; 4-semestrda 20 ballik topshiriq balini o'qituvchi kiritadi): ma'ruza 30 ball = 20 ballik topshiriq + 2 ta nazorat testi (5 ballik, jami 10);
 // amaliy topshiriq — 10 ball: nazariy qism (tushunchalar, nazorat savollari, mavzu testlari) 5 ball + darslik amaliy topshiriqlari 5 ball (qat'iy bo'linadi).
+// Tadbirkorlik asoslari, 141-23 va 142-23: ma'ruza 30 ball = biznes-reja topshirig'i 10 ball (AI + o'qituvchi) + oraliq nazorat testi 5 ball + mavzu ishi 15 ball; amaliy mashg'ulot — 10 ball.
+export const PLAN_GROUPS = ["141-23", "142-23"];
+SCORING.plan = { lecture: 30, practice: 10, midtermInLecture: 5, planMax: 10 };
 SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 5, practiceMax: 5 };
 export const scoringOf = (subjectKey, form, group = "", semNo = 0) =>
-  subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : subjectKey === "mikro" && ASSIGNMENT_GROUPS.includes(group) && [3, 4].includes(Number(semNo)) ? SCORING.assignment : SCORING.default;
+  subjectKey === "tadbirkorlik" && PLAN_GROUPS.includes(group) ? SCORING.plan : subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : subjectKey === "mikro" && ASSIGNMENT_GROUPS.includes(group) && [3, 4].includes(Number(semNo)) ? SCORING.assignment : SCORING.default;
 
 /** Fanning semestrlari: [{ no, name, term, topics:[dan,gacha], startsAt, endsAt }]. Asosiy fan — course.semesters; boshqalar — bitta semestr (barcha mavzular). */
 export function semestersOfSubject(key) {

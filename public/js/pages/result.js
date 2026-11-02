@@ -33,7 +33,7 @@ function sheet(d) {
   const row = (name, note, pts, max) => h("tr", {}, h("td", {}, h("b", {}, name), note && h("div", { class: "muted small" }, note)), h("td", { class: "center" }, h("b", {}, fmt(pts))), h("td", { class: "center" }, fmt(max)));
   const lec = s.lecture;
   const prc = s.practice;
-  const lecNote = [`Mavzu testlari: ${lec.testsPct}%`, lec.tasksCount ? `ma'ruza topshiriqlari: ${lec.tasksPct}% (${lec.tasksCount} ta)` : "ma'ruza topshirig'i berilmagan"].join(" · ");
+  const lecNote = [lec.planMax ? `biznes-reja topshirig'i: ${fmt(lec.plan)} / ${lec.planMax}${lec.planSource === "ai" ? " (AI bahosi, o'qituvchi tasdiqlagach yakunlanadi)" : ""}` : null, `Mavzu testlari: ${lec.testsPct}%`, lec.tasksCount ? `ma'ruza topshiriqlari: ${lec.tasksPct}% (${lec.tasksCount} ta)` : "ma'ruza topshirig'i berilmagan"].filter(Boolean).join(" · ");
   const prcNote = [`Amaliy mashg'ulotlar: ${prc.practicePct}%`, prc.tasksCount ? `amaliy topshiriqlar: ${prc.tasksPct}% (${prc.tasksCount} ta)` : "amaliy topshiriq berilmagan"].join(" · ");
   return h("div", { class: "result-sheet" },
     h("div", { class: "result-head" }, h("div", { class: "result-logo" }, COURSE.logo || "🎓"), h("div", {}, h("h2", {}, `${COURSE.brand} — semestr natijasi`), h("div", { class: "muted" }, "Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universiteti Jizzax filiali"))),

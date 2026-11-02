@@ -76,15 +76,17 @@ export function computeScore(inp) {
       totalMax: sc.lecture + sc.practice,
     };
   }
-  const workMaxLec = sc.lecture - sc.midtermInLecture;
+  const planMax = sc.planMax || 0; // biznes-reja topshirig'i (ma'ruzaning bir qismi)
+  const workMaxLec = sc.lecture - sc.midtermInLecture - planMax;
   const grade = inp.midterm === null || inp.midterm === undefined ? null : Number(inp.midterm);
   const midInLec = sc.midtermInLecture ? r2((sc.midtermInLecture * (grade ?? 0)) / 5) : 0;
   const lecWork = r2(workMaxLec * lecShare);
   const practice = r2(sc.practice * pracShare);
-  const lecTotal = r2(lecWork + midInLec);
+  const plan = planMax ? r2(Math.min(planMax, inp.planScore || 0)) : 0;
+  const lecTotal = r2(lecWork + midInLec + plan);
   return {
     scoring: sc,
-    lecture: { max: sc.lecture, workMax: workMaxLec, work: lecWork, midterm: midInLec, midtermMax: sc.midtermInLecture, points: lecTotal, glossaryPct: pct(g), questionsPct: pct(q), testsPct: pct(t) },
+    lecture: { max: sc.lecture, workMax: workMaxLec, work: lecWork, midterm: midInLec, midtermMax: sc.midtermInLecture, ...(planMax ? { plan, planMax, planSource: inp.planSource || null } : {}), points: lecTotal, glossaryPct: pct(g), questionsPct: pct(q), testsPct: pct(t) },
     practice: { max: sc.practice, points: practice, practicePct: Math.round(pracShare * 100) },
     byTopic: byTopic.map((r) => ({ ...r, lecPoints: r.lecShare === null ? null : r2((workMaxLec * r.lecShare) / lecTopics), pracPoints: r.pracShare === null ? null : r2((sc.practice * r.pracShare) / pracTopics) })),
     midtermGrade: grade, // 5 ballik oraliq nazorat bahosi
