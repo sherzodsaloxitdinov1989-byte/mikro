@@ -10,8 +10,12 @@ try:
 except ImportError:
     FIX, TRIM = {}, {}
 NB = {}
-for _n in ("nb1", "nb2", "nb3", "nb4"):
+for _n in ("nb1", "nb2", "nb3", "nb4", "nb6"):
     try: NB.update(__import__(_n).NB)
+    except ImportError: pass
+OKS = {}
+for _n in ("ok5", "ok6"):
+    try: OKS.update(__import__(_n).OK)
     except ImportError: pass
 used = set()
 clean = lambda s: s.replace("­", "").strip()
@@ -21,6 +25,7 @@ for t, m in enumerate(mods, 1):
     for q, ok, bad, why in m.T:
         gi += 1
         if gi in NB: bad = NB[gi]
+        if gi in OKS: ok = OKS[gi]
         q = clean(q)
         for k, v in FIX.items():
             if q.startswith(k): used.add(("f", k)); ok, bad = v
