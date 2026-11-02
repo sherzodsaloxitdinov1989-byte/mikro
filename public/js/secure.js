@@ -6,6 +6,7 @@
 //  • ekranda talaba ismi bilan watermark turadi (guard.js) — tarqatilgan surat egasini aniqlash mumkin.
 // Faqat talabalar uchun; o'qituvchida o'chiq.
 import { session, api } from "./api.js";
+import { toast } from "./ui.js";
 
 let routeSecure = false;
 let zoneVisible = false;
@@ -96,6 +97,7 @@ export const SECURITY_RULES = [
   ["📸", "Ekran surati (PrintScreen, Win+Shift+S), bosib chiqarish yoki sahifa manbasini ochish", "har biri jiddiy hodisa: bahoning 15% gacha kamayishi (3 martagacha hisoblanadi)"],
   ["📋", "Matnni nusxalash yoki sahifani saqlash (Ctrl+C, Ctrl+S)", "har biri bahoni 10% ga kamaytiradi (3 martagacha)"],
   ["🪟", "Boshqa oyna, ilova yoki yorliqqa o'tish", "dastlabki 5 marta kechiriladi, keyingisi bahoni 5% ga kamaytiradi (4 martagacha)"],
+  ["🤖", "Ish paytida AI yordamchidan savolning javobini so'rashga urinish (so'rov yuborilmaydi)", "har bir urinish bahoni 20% ga kamaytiradi (2 martagacha)"],
   ["🖱️", "O'ng tugma (kontekst menyu)", "har biri bahoni 5% ga kamaytiradi (3 martagacha)"],
 ];
 export const SECURITY_NOTE = "Bitta ish uchun baho jami ko'pi bilan 50% ga kamayadi. Hodisa yuz berganda ekran xiralashadi va o'qituvchiga qayd etiladi; ekranda ismingiz bilan watermark turadi.";
@@ -121,6 +123,22 @@ function gateKey() {
   if ((m = hash.match(/^#\/(assignment\/\d+|tasks\/[\w-]+|practice\/[\w-]+)/))) return `#/${m[1]}`;
   if (/^#\/topics\/[\w-]+/.test(hash) && zoneVisible && ["quiz", "practice", "self"].includes(currentZone)) return `${hash}:${currentZone}`;
   return null;
+}
+
+/** Talaba hozir test/topshiriq/mashq bajaryaptimi (boshlash tasdiqlangan)? */
+export function inWork() {
+  if (!session.user || session.user.role === "teacher" || gating) return false;
+  if (/^#\/exam\/[\w-]+/.test((location.hash || "").split("?")[0])) return true;
+  const key = gateKey();
+  return Boolean(key && acked(key));
+}
+
+/** AI yordamchidan foydalanish: ish bajarilayotganda yopiq. Urinish qayd etilib, baho 20% kamayadi. true — so'rov to'xtatilsin. */
+export function aiBlocked() {
+  if (!inWork()) return false;
+  report("aihelp", "AI yordamchidan savol javobini so'rashga urindi");
+  toast("Topshiriq, test yoki mashq bajarilayotganda AI yordamchidan foydalanish taqiqlangan. Urinish qayd etildi: baho 20% ga kamaytiriladi.", "error");
+  return true;
 }
 
 function checkGate() {

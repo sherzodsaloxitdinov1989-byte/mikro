@@ -1,6 +1,7 @@
 // Savol oynasi (talaba uchun, har sahifada): AI yordamchiga yoki o'qituvchiga savol yuborish, o'qituvchi javoblarini ko'rish.
 import { h, toast, fmtDate } from "./ui.js";
 import { api, session } from "./api.js";
+import { aiBlocked } from "./secure.js";
 
 const EVERY_MS = 60_000;
 const safe = (fn) => { try { return fn(); } catch { return null; } };
@@ -51,6 +52,7 @@ function aiTab(el) {
   const send = async () => {
     const text = input.value.trim();
     if (!text || busy) return;
+    if (aiBlocked()) return;
     busy = true;
     input.value = "";
     aiHistory.push({ role: "user", content: text });

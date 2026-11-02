@@ -1,6 +1,7 @@
 // "AI Ustoz" paneli: mavzu bo'yicha savol-javob, tayyor savollar, matnni belgilab tushuntirish so'rash.
 import { h, toast } from "./ui.js";
 import { api, session } from "./api.js";
+import { aiBlocked } from "./secure.js";
 
 const KEY = (id) => `tt.tutor.${id}`;
 
@@ -46,6 +47,7 @@ export function tutorDrawer(topic) {
       location.hash = "#/login";
       return;
     }
+    if (aiBlocked()) return;
     busy = true;
     sendBtn.disabled = true;
     input.value = "";
