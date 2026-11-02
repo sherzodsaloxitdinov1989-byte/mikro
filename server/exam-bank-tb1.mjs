@@ -54,15 +54,15 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Frank Naytning nazariyasida tadbirkor foydasi nimaning mukofoti hisoblanadi?",
+"q": "Piter Draker tadbirkorlikni qanday ta’riflaydi?",
 "o": [
-"Ish haqiga qo‘shimcha ravishda hisoblanadigan, mehnat soatlari miqdoriga bog‘liq to‘lov",
-"Sug‘urtalab bo‘lmaydigan noaniqlikni zimmaga olish uchun beriladigan mukofot",
-"Kreditorga to‘lanadigan foizdan oshib ketgan, kapital miqdoriga mutanosib daromad",
-"Yer egasiga to‘lanadigan ijara haqi o‘rnini bosuvchi, joylashuv uchun qo‘shimcha to‘lov"
+"Faqat noaniq narxlarga qarab xarid qilib, ertangi kunning xavfini o‘z zimmasiga olish faoliyati",
+"Tavakkalchilikning o‘zi emas, balki o‘zgarishni imkoniyat sifatida izlash, unga javob berish va undan foydalanish",
+"Ishlab chiqarish omillarini yanada samaraliroq birlashtirib, ulardan ko‘proq foyda olishga intilish",
+"Eskirgan yechimlarni siqib chiqarib, bozordagi eski muvozanatni innovatsiya orqali buzish jarayoni"
 ],
 "c": 1,
-"w": "Nayt: risk (hisoblash mumkin) va noaniqlik (hisoblab bo‘lmaydi) farqi; foyda noaniqlik uchun mukofot.",
+"w": "Darslik: Draker tadbirkorlikni o‘zgarishni imkoniyat sifatida izlash va undan foydalanish deb ta’riflaydi.",
 "k": "th"
 },
 {
@@ -145,15 +145,15 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Haddan tashqari ishonch (overconfidence) xatosi qanday oqibatga olib keladi?",
+"q": "Oilaviy tadbirkorlikning kuchli tomoni va xavfi qaysi javobda to‘g‘ri ko‘rsatilgan?",
 "o": [
-"Barcha qarorlar jamoa bilan kelishilib, ularni amalga oshirish uzoq muddatga cho‘ziladi",
-"Raqobatchilar haddan tashqari yuqori baholanib, bozorga chiqish doimo kechiktiriladi",
-"Muvaffaqiyat ehtimoli yuqori, xarajat va vaqt esa kam baholanib, rejalar uzilib qoladi",
-"Muvaffaqiyat ehtimoli past baholanib, istiqbolli loyihalardan ham ixtiyoriy voz kechiladi"
+"Kuchli tomoni — juda tez o‘sish sur’ati; xavfi — brendga bog‘liqlik va doimiy royalti to‘lovlari",
+"Kuchli tomoni — investorlar qo‘llab-quvvatlashi; xavfi — mulkning davlat tomonidan tortib olinishi",
+"Kuchli tomoni — ishonch va past xarajat; xavfi — oilaviy munosabatlarning biznes qarorlariga aralashib ketishi",
+"Kuchli tomoni — katta kapital jalb qilish; xavfi — yuqori soliq yuki va litsenziya zarurati"
 ],
 "c": 2,
-"w": "Overconfidence — planning fallacy bilan bog‘liq.",
+"w": "Darslik: oilaviy tadbirkorlikda ishonch va past xarajat kuchli tomon, oilaviy munosabatlar aralashuvi esa xavf.",
 "k": "th"
 },
 {
@@ -496,15 +496,15 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Tadbirkorlik turlaridan «ichki tadbirkorlik» (intrapreneurship) nimani bildiradi?",
+"q": "«Muammolar kundaligi» mashqida har bir yozilgan noqulaylik uchun qaysi savollarga javob beriladi?",
 "o": [
-"Mavjud kompaniya ichida xodimlarning yangi g‘oyalarni tashabbus bilan amalga oshirishini",
-"Oila a’zolari o‘rtasida mavjud biznesning mulkini meros yoki sovg‘a sifatida qayta taqsimlashni",
-"Tadbirkorning o‘z mamlakatidan tashqarida xorijiy bozorlarda yangi biznes ochib, filial tarmog‘ini yaratishini",
-"Davlat xizmatchisining o‘z lavozimi bilan bir qatorda tijorat faoliyati bilan shug‘ullanib daromad olishini"
+"Bu muammo kimda takrorlanadi, qanchalik tez-tez, hozir qanday hal qilinmoqda va buning uchun to‘lashga tayyormi",
+"Bu muammoni raqobatchilar qanday reklama qiladi, qaysi narxda sotadi va qaysi ijtimoiy tarmoqdan foydalanadi",
+"Bu muammoni kim yaratgan, qachon paydo bo‘lgan, qaysi davlat qonuni bilan bog‘liq va qancha jarima solinadi",
+"Bu muammo uchun qaysi uskuna kerak, qancha xodim yollash lozim, qayerda ofis ochiladi va qachon tugaydi"
 ],
 "c": 0,
-"w": "Intrapreneur — kompaniya ichidagi tadbirkor.",
+"w": "Darslik 1.4: muammolar kundaligi — kimda, qanchalik tez-tez, hozir qanday hal qilinmoqda, to‘lashga tayyorlikmi.",
 "k": "th"
 },
 {
@@ -548,15 +548,15 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "«Bozorga mos mahsulot» (product-market fit) qachon erishilgan hisoblanadi?",
+"q": "Raqamli izlar (digital footprint) orqali imkoniyat topish usulining kamchiligi nimada?",
 "o": [
-"Mahsulot yaratilib, uning sifati ichki xodimlar tomonidan yuqori baholanib, ichki test muvaffaqiyatli o‘tganda",
-"Mahsulot aniq segment ehtiyojini shunday qondirsaki, mijozlar takror xarid qilib, boshqalarga tavsiya qilganda",
-"Reklama xarajatlari oshirilib, mahsulot nomi keng ommaga tanilib, ijtimoiy tarmoqlarda ko‘p muhokama qilinganda",
-"Raqobatchilar bozordan chiqib ketib, kompaniya yagona sotuvchi bo‘lib qolgani sababli narxni belgilay olganda"
+"Bu usul faqat katta xarajat bilan boshlanadi va uy sharoitida qo‘llab bo‘lmaydi, mutaxassis yollash shart",
+"Raqamli ma’lumot har doim ham real xatti-harakatni to‘liq aks ettirmaydi, shuning uchun uni suhbat va kuzatuv bilan tekshirish kerak",
+"Bu usulda olingan ma’lumot har doim eng aniq bo‘lgani uchun uni qo‘shimcha tekshirishga hojat qolmaydi",
+"Bu usul faqat xorijiy bozorlar uchun yaroqli bo‘lib, mahalliy mijozlarning xatti-harakatini umuman ko‘rsatmaydi"
 ],
 "c": 1,
-"w": "PMF — takroriy xarid va tavsiya.",
+"w": "Darslik: raqamli ma’lumot real xatti-harakatni to‘liq aks ettirmasligi mumkin, shuning uchun suhbat va kuzatuv bilan tekshiriladi.",
 "k": "th"
 },
 {
@@ -613,28 +613,28 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Qaysi holat tadbirkorlikning «zaruriyat tadbirkorligi» (necessity entrepreneurship) turiga mos keladi?",
+"q": "Darslikka ko‘ra, tarmoq tafakkuri qaysi uchta amaliy ko‘nikmani o‘z ichiga oladi?",
 "o": [
-"Boshqa daromad manbayi bo‘lmagani uchun mustaqil faoliyatni boshlash",
-"Yangi texnologiya ixtiro qilib, uni xalqaro bozorga olib chiqish",
-"Venchur fondi mablag‘i bilan global platforma yaratish",
-"Katta kompaniyada yuqori lavozimda ishlab, ixtiyoriy ravishda biznes ochish"
+"G‘oyani 2–3 daqiqada tushuntira olish, foydali almashinuvga intilish va mentor hamda mijozlar bilan ishonchli munosabat qurish",
+"Soliq hisobotini mustaqil topshirish, buxgalteriya yuritish va davlat ro‘yxatidan o‘tish bo‘yicha amaliy tajriba",
+"Kredit olish tartibini bilish, garov taqdim etish va bank xodimlari bilan shaxsiy tanishlik o‘rnatish",
+"Raqobatchilarning narxini kuzatish, ularni bozordan siqib chiqarish va mijozlarni tezda o‘z tomoniga tortish"
 ],
 "c": 0,
-"w": "Zaruriyat vs imkoniyat tadbirkorligi (GEM).",
+"w": "Darslik 1.2: elevator pitch, boshqalarga ham foyda keltiruvchi almashinuv, uzoq muddatli ishonchli munosabat.",
 "k": "th"
 },
 {
 "t": 1,
-"q": "Imkoniyat tadbirkorligi (opportunity entrepreneurship) nimasi bilan ajralib turadi?",
+"q": "Mavjud mahsulotni «bo‘lish» (unbundling) orqali imkoniyat topish nimani anglatadi?",
 "o": [
-"Tadbirkor faqat oila biznesini meros sifatida davom ettiradi",
-"Tadbirkor davlat topshirig‘i bilan ma’lum bir sohada ishlashga majbur bo‘ladi",
-"Tadbirkor ish topolmaganligi sababli yagona chora sifatida biznes boshlaydi",
-"Tadbirkor bozordagi imkoniyatni ko‘rib, ixtiyoriy tanlov asosida biznes boshlaydi"
+"Mahsulot narxini bir necha bosqichga bo‘lib, mijozdan bo‘lib-bo‘lib to‘lash shartini qo‘yishni",
+"Mahsulotni boshqa davlat bozoridan olib kelib, hech qanday o‘zgartirishsiz mahalliy narxda sotishni",
+"Tarqoq xizmatlarni bitta qulay paketga birlashtirib, mijozga yagona buyurtma sifatida sotishni",
+"Yirik xizmatning faqat bir qismini alohida va yaxshiroq shaklda taklif qilishni"
 ],
 "c": 3,
-"w": "Ixtiyoriy, imkoniyatga yo‘nalgan.",
+"w": "Darslik: unbundling — xizmatning bir qismini alohida taklif qilish; bundling — tarqoq xizmatlarni birlashtirish.",
 "k": "th"
 },
 {
@@ -704,15 +704,15 @@ export const BANK = [
 },
 {
 "t": 1,
-"q": "Quyidagi holatda qaysi tadbirkorlik turi namoyon bo‘ladi: bitiruvchi o‘z qishlog‘ida bolalar uchun yangi o‘quv usulini yaratib, uni boshqa hududlarga ham kengaytirmoqchi?",
+"q": "Mavjud yechimni mahalliy sharoitga moslashtirish usulining afzalligi nimada?",
 "o": [
-"Zaruriyat tadbirkorligi, chunki bitiruvchi ish topa olmagan",
-"Innovatsion tadbirkorlik, chunki yangi usul yaratilib, kengaytirish ko‘zlanmoqda",
-"Takroriy tadbirkorlik, chunki bunday o‘quv markazlari boshqa joylarda ham bor",
-"Ichki tadbirkorlik, chunki u kompaniya xodimi sifatida ishlayapti"
+"Hech qanday o‘zgartirish talab qilinmaydi, chunki xorijiy yechim barcha bozorlarda bir xil ishlaydi",
+"Xavf kam: yechimning ishlashi boshqa joyda allaqachon isbotlangan, faqat til, to‘lov odati va narx moslashtiriladi",
+"Yechim mutlaqo yangi bo‘lgani uchun raqobatchilar yo‘q va mahalliy mijoz uni darhol qabul qiladi",
+"Daromad kafolatlanadi, chunki sinalgan yechim har qanday madaniy sharoitda bir xil natija beradi"
 ],
 "c": 1,
-"w": "Yangi usul + kengayish → innovatsion.",
+"w": "Darslik: moslashtirishda risk kam, chunki yechim boshqa joyda isbotlangan; til, to‘lov odatlari, narx va madaniyat moslashtiriladi.",
 "k": "th"
 },
 {
@@ -1107,15 +1107,15 @@ export const BANK = [
 },
 {
 "t": 2,
-"q": "«Vanity metric» (ko‘rinishdagi ko‘rsatkich) nimasi bilan xavfli?",
+"q": "Dizayn tafakkuri va Lean Startup o‘rtasidagi munosabat qaysi javobda to‘g‘ri berilgan?",
 "o": [
-"U har doim past qiymat ko‘rsatib, jamoani ruhdan tushiradi va tadbirkorda noto‘g‘ri taassurot qoldiradi",
-"U faqat moliyaviy hisobotda ko‘rsatilib, mijozlarga ko‘rinmaydi va hech qanday qaror uchun ishlatilmaydi",
-"U yaxshi ko‘rinadi, lekin biznesning haqiqiy natijasi haqida qaror qabul qilishga yordam bermaydi",
-"U juda murakkab hisoblanadi va mutaxassis bo‘lmasa, uni tushunib bo‘lmaydi hamda hisoblash imkoni yo‘q"
+"Ular bir xil yondashuv bo‘lib, faqat atamalari farq qiladi va amalda hech qachon birga qo‘llanilmaydi",
+"Dizayn tafakkuri faqat narx belgilashga, Lean Startup esa faqat soliq hisobotini tayyorlashga xizmat qiladi",
+"Ikkalasi bir-birini to‘ldiradi: dizayn tafakkuri «to‘g‘ri mahsulot»ni topishga, Lean Startup esa uni «to‘g‘ri biznesga» aylantirishga yordam beradi",
+"Ular bir-birini inkor etadi: dizayn tafakkuri faqat katta kompaniyalar uchun, Lean Startup esa faqat davlat tashkilotlari uchun"
 ],
 "c": 2,
-"w": "Vanity vs actionable.",
+"w": "Darslik 2.9: amalda ikkalasi bir-birini to‘ldiradi.",
 "k": "th"
 },
 {
@@ -1133,41 +1133,41 @@ export const BANK = [
 },
 {
 "t": 2,
-"q": "G‘oyaning «hayotiyligi» (viability) deganda nima tushuniladi?",
+"q": "«Acid Test» (kislota sinovi) nima va nega shunday ataladi?",
 "o": [
-"G‘oya iqtisodiy jihatdan o‘zini oqlashi, xarajatni qoplashi va daromad keltirishi imkoniyati",
-"G‘oya yangi bo‘lib, bozorda hech kimda yo‘qligi va raqobatchilar tomonidan takrorlanmasligi",
-"G‘oya texnik jihatdan mavjud resurs bilan yaratilishi mumkinligi va jamoa uni bajara olishi imkoniyati",
-"G‘oyani odamlar yoqtirishi, maqtashi va uni boshqalarga ham tavsiya qilishi ehtimoli"
+"G‘oya yashovchanligini kam xarajat bilan real xarid orqali tekshirish; kislota soxta oltinni ajratgandek, real xarid soxta qiziqishni ajratadi",
+"Xodimlarning ish sifatini baholash usuli; kislota zaif xodimlarni ajratib, jamoani tozalagani uchun shunday ataladi",
+"Mahsulotning kimyoviy tarkibini laboratoriyada tekshirish usuli; kislota sifat standartini aniqlagani uchun shunday ataladi",
+"Raqobatchilar narxini tahlil qilish usuli; kislota narxni eritib, ularning haqiqiy tannarxini ko‘rsatgani uchun shunday ataladi"
 ],
 "c": 0,
-"w": "Desirability, feasibility, viability.",
+"w": "Darslik 2.7: «Acid Test» — g‘oya yashovchanligini kam xarajat bilan tekshirish; real xarid soxta qiziqishni ajratadi.",
 "k": "th"
 },
 {
 "t": 2,
-"q": "«Desirability» (istalganlik) mezoni nimani bildiradi?",
+"q": "Darslikka ko‘ra, O‘zbekiston sharoitida kam xarajatli MVP uchun nima yetarli?",
 "o": [
-"Mijoz bu yechimni xohlashi va undan foydalanishga tayyorligi",
-"Mahsulotni davlat ro‘yxatidan o‘tkazish osonligi",
-"Mahsulotni mavjud texnologiya bilan yaratish mumkinligi",
-"Mahsulot sotilganda yetarli foyda qolishi"
+"Murakkab texnologiya shart emas: Telegram-kanal va bot, Instagram sahifa kabi oddiy vositalar yetarli",
+"Xorijiy investor mablag‘i va patent, chunki ularsiz bozorda g‘oyani sinash qonunan mumkin emas",
+"To‘liq ishlab chiqilgan mobil ilova va yirik server infratuzilmasi, aks holda sinov o‘tkazib bo‘lmaydi",
+"Katta ofis, ko‘p xodim va ommaviy reklama kampaniyasi, shundagina mijoz qiziqishini o‘lchash mumkin bo‘ladi"
 ],
 "c": 0,
-"w": "Desirability — mijoz tomonidan istash.",
+"w": "Darslik: MVP uchun murakkab texnologiya shart emas — Telegram-kanal va bot, Instagram sahifa.",
 "k": "th"
 },
 {
 "t": 2,
-"q": "«Feasibility» (amalga oshirish mumkinligi) mezoni nimani tekshiradi?",
+"q": "An’anaviy yondashuv bilan Lean Startup o‘rtasidagi asosiy farq qaysi javobda to‘g‘ri ifodalangan?",
 "o": [
-"Yechim raqobatchilardan farqlanishini va mijoz ongida alohida o‘rin egallashini",
-"Mijozlar yechimni sotib olishga tayyorligini va uning uchun to‘lashga rozi bo‘lishini",
-"Yechim daromad keltirishini hamda xarajatni qoplab, foyda qoldirishini",
-"Jamoa mavjud resurs va texnologiya bilan yechimni yarata olishini"
+"An’anaviy yondashuv faqat xizmatlar uchun, Lean Startup esa faqat jismoniy tovarlar uchun mo‘ljallangan",
+"An’anaviy yondashuvda avval mijoz talabi tekshirilib, so‘ng mahsulot yaratiladi; Lean Startupda mahsulot oldindan tayyor bo‘ladi",
+"An’anaviy yondashuvda hech qanday reja tuzilmaydi; Lean Startupda esa bir necha yillik batafsil reja yoziladi",
+"An’anaviy yondashuvda avval mahsulot yaratilib, so‘ng unga mijoz izlanadi; Lean Startupda avval mijoz va talab tekshiriladi"
 ],
 "c": 3,
-"w": "Feasibility — texnik/operatsion imkoniyat.",
+"w": "Darslik 2.5: an’anaviy yondashuvda avval mahsulot, so‘ng mijoz izlanar edi.",
 "k": "th"
 },
 {
@@ -1939,15 +1939,15 @@ export const BANK = [
 },
 {
 "t": 3,
-"q": "Kredit olishda «oldindan ma’qullash» va rasmiy qaror o‘rtasidagi farq qaysi javobda to‘g‘ri?",
+"q": "Bank garov asosida kredit berganda, kredit summasi odatda garov qiymatining qancha qismigacha bo‘ladi va bu nisbat nima deyiladi?",
 "o": [
-"Oldindan ma’qullash faqat grant uchun qo‘llanadi, kreditga esa tegishli emas va ahamiyatsiz",
-"Oldindan ma’qullash kreditni to‘liq berib, keyingi tekshiruv va hujjat talab qilinmaydi",
-"Rasmiy qaror kredit arizasi topshirilishidan oldin chiqariladi va ma’qullashga bog‘liq bo‘lmaydi",
-"Oldindan ma’qullash dastlabki baho bo‘lib, yakuniy qaror to‘liq hujjatlar va tekshiruvdan keyin chiqadi"
+"Garov qiymatining aynan 100 foizigacha; bu nisbat Customer Lifetime Value (LTV) deb ataladi",
+"Garov qiymatining 150–200 foizigacha; bu nisbat Debt Service Coverage (DSCR) deb ataladi",
+"Garov qiymatining 10–20 foizigacha; bu nisbat Return on Investment (ROI) deb ataladi",
+"Garov qiymatining 60–80 foizigacha; bu nisbat Loan-to-Value (LTV) deb ataladi"
 ],
 "c": 3,
-"w": "Jarayon bosqichlari.",
+"w": "Darslik 3.5: bank ko‘pincha garov qiymatining 60–80 foizigacha kredit beradi (Loan-to-Value).",
 "k": "th"
 },
 {
@@ -2212,15 +2212,15 @@ export const BANK = [
 },
 {
 "t": 4,
-"q": "Xususiy korxona (XK) va MChJ o‘rtasidagi asosiy farq qaysi?",
+"q": "Fokus-guruh usulida odatda necha kishi ishtirok etadi va muhokama qancha davom etadi?",
 "o": [
-"MChJ bir yoki bir necha ta’sischi tomonidan tashkil etilib, javobgarlik hissa doirasida cheklanadi",
-"MChJ faqat xorijiy kapital bilan tashkil etilib, mahalliy fuqarolar ishtirok etishi qonun bilan taqiqlanadi",
-"MChJ davlat mulki bo‘lib, ta’sischilar bo‘lmaydi hamda faoliyat byudjet mablag‘i hisobidan olib boriladi",
-"MChJ faqat bitta jismoniy shaxsga tegishli bo‘lib, mulkiy javobgarlik cheksiz va butun mol-mulk bilan bo‘ladi"
+"6–8 nafar potensial mijoz, moderator boshchiligida 45–60 daqiqalik erkin muhokama",
+"100–150 nafar potensial mijoz, onlayn tarzda bir kunlik ommaviy ovoz berish shaklidagi muhokama",
+"1–2 nafar potensial mijoz, har biri bilan 5–10 daqiqalik yozma so‘rovnoma shaklidagi suhbat",
+"20–30 nafar potensial mijoz, moderatorsiz 3–4 soatlik qat’iy savol-javob tartibidagi suhbat"
 ],
 "c": 0,
-"w": "MChJ — cheklangan javobgarlik.",
+"w": "Darslik 2.3: fokus-guruh — 6–8 nafar mijoz, moderator boshchiligida 45–60 daqiqalik erkin muhokama.",
 "k": "th"
 },
 {
@@ -2290,15 +2290,15 @@ export const BANK = [
 },
 {
 "t": 4,
-"q": "Faoliyat turini (IFUT kodi) tanlash nima uchun muhim?",
+"q": "my.gov.uz portali tadbirkorga qaysi imkoniyatlarni beradi?",
 "o": [
-"U faqat mahsulotning rangi va qadoqlash turini belgilab, soliq va litsenziya talablariga ta’sir qilmaydi",
-"U tadbirkorning shaxsiy yashash manzilini aniqlab, faqat pochta xabarlarini yuborish uchun ishlatiladi",
-"U faoliyat turini rasman belgilab, soliq va litsenziya talablariga ta’sir qiladigan asosiy ko‘rsatkich",
-"U faqat xodimlar sonini ko‘rsatib, soliq rejimi va hisobot shakliga hech qanday ta’sir qilmaydi"
+"Soliq hisobotini topshirish, qarzdorlikni ko‘rish, hisob-faktura va NKM ma’lumotlarini kuzatish imkonini beradi",
+"Elektron hujjatlarni qo‘lyozma imzoga teng huquqiy kuch bilan imzolash uchun kalit chiqarib berish imkonini beradi",
+"Biznesni ro‘yxatdan o‘tkazish, litsenziya va ruxsatnoma olish hamda ijara shartnomalarini ro‘yxatga qo‘yish imkonini beradi",
+"Mijozlar bazasini yuritish, reklama joylash va mahsulotlarni onlayn savdoga chiqarish imkonini beradi"
 ],
 "c": 2,
-"w": "Faoliyat turi — huquqiy asos.",
+"w": "Darslik 4.6: my.gov.uz — davlat xizmatlari portali; my.soliq.uz — shaxsiy kabinet; ERI — elektron imzo.",
 "k": "th"
 },
 {
@@ -2784,15 +2784,15 @@ export const BANK = [
 },
 {
 "t": 4,
-"q": "Tadbirkorlik faoliyatini tugatish (likvidatsiya) nima uchun tartib bilan amalga oshirilishi kerak?",
+"q": "Rasmiylashtirilgan tadbirkor ishga qabul qilgan har bir xodimi bilan nima qilishi shart?",
 "o": [
-"Qarzlar, soliqlar va majburiyatlar hal etilmasa, javobgarlik saqlanib qoladi hamda davom etadi",
-"Tugatish hech qanday hujjat talab qilmaydi va tadbirkor faoliyatni istalgan paytda to‘xtata oladi",
-"Tugatish faqat xorijiy tadbirkorlar uchun talab qilinadi, mahalliylar uchun esa shart emas",
-"Tugatilgach barcha qarzlar avtomatik bekor bo‘ladi va soliq majburiyatlari ham yo‘qoladi"
+"Mehnat shartnomasi tuzib, uni «Yagona milliy mehnat tizimi»da ro‘yxatdan o‘tkazishi shart",
+"Faqat og‘zaki kelishuv bilan ishga olib, ish haqini naqd pulda to‘lashi va hisobotda ko‘rsatmasligi mumkin",
+"Faqat litsenziya organiga xabar yuborib, mehnat shartnomasi tuzishdan ozod bo‘lishi mumkin",
+"Xodimni faqat shartnomasiz, sinov muddatida yollab, soliq to‘lovlarini keyingi yilga qoldirishi mumkin"
 ],
 "c": 0,
-"w": "Rasmiy tugatish.",
+"w": "Darslik 4.8: ishga qabul qilingan har bir xodim bilan mehnat shartnomasi tuziladi va «Yagona milliy mehnat tizimi»da ro‘yxatdan o‘tkaziladi.",
 "k": "th"
 },
 {
@@ -3096,15 +3096,15 @@ export const BANK = [
 },
 {
 "t": 5,
-"q": "Soliq agenti kim hisoblanadi?",
+"q": "Shartnomaning «Narx va to‘lov tartibi» bo‘limida odatda nimalar ko‘rsatiladi?",
 "o": [
-"Faqat bank xodimi, u soliq to‘lovlarini qabul qilib, hisobraqamdan o‘tkazishni bajaradi",
-"Faqat soliq inspektori va uning yordamchisi, ular soliq to‘lovchilardan hisobotlarni qabul qiladi",
-"Faqat mijoz va xaridor, ular tovar uchun to‘lovni amalga oshiradi va soliqni to‘laydi",
-"Boshqa shaxs daromadidan soliqni ushlab, byudjetga o‘tkazish majburiyatidagi tashkilot yoki tadbirkor"
+"Nizolarni hal etish tartibi: muzokara, da’vo tartibi, sud yoki arbitraj",
+"Tomonlarning to‘liq nomi, STIR raqami, manzili, vakili va uning vakolat asosi",
+"Nima sotilishi yoki qanday xizmat ko‘rsatilishi, uning miqdori, sifati va hajmi",
+"Summa, valyuta, QQS bor-yo‘qligi, to‘lov muddati va usuli hamda avans"
 ],
 "c": 3,
-"w": "Tax agent.",
+"w": "Darslik 4.3-jadval: «Narx va to‘lov tartibi» — summa, valyuta, QQS, muddat va usul, avans.",
 "k": "th"
 },
 {
@@ -3304,41 +3304,41 @@ export const BANK = [
 },
 {
 "t": 5,
-"q": "Marketpleysda sotuvchi aylanma soliq rejimida bo‘lsa, platforma komissiyasi soliq bazasiga qanday ta’sir qiladi?",
+"q": "Soliq organi kameral tahlilda qaysi holatni «xavf belgisi» deb baholaydi?",
 "o": [
-"Komissiya soliq stavkasini nolga tushiradi va tadbirkor hisobotni soddalashtirilgan shaklda topshiradi",
-"Komissiya soliqni ikki baravar oshiradi, chunki platforma xizmati qo‘shimcha soliq obyekti hisoblanadi",
-"Komissiya soliq bazasidan to‘liq ayriladi va natijada soliq to‘lovi sezilarli kamayadi hamda tushum pasayadi",
-"Ta’sir qilmaydi, chunki baza tushumning o‘zi bo‘lib, komissiya xarajat sifatida ayrilmaydi hamda hisobga olinmaydi"
+"Biznesning ko‘rsatkichlari sohadagi o‘xshash bizneslarning o‘rtacha ko‘rsatkichlariga yaqin bo‘lishi",
+"Biznesning faqat bitta xodimi bo‘lishi va ofisining shahar markazidan tashqarida joylashishi",
+"Biznesning hisobotni muddatidan oldin topshirishi va soliqni to‘liq to‘lashi hamda hujjatlarni tartibli yuritishi",
+"Biznesning aylanma yoki xarajat ko‘rsatkichi sohadagi o‘rtachadan keskin farq qilishi"
 ],
 "c": 3,
-"w": "Tushum bazasi.",
+"w": "Darslik 5.8: kameral tahlil — hisobotlarni masofadan, o‘xshash bizneslar bilan solishtirib tekshirish; keskin og‘ish xavf belgisi.",
 "k": "th"
 },
 {
 "t": 5,
-"q": "Marketpleys orqali sotuvda tadbirkorga qaysi hujjat/hisob muhim?",
+"q": "Aylanmadan olinadigan soliq rejimida kichik biznes qaysi soliqlarni to‘lamaydi?",
 "o": [
-"Faqat mijozlar fikri va sharhlari hamda ularning soni, chunki ular soliq bazasini belgilaydi",
-"Faqat platforma reklamasi va reytingi hamda uning ko‘rinishi, chunki ular soliq hisobiga ta’sir qiladi",
-"Platforma orqali tushgan tushumni va komissiyani alohida yuritib, hisobotga to‘g‘ri aks ettirish",
-"Hech qanday hisob yuritmaslik va platformaning o‘z hisobotiga ishonib, hamma narsani unga qoldirish"
+"Hech qanday soliq to‘lanmaydi, chunki tushum soliq bazasi sifatida hisobga olinmaydi hamda tekshirilmaydi",
+"Faqat jismoniy shaxslardan olinadigan daromad solig‘i va ijtimoiy soliq to‘lanmaydi, boshqalari to‘lanadi",
+"Foyda solig‘i va QQS to‘lanmaydi, hisobot esa soddalashadi",
+"Faqat yer solig‘i va mol-mulk solig‘i to‘lanmaydi, foyda solig‘i va QQS esa albatta to‘lanadi"
 ],
 "c": 2,
-"w": "Marketplace accounting.",
+"w": "Darslik 5.3: aylanmadan olinadigan soliq tushumdan hisoblanadi, foyda va QQS to‘lanmaydi, hisobot soddalashadi.",
 "k": "th"
 },
 {
 "t": 5,
-"q": "Xorijiy marketpleysda sotib, tushumni O‘zbekistonga olgan tadbirkor soliq jihatidan qanday holatda bo‘ladi?",
+"q": "Soddalashtirilgan QQS rejimiga o‘tish darslikka ko‘ra qanday amalga oshiriladi?",
 "o": [
-"Tushum O‘zbekiston soliq qonunchiligiga muvofiq soliqqa tortilishi mumkin va hisobda aks etishi kerak",
-"Faqat xorijiy davlat soliq to‘laydi, O‘zbekiston soliq qonunchiligi esa bu tushumga tegishli emas",
-"Xorijiy tushum umuman soliqqa tortilmaydi va uni hisobda aks ettirish ham talab etilmaydi",
-"Tushum bank tomonidan avtomatik ravishda bekor qilinadi va soliq hisobiga umuman kiritilmaydi"
+"Soliq organiga ariza (masalan, shaxsiy kabinet orqali) berish bilan, imtiyozli stavka ariza oyidan keyingi oyning birinchi kunidan amal qiladi",
+"Hech qanday ariza talab qilinmaydi, rejim barcha tadbirkorlarga avtomatik tarzda majburiy qo‘llaniladi",
+"Faqat bankka shaxsan murojaat qilib, kredit shartnomasini imzolash orqali, stavka o‘sha kunning o‘zida amal qiladi",
+"Faqat sud qarori bilan, bunda stavka qaror chiqqan kundan boshlab bir yil davomida o‘zgarmay qoladi"
 ],
 "c": 0,
-"w": "Eksport tushumi.",
+"w": "Darslik 5.3: rejimga o‘tish soliq organiga ariza berish bilan; stavka ariza oyidan keyingi oyning birinchi kunidan amal qiladi.",
 "k": "th"
 },
 {
@@ -3395,15 +3395,15 @@ export const BANK = [
 },
 {
 "t": 5,
-"q": "Aktsiz solig‘i qaysi tovarlarga odatda qo‘llanadi?",
+"q": "Soliqlar umumdavlat va mahalliy turlarga qanday bo‘linadi?",
 "o": [
-"Ayrim iste’molni cheklash yoki byudjetga qo‘shimcha tushum uchun belgilangan tovarlarga (masalan, tamaki)",
-"Barcha oziq-ovqat mahsulotlariga, chunki ular aholining kundalik iste’molida eng ko‘p ishlatiladi",
-"Faqat kitoblarga, o‘quv qo‘llanmalariga va boshqa nashr mahsulotlariga hamda qog‘ozga",
-"Faqat qishloq xo‘jaligi texnikasiga va ehtiyot qismlariga hamda yoqilg‘i materiallariga"
+"Umumdavlat (foyda solig‘i, QQS, JShDS, ijtimoiy soliq, aylanma solig‘i, aksiz) va mahalliy (yer solig‘i, mol-mulk solig‘i)",
+"Umumdavlat (yer solig‘i, mol-mulk solig‘i) va mahalliy (foyda solig‘i, QQS, JShDS, ijtimoiy soliq)",
+"Umumdavlat soliqlar faqat tadbirkorlardan, mahalliy soliqlar esa faqat xodimlardan undiriladi",
+"Umumdavlat soliqlar faqat yuridik shaxslardan, mahalliy soliqlar esa faqat jismoniy shaxslardan olinadi"
 ],
 "c": 0,
-"w": "Excise.",
+"w": "Darslik 5.1: soliqlar umumdavlat va mahalliy (yer solig‘i, mol-mulk solig‘i) turlarga bo‘linadi.",
 "k": "th"
 },
 {
@@ -3785,15 +3785,15 @@ export const BANK = [
 },
 {
 "t": 6,
-"q": "Milkshake misolida (Christensen) JTBD nimani ko‘rsatadi?",
+"q": "Business Model Canvasning o‘ng va chap tomoni nimani aks ettiradi?",
 "o": [
-"Narx pasaytirilsa, har qanday mahsulot ko‘proq sotilishini va narx sotuvning yagona omili ekanini",
-"Bir xil mahsulot turli mijoz uchun turli «ish»ni bajarishi mumkin, shuning uchun vaziyat muhim",
-"Milkshake faqat bolalar uchun mo‘ljallangan mahsulot ekanini va unga faqat ular ehtiyoj sezishini",
-"Reklama miqdori sotuvni to‘g‘ridan-to‘g‘ri belgilashini va sifat ahamiyatsiz ekanini"
+"Ikkala tomon ham faqat mijozlarga qaraydi, ichki faoliyat va xarajat esa kanvasga umuman kiritilmaydi",
+"O‘ng tomoni mijoz va daromadga, chap tomoni esa ichki faoliyat va xarajatga qaraydi; markazda qiymat taklifi turadi",
+"O‘ng tomoni ichki faoliyat va xarajatga, chap tomoni mijoz va daromadga qaraydi; markazda daromad oqimlari turadi",
+"O‘ng tomoni faqat hamkorlarga, chap tomoni faqat xodimlarga qaraydi; markazda xarajat tuzilmasi turadi"
 ],
 "c": 1,
-"w": "Context matters.",
+"w": "Darslik 6.2: kanvasning o‘ng tomoni mijozga va daromadga, chap tomoni ichki faoliyat va xarajatga qaraydi; markazda qiymat taklifi.",
 "k": "th"
 },
 {
@@ -4656,15 +4656,15 @@ export const BANK = [
 },
 {
 "t": 7,
-"q": "Pozitsiyalash xaritasi (perceptual map) nimani ko‘rsatadi?",
+"q": "Darslikka ko‘ra, SOM ko‘rsatkichi SAMning qanday ulushini tashkil qilishi maqsadga muvofiq?",
 "o": [
-"Brendlarning soliq to‘lovlari miqdorini taqqoslab, ularning byudjetga qo‘shgan hissasini ko‘rsatadi",
-"Brendlarning mijoz ongidagi o‘rnini ikki muhim mezon bo‘yicha taqqoslab ko‘rsatadi hamda xaritalaydi",
-"Brendlarning xodimlar sonini taqqoslab, ularning kadrlar salohiyatini va tashkiliy hajmini ko‘rsatadi",
-"Brendlarning ishlab chiqarish hajmini oylar bo‘yicha taqqoslab, ularning o‘sish sur’atini ko‘rsatadi"
+"SAMning to‘liq 100 foizi, chunki xizmat ko‘rsata oladigan bozorning barchasi birinchi yilda egallanadi",
+"SAMning kichik ulushi (odatda 1–5 foiz) bo‘lib, real sotuv imkoniyatiga mos kelishi kerak",
+"TAMning 90 foizi, chunki umumiy bozorning katta ulushini egallash biznesning asosiy maqsadi hisoblanadi",
+"SAMning yarmidan ko‘prog‘i (50–70 foiz), chunki yangi tadbirkor bozorning katta qismini darhol egallaydi"
 ],
 "c": 1,
-"w": "Perceptual map.",
+"w": "Darslik 7.7: SOM SAMning kichik ulushi (odatda 1–5 foiz) bo‘lishi va real sotuv imkoniyatiga mos kelishi kerak.",
 "k": "th"
 },
 {
@@ -4695,15 +4695,15 @@ export const BANK = [
 },
 {
 "t": 7,
-"q": "Persona tuzishda eng ko‘p uchraydigan xato qaysi?",
+"q": "B2B sotuvda yangi sotuvchilar orasida keng tarqalgan xato qaysi?",
 "o": [
-"Persona ga mijozning maqsad va og‘riqlarini kiritish hamda ularni intervyular bilan asoslash",
-"Intervyu va kuzatuvsiz, faqat taxmin va stereotiplarga asoslanib, persona tuzish xatosi",
-"Persona ni mijoz fikri bilan muntazam yangilab turish va yangi ma’lumotlar kelganda tuzatish",
-"Persona uchun real ma’lumotlarni yig‘ish va mijoz bilan suhbatlar o‘tkazib, ularni tahlil qilish"
+"Mijoz tashkilotining xarid jarayonini o‘rganib, taklifni shu jarayonga moslab tayyorlash",
+"Bitta shaxsga (masalan, faqat texnik mutaxassisga) e’tibor qaratib, qaror qabul qiluvchini e’tiborsiz qoldirish",
+"Qaror qabul qiluvchi bilan muzokara olib borib, uning mezonlari va xavotirlarini hisobga olish",
+"Xarid markazidagi barcha ishtirokchilarning rolini aniqlab, har biriga alohida taklif tayyorlash"
 ],
 "c": 1,
-"w": "Stereotip xavfi.",
+"w": "Darslik 7.10: keng tarqalgan xato — bitta shaxsga e’tibor qaratib, qaror qabul qiluvchini e’tiborsiz qoldirish.",
 "k": "th"
 },
 {
@@ -4864,15 +4864,15 @@ export const BANK = [
 },
 {
 "t": 7,
-"q": "«Raqobat mukammal xaritasi»da bo‘sh katak nimani anglatishi mumkin?",
+"q": "Pozitsiyalash (positioning) nima?",
 "o": [
-"Albatta talab yo‘q va bozor yopiq, shuning uchun bu yo‘nalishni umuman o‘rganmaslik kerak",
-"Hali xizmat ko‘rsatilmayotgan segment yoki taklif bo‘shlig‘i, talabni tekshirish kerak",
-"Albatta katta imkoniyat va talab bor, shuning uchun darhol ishlab chiqarishga o‘tish lozim",
-"Raqobatchilar yashirinib turgan, shuning uchun ular bilan kelishib narxni belgilash lozim"
+"Baholangan segmentlar ichidan eng foydalisini tanlab, unga resurslarni jamlash jarayoni",
+"Mijoz xotirasida mahsulotning aniq, ijobiy va raqiblardan farqli o‘rnini shakllantirish",
+"Bozorni o‘xshash ehtiyojli guruhlarga ajratib, har bir guruhning hajmini o‘lchash jarayoni",
+"Mahsulotni omborga joylashtirish va uni do‘konlar tokchasida ko‘rinarli o‘ringa qo‘yish jarayoni"
 ],
 "c": 1,
-"w": "Gap ≠ demand automatically.",
+"w": "Darslik 7.3: pozitsiyalash — mijoz xotirasida mahsulotning aniq, ijobiy va raqiblardan farqli o‘rnini shakllantirish.",
 "k": "th"
 },
 {
@@ -5150,15 +5150,15 @@ export const BANK = [
 },
 {
 "t": 7,
-"q": "Mijoz tanlovida «almashtirish xarajati» (switching cost) nima?",
+"q": "STP modeli qaysi uch bosqichdan iborat?",
 "o": [
-"Reklama xarajati va mijozni jalb qilishga sarflangan marketing mablag‘i hamda vaqt miqdori",
-"Mahsulotni ishlab chiqarish tannarxi va uni sotuvga tayyorlashga ketgan xarajatlar yig‘indisi",
-"Mijoz bir mahsulotdan boshqasiga o‘tganda sarflashi kerak bo‘lgan vaqt, pul va qulaylik yo‘qotishi",
-"Soliq stavkasi va davlat byudjetiga to‘lanadigan majburiy to‘lovlar miqdori hamda foizi"
+"Strategy (strategiya), Team (jamoa) va Profit (foyda), ya’ni tashkilotdan foydagacha bosqichlar",
+"Selling (sotish), Testing (sinash) va Planning (rejalashtirish), ya’ni sotuvdan rejagacha bosqichlar",
+"Segmentation (bozorni bo‘lish), Targeting (maqsadli segmentni tanlash) va Positioning (o‘z o‘rnini belgilash)",
+"Search (qidirish), Trade (savdo) va Payment (to‘lov), ya’ni qidiruvdan to‘lovgacha bosqichlar"
 ],
 "c": 2,
-"w": "Switching cost.",
+"w": "Darslik 7.3: STP — Segmentation, Targeting, Positioning.",
 "k": "th"
 },
 {

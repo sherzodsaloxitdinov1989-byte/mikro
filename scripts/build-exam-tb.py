@@ -17,6 +17,10 @@ OKS = {}
 for _n in ("ok5", "ok6"):
     try: OKS.update(__import__(_n).OK)
     except ImportError: pass
+try:
+    REPL = __import__("repl").R
+except ImportError:
+    REPL = {}
 used = set()
 clean = lambda s: s.replace("­", "").strip()
 items = []
@@ -24,6 +28,10 @@ gi = -1
 for t, m in enumerate(mods, 1):
     for q, ok, bad, why in m.T:
         gi += 1
+        if gi in REPL:
+            q, ok, bad, why = REPL[gi]
+            items.append({"t": t, "q": clean(q), "ok": clean(ok), "bad": [clean(b) for b in bad], "w": clean(why)})
+            continue
         if gi in NB: bad = NB[gi]
         if gi in OKS: ok = OKS[gi]
         q = clean(q)
