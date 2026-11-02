@@ -2569,7 +2569,7 @@ async function adminDeleteStudent(req, id) {
   }
   claimedCache.delete(id);
   const keys = [userKey(id), emailKey(user.email), `progress/${id}`, `certuser/${id}`];
-  for (const p of [`practicereview/${id}/`, `selfstudy/${id}/`, `assign/${id}/`, `secevent/${id}/`, `lab/${id}/`]) for (const [k] of await getEntries(p)) keys.push(k);
+  for (const p of [`practicereview/${id}/`, `selfstudy/${id}/`, `assign/${id}/`, `secevent/${id}/`, `secstart/${id}/`, `lab/${id}/`]) for (const [k] of await getEntries(p)) keys.push(k);
   for (const [k] of await getEntries("tasksub/")) if (k.endsWith(`/${id}`)) keys.push(k);
   for (const [k] of await getEntries("examattempt/")) if (k.endsWith(`/${id}`)) keys.push(k);
   for (const [k] of await getEntries("midterm/")) if (k.endsWith(`/${id}`)) keys.push(k);
@@ -3674,6 +3674,12 @@ async function securityEvent(req) {
   if (user.role !== "student") return json({ ok: true });
   const b = await body(req);
   const type = str(b.type, 20);
+  // «Boshlash» tugmasi: talaba ishni boshlaganini va qoidalarni o'qiganini bildiradi (jarima hisobiga kirmaydi)
+  if (type === "start") {
+    const at0 = new Date().toISOString();
+    await db().set(`secstart/${user.id}/${at0}-${newId().slice(0, 6)}`, { userId: user.id, name: user.name, group: user.group || "", at: at0, action: str(b.action, 200), page: str(b.page, 120), detail: str(b.detail, 160) });
+    return json({ ok: true });
+  }
   if (!SEC_TYPES[type]) throw new HttpError(400, "Hodisa turi noto'g'ri");
   const day = new Date().toISOString().slice(0, 10);
   const lim = await bump(`ratelimit/sec/${user.id}/${day}`, 86_400_000, 600);

@@ -1,6 +1,7 @@
 // Nazorat testi (talaba): belgilangan vaqtda ochiladi, boshlagan paytdan boshlab belgilangan daqiqa beriladi (vaqtni server hisoblaydi).
 import { h, mount, toast, loading, confirmDialog, emptyState, integrityAlert } from "../ui.js";
 import { api } from "../api.js";
+import { SECURITY_RULES, SECURITY_NOTE } from "../secure.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 const uz = (iso) => new Date(new Date(iso).getTime() + 5 * 3600_000);
@@ -40,7 +41,7 @@ async function renderList(el) {
     paint();
     timers.push(setInterval(paint, 15_000));
     btn.onclick = async () => {
-      if (!e.attempt && !(await confirmDialog(`Testni boshlaysizmi? Boshlagan paytingizdan ${e.durationMin} daqiqa hisoblanadi, vaqt to'xtamaydi va test faqat BIR marta topshiriladi.`))) return;
+      if (!e.attempt && !(await confirmDialog(`Testni boshlaysizmi? Boshlagan paytingizdan ${e.durationMin} daqiqa hisoblanadi, vaqt to'xtamaydi va test faqat BIR marta topshiriladi.\n\nHimoya qoidalari (buzilsa, natija kamayadi):\n${SECURITY_RULES.map(([i, what, res]) => `${i} ${what} — ${res}`).join("\n")}\n${SECURITY_NOTE}`))) return;
       btn.disabled = true;
       try { if (!e.attempt) await api.post(`exams/${e.id}/start`, {}); location.hash = `#/exam/${e.id}`; } catch (ex) { toast(ex.message, "error"); btn.disabled = false; }
     };

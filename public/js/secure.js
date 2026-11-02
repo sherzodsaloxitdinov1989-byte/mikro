@@ -14,7 +14,9 @@ let shield = null;
 let suppressUntil = 0; // fayl tanlash oynasi va tizim dialoglari ochilganda oyna fokusi yo'qolishi — qoidabuzarlik emas
 const lastSent = {};
 
-const active = () => session.user && session.user.role !== "teacher" && (routeSecure || zoneVisible);
+let gating = false; // «Boshlash» oynasi ochiq: sahifa yopiq, hodisalar hisoblanmaydi
+let gateEl = null;
+const active = () => session.user && session.user.role !== "teacher" && !gating && (routeSecure || zoneVisible);
 const pageName = () => (location.hash || "#/").split("?")[0].slice(0, 80);
 
 /** Talaba shu paytda nima qilayotgani (o'qituvchiga qayd etiladi): sahifa va ko'rinib turgan bo'lim bo'yicha. */
@@ -82,17 +84,86 @@ function watchZones() {
     zoneVisible = seen.size > 0;
     currentZone = [...seen].map((n) => n.dataset?.chapter).find(Boolean) || "";
     if (!zoneVisible && !routeSecure) hideShield();
+    checkGate();
   }, { threshold: [0, 0.01] });
   const attach = () => main.querySelectorAll("[data-chapter='quiz'], [data-chapter='practice'], [data-chapter='self'], [data-secure]").forEach((n) => { if (!n.__secureWatched) { n.__secureWatched = true; io.observe(n); } });
   new MutationObserver(attach).observe(main, { childList: true, subtree: true });
   attach();
 }
 
+/** Talabaga ish boshlanishidan oldin ko'rsatiladigan qoidalar va oqibatlar (integrity.mjs dagi jarimalar bilan mos). */
+export const SECURITY_RULES = [
+  ["📸", "Ekran surati (PrintScreen, Win+Shift+S), bosib chiqarish yoki sahifa manbasini ochish", "har biri jiddiy hodisa: bahoning 15% gacha kamayishi (3 martagacha hisoblanadi)"],
+  ["📋", "Matnni nusxalash yoki sahifani saqlash (Ctrl+C, Ctrl+S)", "har biri bahoni 10% ga kamaytiradi (3 martagacha)"],
+  ["🪟", "Boshqa oyna, ilova yoki yorliqqa o'tish", "dastlabki 5 marta kechiriladi, keyingisi bahoni 5% ga kamaytiradi (4 martagacha)"],
+  ["🖱️", "O'ng tugma (kontekst menyu)", "har biri bahoni 5% ga kamaytiradi (3 martagacha)"],
+];
+export const SECURITY_NOTE = "Bitta ish uchun baho jami ko'pi bilan 50% ga kamayadi. Hodisa yuz berganda ekran xiralashadi va o'qituvchiga qayd etiladi; ekranda ismingiz bilan watermark turadi.";
+
+function gateInfo(key) {
+  if (/#\/assignment\//.test(key)) return ["📝", "20 ballik topshiriq"];
+  if (/#\/tasks\//.test(key)) return ["🗂️", "Vazifa"];
+  if (/#\/practice\//.test(key)) return ["🧮", "Amaliy mashg'ulot"];
+  if (/:quiz$/.test(key)) return ["✅", "Mavzu testi"];
+  if (/:practice$/.test(key)) return ["🧮", "Amaliy mashg'ulot (mashqlar)"];
+  if (/:self$/.test(key)) return ["🧩", "Mustaqil ish"];
+  return ["🔒", "Topshiriq"];
+}
+
+const ackKey = () => `tt.sec.ack.${session.user?.id || ""}`;
+const acked = (key) => { try { return JSON.parse(sessionStorage.getItem(ackKey()) || "[]").includes(key); } catch { return false; } };
+const ack = (key) => { try { const a = JSON.parse(sessionStorage.getItem(ackKey()) || "[]"); if (!a.includes(key)) { a.push(key); sessionStorage.setItem(ackKey(), JSON.stringify(a.slice(-80))); } } catch {} };
+
+/** Qaysi ish sahifasida/bo'limida ekanligimiz: «Boshlash» tasdig'i shu kalit bo'yicha so'raladi (test paytidagi sahifa va ro'yxatlar — kirmaydi). */
+function gateKey() {
+  const hash = (location.hash || "#/").split("?")[0];
+  let m;
+  if ((m = hash.match(/^#\/(assignment\/\d+|tasks\/[\w-]+|practice\/[\w-]+)/))) return `#/${m[1]}`;
+  if (/^#\/topics\/[\w-]+/.test(hash) && zoneVisible && ["quiz", "practice", "self"].includes(currentZone)) return `${hash}:${currentZone}`;
+  return null;
+}
+
+function checkGate() {
+  if (!session.user || session.user.role === "teacher") return endGate();
+  const key = gateKey();
+  if (!key || acked(key)) return endGate();
+  if (gating && gateEl?.dataset.key === key) return;
+  showGate(key);
+}
+
+function endGate() {
+  if (!gating) return;
+  gating = false;
+  gateEl?.classList.remove("on");
+  document.body.classList.remove("secure-blur");
+}
+
+function showGate(key) {
+  const [icon, name] = gateInfo(key);
+  if (!gateEl) {
+    gateEl = document.createElement("div");
+    gateEl.className = "secure-shield";
+    gateEl.style.zIndex = "10001";
+    document.body.append(gateEl);
+  }
+  gateEl.dataset.key = key;
+  gateEl.innerHTML = `<div class="secure-shield-box" style="max-width:560px;text-align:left"><div style="font-size:2.4rem;text-align:center">${icon}</div><h2 style="text-align:center;margin:6px 0 4px">${name}ni boshlashdan oldin</h2><p class="muted small" style="text-align:center">Quyidagi qoidalarga zid harakat qilsangiz, ishingiz bahosi kamayadi.</p><ul style="padding-left:0;list-style:none;display:grid;gap:8px;margin:14px 0">${SECURITY_RULES.map(([i, what, res]) => `<li style="display:flex;gap:10px"><span>${i}</span><span><b>${what}</b><br><span class="muted small">→ ${res}</span></span></li>`).join("")}</ul><p class="small">${SECURITY_NOTE}</p><div style="text-align:center;margin-top:14px"><button class="btn lg" type="button">▶ Qoidalarni tushundim, boshlayman</button></div></div>`;
+  gateEl.querySelector("button").addEventListener("click", () => {
+    ack(key);
+    report("start", `${name}: ish boshlandi`);
+    endGate();
+  });
+  gating = true;
+  gateEl.classList.add("on");
+  document.body.classList.add("secure-blur");
+}
+
 export function setRouteSecure(on) {
   routeSecure = on;
   document.body.classList.toggle("secure-route", on);
   if (!on && !zoneVisible) hideShield();
-  if (on && session.user && session.user.role !== "teacher" && !document.hasFocus()) showShield("Sahifaga qaytganingizda davom eting.");
+  if (on && session.user && session.user.role !== "teacher" && !document.hasFocus() && !gating) showShield("Sahifaga qaytganingizda davom eting.");
+  setTimeout(checkGate, 60);
 }
 
 export function initSecureMode() {
@@ -116,5 +187,6 @@ export function initSecureMode() {
   window.addEventListener("keydown", shot, true);
   window.addEventListener("keyup", shot, true);
   window.addEventListener("beforeprint", () => trigger("print", "Bosib chiqarish taqiqlangan.", "Bosib chiqarish / PDF'ga saqlash oynasi ochildi"));
+  window.addEventListener("hashchange", () => setTimeout(checkGate, 80));
   watchZones();
 }
