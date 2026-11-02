@@ -2647,9 +2647,20 @@ async function finalizeAttempt(exam, rec, force = false, byTimeout = false) {
   return rec;
 }
 
-const attemptView = (exam, rec) => ({
+/** Yakunlangan urinish bo'yicha savollar tahlili: talaba tanlovi va to'g'ri/noto'g'ri belgisi. To'g'ri javob va izoh — faqat `reveal` bo'lsa (test vaqti tugagach yoki o'qituvchiga). */
+function reviewOf(exam, rec, reveal) {
+  return rec.items.map((it, n) => {
+    const b = exam.bank[it.b];
+    const chosen = Number.isInteger(rec.answers?.[n]) ? rec.answers[n] : null;
+    const rightShown = it.perm.findIndex((k) => k === b.c);
+    const row = { n, q: b.q, options: it.perm.map((k) => b.o[k]), chosen, ok: chosen === rightShown };
+    if (reveal) Object.assign(row, { right: rightShown, why: b.w || "" });
+    return row;
+  });
+}
+const attemptView = (exam, rec, reveal = false) => ({
   id: exam.id, startedAt: rec.startedAt, deadline: rec.deadline, now: new Date().toISOString(), durationMin: exam.durationMin,
-  ...(rec.result ? { result: { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, integrity: rec.result.integrity, at: rec.result.at } } : { questions: examView(exam, rec.items), answers: rec.answers || {} }),
+  ...(rec.result ? { result: { correct: rec.result.correct, total: rec.result.total, percent: rec.result.percent, percentRaw: rec.result.percentRaw, integrity: rec.result.integrity, at: rec.result.at }, review: reviewOf(exam, rec, reveal || Date.now() > toMs(exam.closesAt)), revealed: reveal || Date.now() > toMs(exam.closesAt), closesAt: exam.closesAt } : { questions: examView(exam, rec.items), answers: rec.answers || {} }),
 });
 
 async function examList(req) {
@@ -2728,6 +2739,20 @@ async function examSubmit(req, id) {
 async function adminExams(req) {
   const tch = await requireTeacher(req);
   return json({ exams: EXAMS.filter((e) => canTeach(tch, e.subject)).map((e) => ({ id: e.id, title: e.title, subject: e.subject, groups: e.groups, startsAt: e.startsAt, starts: e.starts || null, closesAt: e.closesAt, durationMin: e.durationMin, count: e.count, bank: e.bank.length, topics: e.topics })) });
+}
+
+/** O'qituvchi: bitta talabaning test javoblari (qaysi savolga qanday javob bergani, to'g'ri javoblar bilan). */
+async function adminExamAttempt(req, id, uid) {
+  const tch = await requireTeacher(req);
+  const exam = examById(id);
+  if (!exam) throw new HttpError(404, "Nazorat testi topilmadi");
+  assertSubject(tch, exam.subject);
+  let rec = await db().get(attemptKey(id, uid));
+  if (!rec) throw new HttpError(404, "Talaba testni boshlamagan");
+  if (!rec.result) rec = await finalizeAttempt(exam, rec);
+  if (!rec.result) throw new HttpError(409, "Talaba testni hali yakunlamagan");
+  const v = attemptView(exam, rec, true);
+  return json({ user: rec.user, result: v.result, review: v.review });
 }
 
 async function adminExamResults(req, id) {
@@ -4203,6 +4228,7 @@ const routes = [
   ["POST", /^exams\/([\w-]+)\/submit$/, examSubmit],
   ["GET", /^admin\/exams$/, adminExams],
   ["GET", /^admin\/exams\/([\w-]+)\/results$/, adminExamResults],
+  ["GET", /^admin\/exams\/([\w-]+)\/attempt\/([\w-]+)$/, adminExamAttempt],
   ["GET", /^admin\/exams\/([\w-]+)\/bank$/, adminExamBank],
   ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
   ["POST", /^admin\/exams\/([\w-]+)\/access$/, adminExamAccess],

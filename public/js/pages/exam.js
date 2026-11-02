@@ -125,6 +125,22 @@ async function renderTake(el, id) {
   draw();
 }
 
+/** Savollar tahlili: har bir savol uchun talaba javobi, to'g'ri/noto'g'ri belgisi (va ochilgan bo'lsa — to'g'ri javob hamda izoh). */
+export function reviewList(review, { onlyWrong = false } = {}) {
+  const L = "ABCD";
+  const list = onlyWrong ? review.filter((r) => !r.ok) : review;
+  if (!list.length) return h("div", { class: "alert alert-ok" }, "Noto'g'ri javob yo'q 🎉");
+  return h("div", { class: "stack" }, list.map((r) => h("div", { class: "card stack", style: { borderLeft: `4px solid ${r.ok ? "#16a34a" : "#dc2626"}` } },
+    h("b", {}, `${r.n + 1}. ${r.q}`),
+    h("div", { class: "stack" }, r.options.map((o, k) => {
+      const isChosen = r.chosen === k, isRight = r.right === k;
+      const mark = isRight ? "✅ " : isChosen ? "❌ " : "";
+      return h("div", { class: "small", style: { padding: "6px 10px", borderRadius: "8px", background: isRight ? "rgba(22,163,74,.12)" : isChosen ? "rgba(220,38,38,.12)" : "transparent", fontWeight: isChosen || isRight ? "600" : "400" } }, `${mark}${L[k]}. ${o}${isChosen ? "  ← sizning javobingiz" : ""}`);
+    })),
+    r.chosen === null && h("div", { class: "small", style: { color: "#b45309" } }, "Bu savolga javob berilmagan."),
+    r.why && h("div", { class: "small muted" }, `💡 ${r.why}`))));
+}
+
 function showResult(el, d, id) {
   cleanup();
   const r = d.result;
@@ -133,7 +149,11 @@ function showResult(el, d, id) {
     h("div", { class: "page-head" }, h("h1", {}, "📝 Nazorat testi natijasi")),
     h("div", { class: "card quiz-result" },
       h("div", { class: `score-ring ${cls}`, style: { "--pct": r.percent } }, h("b", {}, `${r.percent}%`), h("span", {}, `${r.correct}/${r.total}`)),
-      h("div", { class: "stack" }, h("h3", {}, `${r.correct} ta to'g'ri javob, ${r.total - r.correct} ta noto'g'ri yoki javobsiz`), integrityAlert(r.integrity), h("p", { class: "muted small" }, "Natija o'qituvchiga yuborildi. To'g'ri javoblar ko'rsatilmaydi.")),
+      h("div", { class: "stack" }, h("h3", {}, `${r.correct} ta to'g'ri javob, ${r.total - r.correct} ta noto'g'ri yoki javobsiz`), integrityAlert(r.integrity), h("p", { class: "muted small" }, "Natija o'qituvchiga yuborildi.")),
     ),
+    d.review && h("section", { class: "stack" },
+      h("h2", {}, "Savollar tahlili"),
+      h("p", { class: "muted small" }, d.revealed ? "Har bir savol bo‘yicha sizning javobingiz, to‘g‘ri javob va izoh ko‘rsatilgan." : `Qaysi savolga noto‘g‘ri yoki javobsiz qolganingiz ko‘rsatilgan. To‘g‘ri javoblar va izohlar test vaqti tugagach (${new Date(d.closesAt).toLocaleString("uz-UZ", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}) ochiladi.`),
+      reviewList(d.review)),
     h("a", { class: "btn ghost", href: "#/exam" }, "← Nazorat testlariga"));
 }
