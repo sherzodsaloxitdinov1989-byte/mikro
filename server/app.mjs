@@ -24,7 +24,7 @@ import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
 import * as taskLib from "./tasks.mjs";
-import { BIZPLAN_ID, bizplanTask } from "./bizplan.mjs";
+import { BIZPLAN_ID, BIZPLAN_DUE, bizplanTask } from "./bizplan.mjs";
 import { SEC_TYPES, integrityOf, reduceBy, POINT_PERCENT, MAX_PENALTY } from "./integrity.mjs";
 import { KEYS as QUIZ_KEYS } from "./quiz-keys.mjs";
 import { KEYS as QUIZ_KEYS_TB } from "./quiz-keys-tb.mjs";
@@ -1537,6 +1537,12 @@ async function ensureBizplan() {
   if (!(await db().get("taskseed/bizplan"))) {
     if (!(await db().get(taskKey(BIZPLAN_ID)))) await db().set(taskKey(BIZPLAN_ID), bizplanTask());
     await db().set("taskseed/bizplan", { at: new Date().toISOString() });
+  }
+  // Muddat bir marta qo'yiladi (avval yaratilgan, muddatsiz topshiriq uchun); keyin o'qituvchi uni o'zgartira oladi
+  if (!(await db().get("taskseed/bizplan-due"))) {
+    const t = await db().get(taskKey(BIZPLAN_ID));
+    if (t && !t.due) await db().set(taskKey(BIZPLAN_ID), { ...t, due: BIZPLAN_DUE, updatedAt: new Date().toISOString() });
+    await db().set("taskseed/bizplan-due", { at: new Date().toISOString() });
   }
   bizplanSeeded = true;
 }

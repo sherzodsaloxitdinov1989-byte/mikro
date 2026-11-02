@@ -5,6 +5,7 @@ export const BIZPLAN_ID = "bizplan-tb-1";
 export const BIZPLAN_SUBJECT = "tadbirkorlik";
 export const BIZPLAN_GROUPS = ["141-23", "142-23"];
 export const BIZPLAN_MAX = 10;
+export const BIZPLAN_DUE = "2026-12-26"; // topshirish muddati (shu kunning oxirigacha, Toshkent vaqti)
 
 const REFERENCE = `NAMUNAVIY BIZNES-REJALAR (5 ta namuna: 3D-printer xizmati, bolalar bog'chasi, bosmaxona, game club, gilam yuvish xizmati). Ularning UMUMIY TUZILISHI va mantig'i — baholash uchun etalon:
 
@@ -51,7 +52,7 @@ Talablar: barcha raqamlar o'zaro mos bo'lsin (jadvallar yig'indisi, tushum = haj
     forms: [],
     groups: BIZPLAN_GROUPS,
     semester: 0,
-    due: "",
+    due: BIZPLAN_DUE,
     allowLate: true,
     max: BIZPLAN_MAX,
     mode: "file",
