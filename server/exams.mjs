@@ -2,6 +2,7 @@
 // Test belgilangan vaqtda ochiladi; talaba boshlagan paytdan boshlab `durationMin` daqiqa beriladi (server hisoblaydi).
 import { BANK as MAKRO1 } from "./exam-bank-makro1.mjs";
 import { BANK as MIKRO1 } from "./exam-bank-mikro1.mjs";
+import { BANK as TB1 } from "./exam-bank-tb1.mjs";
 
 export const EXAMS = [
   {
@@ -29,6 +30,18 @@ export const EXAMS = [
     count: 25,
     topics: [1, 2, 3, 4, 5, 6],
     bank: MIKRO1,
+  },
+  {
+    id: "tb-1-oraliq",
+    subject: "tadbirkorlik",
+    title: "Tadbirkorlik asoslari — 1-oraliq nazorat (1–7-mavzular)",
+    groups: ["141-23", "142-23"],
+    startsAt: "2026-11-02T13:40:00+05:00", // test shu vaqtdan ochiladi (Toshkent vaqti)
+    closesAt: "2026-11-02T23:59:00+05:00",
+    durationMin: 60,
+    count: 25,
+    topics: [1, 2, 3, 4, 5, 6, 7],
+    bank: TB1,
   },
 ];
 
