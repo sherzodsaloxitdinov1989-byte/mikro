@@ -417,7 +417,7 @@ async function adminRoster(req) {
         const u = e.claimedBy ? await db().get(userKey(e.claimedBy)) : null;
         // Shifrga hali bog'lanmagan, lekin shu ismli eski profil bor — natijalari saqlanib qoladi (qayta kirganda bog'lanadi)
         const old = !e.claimedBy && inGroup.some((x) => nameMatches(e.name, x.name) && !(r.entries || []).some((y) => y.claimedBy === x.id));
-        entries.push({ n: i + 1, name: e.name, claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null, hasOldProfile: old, ...(u ? { email: u.email, idNumber: u.idNumber || "" } : {}) });
+        entries.push({ n: i + 1, name: e.name, grp: e.grp || "", claimed: Boolean(e.claimedBy), claimedAt: e.claimedAt || null, hasOldProfile: old, ...(u ? { email: u.email, idNumber: u.idNumber || "" } : {}) });
       }
       const claimedIds = new Set((r?.entries || []).map((e) => e.claimedBy).filter(Boolean));
       out.push({ group, subject: s.key, migration: Boolean(s.rosterMigration), uploadedAt: r?.uploadedAt || null, by: r?.by || null, entries, unlinkedProfiles: inGroup.filter((x) => !claimedIds.has(x.id)).length });
@@ -443,20 +443,29 @@ async function adminRosterUpload(req, group) {
   const old = (await db().get(rosterKey(group))) || { entries: [] };
   const seen = new Set();
   const entries = [];
+  const generated = [];
   for (const [i, e] of list.entries()) {
     const name = titleName(str(e?.name, 120));
-    const digits = shifrDigits(e?.shifr);
     if (!name || normName(name).split(" ").length < 2) throw new HttpError(400, `${i + 1}-qator: F.I.Sh. to'liq emas`);
+    const grp = str(e?.grp, 30);
+    let digits = shifrDigits(e?.shifr);
+    if (!digits && isGuestGroup(group)) {
+      // Vaqtincha kirish: shifr berilmagan bo'lsa — eski ro'yxatdagi shu ismli talabaning shifri saqlanadi, yangisiga tizim 8 xonali shifr beradi
+      const prev = old.entries.find((x) => normName(x.name) === normName(name));
+      if (prev) { if (seen.has(prev.hash)) throw new HttpError(400, `${i + 1}-qator (${name}): talaba takrorlangan`); seen.add(prev.hash); entries.push({ name, hash: prev.hash, ...(grp ? { grp } : {}), ...(prev.claimedBy ? { claimedBy: prev.claimedBy, claimedAt: prev.claimedAt } : {}) }); continue; }
+      do digits = String(10_000_000 + (crypto.randomInt(0, 90_000_000))); while (seen.has(shifrHash(group, digits)));
+      generated.push({ name, grp, shifr: digits });
+    }
     if (digits.length < 6 || digits.length > 20) throw new HttpError(400, `${i + 1}-qator (${name}): shifr 6–20 raqamdan iborat bo'lsin`);
     const hash = shifrHash(group, digits);
     if (seen.has(hash)) throw new HttpError(400, `${i + 1}-qator (${name}): shifr takrorlangan`);
     seen.add(hash);
     const prev = old.entries.find((x) => x.hash === hash);
-    entries.push({ name, hash, ...(prev?.claimedBy ? { claimedBy: prev.claimedBy, claimedAt: prev.claimedAt } : {}) });
+    entries.push({ name, hash, ...(grp ? { grp } : {}), ...(prev?.claimedBy ? { claimedBy: prev.claimedBy, claimedAt: prev.claimedAt } : {}) });
   }
   if (!entries.length) throw new HttpError(400, "Ro'yxat bo'sh");
   await db().set(rosterKey(group), { group, entries, uploadedAt: new Date().toISOString(), by: teacher.name });
-  return json({ ok: true, count: entries.length, claimed: entries.filter((e) => e.claimedBy).length });
+  return json({ ok: true, count: entries.length, claimed: entries.filter((e) => e.claimedBy).length, generated });
 }
 
 /** Talabaning shifrini bo'shatish (profil yo'qolgan bo'lsa): u qayta shifr bilan kiradi/ro'yxatdan o'tadi. */

@@ -1,5 +1,6 @@
 // O'qituvchi: guruh ro'yxati (F.I.Sh. + shifr) yuklash. Shifr bilan kiriladigan guruhlar (masalan, 141-23, 142-23).
-import { h, mount, toast, loading, confirmDialog, fmtDate } from "../ui.js";
+import { h, mount, toast, loading, confirmDialog, fmtDate, downloadFile } from "../ui.js";
+import { isGuestGroup } from "../../data/course.js";
 import { api } from "../api.js";
 import { readXlsx, readDelimited } from "../xlsx-read.js";
 import { SUBJECT_KEY, COURSE } from "../../data/topics.js";
@@ -14,21 +15,23 @@ function cleanId(v) {
 }
 
 /** Jadvaldan { name, shifr } qatorlarini ajratadi: sarlavhadan ustunlarni topadi, topilmasa — 2- va 3-ustun. */
-function parseRows(rows) {
+function parseRows(rows, allowNoShifr = false) {
   let nameCol = 1;
   let shifrCol = 2;
+  let grpCol = -1;
   let start = 0;
-  const head = rows.findIndex((r) => r.some((c) => HEADRE.test(c)));
+  const head = rows.findIndex((r) => r.some((c) => HEADRE.test(c) || /f\.?i\.?sh|familiya/i.test(c)));
   if (head >= 0) {
     shifrCol = rows[head].findIndex((c) => HEADRE.test(c));
+    grpCol = rows[head].findIndex((c) => /^\s*guruh/i.test(c));
     const n = rows[head].findIndex((c) => /familiya|f\.?i\.?sh|ism/i.test(c));
     if (n >= 0) nameCol = n;
     start = head + 1;
   }
   return rows
     .slice(start)
-    .map((r) => ({ name: String(r[nameCol] || "").trim(), shifr: cleanId(r[shifrCol]) }))
-    .filter((x) => x.name && x.shifr);
+    .map((r) => ({ name: String(r[nameCol] || "").trim(), shifr: shifrCol >= 0 ? cleanId(r[shifrCol]) : "", grp: grpCol >= 0 ? String(r[grpCol] || "").trim() : "" }))
+    .filter((x) => x.name && (x.shifr || allowNoShifr));
 }
 
 const groupOfTitle = (rows) => rows.flat().map((c) => /\b(\d{3}-\d{2})\b/.exec(String(c))?.[1]).find(Boolean) || "";
@@ -71,12 +74,13 @@ export async function render(el) {
       try {
         const rows = /\.xlsx$/i.test(f.name) ? await readXlsx(f) : await readDelimited(f);
         const found = groupOfTitle(rows);
-        if (found && found !== g.group && !(await confirmDialog(`Fayl sarlavhasida ${found}-guruh ko'rsatilgan, siz esa ${g.group} uchun yuklayapsiz. Baribir davom etilsinmi?`))) return;
-        const entries = parseRows(rows);
+        if (found && found !== g.group && !isGuestGroup(g.group) && !(await confirmDialog(`Fayl sarlavhasida ${found}-guruh ko'rsatilgan, siz esa ${g.group} uchun yuklayapsiz. Baribir davom etilsinmi?`))) return;
+        const entries = parseRows(rows, isGuestGroup(g.group));
         if (!entries.length) return toast("Faylda F.I.Sh. va shifr topilmadi (ustunlar: №, F.I.Sh., Shifr)", "error");
         if (!(await confirmDialog(`${g.group}: ${entries.length} ta talaba yuklanadi${g.entries.length ? " (eski ro'yxat almashtiriladi, ro'yxatdan o'tgan talabalar saqlanadi)" : ""}. Davom etilsinmi?`))) return;
         const res = await api.put(`admin/roster/${g.group}`, { entries });
         toast(`${g.group}: ${res.count} ta talaba yuklandi`, "ok");
+        if (res.generated?.length) downloadFile(`shifrlar-${g.group}.csv`, "\ufeff" + ["F.I.Sh.;Guruh;Shifr", ...res.generated.map((x) => `${x.name};${x.grp};${x.shifr}`)].join("\n"), "text/csv;charset=utf-8");
         render(el);
       } catch (ex) {
         toast(ex.message, "error");
@@ -88,10 +92,11 @@ export async function render(el) {
         h("div", {}, h("h3", {}, `${g.group}-guruh`), h("p", { class: "muted small" }, g.entries.length ? `${g.entries.length} ta talaba · ${claimed} tasi ro'yxatdan o'tgan · yuklangan: ${fmtDate(g.uploadedAt)} (${g.by})${g.migration && g.unlinkedProfiles ? ` · ID raqamga hali bog'lanmagan eski profillar: ${g.unlinkedProfiles} ta (qayta kirganda bog'lanadi)` : ""}` : (g.migration ? "Ro'yxat hali yuklanmagan — hozircha talabalar avvalgidek kiradi. Ro'yxatni yuklaganingizdan keyin talabalar ID raqam (shifr) bilan qayta kiradi; ularning avvalgi barcha natijalari saqlanadi." : "Ro'yxat hali yuklanmagan — talabalar bu guruhga kira olmaydi."))),
         h("div", {}, h("button", { class: "btn", onclick: () => file.click() }, g.entries.length ? "📤 Ro'yxatni yangilash" : "📤 Ro'yxat yuklash"), file)),
       g.entries.length > 0 && h("div", { class: "table-wrap" }, h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", "Holati", "Email", ""].map((x) => h("th", {}, x)))),
+        h("thead", {}, h("tr", {}, ["№", "F.I.Sh.", ...(isGuestGroup(g.group) ? ["Guruh"] : []), "Holati", "Email", ""].map((x) => h("th", {}, x)))),
         h("tbody", {}, g.entries.map((e) => h("tr", {},
           h("td", { class: "center muted" }, `${e.n}.`),
           h("td", {}, e.name),
+          isGuestGroup(g.group) && h("td", {}, e.grp || "—"),
           h("td", {}, e.claimed ? h("span", { class: "badge badge-ok" }, "Ro'yxatdan o'tgan") : h("span", { class: "badge" }, "Kutilmoqda"), !e.claimed && e.hasOldProfile && h("div", { class: "muted small" }, "eski profili bor — natijalari saqlanadi")),
           h("td", { class: "small muted" }, e.claimed ? `${e.email || ""}${e.claimedAt ? ` · ${fmtDate(e.claimedAt)}` : ""}` : "—"),
           h("td", {}, e.claimed && h("button", { class: "btn ghost small", title: "Shifrni bo'shatish (talaba profilini yo'qotgan bo'lsa)", onclick: async () => {

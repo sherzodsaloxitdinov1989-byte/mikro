@@ -125,7 +125,7 @@ export const SUBJECTS = [
     form: "kunduzgi",
     groups: ["141-23", "142-23", "Sirtqi-TB"],
     // Bu guruhlarga faqat o'qituvchi yuklagan ro'yxat (F.I.Sh. + shifr) bo'yicha kirish mumkin
-    rosterGroups: ["141-23", "142-23"],
+    rosterGroups: ["141-23", "142-23", "Sirtqi-TB"],
     hasContent: true,
     dir: "tb",
     idPrefix: "tb",
