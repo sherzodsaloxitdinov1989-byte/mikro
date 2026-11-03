@@ -1,6 +1,7 @@
 // Nazorat testlari (oraliq/yakuniy): savollar bazasi serverda saqlanadi, har bir talabaga bazadan tasodifiy variant tuziladi.
 // Test belgilangan vaqtda ochiladi; talaba boshlagan paytdan boshlab `durationMin` daqiqa beriladi (server hisoblaydi).
 import { BANK as MAKRO1 } from "./exam-bank-makro1.mjs";
+import { BANK as MAKRO2 } from "./exam-bank-makro2.mjs";
 import { BANK as MIKRO1 } from "./exam-bank-mikro1.mjs";
 import { BANK as TB1 } from "./exam-bank-tb1.mjs";
 
@@ -16,6 +17,18 @@ export const EXAMS = [
     count: 30,
     topics: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
     bank: MAKRO1,
+  },
+  {
+    id: "makro-2-oraliq",
+    subject: "makro",
+    title: "Makroiqtisodiyot — 2-oraliq nazorat",
+    groups: ["231-24", "232-24", "233-24"],
+    startsAt: "2026-11-10T08:50:00+05:00",
+    closesAt: "2026-11-10T23:59:00+05:00",
+    durationMin: 45,
+    count: 30,
+    topics: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    bank: MAKRO2,
   },
   {
     id: "mikro-1-oraliq",
@@ -78,8 +91,10 @@ export function buildVariant(exam) {
   if (exam.bank.some((b) => b.k === "pr")) {
     // Bazaning ~30% i masala: variantda ham masalalar ulushi taxminan 30% (25 savolda 7–8 ta), mavzular bo'yicha tarqatiladi
     const P = Math.round(exam.count * 0.3) - rnd(2); // 8 yoki 7
-    const probs = new Map(topics.map((t) => [t, Math.floor(P / topics.length)]));
-    for (const t of shuffle(topics).slice(0, P - Math.floor(P / topics.length) * topics.length)) probs.set(t, probs.get(t) + 1);
+    const pt = topics.filter((t) => byTopic.get(t).some((i) => exam.bank[i].k === "pr")); // masalasi bor mavzular
+    const probs = new Map(topics.map((t) => [t, 0]));
+    for (const t of pt) probs.set(t, Math.floor(P / pt.length));
+    for (const t of shuffle(pt).slice(0, P - Math.floor(P / pt.length) * pt.length)) probs.set(t, probs.get(t) + 1);
     for (const t of topics) {
       const pool = byTopic.get(t);
       const pr = shuffle(pool.filter((i) => exam.bank[i].k === "pr")).slice(0, probs.get(t));

@@ -2935,7 +2935,7 @@ async function computeScoreRows(subject, semNo) {
   const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
-  for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, fiveScale(a.result.percent)); }
+  for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, Math.max(examGrade.get(a.userId) ?? 0, fiveScale(a.result.percent))); } // bir fanning bir nechta oraliq testi bo'lsa — eng yaxshi baho olinadi
   const planSubs = subject === "tadbirkorlik" ? new Map((await getMany(`tasksub/${BIZPLAN_ID}/`)).map((x) => [x.userId, x])) : new Map();
   const rows = users.map((u) => {
     const form = formKeyOf(u);
