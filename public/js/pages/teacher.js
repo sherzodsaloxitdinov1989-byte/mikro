@@ -1504,13 +1504,13 @@ async function guestView(el) {
   mount(el,
     h("div", { class: "card" },
       h("h3", {}, "🕒 Vaqtincha kirish — sirtqi guruhlar"),
-      h("p", { class: "muted" }, "Faqat siz yuklagan ro'yxatdagi talabalar kira oladi. Sirtqi talabalar ro'yxatdan o'tishda «Sirtqi (vaqtincha)» shaklini tanlab, ro'yxatdagi F.I.Sh. va shifrini kiritadi. Ular faqat mavzularni o'qiydi va sizning topshirig'ingizni bajaradi; test, amaliyot va boshqa bo'limlar yopiq."),
+      h("p", { class: "muted" }, "Faqat siz yuklagan ro'yxatdagi talabalar kira oladi. Sirtqi talabalar (551-22, 552-22, 553-22, 554-22, 681-23) ro'yxatdan o'tishda «Sirtqi (vaqtincha)» shaklini va o'z guruhini tanlab, ro'yxatdagi F.I.Sh. va shifrini kiritadi. Ular faqat mavzularni o'qiydi va sizning topshirig'ingizni bajaradi; test, amaliyot va boshqa bo'limlar yopiq."),
       h("label", { class: "row", style: { gap: "8px", alignItems: "center" } }, on, h("b", {}, "Vaqtincha kirish yoqilgan")),
       h("label", { style: { display: "block", margin: "10px 0" } }, h("b", {}, "Oxirgi sana (shu kuni 23:59 gacha): "), until),
       info,
       h("button", { class: "btn", onclick: async () => { try { const r = await api.put("admin/guest-access", { open: on.checked, until: until.value }); paint(r); toast("Saqlandi"); } catch (e) { toast(e.message, "error"); } } }, "Saqlash"),
-      h("div", { class: "alert alert-info small", style: { margin: "10px 0" } }, h("b", {}, "Talabalar ro'yxati: "), "Excel/CSV faylda ustunlar: F.I.Sh., Guruh (guruh raqami) va ixtiyoriy Shifr. Shifr bo'lmasa, tizim har bir talabaga 8 xonali shifrni o'zi beradi va ro'yxatni (shifrlar bilan) yuklab beradi — uni talabalarga tarqating. ", h("a", { href: "#/teacher/roster" }, "Ro'yxatni yuklash →"), " («Sirtqi-TB» guruhi kartasida)."),
-      h("p", { class: "small muted" }, "Topshiriq berishda «Topshiriq yaratish» bo'limida auditoriya sifatida «Sirtqi-TB» guruhini tanlang.")));
+      h("div", { class: "alert alert-info small", style: { margin: "10px 0" } }, h("b", {}, "Talabalar ro'yxati: "), "Excel/CSV faylda ustunlar: F.I.Sh. va ixtiyoriy Shifr. Shifr bo'lmasa, tizim har bir talabaga 8 xonali shifrni o'zi beradi va ro'yxatni (shifrlar bilan) yuklab beradi — uni talabalarga tarqating. ", h("a", { href: "#/teacher/roster" }, "Ro'yxatni yuklash →"), " (har bir guruh — 551-22, 552-22, 553-22, 554-22, 681-23 — alohida kartada)."),
+      h("p", { class: "small muted" }, "Topshiriq berishda «Topshiriq yaratish» bo'limida auditoriya sifatida shu guruhlarni tanlang.")));
 }
 async function formsView(el) {
   const [users, data] = await Promise.all([api.get("admin/students"), api.get("admin/assignment")]);
