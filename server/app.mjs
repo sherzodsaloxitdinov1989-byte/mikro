@@ -398,6 +398,21 @@ async function claimRoster(req, group, shifr, typedName, userId, altName = "", {
   return { roster, entry, digits };
 }
 
+/** Vaqtincha kirish (sirtqi) guruhlari: shifrsiz — talaba F.I.Sh. o'qituvchi yuklagan ro'yxatdagi ism bilan mos kelishi shart. */
+async function claimGuestByName(req, group, typedName) {
+  const ip = sha(clientIp(req)).slice(0, 24);
+  for (const [k, lim] of [[`ratelimit/guest-ip/${ip}`, 120], [`ratelimit/guest-group/${group}`, 600]]) if ((await peekHit(k, 3600_000)).n >= lim) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Bir soatdan keyin qayta urinib ko'ring yoki o'qituvchiga murojaat qiling.");
+  const roster = await db().get(rosterKey(group));
+  if (!roster?.entries?.length) throw new HttpError(403, `${group} guruhi ro'yxati hali yuklanmagan. O'qituvchiga murojaat qiling.`);
+  const found = roster.entries.filter((e) => nameMatches(e.name, typedName));
+  if (found.length !== 1) {
+    await Promise.all([hit(`ratelimit/guest-ip/${ip}`, 3600_000), hit(`ratelimit/guest-group/${group}`, 3600_000)]);
+    await logShifrFail(req, group, "name_mismatch", { name: str(typedName, 60) });
+    throw new HttpError(403, found.length > 1 ? "Ro'yxatda shu ismli bir nechta talaba bor. O'qituvchiga murojaat qiling." : "Ismingiz guruh ro'yxatida topilmadi. F.I.Sh.ni ro'yxatdagidek yozing (familiya va ism) yoki guruhni tekshiring.", "SHIFR_MISMATCH");
+  }
+  return { roster, entry: found[0], digits: "" };
+}
+
 async function finishClaim(roster, entry, userId) {
   entry.claimedBy = userId;
   entry.claimedAt = new Date().toISOString();
@@ -449,12 +464,14 @@ async function adminRosterUpload(req, group) {
     if (!name || normName(name).split(" ").length < 2) throw new HttpError(400, `${i + 1}-qator: F.I.Sh. to'liq emas`);
     const grp = str(e?.grp, 30);
     let digits = shifrDigits(e?.shifr);
-    if (!digits && isGuestGroup(group)) {
-      // Vaqtincha kirish: shifr berilmagan bo'lsa — eski ro'yxatdagi shu ismli talabaning shifri saqlanadi, yangisiga tizim 8 xonali shifr beradi
+    if (isGuestGroup(group)) {
+      // Vaqtincha kirish: shifr kerak emas — talaba F.I.Sh. bo'yicha tekshiriladi; ichki (ko'rinmas) belgi beriladi
       const prev = old.entries.find((x) => normName(x.name) === normName(name));
       if (prev) { if (seen.has(prev.hash)) throw new HttpError(400, `${i + 1}-qator (${name}): talaba takrorlangan`); seen.add(prev.hash); entries.push({ name, hash: prev.hash, ...(grp ? { grp } : {}), ...(prev.claimedBy ? { claimedBy: prev.claimedBy, claimedAt: prev.claimedAt } : {}) }); continue; }
-      do digits = String(10_000_000 + (crypto.randomInt(0, 90_000_000))); while (seen.has(shifrHash(group, digits)));
-      generated.push({ name, grp, shifr: digits });
+      const hash = shifrHash(group, String(Date.now()) + String(crypto.randomInt(0, 1e9)) + i);
+      seen.add(hash);
+      entries.push({ name, hash, ...(grp ? { grp } : {}) });
+      continue;
     }
     if (digits.length < 6 || digits.length > 20) throw new HttpError(400, `${i + 1}-qator (${name}): shifr 6–20 raqamdan iborat bo'lsin`);
     const hash = shifrHash(group, digits);
@@ -531,7 +548,7 @@ async function register(req) {
     throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
   }
   // Ro'yxat bo'yicha ochiladigan guruhlar: shifr va ism ro'yxatga mos bo'lishi shart
-  const claim = rosterNeeded ? await claimRoster(req, str(b.group, 60), b.shifr, name, null) : null;
+  const claim = rosterNeeded ? (isGuestGroup(str(b.group, 60)) ? await claimGuestByName(req, str(b.group, 60), name) : await claimRoster(req, str(b.group, 60), b.shifr, name, null)) : null;
   // Qayta ro'yxatdan o'tish: shu guruhda shu ismli, hali shifrga bog'lanmagan eski profil bo'lsa — yangi profil ochilmaydi, eski profil yangilanadi (natijalar saqlanadi)
   if (claim && SUBJECTS.find((s) => (s.rosterGroups || []).includes(claim.roster.group))?.rosterMigration) {
     const claimedIds = new Set(claim.roster.entries.map((e) => e.claimedBy).filter(Boolean));
@@ -569,7 +586,7 @@ async function register(req) {
     if (Array.isArray(inv?.subjects) && !envTeacherEmails().includes(email)) user.subjects = inv.subjects.filter((k) => SUBJECTS.some((x) => x.key === k));
     if (Array.isArray(inv?.perms) && !envTeacherEmails().includes(email)) user.perms = cleanPerms(inv.perms);
   }
-  if (claim) Object.assign(user, { rosterOk: true, idNumber: claim.digits });
+  if (claim) Object.assign(user, { rosterOk: true, ...(claim.digits ? { idNumber: claim.digits } : {}) });
   await store.set(userKey(user.id), user);
   await store.set(emailKey(email), { id: user.id });
   if (claim) await finishClaim(claim.roster, claim.entry, user.id);
@@ -589,12 +606,12 @@ async function guestLogin(req) {
   if (!isGuestGroup(group)) throw new HttpError(400, "Guruhni ro'yxatdan tanlang");
   if (!(await guestState()).open) throw new HttpError(403, GUEST_CLOSED_MSG);
   if (!name) throw new HttpError(400, "F.I.Sh. ni kiriting");
-  const { roster, entry, digits } = await claimRoster(req, group, b.shifr, name, null, "", { allowClaimed: true });
+  const { roster, entry } = await claimGuestByName(req, group, name);
   let user = entry.claimedBy ? await db().get(userKey(entry.claimedBy)) : null;
   if (!user) {
     const id = newId();
     const email = `s${id.replace(/\W/g, "").slice(0, 12).toLowerCase()}@sirtqi.local`;
-    user = { id, email, name: entry.name, role: "student", group, studyForm: "sirtqi", college: "", cohort: "unassigned", createdAt: new Date().toISOString(), guestLogin: true, ...(await hashPassword(crypto.randomBytes(18).toString("base64url"))), rosterOk: true, idNumber: digits };
+    user = { id, email, name: entry.name, role: "student", group, studyForm: "sirtqi", college: "", cohort: "unassigned", createdAt: new Date().toISOString(), guestLogin: true, ...(await hashPassword(crypto.randomBytes(18).toString("base64url"))), rosterOk: true };
     user.code = await nextCode();
     await db().set(userKey(id), user);
     await db().set(emailKey(email), { id });

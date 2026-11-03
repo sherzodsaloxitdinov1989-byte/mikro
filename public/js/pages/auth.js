@@ -1,7 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
-import { userHasContent, GUEST_GROUPS, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
+import { userHasContent, GUEST_GROUPS, isGuestGroup, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
@@ -32,7 +32,7 @@ export function renderGuest(el) {
     btn.disabled = true;
     err.replaceChildren();
     try {
-      const res = await api.post("auth/guest", { group: fd.get("group"), name: fd.get("name"), shifr: fd.get("shifr") });
+      const res = await api.post("auth/guest", { group: fd.get("group"), name: fd.get("name") });
       session.set(res.token, res.user);
       toast("Xush kelibsiz!", "ok");
       afterLogin();
@@ -43,10 +43,9 @@ export function renderGuest(el) {
     }
   } },
   h("h1", {}, "Sirtqi talabalar kirishi"),
-  h("p", { class: "muted" }, "Email va parol kerak emas. Guruhingizni tanlang, F.I.Sh. (ro'yxatdagidek) va o'qituvchi bergan shifrni kiriting. Faqat mavzularni o'qiysiz va o'qituvchi topshirig'ini bajarasiz."),
+  h("p", { class: "muted" }, "Email va parol kerak emas. Guruhingizni tanlang, va F.I.Sh. (ro'yxatdagidek) kiriting. Faqat mavzularni o'qiysiz va o'qituvchi topshirig'ini bajarasiz."),
   h("label", { class: "field" }, h("span", {}, "Guruh"), h("select", { name: "group", required: true }, h("option", { value: "" }, "Guruhingizni tanlang"), GUEST_GROUPS.map((g) => h("option", { value: g }, g)))),
   field("F.I.Sh.", { name: "name", required: true, autocomplete: "name", placeholder: "Masalan: Aliyev Vali" }),
-  field("Shifr (o'qituvchi bergan)", { name: "shifr", required: true, inputmode: "numeric", maxlength: 24, autocomplete: "off" }),
   err,
   h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
   h("p", { class: "center muted small" }, h("a", { href: "#/login" }, "← Oddiy kirish")));
@@ -415,7 +414,7 @@ function studentBlock(config) {
   const shifrInput = h("input", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Ro'yxatdagi shifringiz" });
   const shifrWrap = h("label", { class: "field hidden" }, h("span", {}, "Shifr"), shifrInput, h("small", { class: "muted" }, "Bu guruhga faqat o'qituvchi yuklagan ro'yxat bo'yicha kiriladi: shifringizni va F.I.Sh.ni ro'yxatdagidek kiriting."));
   select.addEventListener("change", () => {
-    const on = isRosterGroup(select.value);
+    const on = isRosterGroup(select.value) && !isGuestGroup(select.value); // sirtqi (vaqtincha) guruhlarda shifr so'ralmaydi
     shifrWrap.classList.toggle("hidden", !on);
     shifrInput.required = on && !isRosterMigration(select.value);
     if (!on) shifrInput.value = "";
