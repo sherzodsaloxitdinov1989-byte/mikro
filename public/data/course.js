@@ -62,6 +62,8 @@ export const COURSE = {
   studyForms: [
     { key: "kunduzgi", name: "Kunduzgi", title: "Bakalavriat — kunduzgi ta'lim", icon: "🏫", groups: ["331-25", "332-25", "333-25", "334-25", "141-23", "142-23", "231-24", "232-24", "233-24"] },
     { key: "masofaviy", name: "Masofaviy", title: "Bakalavriat — masofaviy ta'lim", icon: "💻", groups: ["841-25", "842-25", "843-25", "844-25", "845-25", "846-25", "847-25", "848-25"] },
+    // Vaqtincha kirish (faqat «Tadbirkorlik asoslari»): sirtqi guruhlar talabalari o'qituvchi belgilagan muddatgacha mavzularni o'qiydi
+    { key: "sirtqi", name: "Sirtqi (vaqtincha)", title: "Sirtqi ta'lim — vaqtincha kirish", icon: "🕒", groups: ["Sirtqi-TB"] },
     { key: "magistratura", name: "Magistratura", title: "Magistratura", icon: "🎓", groups: ["M31-26"] },
   ],
 
@@ -84,6 +86,9 @@ export const COURSE = {
   decks: { 1: 54, 2: 52, 3: 41, 4: 40, 5: 39, 6: 44, 7: 44, 8: 40, 9: 33, 10: 36, 11: 55, 12: 69, 13: 54, 14: 62, 15: 57, 16: 44, 17: 51, 18: 45, 19: 54, 20: 45, 21: 51 },
 };
 
+/** Vaqtincha kirish guruhi: talaba faqat mavzularni o'qiydi va o'qituvchi topshirig'ini bajaradi; muddatni o'qituvchi panelida belgilaydi. */
+export const GUEST_GROUP = "Sirtqi-TB";
+export const isGuestGroup = (g) => g === GUEST_GROUP;
 // Barcha guruhlar (ta'lim shakllaridan yig'iladi) va guruh bo'yicha ta'lim shaklini topish
 COURSE.groups = COURSE.studyForms.flatMap((f) => f.groups);
 export const formOfGroup = (group) => COURSE.studyForms.find((f) => f.groups.includes(group)) || null;
@@ -118,7 +123,7 @@ export const SUBJECTS = [
     icon: "🏨",
     direction: "Turizm va mehmondo'stlik",
     form: "kunduzgi",
-    groups: ["141-23", "142-23"],
+    groups: ["141-23", "142-23", "Sirtqi-TB"],
     // Bu guruhlarga faqat o'qituvchi yuklagan ro'yxat (F.I.Sh. + shifr) bo'yicha kirish mumkin
     rosterGroups: ["141-23", "142-23"],
     hasContent: true,

@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -83,6 +83,15 @@ async function body(req) {
 }
 
 /** Token bo'yicha foydalanuvchi: imzo, muddat, parol versiyasi va chiqish (logout) bilan bekor qilinganligi tekshiriladi. */
+/** Vaqtincha kirish (sirtqi guruhlar): o'qituvchi yoqadi va oxirgi sanani belgilaydi. Standart: 2026-yil 28-noyabrgacha ochiq. */
+const GUEST_DEFAULT = { open: true, until: "2026-11-28" };
+async function guestState() {
+  const s = { ...GUEST_DEFAULT, ...((await db().get("settings/guest")) || {}) };
+  const today = new Date(Date.now() + 5 * 3600_000).toISOString().slice(0, 10); // Toshkent sanasi
+  return { open: Boolean(s.open) && today <= s.until, enabled: Boolean(s.open), until: s.until };
+}
+const GUEST_CLOSED_MSG = "Sirtqi guruhlar uchun vaqtincha kirish muddati tugagan yoki o'qituvchi tomonidan yopilgan.";
+
 async function userFromToken(token) {
   const data = readToken(token);
   if (!data) return null;
@@ -90,6 +99,7 @@ async function userFromToken(token) {
   // Parol o'zgarganda eski kirishlar (boshqa qurilmalardagi) bekor bo'ladi.
   if (!user || (user.pwdV || 0) !== (data.pv || 0)) return null;
   if (data.jti && (user.revoked || []).some((r) => r.jti === data.jti)) return null;
+  if (user.role === "student" && isGuestGroup(user.group) && !(await guestState()).open) return null;
   return user;
 }
 
@@ -137,7 +147,7 @@ const PERM_KEYS = PERMS.map((x) => x.key);
 const cleanPerms = (a) => (Array.isArray(a) ? [...new Set(a.map(String).filter((k) => PERM_KEYS.includes(k)))] : null);
 const hasPerm = (t, k) => !Array.isArray(t?.perms) || t.perms.includes(k);
 const PERM_RULES = [
-  [/^admin\/(students|duplicates|roster|roster-fails)(\/|$)/, "students"],
+  [/^admin\/(students|duplicates|roster|roster-fails|guest-access)(\/|$)/, "students"],
   [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|evidence|rating)(\/|$)/, "results"],
   [/^admin\/(practice-reviews|self-study|labs|assignment|midterm|exams)(\/|$)/, "grading"],
   [/^admin\/(tasks|meets)(\/|$)/, "tasks"],
@@ -503,6 +513,7 @@ async function register(req) {
     }
   }
   const store = db();
+  if (role === "student" && isGuestGroup(str(b.group, 60)) && !(await guestState()).open) throw new HttpError(403, GUEST_CLOSED_MSG);
   const rosterNeeded = role === "student" && (await rosterEnforced(str(b.group, 60)));
   const existingRef = await store.get(emailKey(email));
   if (existingRef) {
@@ -598,6 +609,7 @@ async function login(req) {
   // Ko'p muvaffaqiyatsiz urinishlardan so'ng kirildi: hisob buzilgan bo'lishi mumkin
   if ((await peekHit(keys[1][0], LOGIN_WINDOW_MS)).n >= 5) await securityAlert(req, "login_after_failures", user.role === "teacher" ? "critical" : "high", `Ko'p noto'g'ri urinishdan so'ng kirildi: ${maskEmail(email)}`, `${user.role === "teacher" ? "O'qituvchi" : "Talaba"} hisobiga kirishdan oldin kamida 5 marta noto'g'ri parol kiritilgan edi. Egasi adashgan yoki hisob buzilgan bo'lishi mumkin: egasi bilan bog'lanib tekshiring.`, user.id);
   await resetHit(keys[0][0]);
+  if (user.role === "student" && isGuestGroup(user.group) && !(await guestState()).open) throw new HttpError(403, GUEST_CLOSED_MSG);
   // Ro'yxat bo'yicha ochiladigan guruh: profil ro'yxatdagi shifrga bog'langan bo'lishi shart
   if (user.role === "student" && (await rosterEnforced(user.group))) {
     const roster = await db().get(rosterKey(user.group));
@@ -4162,7 +4174,7 @@ const routes = [
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })) })],
+  ["GET", /^config$/, async () => { const guest = await guestState(); return json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).filter((f) => f.key !== "sirtqi" || guest.open).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })), guest }); }],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],
@@ -4316,6 +4328,16 @@ const routes = [
   ["POST", /^admin\/students\/([\w-]+)\/delete$/, adminDeleteStudent],
   ["PUT", /^admin\/students\/([\w-]+)$/, updateStudent],
   ["POST", /^admin\/students\/([\w-]+)\/password$/, adminResetPassword],
+  ["GET", /^admin\/guest-access$/, async (req) => { assertSubject(await requireTeacher(req), "tadbirkorlik"); return json(await guestState()); }],
+  ["PUT", /^admin\/guest-access$/, async (req) => {
+    assertSubject(await requireTeacher(req), "tadbirkorlik");
+    const b = await body(req);
+    const until = str(b.until, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(until) || Number.isNaN(Date.parse(until))) throw new HttpError(400, "Sanani to'g'ri kiriting");
+    await db().set("settings/guest", { open: Boolean(b.open), until, by: (await currentUser(req)).email, at: new Date().toISOString() });
+    sessionCache.clear();
+    return json(await guestState());
+  }],
   ["GET", /^admin\/self-study$/, allSelfStudy],
   ["PUT", /^admin\/self-study\/([\w-]+)\/([\w-]+)$/, gradeSelfStudy],
 ];
@@ -4328,6 +4350,11 @@ export async function handle(req) {
     if (MAIN_SUBJECT_ONLY.test(path)) {
       const u = await currentUser(req).catch(() => null);
       if (u && u.role === "student" && !isMainUser(u)) throw new HttpError(403, "Bu bo'lim sizning faningizga tegishli emas");
+    }
+    // Vaqtincha kirish guruhi talabasi: faqat mavzularni o'qiydi va o'qituvchi topshiriqlarini bajaradi
+    if (/^(assignment|labs|exams|self-study|practice|quiz|rating|certificate|leaderboard|ask)(\/|$)/.test(path)) {
+      const u = await currentUser(req).catch(() => null);
+      if (u && u.role === "student" && isGuestGroup(u.group)) throw new HttpError(403, "Bu bo'lim vaqtincha kirish uchun yopiq: faqat mavzularni o'qing va o'qituvchi topshirig'ini bajaring");
     }
     for (const [method, pattern, fn] of routes) {
       const m = path.match(pattern);

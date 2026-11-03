@@ -33,7 +33,7 @@ const GROUPS = [
   ["live", "🎮 Interaktiv dars", 280],
 ];
 // Bo'lim → huquq (server bilan bir xil guruhlar). Ro'yxatda yo'q bo'limlar (umumiy ko'rinish, fanlar) har doim ochiq.
-const PERM_OF = { students: "students", roster: "students", forms: "students", results: "results", scores: "results", items: "results", dups: "results", security: "results", practice: "grading", labs: "grading", "self-study": "grading", assignment: "grading", exams: "grading", tasks: "tasks", meets: "tasks", slides: "content", videos: "content", voices: "content", testbank: "content", live: "content", questions: "questions", alerts: "system", storage: "system" };
+const PERM_OF = { students: "students", roster: "students", forms: "students", guest: "students", results: "results", scores: "results", items: "results", dups: "results", security: "results", practice: "grading", labs: "grading", "self-study": "grading", assignment: "grading", exams: "grading", tasks: "tasks", meets: "tasks", slides: "content", videos: "content", voices: "content", testbank: "content", live: "content", questions: "questions", alerts: "system", storage: "system" };
 const permOk = (key) => !Array.isArray(session.user?.perms) || !PERM_OF[key] || session.user.perms.includes(PERM_OF[key]);
 const SECTIONS = [
   { key: "practice", needsContent: true, icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
@@ -51,6 +51,7 @@ const SECTIONS = [
   { key: "alerts", icon: "🚨", title: "Xavfsizlik ogohlantirishlari", group: "analysis", desc: "Buzib kirishga urinishlar: parolni topishga urinish, o'qituvchi kodini taxmin qilish, soxta profil va tokenlar. Jiddiy holatlar haqida ogohlantirish.", badge: (o) => o.alertsUnread && [`${o.alertsUnread} yangi`, "warn"], meta: (o) => (o.alertsUnread ? `${o.alertsUnread} ta o'qilmagan` : "xavf yo'q") },
   { key: "storage", icon: "💾", title: "Ombor (xotira)", group: "analysis", desc: "Ma'lumotlar bazasi hajmi: nima qancha joy egallagan, ortiqcha fayllarni tozalash va fayllarni R2 ga ko'chirish. Talabalar fayl yuklay olmasa, shu yerga kiring." },
   { key: "security", icon: "🛡️", title: "Himoya hodisalari", group: "analysis", desc: "Test va topshiriqlar paytida ekran surati urinishi va oynadan chiqish holatlari." },
+  { key: "guest", only: "tadbirkorlik", icon: "🕒", title: "Vaqtincha kirish (sirtqi)", group: "class", desc: "Sirtqi guruh talabalari uchun vaqtincha kirishni yoqish/o'chirish va oxirgi sanani belgilash. Ular faqat mavzularni o'qiydi va sizning topshirig'ingizni bajaradi." },
   { key: "forms", only: "mikro", icon: "🎓", title: "Ta'lim shakllari", group: "class", desc: "Kunduzgi va masofaviy ta'lim bo'limlari: guruhlar, talabalar soni, topshiriq topshirish va o'rtacha ball.", meta: () => (COURSE.studyForms || []).map((f) => f.name).join(" · ") },
   { key: "teachers", icon: "👩‍🏫", title: "O'qituvchilar", group: "class", desc: "Yangi o'qituvchini qo'shish va fan(lar)ga biriktirish: u faqat o'z fanining talabalari, topshiriqlari va natijalarini ko'radi. Fanlarni keyin o'zgartirish mumkin.", meta: () => "fanlarga biriktirish" },
   { key: "students", icon: "👥", title: "Talabalar", group: "class", desc: "Ro'yxat, guruhlar, progress va parolni tiklash.", meta: (o) => `${o.students} nafar` },
@@ -564,7 +565,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -1493,6 +1494,23 @@ async function teachersView(el) {
 
 // ---------------- Ta'lim shakllari: kunduzgi va masofaviy bo'limlar ----------------
 
+async function guestView(el) {
+  const st = await api.get("admin/guest-access");
+  const on = h("input", { type: "checkbox", checked: st.enabled });
+  const until = h("input", { type: "date", value: st.until });
+  const info = h("p", { class: "small" });
+  const paint = (s) => { info.textContent = s.open ? `Hozir ochiq: ${s.until} gacha (23:59).` : s.enabled ? `Muddat tugagan (${s.until}). Yangi sana belgilang.` : "Hozir yopiq."; info.className = "small " + (s.open ? "ok" : "muted"); };
+  paint(st);
+  mount(el,
+    h("div", { class: "card" },
+      h("h3", {}, "🕒 Vaqtincha kirish — sirtqi guruhlar"),
+      h("p", { class: "muted" }, "Sirtqi talabalar ro'yxatdan o'tishda «Sirtqi (vaqtincha)» shaklini tanlab, o'z ismini kiritadi. Ular faqat mavzularni o'qiydi va sizning topshirig'ingizni bajaradi; test, amaliyot va boshqa bo'limlar yopiq."),
+      h("label", { class: "row", style: { gap: "8px", alignItems: "center" } }, on, h("b", {}, "Vaqtincha kirish yoqilgan")),
+      h("label", { style: { display: "block", margin: "10px 0" } }, h("b", {}, "Oxirgi sana (shu kuni 23:59 gacha): "), until),
+      info,
+      h("button", { class: "btn", onclick: async () => { try { const r = await api.put("admin/guest-access", { open: on.checked, until: until.value }); paint(r); toast("Saqlandi"); } catch (e) { toast(e.message, "error"); } } }, "Saqlash"),
+      h("p", { class: "small muted" }, "Topshiriq berishda «Topshiriq yaratish» bo'limida auditoriya sifatida «Sirtqi-TB» guruhini tanlang.")));
+}
 async function formsView(el) {
   const [users, data] = await Promise.all([api.get("admin/students"), api.get("admin/assignment")]);
   const students = users.filter((u) => u.role === "student");
