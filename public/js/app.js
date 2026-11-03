@@ -36,6 +36,7 @@ import { initSecureMode, setRouteSecure } from "./secure.js";
 const routes = [
   [/^\/?$/, home.render],
   [/^\/login$/, auth.renderLogin],
+  [/^\/sirtqi$/, auth.renderGuest],
   [/^\/ustoz$/, auth.renderTeacherLogin],
   [/^\/ustoz\/register$/, auth.renderTeacherRegister],
   [/^\/ustoz\/forgot$/, auth.renderTeacherForgot],

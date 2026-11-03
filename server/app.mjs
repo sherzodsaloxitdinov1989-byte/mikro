@@ -581,6 +581,31 @@ async function register(req) {
   return withCookie(json({ token: createToken(user), user: publicUser(user) }, 201), createToken(user));
 }
 
+/** Vaqtincha kirish (sirtqi guruhlar): email va parolsiz — guruh, F.I.Sh. va o'qituvchi bergan shifr bilan. Birinchi kirishda profil ochiladi, keyingilarida shu profilga kiriladi. */
+async function guestLogin(req) {
+  const b = await body(req);
+  const group = str(b.group, 60);
+  const name = str(b.name, 120);
+  if (!isGuestGroup(group)) throw new HttpError(400, "Guruhni ro'yxatdan tanlang");
+  if (!(await guestState()).open) throw new HttpError(403, GUEST_CLOSED_MSG);
+  if (!name) throw new HttpError(400, "F.I.Sh. ni kiriting");
+  const { roster, entry, digits } = await claimRoster(req, group, b.shifr, name, null, "", { allowClaimed: true });
+  let user = entry.claimedBy ? await db().get(userKey(entry.claimedBy)) : null;
+  if (!user) {
+    const id = newId();
+    const email = `s${id.replace(/\W/g, "").slice(0, 12).toLowerCase()}@sirtqi.local`;
+    user = { id, email, name: entry.name, role: "student", group, studyForm: "sirtqi", college: "", cohort: "unassigned", createdAt: new Date().toISOString(), guestLogin: true, ...(await hashPassword(crypto.randomBytes(18).toString("base64url"))), rosterOk: true, idNumber: digits };
+    user.code = await nextCode();
+    await db().set(userKey(id), user);
+    await db().set(emailKey(email), { id });
+    await finishClaim(roster, entry, id);
+    claimedCache.add(id);
+  }
+  if (user.role !== "student" || user.group !== group) throw new HttpError(403, "Bu shifr boshqa profilga bog'langan");
+  const tok = createToken(user);
+  return withCookie(json({ token: tok, user: publicUser(user) }), tok);
+}
+
 const LOGIN_WINDOW_MS = 15 * 60_000;
 const LOGIN_FAILS_PER_PAIR = 8; // bitta email + bitta manzil (IP)
 const LOGIN_FAILS_PER_EMAIL = 40; // bitta email, barcha manzillardan (taqsimlangan hujumga qarshi)
@@ -4172,6 +4197,7 @@ async function knownColleges() {
 
 const routes = [
   ["POST", /^auth\/register$/, register],
+  ["POST", /^auth\/guest$/, guestLogin],
   ["POST", /^auth\/login$/, login],
   ["POST", /^auth\/session$/, startSession],
   ["POST", /^auth\/logout$/, endSession],

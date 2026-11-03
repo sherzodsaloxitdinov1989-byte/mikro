@@ -1,7 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
-import { userHasContent, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
+import { userHasContent, GUEST_GROUPS, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
@@ -20,6 +20,38 @@ function field(label, attrs) {
 
 /** Talaba kirishi (asosiy sahifa): faqat talaba paneli ko'rinadi. O'qituvchilar alohida sahifadan kiradi (#/ustoz). */
 export const renderLogin = (el) => loginPage(el, false);
+
+/** Sirtqi talabalar (vaqtincha kirish): email va parolsiz — guruh, F.I.Sh. va o'qituvchi bergan shifr bilan. */
+export function renderGuest(el) {
+  if (session.user) return afterLogin();
+  const err = h("div");
+  const form = h("form", { class: "card auth-card", onsubmit: async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const btn = form.querySelector("button");
+    btn.disabled = true;
+    err.replaceChildren();
+    try {
+      const res = await api.post("auth/guest", { group: fd.get("group"), name: fd.get("name"), shifr: fd.get("shifr") });
+      session.set(res.token, res.user);
+      toast("Xush kelibsiz!", "ok");
+      afterLogin();
+    } catch (ex) {
+      err.replaceChildren(h("div", { class: "alert alert-error" }, ex.message));
+    } finally {
+      btn.disabled = false;
+    }
+  } },
+  h("h1", {}, "Sirtqi talabalar kirishi"),
+  h("p", { class: "muted" }, "Email va parol kerak emas. Guruhingizni tanlang, F.I.Sh. (ro'yxatdagidek) va o'qituvchi bergan shifrni kiriting. Faqat mavzularni o'qiysiz va o'qituvchi topshirig'ini bajarasiz."),
+  h("label", { class: "field" }, h("span", {}, "Guruh"), h("select", { name: "group", required: true }, h("option", { value: "" }, "Guruhingizni tanlang"), GUEST_GROUPS.map((g) => h("option", { value: g }, g)))),
+  field("F.I.Sh.", { name: "name", required: true, autocomplete: "name", placeholder: "Masalan: Aliyev Vali" }),
+  field("Shifr (o'qituvchi bergan)", { name: "shifr", required: true, inputmode: "numeric", maxlength: 24, autocomplete: "off" }),
+  err,
+  h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
+  h("p", { class: "center muted small" }, h("a", { href: "#/login" }, "← Oddiy kirish")));
+  mount(el, h("div", { class: "auth-wrap" }, form));
+}
 export const renderTeacherLogin = (el) => loginPage(el, true);
 
 function loginPage(el, teacher) {
@@ -78,6 +110,7 @@ function loginPage(el, teacher) {
     err,
     h("button", { class: "btn block lg", type: "submit" }, "Kirish"),
     h("p", { class: "center muted" }, "Profilingiz yo'qmi? ", h("a", { href: teacher ? "#/ustoz/register" : "#/register" }, "Ro'yxatdan o'ting")),
+    !teacher && h("p", { class: "center small" }, h("a", { href: "#/sirtqi" }, "Sirtqi talabalar: email'siz kirish →")),
     teacher && h("p", { class: "center muted small" }, h("a", { href: "#/login" }, "← Talaba kirishi"))
   );
   paint();
