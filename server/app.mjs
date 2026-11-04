@@ -20,7 +20,7 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
-import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview } from "./ai-work.mjs";
+import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview, textSimilarity, looksInjected, avgScores } from "./ai-work.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
@@ -1060,6 +1060,7 @@ async function quizSubmit(req, topicId) {
   const st = (progress.topics[topic.id] ||= {});
   // To'g'ri javoblar faqat BIRINCHI urinishdan keyin ko'rsatiladi (o'rganish uchun). Qayta topshirishda faqat to'g'ri/noto'g'ri belgisi beriladi:
   // talaba javoblarni yodlab olib, ballni oshirib yubormasligi uchun. Serverning o'zi to'g'ri javobni qaytarmaydi.
+  if (usesAiWork(user) && st.quizAttempts > 0) throw new HttpError(409, "Bu test faqat bir marta topshiriladi va siz uni topshirgansiz. Qayta topshirish uchun o'qituvchiga murojaat qiling.");
   const reveal = !(st.quizAttempts > 0);
   const results = topic.quiz.map((q, i) => {
     const ok = answers[i] === q.correct;
@@ -1637,8 +1638,8 @@ async function myTasks(req) {
 }
 
 /** Javob yuborish urinishlari tugaganmi (har bir topshiriqqa 3 martagacha). */
-function assertAttemptsLeft(rec) {
-  const limit = taskLib.attemptLimit(rec);
+function assertAttemptsLeft(rec, user) {
+  const limit = usesAiWork(user) ? 1 + (Number(rec?.extraAttempts) || 0) : taskLib.attemptLimit(rec); // Mikroiqtisodiyot masofaviy/kunduzgi: vazifa bir marta topshiriladi
   if ((rec?.attempts || 0) >= limit) throw new HttpError(403, `Siz bu topshiriqqa javobni ${limit} marta yuborib bo'ldingiz — yangi urinish qolmadi. Zarur bo'lsa, o'qituvchiga murojaat qiling.`);
 }
 
@@ -1647,7 +1648,7 @@ async function taskUploadInit(req, id) {
   const task = await visibleTask(user, id);
   const due = taskLib.dueDate(task);
   if (due && new Date() > due && !task.allowLate) throw new HttpError(403, "Bu topshiriqning muddati tugagan, endi qabul qilinmaydi");
-  assertAttemptsLeft(await db().get(tsubKey(id, user.id)));
+  assertAttemptsLeft(await db().get(tsubKey(id, user.id)), user);
   const b = await body(req);
   const name = str(b.name, 200);
   const size = Number(b.size);
@@ -1687,7 +1688,7 @@ async function taskSubmit(req, id) {
   const text = str(b.text, 30000);
   const key = tsubKey(id, user.id);
   const prev = await db().get(key);
-  assertAttemptsLeft(prev);
+  assertAttemptsLeft(prev, user);
   let file = prev?.file || null;
   let docText = prev?.docText || "";
   let media = prev?.media || null;
@@ -3007,14 +3008,14 @@ async function questionReview(req, topicId, iStr) {
   const b = await body(req);
   const answer = str(b.answer, 2500);
   if (answer.length < 20) throw new HttpError(400, "Javobni kamida bir-ikki gap bilan yozing (20 belgidan kam bo'lmasin)");
+  if (await db().get(qgradeKey(user.id, topic.id, i))) throw new HttpError(409, "Bu savolga javob allaqachon yuborilgan: har bir savolga faqat bir marta javob beriladi.");
   let g = null;
-  if (aiEnabled()) {
-    for (let a = 0; a < 2 && !g; a++) {
-      try {
-        const raw = await completeText({ system: `Sen OTM o'qituvchisisan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: questionPrompt(topic, question, answer) }], maxTokens: 800, effort: "low", format: { type: "json_schema", schema: QUESTION_SCHEMA } });
-        g = parseQuestionGrade(raw);
-      } catch (e) { console.error("AI savol baholash xatosi:", e); }
-    }
+  if (looksInjected(answer)) g = { score: 0, feedback: "Javob matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball. Savolga o'z so'zlaringiz bilan javob yozing.", missing: [] };
+  else if (aiEnabled()) {
+    // Ikki mustaqil baholash o'rtachasi olinadi (tasodifiy og'ishni kamaytirish uchun)
+    const one = async () => { for (let a = 0; a < 2; a++) { try { const g1 = parseQuestionGrade(await completeText({ system: `Sen OTM o'qituvchisisan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: questionPrompt(topic, question, answer) }], maxTokens: 800, effort: "low", format: { type: "json_schema", schema: QUESTION_SCHEMA } })); if (g1) return g1; } catch (e) { console.error("AI savol baholash xatosi:", e); } } return null; };
+    const [g1, g2] = await Promise.all([one(), one()]);
+    if (g1 || g2) { const a = g1 || g2, b = g2 || g1; g = { score: Math.round((a.score + b.score) / 2), feedback: (a.score <= b.score ? a : b).feedback, missing: (a.missing?.length ? a : b).missing || [] }; }
   }
   const estimated = !g;
   if (!g) g = demoQuestionGrade(question, answer);
@@ -3022,6 +3023,24 @@ async function questionReview(req, topicId, iStr) {
   const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
   await db().set(qgradeKey(user.id, topic.id, i), rec);
   return json(rec);
+}
+
+/** O'qituvchi: talabaga mavzu ishini qayta topshirishga ruxsat (noto'g'ri fayl yuklangan va h.k.). what: practice | questions | quiz */
+async function adminAiWorkReset(req) {
+  const teacher = await requireTeacher(req);
+  const b = await body(req);
+  const uid = str(b.userId, 80), topicId = str(b.topicId, 40), what = str(b.what, 20);
+  const u = await db().get(userKey(uid));
+  const topic = findTopic(topicId);
+  if (!u || u.role !== "student" || !topic) throw new HttpError(404, "Talaba yoki mavzu topilmadi");
+  assertSubject(teacher, topic.subject);
+  let n = 0;
+  if (what === "practice") { for (const r of await getMany(`practicereview/${uid}/${topicId}/`)) if (r.docx) { await db().del(practiceReviewKey(uid, topicId, r.id)); n++; } }
+  else if (what === "questions") { for (const [k] of await getEntries(`qgrade/${uid}/${topicId}/`)) { await db().del(k); n++; } }
+  else if (what === "quiz") { const key = `progress/${uid}`; const pr = await db().get(key); const st = pr?.topics?.[topicId]; if (st) { for (const f of ["quiz", "quizAttempts", "quizFirst", "quizLast", "quizAt", "quizIntegrity"]) delete st[f]; await db().set(key, pr); n = 1; } }
+  else throw new HttpError(400, "what: practice | questions | quiz");
+  scoreCache.clear();
+  return json({ ok: true, removed: n });
 }
 
 async function myQuestionGrades(req, topicId) {
@@ -3051,20 +3070,28 @@ async function practiceDocx(req, topicId) {
   try { doc = await readDocx(data); } catch { throw new HttpError(400, "Word fayl o'qilmadi. Yechimni .docx formatida saqlab qayta yuklang."); }
   const text = doc.text.slice(0, 30000);
   if (text.trim().length < 80) throw new HttpError(400, "Faylda tekshirish uchun matn yetarli emas. Masalalar yechimini matn ko'rinishida yozing.");
+  if ((await getMany(`practicereview/${user.id}/${topicId}/`)).some((r) => r.docx)) throw new HttpError(409, "Bu mavzu bo'yicha yechim allaqachon yuborilgan: amaliy topshiriq faqat bir marta topshiriladi.");
   const tasks = assignedTasks(user.id, topic);
   let review = null;
-  if (aiEnabled()) {
-    for (let a = 0; a < 2 && !review; a++) {
-      try {
-        const raw = await completeText({ system: `Sen OTM o'qituvchisi va ${COURSE.domain} bo'yicha ekspertsan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: docxPrompt(topic, tasks, text) + (a ? `\n\nMUHIM: FAQAT JSON obyekt qaytar. "scores" kalitlari: ${REVIEW_CRITERIA.map((c) => `${c.key} (0–${c.max})`).join(", ")}.` : "") }], maxTokens: 4000, effort: "low", format: { type: "json_schema", schema: REVIEW_SCHEMA } });
-        review = parseReview(raw);
-      } catch (e) { console.error("AI Word amaliy tekshiruv xatosi:", e); }
-    }
+  if (looksInjected(text)) review = { ...demoDocxReview(tasks, ""), scores: { formulas: 0, accuracy: 0, analysis: 0, case: 0, independence: 0 }, summary: "Fayl matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball.", estimated: false };
+  else if (aiEnabled()) {
+    // Ikki mustaqil baholash: mezonlar bo'yicha o'rtacha olinadi
+    const one = async () => { for (let a = 0; a < 2; a++) { try { const r = parseReview(await completeText({ system: `Sen OTM o'qituvchisi va ${COURSE.domain} bo'yicha ekspertsan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: docxPrompt(topic, tasks, text) + (a ? `\n\nMUHIM: FAQAT JSON obyekt qaytar. "scores" kalitlari: ${REVIEW_CRITERIA.map((c) => `${c.key} (0–${c.max})`).join(", ")}.` : "") }], maxTokens: 4000, effort: "low", format: { type: "json_schema", schema: REVIEW_SCHEMA } })); if (r) return r; } catch (e) { console.error("AI Word amaliy tekshiruv xatosi:", e); } } return null; };
+    const [r1, r2] = await Promise.all([one(), one()]);
+    if (r1 || r2) { const lo = totalOf((r1 || r2).scores) <= totalOf((r2 || r1).scores) ? r1 || r2 : r2 || r1; review = { ...lo, scores: avgScores(r1?.scores || r2.scores, r2?.scores || r1.scores, REVIEW_CRITERIA) }; }
   }
   if (!review) review = demoDocxReview(tasks, text);
-  const total = Math.round(Math.min(10, totalOf(review.scores)) * 10) / 10;
+  let total = Math.round(Math.min(10, totalOf(review.scores)) * 10) / 10;
+  // Boshqa talaba ishi bilan deyarli bir xil bo'lsa (nusxa ko'chirish) — baho yarmiga tushiriladi, o'qituvchi ko'radi
+  let copy = null;
+  for (const o of await getMany(`practicereview/`)) {
+    if (o.topicId !== topicId || o.userId === user.id || !o.docx || !o.answers?.docText) continue;
+    const sim = textSimilarity(text, o.answers.docText);
+    if (sim >= 0.6 && (!copy || sim > copy.sim)) copy = { sim: Math.round(sim * 100) / 100, userId: o.userId, name: o.user?.name || "" };
+  }
+  if (copy) { total = Math.round((total / 2) * 10) / 10; review.mistakes = [...(review.mistakes || []), `Ish boshqa talaba yechimi bilan ${Math.round(copy.sim * 100)}% o'xshash: baho 50% ga kamaytirildi. Yechimni o'z so'zlaringiz bilan yozing.`]; }
   const rec = {
-    id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.idx + 1) },
+    id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, ...(copy ? { copy } : {}), max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.idx + 1) },
     answers: { tasks: [], open: [], conclusion: "", docText: text.slice(0, 12000) }, ai: !review.estimated, model: review.estimated ? null : modelName(), createdAt: new Date().toISOString(),
   };
   await db().set(practiceReviewKey(user.id, topicId, rec.id), rec);
@@ -4395,6 +4422,7 @@ const routes = [
   ["PUT", /^practice\/([\w-]+)\/docx$/, practiceDocx],
   ["POST", /^qreview\/([\w-]+)\/(\d{1,3})$/, questionReview],
   ["GET", /^qreview\/([\w-]+)$/, myQuestionGrades],
+  ["POST", /^admin\/practice-reviews\/reset$/, adminAiWorkReset],
   ["GET", /^practice\/reviews$/, myPracticeReviews],
   ["GET", /^admin\/practice-reviews$/, adminPracticeReviews],
   ["PUT", /^admin\/practice-reviews\/([\w-]+)\/([\w-]+)\/([\w-]+)$/, teacherPracticeComment],

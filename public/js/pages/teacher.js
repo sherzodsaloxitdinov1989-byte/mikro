@@ -1611,6 +1611,7 @@ function practiceModal(r, criteria, reload) {
     })),
     (t?.practice?.open || []).map((q, i) => h("div", { class: "small" }, h("b", {}, `K${i + 1}. ${q}`), h("p", {}, r.answers?.open?.[i] || "—"))),
     r.answers?.conclusion && h("div", { class: "small" }, h("b", {}, "Xulosa: "), r.answers.conclusion),
+    r.copy && h("div", { class: "alert alert-warn small" }, `⚠️ Ish ${r.copy.name || "boshqa talaba"} yechimi bilan ${Math.round(r.copy.sim * 100)}% o'xshash (baho 50% ga kamaytirilgan).`),
     r.answers?.docText && h("div", { class: "small" }, h("b", {}, `Word fayl matni (${r.docx?.name || ""}, masalalar: ${(r.docx?.tasks || []).join(", ")}): `), h("p", { style: { whiteSpace: "pre-wrap" } }, r.answers.docText.slice(0, 6000))));
   let close;
   close = modal(`${r.user?.name} — ${t?.num}-amaliy mashg'ulot`, h("div", { class: "stack" },
@@ -1628,7 +1629,11 @@ function practiceModal(r, criteria, reload) {
       } catch (e) {
         toast(e.message, "error");
       }
-    } }, "💾 Saqlash"))), { wide: true });
+    } }, "💾 Saqlash"),
+    r.docx && h("button", { class: "btn ghost", title: "Talaba Word yechimni qayta yuklay oladi (bu tekshiruv o'chiriladi)", onclick: async () => {
+      if (!(await confirmDialog(`${r.user?.name}: bu amaliy topshiriq natijasi o'chiriladi va talaba qayta yuklay oladi. Davom etilsinmi?`))) return;
+      try { await api.post("admin/practice-reviews/reset", { userId: r.userId, topicId: r.topicId, what: "practice" }); toast("Talaba qayta topshira oladi", "ok"); close(); reload(); } catch (e) { toast(e.message, "error"); }
+    } }, "↩️ Qayta topshirishga ruxsat"))), { wide: true });
 }
 
 // ---------------- Tahlil laboratoriyasi hisobotlari ----------------

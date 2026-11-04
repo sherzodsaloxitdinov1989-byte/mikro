@@ -359,9 +359,14 @@ function quizTab(topic) {
       setTimeout(() => confetti(r.left + r.width / 2, r.top + 60), 350);
     }
   } }, "Javoblarni tekshirish");
+  if (usesAiWork(session.user) && st.quizAttempts > 0) {
+    wrap.append(h("div", { class: "alert alert-info" }, `Bu test faqat bir marta topshiriladi va siz uni topshirgansiz. Natijangiz: ${st.quiz}%. Qayta topshirish uchun o'qituvchiga murojaat qiling.`));
+    return wrap;
+  }
   wrap.append(
     ...[
       st.quiz != null && h("div", { class: "alert alert-info" }, `Eng yaxshi natijangiz: ${st.quiz}% (urinishlar: ${st.quizAttempts || 1}). O'tish balli — 60%.`),
+      usesAiWork(session.user) && h("div", { class: "alert alert-warn small" }, "Diqqat: test faqat BIR marta topshiriladi — «Javoblarni tekshirish» tugmasini bosgandan keyin qayta topshirib bo'lmaydi."),
       h("p", { class: "muted small" }, "Test savollari mavzu matni va dolzarb ma'lumotlar asosida tuzilgan. Variantlar tartibi har safar aralashtiriladi."),
       st.quizAttempts > 0 && h("div", { class: "alert alert-warn small" }, "Qayta topshirishda to'g'ri javoblar ko'rsatilmaydi — faqat qaysi javob to'g'ri yoki noto'g'ri ekani belgilanadi. Avval nazariy qismni qayta o'qing."),
       ...qs,
@@ -378,7 +383,7 @@ function questionsTab(topic) {
     Promise.all([loadProgress(), api.get(`qreview/${topic.id}`).catch(() => ({ grades: {} }))]).then(([p, g]) => {
       answers.replaceChildren(...topic.questions.map((q, i) => aiQuestionCard(topic, q, i, g.grades[i], p.notes[`${topic.id}:q${i}`], (v) => setNote(`${topic.id}:q${i}`, v))));
     });
-    return h("div", { class: "stack" }, h("div", { class: "alert alert-info" }, "Har bir savolga qisqacha (2–4 gap) yozma javob yozing va «Yuborish» tugmasini bosing — sun'iy intellekt 10 ballik tizimda baholaydi va izoh beradi. Javob yaxshilansa, qayta yuborishingiz mumkin: eng yuqori baho hisoblanadi."), answers);
+    return h("div", { class: "stack" }, h("div", { class: "alert alert-info" }, "Har bir savolga qisqacha (2–4 gap) yozma javob yozing va «Yuborish» tugmasini bosing — sun'iy intellekt 10 ballik tizimda baholaydi va izoh beradi. DIQQAT: har bir savolga faqat BIR marta javob beriladi."), answers);
   }
   loadProgress().then((p) => {
     answers.replaceChildren(
