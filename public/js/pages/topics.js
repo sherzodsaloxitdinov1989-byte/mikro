@@ -8,6 +8,8 @@ import { allVideos, videoCard } from "../media.js";
 import { TOPICS, METHOD_INFO, COURSE, BOOK_INTRO, LITERATURE } from "../../data/topics.js";
 import { loadProgress, topicState, updateTopic, topicCompletion, setNote } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
+import { docxPanel, aiQuestionCard } from "../practice-docx.js";
+import { usesAiWork } from "../../data/course.js";
 import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
 import { groupedBySemester } from "../semester.js";
@@ -109,15 +111,15 @@ export async function renderTopic(el, id) {
     chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
     chapter("questions", "❓", "Nazorat savollari", `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", `${topic.quiz.length} ta test (mavzu matni asosida)`, quizTab(topic)),
-    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", practicePanel(topic)),
-    chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
+    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (usesAiWork(session.user) ? "2 ta masala — yechimni Word faylda yuklang · 🤖 AI bahosi" : topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", (usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic))),
+    !usesAiWork(session.user) && chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
   );
 
   const rail = h(
     "nav",
     { class: "lesson-rail", "aria-label": "Dars bo'limlari" },
     h("div", { class: "rail-title" }, `${topic.num}-mavzu`),
-    CHAPTERS.filter(([key]) => (key !== "slides" || viewer) && (key !== "videos" || videos.length) && (key !== "updates" || topic.updates.length) && (key !== "practice" || topic.practice)).map(([key, icon, label]) => [
+    CHAPTERS.filter(([key]) => (key !== "slides" || viewer) && (key !== "videos" || videos.length) && (key !== "updates" || topic.updates.length) && (key !== "practice" || topic.practice) && (key !== "self" || !usesAiWork(session.user))).map(([key, icon, label]) => [
       h("a", { href: `#learn-${key}`, "data-key": key, onclick: (e) => { e.preventDefault(); document.getElementById(`learn-${key}`)?.scrollIntoView({ behavior: "smooth", block: "start" }); } }, h("span", { class: "rail-icon" }, icon), h("span", { class: "rail-label" }, label), h("span", { class: "rail-count" }, counts[key])),
       key === "theory" && h("div", { class: "rail-sub" }, topic.sections.filter((x) => x.title).map((x, i) => h("a", { href: `#sec-${i}`, "data-sec": i, onclick: (e) => { e.preventDefault(); document.getElementById(`sec-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }); } }, x.title.replace(/^\d+\.\d+\.\s*/, "")))),
     ])
@@ -372,6 +374,12 @@ function quizTab(topic) {
 
 function questionsTab(topic) {
   const answers = h("div", { class: "stack" });
+  if (usesAiWork(session.user)) {
+    Promise.all([loadProgress(), api.get(`qreview/${topic.id}`).catch(() => ({ grades: {} }))]).then(([p, g]) => {
+      answers.replaceChildren(...topic.questions.map((q, i) => aiQuestionCard(topic, q, i, g.grades[i], p.notes[`${topic.id}:q${i}`], (v) => setNote(`${topic.id}:q${i}`, v))));
+    });
+    return h("div", { class: "stack" }, h("div", { class: "alert alert-info" }, "Har bir savolga qisqacha (2–4 gap) yozma javob yozing va «Yuborish» tugmasini bosing — sun'iy intellekt 10 ballik tizimda baholaydi va izoh beradi. Javob yaxshilansa, qayta yuborishingiz mumkin: eng yuqori baho hisoblanadi."), answers);
+  }
   loadProgress().then((p) => {
     answers.replaceChildren(
       ...topic.questions.map((q, i) => {

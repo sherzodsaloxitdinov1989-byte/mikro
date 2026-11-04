@@ -304,6 +304,10 @@ export function currentSemester(today = new Date()) {
 export const ASSIGNMENT_GROUPS = ["331-25", "332-25", "333-25", "334-25"];
 export const hasAssignment = (group) => ASSIGNMENT_GROUPS.includes(group);
 
+/** Mikroiqtisodiyot: masofaviy (841–848-25) va kunduzgi 331–334-25 talabalari uchun mavzu ishi — nazorat savollariga yozma javob (AI bahosi), mavzu testi,
+ *  amaliy mashg'ulotda har bir mavzudan 2 ta masalani yechib, Word (.docx) faylda yuklash (AI bahosi). «Mustaqil ta'lim» bo'limi bu talabalarga kerak emas. */
+export const usesAiWork = (user) => Boolean(user) && user.role === "student" && subjectOfGroup(user.group).key === SUBJECTS[0].key && (formOfGroup(user.group)?.key === "masofaviy" || ASSIGNMENT_GROUPS.includes(user.group));
+
 /** Nazorat testi (oraliq) belgilangan guruhlar: server/exams.mjs bilan bir xil bo'lishi kerak. */
 export const EXAM_GROUPS = ["231-24", "232-24", "233-24", "331-25", "332-25", "333-25", "334-25", "141-23", "142-23"];
 export const hasExam = (group) => EXAM_GROUPS.includes(group);
@@ -330,7 +334,7 @@ export const isRosterGroup = (group) => SUBJECTS.some((s) => (s.rosterGroups || 
 // Oraliq nazorat o'qituvchi tomonidan 5 ballik tizimda baholanadi; masofaviy ta'limdan tashqari u alohida qo'shimcha ball hisoblanadi.
 export const SCORING = {
   default: { lecture: 10, practice: 10, midtermInLecture: 0 },
-  distance: { lecture: 30, practice: 20, midtermInLecture: 10 },
+  distance: { lecture: 30, practice: 20, midtermInLecture: 0, passPct: 60 }, // masofaviy: ma'ruza 30 (mavzu ishi), amaliy 20; o'tish bali — 60%
 };
 // Mikroiqtisodiyot, kunduzgi 331–334-25 (3- va 4-semestr; 4-semestrda 20 ballik topshiriq balini o'qituvchi kiritadi): ma'ruza 30 ball = 20 ballik topshiriq + 2 ta nazorat testi (5 ballik, jami 10);
 // amaliy topshiriq — 10 ball: nazariy qism (tushunchalar, nazorat savollari, mavzu testlari) 5 ball + darslik amaliy topshiriqlari 5 ball (qat'iy bo'linadi).
@@ -338,6 +342,8 @@ export const SCORING = {
 export const PLAN_GROUPS = ["141-23", "142-23"];
 SCORING.plan = { lecture: 30, practice: 10, midtermInLecture: 5, planMax: 10 };
 SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 5, practiceMax: 5 };
+/** O'tish bali: eng ko'p to'planadigan ballning 60% i (barcha ta'lim shakllari uchun). */
+export const PASS_PCT = 60;
 export const scoringOf = (subjectKey, form, group = "", semNo = 0) =>
   subjectKey === "tadbirkorlik" && PLAN_GROUPS.includes(group) ? SCORING.plan : subjectKey === "mikro" && form === "masofaviy" ? SCORING.distance : subjectKey === "mikro" && ASSIGNMENT_GROUPS.includes(group) && [3, 4].includes(Number(semNo)) ? SCORING.assignment : SCORING.default;
 

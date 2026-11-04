@@ -107,7 +107,8 @@ export async function render(el) {
       h("div", { class: "card stat-card" }, h("b", {}, `${fmt(s.lecture.points)} / ${fmt(s.lecture.max)}`), h("span", { class: "muted small" }, "Ma'ruza")),
       h("div", { class: "card stat-card" }, h("b", {}, `${fmt(s.practice.points)} / ${fmt(s.practice.max)}`), h("span", { class: "muted small" }, "Amaliy mashg'ulot")),
       h("div", { class: "card stat-card" }, h("b", {}, `${fmt(s.total)} / ${fmt(s.totalMax)}`), h("span", { class: "muted small" }, "Jami"))),
-    h("div", { class: "card stack" }, progressBar(Math.round((s.total / s.totalMax) * 100), 100, `${Math.round((s.total / s.totalMax) * 100)}%`)),
+    h("div", { class: "card stack" }, progressBar(Math.round((s.total / s.totalMax) * 100), 100, `${Math.round((s.total / s.totalMax) * 100)}%`),
+      s.passMark != null && h("p", { class: `small ${s.passed ? "ok" : "muted"}` }, `O'tish bali (60%): ${fmt(s.passMark)} / ${fmt(s.totalMax)} — ${s.passed ? "✅ o'tish balidan yuqori" : `hozircha ${fmt(Math.max(0, s.passMark - s.total))} ball yetishmaydi`}`)),
     h("div", { class: "card" }, node),
     ended
       ? h("div", { class: "row" }, btn)

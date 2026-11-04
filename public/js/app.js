@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox } from "./ui.js";
 import { session, api } from "./api.js";
-import { userHasContent, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
+import { userHasContent, usesAiWork, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
@@ -118,6 +118,7 @@ function renderNav() {
     items.unshift(["#/fan", ownSubject.title, ownSubject.icon]);
     if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"], ["#/meets", "Jonli dars", "📹"]];
   } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
+  if (stu && usesAiWork(user)) items = items.filter(([href]) => href !== "#/self-study"); // mustaqil ta'lim bu talabalarga kerak emas
   if (stu && isGuestGroup(user.group)) items = items.filter(([href]) => ["#/topics", "#/tasks"].includes(href)); // vaqtincha kirish: faqat mavzular va o'qituvchi topshirig'i
   // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
   const foot = document.querySelector(".footer-inner");
@@ -174,6 +175,10 @@ async function route() {
   // Boshqa fan talabasi asosiy fan bo'limlariga kirmaydi: o'z fani sahifasiga yo'naltiriladi
   if (session.user && session.user.role === "student") {
     const su = subjectOfGroup(session.user.group);
+    if (usesAiWork(session.user) && /^\/self-study(\/|$)/.test(path)) {
+      location.hash = "#/topics";
+      return;
+    }
     if (isGuestGroup(session.user.group) && !/^\/(topics|tasks)(\/|$)/.test(path)) {
       location.hash = "#/topics";
       return;

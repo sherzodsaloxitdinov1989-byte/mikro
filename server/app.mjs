@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -20,6 +20,7 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
+import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview } from "./ai-work.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
@@ -2982,6 +2983,94 @@ async function adminExamBank(req, id) {
 const midtermKey = (subject, sem, uid) => `midterm/${subject}/${sem}/${uid}`;
 const scoreCache = new Map();
 
+// ---------- Mikroiqtisodiyot mavzu ishi (masofaviy va kunduzgi 331–334-25): nazorat savoli va amaliy masalalar (Word) AI bahosi ----------
+
+const qgradeKey = (uid, topicId, i) => `qgrade/${uid}/${topicId}/${i}`;
+const AI_WORK_DAILY = 80;
+
+async function requireAiWork(req, topicId) {
+  const user = await requireUser(req);
+  const topic = findTopic(topicId);
+  if (!topic || !usesAiWork(user) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
+  const day = new Date().toISOString().slice(0, 10);
+  const lim = await bump(`ratelimit/aiwork/${user.id}/${day}`, 86_400_000, AI_WORK_DAILY);
+  if (!lim.ok) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${AI_WORK_DAILY} ta) tugadi — ertaga qayta urinib ko'ring`);
+  return { user, topic };
+}
+
+/** Nazorat savoliga yozilgan qisqa javobni AI baholaydi (0–10); eng yaxshi natija hisobga olinadi. */
+async function questionReview(req, topicId, iStr) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  const i = Number(iStr);
+  const question = topic.questions?.[i];
+  if (!question) throw new HttpError(404, "Savol topilmadi");
+  const b = await body(req);
+  const answer = str(b.answer, 2500);
+  if (answer.length < 20) throw new HttpError(400, "Javobni kamida bir-ikki gap bilan yozing (20 belgidan kam bo'lmasin)");
+  let g = null;
+  if (aiEnabled()) {
+    for (let a = 0; a < 2 && !g; a++) {
+      try {
+        const raw = await completeText({ system: `Sen OTM o'qituvchisisan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: questionPrompt(topic, question, answer) }], maxTokens: 800, effort: "low", format: { type: "json_schema", schema: QUESTION_SCHEMA } });
+        g = parseQuestionGrade(raw);
+      } catch (e) { console.error("AI savol baholash xatosi:", e); }
+    }
+  }
+  const estimated = !g;
+  if (!g) g = demoQuestionGrade(question, answer);
+  const prev = await db().get(qgradeKey(user.id, topic.id, i));
+  const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
+  await db().set(qgradeKey(user.id, topic.id, i), rec);
+  return json(rec);
+}
+
+async function myQuestionGrades(req, topicId) {
+  const user = await requireUser(req);
+  const items = await getEntries(`qgrade/${user.id}/${topicId}/`);
+  return json({ grades: Object.fromEntries(items.map(([k, v]) => [k.split("/").pop(), v])) });
+}
+
+/** Talabaga biriktirilgan 2 ta masala va oxirgi Word yechim bahosi. */
+async function practiceAssigned(req, topicId) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  const tasks = assignedTasks(user.id, topic).map(({ n, idx, text }) => ({ n, id: `open-${idx + 1}`, text }));
+  const last = (await getMany(`practicereview/${user.id}/${topicId}/`)).filter((r) => r.docx).sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""))[0] || null;
+  return json({ tasks, last: last && { ...last, answers: undefined, criteria: REVIEW_CRITERIA }, aiEnabled: aiEnabled() });
+}
+
+/** Word (.docx) yechimni qabul qiladi, matnini o'qib, AI bilan 10 ballik baholaydi. */
+async function practiceDocx(req, topicId) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  const url = new URL(req.url);
+  const name = str(url.searchParams.get("name"), 200);
+  if (!/\.docx$/i.test(name)) throw new HttpError(400, "Faqat Word (.docx) fayl qabul qilinadi");
+  const data = new Uint8Array(await req.arrayBuffer());
+  if (!data.byteLength) throw new HttpError(400, "Fayl bo'sh");
+  if (data.byteLength > 6 * 1024 * 1024) throw new HttpError(413, "Fayl juda katta: eng ko'pi 6 MB");
+  let doc;
+  try { doc = await readDocx(data); } catch { throw new HttpError(400, "Word fayl o'qilmadi. Yechimni .docx formatida saqlab qayta yuklang."); }
+  const text = doc.text.slice(0, 30000);
+  if (text.trim().length < 80) throw new HttpError(400, "Faylda tekshirish uchun matn yetarli emas. Masalalar yechimini matn ko'rinishida yozing.");
+  const tasks = assignedTasks(user.id, topic);
+  let review = null;
+  if (aiEnabled()) {
+    for (let a = 0; a < 2 && !review; a++) {
+      try {
+        const raw = await completeText({ system: `Sen OTM o'qituvchisi va ${COURSE.domain} bo'yicha ekspertsan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: docxPrompt(topic, tasks, text) + (a ? `\n\nMUHIM: FAQAT JSON obyekt qaytar. "scores" kalitlari: ${REVIEW_CRITERIA.map((c) => `${c.key} (0–${c.max})`).join(", ")}.` : "") }], maxTokens: 4000, effort: "low", format: { type: "json_schema", schema: REVIEW_SCHEMA } });
+        review = parseReview(raw);
+      } catch (e) { console.error("AI Word amaliy tekshiruv xatosi:", e); }
+    }
+  }
+  if (!review) review = demoDocxReview(tasks, text);
+  const total = Math.round(Math.min(10, totalOf(review.scores)) * 10) / 10;
+  const rec = {
+    id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.idx + 1) },
+    answers: { tasks: [], open: [], conclusion: "", docText: text.slice(0, 12000) }, ai: !review.estimated, model: review.estimated ? null : modelName(), createdAt: new Date().toISOString(),
+  };
+  await db().set(practiceReviewKey(user.id, topicId, rec.id), rec);
+  return json({ ...rec, answers: undefined, criteria: REVIEW_CRITERIA });
+}
+
 async function computeScoreRows(subject, semNo) {
   const sems = semestersOfSubject(subject);
   const sem = sems.find((s) => s.no === semNo) || sems[0];
@@ -2989,7 +3078,10 @@ async function computeScoreRows(subject, semNo) {
   const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, glossary: t.glossary?.length || 0, questions: t.questions?.length || 0, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))), practiceTaskIds: (t.practice?.tasks || []).map((k) => k.id) }));
   const topicIds = new Set(topics.map((t) => t.id));
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
-  const [progress, reviews, mids, attempts, assigns] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : []]);
+  const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], subject === SUBJECTS[0].key ? getEntries("qgrade/") : []]);
+  const qgBy = new Map();
+  for (const [k, v] of qgrades) { const [, uid, tid, qi] = k.split("/"); (qgBy.get(uid) || qgBy.set(uid, {}).get(uid))[`${tid}:${qi}`] = v.best ?? v.score ?? 0; }
+  const noTaskIds = topics.map((t) => ({ ...t, practiceTaskIds: [] }));
   const uidOf = (key) => key.split("/")[1];
   const group = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
   const prog = new Map(progress.map(([k, v]) => [uidOf(k), v]));
@@ -3008,7 +3100,8 @@ async function computeScoreRows(subject, semNo) {
     const planSource = ps ? (ps.teacher?.score != null ? "teacher" : ps.ai?.suggested != null ? "ai" : null) : null;
     const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
-    const r = computeScore({ subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const aiWork = usesAiWork(u);
+    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds : topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
@@ -4298,6 +4391,10 @@ const routes = [
   ["PUT", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/grade$/, gradeAssignment],
   ["POST", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/review$/, adminAssignReview],
   ["POST", /^practice\/([\w-]+)\/review$/, practiceReview],
+  ["GET", /^practice\/([\w-]+)\/assigned$/, practiceAssigned],
+  ["PUT", /^practice\/([\w-]+)\/docx$/, practiceDocx],
+  ["POST", /^qreview\/([\w-]+)\/(\d{1,3})$/, questionReview],
+  ["GET", /^qreview\/([\w-]+)$/, myQuestionGrades],
   ["GET", /^practice\/reviews$/, myPracticeReviews],
   ["GET", /^admin\/practice-reviews$/, adminPracticeReviews],
   ["PUT", /^admin\/practice-reviews\/([\w-]+)\/([\w-]+)\/([\w-]+)$/, teacherPracticeComment],

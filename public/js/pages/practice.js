@@ -4,6 +4,8 @@ import { api, session } from "../api.js";
 import { TOPICS } from "../../data/topics.js";
 import { loadProgress, topicState } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
+import { docxPanel } from "../practice-docx.js";
+import { usesAiWork } from "../../data/course.js";
 import { groupedBySemester } from "../semester.js";
 
 export async function renderList(el) {
@@ -37,7 +39,7 @@ export async function renderList(el) {
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Sana"), h("th", {}, "Mavzu"), h("th", {}, "Hisob-kitob"), h("th", {}, "Baho"), h("th", {}, "O'qituvchi"))),
         h("tbody", {}, history.reviews.slice(0, 50).map((r) => {
           const t = TOPICS.find((x) => x.id === r.topicId);
-          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, h("a", { href: `#/practice/${r.topicId}` }, `${t?.num}. ${t?.title}`)), h("td", {}, `${r.calc.correct}/${r.calc.total}`), h("td", {}, h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : ""), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"} · ${r.teacher.comment.slice(0, 60)}` : "—"));
+          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, h("a", { href: `#/practice/${r.topicId}` }, `${t?.num}. ${t?.title}`)), h("td", {}, (r.docx ? "📄 Word" : `${r.calc.correct}/${r.calc.total}`)), h("td", {}, h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : ""), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"} · ${r.teacher.comment.slice(0, 60)}` : "—"));
         }))))
   );
 }
@@ -63,7 +65,7 @@ export async function renderTopic(el, id) {
     h("nav", { class: "crumbs" }, h("a", { href: "#/practice" }, "Amaliy mashg'ulotlar"), " / ", `${topic.num}-mashg'ulot`),
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, `${topic.icon} ${topic.num}-amaliy mashg'ulot`), h("p", { class: "lead" }, topic.title)), h("a", { href: `#/topics/${topic.id}`, class: "btn ghost" }, "📖 Mavzu nazariyasi")),
     teacherNote && h("div", { class: "alert alert-info" }, h("b", {}, `👩‍🏫 O'qituvchi izohi (${teacherNote.teacher.by})${teacherNote.teacher.grade != null ? ` — ${teacherNote.teacher.grade}/10` : ""}: `), teacherNote.teacher.comment),
-    practicePanel(topic),
+    usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic),
     h("div", { class: "lesson-pager" },
       prev?.practice ? h("a", { href: `#/practice/${prev.id}`, class: "pager-card" }, h("small", {}, "← Oldingi mashg'ulot"), h("b", {}, `${prev.num}. ${prev.title}`)) : h("span"),
       next?.practice ? h("a", { href: `#/practice/${next.id}`, class: "pager-card next" }, h("small", {}, "Keyingi mashg'ulot →"), h("b", {}, `${next.num}. ${next.title}`)) : h("span"))

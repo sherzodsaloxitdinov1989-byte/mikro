@@ -150,7 +150,7 @@ export function reviewView(r) {
   const rv = r.review;
   const crit = r.criteria || [];
   const cls = r.total >= 8 ? "score-high" : r.total >= 6 ? "score-mid" : "score-low";
-  const taskName = (id) => (id.startsWith("open-") ? `Keys ${id.slice(5)}` : id.replace(/^p\d+-/, "Masala "));
+  const taskName = (id) => (id.startsWith("open-") ? (r.docx ? `Masala ${id.slice(5)}` : `Keys ${id.slice(5)}`) : id.replace(/^p\d+-/, "Masala "));
   return h(
     "div",
     { class: "card ai-review" },
@@ -159,7 +159,7 @@ export function reviewView(r) {
       h("div", { class: "grow" },
         h("h3", {}, r.ai ? "🤖 AI tekshiruvi natijasi" : "🧮 Avtomatik tekshiruv natijasi"),
         h("p", {}, rv.summary),
-        h("p", { class: "muted small" }, `${r.calc ? `Hisob-kitoblar: ${r.calc.correct}/${r.calc.total} to'g'ri · ` : ""}${r.at ? fmtDate(r.at) : ""}${rv.estimated ? " · taxminiy baho" : ""}`))),
+        h("p", { class: "muted small" }, `${r.calc && !r.docx ? `Hisob-kitoblar: ${r.calc.correct}/${r.calc.total} to'g'ri · ` : ""}${r.at ? fmtDate(r.at) : ""}${rv.estimated ? " · taxminiy baho" : ""}`))),
     integrityAlert(r.integrity),
     crit.length > 0 && h("div", { class: "crit-bars" }, crit.map((c) => {
       const v = rv.scores?.[c.key] ?? 0;

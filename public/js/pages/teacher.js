@@ -41,7 +41,7 @@ const SECTIONS = [
   { key: "tasks", icon: "🗂️", title: "Topshiriq yaratish", group: "class", desc: "Platformaning o'zida yangi topshiriq yarating: shart, kimga beriladi, muddat, ball va AI mezonlari. Talabalar ishlarini baholang." },
   { key: "meets", icon: "📹", title: "Jonli darslar (Meet)", group: "live", desc: "Google Meet orqali onlayn dars jadvali: vaqt, havola va kimga ko'rinishi. Talaba o'z guruhining darsini ko'radi va qo'shiladi." },
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
-  { key: "self-study", needsContent: true, icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
+  { key: "self-study", needsContent: true, not: "mikro", icon: "🧩", title: "Mustaqil ishlar", group: "class", desc: "Topshiriqlarni baholash va izoh yozish.", badge: (o) => o.ungraded && [`${o.ungraded} ta baholanmagan`, "warn"], meta: (o) => `${o.selfStudySubmissions} ta topshiriq` },
   { key: "roster", needsRoster: true, icon: "🔐", title: "Talabalar ro'yxati (ID raqam)", group: "class", desc: "Ro'yxat bo'yicha kiriladigan guruhlar: F.I.Sh. va identifikatsiya raqami ro'yxatini yuklash. Talaba faqat ro'yxat va ID raqam bo'yicha kira oladi.", meta: () => "faqat ro'yxat bo'yicha kirish" },
   { key: "dups", only: "mikro", icon: "🔍", title: "Takrorlanish tahlili (20 ball)", group: "class", desc: "20 ballik topshiriqda talabalar ishlari orasidagi takrorlanish: kim kim bilan, qaysi parchalar, raqamlar va ob'ekt aynan bir xil — batafsil izoh bilan." },
   { key: "scores", icon: "🧮", title: "Ball jadvali (ma'ruza / amaliy)", group: "class", desc: "Semestr bo'yicha har bir talabaning ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat bahosi (5 ballik) va jami. Oraliq bahoni shu yerda kiritasiz; Excel'ga yuklash mumkin." },
@@ -61,7 +61,7 @@ const SECTIONS = [
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
   { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
-].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || [].concat(x.only).includes(SUBJECT_KEY)) && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
+].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || [].concat(x.only).includes(SUBJECT_KEY)) && x.not !== SUBJECT_KEY && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
 const readRecent = () => {
   try {
@@ -323,7 +323,7 @@ async function scoresView(el) {
             h("td", { class: "center small", title: r.scoring.mode === "assignment" ? `20 ballik topshiriq ${fmtS(r.lecture.assignment)} + nazorat testlari ${fmtS(r.lecture.midterms)}` : `Tushunchalar ${r.lecture.glossaryPct}% · nazorat savollari ${r.lecture.questionsPct}% · test ${r.lecture.testsPct}%` }, `${fmtS(r.lecture.points)} / ${fmtS(r.lecture.max)}`),
             h("td", { class: "center small", title: r.scoring.mode === "assignment" ? `Nazariy qism ${fmtS(r.practice.theory)} / ${fmtS(r.practice.theoryMax)} + darslik amaliy topshiriqlari ${fmtS(r.practice.practiceOnly)} / ${fmtS(r.practice.practiceMax)}` : `Amaliyot ${r.practice.practicePct}%` }, `${fmtS(r.practice.points)} / ${fmtS(r.practice.max)}`),
             h("td", { class: "center" }, r.scoring.mode === "assignment" ? midCell(r) : [inp, " ", save, r.midtermSource === "exam" && h("div", { class: "muted small" }, "nazorat testi")]),
-            h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`)),
+            h("td", { class: "center" }, h("b", {}, `${fmtS(r.total)} / ${fmtS(r.totalMax)}`), r.passMark != null && h("div", { class: `small ${r.passed ? "ok" : "muted"}`, title: `O'tish bali (60%): ${fmtS(r.passMark)}` }, r.passed ? "✅ o'tdi" : `o'tish: ${fmtS(r.passMark)}`)),
             h("td", {}, h("button", { class: "btn small ghost", title: "Qaysi mavzu va vazifadan necha ball olgani", onclick: () => detail(r) }, "📋 Batafsil")));
         })))) : emptyState("👥", "Talabalar topilmadi"));
     };
@@ -1590,9 +1590,9 @@ async function practiceReviews(el) {
         h("thead", {}, h("tr", {}, ["Sana", "Talaba", "Guruh", "Mavzu", "Hisob-kitob", "AI baho", "O'qituvchi", ""].map((t) => h("th", {}, t)))),
         h("tbody", {}, rs.map((r) => {
           const t = TOPICS.find((x) => x.id === r.topicId);
-          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, r.user?.name), h("td", {}, r.user?.group || "—"), h("td", {}, `${t?.num}. ${t?.title}`), h("td", {}, `${r.calc.correct}/${r.calc.total}`), h("td", {}, h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : " ~"), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"}/10` : "—"), h("td", {}, h("button", { class: "btn small", onclick: () => practiceModal(r, criteria, () => practiceReviews(el)) }, "Ko'rish")));
+          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, r.user?.name), h("td", {}, r.user?.group || "—"), h("td", {}, `${t?.num}. ${t?.title}`), h("td", {}, (r.docx ? "📄 Word" : `${r.calc?.correct}/${r.calc?.total}`)), h("td", {}, h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : " ~"), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"}/10` : "—"), h("td", {}, h("button", { class: "btn small", onclick: () => practiceModal(r, criteria, () => practiceReviews(el)) }, "Ko'rish")));
         })))),
-      h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => downloadFile("amaliy-mashgulotlar-ai.csv", toCSV([["Sana", "Talaba", "Guruh", "Mavzu", "To'g'ri hisob-kitob", "Jami hisob-kitob", ...criteria.map((c) => `${c.name} (${c.max})`), "AI baho (10)", "AI", "O'qituvchi bahosi", "O'qituvchi izohi"], ...rs.map((r) => [r.createdAt.slice(0, 10), r.user?.name, r.user?.group, TOPICS.find((x) => x.id === r.topicId)?.num, r.calc.correct, r.calc.total, ...criteria.map((c) => r.review.scores?.[c.key] ?? ""), r.total, r.ai ? "ha" : "taxminiy", r.teacher?.grade ?? "", r.teacher?.comment ?? ""])])) }, "⬇ CSV (Excel)"))
+      h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => downloadFile("amaliy-mashgulotlar-ai.csv", toCSV([["Sana", "Talaba", "Guruh", "Mavzu", "To'g'ri hisob-kitob", "Jami hisob-kitob", ...criteria.map((c) => `${c.name} (${c.max})`), "AI baho (10)", "AI", "O'qituvchi bahosi", "O'qituvchi izohi"], ...rs.map((r) => [r.createdAt.slice(0, 10), r.user?.name, r.user?.group, TOPICS.find((x) => x.id === r.topicId)?.num, r.calc?.correct, r.calc?.total, ...criteria.map((c) => r.review.scores?.[c.key] ?? ""), r.total, r.ai ? "ha" : "taxminiy", r.teacher?.grade ?? "", r.teacher?.comment ?? ""])])) }, "⬇ CSV (Excel)"))
     );
   };
   [topicSel, groupSel, lastOnly].forEach((x) => x.addEventListener("change", draw));
@@ -1610,7 +1610,8 @@ function practiceModal(r, criteria, reload) {
       return h("li", {}, h("b", {}, task.title), ": ", a?.values?.filter(Boolean).join(" · ") || "—", a?.ok ? " ✓" : a?.values?.some(Boolean) ? " ✗" : "", a?.work && h("div", { class: "muted" }, "Yechim yo'li: ", a.work));
     })),
     (t?.practice?.open || []).map((q, i) => h("div", { class: "small" }, h("b", {}, `K${i + 1}. ${q}`), h("p", {}, r.answers?.open?.[i] || "—"))),
-    r.answers?.conclusion && h("div", { class: "small" }, h("b", {}, "Xulosa: "), r.answers.conclusion));
+    r.answers?.conclusion && h("div", { class: "small" }, h("b", {}, "Xulosa: "), r.answers.conclusion),
+    r.answers?.docText && h("div", { class: "small" }, h("b", {}, `Word fayl matni (${r.docx?.name || ""}, masalalar: ${(r.docx?.tasks || []).join(", ")}): `), h("p", { style: { whiteSpace: "pre-wrap" } }, r.answers.docText.slice(0, 6000))));
   let close;
   close = modal(`${r.user?.name} — ${t?.num}-amaliy mashg'ulot`, h("div", { class: "stack" },
     reviewView({ ...r, criteria, at: r.createdAt }),

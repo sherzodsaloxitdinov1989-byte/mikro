@@ -1,7 +1,7 @@
 // Semestr ball tizimi: ma'ruza va amaliy mashg'ulot (fan va ta'lim shakliga qarab), oraliq nazorat alohida.
 // Ma'ruza ishi (har mavzuda teng ulushda): 1) «Tushuncha va uning ta'rifi» (ochilgan kartalar), 2) «Nazorat savollariga javob» (yozilgan javoblar),
 // 3) «O'zingizni sinang» (mavzu testi natijasi). Amaliy ish: har mavzuning «Amaliy mashg'ulot» bo'limi — masalalarni to'g'ri yechish yoki AI/o'qituvchi bahosi (qaysi biri yuqori bo'lsa).
-import { scoringOf } from "../public/data/course.js";
+import { scoringOf, PASS_PCT } from "../public/data/course.js";
 
 const r2 = (n) => Math.round(n * 100) / 100;
 const mean = (a) => (a.length ? a.reduce((n, v) => n + v, 0) / a.length : 0);
@@ -11,6 +11,9 @@ const mean = (a) => (a.length ? a.reduce((n, v) => n + v, 0) / a.length : 0);
  * Qaytaradi: { scoring, lecture:{max,workMax,work,midterm,points,tests,tasks}, practice:{max,points,...}, midtermGrade, total, totalMax, extra }
  */
 export const ANSWER_MIN_CHARS = 20; // nazorat savoliga yozilgan javob hisobga olinishi uchun eng kam belgi
+
+/** O'tish bali: eng ko'p to'planadigan ballning 60% i. */
+const passOf = (total, max) => ({ passMark: r2((max * PASS_PCT) / 100), passed: total >= r2((max * PASS_PCT) / 100) });
 
 export function computeScore(inp) {
   const sc = scoringOf(inp.subject, inp.form, inp.group, inp.semNo);
@@ -33,9 +36,10 @@ export function computeScore(inp) {
     }
     if (tp.questions) {
       let n = 0;
-      for (let i = 0; i < tp.questions; i++) if (String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS) n++;
+      // AI bahosi (0–10) bo'lsa, javob sifati hisobga olinadi; bo'lmasa — yozilgan javob (eng kam belgi)
+      for (let i = 0; i < tp.questions; i++) n += inp.qgrades ? Math.min(10, inp.qgrades[`${tp.id}:${i}`] || 0) / 10 : String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS ? 1 : 0;
       q.push(n / tp.questions); parts.push(n / tp.questions);
-      row.questions = { answered: n, total: tp.questions };
+      row.questions = { answered: r2(n), total: tp.questions };
     }
     if (tp.hasQuiz) {
       const v = Math.min(100, st.quiz ?? 0) / 100;
@@ -74,6 +78,7 @@ export function computeScore(inp) {
       extra: 0,
       total: r2(lecPts + pracPts),
       totalMax: sc.lecture + sc.practice,
+      ...passOf(r2(lecPts + pracPts), sc.lecture + sc.practice),
     };
   }
   const planMax = sc.planMax || 0; // biznes-reja topshirig'i (ma'ruzaning bir qismi)
@@ -93,5 +98,6 @@ export function computeScore(inp) {
     extra: sc.midtermInLecture ? 0 : grade ?? 0, // masofaviy bo'lmaganlarda oraliq nazorat — alohida qo'shimcha ball (5 ballik)
     total: r2(lecTotal + practice),
     totalMax: sc.lecture + sc.practice,
+    ...passOf(r2(lecTotal + practice), sc.lecture + sc.practice),
   };
 }
