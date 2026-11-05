@@ -145,8 +145,11 @@ function checkGate() {
   if (!session.user || session.user.role === "teacher") return endGate();
   const key = gateKey();
   if (!key || acked(key)) return endGate();
-  if (gating && gateEl?.dataset.key === key) return;
-  showGate(key);
+  // Ogohlantirish oynasi ko'rsatilmaydi: ish boshlanishi jimgina qayd etiladi (himoya qoidalari avvalgidek ishlaydi)
+  const [, name] = gateInfo(key);
+  ack(key);
+  report("start", `${name}: ish boshlandi`);
+  endGate();
 }
 
 function endGate() {

@@ -41,7 +41,6 @@ async function renderList(el) {
     paint();
     timers.push(setInterval(paint, 15_000));
     btn.onclick = async () => {
-      if (!e.attempt && !(await confirmDialog(`Testni boshlaysizmi? Boshlagan paytingizdan ${e.durationMin} daqiqa hisoblanadi, vaqt to'xtamaydi va test faqat BIR marta topshiriladi.\n\nHimoya qoidalari (buzilsa, natija kamayadi):\n${SECURITY_RULES.map(([i, what, res]) => `${i} ${what} — ${res}`).join("\n")}\n${SECURITY_NOTE}`, { autoConfirmSec: 5 }))) return;
       btn.disabled = true;
       try { if (!e.attempt) await api.post(`exams/${e.id}/start`, {}); location.hash = `#/exam/${e.id}`; } catch (ex) { toast(ex.message, "error"); btn.disabled = false; }
     };
