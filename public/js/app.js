@@ -102,6 +102,19 @@ async function refreshTaskBadge() {
 window.addEventListener("tt:auth", refreshTaskBadge);
 setInterval(() => document.visibilityState === "visible" && Date.now() - taskPoll > 90_000 && ((taskPoll = Date.now()), refreshTaskBadge()), 30_000);
 
+/** Talaba roliga o'tgan o'qituvchi uchun: asosiy oynada doim ko'rinib turadigan «O'qituvchi roliga qaytish» paneli. */
+function roleReturnBar(user) {
+  document.getElementById("role-return")?.remove();
+  if (!user?.linkedTeacher) return;
+  const bar = h("div", { id: "role-return", style: { position: "fixed", top: "0", left: "0", right: "0", zIndex: "10000", background: "linear-gradient(90deg,#7c3aed,#2563eb)", color: "#fff", padding: "8px 14px", display: "flex", gap: "12px", alignItems: "center", justifyContent: "center", flexWrap: "wrap", boxShadow: "0 2px 12px rgba(0,0,0,.3)" } },
+    h("span", {}, "🎓 Siz hozir ", h("b", {}, "talaba roli"), "dasiz"),
+    h("button", { class: "btn", style: { background: "#fff", color: "#1e3a8a", fontWeight: "700" }, onclick: async () => {
+      try { const r = await api.post("auth/teacher-mode", {}); session.set(r.token, r.user); location.hash = "#/teacher"; setTimeout(() => location.reload(), 50); } catch (e) { toast(e.message, "error"); }
+    } }, "👩‍🏫 O'qituvchi roliga qaytish"));
+  document.body.append(bar);
+  document.body.style.paddingTop = "52px";
+}
+
 function renderNav() {
   const path = location.hash || "#/";
   const user = session.user;
@@ -120,6 +133,8 @@ function renderNav() {
   } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
   if (stu && usesAiWork(user)) items = items.filter(([href]) => href !== "#/self-study"); // mustaqil ta'lim bu talabalarga kerak emas
   if (stu && isGuestGroup(user.group)) items = items.filter(([href]) => ["#/topics", "#/tasks"].includes(href)); // vaqtincha kirish: faqat mavzular va o'qituvchi topshirig'i
+  roleReturnBar(user);
+  if (!user?.linkedTeacher) document.body.style.paddingTop = "";
   // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
   const foot = document.querySelector(".footer-inner");
   if (foot) {
@@ -142,9 +157,6 @@ function renderNav() {
     nav,
     items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label, href === "#/tasks" && openTasks > 0 && h("span", { class: "nav-badge", title: "Topshirilmagan vazifalar" }, openTasks))),
     switcher,
-    user?.linkedTeacher && h("button", { class: "btn small", style: { margin: "6px 10px" }, onclick: async () => {
-      try { const r = await api.post("auth/teacher-mode", {}); session.set(r.token, r.user); location.hash = "#/teacher"; setTimeout(() => location.reload(), 50); } catch (e) { toast(e.message, "error"); }
-    } }, "👩‍🏫 O'qituvchi roliga qaytish"),
     user
       ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]), h("span", { class: `role-chip ${isTeacher ? "teacher" : "student"}` }, isTeacher ? "O'qituvchi" : "Talaba"))
       : h("a", { href: "#/login", class: "btn small" }, "Kirish")
