@@ -166,11 +166,25 @@ function showGate(key) {
   }
   gateEl.dataset.key = key;
   gateEl.innerHTML = `<div class="secure-shield-box" style="max-width:560px;text-align:left"><div style="font-size:2.4rem;text-align:center">${icon}</div><h2 style="text-align:center;margin:6px 0 4px">${name}ni boshlashdan oldin</h2><p class="muted small" style="text-align:center">Quyidagi qoidalarga zid harakat qilsangiz, ishingiz bahosi kamayadi.</p><ul style="padding-left:0;list-style:none;display:grid;gap:8px;margin:14px 0">${SECURITY_RULES.map(([i, what, res]) => `<li style="display:flex;gap:10px"><span>${i}</span><span><b>${what}</b><br><span class="muted small">→ ${res}</span></span></li>`).join("")}</ul><p class="small">${SECURITY_NOTE}</p><div style="text-align:center;margin-top:14px"><button class="btn lg" type="button">▶ Qoidalarni tushundim, boshlayman</button></div></div>`;
-  gateEl.querySelector("button").addEventListener("click", () => {
+  const btn = gateEl.querySelector("button");
+  const label = btn.textContent;
+  let left = 5;
+  let timer = null;
+  const begin = () => {
+    clearInterval(timer);
+    if (gateEl?.dataset.key !== key || !gating) return;
     ack(key);
     report("start", `${name}: ish boshlandi`);
     endGate();
-  });
+  };
+  btn.addEventListener("click", begin);
+  // Ogohlantirish 5 soniyadan so'ng o'zi yopiladi (sanash tugmada ko'rinib turadi)
+  btn.textContent = `${label} (${left})`;
+  timer = setInterval(() => {
+    left -= 1;
+    if (left <= 0) return begin();
+    btn.textContent = `${label} (${left})`;
+  }, 1000);
   gating = true;
   gateEl.classList.add("on");
   document.body.classList.add("secure-blur");
