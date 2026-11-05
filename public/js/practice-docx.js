@@ -4,6 +4,7 @@ import { h, toast } from "./ui.js";
 import { api } from "./api.js";
 import { reviewView } from "./practice-ui.js";
 import { confetti } from "./motion.js";
+import { saveBlob } from "./pages/assignment.js";
 
 export function docxPanel(topic) {
   const box = h("div", { class: "stack" }, h("div", { class: "card" }, h("div", { class: "sv-spinner" })));
@@ -43,7 +44,8 @@ export function docxPanel(topic) {
     if (d.last) result.replaceChildren(reviewView(d.last));
     box.replaceChildren(
       h("div", { class: `alert ${d.last ? "alert-success" : "alert-warn"}` }, d.last ? "Yechimingiz qabul qilingan va baholangan. Amaliy topshiriq faqat bir marta topshiriladi." : "Sizga bu mavzudan 2 ta masala biriktirilgan (har bir talabaga boshqacha). Masalalarni yeching, yechimni (formulalar, hisob-kitob, grafik va xulosa bilan) bitta Word (.docx) faylga joylab yuklang. DIQQAT: yechim faqat BIR marta topshiriladi — qayta yuklab bo'lmaydi, shuning uchun yuborishdan oldin yaxshilab tekshiring. AI 10 ballik tizimda baholaydi."),
-      d.tasks.map((t) => h("article", { class: "card practice-task" }, h("div", { class: "row" }, h("span", { class: "q-num" }, t.n), h("h4", {}, `${t.n}-masala`)), h("p", {}, t.text))),
+      ...d.tasks.map((t) => h("article", { class: "card practice-task" }, h("div", { class: "row" }, h("span", { class: "q-num" }, t.n), h("h4", {}, `${t.n}-masala`)), h("p", {}, t.text))),
+      h("div", { class: "row" }, h("button", { class: "btn", onclick: () => saveBlob(`practice/${topic.id}/pdf`, `amaliy-${topic.num}-mavzu.pdf`).catch((e) => toast(e.message, "error")) }, "⬇ Masalalarni PDF qilib yuklab olish")),
       !d.last && h("div", { class: "card ai-card" },
         h("h3", {}, "📄 Yechimni Word faylda yuklash"),
         h("div", { class: "row wrap", style: { gap: "10px", alignItems: "center" } }, h("button", { class: "btn ghost", onclick: () => file.click() }, "📎 Fayl tanlash"), chosen, file),
@@ -54,7 +56,7 @@ export function docxPanel(topic) {
 }
 
 /** Nazorat savoli kartasi (AI bahosi bilan): javob yoziladi, «Yuborish» bosiladi, AI 0–10 baho va izoh beradi. */
-export function aiQuestionCard(topic, q, i, saved, noteText, onNote) {
+export function aiQuestionCard(topic, q, i, saved, noteText, onNote, num = i + 1) {
   const ta = h("textarea", { rows: 4, placeholder: "Javobingizni qisqacha (2–4 gap) yozing va «Yuborish» tugmasini bosing…" }, noteText || "");
   ta.addEventListener("input", () => onNote(ta.value));
   const out = h("div");
@@ -84,5 +86,5 @@ export function aiQuestionCard(topic, q, i, saved, noteText, onNote) {
       btn.textContent = "Yuborish va AI bahosini olish (bir marta)";
     }
   });
-  return h("div", { class: "card question" }, h("div", { class: "row" }, h("span", { class: "q-num" }, i + 1), h("b", {}, q)), ta, h("div", { class: "row" }, btn), out);
+  return h("div", { class: "card question" }, h("div", { class: "row" }, h("span", { class: "q-num" }, num), h("b", {}, q)), ta, h("div", { class: "row" }, btn), out);
 }

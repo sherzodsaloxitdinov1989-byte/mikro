@@ -37,7 +37,7 @@ export function computeScore(inp) {
     if (tp.questions) {
       let n = 0;
       // AI bahosi (0–10) bo'lsa, javob sifati hisobga olinadi; bo'lmasa — yozilgan javob (eng kam belgi)
-      for (let i = 0; i < tp.questions; i++) n += inp.qgrades ? Math.min(10, inp.qgrades[`${tp.id}:${i}`] || 0) / 10 : String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS ? 1 : 0;
+      for (const i of tp.qIdx || Array.from({ length: tp.questions }, (_, k) => k)) n += inp.qgrades ? Math.min(10, inp.qgrades[`${tp.id}:${i}`] || 0) / 10 : String(notes[`${tp.id}:q${i}`] || "").trim().length >= ANSWER_MIN_CHARS ? 1 : 0;
       q.push(n / tp.questions); parts.push(n / tp.questions);
       row.questions = { answered: r2(n), total: tp.questions };
     }

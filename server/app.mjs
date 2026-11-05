@@ -20,7 +20,8 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
-import { pickPractice } from "../public/data/practice-pick.js";
+import { pickPractice, pickQuestions } from "../public/data/practice-pick.js";
+import { makePdf } from "./pdf-lite.mjs";
 import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview, textSimilarity, looksInjected, avgScores } from "./ai-work.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
@@ -3088,7 +3089,7 @@ async function questionReview(req, topicId, iStr) {
   const { user, topic } = await requireAiWork(req, topicId);
   const i = Number(iStr);
   const question = topic.questions?.[i];
-  if (!question) throw new HttpError(404, "Savol topilmadi");
+  if (!question || !pickQuestions(user.id, topic).includes(i)) throw new HttpError(404, "Bu savol sizga biriktirilmagan");
   const b = await body(req);
   const answer = str(b.answer, 2500);
   if (answer.length < 20) throw new HttpError(400, "Javobni kamida bir-ikki gap bilan yozing (20 belgidan kam bo'lmasin)");
@@ -3133,6 +3134,12 @@ async function adminPracticeDoc(req, topicId, uid) {
   return json({ text: d?.text || "" });
 }
 
+/** Talabaga biriktirilgan 5 ta nazorat savoli (aralashtirilgan tartibda): savol indekslari. */
+async function myQuestionList(req, topicId) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  return json({ indexes: pickQuestions(user.id, topic) });
+}
+
 async function myQuestionGrades(req, topicId) {
   const user = await requireUser(req);
   const items = await getEntries(`qgrade/${user.id}/${topicId}/`);
@@ -3145,6 +3152,20 @@ async function practiceAssigned(req, topicId) {
   const tasks = assignedTasks(user.id, topic).map(({ n, idx, text }) => ({ n, id: `open-${idx + 1}`, text }));
   const last = (await getMany(`practicereview/${user.id}/${topicId}/`)).filter((r) => r.docx).sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""))[0] || null;
   return json({ tasks, last: last && { ...last, answers: undefined, criteria: REVIEW_CRITERIA }, aiEnabled: aiEnabled() });
+}
+
+/** Talabaga biriktirilgan 2 ta masalani PDF fayl sifatida beradi (yechimni Word faylda qaytarish uchun). */
+async function practicePdf(req, topicId) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  const tasks = assignedTasks(user.id, topic);
+  const blocks = [
+    { text: `Amaliy mashg'ulot — ${topic.num}-mavzu`, size: 16, bold: true },
+    { text: topic.title, size: 12, gap: 4 },
+    { text: `Talaba: ${user.name}${user.group ? `, ${user.group}-guruh` : ""}`, size: 10, gap: 6 },
+    ...tasks.flatMap((t) => [{ text: `${t.n}-masala`, size: 13, bold: true, gap: 16 }, { text: t.text, size: 11, gap: 4 }]),
+    { text: "Yechimni (formulalar, hisob-kitob, grafik va xulosa bilan) bitta Word (.docx) faylga joylab, saytga yuklang. Yechim faqat bir marta topshiriladi.", size: 10, gap: 22 },
+  ];
+  return new Response(makePdf(blocks), { headers: { "content-type": "application/pdf", "content-disposition": `attachment; filename="amaliy-${topic.num}-mavzu.pdf"`, "cache-control": "no-store" } });
 }
 
 /** Word (.docx) yechimni qabul qiladi, matnini o'qib, AI bilan 10 ballik baholaydi. */
@@ -3220,7 +3241,7 @@ async function computeScoreRows(subject, semNo) {
     const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
     const aiWork = usesAiWork(u);
-    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds : topics.map((t) => ({ ...t, practiceTaskIds: pickPractice(u.id, topicObj.get(t.id)).filter((p) => p.kind === "task").map((p) => p.id) })), progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds.map((t) => ({ ...t, qIdx: pickQuestions(u.id, topicObj.get(t.id)), questions: Math.min(t.questions, 5) })) : topics.map((t) => ({ ...t, practiceTaskIds: pickPractice(u.id, topicObj.get(t.id)).filter((p) => p.kind === "task").map((p) => p.id) })), progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
@@ -4515,6 +4536,8 @@ const routes = [
   ["POST", /^admin\/assignment\/([\w-]+)\/(\d{1,2})\/review$/, adminAssignReview],
   ["POST", /^practice\/([\w-]+)\/review$/, practiceReview],
   ["GET", /^practice\/([\w-]+)\/assigned$/, practiceAssigned],
+  ["GET", /^practice\/([\w-]+)\/pdf$/, practicePdf],
+  ["GET", /^qreview\/([\w-]+)\/mine$/, myQuestionList],
   ["PUT", /^practice\/([\w-]+)\/docx$/, practiceDocx],
   ["POST", /^qreview\/([\w-]+)\/(\d{1,3})$/, questionReview],
   ["GET", /^qreview\/([\w-]+)$/, myQuestionGrades],

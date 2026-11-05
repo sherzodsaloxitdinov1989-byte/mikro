@@ -14,3 +14,14 @@ export function pickPractice(userId, topic) {
     .slice(0, PICK_COUNT)
     .map(({ it: { key, ...r } }) => r);
 }
+
+export const QUESTION_COUNT = 5;
+/** Nazorat savollari: har bir talabaga mavzudan 5 tasi aralashtirib (tasodifiy tartibda) beriladi; asl indekslar qaytariladi. */
+export function pickQuestions(userId, topic) {
+  const n = topic?.questions?.length || 0;
+  return Array.from({ length: n }, (_, i) => i)
+    .map((i) => ({ i, h: fnv(`${userId}:${topic.id}:q${i}`) }))
+    .sort((a, b) => a.h - b.h || a.i - b.i)
+    .slice(0, QUESTION_COUNT)
+    .map((x) => x.i);
+}

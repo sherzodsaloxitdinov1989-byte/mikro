@@ -9,6 +9,7 @@ import { TOPICS, METHOD_INFO, COURSE, BOOK_INTRO, LITERATURE } from "../../data/
 import { loadProgress, topicState, updateTopic, topicCompletion, setNote } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
 import { docxPanel, aiQuestionCard } from "../practice-docx.js";
+import { pickQuestions } from "../../data/practice-pick.js";
 import { usesAiWork } from "../../data/course.js";
 import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
@@ -109,7 +110,7 @@ export async function renderTopic(el, id) {
     videos.length > 0 && chapter("videos", "📹", "Video darslar", `${videos.length} ta video — o'qituvchi tomonidan joylangan`, h("div", { class: "video-grid" }, videos.map((v) => videoCard(v)))),
     chapter("theory", "📖", "Nazariya", `${topic.sections.length} bo'lim · ~${minutes} daqiqa o'qish · 🎧 tinglash mumkin`, theoryBlock(topic, (sec) => book.start(sec))),
     chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
-    chapter("questions", "❓", "Nazorat savollari", `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
+    chapter("questions", "❓", "Nazorat savollari", usesAiWork(session.user) ? `${Math.min(5, topic.questions.length)} ta savol (sizga biriktirilgan) · 🤖 AI bahosi` : `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", `${topic.quiz.length} ta test (mavzu matni asosida)`, quizTab(topic)),
     topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (usesAiWork(session.user) ? "2 ta masala — yechimni Word faylda yuklang · 🤖 AI bahosi" : session.user?.role === "student" ? "Sizga 2 ta masala biriktirilgan · 🤖 AI tekshiruv va feedback" : topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", (usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic))),
     !usesAiWork(session.user) && chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
@@ -381,9 +382,11 @@ function questionsTab(topic) {
   const answers = h("div", { class: "stack" });
   if (usesAiWork(session.user)) {
     Promise.all([loadProgress(), api.get(`qreview/${topic.id}`).catch(() => ({ grades: {} }))]).then(([p, g]) => {
-      answers.replaceChildren(...topic.questions.map((q, i) => aiQuestionCard(topic, q, i, g.grades[i], p.notes[`${topic.id}:q${i}`], (v) => setNote(`${topic.id}:q${i}`, v))));
+      // Har bir talabaga mavzudan 5 ta savol aralashtirib beriladi
+      const mine = pickQuestions(session.user.id, topic);
+      answers.replaceChildren(...mine.map((i, k) => aiQuestionCard(topic, topic.questions[i], i, g.grades[i], p.notes[`${topic.id}:q${i}`], (v) => setNote(`${topic.id}:q${i}`, v), k + 1)));
     });
-    return h("div", { class: "stack" }, h("div", { class: "alert alert-info" }, "Har bir savolga qisqacha (2–4 gap) yozma javob yozing va «Yuborish» tugmasini bosing — sun'iy intellekt 10 ballik tizimda baholaydi va izoh beradi. DIQQAT: har bir savolga faqat BIR marta javob beriladi."), answers);
+    return h("div", { class: "stack" }, h("div", { class: "alert alert-info" }, "Sizga bu mavzudan 5 ta nazorat savoli berilgan (har bir talabaga boshqacha tanlangan). Har bir savolga qisqacha (2–4 gap) yozma javob yozing va «Yuborish» tugmasini bosing — sun'iy intellekt 10 ballik tizimda baholaydi va izoh beradi. DIQQAT: har bir savolga faqat BIR marta javob beriladi."), answers);
   }
   loadProgress().then((p) => {
     answers.replaceChildren(
