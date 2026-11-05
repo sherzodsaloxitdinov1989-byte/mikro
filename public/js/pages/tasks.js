@@ -470,7 +470,9 @@ async function openSubmissions(body, id, listData, reloadList) {
     table);
   draw();
 
-  function openGrade(s, it) {
+  async function openGrade(s, it0) {
+    let it = it0;
+    if (it0.hasText) { try { it = Object.assign(it0, await api.get(`admin/tasks/${id}/submission/${it0.userId}`)); } catch (ex) { return toast(ex.message, "error"); } }
     const score = h("input", { type: "number", min: 0, max: task.max, step: 0.05, value: it.teacher?.score ?? "", style: { maxWidth: "120px" } });
     const comment = h("textarea", { rows: 3, placeholder: "Talabaga izoh va tavsiyalar" }, it.teacher?.comment || "");
     const closeGrade = modal(`${s.name} — ${task.title}`, h("div", { class: "stack" },

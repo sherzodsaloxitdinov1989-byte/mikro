@@ -1612,7 +1612,7 @@ function practiceModal(r, criteria, reload) {
     (t?.practice?.open || []).map((q, i) => h("div", { class: "small" }, h("b", {}, `K${i + 1}. ${q}`), h("p", {}, r.answers?.open?.[i] || "—"))),
     r.answers?.conclusion && h("div", { class: "small" }, h("b", {}, "Xulosa: "), r.answers.conclusion),
     r.copy && h("div", { class: "alert alert-warn small" }, `⚠️ Ish ${r.copy.name || "boshqa talaba"} yechimi bilan ${Math.round(r.copy.sim * 100)}% o'xshash (baho 50% ga kamaytirilgan).`),
-    r.answers?.docText && h("div", { class: "small" }, h("b", {}, `Word fayl matni (${r.docx?.name || ""}, masalalar: ${(r.docx?.tasks || []).join(", ")}): `), h("p", { style: { whiteSpace: "pre-wrap" } }, r.answers.docText.slice(0, 6000))));
+    r.docx && (() => { const box = h("p", { style: { whiteSpace: "pre-wrap" } }, "yuklanmoqda…"); api.get(`admin/practice-reviews/doc/${r.topicId}/${r.userId}`).then((d) => (box.textContent = (d.text || "—").slice(0, 6000))).catch(() => (box.textContent = "—")); return h("div", { class: "small" }, h("b", {}, `Word fayl matni (${r.docx?.name || ""}, masalalar: ${(r.docx?.tasks || []).join(", ")}): `), box); })());
   let close;
   close = modal(`${r.user?.name} — ${t?.num}-amaliy mashg'ulot`, h("div", { class: "stack" },
     reviewView({ ...r, criteria, at: r.createdAt }),

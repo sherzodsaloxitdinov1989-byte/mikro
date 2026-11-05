@@ -2004,7 +2004,17 @@ async function adminTaskSubs(req, id) {
   const students = users
     .filter((u) => u.role === "student" && taskLib.forStudent({ ...task, published: true }, taskAudience(u)))
     .map((u) => ({ id: u.id, name: u.name, email: u.email, group: u.group || "", studyForm: formKeyOf(u) }));
-  return json({ task, items, students, now: new Date().toISOString() });
+  // Ro'yxat yengil bo'lishi uchun matnlar (30–40 ming belgigacha) yuborilmaydi: ish ochilganda alohida olinadi
+  const light = items.map(({ text, docText, ...r }) => ({ ...r, hasText: Boolean(text || docText) }));
+  return json({ task, items: light, students, now: new Date().toISOString() });
+}
+
+async function adminTaskSub(req, id, uid) {
+  await requireTeacher(req);
+  if (!TASK_ID.test(id) || !/^[\w-]{6,64}$/.test(uid)) throw new HttpError(400, "So'rov noto'g'ri");
+  const rec = await db().get(tsubKey(id, uid));
+  if (!rec) throw new HttpError(404, "Ish topilmadi");
+  return json(rec);
 }
 
 async function adminTaskFile(req, id, uid) {
@@ -3035,12 +3045,18 @@ async function adminAiWorkReset(req) {
   if (!u || u.role !== "student" || !topic) throw new HttpError(404, "Talaba yoki mavzu topilmadi");
   assertSubject(teacher, topic.subject);
   let n = 0;
-  if (what === "practice") { for (const r of await getMany(`practicereview/${uid}/${topicId}/`)) if (r.docx) { await db().del(practiceReviewKey(uid, topicId, r.id)); n++; } }
+  if (what === "practice") { for (const r of await getMany(`practicereview/${uid}/${topicId}/`)) if (r.docx) { await db().del(practiceReviewKey(uid, topicId, r.id)); n++; } await db().del(`practicedoc/${topicId}/${uid}`); }
   else if (what === "questions") { for (const [k] of await getEntries(`qgrade/${uid}/${topicId}/`)) { await db().del(k); n++; } }
   else if (what === "quiz") { const key = `progress/${uid}`; const pr = await db().get(key); const st = pr?.topics?.[topicId]; if (st) { for (const f of ["quiz", "quizAttempts", "quizFirst", "quizLast", "quizAt", "quizIntegrity"]) delete st[f]; await db().set(key, pr); n = 1; } }
   else throw new HttpError(400, "what: practice | questions | quiz");
   scoreCache.clear();
   return json({ ok: true, removed: n });
+}
+
+async function adminPracticeDoc(req, topicId, uid) {
+  await requireTeacher(req);
+  const d = await db().get(`practicedoc/${topicId}/${uid}`);
+  return json({ text: d?.text || "" });
 }
 
 async function myQuestionGrades(req, topicId) {
@@ -3084,17 +3100,18 @@ async function practiceDocx(req, topicId) {
   let total = Math.round(Math.min(10, totalOf(review.scores)) * 10) / 10;
   // Boshqa talaba ishi bilan deyarli bir xil bo'lsa (nusxa ko'chirish) — baho yarmiga tushiriladi, o'qituvchi ko'radi
   let copy = null;
-  for (const o of await getMany(`practicereview/`)) {
-    if (o.topicId !== topicId || o.userId === user.id || !o.docx || !o.answers?.docText) continue;
-    const sim = textSimilarity(text, o.answers.docText);
-    if (sim >= 0.6 && (!copy || sim > copy.sim)) copy = { sim: Math.round(sim * 100) / 100, userId: o.userId, name: o.user?.name || "" };
+  for (const [k, o] of await getEntries(`practicedoc/${topicId}/`)) {
+    if (o.userId === user.id || !o.text) continue;
+    const sim = textSimilarity(text, o.text);
+    if (sim >= 0.6 && (!copy || sim > copy.sim)) copy = { sim: Math.round(sim * 100) / 100, userId: o.userId, name: o.name || "" };
   }
   if (copy) { total = Math.round((total / 2) * 10) / 10; review.mistakes = [...(review.mistakes || []), `Ish boshqa talaba yechimi bilan ${Math.round(copy.sim * 100)}% o'xshash: baho 50% ga kamaytirildi. Yechimni o'z so'zlaringiz bilan yozing.`]; }
   const rec = {
     id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, ...(copy ? { copy } : {}), max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.idx + 1) },
-    answers: { tasks: [], open: [], conclusion: "", docText: text.slice(0, 12000) }, ai: !review.estimated, model: review.estimated ? null : modelName(), createdAt: new Date().toISOString(),
+    answers: { tasks: [], open: [], conclusion: "" }, ai: !review.estimated, model: review.estimated ? null : modelName(), createdAt: new Date().toISOString(),
   };
   await db().set(practiceReviewKey(user.id, topicId, rec.id), rec);
+  await db().set(`practicedoc/${topicId}/${user.id}`, { userId: user.id, name: user.name, text: text.slice(0, 12000), at: rec.createdAt }); // matn alohida saqlanadi: ro'yxatlar yengil qoladi
   return json({ ...rec, answers: undefined, criteria: REVIEW_CRITERIA });
 }
 
@@ -4402,6 +4419,7 @@ const routes = [
   ["DELETE", /^admin\/tasks\/([\w-]+)$/, deleteTask],
   ["GET", /^admin\/tasks\/([\w-]+)\/submissions$/, adminTaskSubs],
   ["GET", /^admin\/tasks\/([\w-]+)\/file\/([\w-]+)$/, adminTaskFile],
+  ["GET", /^admin\/tasks\/([\w-]+)\/submission\/([\w-]+)$/, adminTaskSub],
   ["PUT", /^admin\/tasks\/([\w-]+)\/grade\/([\w-]+)$/, gradeTask],
   ["POST", /^admin\/tasks\/([\w-]+)\/review\/([\w-]+)$/, adminTaskReview],
   ["POST", /^admin\/tasks\/([\w-]+)\/retry\/([\w-]+)$/, adminTaskAllowRetry],
@@ -4423,6 +4441,7 @@ const routes = [
   ["POST", /^qreview\/([\w-]+)\/(\d{1,3})$/, questionReview],
   ["GET", /^qreview\/([\w-]+)$/, myQuestionGrades],
   ["POST", /^admin\/practice-reviews\/reset$/, adminAiWorkReset],
+  ["GET", /^admin\/practice-reviews\/doc\/([\w-]+)\/([\w-]+)$/, adminPracticeDoc],
   ["GET", /^practice\/reviews$/, myPracticeReviews],
   ["GET", /^admin\/practice-reviews$/, adminPracticeReviews],
   ["PUT", /^admin\/practice-reviews\/([\w-]+)\/([\w-]+)\/([\w-]+)$/, teacherPracticeComment],
