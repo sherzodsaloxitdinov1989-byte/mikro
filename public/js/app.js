@@ -1,5 +1,5 @@
 // Ilova marshrutizatori va navigatsiya.
-import { h, mount, errorBox } from "./ui.js";
+import { h, mount, errorBox, toast } from "./ui.js";
 import { session, api } from "./api.js";
 import { userHasContent, usesAiWork, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
@@ -142,6 +142,9 @@ function renderNav() {
     nav,
     items.map(([href, label, icon]) => h("a", { href, class: active(href) ? "active" : "" }, h("span", { class: "nav-icon" }, icon), label, href === "#/tasks" && openTasks > 0 && h("span", { class: "nav-badge", title: "Topshirilmagan vazifalar" }, openTasks))),
     switcher,
+    user?.linkedTeacher && h("button", { class: "btn small", style: { margin: "6px 10px" }, onclick: async () => {
+      try { const r = await api.post("auth/teacher-mode", {}); session.set(r.token, r.user); location.hash = "#/teacher"; setTimeout(() => location.reload(), 50); } catch (e) { toast(e.message, "error"); }
+    } }, "👩‍🏫 O'qituvchi roliga qaytish"),
     user
       ? h("a", { href: "#/profile", class: `nav-user ${active("#/profile") ? "active" : ""}` }, h("span", { class: "avatar" }, user.name.slice(0, 1).toUpperCase()), h("span", { class: "nav-user-name" }, user.name.split(" ")[0]), h("span", { class: `role-chip ${isTeacher ? "teacher" : "student"}` }, isTeacher ? "O'qituvchi" : "Talaba"))
       : h("a", { href: "#/login", class: "btn small" }, "Kirish")

@@ -779,6 +779,45 @@ async function resetByName(req) {
   return withCookie(json({ token, user: publicUser(user) }), token);
 }
 
+/** Bosh o'qituvchi uchun «talaba roli»: o'qituvchi hisobiga bog'langan alohida talaba profili (platformani talaba ko'zi bilan ko'rish va sinash). */
+async function teacherAsStudent(req) {
+  const teacher = await requireTeacher(req);
+  requireFullTeacher(teacher);
+  const b = await body(req);
+  const group = str(b.group, 60);
+  if (!(COURSE.groups || []).includes(group) ) throw new HttpError(400, "Guruhni ro'yxatdan tanlang");
+  const linkKey = `teacher-student/${teacher.id}`;
+  const link = await db().get(linkKey);
+  let st = link && (await db().get(userKey(link.id)));
+  const formKey = formOfGroup(group)?.key;
+  if (!st) {
+    const id = newId();
+    const email = `ts-${id.replace(/\W/g, "").slice(0, 12).toLowerCase()}@talaba.local`;
+    st = { id, email, name: teacher.name, role: "student", group, studyForm: formKey || undefined, college: "", cohort: "unassigned", createdAt: new Date().toISOString(), linkedTeacher: teacher.id, ...(await hashPassword(crypto.randomBytes(18).toString("base64url"))) };
+    st.code = await nextCode();
+    await db().set(userKey(id), st);
+    await db().set(emailKey(email), { id });
+    await db().set(linkKey, { id });
+  } else if (st.group !== group) {
+    st.group = group;
+    st.studyForm = formKey || undefined;
+    await db().set(userKey(st.id), st);
+  }
+  scoreCache.clear();
+  const token = createToken(st);
+  return withCookie(json({ token, user: publicUser(st) }), token);
+}
+
+/** Talaba roliga o'tgan o'qituvchi o'z o'qituvchi hisobiga qaytadi. */
+async function studentBackToTeacher(req) {
+  const st = await requireUser(req);
+  if (st.role !== "student" || !st.linkedTeacher) throw new HttpError(403, "Bu amal mavjud emas");
+  const teacher = await db().get(userKey(st.linkedTeacher));
+  if (!teacher || teacher.role !== "teacher") throw new HttpError(404, "O'qituvchi hisobi topilmadi");
+  const token = createToken(teacher);
+  return withCookie(json({ token, user: publicUser(teacher) }), token);
+}
+
 async function forgotPassword(req) {
   if (!mailEnabled()) throw new HttpError(503, "Elektron pochta xizmati sozlanmagan. O'qituvchi kodi orqali tiklashdan foydalaning yoki administratorga murojaat qiling.");
   const b = await body(req);
@@ -4393,6 +4432,8 @@ const routes = [
   ["POST", /^auth\/logout$/, endSession],
   ["POST", /^auth\/forgot$/, forgotPassword],
   ["POST", /^auth\/reset-id$/, resetByShifr],
+  ["POST", /^auth\/student-mode$/, teacherAsStudent],
+  ["POST", /^auth\/teacher-mode$/, studentBackToTeacher],
   ["POST", /^auth\/reset-name$/, resetByName],
   ["POST", /^auth\/reset-code$/, resetWithCode],
   ["POST", /^auth\/teacher-code$/, teacherSignupCode],

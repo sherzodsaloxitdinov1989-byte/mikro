@@ -20,7 +20,7 @@ import { teacherView as assignmentView } from "./assignment.js";
 import { teacherView as securityView } from "./security.js";
 import { view as testbankView } from "./testbank.js";
 import { teacherView as tasksView } from "./tasks.js";
-import { formByKey, SUBJECTS, subjectOfGroup, subjectByKey, teacherSubjects } from "../../data/course.js";
+import { COURSE as COURSE_ALL, formByKey, SUBJECTS, subjectOfGroup, subjectByKey, teacherSubjects } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
 
 const COHORTS = { experimental: "Tajriba (TG)", control: "Nazorat (NG)", unassigned: "Belgilanmagan" };
@@ -648,6 +648,22 @@ function gallery(o) {
 
 // ---------------- Umumiy ----------------
 
+/** Bosh o'qituvchi: platformani talaba ko'zi bilan ko'rish (alohida bog'langan talaba profili orqali). */
+function studentModeCard() {
+  if (Array.isArray(session.user?.subjects)) return null; // faqat bosh o'qituvchi
+  const select = h("select", {}, (COURSE_ALL.groups || []).map((g) => h("option", { value: g }, g)));
+  return h("div", { class: "card row between wrap", style: { gap: "10px", alignItems: "center" } },
+    h("div", {}, h("b", {}, "🎓 Talaba rolida kirish"), h("p", { class: "muted small" }, "Platformani talaba ko'zi bilan ko'ring va sinab ko'ring. Alohida sinov profili ochiladi (sizning ismingiz bilan); tanlangan guruh talabasi sifatida ishlaysiz. Qaytish: yuqoridagi «O'qituvchi roliga qaytish» tugmasi."),),
+    h("div", { class: "row", style: { gap: "8px" } }, select, h("button", { class: "btn", onclick: async () => {
+      try {
+        const res = await api.post("auth/student-mode", { group: select.value });
+        session.set(res.token, res.user);
+        location.hash = "#/";
+        setTimeout(() => location.reload(), 50);
+      } catch (e) { toast(e.message, "error"); }
+    } }, "Talaba sifatida kirish")));
+}
+
 async function overview(el) {
   const o = await api.get("admin/overview");
   // Ko'rsatkichlar tanlangan fan bo'yicha hisoblanadi (umumiy hisoblagich emas)
@@ -665,6 +681,7 @@ async function overview(el) {
   mount(
     el,
     h("div", { class: "role-banner teacher" }, h("b", {}, "👩‍🏫 O'qituvchi paneli"), h("span", {}, " — bu bo'lim faqat o'qituvchi uchun: baholash, talabalar va kontent boshqaruvi. Talabalar bu panelni ko'rmaydi.")),
+    studentModeCard(),
     gallery(o),
     h("h2", { class: "tp-group-title", style: { "--hue": 220 } }, "📊 Umumiy ko'rsatkichlar"),
     !o.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: amaliy mashg'ulotlar avtomatik qoidalar asosida taxminiy baholanadi, AI Ustoz demo-rejimda. Cloudflare (yoki Netlify) sozlamalarida GEMINI_API_KEY (bepul) yoki ANTHROPIC_API_KEY maxfiy kalitini qo'shing."),
