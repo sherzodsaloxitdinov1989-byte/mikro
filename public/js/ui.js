@@ -60,17 +60,31 @@ export function modal(title, content, { wide = false } = {}) {
   return close;
 }
 
-export function confirmDialog(message) {
+export function confirmDialog(message, { autoConfirmSec = 0 } = {}) {
   return new Promise((resolve) => {
     let close;
+    let yes;
+    let timer = null;
     const done = (v) => {
+      clearInterval(timer);
       close();
       resolve(v);
     };
     close = modal(
       "Tasdiqlash",
-      h("div", {}, h("p", { style: { whiteSpace: "pre-line" } }, message), h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => done(false) }, "Bekor qilish"), h("button", { class: "btn danger", onclick: () => done(true) }, "Ha, davom etish")))
+      h("div", {}, h("p", { style: { whiteSpace: "pre-line" } }, message), h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => done(false) }, "Bekor qilish"), yes = h("button", { class: "btn danger", onclick: () => done(true) }, "Ha, davom etish")))
     );
+    // Ogohlantirish oynasi: berilgan soniyadan so'ng o'zi tasdiqlanadi (sanash tugmada ko'rinadi); talaba «Bekor qilish» ni bosishi mumkin
+    if (autoConfirmSec > 0) {
+      let left = autoConfirmSec;
+      const label = yes.textContent;
+      yes.textContent = `${label} (${left})`;
+      timer = setInterval(() => {
+        left -= 1;
+        if (left <= 0) return done(true);
+        yes.textContent = `${label} (${left})`;
+      }, 1000);
+    }
   });
 }
 
