@@ -17,7 +17,9 @@ const lastSent = {};
 
 let gating = false; // «Boshlash» oynasi ochiq: sahifa yopiq, hodisalar hisoblanmaydi
 let gateEl = null;
-const active = () => session.user && session.user.role !== "teacher" && !gating && (routeSecure || zoneVisible);
+// Himoya qoidalari faqat «Boshlash» tugmasi bosilgandan keyin ishlaydi (test/topshiriq/vazifa/mashq sahifalarida); undan oldin hodisalar hisoblanmaydi
+const started = () => { const k = gateKey(); return !k || acked(k); };
+const active = () => session.user && session.user.role !== "teacher" && !gating && (routeSecure || zoneVisible) && started();
 const pageName = () => (location.hash || "#/").split("?")[0].slice(0, 80);
 
 /** Talaba shu paytda nima qilayotgani (o'qituvchiga qayd etiladi): sahifa va ko'rinib turgan bo'lim bo'yicha. */
@@ -41,6 +43,7 @@ function describeAction() {
 
 export function report(type, detail = "") {
   if (!session.user || session.user.role === "teacher") return;
+  if (type !== "start" && !started()) return; // «Boshlash» bosilmaguncha hodisalar qayd etilmaydi
   const now = Date.now();
   if (now - (lastSent[type] || 0) < 4000) return;
   lastSent[type] = now;
@@ -142,14 +145,39 @@ export function aiBlocked() {
 }
 
 function checkGate() {
-  if (!session.user || session.user.role === "teacher") return endGate();
+  if (!session.user || session.user.role === "teacher") return hideStart();
   const key = gateKey();
-  if (!key || acked(key)) return endGate();
-  // Ogohlantirish oynasi ko'rsatilmaydi: ish boshlanishi jimgina qayd etiladi (himoya qoidalari avvalgidek ishlaydi)
-  const [, name] = gateInfo(key);
-  ack(key);
-  report("start", `${name}: ish boshlandi`);
-  endGate();
+  if (!key || acked(key)) return hideStart();
+  showStart(key);
+}
+
+let startEl = null;
+function hideStart() {
+  startEl?.remove();
+  startEl = null;
+}
+/** Ogohlantirish oynasi emas — sahifa ochiq turadi, pastda «Boshlash» tugmasi: bosilgandan keyingina himoya qoidalari kuchga kiradi. */
+function showStart(key) {
+  if (startEl?.dataset.key === key) return;
+  hideStart();
+  const [icon, name] = gateInfo(key);
+  startEl = document.createElement("div");
+  startEl.dataset.key = key;
+  startEl.style.cssText = "position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:10000;background:var(--card,#fff);border:1px solid var(--line,#d0d7de);border-radius:14px;padding:10px 14px;box-shadow:0 8px 28px rgba(0,0,0,.22);display:flex;gap:12px;align-items:center;max-width:calc(100vw - 24px)";
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.type = "button";
+  btn.textContent = `▶ ${name}ni boshlash`;
+  btn.addEventListener("click", () => {
+    ack(key);
+    report("start", `${name}: ish boshlandi`);
+    hideStart();
+  });
+  const label = document.createElement("span");
+  label.textContent = `${icon} Tayyor bo'lganingizda bosing`;
+  label.className = "small";
+  startEl.append(label, btn);
+  document.body.append(startEl);
 }
 
 function endGate() {
@@ -197,7 +225,7 @@ export function setRouteSecure(on) {
   routeSecure = on;
   document.body.classList.toggle("secure-route", on);
   if (!on && !zoneVisible) hideShield();
-  if (on && session.user && session.user.role !== "teacher" && !document.hasFocus() && !gating) showShield("Sahifaga qaytganingizda davom eting.");
+  if (on && session.user && session.user.role !== "teacher" && !document.hasFocus() && !gating && started()) showShield("Sahifaga qaytganingizda davom eting.");
   setTimeout(checkGate, 60);
 }
 
