@@ -111,7 +111,7 @@ export async function renderTopic(el, id) {
     chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
     chapter("questions", "❓", "Nazorat savollari", `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", `${topic.quiz.length} ta test (mavzu matni asosida)`, quizTab(topic)),
-    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (usesAiWork(session.user) ? "2 ta masala — yechimni Word faylda yuklang · 🤖 AI bahosi" : topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", (usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic))),
+    topic.practice && chapter("practice", "🧮", "Amaliy mashg'ulot", (usesAiWork(session.user) ? "2 ta masala — yechimni Word faylda yuklang · 🤖 AI bahosi" : session.user?.role === "student" ? "Sizga 2 ta masala biriktirilgan · 🤖 AI tekshiruv va feedback" : topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", (usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic))),
     !usesAiWork(session.user) && chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
   );
 

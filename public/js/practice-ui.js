@@ -5,12 +5,19 @@ import { api, session } from "./api.js";
 import { topicState, updateTopic } from "./progress.js";
 import { checkField } from "../data/practice-lib.js";
 import { COURSE } from "../data/topics.js";
+import { pickPractice } from "../data/practice-pick.js";
 import { confetti, shake } from "./motion.js";
 
 const changed = () => window.dispatchEvent(new Event("vgt:progress"));
 
 export function practicePanel(topic) {
-  const pr = topic.practice;
+  // Talabaga mavzudan faqat 2 ta masala beriladi (o'qituvchiga hammasi ko'rinadi)
+  const pick = session.user?.role === "student" ? pickPractice(session.user.id, topic) : null;
+  const pr = pick
+    ? { ...topic.practice, tasks: topic.practice.tasks.filter((t) => pick.some((p) => p.kind === "task" && p.id === t.id)) }
+    : topic.practice;
+  const openAll = topic.practice.open || [];
+  const openIdx = pick ? pick.filter((p) => p.kind === "open").map((p) => p.idx).sort((a, b) => a - b) : openAll.map((_, i) => i);
   const st = topicState(topic.id);
   st.practice ||= {};
   const draft = (st.practiceDraft ||= { open: [], conclusion: "" });
@@ -27,7 +34,8 @@ export function practicePanel(topic) {
 
   const taskCards = pr.tasks.map((task, idx) => taskCard(topic, task, idx, st, drawSummary));
 
-  const openBoxes = (pr.open || []).map((q, i) => {
+  const openBoxes = openIdx.map((i) => {
+    const q = openAll[i];
     const ta = h("textarea", { rows: 5, placeholder: "Javobingizni yozing: raqamlarga tayaning, sabab va taklifni ko'rsating..." }, draft.open[i] || "");
     ta.addEventListener("input", () => updateTopic(topic.id, (s) => ((s.practiceDraft ||= { open: [], conclusion: "" }).open[i] = ta.value)));
     return h("div", { class: "card practice-open" }, h("div", { class: "row" }, h("span", { class: "q-num" }, `K${i + 1}`), h("b", {}, q)), ta);
@@ -48,7 +56,7 @@ export function practicePanel(topic) {
     }
     const payload = {
       tasks: Object.fromEntries(pr.tasks.map((t) => [t.id, { values: st.practice[t.id]?.values || [], work: st.practice[t.id]?.work || "" }])),
-      open: (pr.open || []).map((_, i) => topicState(topic.id).practiceDraft?.open?.[i] || ""),
+      open: openAll.map((_, i) => (openIdx.includes(i) ? topicState(topic.id).practiceDraft?.open?.[i] || "" : "")),
       conclusion: topicState(topic.id).practiceDraft?.conclusion || "",
     };
     aiBtn.disabled = true;

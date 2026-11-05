@@ -6,14 +6,19 @@ import { loadProgress, topicState } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
 import { docxPanel } from "../practice-docx.js";
 import { usesAiWork } from "../../data/course.js";
+import { pickPractice } from "../../data/practice-pick.js";
+// Talabaga mavzudan faqat 2 ta masala beriladi
+const mine = (t) => (session.user?.role === "student" ? pickPractice(session.user.id, t) : null);
+const myTasks = (t) => { const p = mine(t); return p ? t.practice.tasks.filter((k) => p.some((x) => x.kind === "task" && x.id === k.id)) : t.practice.tasks; };
+const myOpenCount = (t) => { const p = mine(t); return p ? p.filter((x) => x.kind === "open").length : t.practice.open?.length || 0; };
 import { groupedBySemester } from "../semester.js";
 
 export async function renderList(el) {
   await loadProgress();
   const history = session.user ? await api.get("practice/reviews").catch(() => null) : null;
   const items = TOPICS.filter((t) => t.practice);
-  const totalTasks = items.reduce((s, t) => s + t.practice.tasks.length, 0);
-  const solved = items.reduce((s, t) => s + t.practice.tasks.filter((k) => topicState(t.id).practice?.[k.id]?.ok).length, 0);
+  const totalTasks = items.reduce((s, t) => s + myTasks(t).length, 0);
+  const solved = items.reduce((s, t) => s + myTasks(t).filter((k) => topicState(t.id).practice?.[k.id]?.ok).length, 0);
   const reviewed = items.filter((t) => topicState(t.id).aiReview).length;
   mount(
     el,
@@ -27,13 +32,13 @@ export async function renderList(el) {
     ...groupedBySemester(items, (list) => h("div", { class: "grid cols-2" },
       list.map((t) => {
         const st = topicState(t.id);
-        const ok = t.practice.tasks.filter((k) => st.practice?.[k.id]?.ok).length;
+        const ok = myTasks(t).filter((k) => st.practice?.[k.id]?.ok).length;
         return h("a", { href: `#/practice/${t.id}`, class: "card topic-card tilt" },
           h("div", { class: "topic-num" }, t.icon, h("span", {}, `${t.num}-amaliy mashg'ulot`)),
           h("h3", {}, t.title),
           h("p", { class: "muted small clamp" }, t.practice.goal),
-          h("div", { class: "row between small muted" }, h("span", {}, (t.practice.tasks.length ? `🧮 ${t.practice.tasks.length} masala · 📁 ${t.practice.open?.length || 0} keys` : `📁 ${t.practice.open?.length || 0} masala va topshiriq`)), h("span", {}, st.aiReview ? `🤖 ${st.aiReview.total}/10` : "AI tekshiruvi yo'q")),
-          progressBar(Math.round((ok / t.practice.tasks.length) * 100)));
+          h("div", { class: "row between small muted" }, h("span", {}, (myTasks(t).length ? `🧮 ${myTasks(t).length} masala · 📁 ${myOpenCount(t)} keys` : `📁 ${myOpenCount(t)} masala va topshiriq`)), h("span", {}, st.aiReview ? `🤖 ${st.aiReview.total}/10` : "AI tekshiruvi yo'q")),
+          progressBar(myTasks(t).length ? Math.round((ok / myTasks(t).length) * 100) : 0));
       }))),
     history?.reviews?.length > 0 && h("details", { class: "card" }, h("summary", {}, h("b", {}, `📜 AI tekshiruvlari tarixi (${history.reviews.length})`)),
       h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Sana"), h("th", {}, "Mavzu"), h("th", {}, "Hisob-kitob"), h("th", {}, "Baho"), h("th", {}, "O'qituvchi"))),

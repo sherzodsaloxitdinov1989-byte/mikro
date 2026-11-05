@@ -20,6 +20,7 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
+import { pickPractice } from "../public/data/practice-pick.js";
 import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview, textSimilarity, looksInjected, avgScores } from "./ai-work.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
@@ -2223,6 +2224,14 @@ async function practiceReview(req, topicId) {
   const b = await body(req);
   if (JSON.stringify(b).length > 60_000) throw new HttpError(413, "Javoblar hajmi juda katta");
   const sub = normalizeSubmission(topicId, b);
+  // Talabaga mavzudan faqat 2 ta masala beriladi: qolganlari tekshirilmaydi
+  let openIdx = null;
+  if (sub && user.role === "student") {
+    const pick = pickPractice(user.id, sub.topic);
+    sub.tasks = sub.tasks.filter((t) => pick.some((p) => p.kind === "task" && p.id === t.id));
+    openIdx = pick.filter((p) => p.kind === "open").map((p) => p.idx).sort((a, b) => a - b);
+    sub.open = openIdx.map((i) => sub.open[i]);
+  }
   if (!sub || !canUseSubject(user, sub.topic.subject)) throw new HttpError(404, "Bu mavzu uchun amaliy mashg'ulot topilmadi");
   const filled = sub.tasks.some((t) => t.attempted) || sub.open.some((o) => o.answer.trim().length >= 20) || sub.conclusion.trim().length >= 20;
   if (!filled) throw new HttpError(400, "Tekshirish uchun kamida bitta hisob-kitob yoki ochiq topshiriqni bajaring");
@@ -2264,7 +2273,7 @@ async function practiceReview(req, topicId) {
     max: 10,
     calc,
     review,
-    answers: { tasks: sub.tasks.map((t) => ({ id: t.id, values: t.fields.map((f) => f.given), work: t.work, ok: t.ok })), open: sub.open.map((o) => o.answer), conclusion: sub.conclusion },
+    answers: { tasks: sub.tasks.map((t) => ({ id: t.id, values: t.fields.map((f) => f.given), work: t.work, ok: t.ok })), open: openIdx ? (sub.topic.practice.open || []).map((_, i) => (openIdx.includes(i) ? sub.open[openIdx.indexOf(i)].answer : "")) : sub.open.map((o) => o.answer), conclusion: sub.conclusion },
     ai: !review.estimated,
     model: review.estimated ? null : modelName(),
     createdAt: new Date().toISOString(),
@@ -3125,6 +3134,7 @@ async function computeScoreRows(subject, semNo) {
   const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], subject === SUBJECTS[0].key ? getEntries("qgrade/") : []]);
   const qgBy = new Map();
   for (const [k, v] of qgrades) { const [, uid, tid, qi] = k.split("/"); (qgBy.get(uid) || qgBy.set(uid, {}).get(uid))[`${tid}:${qi}`] = v.best ?? v.score ?? 0; }
+  const topicObj = new Map((TOPICS_ALL[subject] || []).map((t) => [t.id, t]));
   const noTaskIds = topics.map((t) => ({ ...t, practiceTaskIds: [] }));
   const uidOf = (key) => key.split("/")[1];
   const group = (entries) => { const m = new Map(); for (const [k, v] of entries) (m.get(uidOf(k)) || m.set(uidOf(k), []).get(uidOf(k))).push(v); return m; };
@@ -3145,7 +3155,7 @@ async function computeScoreRows(subject, semNo) {
     const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
     const aiWork = usesAiWork(u);
-    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds : topics, progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds : topics.map((t) => ({ ...t, practiceTaskIds: pickPractice(u.id, topicObj.get(t.id)).filter((p) => p.kind === "task").map((p) => p.id) })), progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };

@@ -230,6 +230,11 @@ export function setRouteSecure(on) {
 }
 
 export function initSecureMode() {
+  // Fayl tanlash oynasi dastur orqali ochilganda (input.click() / showPicker()) ham oyna fokusi yo'qolishi jarima keltirmaydi
+  try {
+    const nativeClick = HTMLInputElement.prototype.click;
+    HTMLInputElement.prototype.click = function (...a) { if (this.type === "file") suppressUntil = Date.now() + 120_000; return nativeClick.apply(this, a); };
+  } catch {}
   // Fayl yuklash (topshiriq hisoboti) oynasi ochilganda brauzer fokusni yo'qotadi: bu holat hisobga olinmaydi
   document.addEventListener("click", (e) => {
     if (e.target?.closest?.("input[type=file], label")?.querySelector?.("input[type=file]") || e.target?.matches?.("input[type=file]")) suppressUntil = Date.now() + 120_000;
