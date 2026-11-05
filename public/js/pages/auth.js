@@ -1,7 +1,7 @@
 import { h, mount, toast } from "../ui.js";
 import { api, session } from "../api.js";
 import { TOPICS, SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
-import { userHasContent, GUEST_GROUPS, isGuestGroup, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
+import { COURSE as COURSE_DATA, userHasContent, GUEST_GROUPS, isGuestGroup, subjectOfGroup, isRosterGroup, isRosterMigration, SUBJECTS } from "../../data/course.js";
 
 function afterLogin() {
   const next = sessionStorage.getItem("tt.after-login");
@@ -117,6 +117,38 @@ function loginPage(el, teacher) {
 }
 
 /** Parolni tiklash: email → pochtaga kelgan 6 xonali kod → yangi parol. Talaba ham, o'qituvchi ham shu yo'ldan foydalanadi. */
+/** Masofaviy ta'lim talabalari: email + guruh + F.I.Sh. bo'yicha parolni o'zi tiklaydi (pochta kerak emas). */
+function nameResetForm() {
+  const err = h("div");
+  const groups = (formByKeyLocal("masofaviy")?.groups || []);
+  const form = h("form", { class: "stack", onsubmit: async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    err.replaceChildren();
+    if (fd.get("newPassword") !== fd.get("newPassword2")) return err.replaceChildren(h("div", { class: "alert alert-error" }, "Parollar mos kelmadi"));
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    try {
+      const res = await api.post("auth/reset-name", { email: fd.get("email"), group: fd.get("group"), fullName: fd.get("fullName"), newPassword: fd.get("newPassword") });
+      session.set(res.token, res.user);
+      toast("Parol yangilandi", "ok");
+      afterLogin();
+    } catch (ex) {
+      err.replaceChildren(h("div", { class: "alert alert-error" }, ex.message));
+      btn.disabled = false;
+    }
+  } },
+    h("label", { class: "field" }, h("span", {}, "Guruh"), h("select", { name: "group", required: true }, h("option", { value: "" }, "Guruhingizni tanlang"), groups.map((g) => h("option", { value: g }, g)))),
+    field("Ro'yxatdan o'tgan email", { name: "email", type: "email", required: true, autocomplete: "email" }),
+    field("F.I.Sh. (ro'yxatdan o'tishdagidek)", { name: "fullName", required: true, autocomplete: "name", placeholder: "Masalan: Aliyev Vali" }),
+    field("Yangi parol (kamida 8 belgi)", { name: "newPassword", type: "password", required: true, minlength: 8, autocomplete: "new-password" }),
+    field("Yangi parolni takrorlang", { name: "newPassword2", type: "password", required: true, minlength: 8, autocomplete: "new-password" }),
+    err,
+    h("button", { class: "btn block lg", type: "submit" }, "Parolni yangilash va kirish"));
+  return h("details", { class: "card", open: true }, h("summary", {}, h("b", {}, "💻 Masofaviy ta'lim talabalari: parolni o'zingiz tiklang")), h("p", { class: "muted small" }, "Email, guruh va F.I.Sh. ro'yxatdan o'tishdagidek bo'lsa, yangi parol o'rnatiladi — pochta kerak emas."), form);
+}
+const formByKeyLocal = (k) => (COURSE_DATA.studyForms || []).find((f) => f.key === k);
+
 /** ID raqam bo'yicha parolni tiklash: pochta ham, o'qituvchi ham kerak emas. */
 function idResetForm() {
   const err = h("div");
@@ -164,7 +196,7 @@ async function forgotPage(el, teacher) {
   if (!teacher && !config.mailEnabled) return renderForgotStudentNoMail(el);
   if (!teacher && !legacy && new URLSearchParams(location.hash.split("?")[1] || "").get("by") !== "email") {
     // Talaba: avval ID raqam bilan tiklash (pochtasiz); email orqali tiklash — pastdagi havola
-    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, h("h1", {}, "Parolni tiklash"), idResetForm(),
+    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, h("h1", {}, "Parolni tiklash"), nameResetForm(), idResetForm(),
       h("p", { class: "center small" }, "ID raqamingiz yo'qmi (ro'yxat bo'yicha kirmaydigan guruh)? ", h("a", { href: "#/forgot?by=email" }, "Email orqali tiklash")),
       h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish")))));
   }
@@ -276,6 +308,7 @@ function renderForgotStudentNoMail(el) {
     h("div", { class: "auth-wrap" },
       h("div", { class: "card auth-card" },
         h("h1", {}, "Parolni tiklash"),
+        nameResetForm(),
         idResetForm(),
         h("div", { class: "alert alert-info" }, h("b", {}, "🎓 ID raqamingiz yo'qmi? "), "O'qituvchingizga murojaat qiling — u sizga vaqtinchalik parol beradi. Kirgach, uni Profil sahifasida o'zgartiring."),
         h("p", { class: "center muted" }, h("a", { href: "#/login" }, "← Kirish sahifasiga qaytish"))))

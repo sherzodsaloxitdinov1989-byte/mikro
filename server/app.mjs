@@ -753,6 +753,32 @@ async function resetByShifr(req) {
   return withCookie(json({ token, user: publicUser(user), email: maskEmail(user.email) }), token);
 }
 
+/** Masofaviy ta'lim talabalari uchun pochtasiz tiklash: email + guruh + F.I.Sh. profildagidek bo'lsa, yangi parol o'rnatiladi. */
+async function resetByName(req) {
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  const group = str(b.group, 60);
+  const fullName = str(b.fullName, 120);
+  const newPassword = typeof b.newPassword === "string" ? b.newPassword : "";
+  checkPasswordStrength(newPassword, "Yangi parol");
+  if (!validEmail(email) || !fullName) throw new HttpError(400, "Email va F.I.Sh. ni kiriting");
+  const ip = await bump(`ratelimit/name-reset-ip/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 30);
+  const per = await bump(`ratelimit/name-reset/${sha(email).slice(0, 32)}`, 3600_000, 6);
+  if (!ip.ok || !per.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring yoki o'qituvchiga murojaat qiling.");
+  const ref = await db().get(emailKey(email));
+  const user = ref && (await db().get(userKey(ref.id)));
+  const ok = user && user.role === "student" && user.group === group && formKeyOf(user) === "masofaviy" && !isRosterGroup(group) && nameMatches(user.name, fullName);
+  if (!ok) {
+    await new Promise((r) => setTimeout(r, 500));
+    throw new HttpError(403, "Ma'lumotlar mos kelmadi. Email, guruh va F.I.Sh. ro'yxatdan o'tishdagidek bo'lishi kerak. Emailingizni unutgan bo'lsangiz, o'qituvchiga murojaat qiling.");
+  }
+  Object.assign(user, await hashPassword(newPassword), { pwdV: (user.pwdV || 0) + 1, pwdResetAt: new Date().toISOString() });
+  await db().set(userKey(user.id), user);
+  await securityAlert(req, "password_reset_name", "info", "Masofaviy talaba parolini F.I.Sh. orqali tikladi", `${user.name} (${user.group}) parolini email, guruh va F.I.Sh. orqali o'zi tikladi.`, `${user.id}`, 3600_000).catch(() => {});
+  const token = createToken(user);
+  return withCookie(json({ token, user: publicUser(user) }), token);
+}
+
 async function forgotPassword(req) {
   if (!mailEnabled()) throw new HttpError(503, "Elektron pochta xizmati sozlanmagan. O'qituvchi kodi orqali tiklashdan foydalaning yoki administratorga murojaat qiling.");
   const b = await body(req);
@@ -4367,6 +4393,7 @@ const routes = [
   ["POST", /^auth\/logout$/, endSession],
   ["POST", /^auth\/forgot$/, forgotPassword],
   ["POST", /^auth\/reset-id$/, resetByShifr],
+  ["POST", /^auth\/reset-name$/, resetByName],
   ["POST", /^auth\/reset-code$/, resetWithCode],
   ["POST", /^auth\/teacher-code$/, teacherSignupCode],
   ["POST", /^auth\/reset$/, resetPassword],
