@@ -1497,6 +1497,23 @@ async function teachersView(el) {
         form,
         d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, ...subjChips(i.subjects), ...permChips(i.perms), h("span", { class: "muted small" }, ` (${i.by}, ${fmtDate(i.at)}) `), d.full && h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
         d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS, barcha fanlar): ", d.envEmails.join(", "))),
+      d.full && h("div", { class: "card stack" },
+        h("h3", {}, "🔑 O'qituvchi hisobini o'zim yarataman (pochtasiz)"),
+        h("p", { class: "muted small" }, "F.I.Sh. va email kiriting, fan va bo'limlarni belgilang — hisob darhol ochiladi va vaqtinchalik parol bir marta ko'rsatiladi. Uni o'qituvchiga bering; u kirgach, Profil sahifasida parolni o'zgartiradi. Pochta ulanishi shart emas."),
+        (() => {
+          const nm = h("input", { placeholder: "F.I.Sh.", required: true, style: { minWidth: "240px" } });
+          const em = h("input", { type: "email", placeholder: "email", required: true, style: { minWidth: "240px" } });
+          const sp = picker([]);
+          const pp = permPicker(d.permissions.map((p) => p.key));
+          return h("form", { class: "stack", onsubmit: async (e) => {
+            e.preventDefault();
+            try {
+              const r = await api.post("admin/teachers/create", { name: nm.value, email: em.value, ...sp.value(), ...pp.value() });
+              modal("O'qituvchi hisobi yaratildi", h("div", { class: "stack" }, h("p", {}, h("b", {}, r.name), ` (${r.email})`), h("p", {}, "Vaqtinchalik parol (faqat hozir ko'rsatiladi):"), h("code", { style: { fontSize: "1.4rem", userSelect: "all" } }, r.password), h("p", { class: "muted small" }, "Parolni nusxalab o'qituvchiga bering. U «O'qituvchi kirishi» sahifasidan shu email va parol bilan kiradi.")));
+              draw();
+            } catch (ex) { toast(ex.message, "error"); }
+          } }, h("div", { class: "row wrap" }, nm, em, h("button", { class: "btn", type: "submit" }, "➕ Hisob yaratish")), h("b", {}, "Qaysi fan(lar)ga biriktiriladi?"), sp, h("b", {}, "Qaysi bo'limlarga ruxsat?"), pp);
+        })()),
       h("div", { class: "card table-wrap" }, h("h3", {}, `Hozirgi o'qituvchilar (${d.teachers.length})`),
         h("table", { class: "table" }, h("thead", {}, h("tr", {}, ["F.I.Sh.", "Email", "Biriktirilgan fanlar", "Ruxsat etilgan bo'limlar", "Ro'yxatdan o'tgan", ""].map((c) => h("th", {}, c)))),
           h("tbody", {}, d.teachers.map((t) => h("tr", {}, h("td", {}, t.name, t.me && h("span", { class: "chip chip-soft" }, "siz")), h("td", {}, t.email), h("td", {}, h("div", { class: "row wrap" }, subjChips(t.subjects))), h("td", {}, h("div", { class: "row wrap" }, permChips(t.perms))), h("td", {}, fmtDate(t.createdAt)),

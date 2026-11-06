@@ -2187,6 +2187,28 @@ async function inviteTeacher(req) {
   return json({ invited: true, mailEnabled: mailEnabled(), ...(await sendMail(false)) });
 }
 
+/** Pochtasiz yo'l: bosh o'qituvchi yangi o'qituvchi hisobini o'zi yaratadi (F.I.Sh., email, fan va bo'limlar); vaqtinchalik parol bir marta ko'rsatiladi. */
+async function createTeacher(req) {
+  const me = requireFullTeacher(await requireTeacher(req));
+  const b = await body(req);
+  const email = str(b.email, 120).toLowerCase();
+  const name = str(b.name, 120);
+  if (!validEmail(email)) throw new HttpError(400, "Email noto'g'ri kiritilgan");
+  if (!name || name.split(/\s+/).length < 2) throw new HttpError(400, "F.I.Sh. ni to'liq kiriting");
+  const subjects = Array.isArray(b.subjects) && !b.allSubjects ? b.subjects.map(String).filter((k) => SUBJECTS.some((x) => x.key === k)) : null;
+  if (Array.isArray(subjects) && !subjects.length) throw new HttpError(400, "Kamida bitta fanni tanlang yoki «Barcha fanlar» ni belgilang");
+  const perms = b.allPerms ? null : cleanPerms(b.perms);
+  if (Array.isArray(perms) && !perms.length) throw new HttpError(400, "Kamida bitta bo'limga ruxsat bering yoki «Barcha bo'limlar» ni belgilang");
+  if (await db().get(emailKey(email))) throw new HttpError(409, "Bu email bilan foydalanuvchi allaqachon mavjud");
+  const alphabet = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  const password = Array.from(crypto.randomBytes(10), (x) => alphabet[x % alphabet.length]).join("");
+  const user = { id: newId(), email, name, role: "teacher", group: "", college: "", createdAt: new Date().toISOString(), createdBy: me.name, ...(await hashPassword(password)), ...(subjects ? { subjects } : {}), ...(perms ? { perms } : {}) };
+  await db().set(userKey(user.id), user);
+  await db().set(emailKey(email), { id: user.id });
+  await securityAlert(req, "teacher_created", "high", `Yangi o'qituvchi hisobi yaratildi: ${maskEmail(email)}`, `${me.name} «${name}» nomli o'qituvchi hisobini yaratdi. Bu siz bo'lmasangiz, «O'qituvchilar» bo'limidan hisobni o'chiring.`, user.id).catch(() => {});
+  return json({ ok: true, email, name, password });
+}
+
 /** Pochta ulanganini tekshirish: o'qituvchining o'z emailiga sinov xati. */
 async function mailTest(req) {
   const me = requireFullTeacher(await requireTeacher(req));
@@ -4615,6 +4637,7 @@ const routes = [
   ["GET", /^admin\/teachers$/, listTeachers],
   ["POST", /^admin\/teachers\/invite$/, inviteTeacher],
   ["POST", /^admin\/teachers\/uninvite$/, uninviteTeacher],
+  ["POST", /^admin\/teachers\/create$/, createTeacher],
   ["POST", /^admin\/mail-test$/, mailTest],
   ["POST", /^admin\/teachers\/([\w-]+)\/promote$/, promoteStudent],
   ["POST", /^admin\/teachers\/([\w-]+)\/demote$/, demoteTeacher],
