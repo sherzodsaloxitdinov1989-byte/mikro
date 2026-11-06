@@ -508,6 +508,11 @@ function studyFormOf(b) {
   return key;
 }
 
+/** Tizimda hech bo'lmasa bitta o'qituvchi hisobi bormi (birinchi o'qituvchini ochish — faqat tizim bo'sh bo'lganda). */
+async function hasAnyTeacher() {
+  return (await getMany("user/")).some((u) => u.role === "teacher");
+}
+
 async function register(req) {
   const b = await body(req);
   const email = str(b.email, 120).toLowerCase();
@@ -522,6 +527,7 @@ async function register(req) {
     if (regLimit.n === 301) await securityAlert(req, "register_flood", "high", "Ommaviy ro'yxatdan o'tish urinishi", "Bitta manzildan bir soatda 300 dan ortiq profil yaratishga urinildi (avtomatik dastur bo'lishi mumkin).", sha(clientIp(req)).slice(0, 12));
     throw new HttpError(429, "Bu manzildan juda ko'p profil yaratildi. Birozdan keyin qayta urinib ko'ring.");
   }
+  if (role === "teacher" && (await hasAnyTeacher())) throw new HttpError(403, "O'qituvchi hisobini faqat bosh o'qituvchi yaratadi. O'z hisobingizni olish uchun bosh o'qituvchiga murojaat qiling.");
   if (role === "teacher") {
     const lim = await bump(`ratelimit/tsignup/${sha(clientIp(req)).slice(0, 24)}`, 3600_000, 8);
     if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi. Birozdan keyin qayta urinib ko'ring.");
@@ -4484,7 +4490,7 @@ const routes = [
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
   ["GET", /^health$/, health],
-  ["GET", /^config$/, async () => { const guest = await guestState(); return json({ aiEnabled: aiEnabled(), teacherSignup: Boolean(process.env.TEACHER_CODE) || mailEnabled(), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).filter((f) => f.key !== "sirtqi" || guest.open).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })), guest }); }],
+  ["GET", /^config$/, async () => { const guest = await guestState(); return json({ aiEnabled: aiEnabled(), teacherSignup: (Boolean(process.env.TEACHER_CODE) || mailEnabled()) && !(await hasAnyTeacher()), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).filter((f) => f.key !== "sirtqi" || guest.open).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })), guest }); }],
 
   ["GET", /^slides$/, listSlides],
   ["GET", /^slides\/([\w-]+)$/, getSlides],

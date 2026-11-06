@@ -475,7 +475,7 @@ async function registerPage(el, teacher) {
   } catch {}
   const err = h("div");
   if (teacher && !config.teacherSignup) {
-    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, roleSwitch(true), h("h1", {}, "O'qituvchi ro'yxatdan o'tishi"), h("div", { class: "alert alert-warn" }, "O'qituvchi sifatida ro'yxatdan o'tish hozir yopiq. Mavjud o'qituvchi sizni panelning «O'qituvchilar» bo'limida qo'shishi kerak."), h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish")))));
+    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, roleSwitch(true), h("h1", {}, "O'qituvchi ro'yxatdan o'tishi"), h("div", { class: "alert alert-warn" }, "O'qituvchi sifatida o'zingiz ro'yxatdan o'ta olmaysiz: o'qituvchi hisobini faqat bosh o'qituvchi yaratadi. Hisob yaratilgach, sizga email va vaqtinchalik parol beriladi — ular bilan «Kirish» sahifasidan kirasiz."), h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish")))));
   }
   const teacherFields = teacher ? teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase()) : null;
   const studentFields = teacher ? null : studentBlock(config);

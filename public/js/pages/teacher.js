@@ -1488,7 +1488,7 @@ async function teachersView(el) {
     };
     mount(el,
       d.full ? null : h("div", { class: "alert alert-warn small" }, `Siz faqat ${d.mySubjects.map(title).join(", ")} fanlari bo'yicha o'qituvchisiz. Yangi o'qituvchini fanlarga biriktirishni bosh o'qituvchi (barcha fanlarga huquqli) bajaradi.`),
-      h("div", { class: "card stack" },
+      false && h("div", { class: "card stack" }, // eski usul (email taklifi) o'chirilgan: o'qituvchilar faqat hisob yaratish orqali qo'shiladi
         h("h3", {}, "Yangi o'qituvchi qo'shish va fanga biriktirish"),
         h("p", { class: "muted small" }, "Emailni kiriting va qaysi fan(lar)ni o'qitishini belgilang. Shu email egasi saytda «Ro'yxatdan o'tish → O'qituvchi» ni tanlab, emailiga kelgan 6 xonali kod bilan profilini yaratadi — keyin faqat o'ziga biriktirilgan fan(lar) bilan ishlaydi. Mavjud talabani o'qituvchi qilish uchun uning emailini kiriting."),
         d.mailEnabled
@@ -1498,8 +1498,8 @@ async function teachersView(el) {
         d.invites.length > 0 && h("div", {}, h("b", {}, "Kutilayotgan takliflar"), h("ul", {}, d.invites.map((i) => h("li", {}, `${i.email} `, ...subjChips(i.subjects), ...permChips(i.perms), h("span", { class: "muted small" }, ` (${i.by}, ${fmtDate(i.at)}) `), d.full && h("button", { class: "btn small ghost", onclick: async () => { await api.post("admin/teachers/uninvite", { email: i.email }); draw(); } }, "Bekor qilish"))))),
         d.envEmails.length > 0 && h("p", { class: "small muted" }, "Doimiy ruxsat etilgan emaillar (Cloudflare sozlamasi TEACHER_EMAILS, barcha fanlar): ", d.envEmails.join(", "))),
       d.full && h("div", { class: "card stack" },
-        h("h3", {}, "🔑 O'qituvchi hisobini o'zim yarataman (pochtasiz)"),
-        h("p", { class: "muted small" }, "F.I.Sh. va email kiriting, fan va bo'limlarni belgilang — hisob darhol ochiladi va vaqtinchalik parol bir marta ko'rsatiladi. Uni o'qituvchiga bering; u kirgach, Profil sahifasida parolni o'zgartiradi. Pochta ulanishi shart emas."),
+        h("h3", {}, "🔑 Yangi o'qituvchi hisobini yaratish"),
+        h("p", { class: "muted small" }, "F.I.Sh. va email kiriting, fan va bo'limlarni belgilang — hisob darhol ochiladi va vaqtinchalik parol bir marta ko'rsatiladi. Uni o'qituvchiga bering; u kirgach, Profil sahifasida parolni o'zgartiradi. O'qituvchilar faqat shu yerda yaratilgan hisob bilan kira oladi (o'zlari ro'yxatdan o'ta olmaydi)."),
         (() => {
           const nm = h("input", { placeholder: "F.I.Sh.", required: true, style: { minWidth: "240px" } });
           const em = h("input", { type: "email", placeholder: "email", required: true, style: { minWidth: "240px" } });
