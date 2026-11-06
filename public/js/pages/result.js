@@ -1,6 +1,7 @@
 // Talabaning semestr natijasi: ma'ruza va amaliy mashg'ulot ballari, oraliq nazorat; semestr tugagach PDF yuklab olish.
 import { h, mount, toast, loading, emptyState, progressBar } from "../ui.js";
 import { api } from "../api.js";
+import { openPenaltyReport } from "./security.js";
 import { fmtIsoDate } from "../semester.js";
 import { COURSE, formByKey } from "../../data/course.js";
 
@@ -101,6 +102,7 @@ export async function render(el) {
   } }, "⬇ Natijani PDF qilib yuklab olish");
   const s = d.score;
   mount(el,
+    h("div", { class: "row end" }, h("button", { class: "btn ghost small", onclick: () => openPenaltyReport(null, { mine: true }) }, "🛡️ Himoya hisoboti (jarimalar sababi)")),
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, "📊 Mening natijam"), h("p", { class: "muted" }, `${d.subject.title} · ${d.sem.name}`))),
     d.semesters.length > 1 && h("div", { class: "segmented role-switch" }, d.semesters.map((x) => h("a", { class: `seg ${x.no === d.sem.no ? "active" : ""}`, href: `#/result?sem=${x.no}`, style: { textDecoration: "none" } }, x.name))),
     h("div", { class: "grid cols-3" },

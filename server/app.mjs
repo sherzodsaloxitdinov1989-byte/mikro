@@ -151,7 +151,7 @@ const cleanPerms = (a) => (Array.isArray(a) ? [...new Set(a.map(String).filter((
 const hasPerm = (t, k) => !Array.isArray(t?.perms) || t.perms.includes(k);
 const PERM_RULES = [
   [/^admin\/(students|duplicates|roster|roster-fails|guest-access)(\/|$)/, "students"],
-  [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|evidence|rating)(\/|$)/, "results"],
+  [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|penalty-report|evidence|rating)(\/|$)/, "results"],
   [/^admin\/(practice-reviews|self-study|labs|assignment|midterm|exams)(\/|$)/, "grading"],
   [/^admin\/(tasks|meets)(\/|$)/, "tasks"],
   [/^admin\/(slides|videos|tts|video-script|quiz-keys)(\/|$)/, "content"],
@@ -4013,6 +4013,102 @@ async function securityEvent(req) {
   return json({ ok: true });
 }
 
+/** Talaba jarimasi bo'yicha batafsil hisobot: har bir ish (test, vazifa, amaliyot va h.k.) uchun hodisalar, ularning hisoblanishi va jarima foizi. */
+async function penaltyReportData(student) {
+  const [events, starts] = await Promise.all([getMany(`secevent/${student.id}/`), getMany(`secstart/${student.id}/`)]);
+  const workOf = async (e) => {
+    const page = String(e.page || "").split("?")[0];
+    const action = String(e.action || "");
+    let m;
+    if ((m = page.match(/^#\/tasks\/([\w-]+)$/))) { const t = await db().get(`task/${m[1]}`); return { key: page, kind: "Vazifa", title: `Vazifa: ${t?.title || m[1]}` }; }
+    if ((m = page.match(/^#\/practice\/([\w-]+)$/))) { const t = findTopic(m[1]); return { key: page, kind: "Amaliy mashg'ulot", title: `Amaliy mashg'ulot: ${t ? `${t.num}-mavzu. ${t.title}` : m[1]}` }; }
+    if ((m = page.match(/^#\/assignment\/(\d+)$/))) return { key: page, kind: "Topshiriq (20 ball)", title: `20 ballik topshiriq: ${m[1]}-bosqich` };
+    if ((m = page.match(/^#\/exam\/([\w-]+)$/))) return { key: page, kind: "Nazorat testi", title: `Nazorat testi: ${examById(m[1])?.title || m[1]}` };
+    if ((m = page.match(/^#\/topics\/([\w-]+)$/))) {
+      const t = findTopic(m[1]);
+      const nm = t ? `${t.num}-mavzu. ${t.title}` : m[1];
+      const zone = action.startsWith("Mavzu testi") ? ["Mavzu testi", "Mavzu testi"] : action.startsWith("Amaliy bo'lim") ? ["Amaliy mashg'ulot", "Amaliy mashg'ulot (mavzu ichida)"] : action.startsWith("Mustaqil ish") ? ["Mustaqil ish", "Mustaqil ish"] : null;
+      if (zone) return { key: `${page}|${zone[0]}`, kind: zone[0], title: `${zone[1]}: ${nm}` };
+    }
+    return null;
+  };
+  const groups = new Map();
+  const other = [];
+  for (const e of events.sort((a, b) => a.at.localeCompare(b.at))) {
+    const w = SEC_TYPES[e.type] ? await workOf(e) : null;
+    if (!w) { other.push(e); continue; }
+    (groups.get(w.key) || groups.set(w.key, { ...w, events: [] }).get(w.key)).events.push(e);
+  }
+  const works = [];
+  for (const g of groups.values()) {
+    const seen = {};
+    const evs = g.events.map((e) => {
+      const t = SEC_TYPES[e.type];
+      const n = (seen[e.type] = (seen[e.type] || 0) + 1);
+      const free = t.free || 0;
+      const status = n <= free ? "kechirildi" : n - free <= t.cap ? "hisoblandi" : "limitdan oshgan (hisoblanmadi)";
+      return { at: e.at, type: e.type, label: t.label, rule: t.rule, detail: e.detail || "", action: e.action || "", status, points: status === "hisoblandi" ? t.weight : 0 };
+    });
+    const integ = integrityOf(g.events);
+    const startedAt = starts.filter((x) => String(x.page || "").split("?")[0] === g.key.split("|")[0]).map((x) => x.at).sort()[0] || null;
+    const rawPoints = evs.reduce((n, e) => n + e.points, 0);
+    works.push({ key: g.key, kind: g.kind, title: g.title, startedAt, events: evs, rawPoints, percent: integ?.percent || 0, capped: rawPoints * POINT_PERCENT > MAX_PENALTY, text: integ?.text || "Jarima qo'llanmagan: hodisalar faqat kechirilgan yoki hisobga olinmaydigan edi." });
+  }
+  works.sort((a, b) => b.percent - a.percent || (b.events.at(-1)?.at || "").localeCompare(a.events.at(-1)?.at || ""));
+  return { student: { id: student.id, name: student.name, group: student.group || "", idNumber: student.idNumber || "" }, works, outside: other.length, pointPercent: POINT_PERCENT, maxPenalty: MAX_PENALTY, generatedAt: new Date().toISOString() };
+}
+
+async function adminPenaltyReport(req) {
+  const teacher = await requireTeacher(req);
+  const uid = str(new URL(req.url).searchParams.get("userId"), 80);
+  const st = await db().get(userKey(uid));
+  if (!st || st.role !== "student") throw new HttpError(404, "Talaba topilmadi");
+  assertSubject(teacher, subjectOfGroup(st.group).key);
+  return json(await penaltyReportData(st));
+}
+
+async function myPenaltyReport(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Bu hisobot talabalar uchun");
+  return json(await penaltyReportData(user));
+}
+
+function penaltyPdf(r) {
+  const f = (iso) => (iso ? new Date(new Date(iso).getTime() + 5 * 3600_000).toISOString().replace("T", " ").slice(0, 16) : "—");
+  const blocks = [
+    { text: "Himoya qoidalari buzilishi bo'yicha hisobot", size: 16, bold: true },
+    { text: `Talaba: ${r.student.name}${r.student.idNumber ? `, ID: ${r.student.idNumber}` : ""}`, size: 11, gap: 6 },
+    { text: `Guruh: ${r.student.group || "—"} · Hisobot sanasi: ${f(r.generatedAt)} (Toshkent vaqti)`, size: 10 },
+    { text: `Jarima qoidasi: har bir jiddiylik balli uchun ${r.pointPercent}%, bitta ish uchun eng ko'pi ${r.maxPenalty}%.`, size: 10, gap: 4 },
+  ];
+  if (!r.works.length) blocks.push({ text: "Qoidabuzarlik qayd etilmagan.", size: 11, gap: 14 });
+  for (const w of r.works) {
+    blocks.push({ text: w.title, size: 12, bold: true, gap: 16 });
+    blocks.push({ text: `Boshlangan: ${f(w.startedAt)} · Jarima: ${w.percent}% ${w.capped ? `(${r.maxPenalty}% chegarasi qo'llangan)` : ""}`, size: 10, gap: 2 });
+    w.events.forEach((e, i) => {
+      blocks.push({ text: `${i + 1}) ${f(e.at)} — ${e.label} [${e.status}${e.points ? `, +${e.points} ball` : ""}]`, size: 10, bold: true, gap: 6 });
+      blocks.push({ text: `Qoida: ${e.rule}.${e.detail ? ` Tafsilot: ${e.detail}.` : ""}${e.action ? ` Bajarayotgan amali: ${e.action}.` : ""}`, size: 10 });
+    });
+    blocks.push({ text: w.text, size: 10, gap: 6 });
+  }
+  return makePdf(blocks);
+}
+
+async function adminPenaltyPdf(req) {
+  const teacher = await requireTeacher(req);
+  const uid = str(new URL(req.url).searchParams.get("userId"), 80);
+  const st = await db().get(userKey(uid));
+  if (!st || st.role !== "student") throw new HttpError(404, "Talaba topilmadi");
+  assertSubject(teacher, subjectOfGroup(st.group).key);
+  return new Response(penaltyPdf(await penaltyReportData(st)), { headers: { "content-type": "application/pdf", "content-disposition": 'attachment; filename="himoya-hisoboti.pdf"', "cache-control": "no-store" } });
+}
+
+async function myPenaltyPdf(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Bu hisobot talabalar uchun");
+  return new Response(penaltyPdf(await penaltyReportData(user)), { headers: { "content-type": "application/pdf", "content-disposition": 'attachment; filename="himoya-hisoboti.pdf"', "cache-control": "no-store" } });
+}
+
 async function adminSecurity(req) {
   await requireTeacher(req);
   const events = (await getEntries("secevent/")).map(([, v]) => v).sort((a, b) => b.at.localeCompare(a.at));
@@ -4585,6 +4681,10 @@ const routes = [
   ["GET", /^leaderboard$/, leaderboard],
   ["POST", /^security\/event$/, securityEvent],
   ["GET", /^admin\/security$/, adminSecurity],
+  ["GET", /^admin\/penalty-report$/, adminPenaltyReport],
+  ["GET", /^admin\/penalty-report\/pdf$/, adminPenaltyPdf],
+  ["GET", /^security\/my-report$/, myPenaltyReport],
+  ["GET", /^security\/my-report\/pdf$/, myPenaltyPdf],
   ["GET", /^rating$/, myRating],
   ["GET", /^admin\/rating$/, adminRating],
   ["POST", /^admin\/rating\/bonus$/, addBonus],

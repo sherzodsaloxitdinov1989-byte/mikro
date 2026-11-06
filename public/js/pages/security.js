@@ -1,11 +1,12 @@
 // O'qituvchi paneli: himoya hodisalari — qaysi talaba, qaysi amalni bajarayotganida, qanday qoidani buzgani.
-import { h, mount, loading, fmtDate, emptyState, downloadFile } from "../ui.js";
+import { h, mount, loading, fmtDate, emptyState, downloadFile, modal, toast } from "../ui.js";
 import { api } from "../api.js";
 import { toCSV } from "../stats.js";
 import { formByKey, subjectOfGroup } from "../../data/course.js";
 import { SUBJECT_KEY } from "../../data/topics.js";
+import { saveBlob } from "./assignment.js";
 
-const ICON = { screenshot: "📸", print: "🖨️", source: "🧑‍💻", save: "💾", copy: "📋", leave: "🪟", contextmenu: "🖱️" };
+const ICON = { longpress: "👆", draw: "✍️", multitouch: "🖐️", overlay: "🪄", aihelp: "🤖", screenshot: "📸", print: "🖨️", source: "🧑‍💻", save: "💾", copy: "📋", leave: "🪟", contextmenu: "🖱️" };
 const SEVERITY = { 3: ["Jiddiy", "badge-warn"], 2: ["O'rtacha", "badge-warn"], 1: ["Yengil", ""] };
 
 export async function teacherView(el) {
@@ -30,14 +31,15 @@ export async function teacherView(el) {
     summary.replaceChildren(
       h("h3", {}, "Talabalar bo'yicha (og'irlik bo'yicha tartiblangan)"),
       h("table", { class: "table" },
-        h("thead", {}, h("tr", {}, ["№", "Talaba", "Guruh", "Qoidabuzarliklar", "Jami", "Oxirgi"].map((x) => h("th", {}, x)))),
+        h("thead", {}, h("tr", {}, ["№", "Talaba", "Guruh", "Qoidabuzarliklar", "Jami", "Oxirgi", ""].map((x) => h("th", {}, x)))),
         h("tbody", {}, rows.map((s, i) => h("tr", {},
           h("td", { class: "center muted" }, `${i + 1}.`),
           h("td", {}, s.name, s.idNumber && h("div", { class: "muted small" }, `ID: ${s.idNumber}`)),
           h("td", {}, s.group || "—", h("div", { class: "muted small" }, formByKey(s.form)?.name || "")),
           h("td", {}, h("div", { class: "row wrap", style: { gap: "4px" } }, chips(s.counts))),
           h("td", { class: "center" }, h("b", {}, s.total)),
-          h("td", { class: "small" }, fmtDate(s.last)))))));
+          h("td", { class: "small" }, fmtDate(s.last)),
+          h("td", {}, h("button", { class: "btn small ghost", onclick: () => openPenaltyReport(s.userId) }, "📄 Hisobot")))))));
   };
 
   const drawList = () => {
@@ -77,4 +79,30 @@ export async function teacherView(el) {
     summary,
     list);
   draw();
+}
+
+
+const STATUS_CLS = { "hisoblandi": "badge-warn", "kechirildi": "badge-ok" };
+
+/** Jarima hisoboti oynasi: qaysi ishda qaysi hodisalar jarimaga sabab bo'lgani, har bir hodisaning hisoblanishi va jami foiz. */
+export async function openPenaltyReport(studentId, { mine = false } = {}) {
+  let r;
+  try { r = await api.get(mine ? "security/my-report" : `admin/penalty-report?userId=${encodeURIComponent(studentId)}`); } catch (e) { return toast(e.message, "error"); }
+  const fd = (iso) => (iso ? fmtDate(iso) : "—");
+  const body = h("div", { class: "stack" },
+    h("p", { class: "muted small" }, `${r.student.name}${r.student.idNumber ? ` · ID: ${r.student.idNumber}` : ""} · ${r.student.group || "—"}. Qoida: har bir jiddiylik balli uchun ${r.pointPercent}% jarima, bitta ish uchun eng ko'pi ${r.maxPenalty}%.`),
+    r.works.length === 0 && h("div", { class: "alert alert-info" }, "Test, vazifa va amaliy mashg'ulotlar paytida qoidabuzarlik qayd etilmagan."),
+    ...r.works.map((w) => h("div", { class: "card stack" },
+      h("div", { class: "row between wrap" }, h("b", {}, w.title), h("span", { class: `badge ${w.percent ? "badge-warn" : "badge-ok"}` }, w.percent ? `Jarima: ${w.percent}%` : "Jarima yo'q")),
+      h("p", { class: "muted small" }, `Ish boshlangan: ${fd(w.startedAt)} · hodisalar: ${w.events.length} ta${w.capped ? ` · ${r.maxPenalty}% chegarasi qo'llangan` : ""}`),
+      h("div", { class: "table-wrap" }, h("table", { class: "table small" },
+        h("thead", {}, h("tr", {}, ["Vaqt", "Nima qilgan", "Buzilgan qoida", "Holati"].map((x) => h("th", {}, x)))),
+        h("tbody", {}, w.events.map((e) => h("tr", {},
+          h("td", {}, fd(e.at)),
+          h("td", {}, h("b", {}, `${ICON[e.type] || ""} ${e.label}`), e.detail && h("div", { class: "muted" }, e.detail), e.action && h("div", { class: "muted" }, `Amal: ${e.action}`)),
+          h("td", {}, e.rule),
+          h("td", {}, h("span", { class: `badge ${STATUS_CLS[e.status] || ""}` }, e.status), e.points ? h("div", { class: "muted" }, `+${e.points} ball × ${r.pointPercent}%`) : null)))))),
+      h("p", { class: "small" }, w.text))),
+    h("div", { class: "row end" }, h("button", { class: "btn", onclick: () => saveBlob(mine ? "security/my-report/pdf" : `admin/penalty-report/pdf?userId=${encodeURIComponent(studentId)}`, "himoya-hisoboti.pdf").catch((e) => toast(e.message, "error")) }, "⬇ PDF hisobotni yuklab olish")));
+  modal(`🛡️ Himoya hisoboti: ${r.student.name}`, body, { wide: true });
 }
