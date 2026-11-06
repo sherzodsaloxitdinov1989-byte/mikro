@@ -458,6 +458,15 @@ function studentBlock(config) {
 export const renderRegister = (el) => registerPage(el, false);
 export const renderTeacherRegister = (el) => registerPage(el, true);
 
+/** Ro'yxatdan o'tishda kim ekanligi so'raladi: Talaba yoki O'qituvchi (tanlangan sahifa ochiladi). */
+function roleSwitch(teacher) {
+  return h("div", { class: "stack", style: { gap: "6px" } },
+    h("b", {}, "Siz kimsiz?"),
+    h("div", { class: "segmented role-switch" },
+      h("a", { class: `seg ${teacher ? "" : "active"}`, href: "#/register", style: { textDecoration: "none" } }, "🎓 Talaba"),
+      h("a", { class: `seg ${teacher ? "active" : ""}`, href: "#/ustoz/register", style: { textDecoration: "none" } }, "👩‍🏫 O'qituvchi")));
+}
+
 async function registerPage(el, teacher) {
   if (session.user) return afterLogin();
   let config = { teacherSignup: false };
@@ -466,7 +475,7 @@ async function registerPage(el, teacher) {
   } catch {}
   const err = h("div");
   if (teacher && !config.teacherSignup) {
-    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, h("h1", {}, "O'qituvchi ro'yxatdan o'tishi"), h("div", { class: "alert alert-warn" }, "O'qituvchi sifatida ro'yxatdan o'tish hozir yopiq. Mavjud o'qituvchi sizni panelning «O'qituvchilar» bo'limida qo'shishi kerak."), h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish")))));
+    return mount(el, h("div", { class: "auth-wrap" }, h("div", { class: "card auth-card" }, roleSwitch(true), h("h1", {}, "O'qituvchi ro'yxatdan o'tishi"), h("div", { class: "alert alert-warn" }, "O'qituvchi sifatida ro'yxatdan o'tish hozir yopiq. Mavjud o'qituvchi sizni panelning «O'qituvchilar» bo'limida qo'shishi kerak."), h("p", { class: "center muted" }, h("a", { href: "#/ustoz" }, "← Kirish")))));
   }
   const teacherFields = teacher ? teacherBlock(config, () => form.querySelector("input[name=email]").value.trim().toLowerCase()) : null;
   const studentFields = teacher ? null : studentBlock(config);
@@ -494,6 +503,7 @@ async function registerPage(el, teacher) {
         btn.disabled = false;
       }
     } },
+    roleSwitch(teacher),
     h("h1", {}, teacher ? "O'qituvchi sifatida ro'yxatdan o'tish" : "Talaba sifatida ro'yxatdan o'tish"),
     h("input", { type: "hidden", name: "role", value: teacher ? "teacher" : "student" }),
     field("Ism-familiya", { name: "name", required: true, maxlength: 120, autocomplete: "name" }),
