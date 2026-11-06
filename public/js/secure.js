@@ -101,6 +101,7 @@ export const SECURITY_RULES = [
   ["📋", "Matnni nusxalash yoki sahifani saqlash (Ctrl+C, Ctrl+S)", "har biri bahoni 10% ga kamaytiradi (3 martagacha)"],
   ["🪟", "Boshqa oyna, ilova yoki yorliqqa o'tish", "dastlabki 5 marta kechiriladi, keyingisi bahoni 5% ga kamaytiradi (4 martagacha)"],
   ["🤖", "Ish paytida AI yordamchidan savolning javobini so'rashga urinish (so'rov yuborilmaydi)", "har bir urinish bahoni 20% ga kamaytiradi (2 martagacha)"],
+  ["📱", "Telefonda ekranni uzoq bosib turish, barmoq bilan chizish yoki aylana chizish (Circle to Search, Gemini va boshqa AI), 3 va undan ortiq barmoq bilan bosish, ustiga AI yordamchi qatlamini ochish", "uzoq bosish — dastlabki marta kechiriladi, keyingisi 10%; chizish va AI qatlami — 15% gacha"],
   ["🖱️", "O'ng tugma (kontekst menyu)", "har biri bahoni 5% ga kamaytiradi (3 martagacha)"],
 ];
 export const SECURITY_NOTE = "Bitta ish uchun baho jami ko'pi bilan 50% ga kamayadi. Hodisa yuz berganda ekran xiralashadi va o'qituvchiga qayd etiladi; ekranda ismingiz bilan watermark turadi.";
@@ -230,6 +231,53 @@ export function setRouteSecure(on) {
 }
 
 export function initSecureMode() {
+  // ---- Telefon: AI yordamchi (Gemini, Circle to Search) sahifani almashtirmasdan ochilishi mumkin: uzoq bosish, chizish, ko'p barmoq va fokus yo'qolishi kuzatiladi ----
+  const interactive = (el) => Boolean(el?.closest?.("input, textarea, select, button, a, label, [contenteditable=true], .allow-copy, video, audio"));
+  let lp = null;
+  let stroke = null;
+  const stopLp = () => { clearTimeout(lp?.t); lp = null; };
+  document.addEventListener("touchstart", (e) => {
+    if (!active()) return;
+    if (e.touches.length >= 3) return trigger("multitouch", "Ko'p barmoqli bosish aniqlandi.", `${e.touches.length} ta barmoq bir vaqtda bosildi`);
+    if (e.touches.length !== 1 || interactive(e.target)) { stopLp(); stroke = null; return; }
+    const t = e.touches[0];
+    stroke = { x0: t.clientX, y0: t.clientY, minX: t.clientX, maxX: t.clientX, minY: t.clientY, maxY: t.clientY, path: 0, lx: t.clientX, ly: t.clientY, t0: Date.now(), rx: 0, ry: 0, dx: 0, dy: 0 };
+    stopLp();
+    lp = { x: t.clientX, y: t.clientY, t: setTimeout(() => { if (lp && active()) { lp = null; trigger("longpress", "Ekranni uzoq bosib turish aniqlandi.", "Barmoq ekranda 0,8 soniyadan ortiq harakatsiz turdi"); } }, 800) };
+  }, { passive: true, capture: true });
+  document.addEventListener("touchmove", (e) => {
+    const t = e.touches[0];
+    if (!t) return;
+    if (lp && Math.hypot(t.clientX - lp.x, t.clientY - lp.y) > 14) stopLp();
+    if (!stroke || !active()) return;
+    const sx = t.clientX - stroke.lx, sy = t.clientY - stroke.ly;
+    stroke.path += Math.hypot(sx, sy);
+    // yo'nalish o'zgarishlari (aylana yoki g'ijimlash: x va y bo'yicha qayta-qayta teskari yo'nalish)
+    if (Math.abs(sx) > 2) { const d = Math.sign(sx); if (stroke.dx && d !== stroke.dx) stroke.rx++; stroke.dx = d; }
+    if (Math.abs(sy) > 2) { const d = Math.sign(sy); if (stroke.dy && d !== stroke.dy) stroke.ry++; stroke.dy = d; }
+    stroke.lx = t.clientX; stroke.ly = t.clientY;
+    stroke.minX = Math.min(stroke.minX, t.clientX); stroke.maxX = Math.max(stroke.maxX, t.clientX);
+    stroke.minY = Math.min(stroke.minY, t.clientY); stroke.maxY = Math.max(stroke.maxY, t.clientY);
+    const w = stroke.maxX - stroke.minX, h = stroke.maxY - stroke.minY;
+    const closed = Math.hypot(t.clientX - stroke.x0, t.clientY - stroke.y0) < Math.max(w, h) * 0.35;
+    // oddiy aylantirish (scroll) deyarli bir yo'nalishda bo'ladi; chizish — ikkala o'qda ham keng va yo'nalishi o'zgaruvchan
+    if (w > 90 && h > 90 && stroke.path > 380 && (stroke.rx >= 2 && stroke.ry >= 2 || (closed && stroke.path > 3 * Math.max(w, h) * 0.9))) {
+      stroke = null;
+      stopLp();
+      trigger("draw", "Ekranda chizish yoki aylana chizish aniqlandi.", "Barmoq bilan ekranga chizildi (Circle to Search kabi AI vositasi bo'lishi mumkin)");
+    }
+  }, { passive: true, capture: true });
+  for (const ev of ["touchend", "touchcancel"]) document.addEventListener(ev, () => { stopLp(); stroke = null; }, { passive: true, capture: true });
+  // Boshqa ilova (AI yordamchi) qatlami sahifa ustida ochilganda oyna fokusi yo'qoladi, lekin ba'zi telefonlarda blur hodisasi kelmaydi: fokus muntazam tekshiriladi
+  let lastLeave = 0;
+  window.addEventListener("blur", () => { lastLeave = Date.now(); });
+  let lostSince = 0;
+  setInterval(() => {
+    if (!active() || document.hidden || Date.now() < suppressUntil || document.activeElement?.tagName === "IFRAME") { lostSince = 0; return; }
+    if (document.hasFocus()) { lostSince = 0; return; }
+    lostSince ||= Date.now();
+    if (Date.now() - lostSince > 1500 && Date.now() - lastLeave > 4000) { lostSince = 0; trigger("overlay", "Sahifa fokusini yo'qotdi: ustiga boshqa ilova yoki AI yordamchi qatlami ochilgan bo'lishi mumkin.", "Sahifa ko'rinib turibdi, lekin fokus yo'q (AI yordamchi/qatlam)"); }
+  }, 700);
   // Fayl tanlash oynasi dastur orqali ochilganda (input.click() / showPicker()) ham oyna fokusi yo'qolishi jarima keltirmaydi
   try {
     const nativeClick = HTMLInputElement.prototype.click;

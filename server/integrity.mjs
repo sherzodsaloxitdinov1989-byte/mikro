@@ -11,6 +11,10 @@ export const SEC_TYPES = {
   copy: { label: "Matnni nusxalash / kesib olish urinishi", rule: "Darslik va topshiriq matnini nusxalash mualliflik huquqi bilan taqiqlanadi", weight: 2, cap: 3 },
   leave: { label: "Oynadan chiqish (boshqa ilova / yorliq)", rule: "Test va topshiriq paytida boshqa oyna yoki ilovaga o'tish mumkin emas", weight: 1, cap: 4, free: 5 },
   aihelp: { label: "AI yordamchidan savol javobini so'rashga urinish", rule: "Topshiriq, test va mashq bajarilayotganda AI yordamchidan foydalanish taqiqlanadi", weight: 4, cap: 2 },
+  longpress: { label: "Ekranni uzoq bosib turish (telefonda AI/qidiruv ishga tushirishi mumkin)", rule: "Test va topshiriq paytida ekranni uzoq bosib turish taqiqlanadi", weight: 2, cap: 3, free: 1 },
+  draw: { label: "Ekranda chizish / aylana chizish (Circle to Search kabi)", rule: "Test va topshiriq paytida ekranga barmoq bilan chizish yoki aylantirish taqiqlanadi", weight: 3, cap: 2 },
+  multitouch: { label: "Ko'p barmoqli bosish (3 va undan ortiq barmoq)", rule: "Test va topshiriq paytida ko'p barmoqli tizim imo-ishoralari (ekran surati va boshqalar) taqiqlanadi", weight: 2, cap: 2 },
+  overlay: { label: "Sahifa fokusini yo'qotdi (AI yordamchi yoki boshqa ilova qatlami)", rule: "Test va topshiriq paytida ustiga boshqa ilova yoki AI yordamchi qatlamini ochish taqiqlanadi", weight: 3, cap: 2 },
   contextmenu: { label: "O'ng tugma (kontekst menyu)", rule: "Sahifada o'ng tugma bilan nusxalash va saqlash taqiqlanadi", weight: 1, cap: 3 },
 };
 
