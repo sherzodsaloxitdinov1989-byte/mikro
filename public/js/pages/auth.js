@@ -68,7 +68,7 @@ function loginPage(el, teacher) {
   // Ro'yxat bo'yicha ochiladigan guruh talabalari uchun (server so'raganda ko'rinadi)
   // ID raqam maydoni talabalar uchun doim ko'rinadi (331–334-25 va ro'yxat bo'yicha kiradigan guruhlar); F.I.Sh. maydoni ID raqam mos kelmaganda ochiladi
   const nameField = h("div", { class: "hidden" }, field("F.I.Sh. (ro'yxatdagidek)", { name: "fullName", autocomplete: "name", placeholder: "Masalan: Aliyev Vali" }));
-  const shifrBox = h("div", { class: teacher ? "hidden" : "" }, field("ID raqam (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Faqat ID raqam talab qilinsa kiriting" }), nameField,
+  const shifrBox = h("div", { class: "hidden" }, field("ID raqam (o'qituvchi bergan)", { name: "shifr", inputmode: "numeric", maxlength: 24, autocomplete: "off", placeholder: "Faqat ID raqam talab qilinsa kiriting" }), nameField,
     h("p", { class: "small muted", style: { margin: "4px 0 0" } }, "Mikroiqtisodiyot kunduzgi (331–334-25) va ID raqam bilan kiradigan guruh talabalari: email va parolingiz bilan birga ID raqamingizni ham kiriting — avvalgi natijalaringiz saqlanadi."))
   // Server «ID raqam bilan qayta kiring» degan bo'lsa: xabar va shifr maydoni darhol ko'rinadi
   let relogin = "";
@@ -104,6 +104,7 @@ function loginPage(el, teacher) {
     hint,
     field("Email", { name: "email", type: "email", required: true, autocomplete: "email" }),
     field("Parol", { name: "password", type: "password", required: true, autocomplete: "current-password" }),
+    !teacher && h("p", { class: "small", style: { margin: "0" } }, h("a", { href: "#", onclick: (e) => { e.preventDefault(); shifrBox.classList.toggle("hidden"); } }, "ID raqam bilan kiraman (faqat ro'yxat bo'yicha kiradigan guruhlar)")),
     shifrBox,
     h("p", { class: "small", style: { margin: "-6px 0 0", textAlign: "right" } }, h("a", { href: teacher ? "#/ustoz/forgot" : "#/forgot" }, "Parolni unutdingizmi?")),
     err,
