@@ -340,7 +340,13 @@ export const SCORING = {
 // amaliy topshiriq — 10 ball: nazariy qism (tushunchalar, nazorat savollari, mavzu testlari) 5 ball + darslik amaliy topshiriqlari 5 ball (qat'iy bo'linadi).
 // Tadbirkorlik asoslari, 141-23 va 142-23: ma'ruza 30 ball = biznes-reja topshirig'i 10 ball (AI + o'qituvchi) + oraliq nazorat testi 5 ball + mavzu ishi 15 ball; amaliy mashg'ulot — 10 ball.
 export const PLAN_GROUPS = ["141-23", "142-23"];
-SCORING.plan = { lecture: 30, practice: 10, midtermInLecture: 5, planMax: 10 };
+// 141-23 va 142-23 (Tadbirkorlik asoslari): saytda faqat ma'ruza — 30 ball = biznes-reja 10 (AI + o'qituvchi bahosi) + 2 ta oraliq nazorat testi 10 (har biri 5) + mavzu topshiriqlari 10
+// (har mavzuda 5 ta nazorat savoli — har biriga 3 daqiqa, AI bahosi; so'ng 20 ta test — 10 daqiqa). Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi.
+SCORING.plan = { lecture: 30, practice: 0, midtermInLecture: 10, planMax: 10, workMax: 10, mode: "plan2" };
+export const isPlanStudent = (user) => Boolean(user) && user.role === "student" && PLAN_GROUPS.includes(user.group);
+/** Vaqt cheklovi: nazorat savoliga javob yozish (daqiqa) va mavzu testi (daqiqa). */
+export const PLAN_Q_MIN = 3;
+export const PLAN_QUIZ_MIN = 10;
 SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 5, practiceMax: 5 };
 /** O'tish bali: eng ko'p to'planadigan ballning 60% i (barcha ta'lim shakllari uchun). */
 export const PASS_PCT = 60;

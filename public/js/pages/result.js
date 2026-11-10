@@ -15,8 +15,9 @@ const loadScript = (src) => new Promise((res, rej) => {
 });
 
 const dash = (v) => (v === null || v === undefined ? "—" : fmt(v));
-function topicTable(list, asg) {
-  const head = ["Mavzu", "Tushunchalar", "Nazorat savollari", "Test", asg ? "Nazariy ball" : "Ma'ruza ball", asg ? "Amaliy topshiriq ball" : "Amaliy ball"].map((c, i) => h("th", { class: i ? "center" : "" }, c));
+function topicTable(list, asg, plan = false) {
+  const head = (plan ? ["Mavzu", "Nazorat savollari", "Test", "Mavzu balli"] : ["Mavzu", "Tushunchalar", "Nazorat savollari", "Test", asg ? "Nazariy ball" : "Ma'ruza ball", asg ? "Amaliy topshiriq ball" : "Amaliy ball"]).map((c, i) => h("th", { class: i ? "center" : "" }, c));
+  if (plan) return h("div", {}, h("h3", {}, "Mavzular bo'yicha"), h("table", { class: "table small" }, h("thead", {}, h("tr", {}, head)), h("tbody", {}, list.map((b) => h("tr", {}, h("td", {}, `${b.num}. ${b.title}`), h("td", { class: "center" }, b.questions ? `${b.questions.answered}/${b.questions.total}` : "—"), h("td", { class: "center" }, b.quiz ? `${b.quiz.pct}%` : "—"), h("td", { class: "center" }, dash(b.lecPoints)))))));
   const rows = list.map((b) => h("tr", {},
     h("td", {}, `${b.num}. ${b.title}`),
     h("td", { class: "center" }, b.glossary ? `${b.glossary.seen}/${b.glossary.total}` : "—"),
@@ -42,7 +43,11 @@ function sheet(d) {
       [["Talaba", d.student.name], ["Guruh", d.student.group || "—"], d.student.idNumber && ["ID raqami", d.student.idNumber], ["Ta'lim shakli", formByKey(d.student.form)?.name || d.student.form], ["Fan", d.subject.title], ["Semestr", `${d.sem.name} · ${d.sem.term}${d.sem.endsAt ? ` (tugash: ${fmtIsoDate(d.sem.endsAt)})` : ""}`], ["Hisobot sanasi", new Date(d.now).toLocaleDateString("uz-UZ")]].filter(Boolean).map(([k, v]) => h("tr", {}, h("th", {}, k), h("td", { colspan: 2 }, v))))),
     h("h3", {}, "Ballar"),
     h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Yo'nalish"), h("th", { class: "center" }, "To'plagan ball"), h("th", { class: "center" }, "Eng ko'pi"))),
-      h("tbody", {}, ...(sc.mode === "assignment" ? [
+      h("tbody", {}, ...(sc.mode === "plan2" ? [
+        row("Biznes-reja topshirig'i", lec.planSource === "teacher" ? "o'qituvchi bahosi" : "o'qituvchi baholagach ko'rinadi", lec.plan, lec.planMax),
+        row("Oraliq nazorat testlari", `1-nazorat: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.midterms, lec.midtermsMax),
+        row("Mavzu topshiriqlari", `nazorat savollari (AI): ${lec.questionsPct}% · mavzu testlari: ${lec.testsPct}%`, lec.work, lec.workMax),
+      ] : sc.mode === "assignment" ? [
         row("Ma'ruza mashg'uloti", `20 ballik topshiriq: ${fmt(lec.assignment)} / ${fmt(lec.assignmentMax)} · 1-nazorat testi: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat testi: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.points, lec.max),
         row("Amaliy topshiriq", `Nazariy qism (tushunchalar, nazorat savollari, mavzu testlari): ${fmt(prc.theory)} / ${fmt(prc.theoryMax)} · darslikning amaliy topshiriqlari: ${fmt(prc.practiceOnly)} / ${fmt(prc.practiceMax)}`, prc.points, prc.max),
       ] : [
@@ -50,7 +55,7 @@ function sheet(d) {
         row("Amaliy mashg'ulot", prcNote, prc.points, prc.max),
       ])),
       h("tfoot", {}, h("tr", {}, h("td", {}, h("b", {}, "JAMI")), h("td", { class: "center" }, h("b", {}, fmt(s.total))), h("td", { class: "center" }, h("b", {}, fmt(s.totalMax)))))),
-    s.byTopic?.length > 0 && topicTable(s.byTopic, sc.mode === "assignment"),
+    s.byTopic?.length > 0 && topicTable(s.byTopic, sc.mode === "assignment", sc.mode === "plan2"),
     !lec.midtermMax && sc.mode !== "assignment" && h("p", {}, h("b", {}, "Oraliq nazorat (5 ballik tizimda, qo'shimcha ball): "), s.midtermGrade === null ? "hali baholanmagan" : `${s.midtermGrade} / 5`),
     sc.mode === "assignment" ? h("p", { class: "small muted" }, "Ball tizimi: ma'ruza mashg'uloti — 30 ball (20 ballik topshiriq + 2 ta nazorat testi, har biri 5 ball); amaliy topshiriq — 10 ball (nazariy qism 5 ball + darslik amaliy topshiriqlari 5 ball).") : h("p", { class: "small muted" }, `Ball tizimi: ma'ruza — ${sc.lecture} ball, amaliy mashg'ulot — ${sc.practice} ball${sc.midtermInLecture ? ` (ma'ruzaning ${sc.midtermInLecture} balli oraliq nazorat)` : "; oraliq nazorat alohida qo'shimcha ball"}. Ma'ruza ishi — mavzu testlari va ma'ruza topshiriqlari, amaliy — amaliy mashg'ulotlar va amaliy topshiriqlar.`),
     d.sem.ended ? h("p", { class: "small" }, "✅ Semestr yakunlangan: bu yakuniy natija.") : h("p", { class: "small muted" }, "Semestr hali tugamagan: natija oraliq."));

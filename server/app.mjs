@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, isPlanStudent, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -1123,8 +1123,16 @@ async function quizSubmit(req, topicId) {
   const topic = findTopic(topicId);
   if (!topic || !canUseSubject(user, topic.subject) || !topic.quiz.length || topic.quiz.some((q) => !Number.isInteger(q.correct))) throw new HttpError(404, "Bu mavzu uchun test topilmadi");
   const b = await body(req);
-  const answers = b.answers;
-  if (!Array.isArray(answers) || answers.length !== topic.quiz.length || answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length)) throw new HttpError(400, "Barcha savollarga javob bering");
+  let answers = b.answers;
+  const planQ = isPlanStudent(user);
+  if (planQ && Array.isArray(answers) && answers.length === topic.quiz.length) answers = answers.map((a, i) => (Number.isInteger(a) && a >= 0 && a < topic.quiz[i].options.length ? a : -1)); // vaqt tugaganda javobsizlar noto'g'ri hisoblanadi
+  if (!Array.isArray(answers) || answers.length !== topic.quiz.length || (!planQ && answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length))) throw new HttpError(400, "Barcha savollarga javob bering");
+  let quizLate = false;
+  if (planQ) {
+    const qs = await db().get(planKey("quizstart", user.id, topic.id));
+    if (!qs) throw new HttpError(400, "Avval testni «Boshlash» tugmasi bilan oching");
+    quizLate = Date.now() - new Date(qs.at).getTime() > PLAN_QUIZ_MIN * 60_000 + QUIZ_GRACE_MS;
+  }
   const lim = await bump(`ratelimit/quiz/${user.id}`, 3600_000, 60);
   if (!lim.ok) throw new HttpError(429, "Testni juda tez-tez topshiryapsiz. Birozdan keyin qayta urinib ko'ring.");
   const key = `progress/${user.id}`;
@@ -1133,13 +1141,13 @@ async function quizSubmit(req, topicId) {
   const st = (progress.topics[topic.id] ||= {});
   // To'g'ri javoblar faqat BIRINCHI urinishdan keyin ko'rsatiladi (o'rganish uchun). Qayta topshirishda faqat to'g'ri/noto'g'ri belgisi beriladi:
   // talaba javoblarni yodlab olib, ballni oshirib yubormasligi uchun. Serverning o'zi to'g'ri javobni qaytarmaydi.
-  if (usesAiWork(user) && st.quizAttempts > 0) throw new HttpError(409, "Bu test faqat bir marta topshiriladi va siz uni topshirgansiz. Qayta topshirish uchun o'qituvchiga murojaat qiling.");
+  if ((usesAiWork(user) || planQ) && st.quizAttempts > 0) throw new HttpError(409, "Bu test faqat bir marta topshiriladi va siz uni topshirgansiz. Qayta topshirish uchun o'qituvchiga murojaat qiling.");
   const reveal = !(st.quizAttempts > 0);
   const results = topic.quiz.map((q, i) => {
     const ok = answers[i] === q.correct;
     return reveal ? { ok, correct: q.correct, explain: q.explain || "" } : { ok, explain: ok ? q.explain || "" : "" };
   });
-  const correct = results.filter((r) => r.ok).length;
+  const correct = quizLate ? 0 : results.filter((r) => r.ok).length;
   const scoreRaw = Math.round((correct / topic.quiz.length) * 100);
   const integrity = await integrityFor(user.id, inZone(topic.id, "Mavzu testi"), st.quizAt || "");
   const score = Math.round(reduceBy(scoreRaw, integrity?.percent));
@@ -3105,11 +3113,69 @@ const AI_WORK_DAILY = 80;
 async function requireAiWork(req, topicId) {
   const user = await requireUser(req);
   const topic = findTopic(topicId);
-  if (!topic || !usesAiWork(user) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
+  if (!topic || !(usesAiWork(user) || isPlanStudent(user)) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
   const day = new Date().toISOString().slice(0, 10);
   const lim = await bump(`ratelimit/aiwork/${user.id}/${day}`, 86_400_000, AI_WORK_DAILY);
   if (!lim.ok) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${AI_WORK_DAILY} ta) tugadi — ertaga qayta urinib ko'ring`);
   return { user, topic };
+}
+
+
+// ---------- Tadbirkorlik 141-23/142-23: mavzuni o'qish → 5 ta nazorat savoli (har biri 3 daqiqa, AI) → 20 ta test (10 daqiqa) ----------
+const planKey = (kind, uid, topicId, i = "") => `plan/${kind}/${uid}/${topicId}${i === "" ? "" : `/${i}`}`;
+const Q_GRACE_MS = 12_000; // tarmoq kechikishi uchun
+const QUIZ_GRACE_MS = 30_000;
+const secLeft = (startedAt, minutes) => Math.max(0, Math.round((new Date(startedAt).getTime() + minutes * 60_000 - Date.now()) / 1000));
+
+/** Mavzu to'liq o'qib chiqilganini belgilash (nazorat savollari va testning sharti). */
+async function planRead(req, topicId) {
+  const user = await requireUser(req);
+  const topic = findTopic(topicId);
+  if (!topic || !isPlanStudent(user) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
+  const prev = await db().get(planKey("read", user.id, topicId));
+  const rec = prev || { at: new Date().toISOString() };
+  if (!prev) await db().set(planKey("read", user.id, topicId), rec);
+  return json({ ok: true, at: rec.at });
+}
+
+/** Savolga javob yozishni boshlash: 3 daqiqalik vaqt shu paytdan hisoblanadi (qayta boshlab bo'lmaydi). */
+async function planQuestionStart(req, topicId, iStr) {
+  const { user, topic } = await requireAiWork(req, topicId);
+  if (!isPlanStudent(user)) throw new HttpError(403, "Bu amal sizning guruhingiz uchun emas");
+  const i = Number(iStr);
+  if (!topic.questions?.[i] || !pickQuestions(user.id, topic).includes(i)) throw new HttpError(404, "Bu savol sizga biriktirilmagan");
+  if (!(await db().get(planKey("read", user.id, topic.id)))) throw new HttpError(403, "Avval mavzuni to'liq o'qib chiqing va «Mavzuni o'qib chiqdim» tugmasini bosing");
+  if (await db().get(qgradeKey(user.id, topic.id, i))) throw new HttpError(409, "Bu savolga javob allaqachon yuborilgan");
+  const key = planKey("qstart", user.id, topic.id, i);
+  let st = await db().get(key);
+  if (!st) { st = { at: new Date().toISOString() }; await db().set(key, st); }
+  return json({ startedAt: st.at, secondsLeft: secLeft(st.at, PLAN_Q_MIN), seconds: PLAN_Q_MIN * 60 });
+}
+
+/** Mavzu testini boshlash: barcha 5 ta nazorat savoli tugagan bo'lishi shart; 10 daqiqa shu paytdan hisoblanadi. */
+async function planQuizStart(req, topicId) {
+  const user = await requireUser(req);
+  const topic = findTopic(topicId);
+  if (!topic || !isPlanStudent(user) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
+  if (!(await db().get(planKey("read", user.id, topicId)))) throw new HttpError(403, "Avval mavzuni to'liq o'qib chiqing");
+  await finalizeExpiredQuestions(user.id, topic);
+  for (const i of pickQuestions(user.id, topic)) if (!(await db().get(qgradeKey(user.id, topicId, i)))) throw new HttpError(403, "Avval barcha nazorat savollariga javob bering");
+  const st0 = (await db().get(`progress/${user.id}`))?.topics?.[topicId];
+  if (st0?.quizAttempts > 0) throw new HttpError(409, "Bu test topshirilgan");
+  const key = planKey("quizstart", user.id, topicId);
+  let st = await db().get(key);
+  if (!st) { st = { at: new Date().toISOString() }; await db().set(key, st); }
+  return json({ startedAt: st.at, secondsLeft: secLeft(st.at, PLAN_QUIZ_MIN), seconds: PLAN_QUIZ_MIN * 60 });
+}
+
+/** Vaqti tugagan, lekin javob yuborilmagan savollar 0 ball bilan yakunlanadi. */
+async function finalizeExpiredQuestions(uid, topic) {
+  for (const [k, st] of await getEntries(`plan/qstart/${uid}/${topic.id}/`)) {
+    const i = k.split("/").pop();
+    if (Date.now() - new Date(st.at).getTime() > PLAN_Q_MIN * 60_000 + Q_GRACE_MS && !(await db().get(qgradeKey(uid, topic.id, i)))) {
+      await db().set(qgradeKey(uid, topic.id, i), { score: 0, best: 0, feedback: "Vaqt tugadi (3 daqiqa): javob yuborilmadi — 0 ball.", missing: [], answer: "", ai: true, attempts: 1, late: true, at: new Date().toISOString() });
+    }
+  }
 }
 
 /** Nazorat savoliga yozilgan qisqa javobni AI baholaydi (0–10); eng yaxshi natija hisobga olinadi. */
@@ -3120,10 +3186,17 @@ async function questionReview(req, topicId, iStr) {
   if (!question || !pickQuestions(user.id, topic).includes(i)) throw new HttpError(404, "Bu savol sizga biriktirilmagan");
   const b = await body(req);
   const answer = str(b.answer, 2500);
-  if (answer.length < 20) throw new HttpError(400, "Javobni kamida bir-ikki gap bilan yozing (20 belgidan kam bo'lmasin)");
+  if (answer.length < 20 && !isPlanStudent(user)) throw new HttpError(400, "Javobni kamida bir-ikki gap bilan yozing (20 belgidan kam bo'lmasin)");
   if (await db().get(qgradeKey(user.id, topic.id, i))) throw new HttpError(409, "Bu savolga javob allaqachon yuborilgan: har bir savolga faqat bir marta javob beriladi.");
+  let late = false;
+  if (isPlanStudent(user)) {
+    const st = await db().get(planKey("qstart", user.id, topic.id, i));
+    if (!st) throw new HttpError(400, "Avval savolni «Boshlash» tugmasi bilan oching");
+    late = Date.now() - new Date(st.at).getTime() > PLAN_Q_MIN * 60_000 + Q_GRACE_MS;
+  }
   let g = null;
-  if (looksInjected(answer)) g = { score: 0, feedback: "Javob matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball. Savolga o'z so'zlaringiz bilan javob yozing.", missing: [] };
+  if (late) g = { score: 0, feedback: `Vaqt tugadi (${PLAN_Q_MIN} daqiqa): javob kech yuborildi — 0 ball.`, missing: [] };
+  else if (looksInjected(answer)) g = { score: 0, feedback: "Javob matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball. Savolga o'z so'zlaringiz bilan javob yozing.", missing: [] };
   else if (aiEnabled()) {
     // Ikki mustaqil baholash o'rtachasi olinadi (tasodifiy og'ishni kamaytirish uchun)
     const one = async () => { for (let a = 0; a < 2; a++) { try { const g1 = parseQuestionGrade(await completeText({ system: `Sen OTM o'qituvchisisan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: questionPrompt(topic, question, answer) }], maxTokens: 800, effort: "low", format: { type: "json_schema", schema: QUESTION_SCHEMA } })); if (g1) return g1; } catch (e) { console.error("AI savol baholash xatosi:", e); } } return null; };
@@ -3132,6 +3205,7 @@ async function questionReview(req, topicId, iStr) {
   }
   const estimated = !g;
   if (!g) g = demoQuestionGrade(question, answer);
+  if (isPlanStudent(user) && answer.length < 20 && !late) g = { ...g, score: 0, feedback: "Javob juda qisqa — 0 ball." };
   const prev = await db().get(qgradeKey(user.id, topic.id, i));
   const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
   await db().set(qgradeKey(user.id, topic.id, i), rec);
@@ -3149,8 +3223,8 @@ async function adminAiWorkReset(req) {
   assertSubject(teacher, topic.subject);
   let n = 0;
   if (what === "practice") { for (const r of await getMany(`practicereview/${uid}/${topicId}/`)) if (r.docx) { await db().del(practiceReviewKey(uid, topicId, r.id)); n++; } await db().del(`practicedoc/${topicId}/${uid}`); }
-  else if (what === "questions") { for (const [k] of await getEntries(`qgrade/${uid}/${topicId}/`)) { await db().del(k); n++; } }
-  else if (what === "quiz") { const key = `progress/${uid}`; const pr = await db().get(key); const st = pr?.topics?.[topicId]; if (st) { for (const f of ["quiz", "quizAttempts", "quizFirst", "quizLast", "quizAt", "quizIntegrity"]) delete st[f]; await db().set(key, pr); n = 1; } }
+  else if (what === "questions") { for (const [k] of await getEntries(`qgrade/${uid}/${topicId}/`)) { await db().del(k); n++; } for (const [k] of await getEntries(`plan/qstart/${uid}/${topicId}/`)) await db().del(k); }
+  else if (what === "quiz") { const key = `progress/${uid}`; const pr = await db().get(key); const st = pr?.topics?.[topicId]; if (st) { for (const f of ["quiz", "quizAttempts", "quizFirst", "quizLast", "quizAt", "quizIntegrity"]) delete st[f]; await db().set(key, pr); n = 1; } await db().del(planKey("quizstart", uid, topicId)); }
   else throw new HttpError(400, "what: practice | questions | quiz");
   scoreCache.clear();
   return json({ ok: true, removed: n });
@@ -3170,8 +3244,19 @@ async function myQuestionList(req, topicId) {
 
 async function myQuestionGrades(req, topicId) {
   const user = await requireUser(req);
+  const plan = isPlanStudent(user);
+  if (plan) { const t = findTopic(topicId); if (t) await finalizeExpiredQuestions(user.id, t); }
   const items = await getEntries(`qgrade/${user.id}/${topicId}/`);
-  return json({ grades: Object.fromEntries(items.map(([k, v]) => [k.split("/").pop(), v])) });
+  const out = { grades: Object.fromEntries(items.map(([k, v]) => [k.split("/").pop(), v])) };
+  if (plan) {
+    const starts = await getEntries(`plan/qstart/${user.id}/${topicId}/`);
+    out.starts = Object.fromEntries(starts.map(([k, v]) => [k.split("/").pop(), { at: v.at, secondsLeft: secLeft(v.at, PLAN_Q_MIN) }]));
+    out.read = Boolean(await db().get(planKey("read", user.id, topicId)));
+    const qs = await db().get(planKey("quizstart", user.id, topicId));
+    out.quizStart = qs ? { at: qs.at, secondsLeft: secLeft(qs.at, PLAN_QUIZ_MIN) } : null;
+    out.seconds = { question: PLAN_Q_MIN * 60, quiz: PLAN_QUIZ_MIN * 60 };
+  }
+  return json(out);
 }
 
 /** Talabaga biriktirilgan 2 ta masala va oxirgi Word yechim bahosi. */
@@ -3245,7 +3330,7 @@ async function computeScoreRows(subject, semNo) {
   const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, glossary: t.glossary?.length || 0, questions: t.questions?.length || 0, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))), practiceTaskIds: (t.practice?.tasks || []).map((k) => k.id) }));
   const topicIds = new Set(topics.map((t) => t.id));
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
-  const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], subject === SUBJECTS[0].key ? getEntries("qgrade/") : []]);
+  const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], ["mikro", "tadbirkorlik"].includes(subject) ? getEntries("qgrade/") : []]);
   const qgBy = new Map();
   for (const [k, v] of qgrades) { const [, uid, tid, qi] = k.split("/"); (qgBy.get(uid) || qgBy.set(uid, {}).get(uid))[`${tid}:${qi}`] = v.best ?? v.score ?? 0; }
   const topicObj = new Map((TOPICS_ALL[subject] || []).map((t) => [t.id, t]));
@@ -3258,18 +3343,23 @@ async function computeScoreRows(subject, semNo) {
   const midBy = new Map(mids.map(([k, v]) => [k.split("/")[3], v]));
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
+  const examSlot = new Map(); // oraliq nazorat tartib raqami bo'yicha baholar (1-nazorat → 1, 2-nazorat → 2): Tadbirkorlik 141-23/142-23
+  for (const [k, a] of attempts) { const ex0 = examById(k.split("/")[1]); const no = Number(/-(\d)-oraliq$/.exec(ex0?.id || "")?.[1]); if (ex0 && ex0.subject === subject && a.result && no) { const m = examSlot.get(a.userId) || examSlot.set(a.userId, {}).get(a.userId); m[no] = Math.max(m[no] ?? 0, fiveScale(a.result.percent)); } }
   for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, Math.max(examGrade.get(a.userId) ?? 0, fiveScale(a.result.percent))); } // bir fanning bir nechta oraliq testi bo'lsa — eng yaxshi baho olinadi
   const planSubs = subject === "tadbirkorlik" ? new Map((await getMany(`tasksub/${BIZPLAN_ID}/`)).map((x) => [x.userId, x])) : new Map();
   const rows = users.map((u) => {
     const form = formKeyOf(u);
     const manual = midBy.get(u.id);
     const ps = planSubs.get(u.id);
-    const planScore = ps ? ps.teacher?.score ?? ps.ai?.suggested ?? 0 : 0;
-    const planSource = ps ? (ps.teacher?.score != null ? "teacher" : ps.ai?.suggested != null ? "ai" : null) : null;
+    const planOnlyTeacher = isPlanStudent(u); // 141-23/142-23: biznes-reja bali faqat o'qituvchi «Saqlash» ni bosgach ball jadvalida aks etadi
+    const planScore = ps ? (planOnlyTeacher ? ps.teacher?.score ?? 0 : ps.teacher?.score ?? ps.ai?.suggested ?? 0) : 0;
+    const planSource = ps ? (ps.teacher?.score != null ? "teacher" : !planOnlyTeacher && ps.ai?.suggested != null ? "ai" : null) : null;
     const midterm = manual?.grade ?? examGrade.get(u.id) ?? null;
     const asg = hasAssignment(u.group) ? totalScore((asBy.get(u.id) || []).map((x) => ({ no: x.no, teacher: x.teacher, resubmitted: x.resubmitted })), form) : 0;
     const aiWork = usesAiWork(u);
-    const r = computeScore({ ...(aiWork ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: aiWork ? noTaskIds.map((t) => ({ ...t, qIdx: pickQuestions(u.id, topicObj.get(t.id)), questions: Math.min(t.questions, 5) })) : topics.map((t) => ({ ...t, practiceTaskIds: pickPractice(u.id, topicObj.get(t.id)).filter((p) => p.kind === "task").map((p) => p.id) })), progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
+    const planStu = isPlanStudent(u);
+    const slots = examSlot.get(u.id) || {};
+    const r = computeScore({ ...(aiWork || planStu ? { qgrades: qgBy.get(u.id) || {} } : {}), subject, form, group: u.group, semNo: sem.no, planScore, planSource, assignScore: sem.no === 3 ? asg : manual?.asg ?? 0, midterms: planStu ? [manual?.grade ?? slots[1] ?? null, manual?.grade2 ?? slots[2] ?? null] : [manual?.grade ?? examGrade.get(u.id) ?? null, manual?.grade2 ?? null], topics: planStu ? noTaskIds.map((t) => ({ ...t, qIdx: pickQuestions(u.id, topicObj.get(t.id)) })) : aiWork ? noTaskIds.map((t) => ({ ...t, qIdx: pickQuestions(u.id, topicObj.get(t.id)), questions: Math.min(t.questions, 5) })) : topics.map((t) => ({ ...t, practiceTaskIds: pickPractice(u.id, topicObj.get(t.id)).filter((p) => p.kind === "task").map((p) => p.id) })), progress: prog.get(u.id), reviews: (rv.get(u.id) || []).filter((x) => topicIds.has(x.topicId)).map((x) => ({ topicId: x.topicId, total: x.total, teacher: x.teacher })), midterm });
     return { userId: u.id, name: u.name, group: u.group || "", form, idNumber: u.idNumber || "", email: u.email, asgManual: sem.no !== 3 && hasAssignment(u.group), midtermSource: manual?.grade != null ? "teacher" : examGrade.has(u.id) ? "exam" : null, ...r };
   }).sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
   return { sem: { ...sem, ended: semesterEnded(sem) }, rows };
@@ -4665,6 +4755,9 @@ const routes = [
   ["PUT", /^practice\/([\w-]+)\/docx$/, practiceDocx],
   ["POST", /^qreview\/([\w-]+)\/(\d{1,3})$/, questionReview],
   ["GET", /^qreview\/([\w-]+)$/, myQuestionGrades],
+  ["POST", /^plan\/read\/([\w-]+)$/, planRead],
+  ["POST", /^plan\/qstart\/([\w-]+)\/(\d{1,3})$/, planQuestionStart],
+  ["POST", /^plan\/quizstart\/([\w-]+)$/, planQuizStart],
   ["POST", /^admin\/practice-reviews\/reset$/, adminAiWorkReset],
   ["GET", /^admin\/practice-reviews\/doc\/([\w-]+)\/([\w-]+)$/, adminPracticeDoc],
   ["GET", /^practice\/reviews$/, myPracticeReviews],
@@ -4780,6 +4873,7 @@ export async function handle(req) {
     // Vaqtincha kirish guruhi talabasi: faqat mavzularni o'qiydi va o'qituvchi topshiriqlarini bajaradi
     if (/^(assignment|labs|exams|self-study|practice|quiz|rating|certificate|leaderboard|ask)(\/|$)/.test(path)) {
       const u = await currentUser(req).catch(() => null);
+      if (u && u.role === "student" && isPlanStudent(u) && /^practice(\/|$)/.test(path)) throw new HttpError(403, "Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi");
       if (u && u.role === "student" && isGuestGroup(u.group)) throw new HttpError(403, "Bu bo'lim vaqtincha kirish uchun yopiq: faqat mavzularni o'qing va o'qituvchi topshirig'ini bajaring");
     }
     for (const [method, pattern, fn] of routes) {
