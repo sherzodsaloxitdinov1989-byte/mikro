@@ -8,7 +8,7 @@ import { computeGame, certificateStatus, makeContext } from "../public/js/gamifi
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
 import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
-import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
+import { totalScore, assignmentClosed, stageClosed, closeLabel } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
 import { prepare as dupPrepare, comparePair, explain as dupExplain } from "./dupreport.mjs";
@@ -1322,9 +1322,9 @@ async function myAssignment(req) {
 // Faqat 1-bosqichni hali yuklamagan talaba birinchi marta yuklay oladi — bunda ball 50% kamaytiriladi.
 const FIRST_UPLOAD_PENALTY = 50;
 async function assertAssignOpen(uid, no) {
-  if (!assignmentClosed()) return;
+  if (!stageClosed(no)) return;
   if (Number(no) === 1 && !(await db().get(assignKey(uid, 1)))) return;
-  throw new HttpError(403, Number(no) === 1 ? "Topshiriqni o'zgartirish va qayta yuklash muddati tugagan (31-oktyabr 23:59 gacha edi)." : "Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi).");
+  throw new HttpError(403, Number(no) === 1 ? "Topshiriqni o'zgartirish va qayta yuklash muddati tugagan (31-oktyabr 23:59 gacha edi)." : `Topshiriqni yuklash va o'zgartirish muddati tugagan (${closeLabel(no)} 23:59 gacha edi).`);
 }
 
 async function assignUploadInit(req, no) {

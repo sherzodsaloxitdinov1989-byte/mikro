@@ -33,7 +33,7 @@ export const ASSIGNMENT = {
     6,
     7
    ],
-   "due": "2026-11-29",
+   "due": "2026-11-30",
    "max": 6
   },
   {

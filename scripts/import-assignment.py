@@ -24,7 +24,7 @@ SETTINGS = {
     # Muddat: sana kuni oxirigacha (Toshkent vaqti, UTC+5)
     "groups": [
         {"id": 1, "stages": [1, 2, 3, 4], "due": "2026-10-31", "max": 7},
-        {"id": 2, "stages": [5, 6, 7], "due": "2026-11-29", "max": 6},
+        {"id": 2, "stages": [5, 6, 7], "due": "2026-11-30", "max": 6},
         {"id": 3, "stages": [8, 9, 10, 11], "due": "2026-12-26", "max": 7},
     ],
     # Bosqichlar o'zaro bog'liqligi (faylda aniq ko'rsatilgan: "2-topshiriqdagi...", "4-topshiriqdagi..." va h.k.).

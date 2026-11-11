@@ -35,6 +35,12 @@ export const deadlineOf = (no, form) => {
 /** Topshiriqni yuklash/o'zgartirish yopiladigan oxirgi vaqt (Toshkent vaqti): shundan keyin hech kim yuklay ham, o'zgartira ham olmaydi. */
 export const ASSIGNMENT_CLOSE = new Date("2026-10-31T23:59:59+05:00");
 export const assignmentClosed = (now = new Date()) => now > ASSIGNMENT_CLOSE;
+/** 5–7-bosqichlar (2-guruh): yuklash va o'zgartirish muddati 30-noyabr 23:59 gacha uzaytirilgan (Toshkent vaqti). */
+export const EXTENDED_CLOSE = new Date("2026-11-30T23:59:59+05:00");
+export const EXTENDED_STAGES = [5, 6, 7];
+export const stageCloseAt = (no) => (EXTENDED_STAGES.includes(Number(no)) ? EXTENDED_CLOSE : ASSIGNMENT_CLOSE);
+export const stageClosed = (no, now = new Date()) => now > stageCloseAt(no);
+export const closeLabel = (no) => (EXTENDED_STAGES.includes(Number(no)) ? "30-noyabr" : "31-oktyabr");
 export const fmtScore = (n) => (n == null ? "—" : String(Math.round(n * 100) / 100).replace(".", ","));
 /** Talabaning umumiy balli: faqat o'qituvchi qo'ygan ballar, har bir guruh uchun guruh maksimalidan oshmaydi. */
 export function totalScore(items, form) {

@@ -4,7 +4,7 @@ import { api, session } from "../api.js";
 import { toCSV } from "../stats.js";
 import { COURSE, formByKey, subjectOfGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../../data/course.js";
 import { Report, saveBlobAs } from "../pdf-report.js";
-import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore, assignmentClosed } from "../assignment-util.js";
+import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, fmtScore, totalScore, assignmentClosed, stageClosed, closeLabel } from "../assignment-util.js";
 
 const MONTHS = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
 const fmtDue = (iso) => {
@@ -216,7 +216,7 @@ export async function renderStage(el, noParam) {
   const g = groupOf(no, form);
   const max = stageMax(no, form);
   const late = now > deadlineOf(no, form);
-  const closedAll = assignmentClosed(now);
+  const closedAll = stageClosed(no, now);
   const firstOnly = closedAll && no === 1 && !sub; // 1-bosqich: yopilgandan keyin faqat birinchi marta yuklash (50% jarima)
   const closed = closedAll && !firstOnly;
 
@@ -316,9 +316,9 @@ export async function renderStage(el, noParam) {
           h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(max)} ball`),
           h("a", { class: "chip chip-soft", href: `#/topics/t${st.topic}` }, `📖 ${st.topic}-mavzu nazariyasi`)))),
     dep,
-    firstOnly && h("div", { class: "alert alert-warn" }, "⏰ Muddat (31-oktyabr 23:59) tugagan. Siz 1-bosqich hisobotini hali yuklamagansiz, shuning uchun birinchi marta yuklashingiz mumkin, lekin ball 50% kamaytiriladi. Yuklagandan keyin uni o'zgartirib yoki qayta yuklab bo'lmaydi."),
-    closed && h("div", { class: "alert alert-warn" }, "🔒 Topshiriqni yuklash va o'zgartirish muddati tugagan (31-oktyabr 23:59 gacha edi). Endi hisobotni yuklab ham, o'zgartirib ham bo'lmaydi."),
-    !closedAll && h("div", { class: "alert small" }, "🕒 Hisobotni 31-oktyabr soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi."),
+    firstOnly && h("div", { class: "alert alert-warn" }, `⏰ Muddat (${closeLabel(no)} 23:59) tugagan. Siz 1-bosqich hisobotini hali yuklamagansiz, shuning uchun birinchi marta yuklashingiz mumkin, lekin ball 50% kamaytiriladi. Yuklagandan keyin uni o'zgartirib yoki qayta yuklab bo'lmaydi.`),
+    closed && h("div", { class: "alert alert-warn" }, `🔒 Topshiriqni yuklash va o'zgartirish muddati tugagan (${closeLabel(no)} 23:59 gacha edi). Endi hisobotni yuklab ham, o'zgartirib ham bo'lmaydi.`),
+    !closedAll && h("div", { class: "alert small" }, `🕒 Hisobotni ${closeLabel(no)} soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi.`),
     late && !closedAll && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
     h("div", { class: "card" }, h("h3", {}, "🎯 Maqsad"), h("p", {}, st.goal), h("h3", {}, "📝 Bajariladigan vazifalar"), h("ol", {}, st.tasks.map((t) => h("li", {}, t))), h("h3", {}, "📦 Talab qilinadigan natija"), h("p", {}, st.result)),
     sample,
