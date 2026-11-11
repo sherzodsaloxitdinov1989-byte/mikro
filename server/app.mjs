@@ -3094,6 +3094,20 @@ async function adminExamReset(req, id, uid) {
   return json({ ok: true });
 }
 
+/** Bosh o'qituvchi: nazorat testining barcha natijalarini (urinishlarni) o'chirish. Qaytarib bo'lmaydi: avval Excel hisobotni yuklab oling. */
+async function adminExamPurge(req, id) {
+  const t = requireFullTeacher(await requireTeacher(req));
+  const exm = examById(id);
+  if (!exm) throw new HttpError(404, "Nazorat testi topilmadi");
+  const b = await body(req);
+  if (b.confirm !== exm.id) throw new HttpError(400, "Tasdiqlash uchun nazorat identifikatorini kiriting");
+  const entries = await getEntries(`examattempt/${id}/`);
+  for (const [k] of entries) await db().del(k);
+  scoreCache.clear();
+  await securityAlert(req, "exam_purge", "high", "Nazorat testi natijalari o'chirildi", `${t.name} «${exm.title}» nazorat testining ${entries.length} ta natijasini o'chirdi.`, id, 60_000).catch(() => {});
+  return json({ ok: true, removed: entries.length });
+}
+
 /** O'qituvchi: savollar bazasi (javob kalitlari bilan) — Word'ga yuklab olish uchun. */
 async function adminExamBank(req, id) {
   const tch = await requireTeacher(req);
@@ -3348,7 +3362,7 @@ async function computeScoreRows(subject, semNo) {
   // Oraliq nazorat testi (nazorat moduli): yagona semestrli fanlarda 5 ballik baho avtomatik olinadi, o'qituvchi kiritgan baho ustun
   const examGrade = new Map();
   const examSlot = new Map(); // oraliq nazorat tartib raqami bo'yicha baholar (1-nazorat → 1, 2-nazorat → 2): Tadbirkorlik 141-23/142-23
-  for (const [k, a] of attempts) { const ex0 = examById(k.split("/")[1]); const no = Number(/-(\d)-oraliq$/.exec(ex0?.id || "")?.[1]); if (ex0 && ex0.subject === subject && a.result && no) { const m = examSlot.get(a.userId) || examSlot.set(a.userId, {}).get(a.userId); m[no] = Math.max(m[no] ?? 0, fiveScale(a.result.percent)); } }
+  for (const [k, a] of attempts) { const ex0 = examById(k.split("/")[1]); const no = ex0?.noScore ? 0 : ex0?.slot ?? Number(/-(\d)-oraliq$/.exec(ex0?.id || "")?.[1]); if (ex0 && ex0.subject === subject && a.result && no) { const m = examSlot.get(a.userId) || examSlot.set(a.userId, {}).get(a.userId); m[no] = Math.max(m[no] ?? 0, fiveScale(a.result.percent)); } }
   for (const [k, a] of attempts) { const ex = examById(k.split("/")[1]); if (ex && ex.subject === subject && a.result && (sems.length === 1 || ex.semester === sem.no)) examGrade.set(a.userId, Math.max(examGrade.get(a.userId) ?? 0, fiveScale(a.result.percent))); } // bir fanning bir nechta oraliq testi bo'lsa — eng yaxshi baho olinadi
   const planSubs = subject === "tadbirkorlik" ? new Map((await getMany(`tasksub/${BIZPLAN_ID}/`)).map((x) => [x.userId, x])) : new Map();
   const rows = users.map((u) => {
@@ -4804,6 +4818,7 @@ const routes = [
   ["GET", /^admin\/exams\/([\w-]+)\/attempt\/([\w-]+)$/, adminExamAttempt],
   ["GET", /^admin\/exams\/([\w-]+)\/bank$/, adminExamBank],
   ["POST", /^admin\/exams\/([\w-]+)\/reset\/([\w-]+)$/, adminExamReset],
+  ["POST", /^admin\/exams\/([\w-]+)\/purge$/, adminExamPurge],
   ["POST", /^admin\/exams\/([\w-]+)\/access$/, adminExamAccess],
   ["POST", /^admin\/exams\/([\w-]+)\/extend$/, adminExamExtend],
   ["GET", /^admin\/exams\/([\w-]+)\/report$/, adminExamReport],

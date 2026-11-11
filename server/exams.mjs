@@ -10,6 +10,7 @@ export const EXAMS = [
     id: "makro-1-oraliq",
     subject: "makro",
     title: "Makroiqtisodiyot — 1-oraliq nazorat",
+    noScore: true, // natijalari ball jadvaliga hisobga olinmaydi (o'qituvchi qarori): 2-oraliq nazorat natijasi 1-nazorat o'rniga qo'yilgan
     groups: ["231-24", "232-24", "233-24"],
     startsAt: "2026-10-27T08:40:00+05:00", // test shu vaqtdan ochiladi (Toshkent vaqti)
     closesAt: "2026-10-27T23:59:00+05:00", // shundan keyin boshlab bo'lmaydi
@@ -20,6 +21,7 @@ export const EXAMS = [
   },
   {
     id: "makro-2-oraliq",
+    slot: 1, // ball jadvalida 1-nazorat o'rnida hisoblanadi
     subject: "makro",
     title: "Makroiqtisodiyot — 2-oraliq nazorat",
     groups: ["231-24", "232-24", "233-24"],

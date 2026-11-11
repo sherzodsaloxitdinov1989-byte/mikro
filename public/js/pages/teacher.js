@@ -497,7 +497,16 @@ async function examsView(el) {
     return h("div", { class: "stack" },
       h("div", { class: "card stack" }, h("h3", {}, e.title),
         h("p", { class: "muted small" }, `Boshlanish: ${e.starts ? Object.entries(e.starts).map(([g, t]) => `${g} — ${uzAt(t)}`).join("; ") : `${uzAt(e.startsAt)} (${wd[new Date(new Date(e.startsAt).getTime() + 5 * 3600_000).getUTCDay()]})`} · tugash: ${uzAt(e.closesAt)} · ${e.durationMin} daqiqa · ${e.count} ta savol · baza: ${e.bank} ta · guruhlar: ${e.groups.join(", ")}`),
-        h("div", { class: "row wrap" }, h("button", { class: "btn", onclick: () => reportDocx(e).catch((ex) => toast(ex.message, "error")) }, "📄 To'liq hisobot (Word)"), h("button", { class: "btn", onclick: () => reportCsv(e).catch((ex) => toast(ex.message, "error")) }, "📊 To'liq hisobot (Excel)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"))),
+        h("div", { class: "row wrap" }, h("button", { class: "btn", onclick: () => reportDocx(e).catch((ex) => toast(ex.message, "error")) }, "📄 To'liq hisobot (Word)"), h("button", { class: "btn", onclick: () => reportCsv(e).catch((ex) => toast(ex.message, "error")) }, "📊 To'liq hisobot (Excel)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, true) }, "⬇ Baza (javoblar bilan, Word)"), h("button", { class: "btn ghost", onclick: () => bankDocx(e, false) }, "⬇ Baza (savollar, Word)"), !Array.isArray(session.user?.subjects) && h("button", { class: "btn danger", title: "Barcha natijalarni o'chiradi (qaytarib bo'lmaydi)", onclick: async () => {
+          try {
+            await reportCsv(e); // zaxira nusxa: o'chirishdan oldin Excel hisobot yuklab olinadi
+            const typed = prompt(`DIQQAT: «${e.title}» nazorat testining BARCHA natijalari o'chiriladi va qaytarib bo'lmaydi (Excel zaxira nusxa yuklab olindi).\n\nTasdiqlash uchun nazorat identifikatorini yozing: ${e.id}`);
+            if (typed !== e.id) return typed !== null && toast("Identifikator mos kelmadi — o'chirilmadi", "error");
+            const r = await api.post(`admin/exams/${e.id}/purge`, { confirm: typed });
+            toast(`${r.removed} ta natija o'chirildi`, "ok");
+            examsView(el);
+          } catch (ex) { toast(ex.message, "error"); }
+        } }, "🗑 Natijalarni o'chirish"))),
       h("div", { class: "row wrap" },
         h("select", { onchange: (ev) => ((q.group = ev.target.value), draw()) }, h("option", { value: "" }, "Barcha guruhlar"), groups.map((g) => h("option", { value: g }, g))),
         h("input", { type: "search", placeholder: "Ism, email yoki ID…", oninput: (ev) => ((q.text = ev.target.value.toLowerCase()), draw()) }),
