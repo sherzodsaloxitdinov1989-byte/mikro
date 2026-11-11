@@ -2,7 +2,9 @@
 // Hammasi bir martalik; vaqt serverda hisoblanadi, brauzer faqat sanab ko'rsatadi.
 import { h, toast } from "./ui.js";
 import { api, session } from "./api.js";
-import { pickQuestions } from "../data/practice-pick.js";
+import { pickQuestions, pickQuiz } from "../data/practice-pick.js";
+import { docxPanel } from "./practice-docx.js";
+import { hasProblemPart } from "../data/course.js";
 import { loadProgress, topicState, updateTopic } from "./progress.js";
 import { PLAN_Q_MIN, PLAN_QUIZ_MIN } from "../data/course.js";
 
@@ -92,7 +94,7 @@ export function planQuizPanel(topic) {
     if (st.quizAttempts > 0 && !d.quizResult) {
       return h("div", { class: "alert alert-info" }, `Bu test topshirilgan. Natijangiz: ${st.quiz ?? 0}%. Test faqat bir marta topshiriladi.`);
     }
-    const qs = topic.quiz;
+    const qs = pickQuiz(session.user.id, topic).map((i) => topic.quiz[i]); // 20 ta test (aralashtirilgan)
     const startedAt = d.quizStart;
     if (!startedAt) {
       return h("div", { class: "card plan-card stack" }, h("h3", {}, "✅ Mavzu testi"), h("p", {}, `${qs.length} ta savol, ${PLAN_QUIZ_MIN} daqiqa. Test faqat bir marta topshiriladi; vaqt tugasa, belgilangan javoblar avtomatik yuboriladi.`),
@@ -129,4 +131,17 @@ export function planQuizPanel(topic) {
     if (left <= 0) send(true);
     return root2;
   });
+}
+
+/** Makroiqtisodiyot: 2 ta masala — testdan keyin ochiladi; PDF yuklab olinadi, yechim Word faylda yuklanadi, AI baholaydi. */
+export function planProblemsPanel(topic) {
+  const root = h("div", { class: "stack", "data-secure": "1" });
+  const draw = async () => {
+    await loadProgress();
+    if (!(topicState(topic.id).quizAttempts > 0)) return root.replaceChildren(h("div", { class: "alert alert-warn" }, "Masalalar mavzu testidan keyin ochiladi: avval «Test» bo'limida 20 ta testni topshiring."));
+    root.replaceChildren(docxPanel(topic));
+  };
+  draw();
+  window.addEventListener("vgt:progress", draw);
+  return root;
 }

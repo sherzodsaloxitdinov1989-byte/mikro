@@ -10,8 +10,8 @@ import { loadProgress, topicState, updateTopic, topicCompletion, setNote } from 
 import { practicePanel } from "../practice-ui.js";
 import { docxPanel, aiQuestionCard } from "../practice-docx.js";
 import { pickQuestions } from "../../data/practice-pick.js";
-import { planReadButton, planQuestionsPanel, planQuizPanel } from "../plan-work.js";
-import { usesAiWork, isPlanStudent } from "../../data/course.js";
+import { planReadButton, planQuestionsPanel, planQuizPanel, planProblemsPanel } from "../plan-work.js";
+import { usesAiWork, isPlanStudent, hasProblemPart } from "../../data/course.js";
 import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
 import { groupedBySemester } from "../semester.js";
@@ -110,18 +110,19 @@ export async function renderTopic(el, id) {
     chapter("video", "🎬", "Animatsion dars", "Mavzuning qisqa animatsion bayoni: ovozli hikoya, subtitrlar va jonli infografika", player),
     videos.length > 0 && chapter("videos", "📹", "Video darslar", `${videos.length} ta video — o'qituvchi tomonidan joylangan`, h("div", { class: "video-grid" }, videos.map((v) => videoCard(v)))),
     chapter("theory", "📖", "Nazariya", `${topic.sections.length} bo'lim · ~${minutes} daqiqa o'qish · 🎧 tinglash mumkin`, isPlanStudent(session.user) ? h("div", { class: "stack" }, theoryBlock(topic, (sec) => book.start(sec)), planReadButton(topic)) : theoryBlock(topic, (sec) => book.start(sec))),
-    chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
+    !hasProblemPart(session.user) && chapter("glossary", "🃏", "Tayanch tushunchalar", `${topic.glossary.length} ta tushuncha — kartani bosing`, glossaryTab(topic)),
     chapter("questions", "❓", "Nazorat savollari", isPlanStudent(session.user) ? "5 ta savol · har biriga 3 daqiqa · 🤖 AI bahosi" : usesAiWork(session.user) ? `${Math.min(5, topic.questions.length)} ta savol (sizga biriktirilgan) · 🤖 AI bahosi` : `${topic.questions.length} ta savol (o'quv qo'llanmadan)`, isPlanStudent(session.user) ? planQuestionsPanel(topic) : questionsTab(topic)),
     chapter("quiz", "✅", "O'zingizni sinang", isPlanStudent(session.user) ? `${topic.quiz.length} ta test · ${10} daqiqa · bir marta` : `${topic.quiz.length} ta test (mavzu matni asosida)`, isPlanStudent(session.user) ? planQuizPanel(topic) : quizTab(topic)),
+    topic.practice && hasProblemPart(session.user) && chapter("practice", "🧮", "Masalalar (2 ta)", "2 ta masala — PDF yuklab olib, yechimni Word faylda yuklang · 🤖 AI bahosi", planProblemsPanel(topic)),
     topic.practice && !isPlanStudent(session.user) && chapter("practice", "🧮", "Amaliy mashg'ulot", (usesAiWork(session.user) ? "2 ta masala — yechimni Word faylda yuklang · 🤖 AI bahosi" : session.user?.role === "student" ? "Sizga 2 ta masala biriktirilgan · 🤖 AI tekshiruv va feedback" : topic.practice.tasks.length ? `${topic.practice.tasks.length} ta hisob-kitob (darhol tekshiriladi) + keys` : `${topic.practice.open.length} ta masala va topshiriq`) + " · 🤖 AI tekshiruv va feedback", (usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic))),
-    !usesAiWork(session.user) && chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
+    !usesAiWork(session.user) && !hasProblemPart(session.user) && chapter("self", "🧩", "Mustaqil ish", `${topic.selfStudy.length} ta topshiriq`, selfTab(topic))
   );
 
   const rail = h(
     "nav",
     { class: "lesson-rail", "aria-label": "Dars bo'limlari" },
     h("div", { class: "rail-title" }, `${topic.num}-mavzu`),
-    CHAPTERS.filter(([key]) => (key !== "slides" || viewer) && (key !== "videos" || videos.length) && (key !== "updates" || topic.updates.length) && (key !== "practice" || (topic.practice && !isPlanStudent(session.user))) && (key !== "self" || !usesAiWork(session.user))).map(([key, icon, label]) => [
+    CHAPTERS.filter(([key]) => (key !== "slides" || viewer) && (key !== "videos" || videos.length) && (key !== "updates" || topic.updates.length) && (key !== "practice" || (topic.practice && (!isPlanStudent(session.user) || hasProblemPart(session.user)))) && (key !== "glossary" || !hasProblemPart(session.user)) && (key !== "self" || (!usesAiWork(session.user) && !hasProblemPart(session.user)))).map(([key, icon, label]) => [
       h("a", { href: `#learn-${key}`, "data-key": key, onclick: (e) => { e.preventDefault(); document.getElementById(`learn-${key}`)?.scrollIntoView({ behavior: "smooth", block: "start" }); } }, h("span", { class: "rail-icon" }, icon), h("span", { class: "rail-label" }, label), h("span", { class: "rail-count" }, counts[key])),
       key === "theory" && h("div", { class: "rail-sub" }, topic.sections.filter((x) => x.title).map((x, i) => h("a", { href: `#sec-${i}`, "data-sec": i, onclick: (e) => { e.preventDefault(); document.getElementById(`sec-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" }); } }, x.title.replace(/^\d+\.\d+\.\s*/, "")))),
     ])

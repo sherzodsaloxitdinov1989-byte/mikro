@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.m
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, isPlanStudent, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -20,9 +20,9 @@ import { synthesize, ttsEnabled, ttsModels, ttsKey, VOICES, STYLES, audioFormat 
 import { LAB_RUBRIC, LAB_LEVELS, labLevel, labReviewPrompt, LAB_REVIEW_SCHEMA, parseLabReview, demoLabReview } from "./lab-task.mjs";
 import { mailEnabled, sendResetCode, sendAlertMail, sendInviteMail, sendTestMail } from "./mail.mjs";
 import { readDocx } from "./docx-read.mjs";
-import { pickPractice, pickQuestions } from "../public/data/practice-pick.js";
+import { pickPractice, pickQuestions, pickQuiz } from "../public/data/practice-pick.js";
 import { makePdf } from "./pdf-lite.mjs";
-import { assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview, textSimilarity, looksInjected, avgScores } from "./ai-work.mjs";
+import { assignedMixed, assignedTasks, assignedIdx, questionPrompt, QUESTION_SCHEMA, demoQuestionGrade, parseQuestionGrade, docxPrompt, demoDocxReview, textSimilarity, looksInjected, avgScores } from "./ai-work.mjs";
 import * as meetLib from "./meets.mjs";
 import { heuristics, similarity, combineOriginality, hideSimilar, objectNames, sameObject } from "./originality.mjs";
 import { assignmentFor, stageOf, groupOf, stageMax, deadlineOf, contextStages, finalizeReview, CRITERIA as ASSIGN_CRITERIA, REVIEW_SCHEMA as ASSIGN_SCHEMA, reviewPrompt as assignPrompt, parseReview as parseAssignReview, demoReview as demoAssignReview, percentOf, suggestedScore } from "./assignment.mjs";
@@ -1125,8 +1125,10 @@ async function quizSubmit(req, topicId) {
   const b = await body(req);
   let answers = b.answers;
   const planQ = isPlanStudent(user);
-  if (planQ && Array.isArray(answers) && answers.length === topic.quiz.length) answers = answers.map((a, i) => (Number.isInteger(a) && a >= 0 && a < topic.quiz[i].options.length ? a : -1)); // vaqt tugaganda javobsizlar noto'g'ri hisoblanadi
-  if (!Array.isArray(answers) || answers.length !== topic.quiz.length || (!planQ && answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length))) throw new HttpError(400, "Barcha savollarga javob bering");
+  // Rejali talabalar (Tadbirkorlik 141/142-23, Makro 231–233-24): mavzu testidan 20 ta savol aralashtirib beriladi
+  const qIdx = planQ ? pickQuiz(user.id, topic) : topic.quiz.map((_, i) => i);
+  if (planQ && Array.isArray(answers) && answers.length === qIdx.length) answers = answers.map((a, k) => (Number.isInteger(a) && a >= 0 && a < topic.quiz[qIdx[k]].options.length ? a : -1)); // vaqt tugaganda javobsizlar noto'g'ri hisoblanadi
+  if (!Array.isArray(answers) || answers.length !== qIdx.length || (!planQ && answers.some((a, i) => !Number.isInteger(a) || a < 0 || a >= topic.quiz[i].options.length))) throw new HttpError(400, "Barcha savollarga javob bering");
   let quizLate = false;
   if (planQ) {
     const qs = await db().get(planKey("quizstart", user.id, topic.id));
@@ -1143,12 +1145,13 @@ async function quizSubmit(req, topicId) {
   // talaba javoblarni yodlab olib, ballni oshirib yubormasligi uchun. Serverning o'zi to'g'ri javobni qaytarmaydi.
   if ((usesAiWork(user) || planQ) && st.quizAttempts > 0) throw new HttpError(409, "Bu test faqat bir marta topshiriladi va siz uni topshirgansiz. Qayta topshirish uchun o'qituvchiga murojaat qiling.");
   const reveal = !(st.quizAttempts > 0);
-  const results = topic.quiz.map((q, i) => {
+  const results = qIdx.map((qi, i) => {
+    const q = topic.quiz[qi];
     const ok = answers[i] === q.correct;
     return reveal ? { ok, correct: q.correct, explain: q.explain || "" } : { ok, explain: ok ? q.explain || "" : "" };
   });
   const correct = quizLate ? 0 : results.filter((r) => r.ok).length;
-  const scoreRaw = Math.round((correct / topic.quiz.length) * 100);
+  const scoreRaw = Math.round((correct / qIdx.length) * 100);
   const integrity = await integrityFor(user.id, inZone(topic.id, "Mavzu testi"), st.quizAt || "");
   const score = Math.round(reduceBy(scoreRaw, integrity?.percent));
   st.quiz = Math.max(st.quiz ?? 0, score);
@@ -1160,7 +1163,7 @@ async function quizSubmit(req, topicId) {
   st.quizAt = new Date().toISOString();
   progress.updatedAt = st.quizAt;
   await db().set(key, progress);
-  return json({ score, scoreRaw, integrity, correct, total: topic.quiz.length, reveal, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
+  return json({ score, scoreRaw, integrity, correct, total: qIdx.length, reveal, results, state: Object.fromEntries(QUIZ_FIELDS.map((f) => [f, st[f]])) });
 }
 
 /** O'qituvchi uchun: test javob kalitlari (Word jamlanma va boshqalar uchun). */
@@ -3262,7 +3265,7 @@ async function myQuestionGrades(req, topicId) {
 /** Talabaga biriktirilgan 2 ta masala va oxirgi Word yechim bahosi. */
 async function practiceAssigned(req, topicId) {
   const { user, topic } = await requireAiWork(req, topicId);
-  const tasks = assignedTasks(user.id, topic).map(({ n, idx, text }) => ({ n, id: `open-${idx + 1}`, text }));
+  const tasks = (hasProblemPart(user) ? assignedMixed : assignedTasks)(user.id, topic).map(({ n, id, text }) => ({ n, id, text }));
   const last = (await getMany(`practicereview/${user.id}/${topicId}/`)).filter((r) => r.docx).sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""))[0] || null;
   return json({ tasks, last: last && { ...last, answers: undefined, criteria: REVIEW_CRITERIA }, aiEnabled: aiEnabled() });
 }
@@ -3270,7 +3273,7 @@ async function practiceAssigned(req, topicId) {
 /** Talabaga biriktirilgan 2 ta masalani PDF fayl sifatida beradi (yechimni Word faylda qaytarish uchun). */
 async function practicePdf(req, topicId) {
   const { user, topic } = await requireAiWork(req, topicId);
-  const tasks = assignedTasks(user.id, topic);
+  const tasks = (hasProblemPart(user) ? assignedMixed : assignedTasks)(user.id, topic);
   const blocks = [
     { text: `Amaliy mashg'ulot — ${topic.num}-mavzu`, size: 16, bold: true },
     { text: topic.title, size: 12, gap: 4 },
@@ -3287,6 +3290,7 @@ async function practiceDocx(req, topicId) {
   const url = new URL(req.url);
   const name = str(url.searchParams.get("name"), 200);
   if (!/\.docx$/i.test(name)) throw new HttpError(400, "Faqat Word (.docx) fayl qabul qilinadi");
+  if (hasProblemPart(user) && !((await db().get(`progress/${user.id}`))?.topics?.[topic.id]?.quizAttempts > 0)) throw new HttpError(403, "Masalalar testdan keyin ochiladi: avval mavzu testini topshiring");
   const data = new Uint8Array(await req.arrayBuffer());
   if (!data.byteLength) throw new HttpError(400, "Fayl bo'sh");
   if (data.byteLength > 6 * 1024 * 1024) throw new HttpError(413, "Fayl juda katta: eng ko'pi 6 MB");
@@ -3295,7 +3299,7 @@ async function practiceDocx(req, topicId) {
   const text = doc.text.slice(0, 30000);
   if (text.trim().length < 80) throw new HttpError(400, "Faylda tekshirish uchun matn yetarli emas. Masalalar yechimini matn ko'rinishida yozing.");
   if ((await getMany(`practicereview/${user.id}/${topicId}/`)).some((r) => r.docx)) throw new HttpError(409, "Bu mavzu bo'yicha yechim allaqachon yuborilgan: amaliy topshiriq faqat bir marta topshiriladi.");
-  const tasks = assignedTasks(user.id, topic);
+  const tasks = (hasProblemPart(user) ? assignedMixed : assignedTasks)(user.id, topic);
   let review = null;
   if (looksInjected(text)) review = { ...demoDocxReview(tasks, ""), scores: { formulas: 0, accuracy: 0, analysis: 0, case: 0, independence: 0 }, summary: "Fayl matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball.", estimated: false };
   else if (aiEnabled()) {
@@ -3315,7 +3319,7 @@ async function practiceDocx(req, topicId) {
   }
   if (copy) { total = Math.round((total / 2) * 10) / 10; review.mistakes = [...(review.mistakes || []), `Ish boshqa talaba yechimi bilan ${Math.round(copy.sim * 100)}% o'xshash: baho 50% ga kamaytirildi. Yechimni o'z so'zlaringiz bilan yozing.`]; }
   const rec = {
-    id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, ...(copy ? { copy } : {}), max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.idx + 1) },
+    id: newId(), userId: user.id, user: { name: user.name, group: user.group }, topicId, total, ...(copy ? { copy } : {}), max: 10, review, docx: { name, size: data.byteLength, images: doc.imageCount || 0, tasks: tasks.map((t) => t.n) },
     answers: { tasks: [], open: [], conclusion: "" }, ai: !review.estimated, model: review.estimated ? null : modelName(), createdAt: new Date().toISOString(),
   };
   await db().set(practiceReviewKey(user.id, topicId, rec.id), rec);
@@ -3330,7 +3334,7 @@ async function computeScoreRows(subject, semNo) {
   const topics = (TOPICS_ALL[subject] || []).filter((t) => t.num >= sem.topics[0] && t.num <= sem.topics[1]).map((t) => ({ id: t.id, glossary: t.glossary?.length || 0, questions: t.questions?.length || 0, hasQuiz: Boolean(t.quiz?.length), hasPractice: Boolean(t.practice && ((t.practice.tasks?.length || 0) + (t.practice.open?.length || 0))), practiceTaskIds: (t.practice?.tasks || []).map((k) => k.id) }));
   const topicIds = new Set(topics.map((t) => t.id));
   const users = (await getMany("user/")).filter((u) => u.role === "student" && subjectOfGroup(u.group).key === subject);
-  const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], ["mikro", "tadbirkorlik"].includes(subject) ? getEntries("qgrade/") : []]);
+  const [progress, reviews, mids, attempts, assigns, qgrades] = await Promise.all([getEntries("progress/"), getEntries("practicereview/"), getEntries(`midterm/${subject}/${sem.no}/`), getEntries("examattempt/"), subject === SUBJECTS[0].key ? getEntries("assign/") : [], ["mikro", "tadbirkorlik", "makro"].includes(subject) ? getEntries("qgrade/") : []]);
   const qgBy = new Map();
   for (const [k, v] of qgrades) { const [, uid, tid, qi] = k.split("/"); (qgBy.get(uid) || qgBy.set(uid, {}).get(uid))[`${tid}:${qi}`] = v.best ?? v.score ?? 0; }
   const topicObj = new Map((TOPICS_ALL[subject] || []).map((t) => [t.id, t]));
@@ -4873,7 +4877,7 @@ export async function handle(req) {
     // Vaqtincha kirish guruhi talabasi: faqat mavzularni o'qiydi va o'qituvchi topshiriqlarini bajaradi
     if (/^(assignment|labs|exams|self-study|practice|quiz|rating|certificate|leaderboard|ask)(\/|$)/.test(path)) {
       const u = await currentUser(req).catch(() => null);
-      if (u && u.role === "student" && isPlanStudent(u) && /^practice(\/|$)/.test(path)) throw new HttpError(403, "Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi");
+      if (u && u.role === "student" && isPlanStudent(u) && !(hasProblemPart(u) && /^practice\/[\w-]+\/(assigned|docx|pdf)$/.test(path)) && /^practice(\/|$)/.test(path)) throw new HttpError(403, "Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi");
       if (u && u.role === "student" && isGuestGroup(u.group)) throw new HttpError(403, "Bu bo'lim vaqtincha kirish uchun yopiq: faqat mavzularni o'qing va o'qituvchi topshirig'ini bajaring");
     }
     for (const [method, pattern, fn] of routes) {

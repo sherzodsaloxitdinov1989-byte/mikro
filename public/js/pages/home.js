@@ -1,6 +1,6 @@
 import { h, mount, toast } from "../ui.js";
 import { session } from "../api.js";
-import { usesAiWork } from "../../data/course.js";
+import { usesAiWork, hasProblemPart } from "../../data/course.js";
 import { COURSE, TOPICS } from "../../data/topics.js";
 const LAB = COURSE.features.lab;
 import { loadProgress, topicCompletion } from "../progress.js";
@@ -75,7 +75,7 @@ export async function render(el) {
     ["🧮", "Amaliy mashg'ulotlar + AI tekshiruv", `${tasks} ta masala darhol tekshiriladi; keys va xulosalaringizni sun'iy intellekt 10 ballik mezon bo'yicha baholab, batafsil feedback beradi.`, "#/practice"],
     LAB && ["🔬", "Tahlil laboratoriyasi", "Turistik korxona balansi va moliyaviy natijalarini kiriting — 30+ koeffitsiyent, DuPont, zararsizlik nuqtasi va grafiklar avtomatik hisoblanadi; hisobotingizni AI va o'qituvchi baholaydi.", "#/lab"],
     UPDATES.length > 0 && ["🔄", "Dolzarb ma'lumotlar", `Darslikdagi eskirgan statistika va me'yoriy hujjatlar tekshirildi: ${UPDATES.length} ta yangilanish, rasmiy manbalar bilan (${CHECKED.split("-").reverse().join(".")} holatiga).`, "#/updates"],
-    !usesAiWork(session.user) && ["🧩", "Mustaqil ta'lim", "Shaxsiy o'quv rejasi, mustaqil ish topshiriqlari, o'qituvchi bahosi va refleksiv kundalik.", "#/self-study"],
+    !usesAiWork(session.user) && !hasProblemPart(session.user) && ["🧩", "Mustaqil ta'lim", "Shaxsiy o'quv rejasi, mustaqil ish topshiriqlari, o'qituvchi bahosi va refleksiv kundalik.", "#/self-study"],
     ["🎬", "Mediateka va audiokitob", "Animatsion darslar, dars taqdimotlari, video darslar va darslik matnini o'zbekcha AI ovozida tinglash.", "#/media"],
     ["🎮", "Live viktorina", "Sinfda Kahoot uslubidagi jonli musobaqa va so'z buluti: PIN yoki QR-kod orqali qo'shiling.", "#/live"],
   ].filter(Boolean);

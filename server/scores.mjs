@@ -70,17 +70,19 @@ export function computeScore(inp) {
       const idx = tp.qIdx || [];
       const qShare = idx.length ? idx.reduce((n, i) => n + Math.min(10, inp.qgrades?.[`${tp.id}:${i}`] || 0) / 10, 0) / idx.length : 0;
       const tShare = tp.hasQuiz ? Math.min(100, st.quiz ?? 0) / 100 : 0;
-      const share = tp.hasQuiz && idx.length ? (qShare + tShare) / 2 : tp.hasQuiz ? tShare : qShare;
-      return { tp, st, idx, qShare, tShare, share };
+      const pShare = sc.parts?.includes("prob") ? Math.min(10, best.get(tp.id) ?? 0) / 10 : null;
+      const parts = [idx.length ? qShare : null, tp.hasQuiz ? tShare : null, pShare].filter((v) => v !== null);
+      const share = parts.length ? mean(parts) : 0;
+      return { tp, st, idx, qShare, tShare, pShare, share };
     });
     const nT = rows.length || 1;
     const work = r2(sc.workMax * (rows.reduce((n, r) => n + r.share, 0) / nT));
     const total = r2(plan + mids + work);
     return {
       scoring: sc,
-      lecture: { max: sc.lecture, points: total, plan, planMax: sc.planMax, planSource: inp.planSource || null, midterms: mids, midtermsMax: sc.midtermInLecture, midterm1: m1, midterm2: m2, work, workMax: sc.workMax, glossaryPct: 0, questionsPct: Math.round(mean(rows.map((r) => r.qShare)) * 100), testsPct: Math.round(mean(rows.map((r) => r.tShare)) * 100) },
+      lecture: { max: sc.lecture, points: total, plan, planMax: sc.planMax, planSource: inp.planSource || null, midterms: mids, midtermsMax: sc.midtermInLecture, midterm1: m1, midterm2: m2, work, workMax: sc.workMax, glossaryPct: 0, questionsPct: Math.round(mean(rows.map((r) => r.qShare)) * 100), testsPct: Math.round(mean(rows.map((r) => r.tShare)) * 100), ...(sc.parts?.includes("prob") ? { problemsPct: Math.round(mean(rows.map((r) => r.pShare || 0)) * 100) } : {}) },
       practice: { max: 0, points: 0, practicePct: 0 },
-      byTopic: rows.map((r) => ({ id: r.tp.id, glossary: null, questions: r.idx.length ? { answered: r2(r.qShare * r.idx.length), total: r.idx.length } : null, quiz: r.tp.hasQuiz ? { pct: Math.round(r.tShare * 100), attempts: r.st.quizAttempts || 0 } : null, practice: null, lecShare: r.share, pracShare: null, lecPoints: r2((sc.workMax * r.share) / nT), pracPoints: null })),
+      byTopic: rows.map((r) => ({ id: r.tp.id, glossary: null, questions: r.idx.length ? { answered: r2(r.qShare * r.idx.length), total: r.idx.length } : null, quiz: r.tp.hasQuiz ? { pct: Math.round(r.tShare * 100), attempts: r.st.quizAttempts || 0 } : null, practice: r.pShare !== null ? { review: best.get(r.tp.id) ?? null, solved: 0, tasks: 0 } : null, lecShare: r.share, pracShare: null, lecPoints: r2((sc.workMax * r.share) / nT), pracPoints: null })),
       midtermGrade: m1, midtermGrade2: m2,
       extra: 0,
       total,

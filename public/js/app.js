@@ -1,7 +1,7 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox, toast } from "./ui.js";
 import { session, api } from "./api.js";
-import { userHasContent, usesAiWork, isPlanStudent, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
+import { userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
@@ -132,7 +132,7 @@ function renderNav() {
     if (!ownSubject.hasContent) items = [items[0], ["#/tasks", "Vazifalar", "🗂️"], ["#/meets", "Jonli dars", "📹"]];
   } else if (isTeacher) items.splice(1, 0, ["#/fan", "Fanlar", "🧭"]);
   if (stu && isPlanStudent(user)) items = items.filter(([href]) => href !== "#/practice"); // 141-23/142-23: amaliy mashg'ulot saytda o'tilmaydi
-  if (stu && usesAiWork(user)) items = items.filter(([href]) => href !== "#/self-study"); // mustaqil ta'lim bu talabalarga kerak emas
+  if (stu && (usesAiWork(user) || hasProblemPart(user))) items = items.filter(([href]) => href !== "#/self-study"); // mustaqil ta'lim bu talabalarga kerak emas
   if (stu && isGuestGroup(user.group)) items = items.filter(([href]) => ["#/topics", "#/tasks"].includes(href)); // vaqtincha kirish: faqat mavzular va o'qituvchi topshirig'i
   roleReturnBar(user);
   if (!user?.linkedTeacher) document.body.style.paddingTop = "";
@@ -195,7 +195,7 @@ async function route() {
       location.hash = "#/topics";
       return;
     }
-    if (usesAiWork(session.user) && /^\/self-study(\/|$)/.test(path)) {
+    if ((usesAiWork(session.user) || hasProblemPart(session.user)) && /^\/self-study(\/|$)/.test(path)) {
       location.hash = "#/topics";
       return;
     }

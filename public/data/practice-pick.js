@@ -25,3 +25,14 @@ export function pickQuestions(userId, topic) {
     .slice(0, QUESTION_COUNT)
     .map((x) => x.i);
 }
+
+export const QUIZ_COUNT = 20;
+/** Mavzu testi: har bir talabaga mavzu testlaridan 20 tasi aralashtirib beriladi (20 tadan kam bo'lsa — hammasi). */
+export function pickQuiz(userId, topic) {
+  const n = topic?.quiz?.length || 0;
+  return Array.from({ length: n }, (_, i) => i)
+    .map((i) => ({ i, h: fnv(`${userId}:${topic.id}:z${i}`) }))
+    .sort((a, b) => a.h - b.h || a.i - b.i)
+    .slice(0, QUIZ_COUNT)
+    .map((x) => x.i);
+}

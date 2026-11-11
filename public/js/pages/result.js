@@ -44,9 +44,9 @@ function sheet(d) {
     h("h3", {}, "Ballar"),
     h("table", { class: "table" }, h("thead", {}, h("tr", {}, h("th", {}, "Yo'nalish"), h("th", { class: "center" }, "To'plagan ball"), h("th", { class: "center" }, "Eng ko'pi"))),
       h("tbody", {}, ...(sc.mode === "plan2" ? [
-        row("Biznes-reja topshirig'i", lec.planSource === "teacher" ? "o'qituvchi bahosi" : "o'qituvchi baholagach ko'rinadi", lec.plan, lec.planMax),
+        ...(lec.planMax ? [row("Biznes-reja topshirig'i", lec.planSource === "teacher" ? "o'qituvchi bahosi" : "o'qituvchi baholagach ko'rinadi", lec.plan, lec.planMax)] : []),
         row("Oraliq nazorat testlari", `1-nazorat: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.midterms, lec.midtermsMax),
-        row("Mavzu topshiriqlari", `nazorat savollari (AI): ${lec.questionsPct}% · mavzu testlari: ${lec.testsPct}%`, lec.work, lec.workMax),
+        row("Mavzu topshiriqlari", `nazorat savollari (AI): ${lec.questionsPct}% · mavzu testlari: ${lec.testsPct}%${lec.problemsPct !== undefined ? ` · masalalar (AI): ${lec.problemsPct}%` : ""}`, lec.work, lec.workMax),
       ] : sc.mode === "assignment" ? [
         row("Ma'ruza mashg'uloti", `20 ballik topshiriq: ${fmt(lec.assignment)} / ${fmt(lec.assignmentMax)} · 1-nazorat testi: ${lec.midterm1 === null ? "—" : fmt(lec.midterm1)} / 5 · 2-nazorat testi: ${lec.midterm2 === null ? "—" : fmt(lec.midterm2)} / 5`, lec.points, lec.max),
         row("Amaliy topshiriq", `Nazariy qism (tushunchalar, nazorat savollari, mavzu testlari): ${fmt(prc.theory)} / ${fmt(prc.theoryMax)} · darslikning amaliy topshiriqlari: ${fmt(prc.practiceOnly)} / ${fmt(prc.practiceMax)}`, prc.points, prc.max),
