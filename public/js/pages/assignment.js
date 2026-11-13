@@ -217,7 +217,7 @@ export async function renderStage(el, noParam) {
   const max = stageMax(no, form);
   const late = now > deadlineOf(no, form);
   const closedAll = stageClosed(no, now);
-  const firstOnly = closedAll && no === 1 && !sub; // 1-bosqich: yopilgandan keyin faqat birinchi marta yuklash (50% jarima)
+  const firstOnly = closedAll && [1, 2, 3, 4].includes(no) && !sub; // 1–4-bosqichlar: yopilgandan keyin faqat birinchi marta yuklash (chuqur AI tekshiruvi, 50% jarima)
   const closed = closedAll && !firstOnly;
 
   let picked = null;
@@ -262,6 +262,13 @@ export async function renderStage(el, noParam) {
       }
       const rec = await api.post(`assignment/${no}/submit`, { file });
       toast(rec.late ? "Yuborildi (muddatdan keyin)" : "Hisobot yuborildi!", rec.late ? "warn" : "ok");
+      // Kechikib birinchi marta yuklangan ish darhol chuqur AI tekshiruvidan o'tkaziladi
+      if (rec.deep) {
+        prog.classList.remove("hidden");
+        prog.textContent = "🤖 Chuqur AI tekshiruvi… (1–2 daqiqa)";
+        try { await api.post(`assignment/${no}/review`, {}); } catch (ex) { toast(ex.message, "error"); }
+        prog.classList.add("hidden");
+      }
       location.hash = `#/assignment/${no}`;
       await renderStage(el, no);
     } catch (ex) {
@@ -316,7 +323,7 @@ export async function renderStage(el, noParam) {
           h("span", { class: "chip chip-soft" }, `Maksimal: ${fmtScore(max)} ball`),
           h("a", { class: "chip chip-soft", href: `#/topics/t${st.topic}` }, `📖 ${st.topic}-mavzu nazariyasi`)))),
     dep,
-    firstOnly && h("div", { class: "alert alert-warn" }, `⏰ Muddat (${closeLabel(no)} 23:59) tugagan. Siz 1-bosqich hisobotini hali yuklamagansiz, shuning uchun birinchi marta yuklashingiz mumkin, lekin ball 50% kamaytiriladi. Yuklagandan keyin uni o'zgartirib yoki qayta yuklab bo'lmaydi.`),
+    firstOnly && h("div", { class: "alert alert-warn" }, `⏰ Muddat (${closeLabel(no)} 23:59) tugagan. Siz bu bosqich hisobotini hali yuklamagansiz, shuning uchun bir marta yuklashingiz mumkin: ish chuqur AI tekshiruvidan o'tadi va olingan bahodan 50% ayiriladi. Yuklagandan keyin uni o'zgartirib yoki qayta yuklab bo'lmaydi.`),
     closed && h("div", { class: "alert alert-warn" }, `🔒 Topshiriqni yuklash va o'zgartirish muddati tugagan (${closeLabel(no)} 23:59 gacha edi). Endi hisobotni yuklab ham, o'zgartirib ham bo'lmaydi.`),
     !closedAll && h("div", { class: "alert small" }, `🕒 Hisobotni ${closeLabel(no)} soat 23:59 gacha yuklash yoki o'zgartirish mumkin. Undan keyin tizim yopiladi.`),
     late && !closedAll && h("div", { class: "alert alert-warn" }, "⏰ Bu bosqich muddati tugagan. Hisobot qabul qilinadi, ammo kech topshirilgan deb belgilanadi va AI bahosidan 20% jarima ushlab qolinadi."),
