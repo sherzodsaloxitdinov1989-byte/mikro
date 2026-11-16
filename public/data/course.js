@@ -341,7 +341,7 @@ export const SCORING = {
 // Tadbirkorlik asoslari, 141-23 va 142-23: ma'ruza 30 ball = biznes-reja topshirig'i 10 ball (AI + o'qituvchi) + oraliq nazorat testi 5 ball + mavzu ishi 15 ball; amaliy mashg'ulot — 10 ball.
 export const PLAN_GROUPS = ["141-23", "142-23"];
 // 141-23 va 142-23 (Tadbirkorlik asoslari): saytda faqat ma'ruza — 30 ball = biznes-reja 10 (AI + o'qituvchi bahosi) + 2 ta oraliq nazorat testi 10 (har biri 5) + mavzu topshiriqlari 10
-// (har mavzuda 5 ta nazorat savoli — har biriga 3 daqiqa, AI bahosi; so'ng 20 ta test — 10 daqiqa). Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi.
+// (har mavzuda 5 ta nazorat savoli — har biriga 5 daqiqa, AI bahosi; so'ng 20 ta test — 10 daqiqa). Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi.
 SCORING.plan = { lecture: 30, practice: 0, midtermInLecture: 10, planMax: 10, workMax: 10, mode: "plan2", parts: ["q", "quiz"] };
 // Makroiqtisodiyot 231-24, 232-24, 233-24: saytda faqat ma'ruza — 20 ball = 2 ta oraliq nazorat testi 10 + mavzu topshiriqlari 10 (nazorat savollari, test, 2 ta masala Word faylda).
 // Amaliy mashg'ulotni (231-24 va 232-24) 2-o'qituvchi o'zi yuklagan vazifalar («Vazifalar» bo'limi) asosida baholaydi; 233-24 uchun saytda amaliy yo'q. Saytdagi jami ball — 20.
@@ -352,7 +352,7 @@ export const isPlanStudent = (user) => Boolean(user) && user.role === "student" 
 /** Mavzu topshirig'ida 2 ta masalani Word faylda yuklash ham bormi (Makroiqtisodiyot). */
 export const hasProblemPart = (user) => Boolean(user) && user.role === "student" && MAKRO_GROUPS.includes(user.group);
 /** Vaqt cheklovi: nazorat savoliga javob yozish (daqiqa) va mavzu testi (daqiqa). */
-export const PLAN_Q_MIN = 3;
+export const PLAN_Q_MIN = 5;
 export const PLAN_QUIZ_MIN = 10;
 SCORING.assignment = { lecture: 30, practice: 10, midtermInLecture: 10, mode: "assignment", assignmentMax: 20, theoryMax: 5, practiceMax: 5 };
 /** O'tish bali: eng ko'p to'planadigan ballning 60% i (barcha ta'lim shakllari uchun). */

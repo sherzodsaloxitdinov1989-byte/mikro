@@ -1,4 +1,4 @@
-// Tadbirkorlik asoslari (141-23, 142-23) mavzu topshirig'i: mavzuni o'qish → 5 ta nazorat savoli (har biriga 3 daqiqa, AI bahosi) → 20 ta test (10 daqiqa).
+// Tadbirkorlik asoslari (141-23, 142-23) mavzu topshirig'i: mavzuni o'qish → 5 ta nazorat savoli (har biriga 5 daqiqa, AI bahosi) → 20 ta test (10 daqiqa).
 // Hammasi bir martalik; vaqt serverda hisoblanadi, brauzer faqat sanab ko'rsatadi.
 import { h, toast } from "./ui.js";
 import { api, session } from "./api.js";
@@ -41,7 +41,7 @@ function gatePanel(topic, render) {
   return root;
 }
 
-/** 5 ta nazorat savoli: har biri alohida «Boshlash» bilan ochiladi, 3 daqiqa ichida yoziladi, AI baholaydi. */
+/** 5 ta nazorat savoli: har biri alohida «Boshlash» bilan ochiladi, 5 daqiqa ichida yoziladi, AI baholaydi. */
 export function planQuestionsPanel(topic) {
   const mine = pickQuestions(session.user.id, topic);
   return gatePanel(topic, (d, { reload, track }) => {

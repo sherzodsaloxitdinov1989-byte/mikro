@@ -3151,7 +3151,7 @@ async function requireAiWork(req, topicId) {
 }
 
 
-// ---------- Tadbirkorlik 141-23/142-23: mavzuni o'qish → 5 ta nazorat savoli (har biri 3 daqiqa, AI) → 20 ta test (10 daqiqa) ----------
+// ---------- Tadbirkorlik 141-23/142-23: mavzuni o'qish → 5 ta nazorat savoli (har biri 5 daqiqa, AI) → 20 ta test (10 daqiqa) ----------
 const planKey = (kind, uid, topicId, i = "") => `plan/${kind}/${uid}/${topicId}${i === "" ? "" : `/${i}`}`;
 const Q_GRACE_MS = 12_000; // tarmoq kechikishi uchun
 const QUIZ_GRACE_MS = 30_000;
@@ -3168,7 +3168,7 @@ async function planRead(req, topicId) {
   return json({ ok: true, at: rec.at });
 }
 
-/** Savolga javob yozishni boshlash: 3 daqiqalik vaqt shu paytdan hisoblanadi (qayta boshlab bo'lmaydi). */
+/** Savolga javob yozishni boshlash: 5 daqiqalik vaqt shu paytdan hisoblanadi (qayta boshlab bo'lmaydi). */
 async function planQuestionStart(req, topicId, iStr) {
   const { user, topic } = await requireAiWork(req, topicId);
   if (!isPlanStudent(user)) throw new HttpError(403, "Bu amal sizning guruhingiz uchun emas");
@@ -3203,7 +3203,7 @@ async function finalizeExpiredQuestions(uid, topic) {
   for (const [k, st] of await getEntries(`plan/qstart/${uid}/${topic.id}/`)) {
     const i = k.split("/").pop();
     if (Date.now() - new Date(st.at).getTime() > PLAN_Q_MIN * 60_000 + Q_GRACE_MS && !(await db().get(qgradeKey(uid, topic.id, i)))) {
-      await db().set(qgradeKey(uid, topic.id, i), { score: 0, best: 0, feedback: "Vaqt tugadi (3 daqiqa): javob yuborilmadi — 0 ball.", missing: [], answer: "", ai: true, attempts: 1, late: true, at: new Date().toISOString() });
+      await db().set(qgradeKey(uid, topic.id, i), { score: 0, best: 0, feedback: `Vaqt tugadi (${PLAN_Q_MIN} daqiqa): javob yuborilmadi — 0 ball.`, missing: [], answer: "", ai: true, attempts: 1, late: true, at: new Date().toISOString() });
     }
   }
 }
