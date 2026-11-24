@@ -3,7 +3,7 @@
 import { db, getMany, getEntries, hit, peekHit, resetHit } from "./store.mjs";
 import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret, generatedSecretValue } from "./auth.mjs";
 import crypto from "node:crypto";
-import { aiEnabled, streamText, completeText, modelName, provider } from "./ai.mjs";
+import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiCheck } from "./ai.mjs";
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
@@ -120,6 +120,15 @@ async function requireUser(req) {
   if (!user) throw new HttpError(401, "Tizimga kiring");
   await rosterSessionGate(user);
   return user;
+}
+
+/** AI kaliti ulangan, lekin so'rov bajarilmagan bo'lsa: «kalit ulanmagan» degan noto'g'ri yozuv o'rniga aniq sabab yoziladi. */
+const AI_DOWN_TEXT = "AI xizmati hozir javob bermadi (kalit ulangan, lekin so'rov bajarilmadi) — baho vaqtincha taxminiy, keyinroq «AI bilan qayta tekshirish» ni bosing";
+function markAiDown(obj) {
+  if (!obj || !aiEnabled()) return obj;
+  for (const k of ["summary", "feedback"]) if (typeof obj[k] === "string") obj[k] = obj[k].replace(/AI kaliti ulanmagan[^.;)]*/g, AI_DOWN_TEXT);
+  obj.aiDown = true;
+  return obj;
 }
 
 async function requireTeacher(req) {
@@ -1558,7 +1567,7 @@ async function doAssignReview(user, no, { limited }) {
       }
     }
   }
-  if (!review) review = demoAssignReview(input);
+  if (!review) review = markAiDown(demoAssignReview(input));
   review = finalizeReview(review, input);
   const others = (await getMany("assign/")).filter((o) => o.no === stage.no && o.form === form && o.userId !== user.id && o.text).map((o) => ({ name: o.user?.name, group: o.user?.group, text: o.text }));
   const { orig, percentRaw, percent: percentOrig } = applyOriginality(review, { text: rec.text, meta: rec.media?.meta, others });
@@ -1905,7 +1914,7 @@ async function doTaskReview(user, task, { limited }) {
       }
     }
   }
-  if (!review) review = taskLib.demoReview(input);
+  if (!review) review = markAiDown(taskLib.demoReview(input));
   review = taskLib.finalizeReview(review, input);
   const others = (await getMany(`tasksub/${id}/`)).filter((o) => o.userId !== user.id && (o.text || o.docText)).map((o) => ({ name: o.user?.name, group: o.user?.group, text: taskLib.submissionText(o) }));
   const percentRaw = taskLib.percentOf(review.scores, task.criteria);
@@ -2503,7 +2512,7 @@ async function reviewLab(req, id) {
       }
     }
   }
-  if (!review) review = demoLabReview(p);
+  if (!review) review = markAiDown(demoLabReview(p));
   p.aiReview = { ...review, at: new Date().toISOString(), model: review.estimated ? null : modelName() };
   await db().set(key, p);
   return json(p);
@@ -3234,7 +3243,7 @@ async function questionReview(req, topicId, iStr) {
     if (g1 || g2) { const a = g1 || g2, b = g2 || g1; g = { score: Math.round((a.score + b.score) / 2), feedback: (a.score <= b.score ? a : b).feedback, missing: (a.missing?.length ? a : b).missing || [] }; }
   }
   const estimated = !g;
-  if (!g) g = demoQuestionGrade(question, answer);
+  if (!g) g = markAiDown(demoQuestionGrade(question, answer));
   if (isPlanStudent(user) && answer.length < 20 && !late) g = { ...g, score: 0, feedback: "Javob juda qisqa — 0 ball." };
   const prev = await db().get(qgradeKey(user.id, topic.id, i));
   const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
@@ -3335,7 +3344,7 @@ async function practiceDocx(req, topicId) {
     const [r1, r2] = await Promise.all([one(), one()]);
     if (r1 || r2) { const lo = totalOf((r1 || r2).scores) <= totalOf((r2 || r1).scores) ? r1 || r2 : r2 || r1; review = { ...lo, scores: avgScores(r1?.scores || r2.scores, r2?.scores || r1.scores, REVIEW_CRITERIA) }; }
   }
-  if (!review) review = demoDocxReview(tasks, text);
+  if (!review) review = markAiDown(demoDocxReview(tasks, text));
   let total = Math.round(Math.min(10, totalOf(review.scores)) * 10) / 10;
   // Boshqa talaba ishi bilan deyarli bir xil bo'lsa (nusxa ko'chirish) — baho yarmiga tushiriladi, o'qituvchi ko'radi
   let copy = null;
@@ -4805,6 +4814,7 @@ const routes = [
   ["GET", /^leaderboard$/, leaderboard],
   ["POST", /^security\/event$/, securityEvent],
   ["GET", /^admin\/security$/, adminSecurity],
+  ["GET", /^admin\/ai-check$/, async (req) => { await requireTeacher(req); return json({ ...(await aiCheck()), last: aiStatus() }); }],
   ["GET", /^admin\/penalty-report$/, adminPenaltyReport],
   ["GET", /^admin\/penalty-report\/pdf$/, adminPenaltyPdf],
   ["GET", /^security\/my-report$/, myPenaltyReport],

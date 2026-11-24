@@ -156,7 +156,7 @@ export function reviewView(ai, criteria, stage) {
   if (!ai) return null;
   const parts = stage ? String(stage.result || "").split(/\s+\+\s+/).map((x) => x.trim()).filter(Boolean) : null;
   return h("div", { class: "stack" },
-    ai.estimated && h("div", { class: "alert alert-warn small" }, "AI kaliti ulanmagan: baho avtomatik qoidalar asosida taxminiy hisoblangan. Hisob-kitoblar va izchillikni o'qituvchi tekshiradi."),
+    ai.estimated && h("div", { class: "alert alert-warn small" }, ai.aiDown ? "AI xizmati bu safar javob bermadi (kalit ulangan): baho vaqtincha taxminiy. Birozdan keyin «AI bilan qayta tekshirish» ni bosing." : "AI kaliti ulanmagan: baho avtomatik qoidalar asosida taxminiy hisoblangan. Hisob-kitoblar va izchillikni o'qituvchi tekshiradi."),
     h("div", { class: "row between wrap" },
       h("div", {}, h("b", {}, `AI bahosi: ${ai.percent}% `), ai.percentRaw != null && ai.percentRaw !== ai.percent && h("span", { class: "muted small" }, `(o'z ijodi pasaytirishigacha ${ai.percentRaw}%) `), h("span", { class: "muted small" }, `→ taklif etilgan ball: ${fmtScore(ai.suggested)} / ${fmtScore(ai.max)}`)),
       h("span", { class: "muted small" }, fmtDate(ai.at))),

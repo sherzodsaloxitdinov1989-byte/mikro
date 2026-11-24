@@ -675,6 +675,25 @@ function studentModeCard() {
     } }, "Talaba sifatida kirish")));
 }
 
+/** AI kalitini tekshirish: kalit kiritilganmi, AI xizmati javob beryaptimi va xato sababi. */
+function aiCheckCard() {
+  const out = h("div", { class: "small" });
+  const btn = h("button", { class: "btn small ghost", onclick: async () => {
+    btn.disabled = true;
+    out.replaceChildren("Tekshirilmoqda…");
+    try {
+      const r = await api.get("admin/ai-check");
+      const pv = r.provider === "claude" ? "Claude (ANTHROPIC_API_KEY)" : r.provider === "gemini" ? "Gemini (GEMINI_API_KEY)" : "—";
+      out.replaceChildren(r.ok
+        ? h("div", { class: "alert alert-success small" }, `✅ AI ishlayapti: ${pv}, model ${r.model}, javob ${Math.round(r.ms / 100) / 10} soniyada.`)
+        : h("div", { class: "alert alert-error small" }, h("b", {}, r.enabled ? `❌ Kalit kiritilgan (${pv}), lekin AI javob bermadi: ` : "❌ AI kaliti kiritilmagan: "), r.error || "", r.detail && h("div", { class: "muted", style: { wordBreak: "break-all" } }, r.detail),
+            h("div", {}, r.status === 401 || r.status === 403 || /API key not valid|API_KEY_INVALID|invalid x-api-key|authentication/i.test(r.detail || r.error || "") ? "Sabab: kalit noto'g'ri yoki o'chirilgan. Yangi kalit olib, Cloudflare'da qayta kiriting." : r.status === 429 ? "Sabab: so'rovlar chegarasi (kvota) tugagan. Bepul Gemini kaliti uchun kunlik limit tugagan bo'lishi mumkin; keyinroq urinib ko'ring yoki pullik tarif/Claude kalitini ulang." : r.status === 404 ? "Sabab: model topilmadi. Cloudflare'da GEMINI_MODEL o'zgaruvchisini o'chiring yoki to'g'ri model nomini yozing." : !r.enabled ? "Cloudflare → Workers & Pages → mikro → Settings → Variables and Secrets → Add → Secret: GEMINI_API_KEY yoki ANTHROPIC_API_KEY." : "")));
+    } catch (e) { out.replaceChildren(h("div", { class: "alert alert-error small" }, e.message)); }
+    btn.disabled = false;
+  } }, "🔍 AI kalitini tekshirish");
+  return h("div", { class: "card row between wrap", style: { gap: "8px", alignItems: "center" } }, h("div", {}, h("b", {}, "🤖 AI holati"), h("p", { class: "muted small" }, "Talabalar ishida «AI kaliti ulanmagan» chiqsa, shu yerda sababini tekshiring.")), btn, out);
+}
+
 async function overview(el) {
   const o = await api.get("admin/overview");
   // Ko'rsatkichlar tanlangan fan bo'yicha hisoblanadi (umumiy hisoblagich emas)
@@ -695,6 +714,7 @@ async function overview(el) {
     studentModeCard(),
     gallery(o),
     h("h2", { class: "tp-group-title", style: { "--hue": 220 } }, "📊 Umumiy ko'rsatkichlar"),
+    aiCheckCard(),
     !o.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: amaliy mashg'ulotlar avtomatik qoidalar asosida taxminiy baholanadi, AI Ustoz demo-rejimda. Cloudflare (yoki Netlify) sozlamalarida GEMINI_API_KEY (bepul) yoki ANTHROPIC_API_KEY maxfiy kalitini qo'shing."),
     o.aiEnabled && h("p", { class: "muted small" }, `🤖 AI: ${o.aiProvider} · ${o.aiModel}`),
     h(

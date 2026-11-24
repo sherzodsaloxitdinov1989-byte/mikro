@@ -113,6 +113,7 @@ function geminiBody({ system, messages, maxTokens, format, images }) {
 /** Modellar zanjiri bo'yicha so'rov yuboradi; band/mavjud bo'lmagan model o'tkazib yuboriladi. */
 async function geminiFetch(method, opts) {
   let last;
+  let lastDetail = "";
   for (const model of geminiModels()) {
     const url = `${geminiUrl()}/${model}:${method}${method === "streamGenerateContent" ? "?alt=sse" : ""}`;
     const res = await fetch(url, {
@@ -123,11 +124,13 @@ async function geminiFetch(method, opts) {
     if (res.ok) return res;
     last = res;
     const detail = await res.text().catch(() => "");
+    lastDetail = `${model}: ${res.status} ${detail.slice(0, 300)}`;
     console.error(`Gemini (${model}) xatosi ${res.status}:`, detail.slice(0, 300));
     if (!RETRYABLE.has(res.status)) break;
   }
   const err = new Error(errorMessage(last?.status));
   err.status = last?.status;
+  err.detail = lastDetail;
   throw err;
 }
 
@@ -189,9 +192,33 @@ export function streamText({ system, messages, maxTokens = 2000, effort = "low",
   return provider() === "gemini" ? geminiStream(opts) : claudeStream(opts);
 }
 
+let lastError = null;
+let lastOk = null;
+/** Oxirgi AI xatosi va oxirgi muvaffaqiyatli so'rov (shu server nusxasida) — o'qituvchi uchun tashxis. */
+export const aiStatus = () => ({ provider: provider(), model: modelName(), lastError, lastOk });
+
 export async function completeText({ system, messages, maxTokens = 1000, effort = "low", format, images }) {
   const opts = { system, messages, maxTokens, effort, format, images };
-  return provider() === "gemini" ? geminiComplete(opts) : claudeComplete(opts);
+  try {
+    const out = await (provider() === "gemini" ? geminiComplete(opts) : claudeComplete(opts));
+    lastOk = new Date().toISOString();
+    return out;
+  } catch (e) {
+    lastError = { at: new Date().toISOString(), status: e?.status || null, message: String(e?.message || e).slice(0, 300), detail: String(e?.detail || "").slice(0, 400) };
+    throw e;
+  }
+}
+
+/** AI kalitini tekshirish: kichik so'rov yuboriladi, javob vaqti va xato sababi qaytariladi. */
+export async function aiCheck() {
+  if (!aiEnabled()) return { enabled: false, ok: false, provider: null, model: null, error: "Cloudflare'da GEMINI_API_KEY yoki ANTHROPIC_API_KEY kiritilmagan" };
+  const t0 = Date.now();
+  try {
+    const reply = await completeText({ system: "Qisqa javob ber.", messages: [{ role: "user", content: "Faqat OK so'zini yoz." }], maxTokens: 50, effort: "low" });
+    return { enabled: true, ok: true, provider: provider(), model: modelName(), ms: Date.now() - t0, reply: String(reply).slice(0, 60) };
+  } catch (e) {
+    return { enabled: true, ok: false, provider: provider(), model: modelName(), ms: Date.now() - t0, status: e?.status || null, error: String(e?.message || e).slice(0, 300), detail: String(e?.detail || "").slice(0, 500) };
+  }
 }
 
 // ---------------- Ovoz: nutq sintezi (TTS) va nutqni matnga aylantirish (STT) — Gemini ----------------
