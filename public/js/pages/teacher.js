@@ -59,7 +59,6 @@ const SECTIONS = [
   { key: "items", needsContent: true, icon: "📉", title: "Test tahlili", group: "analysis", desc: "Talabalar qaysi mavzu testini ishlagan va necha ball olgan; savollar qiyinligi, ajrata olish indeksi va KR-20 ishonchliligi." },
   { key: "slides", needsContent: true, icon: "🖥️", title: "Taqdimotlar", group: "content", desc: "Har bir mavzuga dars taqdimotini (PDF yoki havola) joylang. Talabalar uni faqat ko'ra oladi." },
   { key: "videos", needsContent: true, icon: "📹", title: "Video darslar", group: "content", desc: "YouTube/Vimeo havolasi yoki video fayl yuklash." },
-  { key: "voices", needsContent: true, icon: "🔊", title: "AI ovozlar", group: "content", desc: "Platforma ovozini tanlash va ovozlarni oldindan tayyorlash." },
   { key: "live", needsContent: true, icon: "🎮", title: "Jonli viktorina va so'z buluti", group: "live", desc: "Live: PIN/QR orqali sinf musobaqasi yoki jonli aqliy hujum." },
 ].filter((x) => x && (x.key === "teachers" ? !Array.isArray(session.user?.perms) : permOk(x.key)) && (!x.only || [].concat(x.only).includes(SUBJECT_KEY)) && x.not !== SUBJECT_KEY && (!x.needsRoster || subjectByKey(SUBJECT_KEY)?.rosterGroups?.length) && (!x.needsContent || subjectByKey(SUBJECT_KEY)?.hasContent !== false)); // fanga xos bo'limlar faqat o'z fanida; darslik kerak bo'lganlar — darsligi bor fanda
 const RECENT_KEY = "tt.teacher.recent";
@@ -576,7 +575,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, voices: voicesManager, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -1011,128 +1010,6 @@ async function itemsView(el, topicParam) {
 
 // ---------------- AI ovozlar (Gemini TTS) ----------------
 
-async function voicesManager(el) {
-  const st = await api.get("admin/tts");
-  const fmtMin = (sec) => `${Math.floor(sec / 60)} daq ${Math.round(sec % 60)} s`;
-  if (!st.enabled) {
-    mount(el, h("div", { class: "alert alert-warn" }, h("b", {}, "AI ovozi o'chiq. "), "Cloudflare (yoki Netlify) sozlamalarida GEMINI_API_KEY maxfiy kalitini qo'shing — shundan keyin animatsion darslar va audiokitob o'zbek tilida tabiiy AI ovozida gapiradi."));
-    return;
-  }
-  let voice = st.defaultVoice;
-  const audio = new Audio();
-  const voiceCards = h(
-    "div",
-    { class: "voice-cards" },
-    st.voices.map((v) =>
-      h("div", { class: `voice-card ${v.id === voice ? "active" : ""}`, "data-id": v.id },
-        h("span", { class: "vc-avatar" }, v.gender === "female" ? "👩" : "👨"),
-        h("b", {}, v.id), h("small", { class: "muted" }, v.label.split("— ")[1]),
-        h("div", { class: "row" },
-          h("button", { class: "btn small ghost", onclick: async (e) => {
-            const btn = e.currentTarget;
-            btn.disabled = true;
-            btn.textContent = "⏳";
-            try {
-              audio.src = await audioUrl(`Assalomu alaykum! Men ${COURSE.brand} platformasining AI ovoziman. Bugun “${COURSE.title}” fanini birga o'rganamiz.`, { voice: v.id, style: "guide" });
-              await audio.play();
-            } catch (err) {
-              toast(err.message, "error");
-            }
-            btn.disabled = false;
-            btn.textContent = "▶ Tinglash";
-          } }, "▶ Tinglash"),
-          h("button", { class: "btn small", onclick: async () => {
-            try {
-              await api.put("admin/tts", { voice: v.id });
-              voice = v.id;
-              resetTtsInfo();
-              await ttsInfo();
-              voiceCards.querySelectorAll(".voice-card").forEach((c) => c.classList.toggle("active", c.dataset.id === v.id));
-              toast(`Platforma ovozi: ${v.id}`, "ok");
-            } catch (err) {
-              toast(err.message, "error");
-            }
-          } }, "Tanlash")))
-    )
-  );
-
-  // Oldindan tayyorlash navbati
-  const log = h("div", { class: "muted small" });
-  const bar = h("div", { class: "sm-upload" }, h("div", { class: "sm-upload-fill" }), h("span", {}, "—"));
-  let running = false;
-  let stopRequested = false;
-  const jobs = {
-    lessons: () => TOPICS.flatMap((t) => buildScenes(t).flatMap((sc) => chunkText(sc.narration).map((text) => ({ text, style: "narrator" })))),
-    ...Object.fromEntries(TOPICS.map((t) => [`book-${t.id}`, () => bookParagraphs(t).flatMap((p) => chunkText(p.text).map((text) => ({ text, style: "narrator" })))])),
-  };
-  const run = async (key, label) => {
-    if (running) return toast("Navbat allaqachon ishlayapti", "warn");
-    await ttsInfo();
-    const list = jobs[key]();
-    running = true;
-    stopRequested = false;
-    let done = 0;
-    let fresh = 0;
-    const setP = () => {
-      bar.firstChild.style.transform = `scaleX(${done / list.length})`;
-      bar.lastChild.textContent = `${label}: ${done} / ${list.length}`;
-    };
-    setP();
-    for (const item of list) {
-      if (stopRequested) break;
-      for (let attempt = 0; ; attempt++) {
-        try {
-          const d = await audioInfo(item.text, { style: item.style });
-          if (!d.cached) fresh++;
-          break;
-        } catch (err) {
-          if (err.status === 429 && attempt < 40 && !stopRequested) {
-            for (let s = 65; s > 0 && !stopRequested; s--) {
-              log.textContent = `⏳ Gemini bepul limiti: ${s} soniyadan keyin davom etamiz (${done}/${list.length}). Sahifani ochiq qoldiring.`;
-              await new Promise((r) => setTimeout(r, 1000));
-            }
-            continue;
-          }
-          log.textContent = `⚠️ ${err.message}`;
-          stopRequested = true;
-          break;
-        }
-      }
-      done++;
-      setP();
-      log.textContent = `${fresh} ta yangi ovoz yaratildi, qolganlari keshda bor edi.`;
-    }
-    running = false;
-    toast(stopRequested ? "Navbat to'xtatildi" : `${label}: tayyor!`, stopRequested ? "warn" : "ok");
-  };
-
-  mount(
-    el,
-    h("div", { class: "grid cols-4" },
-      h("div", { class: "card stat-card" }, h("div", { class: "stat-icon" }, "🔊"), h("b", {}, "Yoqilgan"), h("span", { class: "muted small" }, `Model: ${st.models[0] || "—"}`)),
-      h("div", { class: "card stat-card" }, h("div", { class: "stat-icon" }, "💾"), h("b", {}, st.cached), h("span", { class: "muted small" }, "keshdagi audio")),
-      h("div", { class: "card stat-card" }, h("div", { class: "stat-icon" }, "⏱"), h("b", {}, fmtMin(st.seconds)), h("span", { class: "muted small" }, "umumiy davomiylik")),
-      h("div", { class: "card stat-card" }, h("div", { class: "stat-icon" }, "📦"), h("b", {}, `${(st.bytes / 1024 / 1024).toFixed(1).replace(".", ",")} MB`), h("span", { class: "muted small" }, "MP3 hajmi"))),
-    st.lastError && h("div", { class: `alert ${st.lastError.status === 429 ? "alert-warn" : "alert-error"}` },
-      h("b", {}, `Oxirgi Gemini xatosi (${fmtDate(st.lastError.at)}): `), st.lastError.message,
-      st.lastError.quotaId && h("div", { class: "small" }, `Limit: ${st.lastError.quotaId}${st.lastError.model ? ` · model: ${st.lastError.model}` : ""}`),
-      st.lastError.status === 429 && h("div", { class: "small" }, st.lastError.daily ? "Bepul tarifdagi kunlik TTS limiti tugagan. Ovozlar ertaga tiklanadi; doimiy foydalanish uchun Google AI Studio'da (Billing) to'lov rejimini yoqing — shunda limitlar ancha oshadi." : "Daqiqalik limit: platforma avtomatik kutib, qayta urinadi. Oldindan tayyorlangan ovozlar limitni sarflamaydi."),
-      st.lastError.detail && h("details", { class: "small" }, h("summary", {}, "Batafsil"), h("code", {}, st.lastError.detail))),
-    h("div", { class: "card" },
-      h("h3", {}, "🎙 Platforma ovozi"),
-      h("p", { class: "muted small" }, "Animatsion darslar va audiokitob shu ovoz bilan o'qiladi. Har bir matn bir marta yaratilib, barcha talabalar uchun keshlanadi."),
-      voiceCards),
-    h("div", { class: "card stack" },
-      h("h3", {}, "⚡ Ovozlarni oldindan tayyorlash"),
-      h("p", { class: "muted small" }, "Gemini bepul tarifida TTS so'rovlari soni cheklangan. Ovozlarni oldindan tayyorlab qo'ysangiz, talabalar darhol tinglaydi va limit sarflanmaydi. Limit tugasa navbat avtomatik kutib, davom etadi — kerak bo'lsa ertaga qayta ishga tushiring: tayyorlanganlari o'tkazib yuboriladi."),
-      h("div", { class: "row wrap" },
-        h("button", { class: "btn", onclick: () => run("lessons", "Animatsion darslar") }, `🎬 Animatsion darslar (${jobs.lessons().length})`),
-        h("button", { class: "btn ghost danger-text", onclick: () => (stopRequested = true) }, "⏹ To'xtatish")),
-      h("div", { class: "row wrap" }, h("span", { class: "muted small" }, "🎧 Audiokitob:"), TOPICS.map((t) => h("button", { class: "chip", title: t.title, onclick: () => run(`book-${t.id}`, `${t.num}-mavzu audiokitobi`) }, `${t.num}-mavzu`))),
-      bar,
-      log)
-  );
-}
 
 // ---------------- Video darslar ----------------
 
