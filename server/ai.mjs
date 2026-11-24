@@ -2,6 +2,13 @@
 // Ikkalasi bir xil interfeysga ega: streamText (oqimli javob) va completeText (to'liq javob).
 // Ikkala kalit ham bo'lsa, Claude ishlatiladi; hech biri bo'lmasa, trenajyor demo-rejimda ishlaydi.
 import Anthropic from "@anthropic-ai/sdk";
+import { AsyncLocalStorage } from "node:async_hooks";
+
+// Talabaning shaxsiy Gemini kaliti (ixtiyoriy): shu so'rov davomida AI chaqiruvlari uning kaliti orqali ketadi — sayt egasining limiti sarflanmaydi.
+const keyStore = new AsyncLocalStorage();
+export const withUserAiKey = (key, fn) => keyStore.run({ key }, fn);
+const userAiKey = () => keyStore.getStore()?.key || null;
+export const usingUserKey = () => Boolean(userAiKey());
 
 // Muhit o'zgaruvchilari har safar o'qiladi (Cloudflare'da ular so'rov kelganda o'rnatiladi).
 const claudeModel = () => process.env.ANTHROPIC_MODEL || "claude-opus-5-5";
@@ -12,7 +19,7 @@ const geminiModels = () =>
     .map((m) => m.trim())
     .filter(Boolean);
 
-export const provider = () => (process.env.ANTHROPIC_API_KEY ? "claude" : process.env.GEMINI_API_KEY ? "gemini" : null);
+export const provider = () => (userAiKey() ? "gemini" : process.env.ANTHROPIC_API_KEY ? "claude" : process.env.GEMINI_API_KEY ? "gemini" : null);
 export const aiEnabled = () => provider() !== null;
 export const modelName = () => (provider() === "claude" ? claudeModel() : provider() === "gemini" ? geminiModels()[0] : "demo");
 
@@ -118,7 +125,7 @@ async function geminiFetch(method, opts) {
     const url = `${geminiUrl()}/${model}:${method}${method === "streamGenerateContent" ? "?alt=sse" : ""}`;
     const res = await fetch(url, {
       method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
+      headers: { "content-type": "application/json", "x-goog-api-key": userAiKey() || process.env.GEMINI_API_KEY },
       body: geminiBody(opts),
     });
     if (res.ok) return res;
@@ -201,10 +208,10 @@ export async function completeText({ system, messages, maxTokens = 1000, effort 
   const opts = { system, messages, maxTokens, effort, format, images };
   try {
     const out = await (provider() === "gemini" ? geminiComplete(opts) : claudeComplete(opts));
-    lastOk = new Date().toISOString();
+    if (!usingUserKey()) lastOk = new Date().toISOString();
     return out;
   } catch (e) {
-    lastError = { at: new Date().toISOString(), status: e?.status || null, message: String(e?.message || e).slice(0, 300), detail: String(e?.detail || "").slice(0, 400) };
+    if (!usingUserKey()) lastError = { at: new Date().toISOString(), status: e?.status || null, message: String(e?.message || e).slice(0, 300), detail: String(e?.detail || "").slice(0, 400) };
     throw e;
   }
 }

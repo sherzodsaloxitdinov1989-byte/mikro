@@ -56,7 +56,7 @@ export async function render(el) {
     h(
       "div",
       { class: "grid cols-2-1" },
-      h("div", { class: "stack" }, form, pwForm),
+      h("div", { class: "stack" }, form, pwForm, user.role === "student" && aiKeyCard(user)),
       h(
         "div",
         { class: "card" },
@@ -69,6 +69,32 @@ export async function render(el) {
       )
     )
   );
+}
+
+/** Shaxsiy Gemini kaliti (ixtiyoriy): kiritilsa, talabaning AI tekshiruvlari uning o'z kaliti va limiti orqali bajariladi. */
+function aiKeyCard(user) {
+  const box = h("div", { class: "card stack" });
+  const draw = (u) => {
+    const inp = h("input", { type: "password", placeholder: "AIza…", autocomplete: "off", spellcheck: "false" });
+    box.replaceChildren(
+      h("h3", {}, "🤖 Shaxsiy Gemini kaliti (ixtiyoriy)"),
+      h("p", { class: "muted small" }, "Kalit kiritsangiz, sizning AI tekshiruvlaringiz (nazorat savollari, masalalar, topshiriq va vazifalar, AI Ustoz) o'z bepul Gemini limitingiz orqali bajariladi va tez ishlaydi. Kiritmasangiz, sayt kaliti ishlatiladi. Baholash qoidalari o'zgarmaydi."),
+      u.hasAiKey
+        ? h("div", { class: "alert alert-success small" }, `✅ Kalit ulangan (…${u.aiKeyTail || "****"})${u.aiKeyAt ? ` · ${new Date(u.aiKeyAt).toLocaleDateString("uz-UZ")}` : ""}. Kalitning o'zi saytda shifrlangan holda saqlanadi va hech kimga ko'rsatilmaydi.`)
+        : h("ol", { class: "small" }, h("li", {}, "aistudio.google.com/apikey sahifasini oching va Google hisobingiz bilan kiring."), h("li", {}, "«Create API key» ni bosing va kalitni nusxalang (u «AIza» bilan boshlanadi)."), h("li", {}, "Kalitni pastdagi maydonga joylab, «Saqlash» ni bosing.")),
+      h("div", { class: "row wrap", style: { gap: "8px" } }, inp,
+        h("button", { class: "btn", onclick: async (e) => {
+          if (!inp.value.trim()) return toast("Kalitni kiriting", "warn");
+          e.target.disabled = true;
+          try { const r = await api.put("me/ai-key", { key: inp.value.trim() }); session.updateUser(r.user); toast(r.warning || "Kalit tekshirildi va saqlandi", r.warning ? "warn" : "ok"); draw(r.user); } catch (ex) { toast(ex.message, "error"); e.target.disabled = false; }
+        } }, u.hasAiKey ? "Almashtirish" : "Saqlash"),
+        u.hasAiKey && h("button", { class: "btn ghost danger", onclick: async () => {
+          try { const r = await api.del("me/ai-key"); session.updateUser(r.user); toast("Kalit o'chirildi: endi sayt kaliti ishlatiladi", "ok"); draw(r.user); } catch (ex) { toast(ex.message, "error"); }
+        } }, "O'chirish")),
+      h("p", { class: "muted small" }, "Kalitni boshqalarga bermang. Kalit oshkor bo'lsa, uni Google AI Studio'da o'chirib, yangisini kiriting."));
+  };
+  draw(user);
+  return box;
 }
 
 /** Talaba profilida ta'lim shakli ko'rsatiladi; guruhni faqat o'z ta'lim shakli ichida o'zgartira oladi (shaklni o'qituvchi o'zgartiradi). */

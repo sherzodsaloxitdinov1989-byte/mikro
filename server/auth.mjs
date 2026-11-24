@@ -74,3 +74,25 @@ export function readToken(token) {
 }
 
 export const newId = () => crypto.randomUUID();
+
+
+// ---------- Maxfiy matnni shifrlash (talabaning shaxsiy AI kaliti): AES-GCM, kalit — server sirining SHA-256 xeshi ----------
+async function sealKey() {
+  const raw = await crypto.webcrypto.subtle.digest("SHA-256", new TextEncoder().encode(`${secret()}:ai-key`));
+  return crypto.webcrypto.subtle.importKey("raw", raw, "AES-GCM", false, ["encrypt", "decrypt"]);
+}
+export async function sealText(text) {
+  const iv = crypto.randomBytes(12);
+  const ct = await crypto.webcrypto.subtle.encrypt({ name: "AES-GCM", iv }, await sealKey(), new TextEncoder().encode(text));
+  return `${Buffer.from(iv).toString("base64url")}.${Buffer.from(ct).toString("base64url")}`;
+}
+export async function openText(sealed) {
+  const [iv, ct] = String(sealed || "").split(".");
+  if (!iv || !ct) return null;
+  try {
+    const pt = await crypto.webcrypto.subtle.decrypt({ name: "AES-GCM", iv: Buffer.from(iv, "base64url") }, await sealKey(), Buffer.from(ct, "base64url"));
+    return new TextDecoder().decode(pt);
+  } catch {
+    return null;
+  }
+}

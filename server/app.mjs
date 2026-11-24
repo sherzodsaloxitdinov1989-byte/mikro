@@ -1,9 +1,9 @@
 // Platformaning yagona API funksiyasi: /api/* so'rovlarini marshrutlaydi.
 // Muhitdan mustaqil: Netlify (netlify/functions/api.mjs) va Cloudflare (functions/api/[[path]].js) ulagichlari chaqiradi.
 import { db, getMany, getEntries, hit, peekHit, resetHit } from "./store.mjs";
-import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret, generatedSecretValue } from "./auth.mjs";
+import { hashPassword, verifyPassword, createToken, readToken, newId, setGeneratedSecret, generatedSecretValue, sealText, openText } from "./auth.mjs";
 import crypto from "node:crypto";
-import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiCheck } from "./ai.mjs";
+import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiCheck, withUserAiKey, usingUserKey } from "./ai.mjs";
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
@@ -49,6 +49,7 @@ for (const [subject, topics] of Object.entries(TOPICS_ALL)) {
     });
   }
 }
+const AI_ROUTES = /^(assignment\/\d+\/review|tasks\/[\w-]+\/(review|submit)|practice\/[\w-]+\/(review|docx)|qreview\/[\w-]+\/\d+|labs\/[\w-]+\/review|topics\/[\w-]+\/ask|ask\/ai)$/;
 const MAIN_SUBJECT_ONLY = /^(assignment|rating|labs)(\/|$)/;
 const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
@@ -71,7 +72,8 @@ const emailKey = (email) => `user-email/${email.toLowerCase()}`;
 const userKey = (id) => `user/${id}`;
 
 function publicUser(u) {
-  const { salt, hash, revoked, ...rest } = u;
+  const { salt, hash, revoked, aiKeyEnc, ...rest } = u;
+  rest.hasAiKey = Boolean(aiKeyEnc); // shaxsiy Gemini kaliti bormi (kalitning o'zi hech qachon qaytarilmaydi)
   // Ta'lim shakli: saqlangan qiymat yoki guruh bo'yicha aniqlanadi (eski profillar uchun)
   if (u.role === "student") rest.studyForm = u.studyForm || formOfGroup(u.group)?.key || "";
   return rest;
@@ -126,7 +128,8 @@ async function requireUser(req) {
 const AI_DOWN_TEXT = "AI xizmati hozir javob bermadi (kalit ulangan, lekin so'rov bajarilmadi) — baho vaqtincha taxminiy, keyinroq «AI bilan qayta tekshirish» ni bosing";
 function markAiDown(obj) {
   if (!obj || !aiEnabled()) return obj;
-  for (const k of ["summary", "feedback"]) if (typeof obj[k] === "string") obj[k] = obj[k].replace(/AI kaliti ulanmagan[^.;)]*/g, AI_DOWN_TEXT);
+  const txt = usingUserKey() ? "Sizning shaxsiy Gemini kalitingiz bilan AI javob bermadi (kalit noto'g'ri, o'chirilgan yoki kunlik limiti tugagan) — Profil sahifasida kalitni tekshiring yoki o'chiring" : AI_DOWN_TEXT;
+  for (const k of ["summary", "feedback"]) if (typeof obj[k] === "string") obj[k] = obj[k].replace(/AI kaliti ulanmagan[^.;)]*/g, txt);
   obj.aiDown = true;
   return obj;
 }
@@ -1023,6 +1026,33 @@ function checkGroup(value, current = null, formKey = "") {
   const allowed = form ? form.groups : list;
   if (!allowed.includes(value)) throw new HttpError(400, `Guruhni ro'yxatdan tanlang${form ? ` (${form.name.toLowerCase()} ta'lim)` : ""}: ${allowed.join(", ")}`);
   return value;
+}
+
+/** Talabaning shaxsiy Gemini kaliti: tekshiriladi, shifrlangan holda saqlanadi (kalitning o'zi qayta ko'rsatilmaydi). */
+async function setMyAiKey(req) {
+  const user = await requireUser(req);
+  if (user.role !== "student") throw new HttpError(403, "Shaxsiy AI kaliti talabalar uchun");
+  const lim = await bump(`ratelimit/aikey/${user.id}`, 3600_000, 10);
+  if (!lim.ok) throw new HttpError(429, "Urinishlar ko'p bo'ldi, birozdan keyin qayta urinib ko'ring");
+  const b = await body(req);
+  const key = str(b.key, 100).replace(/\s/g, "");
+  if (!/^AIza[0-9A-Za-z_-]{30,60}$/.test(key)) throw new HttpError(400, "Bu Gemini kalitiga o'xshamaydi: kalit «AIza» bilan boshlanadi (aistudio.google.com/apikey sahifasidan oling)");
+  const r = await withUserAiKey(key, () => aiCheck());
+  if (!r.ok && r.status !== 429) throw new HttpError(400, `Kalit ishlamadi: ${/API_KEY_INVALID|not valid/i.test(r.detail || "") ? "kalit noto'g'ri yoki o'chirilgan" : r.error || "AI xizmati javob bermadi"}. Kalitni to'g'ri nusxalab, qayta kiriting.`);
+  user.aiKeyEnc = await sealText(key);
+  user.aiKeyTail = key.slice(-4);
+  user.aiKeyAt = new Date().toISOString();
+  await db().set(userKey(user.id), user);
+  return json({ ok: true, user: publicUser(user), warning: r.ok ? null : "Kalit saqlandi, lekin hozir uning kunlik limiti tugagan ko'rinadi (429)." });
+}
+
+async function deleteMyAiKey(req) {
+  const user = await requireUser(req);
+  delete user.aiKeyEnc;
+  delete user.aiKeyTail;
+  delete user.aiKeyAt;
+  await db().set(userKey(user.id), user);
+  return json({ ok: true, user: publicUser(user) });
 }
 
 async function updateMe(req) {
@@ -4715,6 +4745,8 @@ const routes = [
   ["POST", /^auth\/reset$/, resetPassword],
   ["GET", /^me$/, async (req) => json(publicUser(await requireUser(req)))],
   ["PUT", /^me$/, updateMe],
+  ["PUT", /^me\/ai-key$/, setMyAiKey],
+  ["DELETE", /^me\/ai-key$/, deleteMyAiKey],
   ["GET", /^health$/, health],
   ["GET", /^config$/, async () => { const guest = await guestState(); return json({ aiEnabled: aiEnabled(), teacherSignup: (Boolean(process.env.TEACHER_CODE) || mailEnabled()) && !(await hasAnyTeacher()), teacherByEmail: mailEnabled(), teacherByCode: Boolean(process.env.TEACHER_CODE), colleges: await knownColleges(), mailEnabled: mailEnabled(), groups: COURSE.groups || [], studyForms: (COURSE.studyForms || []).filter((f) => f.key !== "sirtqi" || guest.open).map(({ key, name, title, icon, groups }) => ({ key, name, title, icon, groups })), guest }); }],
 
@@ -4918,11 +4950,24 @@ export async function handle(req) {
       if (u && u.role === "student" && isPlanStudent(u) && !(hasProblemPart(u) && /^practice\/[\w-]+\/(assigned|docx|pdf)$/.test(path)) && /^practice(\/|$)/.test(path)) throw new HttpError(403, "Amaliy mashg'ulot saytda o'tilmaydi va baholanmaydi");
       if (u && u.role === "student" && isGuestGroup(u.group)) throw new HttpError(403, "Bu bo'lim vaqtincha kirish uchun yopiq: faqat mavzularni o'qing va o'qituvchi topshirig'ini bajaring");
     }
-    for (const [method, pattern, fn] of routes) {
-      const m = path.match(pattern);
-      if (m && req.method === method) return await fn(req, ...m.slice(1).map(decodeURIComponent));
+    const dispatch = async () => {
+      for (const [method, pattern, fn] of routes) {
+        const m = path.match(pattern);
+        if (m && req.method === method) return await fn(req, ...m.slice(1).map(decodeURIComponent));
+      }
+      throw new HttpError(404, "Topilmadi");
+    };
+    // Talabaning shaxsiy Gemini kaliti bo'lsa, AI ishlatadigan so'rovlar shu kalit bilan bajariladi (sayt egasining limiti sarflanmaydi)
+    if (req.method === "POST" || req.method === "PUT") {
+      if (AI_ROUTES.test(path)) {
+        const u = await currentUser(req).catch(() => null);
+        if (u?.role === "student" && u.aiKeyEnc) {
+          const key = await openText(u.aiKeyEnc);
+          if (key) return await withUserAiKey(key, dispatch);
+        }
+      }
     }
-    throw new HttpError(404, "Topilmadi");
+    return await dispatch();
   } catch (err) {
     if (err instanceof HttpError) return json(err.code ? { error: err.message, code: err.code } : { error: err.message }, err.status);
     console.error(err);
