@@ -1,6 +1,8 @@
 // Ilova marshrutizatori va navigatsiya.
 import { h, mount, errorBox, toast } from "./ui.js";
 import { session, api } from "./api.js";
+import { maybeShowOwnKeyGuide } from "./ai-key-guide.js";
+window.addEventListener("ai:need-key", (e) => maybeShowOwnKeyGuide(e.detail || ""));
 import { userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";

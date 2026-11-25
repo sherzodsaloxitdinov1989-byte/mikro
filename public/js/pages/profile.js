@@ -1,4 +1,5 @@
 import { h, mount, toast } from "../ui.js";
+import { showOwnKeyGuide } from "../ai-key-guide.js";
 import { api, session } from "../api.js";
 import { COURSE, formOfGroup, formByKey } from "../../data/course.js";
 import { SUBJECT_KEY, currentSubjectKey } from "../../data/topics.js";
@@ -81,7 +82,7 @@ function aiKeyCard(user) {
       h("p", { class: "muted small" }, "Kalit kiritsangiz, sizning AI tekshiruvlaringiz (nazorat savollari, masalalar, topshiriq va vazifalar, AI Ustoz) o'z bepul Gemini limitingiz orqali bajariladi va tez ishlaydi. Kiritmasangiz, sayt kaliti ishlatiladi. Baholash qoidalari o'zgarmaydi."),
       u.hasAiKey
         ? h("div", { class: "alert alert-success small" }, `✅ Kalit ulangan (…${u.aiKeyTail || "****"})${u.aiKeyAt ? ` · ${new Date(u.aiKeyAt).toLocaleDateString("uz-UZ")}` : ""}. Kalitning o'zi saytda shifrlangan holda saqlanadi va hech kimga ko'rsatilmaydi.`)
-        : h("ol", { class: "small" }, h("li", {}, "aistudio.google.com/apikey sahifasini oching va Google hisobingiz bilan kiring."), h("li", {}, "«Create API key» ni bosing va kalitni nusxalang (u «AIza» bilan boshlanadi)."), h("li", {}, "Kalitni pastdagi maydonga joylab, «Saqlash» ni bosing.")),
+        : h("div", {}, h("ol", { class: "small" }, h("li", {}, "aistudio.google.com/apikey sahifasini oching va Google hisobingiz bilan kiring."), h("li", {}, "«Create API key» ni bosing va kalitni nusxalang (u «AIza» bilan boshlanadi)."), h("li", {}, "Kalitni pastdagi maydonga joylab, «Saqlash» ni bosing.")), h("button", { class: "btn small ghost", type: "button", onclick: () => showOwnKeyGuide("") }, "📖 Batafsil yo'riqnoma")),
       h("div", { class: "row wrap", style: { gap: "8px" } }, inp,
         h("button", { class: "btn", onclick: async (e) => {
           if (!inp.value.trim()) return toast("Kalitni kiriting", "warn");

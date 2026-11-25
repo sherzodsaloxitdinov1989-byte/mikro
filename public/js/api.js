@@ -91,9 +91,15 @@ async function request(method, path, data, { raw = false } = {}) {
       payload = await res.json();
       message = payload.error || message;
     } catch {}
+    // Sayt AI limiti tugagan: talabaga o'z Gemini kalitini olish yo'riqnomasi ko'rsatiladi
+    if (payload?.code === "AI_LIMIT") window.dispatchEvent(new CustomEvent("ai:need-key", { detail: message }));
     throw Object.assign(new Error(message), { status: res.status, data: payload });
   }
-  return raw ? res : res.json();
+  if (raw) return res;
+  const out = await res.json();
+  // AI sayt kaliti bilan javob bermagan (limit tugagan/band): o'z kalitini olish tavsiya qilinadi
+  if (out && (out.suggestOwnKey || out.ai?.suggestOwnKey || out.review?.suggestOwnKey)) window.dispatchEvent(new CustomEvent("ai:need-key", { detail: "AI tekshiruvi sayt kaliti bilan bajarilmadi, baho vaqtincha taxminiy." }));
+  return out;
 }
 
 export const api = {

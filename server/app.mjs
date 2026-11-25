@@ -124,10 +124,17 @@ async function requireUser(req) {
   return user;
 }
 
+/** Talaba o'z Gemini kalitidan foydalansa, sayt limiti sarflanmaydi — kunlik limitlar 4 barobar katta. */
+const aiLimit = (base) => (usingUserKey() ? base * 4 : base);
+const AI_LIMIT_HINT = " Sayt limitiga bog'liq bo'lmaslik uchun o'zingizning bepul Gemini kalitingizni oling (Profil → «Shaxsiy Gemini kaliti»).";
+const aiLimitError = (msg) => new HttpError(429, msg + (usingUserKey() ? "" : AI_LIMIT_HINT), usingUserKey() ? "AI_LIMIT_OWN" : "AI_LIMIT");
+
 /** AI kaliti ulangan, lekin so'rov bajarilmagan bo'lsa: «kalit ulanmagan» degan noto'g'ri yozuv o'rniga aniq sabab yoziladi. */
 const AI_DOWN_TEXT = "AI xizmati hozir javob bermadi (kalit ulangan, lekin so'rov bajarilmadi) — baho vaqtincha taxminiy, keyinroq «AI bilan qayta tekshirish» ni bosing";
 function markAiDown(obj) {
-  if (!obj || !aiEnabled()) return obj;
+  if (!obj) return obj;
+  if (!usingUserKey()) obj.suggestOwnKey = true; // talabaga o'z Gemini kalitini olish tavsiya qilinadi
+  if (!aiEnabled()) return obj;
   const txt = usingUserKey() ? "Sizning shaxsiy Gemini kalitingiz bilan AI javob bermadi (kalit noto'g'ri, o'chirilgan yoki kunlik limiti tugagan) — Profil sahifasida kalitni tekshiring yoki o'chiring" : AI_DOWN_TEXT;
   for (const k of ["summary", "feedback"]) if (typeof obj[k] === "string") obj[k] = obj[k].replace(/AI kaliti ulanmagan[^.;)]*/g, txt);
   obj.aiDown = true;
@@ -1556,7 +1563,7 @@ async function doAssignReview(user, no, { limited }) {
   const day = new Date().toISOString().slice(0, 10);
   const quotaKey = `assignquota/${user.id}/${day}`;
   const quota = (await db().get(quotaKey)) || { n: 0 };
-  if (limited && quota.n >= ASSIGN_DAILY_AI) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${ASSIGN_DAILY_AI} ta) tugadi — ertaga qayta urinib ko'ring`);
+  if (limited && quota.n >= aiLimit(ASSIGN_DAILY_AI)) throw aiLimitError(`Bugungi AI tekshiruvlar limiti (${aiLimit(ASSIGN_DAILY_AI)} ta) tugadi — ertaga qayta urinib ko'ring.`);
 
   const prior = [];
   for (const n of contextStages(stage.no, form)) prior.push({ no: n, sub: await db().get(assignKey(user.id, n)) });
@@ -1911,7 +1918,7 @@ async function doTaskReview(user, task, { limited }) {
   const day = new Date().toISOString().slice(0, 10);
   const quotaKey = `taskquota/${user.id}/${day}`;
   const quota = (await db().get(quotaKey)) || { n: 0 };
-  if (limited && quota.n >= ASSIGN_DAILY_AI) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${ASSIGN_DAILY_AI} ta) tugadi — ertaga qayta urinib ko'ring`);
+  if (limited && quota.n >= aiLimit(ASSIGN_DAILY_AI)) throw aiLimitError(`Bugungi AI tekshiruvlar limiti (${aiLimit(ASSIGN_DAILY_AI)} ta) tugadi — ertaga qayta urinib ko'ring.`);
   // Word fayldagi rasm va grafiklar AI ga ko'rsatiladi
   let images = [];
   if (rec.file) {
@@ -2392,7 +2399,7 @@ async function practiceReview(req, topicId) {
   const day = new Date().toISOString().slice(0, 10);
   const quotaKey = `practicequota/${user.id}/${day}`;
   const quota = (await db().get(quotaKey)) || { n: 0 };
-  if (user.role !== "teacher" && quota.n >= PRACTICE_DAILY) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${PRACTICE_DAILY} ta) tugadi — ertaga qayta urinib ko'ring`);
+  if (user.role !== "teacher" && quota.n >= aiLimit(PRACTICE_DAILY)) throw aiLimitError(`Bugungi AI tekshiruvlar limiti (${aiLimit(PRACTICE_DAILY)} ta) tugadi — ertaga qayta urinib ko'ring.`);
 
   let review = null;
   if (aiEnabled()) {
@@ -2411,7 +2418,7 @@ async function practiceReview(req, topicId) {
       }
     }
   }
-  if (!review) review = { ...demoPracticeReview(sub), ...(aiEnabled() ? { summary: `${demoPracticeReview(sub).summary.replace(/\(AI kaliti ulanmagan[^)]*\)/, "")} (AI xizmati javob bermadi — baho avtomatik qoidalar asosida taxminiy.)` } : {}) };
+  if (!review) review = { ...demoPracticeReview(sub), ...(usingUserKey() ? {} : { suggestOwnKey: true }), ...(aiEnabled() ? { summary: `${demoPracticeReview(sub).summary.replace(/\(AI kaliti ulanmagan[^)]*\)/, "")} (AI xizmati javob bermadi — baho avtomatik qoidalar asosida taxminiy.)` } : {}) };
   const calc = { correct: sub.tasks.filter((t) => t.ok).length, total: sub.tasks.length };
   const prevPractice = (await getMany(`practicereview/${user.id}/${topicId}/`)).map((r) => r.createdAt || "").sort().pop() || "";
   const integrity = await integrityFor(user.id, (e) => onPage(`#/practice/${topicId}`)(e) || inZone(topicId, "Amaliy bo'lim")(e), prevPractice);
@@ -3180,8 +3187,8 @@ async function requireAiWork(req, topicId) {
   const topic = findTopic(topicId);
   if (!topic || !(usesAiWork(user) || isPlanStudent(user)) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
   const day = new Date().toISOString().slice(0, 10);
-  const lim = await bump(`ratelimit/aiwork/${user.id}/${day}`, 86_400_000, AI_WORK_DAILY);
-  if (!lim.ok) throw new HttpError(429, `Bugungi AI tekshiruvlar limiti (${AI_WORK_DAILY} ta) tugadi — ertaga qayta urinib ko'ring`);
+  const lim = await bump(`ratelimit/aiwork/${user.id}/${day}`, 86_400_000, aiLimit(AI_WORK_DAILY));
+  if (!lim.ok) throw aiLimitError(`Bugungi AI tekshiruvlar limiti (${aiLimit(AI_WORK_DAILY)} ta) tugadi — ertaga qayta urinib ko'ring.`);
   return { user, topic };
 }
 
@@ -3272,7 +3279,7 @@ async function questionReview(req, topicId, iStr) {
   if (!g) g = markAiDown(demoQuestionGrade(question, answer));
   if (isPlanStudent(user) && answer.length < 20 && !late) g = { ...g, score: 0, feedback: "Javob juda qisqa — 0 ball." };
   const prev = await db().get(qgradeKey(user.id, topic.id, i));
-  const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
+  const rec = { score: g.score, best: Math.max(prev?.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], answer, ...(g.suggestOwnKey ? { suggestOwnKey: true } : {}), ai: !estimated, attempts: (prev?.attempts || 0) + 1, at: new Date().toISOString() };
   await db().set(qgradeKey(user.id, topic.id, i), rec);
   return json(rec);
 }
@@ -3792,7 +3799,7 @@ async function topicAsk(req, topicId, preBody) {
     return new Response(searchAnswer(topic, history[history.length - 1].content), { headers: { "content-type": "text/plain; charset=utf-8" } });
   }
   // AI Ustoz: talaba uchun soatiga 15 ta savol (AI so'rovlarini tejash)
-  if (user.role === "student" && !(await bump(`aitutor/${user.id}`, 3600_000, 15)).ok) throw new HttpError(429, "AI Ustozga soatiga 15 tagacha savol berish mumkin. Biroz kutib turing.");
+  if (user.role === "student" && !(await bump(`aitutor/${user.id}`, 3600_000, aiLimit(15))).ok) throw aiLimitError(`AI Ustozga soatiga ${aiLimit(15)} tagacha savol berish mumkin. Biroz kutib turing.`);
   const stream = streamText({ system: tutorSystem(topic), messages: history, maxTokens: 900, effort: "low" });
   return new Response(stream, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
 }
@@ -3894,7 +3901,7 @@ async function generalAsk(req) {
   if (raw[0]?.role === "assistant") raw = raw.slice(1);
   const history = cleanHistory(raw);
   if (!history.length || history[history.length - 1].role !== "user") throw new HttpError(400, "Savol bo'sh");
-  if (!(await bump(`aiask/${user.id}`, 3600_000, 15)).ok) throw new HttpError(429, "Soatiga 15 tagacha savol berish mumkin. Biroz kutib turing.");
+  if (!(await bump(`aiask/${user.id}`, 3600_000, aiLimit(15))).ok) throw aiLimitError(`Soatiga ${aiLimit(15)} tagacha savol berish mumkin. Biroz kutib turing.`);
   if (!aiEnabled()) return new Response("Hozir AI yordamchi o'chiq. Savolingizni «O'qituvchiga savol» bo'limi orqali yuboring.", { headers: { "content-type": "text/plain; charset=utf-8" } });
   const subj = subjectOfGroup(user.group);
   const course = courseOf(subj.key);
