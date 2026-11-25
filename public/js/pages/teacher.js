@@ -690,7 +690,17 @@ function aiCheckCard() {
     } catch (e) { out.replaceChildren(h("div", { class: "alert alert-error small" }, e.message)); }
     btn.disabled = false;
   } }, "🔍 AI kalitini tekshirish");
-  return h("div", { class: "card row between wrap", style: { gap: "8px", alignItems: "center" } }, h("div", {}, h("b", {}, "🤖 AI holati"), h("p", { class: "muted small" }, "Talabalar ishida «AI kaliti ulanmagan» chiqsa, shu yerda sababini tekshiring.")), btn, out);
+  // Talabalar uchun sayt AI kalitidan kunlik byudjet: qolgani doim o'qituvchi uchun zaxira
+  const budget = h("div", { class: "small", style: { width: "100%" } });
+  const drawBudget = (b) => {
+    const inp = h("input", { type: "number", min: 0, max: 100000, step: 10, value: b.studentDaily, style: { width: "100px" } });
+    budget.replaceChildren(h("div", { class: "row wrap", style: { gap: "8px", alignItems: "center" } },
+      h("span", {}, `Talabalar uchun sayt kalitidan kunlik limit: bugun ${b.usedToday} / ${b.studentDaily} so'rov ishlatildi.`),
+      !Array.isArray(session.user?.subjects) && [inp, h("button", { class: "btn small ghost", onclick: async () => { try { drawBudget(await api.put("admin/ai-budget", { studentDaily: Number(inp.value) })); toast("Saqlandi", "ok"); } catch (e) { toast(e.message, "error"); } } }, "💾")]),
+      h("p", { class: "muted" }, "Limit tugagach, talabalarga sayt kaliti ishlamaydi (ularga o'z bepul Gemini kalitini olish yo'riqnomasi chiqadi); o'qituvchining AI tekshiruvlari esa ishlashda davom etadi. O'z kalitini ulagan talabalar bu limitga kirmaydi. Bepul Gemini kalitining kunlik limitidan pastroq son qo'ying."));
+  };
+  api.get("admin/ai-budget").then(drawBudget).catch(() => {});
+  return h("div", { class: "card row between wrap", style: { gap: "8px", alignItems: "center" } }, h("div", {}, h("b", {}, "🤖 AI holati"), h("p", { class: "muted small" }, "Talabalar ishida «AI kaliti ulanmagan» chiqsa, shu yerda sababini tekshiring.")), btn, out, budget);
 }
 
 async function overview(el) {

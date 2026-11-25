@@ -49,7 +49,7 @@ for (const [subject, topics] of Object.entries(TOPICS_ALL)) {
     });
   }
 }
-const AI_ROUTES = /^(assignment\/\d+\/review|tasks\/[\w-]+\/(review|submit)|practice\/[\w-]+\/(review|docx)|qreview\/[\w-]+\/\d+|labs\/[\w-]+\/review|topics\/[\w-]+\/ask|ask\/ai)$/;
+const AI_ROUTES = /^(assignment\/\d+\/review|tasks\/[\w-]+\/review|practice\/[\w-]+\/(review|docx)|qreview\/[\w-]+\/\d+|labs\/[\w-]+\/review|topics\/[\w-]+\/ask|ask\/ai)$/;
 const MAIN_SUBJECT_ONLY = /^(assignment|rating|labs)(\/|$)/;
 const MAX_TURNS = 40;
 const MAX_MESSAGE_CHARS = 2000;
@@ -122,6 +122,19 @@ async function requireUser(req) {
   if (!user) throw new HttpError(401, "Tizimga kiring");
   await rosterSessionGate(user);
   return user;
+}
+
+/** Sayt AI kalitidan talabalar foydalanishi mumkin bo'lgan umumiy kunlik so'rovlar soni (qolgani o'qituvchi uchun zaxira). O'qituvchi panelida o'zgartiriladi. */
+const STUDENT_SITE_AI_DEFAULT = 300;
+const studentSiteAiKey = () => `ratelimit/student-site-ai/${new Date(Date.now() + 5 * 3600_000).toISOString().slice(0, 10)}`;
+async function studentSiteAiCap() {
+  const v = Number((await db().get("settings/ai"))?.studentDaily);
+  return Number.isFinite(v) && v >= 0 ? v : STUDENT_SITE_AI_DEFAULT;
+}
+async function spendStudentSiteAi() {
+  const cap = await studentSiteAiCap();
+  const r = await bump(studentSiteAiKey(), 86_400_000, cap);
+  if (!r.ok) throw new HttpError(429, "Saytning AI kalitidan talabalar uchun ajratilgan bugungi limit tugadi (qolgan qismi o'qituvchi uchun zaxira). Ishingizni hoziroq tekshirish uchun o'zingizning bepul Gemini kalitingizni oling (Profil → «Shaxsiy Gemini kaliti») yoki ertaga qayta urinib ko'ring.", "AI_LIMIT");
 }
 
 /** Talaba o'z Gemini kalitidan foydalansa, sayt limiti sarflanmaydi — kunlik limitlar 4 barobar katta. */
@@ -4851,6 +4864,8 @@ const routes = [
   ["GET", /^leaderboard$/, leaderboard],
   ["POST", /^security\/event$/, securityEvent],
   ["GET", /^admin\/security$/, adminSecurity],
+  ["GET", /^admin\/ai-budget$/, async (req) => { await requireTeacher(req); return json({ studentDaily: await studentSiteAiCap(), usedToday: (await peekHit(studentSiteAiKey(), 86_400_000)).n }); }],
+  ["PUT", /^admin\/ai-budget$/, async (req) => { requireFullTeacher(await requireTeacher(req)); const b = await body(req); const v = Math.round(Number(b.studentDaily)); if (!Number.isFinite(v) || v < 0 || v > 100000) throw new HttpError(400, "0 dan 100000 gacha son kiriting"); await db().set("settings/ai", { studentDaily: v, at: new Date().toISOString() }); return json({ studentDaily: v, usedToday: (await peekHit(studentSiteAiKey(), 86_400_000)).n }); }],
   ["GET", /^admin\/ai-check$/, async (req) => { await requireTeacher(req); return json({ ...(await aiCheck()), last: aiStatus() }); }],
   ["GET", /^admin\/penalty-report$/, adminPenaltyReport],
   ["GET", /^admin\/penalty-report\/pdf$/, adminPenaltyPdf],
@@ -4970,6 +4985,8 @@ export async function handle(req) {
           const key = await openText(u.aiKeyEnc);
           if (key) return await withUserAiKey(key, dispatch);
         }
+        // Sayt kaliti: talabalar uchun umumiy kunlik byudjet — qolgan qismi doim o'qituvchi uchun zaxira bo'lib qoladi
+        if (u?.role === "student" && aiEnabled()) await spendStudentSiteAi();
       }
     }
     return await dispatch();
