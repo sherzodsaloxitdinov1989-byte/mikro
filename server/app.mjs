@@ -3502,23 +3502,41 @@ async function reviewPendingQuestion(key, rec) {
 const staleAi = (r) => !r.ai || r.ai.forSubmittedAt !== r.submittedAt || Boolean(r.ai.estimated);
 const estimatedQ = (v) => v.ai === false && !v.pending && !v.late && (v.answer || "").trim().length >= 20; // taxminiy baholangan nazorat savoli javobi
 const estimatedP = (r) => !r.pending && (r.ai === false || r.review?.estimated) && !r.review?.injected; // taxminiy baholangan amaliy ish
-async function aiQueueItems() {
+async function aiQueueItems(subject = "") {
   const [qs, prs, asg, tsubs, tasks] = await Promise.all([getEntries("qgrade/"), getMany("practicereview/"), getMany("assign/"), getMany("tasksub/"), getMany("task/")]);
   const taskBy = new Map(tasks.map((t) => [t.id, t]));
+  // Fan bo'yicha filtr: bo'sh — barcha fanlar
+  const subjOfTopic = (id) => findTopic(id)?.subject || "";
+  const ok = (sub) => !subject || sub === subject;
   return {
-    questions: qs.filter(([, v]) => v.pending || estimatedQ(v)),
-    practice: prs.filter((r) => r.pending || estimatedP(r)),
-    assignment: asg.filter((r) => staleAi(r) && (r.text || "").trim().length >= 60),
-    tasks: tsubs.filter((r) => taskBy.get(r.taskId)?.aiEnabled && staleAi(r) && taskLib.submissionText(r).trim().length >= 60).map((r) => ({ r, task: taskBy.get(r.taskId) })),
+    questions: qs.filter(([k, v]) => (v.pending || estimatedQ(v)) && ok(subjOfTopic(k.split("/")[2]))),
+    practice: prs.filter((r) => (r.pending || estimatedP(r)) && ok(subjOfTopic(r.topicId))),
+    assignment: asg.filter((r) => staleAi(r) && (r.text || "").trim().length >= 60 && ok(SUBJECTS[0].key)),
+    tasks: tsubs.filter((r) => taskBy.get(r.taskId)?.aiEnabled && staleAi(r) && taskLib.submissionText(r).trim().length >= 60 && ok(taskBy.get(r.taskId).subject || SUBJECTS[0].key)).map((r) => ({ r, task: taskBy.get(r.taskId) })),
   };
 }
 
+const AI_KINDS = ["questions", "practice", "assignment", "tasks"];
+
 async function adminAiQueue(req) {
   requireFullTeacher(await requireTeacher(req));
-  const q = await aiQueueItems();
+  const rawSubject = str(new URL(req.url).searchParams.get("subject"), 30);
+  const subject = SUBJECTS.some((x) => x.key === rawSubject) ? rawSubject : "";
+  const q = await aiQueueItems(subject);
+  const all = await aiQueueItems("");
   const name = (u) => u?.name || "";
+  // Har bir fan bo'yicha navbatdagi ishlar soni (filtr uchun)
+  const bySubject = {};
+  for (const x of SUBJECTS) bySubject[x.key] = 0;
+  const bump1 = (k) => { if (k in bySubject) bySubject[k]++; };
+  for (const [k] of all.questions) bump1(findTopic(k.split("/")[2])?.subject);
+  for (const r of all.practice) bump1(findTopic(r.topicId)?.subject);
+  for (const r of all.assignment) bump1(SUBJECTS[0].key);
+  for (const { task } of all.tasks) bump1(task.subject || SUBJECTS[0].key);
   return json({
     aiEnabled: aiEnabled(),
+    subject,
+    subjects: SUBJECTS.map((x) => ({ key: x.key, title: x.title, icon: x.icon, count: bySubject[x.key] })),
     counts: { questions: q.questions.length, practice: q.practice.length, assignment: q.assignment.length, tasks: q.tasks.length },
     sample: {
       questions: q.questions.slice(0, 30).map(([k, v]) => ({ key: k, topicId: k.split("/")[2], at: v.at, est: !v.pending })),
@@ -3535,7 +3553,9 @@ async function adminAiQueueRun(req) {
   if (!aiEnabled()) throw new HttpError(400, "AI kaliti ulanmagan: avval Cloudflare'da GEMINI_API_KEY yoki ANTHROPIC_API_KEY ni kiriting");
   const b = await body(req);
   const kind = str(b.kind, 20);
-  const q = await aiQueueItems();
+  const rawSubject = str(b.subject, 30);
+  const subject = SUBJECTS.some((x) => x.key === rawSubject) ? rawSubject : "";
+  const q = await aiQueueItems(subject);
   let done = 0, failed = 0;
   const per = { questions: 6, practice: 2, assignment: 1, tasks: 2 }[kind] || 1;
   if (kind === "questions") for (const [k, v] of q.questions.slice(0, per)) (await reviewPendingQuestion(k, v).catch(() => false)) ? done++ : failed++;
@@ -3548,7 +3568,7 @@ async function adminAiQueueRun(req) {
   }
   else throw new HttpError(400, "kind: questions | practice | assignment | tasks");
   scoreCache.clear();
-  const left = (await aiQueueItems())[kind].length;
+  const left = (await aiQueueItems(subject))[kind].length;
   return json({ done, failed, remaining: left });
 }
 
