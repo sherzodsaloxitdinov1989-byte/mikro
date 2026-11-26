@@ -109,7 +109,7 @@ setInterval(() => document.visibilityState === "visible" && Date.now() - taskPol
 function freezeBanner(user) {
   document.getElementById("freeze-banner")?.remove();
   if (!inFreeze(user)) return;
-  const bar = h("div", { id: "freeze-banner", class: "alert alert-warn", style: { margin: "8px 12px", textAlign: "center" } }, freezeBannerText());
+  const bar = h("div", { id: "freeze-banner", class: "alert alert-warn", style: { margin: "8px 12px", textAlign: "center" } }, freezeBannerText(user));
   main.before(bar);
 }
 

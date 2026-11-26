@@ -3242,7 +3242,7 @@ const AI_WORK_DAILY = 30;
 
 /** 331–334-25: 30-noyabr 00:01 dan 1–7-mavzu topshiriqlari bloklanadi. */
 function assertNotFrozen(user, topic) {
-  if (topic && isFrozen(user, topic.num)) throw new HttpError(403, freezeMsg(topic.num), "FROZEN");
+  if (topic && isFrozen(user, topic.num)) throw new HttpError(403, freezeMsg(user, topic.num), "FROZEN");
 }
 
 async function requireAiWork(req, topicId) {
@@ -3293,6 +3293,7 @@ async function planQuizStart(req, topicId) {
   const user = await requireUser(req);
   const topic = findTopic(topicId);
   if (!topic || !isPlanStudent(user) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
+  assertNotFrozen(user, topic);
   if (!(await db().get(planKey("read", user.id, topicId)))) throw new HttpError(403, "Avval mavzuni to'liq o'qib chiqing");
   await finalizeExpiredQuestions(user.id, topic);
   for (const i of pickQuestions(user.id, topic)) if (!(await db().get(qgradeKey(user.id, topicId, i)))) throw new HttpError(403, "Avval barcha nazorat savollariga javob bering");

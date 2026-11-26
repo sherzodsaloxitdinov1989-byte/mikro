@@ -16,7 +16,7 @@ import { CHECKED, UPDATES } from "../../data/updates.js";
 import { confetti, shake } from "../motion.js";
 import { groupedBySemester } from "../semester.js";
 
-const frozenNote = (num) => h("div", { class: "alert alert-warn" }, "🔒 ", freezeMsg(num));
+const frozenNote = (num) => h("div", { class: "alert alert-warn" }, "🔒 ", freezeMsg(session.user, num));
 
 export async function renderList(el) {
   const [, slideList] = await Promise.all([loadProgress(), api.get("slides").catch(() => ({ slides: [] }))]);

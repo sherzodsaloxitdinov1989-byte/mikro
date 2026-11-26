@@ -70,7 +70,7 @@ export async function renderTopic(el, id) {
     h("nav", { class: "crumbs" }, h("a", { href: "#/practice" }, "Amaliy mashg'ulotlar"), " / ", `${topic.num}-mashg'ulot`),
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, `${topic.icon} ${topic.num}-amaliy mashg'ulot`), h("p", { class: "lead" }, topic.title)), h("a", { href: `#/topics/${topic.id}`, class: "btn ghost" }, "📖 Mavzu nazariyasi")),
     teacherNote && h("div", { class: "alert alert-info" }, h("b", {}, `👩‍🏫 O'qituvchi izohi (${teacherNote.teacher.by})${teacherNote.teacher.grade != null ? ` — ${teacherNote.teacher.grade}/10` : ""}: `), teacherNote.teacher.comment),
-    isFrozen(session.user, topic.num) ? h("div", { class: "alert alert-warn" }, "🔒 ", freezeMsg(topic.num)) : usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic),
+    isFrozen(session.user, topic.num) ? h("div", { class: "alert alert-warn" }, "🔒 ", freezeMsg(session.user, topic.num)) : usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic),
     h("div", { class: "lesson-pager" },
       prev?.practice ? h("a", { href: `#/practice/${prev.id}`, class: "pager-card" }, h("small", {}, "← Oldingi mashg'ulot"), h("b", {}, `${prev.num}. ${prev.title}`)) : h("span"),
       next?.practice ? h("a", { href: `#/practice/${next.id}`, class: "pager-card next" }, h("small", {}, "Keyingi mashg'ulot →"), h("b", {}, `${next.num}. ${next.title}`)) : h("span"))
