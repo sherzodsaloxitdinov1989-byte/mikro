@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiC
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, groupsOfSubject, userHasContent, isMainUser, usesAiWork, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, groupsOfSubject, userHasContent, isMainUser, usesAiWork, isFrozen, FREEZE_MSG, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed, stageClosed, closeLabel } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -1183,6 +1183,7 @@ async function quizSubmit(req, topicId) {
   if (!topic || !canUseSubject(user, topic.subject) || !topic.quiz.length || topic.quiz.some((q) => !Number.isInteger(q.correct))) throw new HttpError(404, "Bu mavzu uchun test topilmadi");
   const b = await body(req);
   let answers = b.answers;
+  assertNotFrozen(user, topic);
   const planQ = isPlanStudent(user);
   // Rejali talabalar (Tadbirkorlik 141/142-23, Makro 231–233-24): mavzu testidan 20 ta savol aralashtirib beriladi
   const qIdx = planQ ? pickQuiz(user.id, topic) : topic.quiz.map((_, i) => i);
@@ -2409,6 +2410,7 @@ async function practiceReview(req, topicId) {
     sub.open = openIdx.map((i) => sub.open[i]);
   }
   if (!sub || !canUseSubject(user, sub.topic.subject)) throw new HttpError(404, "Bu mavzu uchun amaliy mashg'ulot topilmadi");
+  assertNotFrozen(user, sub.topic);
   const filled = sub.tasks.some((t) => t.attempted) || sub.open.some((o) => o.answer.trim().length >= 20) || sub.conclusion.trim().length >= 20;
   if (!filled) throw new HttpError(400, "Tekshirish uchun kamida bitta hisob-kitob yoki ochiq topshiriqni bajaring");
 
@@ -3238,11 +3240,17 @@ const scoreCache = new Map();
 const qgradeKey = (uid, topicId, i) => `qgrade/${uid}/${topicId}/${i}`;
 const AI_WORK_DAILY = 30;
 
+/** 331–334-25: 30-noyabr 00:01 dan 1–7-mavzu topshiriqlari bloklanadi. */
+function assertNotFrozen(user, topic) {
+  if (topic && isFrozen(user, topic.num)) throw new HttpError(403, FREEZE_MSG, "FROZEN");
+}
+
 async function requireAiWork(req, topicId) {
   const user = await requireUser(req);
   const topic = findTopic(topicId);
   if (!topic || !(usesAiWork(user) || isPlanStudent(user)) || topic.subject !== subjectOfGroup(user.group).key) throw new HttpError(403, "Bu bo'lim sizning guruhingiz uchun ochiq emas");
   const day = new Date().toISOString().slice(0, 10);
+  assertNotFrozen(user, topic);
   const lim = await bump(`ratelimit/aiwork/${user.id}/${day}`, 86_400_000, aiLimit(AI_WORK_DAILY));
   if (!lim.ok) throw aiLimitError(`Bugungi AI tekshiruvlar limiti (${aiLimit(AI_WORK_DAILY)} ta) tugadi — ertaga qayta urinib ko'ring.`);
   return { user, topic };

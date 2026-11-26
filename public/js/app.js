@@ -3,7 +3,7 @@ import { h, mount, errorBox, toast } from "./ui.js";
 import { session, api } from "./api.js";
 import { maybeShowOwnKeyGuide } from "./ai-key-guide.js";
 window.addEventListener("ai:need-key", (e) => maybeShowOwnKeyGuide(e.detail || ""));
-import { userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
+import { inFreeze, freezeStarted, FREEZE, userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
@@ -105,6 +105,18 @@ window.addEventListener("tt:auth", refreshTaskBadge);
 setInterval(() => document.visibilityState === "visible" && Date.now() - taskPoll > 90_000 && ((taskPoll = Date.now()), refreshTaskBadge()), 30_000);
 
 /** Talaba roliga o'tgan o'qituvchi uchun: asosiy oynada doim ko'rinib turadigan «O'qituvchi roliga qaytish» paneli. */
+/** 331–334-25: 1–7-mavzular 30-noyabr 00:01 dan faqat o'qish uchun — talabalarga hozirdan ogohlantirish. */
+function freezeBanner(user) {
+  document.getElementById("freeze-banner")?.remove();
+  if (!inFreeze(user)) return;
+  const started = freezeStarted();
+  const bar = h("div", { id: "freeze-banner", class: "alert alert-warn", style: { margin: "8px 12px", textAlign: "center" } },
+    started
+      ? `🔒 Mikroiqtisodiyot 1–${FREEZE.topics[1]}-mavzulari ${FREEZE.label} dan faqat o'qish uchun: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan. (20 ballik topshiriq bunga kirmaydi.)`
+      : `⚠️ Diqqat: ${FREEZE.label} dan boshlab Mikroiqtisodiyot 1–${FREEZE.topics[1]}-mavzulari faqat o'qish uchun ochiq bo'ladi — mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopiladi. Bajarmagan ishlaringizni shu vaqtgacha topshiring. (20 ballik topshiriq bunga kirmaydi.)`);
+  main.before(bar);
+}
+
 function roleReturnBar(user) {
   document.getElementById("role-return")?.remove();
   if (!user?.linkedTeacher) return;
@@ -137,6 +149,7 @@ function renderNav() {
   if (stu && (usesAiWork(user) || hasProblemPart(user))) items = items.filter(([href]) => href !== "#/self-study"); // mustaqil ta'lim bu talabalarga kerak emas
   if (stu && isGuestGroup(user.group)) items = items.filter(([href]) => ["#/topics", "#/tasks"].includes(href)); // vaqtincha kirish: faqat mavzular va o'qituvchi topshirig'i
   roleReturnBar(user);
+  freezeBanner(user);
   if (!user?.linkedTeacher) document.body.style.paddingTop = "";
   // Pastki qism: boshqa fan talabasiga asosiy fan darsligi haqidagi ma'lumot ko'rsatilmaydi
   const foot = document.querySelector(".footer-inner");

@@ -308,6 +308,14 @@ export const hasAssignment = (group) => ASSIGNMENT_GROUPS.includes(group);
  *  amaliy mashg'ulotda har bir mavzudan 2 ta masalani yechib, Word (.docx) faylda yuklash (AI bahosi). «Mustaqil ta'lim» bo'limi bu talabalarga kerak emas. */
 export const usesAiWork = (user) => Boolean(user) && user.role === "student" && subjectOfGroup(user.group).key === SUBJECTS[0].key && (formOfGroup(user.group)?.key === "masofaviy" || ASSIGNMENT_GROUPS.includes(user.group));
 
+/** Mikroiqtisodiyot 331–334-25: 2026-yil 30-noyabr 00:01 dan 1–7-mavzular faqat o'qish uchun — mavzu testi, nazorat savollari va amaliy masalalar bloklanadi (20 ballik topshiriqqa aloqasi yo'q). */
+export const FREEZE = { groups: ["331-25", "332-25", "333-25", "334-25"], topics: [1, 7], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01" };
+export const freezeStarted = (now = Date.now()) => now >= new Date(FREEZE.at).getTime();
+export const inFreeze = (user) => Boolean(user) && user.role === "student" && FREEZE.groups.includes(user.group);
+/** Shu talaba uchun mavzu topshiriqlari (test, savollar, amaliy) bloklanganmi? */
+export const isFrozen = (user, topicNum, now = Date.now()) => inFreeze(user) && freezeStarted(now) && Number(topicNum) >= FREEZE.topics[0] && Number(topicNum) <= FREEZE.topics[1];
+export const FREEZE_MSG = `1–7-mavzular ${FREEZE.label} dan faqat o'qish uchun ochiq: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan.`;
+
 /** Nazorat testi (oraliq) belgilangan guruhlar: server/exams.mjs bilan bir xil bo'lishi kerak. */
 export const EXAM_GROUPS = ["231-24", "232-24", "233-24", "331-25", "332-25", "333-25", "334-25", "141-23", "142-23"];
 export const hasExam = (group) => EXAM_GROUPS.includes(group);
