@@ -1506,14 +1506,17 @@ async function aiQueueView(el) {
   const box = h("div", { class: "stack" });
   let stop = false;
   let subj = SUBJECT_KEY; // fan filtri: joriy fan; "" — barcha fanlar
+  let grp = ""; // guruh filtri: tanlangan fan guruhlari; "" — fanning barcha guruhlari
   const draw = async () => {
     let d;
-    try { d = await api.get(`admin/ai-queue?subject=${encodeURIComponent(subj)}`); } catch (e) { return box.replaceChildren(h("div", { class: "alert alert-error" }, e.message)); }
+    try { d = await api.get(`admin/ai-queue?subject=${encodeURIComponent(subj)}&group=${encodeURIComponent(grp)}`); } catch (e) { return box.replaceChildren(h("div", { class: "alert alert-error" }, e.message)); }
     const filter = h("div", { class: "segmented role-switch", style: { flexWrap: "wrap" } },
-      [["", "Barcha fanlar", d.subjects.reduce((n, x) => n + x.count, 0), "🗂️"], ...d.subjects.map((x) => [x.key, x.title, x.count, x.icon])].map(([k, title, n, icon]) => h("button", { class: `seg ${subj === k ? "active" : ""}`, type: "button", onclick: () => { subj = k; draw(); } }, `${icon} ${title}`, n ? h("span", { class: "badge badge-warn", style: { marginLeft: "6px" } }, n) : null)));
+      [["", "Barcha fanlar", d.subjects.reduce((n, x) => n + x.count, 0), "🗂️"], ...d.subjects.map((x) => [x.key, x.title, x.count, x.icon])].map(([k, title, n, icon]) => h("button", { class: `seg ${subj === k ? "active" : ""}`, type: "button", onclick: () => { subj = k; grp = ""; draw(); } }, `${icon} ${title}`, n ? h("span", { class: "badge badge-warn", style: { marginLeft: "6px" } }, n) : null)));
     const log = h("div", { class: "small muted" });
     box.replaceChildren(
-      h("div", { class: "card stack" }, h("b", {}, "Fan bo'yicha filtr"), filter),
+      h("div", { class: "card stack" }, h("b", {}, "Fan bo'yicha filtr"), filter,
+        subj && d.groups.length > 0 && [h("b", {}, "Shu fan guruhlari bo'yicha"), h("div", { class: "segmented role-switch", style: { flexWrap: "wrap" } },
+          [["", "Barcha guruhlar", d.groups.reduce((n, x) => n + x.count, 0)], ...d.groups.map((x) => [x.group, x.group, x.count])].map(([k, title, n]) => h("button", { class: `seg ${grp === k ? "active" : ""}`, type: "button", onclick: () => { grp = k; draw(); } }, title, n ? h("span", { class: "badge badge-warn", style: { marginLeft: "6px" } }, n) : null)))]),
       h("div", { class: "alert alert-info small" }, "Talabalar ishni yuklaganda AI tekshiruvi avtomatik o'tkazilmaydi: ishlar shu navbatga tushadi. Avval «AI kaliti ulanmagan» rejimida taxminiy baholangan ishlar ham shu yerda — qayta tekshirilgach, taxminiy baho haqiqiy AI bahosi bilan almashtiriladi (o'qituvchi qo'ygan baho o'zgarmaydi). «Tekshirish» ni bosing — ishlar bittalab AI tekshiruvidan o'tadi (sahifani yopmang). AI javob bermagan ish navbatda qoladi. Tekshiruv sayt (sizning) AI kalitingiz orqali bajariladi."),
       !d.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: avval Cloudflare'da GEMINI_API_KEY yoki ANTHROPIC_API_KEY ni kiriting."),
       ...KINDS.map(([k, title]) => {
@@ -1526,7 +1529,7 @@ async function aiQueueView(el) {
           let total = 0, fails = 0;
           try {
             for (;;) {
-              const r = await api.post("admin/ai-queue/run", { kind: k, subject: subj });
+              const r = await api.post("admin/ai-queue/run", { kind: k, subject: subj, group: grp });
               total += r.done; fails += r.failed;
               log.textContent = `${title}: tekshirildi ${total} ta${fails ? `, AI javob bermadi ${fails} ta` : ""}, navbatda ${r.remaining} ta qoldi.`;
               if (!r.remaining || stop || (!r.done && r.failed)) break;
