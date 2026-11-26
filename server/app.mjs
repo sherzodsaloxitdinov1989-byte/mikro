@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiC
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, userHasContent, isMainUser, usesAiWork, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, groupsOfSubject, userHasContent, isMainUser, usesAiWork, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed, stageClosed, closeLabel } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -183,7 +183,7 @@ const cleanPerms = (a) => (Array.isArray(a) ? [...new Set(a.map(String).filter((
 const hasPerm = (t, k) => !Array.isArray(t?.perms) || t.perms.includes(k);
 const PERM_RULES = [
   [/^admin\/(students|duplicates|roster|roster-fails|guest-access)(\/|$)/, "students"],
-  [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|penalty-report|evidence|rating)(\/|$)/, "results"],
+  [/^admin\/(results|scores|test-results|items|assignment-duplicates|security|penalty-report|evidence|rating|works)(\/|$)/, "results"],
   [/^admin\/(practice-reviews|self-study|labs|assignment|midterm|exams)(\/|$)/, "grading"],
   [/^admin\/(tasks|meets)(\/|$)/, "tasks"],
   [/^admin\/(slides|videos|tts|video-script|quiz-keys)(\/|$)/, "content"],
@@ -3552,6 +3552,57 @@ async function adminAiQueueRun(req) {
   return json({ done, failed, remaining: left });
 }
 
+// ---------- Talabalar ishlari: fan va guruh bo'yicha topshirilgan barcha ishlar (o'qituvchi ko'rishi uchun) ----------
+async function adminWorks(req) {
+  const t = await requireTeacher(req);
+  const url = new URL(req.url);
+  const subject = subjParam(url, t);
+  assertSubject(t, subject);
+  const groups = groupsOfSubject(subject);
+  const group = str(url.searchParams.get("group"), 60);
+  if (!group) return json({ subject, groups, students: [] });
+  if (!groups.includes(group)) throw new HttpError(400, "Guruh bu fanga tegishli emas");
+  const users = (await getMany("user/")).filter((u) => u.role === "student" && u.group === group);
+  const tasks = new Map((await getMany("task/")).map((x) => [x.id, x]));
+  const topicTitle = (id) => { const tp = findTopic(id); return tp ? `${tp.num}. ${tp.title}` : id; };
+  const students = [];
+  const allTsubs = (await getMany("tasksub/")).map(({ text, docText, ...x }) => x); // matnlarsiz: ro'yxat yengil
+  const tsBy = new Map();
+  for (const x of allTsubs) (tsBy.get(x.userId) || tsBy.set(x.userId, []).get(x.userId)).push(x);
+  for (const u of users) {
+    const [qs, prs, asg, prog] = await Promise.all([getEntries(`qgrade/${u.id}/`), getMany(`practicereview/${u.id}/`), subject === SUBJECTS[0].key ? getMany(`assign/${u.id}/`) : [], db().get(`progress/${u.id}`)]);
+    const tsubs = tsBy.get(u.id) || [];
+    const items = [];
+    for (const [k, v] of qs) {
+      const [, , topicId, i] = k.split("/");
+      const tp = findTopic(topicId);
+      if (!tp || tp.subject !== subject) continue;
+      items.push({ kind: "question", topicId, topic: topicTitle(topicId), title: tp.questions?.[Number(i)] || `${Number(i) + 1}-savol`, answer: v.answer || "", score: v.pending ? null : v.score, max: 10, pending: Boolean(v.pending), estimated: v.ai === false && !v.pending, feedback: v.feedback || "", at: v.at });
+    }
+    for (const r of prs) {
+      const tp = findTopic(r.topicId);
+      if (!tp || tp.subject !== subject) continue;
+      items.push({ kind: "practice", topicId: r.topicId, topic: topicTitle(r.topicId), title: r.docx ? `Word yechim: ${r.docx.name}` : "Amaliy mashg'ulot javoblari", docx: Boolean(r.docx), open: r.answers?.open?.filter(Boolean) || [], score: r.pending ? null : r.teacher?.grade ?? r.total, max: 10, pending: Boolean(r.pending), estimated: !r.pending && r.ai === false, summary: r.review?.summary || "", at: r.createdAt, uid: u.id });
+    }
+    for (const [tid, st] of Object.entries(prog?.topics || {})) {
+      const tp = findTopic(tid);
+      if (!tp || tp.subject !== subject || !st.quizAttempts) continue;
+      items.push({ kind: "quiz", topicId: tid, topic: topicTitle(tid), title: "Mavzu testi", score: st.quiz ?? 0, max: 100, at: st.quizAt || "" });
+    }
+    for (const a of asg) items.push({ kind: "assignment", no: a.no, title: `20 ballik topshiriq: ${a.no}-bosqich`, file: a.file?.name || "", score: a.teacher?.score ?? null, aiSuggested: a.ai?.suggested ?? null, estimated: Boolean(a.ai?.estimated), pending: !a.ai, late: Boolean(a.late), at: a.submittedAt, uid: u.id });
+    for (const x of tsubs) {
+      const task = tasks.get(x.taskId);
+      if (!task || (task.subject || SUBJECTS[0].key) !== subject) continue;
+      items.push({ kind: "task", taskId: x.taskId, title: `Vazifa: ${task.title}`, file: x.file?.name || "", score: x.teacher?.score ?? null, max: task.max, aiSuggested: x.ai?.suggested ?? null, pending: task.aiEnabled && !x.ai, at: x.submittedAt, uid: u.id });
+    }
+    items.sort((a, b) => String(b.at || "").localeCompare(String(a.at || "")));
+    const c = (k) => items.filter((i) => i.kind === k).length;
+    students.push({ id: u.id, name: u.name, idNumber: u.idNumber || "", counts: { question: c("question"), quiz: c("quiz"), practice: c("practice"), assignment: c("assignment"), task: c("task") }, pending: items.filter((i) => i.pending).length, last: items[0]?.at || null, items });
+  }
+  students.sort((a, b) => a.name.localeCompare(b.name));
+  return json({ subject, groups, group, students });
+}
+
 async function computeScoreRows(subject, semNo) {
   const sems = semestersOfSubject(subject);
   const sem = sems.find((s) => s.no === semNo) || sems[0];
@@ -5010,6 +5061,7 @@ const routes = [
   ["GET", /^admin\/ai-budget$/, async (req) => { await requireTeacher(req); return json({ studentDaily: await studentSiteAiCap(), usedToday: (await peekHit(studentSiteAiKey(), 86_400_000)).n }); }],
   ["PUT", /^admin\/ai-budget$/, async (req) => { requireFullTeacher(await requireTeacher(req)); const b = await body(req); const v = Math.round(Number(b.studentDaily)); if (!Number.isFinite(v) || v < 0 || v > 100000) throw new HttpError(400, "0 dan 100000 gacha son kiriting"); await db().set("settings/ai", { studentDaily: v, at: new Date().toISOString() }); return json({ studentDaily: v, usedToday: (await peekHit(studentSiteAiKey(), 86_400_000)).n }); }],
   ["GET", /^admin\/ai-queue$/, adminAiQueue],
+  ["GET", /^admin\/works$/, adminWorks],
   ["POST", /^admin\/ai-queue\/run$/, adminAiQueueRun],
   ["GET", /^admin\/ai-check$/, async (req) => { await requireTeacher(req); return json({ ...(await aiCheck()), last: aiStatus() }); }],
   ["GET", /^admin\/penalty-report$/, adminPenaltyReport],

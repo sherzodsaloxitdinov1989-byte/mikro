@@ -22,6 +22,7 @@ import { view as testbankView } from "./testbank.js";
 import { teacherView as tasksView } from "./tasks.js";
 import { COURSE as COURSE_ALL, formByKey, SUBJECTS, subjectOfGroup, subjectByKey, teacherSubjects } from "../../data/course.js";
 import { totalScore } from "../assignment-util.js";
+import { saveBlob } from "./assignment.js";
 
 const COHORTS = { experimental: "Tajriba (TG)", control: "Nazorat (NG)", unassigned: "Belgilanmagan" };
 
@@ -33,11 +34,12 @@ const GROUPS = [
   ["live", "🎮 Interaktiv dars", 280],
 ];
 // Bo'lim → huquq (server bilan bir xil guruhlar). Ro'yxatda yo'q bo'limlar (umumiy ko'rinish, fanlar) har doim ochiq.
-const PERM_OF = { students: "students", roster: "students", forms: "students", guest: "students", results: "results", scores: "results", items: "results", dups: "results", security: "results", practice: "grading", labs: "grading", "self-study": "grading", assignment: "grading", exams: "grading", tasks: "tasks", meets: "tasks", slides: "content", videos: "content", voices: "content", testbank: "content", live: "content", questions: "questions", alerts: "system", storage: "system" };
+const PERM_OF = { students: "students", roster: "students", forms: "students", guest: "students", works: "results", results: "results", scores: "results", items: "results", dups: "results", security: "results", practice: "grading", labs: "grading", "self-study": "grading", assignment: "grading", exams: "grading", tasks: "tasks", meets: "tasks", slides: "content", videos: "content", voices: "content", testbank: "content", live: "content", questions: "questions", alerts: "system", storage: "system" };
 const permOk = (key) => !Array.isArray(session.user?.perms) || !PERM_OF[key] || session.user.perms.includes(PERM_OF[key]);
 const SECTIONS = [
   { key: "practice", needsContent: true, icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
   COURSE.features.lab && { key: "labs", needsContent: true, icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
+  { key: "works", icon: "📂", title: "Talabalar ishlari (guruhlar bo'yicha)", group: "class", desc: "Talabalar bajargan va topshirgan barcha ishlar: nazorat savollari javoblari, testlar, amaliy va Word masalalar, 20 ballik topshiriq, vazifalar — fan va guruh bo'yicha, har bir talaba kesimida." },
   !Array.isArray(session.user?.subjects) && { key: "aiqueue", icon: "🤖", title: "AI tekshiruvlari (navbat)", group: "class", desc: "Talabalar yuklagan ishlar: nazorat savollari, Word masalalar, amaliy mashg'ulotlar, 20 ballik topshiriq va vazifalar — AI tekshiruvini shu yerdan o'tkazasiz." },
   { key: "tasks", icon: "🗂️", title: "Topshiriq yaratish", group: "class", desc: "Platformaning o'zida yangi topshiriq yarating: shart, kimga beriladi, muddat, ball va AI mezonlari. Talabalar ishlarini baholang." },
   { key: "meets", icon: "📹", title: "Jonli darslar (Meet)", group: "live", desc: "Google Meet orqali onlayn dars jadvali: vaqt, havola va kimga ko'rinishi. Talaba o'z guruhining darsini ko'radi va qo'shiladi." },
@@ -576,7 +578,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, aiqueue: aiQueueView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, aiqueue: aiQueueView, works: worksView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -1446,6 +1448,52 @@ async function teachersView(el) {
 
 
 // ---------------- Ta'lim shakllari: kunduzgi va masofaviy bo'limlar ----------------
+
+/** Talabalar ishlari: fan → guruh → talaba; har bir talabaning topshirgan barcha ishlari (matn, fayl, ball, holat). */
+async function worksView(el) {
+  const first = await api.get(`admin/works?subject=${SUBJECT_KEY}`);
+  const box = h("div", { class: "stack" });
+  const KIND = { question: "❓ Nazorat savoli", quiz: "✅ Mavzu testi", practice: "🧮 Amaliy / Word masala", assignment: "📝 20 ballik topshiriq", task: "🗂️ Vazifa" };
+  let cur = "";
+  let q = "";
+  const body = h("div", { class: "stack" });
+  const sel = h("select", { onchange: (e) => load(e.target.value) }, h("option", { value: "" }, "Guruhni tanlang"), first.groups.map((g) => h("option", { value: g }, g)));
+  const search = h("input", { type: "search", placeholder: "Talaba ismi yoki ID…", oninput: (e) => { q = e.target.value.toLowerCase(); drawRows(); } });
+  let data = null;
+  const badge = (i) => i.pending ? h("span", { class: "badge badge-warn" }, "AI kutilmoqda") : i.estimated ? h("span", { class: "badge badge-warn", title: "AI kaliti ulanmagan paytda taxminiy baholangan" }, "taxminiy") : i.score != null ? h("span", { class: "badge badge-ok" }, i.kind === "quiz" ? `${i.score}%` : `${i.score}/${i.max ?? ""}`.replace(/\/$/, "")) : h("span", { class: "badge" }, i.aiSuggested != null ? `AI: ${i.aiSuggested}` : "baholanmagan");
+  const openStudent = (st) => {
+    const groups = Object.keys(KIND).map((k) => [k, st.items.filter((i) => i.kind === k)]).filter(([, l]) => l.length);
+    modal(`📂 ${st.name} — ${data.group}`, h("div", { class: "stack" },
+      h("p", { class: "muted small" }, `${st.items.length} ta ish${st.pending ? ` · AI kutilayotgan: ${st.pending}` : ""}`),
+      !groups.length && h("div", { class: "alert alert-info" }, "Bu talaba hali ish topshirmagan."),
+      ...groups.map(([k, list]) => h("div", { class: "card stack" }, h("h4", {}, `${KIND[k]} (${list.length})`),
+        h("div", { class: "table-wrap" }, h("table", { class: "table small" }, h("tbody", {}, list.map((i) => h("tr", {},
+          h("td", {}, h("b", {}, i.title), i.topic && h("div", { class: "muted" }, i.topic), i.answer && h("div", { style: { whiteSpace: "pre-wrap" } }, i.answer), i.open?.length > 0 && h("div", { style: { whiteSpace: "pre-wrap" } }, i.open.join("\n\n")), (i.feedback || i.summary) && h("div", { class: "muted" }, i.feedback || i.summary), i.late && h("span", { class: "badge badge-warn" }, "kech")),
+          h("td", { class: "small" }, i.at ? fmtDate(i.at) : "—"),
+          h("td", {}, badge(i)),
+          h("td", {}, i.file && h("button", { class: "btn small ghost", onclick: () => saveBlob(i.kind === "assignment" ? `admin/assignment/${i.uid}/${i.no}/file` : `admin/tasks/${i.taskId}/file/${i.uid}`, i.file).catch((e) => toast(e.message, "error")) }, "⬇ Fayl"), i.docx && h("button", { class: "btn small ghost", onclick: async () => { try { const d = await api.get(`admin/practice-reviews/doc/${i.topicId}/${i.uid}`); modal("Word fayl matni", h("p", { style: { whiteSpace: "pre-wrap" } }, d.text || "—")); } catch (e) { toast(e.message, "error"); } } }, "📄 Matn")))))))))), { wide: true });
+  };
+  const drawRows = () => {
+    if (!data) return body.replaceChildren(h("p", { class: "muted" }, "Guruhni tanlang."));
+    const rows = data.students.filter((s) => !q || `${s.name} ${s.idNumber}`.toLowerCase().includes(q));
+    body.replaceChildren(rows.length ? h("div", { class: "card table-wrap" }, h("table", { class: "table" },
+      h("thead", {}, h("tr", {}, ["№", "Talaba", "Savollar", "Test", "Amaliy/Word", "20 ball", "Vazifa", "AI kutilmoqda", "Oxirgi", ""].map((x, i) => h("th", { class: i > 1 ? "center" : "" }, x)))),
+      h("tbody", {}, rows.map((s, n) => h("tr", {}, h("td", { class: "center muted" }, `${n + 1}.`), h("td", {}, s.name, s.idNumber && h("div", { class: "muted small" }, `ID: ${s.idNumber}`)),
+        ...["question", "quiz", "practice", "assignment", "task"].map((k) => h("td", { class: "center" }, s.counts[k] || "—")),
+        h("td", { class: "center" }, s.pending ? h("span", { class: "badge badge-warn" }, s.pending) : "—"), h("td", { class: "small" }, s.last ? fmtDate(s.last) : "—"),
+        h("td", {}, h("button", { class: "btn small", onclick: () => openStudent(s) }, "Ko'rish")))))) ) : emptyState("👥", "Talabalar topilmadi", "Bu guruhda talaba ro'yxatdan o'tmagan yoki ish topshirmagan."));
+  };
+  async function load(g) {
+    cur = g;
+    if (!g) { data = null; return drawRows(); }
+    body.replaceChildren(loading());
+    try { data = await api.get(`admin/works?subject=${SUBJECT_KEY}&group=${encodeURIComponent(g)}`); } catch (e) { return body.replaceChildren(h("div", { class: "alert alert-error" }, e.message)); }
+    drawRows();
+  }
+  mount(el, box);
+  box.append(h("div", { class: "row wrap" }, sel, search, h("button", { class: "btn ghost", onclick: () => cur && load(cur) }, "↻ Yangilash")), body);
+  drawRows();
+}
 
 /** AI tekshiruvlari navbati: talabalar yuklagan ishlarni asosiy o'qituvchi AI tekshiruvidan o'tkazadi (bo'laklab, sahifa ochiq turganda). */
 async function aiQueueView(el) {
