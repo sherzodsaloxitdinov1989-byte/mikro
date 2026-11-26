@@ -38,6 +38,7 @@ const permOk = (key) => !Array.isArray(session.user?.perms) || !PERM_OF[key] || 
 const SECTIONS = [
   { key: "practice", needsContent: true, icon: "🤖", title: "Amaliy mashg'ulotlar (AI)", group: "class", desc: "Talabalarning amaliy mashg'ulot natijalari, AI bahosi va feedbacki; o'qituvchi bahosi va izohi.", meta: (o) => `${o.practiceReviews} ta tekshiruv${o.avgPracticeScore !== null ? ` · o'rtacha ${o.avgPracticeScore}/10` : ""}` },
   COURSE.features.lab && { key: "labs", needsContent: true, icon: "🔬", title: "Laboratoriya hisobotlari", group: "class", desc: "Kompleks tahlil loyihalarini 9 mezonli 100 ballik rubrika bilan baholash.", badge: (o) => o.labs.submitted && [`${o.labs.submitted} ta yangi`, "warn"], meta: (o) => `${o.labs.graded} tasi baholangan` },
+  !Array.isArray(session.user?.subjects) && { key: "aiqueue", icon: "🤖", title: "AI tekshiruvlari (navbat)", group: "class", desc: "Talabalar yuklagan ishlar: nazorat savollari, Word masalalar, amaliy mashg'ulotlar, 20 ballik topshiriq va vazifalar — AI tekshiruvini shu yerdan o'tkazasiz." },
   { key: "tasks", icon: "🗂️", title: "Topshiriq yaratish", group: "class", desc: "Platformaning o'zida yangi topshiriq yarating: shart, kimga beriladi, muddat, ball va AI mezonlari. Talabalar ishlarini baholang." },
   { key: "meets", icon: "📹", title: "Jonli darslar (Meet)", group: "live", desc: "Google Meet orqali onlayn dars jadvali: vaqt, havola va kimga ko'rinishi. Talaba o'z guruhining darsini ko'radi va qo'shiladi." },
   { key: "assignment", only: "mikro", icon: "📝", title: "Topshiriq (20 ball)", group: "class", desc: "11 bosqichli topshiriq: talabalar yuklagan hisobotlar, AI tekshiruvi (izchillik bilan), ball qo'yish va Excel eksport." },
@@ -575,7 +576,7 @@ async function alertsView(el) {
 
 export async function render(el, tab = "", param) {
   const content = h("div");
-  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
+  const views = { "": overview, practice: practiceReviews, labs: labProjects, slides: slidesManager, videos: videosManager, live: (el) => mount(el, createForm()), items: testsHome, students, "self-study": selfStudy, assignment: assignmentView, teachers: teachersView, forms: formsView, guest: guestView, aiqueue: aiQueueView, security: securityView, alerts: alertsView, questions: questionsView, results: allResultsView, exams: examsView, scores: scoresView, dups: dupsView, storage: storageView, testbank: testbankView, tasks: tasksView, subjects: subjectsView, roster: (el) => rosterPage.render(el), meets: meetsView };
   let view = views[tab || ""];
   if (!view) throw new Error("Bo'lim topilmadi");
   // Panelga kirganda (sessiyada birinchi marta) fanlar alohida ko'rsatiladi — fanni tanlab, so'ng shu fan paneliga o'tiladi
@@ -1446,6 +1447,53 @@ async function teachersView(el) {
 
 // ---------------- Ta'lim shakllari: kunduzgi va masofaviy bo'limlar ----------------
 
+/** AI tekshiruvlari navbati: talabalar yuklagan ishlarni asosiy o'qituvchi AI tekshiruvidan o'tkazadi (bo'laklab, sahifa ochiq turganda). */
+async function aiQueueView(el) {
+  const KINDS = [
+    ["questions", "❓ Nazorat savollariga javoblar"],
+    ["practice", "🧮 Amaliy mashg'ulot va Word masalalar"],
+    ["assignment", "📝 20 ballik topshiriq bosqichlari"],
+    ["tasks", "🗂️ Vazifalar (o'qituvchi topshiriqlari)"],
+  ];
+  const box = h("div", { class: "stack" });
+  let stop = false;
+  const draw = async () => {
+    let d;
+    try { d = await api.get("admin/ai-queue"); } catch (e) { return box.replaceChildren(h("div", { class: "alert alert-error" }, e.message)); }
+    const log = h("div", { class: "small muted" });
+    box.replaceChildren(
+      h("div", { class: "alert alert-info small" }, "Talabalar ishni yuklaganda AI tekshiruvi avtomatik o'tkazilmaydi: ishlar shu navbatga tushadi. «Tekshirish» ni bosing — ishlar bittalab AI tekshiruvidan o'tadi (sahifani yopmang). AI javob bermagan ish navbatda qoladi. Tekshiruv sayt (sizning) AI kalitingiz orqali bajariladi."),
+      !d.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: avval Cloudflare'da GEMINI_API_KEY yoki ANTHROPIC_API_KEY ni kiriting."),
+      ...KINDS.map(([k, title]) => {
+        const n = d.counts[k];
+        const btn = h("button", { class: "btn", disabled: !n || !d.aiEnabled, onclick: async () => {
+          stop = false;
+          btn.disabled = true;
+          const stopBtn = h("button", { class: "btn ghost small", onclick: () => (stop = true) }, "⏹ To'xtatish");
+          btn.after(stopBtn);
+          let total = 0, fails = 0;
+          try {
+            for (;;) {
+              const r = await api.post("admin/ai-queue/run", { kind: k });
+              total += r.done; fails += r.failed;
+              log.textContent = `${title}: tekshirildi ${total} ta${fails ? `, AI javob bermadi ${fails} ta` : ""}, navbatda ${r.remaining} ta qoldi.`;
+              if (!r.remaining || stop || (!r.done && r.failed)) break;
+            }
+            toast(`Tekshirildi: ${total} ta`, "ok");
+          } catch (e) { toast(e.message, "error"); }
+          stopBtn.remove();
+          draw();
+        } }, n ? `▶ Tekshirish (${n} ta)` : "Navbat bo'sh");
+        const sample = d.sample[k] || [];
+        return h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, `${title}: ${n} ta`), btn),
+          sample.length > 0 && h("details", {}, h("summary", { class: "small" }, "Navbatdagi ishlar"), h("ul", { class: "small" }, sample.map((x) => h("li", {}, [x.name, x.group, x.task || (x.no ? `${x.no}-bosqich` : ""), x.topicId ? `mavzu ${x.topicId}` : "", x.docx ? "Word" : "", x.at ? fmtDate(x.at) : ""].filter(Boolean).join(" · "))))));
+      }),
+      log);
+  };
+  mount(el, box);
+  draw();
+}
+
 async function guestView(el) {
   const st = await api.get("admin/guest-access");
   const on = h("input", { type: "checkbox", checked: st.enabled });
@@ -1542,7 +1590,7 @@ async function practiceReviews(el) {
         h("thead", {}, h("tr", {}, ["Sana", "Talaba", "Guruh", "Mavzu", "Hisob-kitob", "AI baho", "O'qituvchi", ""].map((t) => h("th", {}, t)))),
         h("tbody", {}, rs.map((r) => {
           const t = TOPICS.find((x) => x.id === r.topicId);
-          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, r.user?.name), h("td", {}, r.user?.group || "—"), h("td", {}, `${t?.num}. ${t?.title}`), h("td", {}, (r.docx ? "📄 Word" : `${r.calc?.correct}/${r.calc?.total}`)), h("td", {}, h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : " ~"), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"}/10` : "—"), h("td", {}, h("button", { class: "btn small", onclick: () => practiceModal(r, criteria, () => practiceReviews(el)) }, "Ko'rish")));
+          return h("tr", {}, h("td", {}, fmtDate(r.createdAt)), h("td", {}, r.user?.name), h("td", {}, r.user?.group || "—"), h("td", {}, `${t?.num}. ${t?.title}`), h("td", {}, (r.docx ? "📄 Word" : `${r.calc?.correct}/${r.calc?.total}`)), h("td", {}, r.pending ? h("span", { class: "badge badge-warn" }, "AI kutilmoqda") : [h("b", {}, `${r.total}/10`), r.ai ? " 🤖" : " ~"]), h("td", {}, r.teacher ? `${r.teacher.grade ?? "—"}/10` : "—"), h("td", {}, h("button", { class: "btn small", onclick: () => practiceModal(r, criteria, () => practiceReviews(el)) }, "Ko'rish")));
         })))),
       h("div", { class: "row end" }, h("button", { class: "btn ghost", onclick: () => downloadFile("amaliy-mashgulotlar-ai.csv", toCSV([["Sana", "Talaba", "Guruh", "Mavzu", "To'g'ri hisob-kitob", "Jami hisob-kitob", ...criteria.map((c) => `${c.name} (${c.max})`), "AI baho (10)", "AI", "O'qituvchi bahosi", "O'qituvchi izohi"], ...rs.map((r) => [r.createdAt.slice(0, 10), r.user?.name, r.user?.group, TOPICS.find((x) => x.id === r.topicId)?.num, r.calc?.correct, r.calc?.total, ...criteria.map((c) => r.review.scores?.[c.key] ?? ""), r.total, r.ai ? "ha" : "taxminiy", r.teacher?.grade ?? "", r.teacher?.comment ?? ""])])) }, "⬇ CSV (Excel)"))
     );

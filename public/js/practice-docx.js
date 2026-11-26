@@ -11,7 +11,7 @@ export function docxPanel(topic) {
   const result = h("div", { class: "ai-review-box" });
   const file = h("input", { type: "file", accept: ".docx", class: "hidden" });
   const chosen = h("span", { class: "muted small" }, "Fayl tanlanmagan");
-  const btn = h("button", { class: "btn lg ai-btn", disabled: true }, "📤 Yuborish va AI bahosini olish");
+  const btn = h("button", { class: "btn lg ai-btn", disabled: true }, "📤 Yechimni yuborish");
   file.addEventListener("change", () => {
     const f = file.files[0];
     chosen.textContent = f ? `${f.name} (${Math.round(f.size / 1024)} KB)` : "Fayl tanlanmagan";
@@ -31,19 +31,19 @@ export function docxPanel(topic) {
       result.replaceChildren(reviewView(res));
       result.scrollIntoView({ behavior: "smooth", block: "start" });
       if (res.total >= 8) { const r = result.getBoundingClientRect(); setTimeout(() => confetti(r.left + r.width / 2, r.top + 60), 300); }
-      toast(`Baho: ${res.total}/10`, "ok");
+      toast(res.pending ? "Yechim yuborildi: AI tekshiruvini o'qituvchi o'tkazadi" : `Baho: ${res.total}/10`, "ok");
       btn.closest(".ai-card")?.remove();
     } catch (e) {
       result.replaceChildren(h("div", { class: "alert alert-error" }, e.message));
     } finally {
-      btn.textContent = "📤 Yuborish va AI bahosini olish";
+      btn.textContent = "📤 Yechimni yuborish";
       btn.disabled = !file.files[0];
     }
   });
   api.get(`practice/${topic.id}/assigned`).then((d) => {
     if (d.last) result.replaceChildren(reviewView(d.last));
     box.replaceChildren(
-      h("div", { class: `alert ${d.last ? "alert-success" : "alert-warn"}` }, d.last ? "Yechimingiz qabul qilingan va baholangan. Amaliy topshiriq faqat bir marta topshiriladi." : "Sizga bu mavzudan 2 ta masala biriktirilgan (har bir talabaga boshqacha). Masalalarni yeching, yechimni (formulalar, hisob-kitob, grafik va xulosa bilan) bitta Word (.docx) faylga joylab yuklang. DIQQAT: yechim faqat BIR marta topshiriladi — qayta yuklab bo'lmaydi, shuning uchun yuborishdan oldin yaxshilab tekshiring. AI 10 ballik tizimda baholaydi."),
+      h("div", { class: `alert ${d.last ? "alert-success" : "alert-warn"}` }, d.last ? "Yechimingiz qabul qilingan va baholangan. Amaliy topshiriq faqat bir marta topshiriladi." : "Sizga bu mavzudan 2 ta masala biriktirilgan (har bir talabaga boshqacha). Masalalarni yeching, yechimni (formulalar, hisob-kitob, grafik va xulosa bilan) bitta Word (.docx) faylga joylab yuklang. DIQQAT: yechim faqat BIR marta topshiriladi — qayta yuklab bo'lmaydi, shuning uchun yuborishdan oldin yaxshilab tekshiring. AI tekshiruvini o'qituvchi o'tkazadi (10 ballik tizim)."),
       ...d.tasks.map((t) => h("article", { class: "card practice-task" }, h("div", { class: "row" }, h("span", { class: "q-num" }, t.n), h("h4", {}, `${t.n}-masala`)), h("p", {}, t.text))),
       h("div", { class: "row" }, h("button", { class: "btn", onclick: () => saveBlob(`practice/${topic.id}/pdf`, `amaliy-${topic.num}-mavzu.pdf`).catch((e) => toast(e.message, "error")) }, "⬇ Masalalarni PDF qilib yuklab olish")),
       !d.last && h("div", { class: "card ai-card" },
@@ -62,12 +62,13 @@ export function aiQuestionCard(topic, q, i, saved, noteText, onNote, num = i + 1
   const out = h("div");
   const draw = (g) => {
     if (!g) return out.replaceChildren();
+    if (g.pending) return out.replaceChildren(h("div", { class: "alert alert-info small" }, "⏳ Javobingiz qabul qilindi. AI tekshiruvini o'qituvchi o'tkazadi — baho va izoh shu yerda ko'rinadi."));
     out.replaceChildren(h("div", { class: `alert ${g.score >= 7 ? "alert-success" : g.score >= 5 ? "alert-warn" : "alert-error"}` },
       h("b", {}, `🤖 AI bahosi: ${g.score}/10`), g.ai === false ? h("span", { class: "muted small" }, " · taxminiy") : "",
       h("p", {}, g.feedback), g.missing?.length > 0 && h("ul", { class: "small" }, g.missing.map((m) => h("li", {}, m)))));
   };
   draw(saved);
-  const btn = h("button", { class: "btn small" }, "Yuborish va AI bahosini olish (bir marta)");
+  const btn = h("button", { class: "btn small" }, "Yuborish (bir marta)");
   if (saved) { ta.disabled = true; ta.value = saved.answer || ta.value; btn.remove(); }
   btn.addEventListener("click", async () => {
     if (ta.value.trim().length < 20) return toast("Javobni kamida bir-ikki gap bilan yozing", "warn");
@@ -79,11 +80,11 @@ export function aiQuestionCard(topic, q, i, saved, noteText, onNote, num = i + 1
       draw(g);
       ta.disabled = true;
       btn.remove();
-      toast(`AI bahosi: ${g.score}/10`, g.score >= 5 ? "ok" : "warn");
+      toast(g.pending ? "Javob yuborildi" : `AI bahosi: ${g.score}/10`, g.pending || g.score >= 5 ? "ok" : "warn");
     } catch (e) {
       toast(e.message, "error");
       btn.disabled = false;
-      btn.textContent = "Yuborish va AI bahosini olish (bir marta)";
+      btn.textContent = "Yuborish (bir marta)";
     }
   });
   return h("div", { class: "card question" }, h("div", { class: "row" }, h("span", { class: "q-num" }, num), h("b", {}, q)), ta, h("div", { class: "row" }, btn), out);

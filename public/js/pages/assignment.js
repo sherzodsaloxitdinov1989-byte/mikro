@@ -262,13 +262,6 @@ export async function renderStage(el, noParam) {
       }
       const rec = await api.post(`assignment/${no}/submit`, { file });
       toast(rec.late ? "Yuborildi (muddatdan keyin)" : "Hisobot yuborildi!", rec.late ? "warn" : "ok");
-      // Kechikib birinchi marta yuklangan ish darhol chuqur AI tekshiruvidan o'tkaziladi
-      if (rec.deep) {
-        prog.classList.remove("hidden");
-        prog.textContent = "🤖 Chuqur AI tekshiruvi… (1–2 daqiqa)";
-        try { await api.post(`assignment/${no}/review`, {}); } catch (ex) { toast(ex.message, "error"); }
-        prog.classList.add("hidden");
-      }
       location.hash = `#/assignment/${no}`;
       await renderStage(el, no);
     } catch (ex) {
@@ -344,7 +337,7 @@ export async function renderStage(el, noParam) {
       sub?.text && h("details", { class: "small" }, h("summary", {}, "Fayldan o'qilgan matn (AI shuni va rasmlarni ko'radi)"), h("p", { class: "pre-wrap" }, sub.text.slice(0, 6000))),
       prog,
       h("div", { class: "row end" }, closed ? h("span", { class: "muted small" }, "Yuklash yopilgan") : submitBtn)),
-    h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi va izchillik"), reviewBtn), aiBox),
+    h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi va izchillik")), !sub?.ai && sub && h("p", { class: "muted small" }, "⏳ Hisobotingiz qabul qilindi. AI tekshiruvini o'qituvchi o'tkazadi — natija shu yerda ko'rinadi."), aiBox),
     sub?.teacher && h("div", { class: "card accent" },
       h("h3", {}, "👩‍🏫 O'qituvchi bahosi"),
       h("p", {}, h("b", {}, sub.teacher.score != null ? `${fmtScore(sub.teacher.score)} / ${fmtScore(max)} ball` : "Ball qo'yilmagan"), sub.resubmitted ? " (qayta yuborganingiz uchun qayta ko'rib chiqiladi)" : ""),

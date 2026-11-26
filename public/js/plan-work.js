@@ -52,6 +52,7 @@ export function planQuestionsPanel(topic) {
       const g = d.grades[i];
       const st = d.starts?.[i];
       const head = h("div", { class: "row" }, h("span", { class: "q-num" }, k + 1), g || (st && st.secondsLeft > 0) ? h("b", {}, topic.questions[i]) : h("b", { class: "muted" }, `${k + 1}-savol (boshlanmagan)`));
+      if (g && g.pending) return h("div", { class: "card question" }, head, g.answer && h("p", { class: "small", style: { whiteSpace: "pre-wrap" } }, g.answer), h("div", { class: "alert alert-info small" }, "⏳ Javob qabul qilindi. AI tekshiruvini o'qituvchi o'tkazadi."));
       if (g) {
         return h("div", { class: "card question" }, head, g.answer && h("p", { class: "small", style: { whiteSpace: "pre-wrap" } }, g.answer),
           h("div", { class: `alert ${g.score >= 7 ? "alert-success" : g.score >= 5 ? "alert-warn" : "alert-error"}` }, h("b", {}, `🤖 AI bahosi: ${g.score}/10`), g.late && h("span", { class: "muted" }, " · vaqt tugagan"), h("p", {}, g.feedback), g.missing?.length > 0 && h("ul", { class: "small" }, g.missing.map((m) => h("li", {}, m)))));
@@ -59,7 +60,7 @@ export function planQuestionsPanel(topic) {
       if (st && st.secondsLeft > 0) {
         const ta = h("textarea", { rows: 5, placeholder: "Javobingizni yozing (2–4 gap)…", autofocus: true });
         const clock = h("b", { class: "plan-clock" }, mmss(st.secondsLeft));
-        const btn = h("button", { class: "btn", onclick: () => send(false) }, "Yuborish va AI bahosini olish");
+        const btn = h("button", { class: "btn", onclick: () => send(false) }, "Javobni yuborish");
         let left = st.secondsLeft;
         let sent = false;
         async function send(auto) {
@@ -80,7 +81,7 @@ export function planQuestionsPanel(topic) {
       } }, `▶ Savolni boshlash (${PLAN_Q_MIN} daqiqa)`);
       return h("div", { class: "card question" }, head, start);
     });
-    return [h("div", { class: "alert alert-info" }, `Sizga bu mavzudan 5 ta nazorat savoli berilgan (har bir talabaga boshqacha). Har bir savol alohida ochiladi, javob yozishga ${PLAN_Q_MIN} daqiqa beriladi, so'ng sun'iy intellekt 10 ballik tizimda baholaydi. Savolga faqat bir marta javob beriladi. Bajarilgan: ${done}/5.`), ...cards];
+    return [h("div", { class: "alert alert-info" }, `Sizga bu mavzudan 5 ta nazorat savoli berilgan (har bir talabaga boshqacha). Har bir savol alohida ochiladi, javob yozishga ${PLAN_Q_MIN} daqiqa beriladi, javoblarni o'qituvchi AI tekshiruvidan o'tkazib, 10 ballik tizimda baholaydi. Savolga faqat bir marta javob beriladi. Bajarilgan: ${done}/5.`), ...cards];
   });
 }
 

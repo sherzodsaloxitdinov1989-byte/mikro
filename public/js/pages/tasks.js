@@ -168,7 +168,7 @@ export async function renderTask(el, id) {
       prog,
       h("div", { class: "row end" }, submitBtn)),
     task.aiEnabled && h("div", { class: "card stack" },
-      h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi"), reviewBtn),
+      h("div", { class: "row between wrap" }, h("h3", {}, "🤖 AI tekshiruvi")), sub && !sub.ai && h("p", { class: "muted small" }, "⏳ Ishingiz qabul qilindi. AI tekshiruvini o'qituvchi o'tkazadi — natija shu yerda ko'rinadi."),
       h("details", {}, h("summary", { class: "small muted" }, "Baholash mezonlari"), h("ul", {}, task.criteria.map((c) => h("li", {}, `${c.name} — ${c.max} %`)))),
       aiBox),
     sub?.teacher && h("div", { class: "card accent" },

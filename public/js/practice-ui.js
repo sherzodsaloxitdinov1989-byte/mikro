@@ -45,7 +45,7 @@ export function practicePanel(topic) {
 
   const reviewBox = h("div", { class: "ai-review-box" });
   if (st.aiReview) reviewBox.append(reviewView(st.aiReview));
-  const aiBtn = h("button", { class: "btn lg ai-btn", onclick: () => runReview() }, "🤖 AI bilan tekshirish va feedback olish");
+  const aiBtn = h("button", { class: "btn lg ai-btn", onclick: () => runReview() }, session.user?.role === "student" ? "📤 Ishni o'qituvchiga yuborish" : "🤖 AI bilan tekshirish va feedback olish");
 
   async function runReview() {
     if (!session.user) {
@@ -76,7 +76,7 @@ export function practicePanel(topic) {
       reviewBox.replaceChildren(h("div", { class: "alert alert-error" }, e.message));
     } finally {
       aiBtn.disabled = false;
-      aiBtn.textContent = "🤖 Qayta tekshirish";
+      aiBtn.textContent = session.user?.role === "student" ? "📤 Qayta yuborish" : "🤖 Qayta tekshirish";
     }
   }
 
@@ -155,6 +155,7 @@ function taskCard(topic, task, idx, st, onChange) {
 }
 
 export function reviewView(r) {
+  if (r?.pending || !r?.review) return h("div", { class: "card alert alert-info" }, h("b", {}, "⏳ Ishingiz qabul qilindi. "), "AI tekshiruvini o'qituvchi o'tkazadi — natija va izohlar shu yerda ko'rinadi.");
   const rv = r.review;
   const crit = r.criteria || [];
   const cls = r.total >= 8 ? "score-high" : r.total >= 6 ? "score-mid" : "score-low";
