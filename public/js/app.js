@@ -3,7 +3,7 @@ import { h, mount, errorBox, toast } from "./ui.js";
 import { session, api } from "./api.js";
 import { maybeShowOwnKeyGuide } from "./ai-key-guide.js";
 window.addEventListener("ai:need-key", (e) => maybeShowOwnKeyGuide(e.detail || ""));
-import { inFreeze, freezeStarted, FREEZE, userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
+import { inFreeze, freezeBannerText, userHasContent, usesAiWork, isPlanStudent, hasProblemPart, isGuestGroup, subjectOfGroup, SUBJECTS, hasAssignment, hasExam, teacherSubjects } from "../data/course.js";
 import { watch, transition, initTopbar } from "./motion.js";
 import { initTools } from "./search.js";
 import { initLightbox } from "./media.js";
@@ -109,11 +109,7 @@ setInterval(() => document.visibilityState === "visible" && Date.now() - taskPol
 function freezeBanner(user) {
   document.getElementById("freeze-banner")?.remove();
   if (!inFreeze(user)) return;
-  const started = freezeStarted();
-  const bar = h("div", { id: "freeze-banner", class: "alert alert-warn", style: { margin: "8px 12px", textAlign: "center" } },
-    started
-      ? `🔒 Mikroiqtisodiyot 1–${FREEZE.topics[1]}-mavzulari ${FREEZE.label} dan faqat o'qish uchun: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan. (20 ballik topshiriq bunga kirmaydi.)`
-      : `⚠️ Diqqat: ${FREEZE.label} dan boshlab Mikroiqtisodiyot 1–${FREEZE.topics[1]}-mavzulari faqat o'qish uchun ochiq bo'ladi — mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopiladi. Bajarmagan ishlaringizni shu vaqtgacha topshiring. (20 ballik topshiriq bunga kirmaydi.)`);
+  const bar = h("div", { id: "freeze-banner", class: "alert alert-warn", style: { margin: "8px 12px", textAlign: "center" } }, freezeBannerText());
   main.before(bar);
 }
 

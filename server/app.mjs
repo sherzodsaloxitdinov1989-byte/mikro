@@ -7,7 +7,7 @@ import { aiEnabled, streamText, completeText, modelName, provider, aiStatus, aiC
 import { computeGame, certificateStatus, makeContext } from "../public/js/gamification.js";
 import { tutorSystem, searchAnswer } from "./tutor.mjs";
 import { TOPICS, TOPICS_ALL, COURSE, findTopic, courseOf } from "../public/data/topics.js";
-import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, groupsOfSubject, userHasContent, isMainUser, usesAiWork, isFrozen, FREEZE_MSG, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
+import { semestersOfSubject, semesterEnded, subjectByKey, formOfGroup, formByKey, semesterByNo, currentSemester, subjectOfGroup, groupsOfSubject, userHasContent, isMainUser, usesAiWork, isFrozen, freezeMsg, isPlanStudent, hasProblemPart, PLAN_Q_MIN, PLAN_QUIZ_MIN, SUBJECTS, isRosterGroup, isGuestGroup, ASSIGNMENT_GROUPS, hasAssignment } from "../public/data/course.js";
 import { totalScore, assignmentClosed, stageClosed, closeLabel } from "../public/js/assignment-util.js";
 import { checkContent, contentPenalty } from "./contentcheck.mjs";
 import { cosine as cosineTf } from "./contentcheck.mjs";
@@ -3242,7 +3242,7 @@ const AI_WORK_DAILY = 30;
 
 /** 331–334-25: 30-noyabr 00:01 dan 1–7-mavzu topshiriqlari bloklanadi. */
 function assertNotFrozen(user, topic) {
-  if (topic && isFrozen(user, topic.num)) throw new HttpError(403, FREEZE_MSG, "FROZEN");
+  if (topic && isFrozen(user, topic.num)) throw new HttpError(403, freezeMsg(topic.num), "FROZEN");
 }
 
 async function requireAiWork(req, topicId) {

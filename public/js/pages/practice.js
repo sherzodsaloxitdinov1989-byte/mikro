@@ -5,7 +5,7 @@ import { TOPICS } from "../../data/topics.js";
 import { loadProgress, topicState } from "../progress.js";
 import { practicePanel } from "../practice-ui.js";
 import { docxPanel } from "../practice-docx.js";
-import { usesAiWork, isFrozen, FREEZE_MSG } from "../../data/course.js";
+import { usesAiWork, isFrozen, freezeMsg } from "../../data/course.js";
 import { pickPractice } from "../../data/practice-pick.js";
 // Talabaga mavzudan faqat 2 ta masala beriladi
 const mine = (t) => (session.user?.role === "student" ? pickPractice(session.user.id, t) : null);
@@ -70,7 +70,7 @@ export async function renderTopic(el, id) {
     h("nav", { class: "crumbs" }, h("a", { href: "#/practice" }, "Amaliy mashg'ulotlar"), " / ", `${topic.num}-mashg'ulot`),
     h("div", { class: "page-head" }, h("div", {}, h("h1", {}, `${topic.icon} ${topic.num}-amaliy mashg'ulot`), h("p", { class: "lead" }, topic.title)), h("a", { href: `#/topics/${topic.id}`, class: "btn ghost" }, "📖 Mavzu nazariyasi")),
     teacherNote && h("div", { class: "alert alert-info" }, h("b", {}, `👩‍🏫 O'qituvchi izohi (${teacherNote.teacher.by})${teacherNote.teacher.grade != null ? ` — ${teacherNote.teacher.grade}/10` : ""}: `), teacherNote.teacher.comment),
-    isFrozen(session.user, topic.num) ? h("div", { class: "alert alert-warn" }, "🔒 ", FREEZE_MSG) : usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic),
+    isFrozen(session.user, topic.num) ? h("div", { class: "alert alert-warn" }, "🔒 ", freezeMsg(topic.num)) : usesAiWork(session.user) ? docxPanel(topic) : practicePanel(topic),
     h("div", { class: "lesson-pager" },
       prev?.practice ? h("a", { href: `#/practice/${prev.id}`, class: "pager-card" }, h("small", {}, "← Oldingi mashg'ulot"), h("b", {}, `${prev.num}. ${prev.title}`)) : h("span"),
       next?.practice ? h("a", { href: `#/practice/${next.id}`, class: "pager-card next" }, h("small", {}, "Keyingi mashg'ulot →"), h("b", {}, `${next.num}. ${next.title}`)) : h("span"))

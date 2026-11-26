@@ -309,12 +309,26 @@ export const hasAssignment = (group) => ASSIGNMENT_GROUPS.includes(group);
 export const usesAiWork = (user) => Boolean(user) && user.role === "student" && subjectOfGroup(user.group).key === SUBJECTS[0].key && (formOfGroup(user.group)?.key === "masofaviy" || ASSIGNMENT_GROUPS.includes(user.group));
 
 /** Mikroiqtisodiyot 331–334-25: 2026-yil 30-noyabr 00:01 dan 1–7-mavzular faqat o'qish uchun — mavzu testi, nazorat savollari va amaliy masalalar bloklanadi (20 ballik topshiriqqa aloqasi yo'q). */
-export const FREEZE = { groups: ["331-25", "332-25", "333-25", "334-25"], topics: [1, 7], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01" };
-export const freezeStarted = (now = Date.now()) => now >= new Date(FREEZE.at).getTime();
-export const inFreeze = (user) => Boolean(user) && user.role === "student" && FREEZE.groups.includes(user.group);
+export const FREEZES = [
+  { topics: [1, 7], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01" },
+  { topics: [8, 9], at: "2026-12-06T00:01:00+05:00", label: "6-dekabr 00:01" },
+];
+const FREEZE_GROUPS = ["331-25", "332-25", "333-25", "334-25"];
+export const inFreeze = (user) => Boolean(user) && user.role === "student" && FREEZE_GROUPS.includes(user.group);
+const freezeOf = (topicNum) => FREEZES.find((f) => Number(topicNum) >= f.topics[0] && Number(topicNum) <= f.topics[1]) || null;
+const topicsText = (f) => (f.topics[0] === f.topics[1] ? `${f.topics[0]}-mavzu` : `${f.topics[0]}–${f.topics[1]}-mavzular`);
 /** Shu talaba uchun mavzu topshiriqlari (test, savollar, amaliy) bloklanganmi? */
-export const isFrozen = (user, topicNum, now = Date.now()) => inFreeze(user) && freezeStarted(now) && Number(topicNum) >= FREEZE.topics[0] && Number(topicNum) <= FREEZE.topics[1];
-export const FREEZE_MSG = `1–7-mavzular ${FREEZE.label} dan faqat o'qish uchun ochiq: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan.`;
+export const isFrozen = (user, topicNum, now = Date.now()) => { const f = inFreeze(user) && freezeOf(topicNum); return Boolean(f) && now >= new Date(f.at).getTime(); };
+export const freezeMsg = (topicNum) => { const f = freezeOf(topicNum); return f ? `${topicsText(f)} ${f.label} dan faqat o'qish uchun ochiq: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan.` : ""; };
+/** Banner uchun: barcha bloklash bosqichlari holati. */
+export const freezeBannerText = (now = Date.now()) => {
+  const started = FREEZES.filter((f) => now >= new Date(f.at).getTime());
+  const upcoming = FREEZES.filter((f) => now < new Date(f.at).getTime());
+  const parts = [];
+  if (started.length) parts.push(`🔒 Mikroiqtisodiyot ${started.map((f) => `${topicsText(f)} (${f.label} dan)`).join(", ")} faqat o'qish uchun: mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopilgan.`);
+  if (upcoming.length) parts.push(`⚠️ Diqqat: ${upcoming.map((f) => `${f.label} dan boshlab ${topicsText(f)}`).join("; ")} faqat o'qish uchun ochiq bo'ladi — mavzu testi, nazorat savollari va amaliy topshiriqlarni bajarish yopiladi. Bajarmagan ishlaringizni shu vaqtgacha topshiring.`);
+  return `${parts.join(" ")} (20 ballik topshiriq bunga kirmaydi.)`;
+};
 
 /** Nazorat testi (oraliq) belgilangan guruhlar: server/exams.mjs bilan bir xil bo'lishi kerak. */
 export const EXAM_GROUPS = ["231-24", "232-24", "233-24", "331-25", "332-25", "333-25", "334-25", "141-23", "142-23"];
