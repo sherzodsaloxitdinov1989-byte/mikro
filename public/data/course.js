@@ -309,20 +309,24 @@ export const hasAssignment = (group) => ASSIGNMENT_GROUPS.includes(group);
 export const usesAiWork = (user) => Boolean(user) && user.role === "student" && subjectOfGroup(user.group).key === SUBJECTS[0].key && (formOfGroup(user.group)?.key === "masofaviy" || ASSIGNMENT_GROUPS.includes(user.group));
 
 /** Mikroiqtisodiyot 331–334-25: 2026-yil 30-noyabr 00:01 dan 1–7-mavzular faqat o'qish uchun — mavzu testi, nazorat savollari va amaliy masalalar bloklanadi (20 ballik topshiriqqa aloqasi yo'q). */
+const W_PRACTICE = "mavzu testi, nazorat savollari va amaliy topshiriqlarni";
+const W_TOPIC = "mavzu testi va nazorat savollarini";
 export const FREEZES = [
-  { groups: ["331-25", "332-25", "333-25", "334-25"], subject: "Mikroiqtisodiyot", topics: [1, 7], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01" },
-  { groups: ["331-25", "332-25", "333-25", "334-25"], subject: "Mikroiqtisodiyot", topics: [8, 9], at: "2026-12-06T00:01:00+05:00", label: "6-dekabr 00:01" },
-  // Tadbirkorlik asoslari (141-23, 142-23): 1–10-mavzular 30-noyabr 00:01 dan faqat o'qish uchun (biznes-reja topshirig'iga aloqasi yo'q)
-  { groups: ["141-23", "142-23"], subject: "Tadbirkorlik asoslari", topics: [1, 10], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01" },
+  { groups: ["331-25", "332-25", "333-25", "334-25"], subject: "Mikroiqtisodiyot", topics: [1, 7], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01", works: W_PRACTICE, note: "(20 ballik topshiriq bunga kirmaydi.)" },
+  { groups: ["331-25", "332-25", "333-25", "334-25"], subject: "Mikroiqtisodiyot", topics: [8, 9], at: "2026-12-06T00:01:00+05:00", label: "6-dekabr 00:01", works: W_PRACTICE, note: "(20 ballik topshiriq bunga kirmaydi.)" },
+  // Tadbirkorlik asoslari (141-23, 142-23): 1–10-mavzular 30-noyabr 00:01 dan faqat o'qish uchun
+  { groups: ["141-23", "142-23"], subject: "Tadbirkorlik asoslari", topics: [1, 10], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01", works: W_TOPIC, note: "(Biznes-reja topshirig'i va oraliq nazorat testlari bunga kirmaydi.)" },
+  // Makroiqtisodiyot (231-24, 232-24, 233-24): 1–17-mavzular 30-noyabr 00:01 dan faqat o'qish uchun
+  { groups: ["231-24", "232-24", "233-24"], subject: "Makroiqtisodiyot", topics: [1, 17], at: "2026-11-30T00:01:00+05:00", label: "30-noyabr 00:01", works: "mavzu testi, nazorat savollari va masalalarni", note: "(Oraliq nazorat testlari bunga kirmaydi.)" },
 ];
 const FREEZE_GROUPS = [...new Set(FREEZES.flatMap((f) => f.groups))];
 export const inFreeze = (user) => Boolean(user) && user.role === "student" && FREEZE_GROUPS.includes(user.group);
 const freezesOf = (user) => FREEZES.filter((f) => f.groups.includes(user?.group));
 const freezeOf = (user, topicNum) => freezesOf(user).find((f) => Number(topicNum) >= f.topics[0] && Number(topicNum) <= f.topics[1]) || null;
 const topicsText = (f) => (f.topics[0] === f.topics[1] ? `${f.topics[0]}-mavzu` : `${f.topics[0]}–${f.topics[1]}-mavzular`);
-/** Shu talaba uchun mavzu topshiriqlari (test, savollar, amaliy) bloklanganmi? */
+/** Shu talaba uchun mavzu topshiriqlari (test, savollar, masalalar) bloklanganmi? */
 export const isFrozen = (user, topicNum, now = Date.now()) => { const f = inFreeze(user) && freezeOf(user, topicNum); return Boolean(f) && now >= new Date(f.at).getTime(); };
-export const freezeMsg = (user, topicNum) => { const f = freezeOf(user, topicNum); return f ? `${topicsText(f)} ${f.label} dan faqat o'qish uchun ochiq: mavzu topshiriqlari (test, nazorat savollari${f.subject === "Mikroiqtisodiyot" ? ", amaliy topshiriqlar" : ""}) bajarish yopilgan.` : ""; };
+export const freezeMsg = (user, topicNum) => { const f = freezeOf(user, topicNum); return f ? `${topicsText(f)} ${f.label} dan faqat o'qish uchun ochiq: ${f.works} bajarish yopilgan.` : ""; };
 /** Banner uchun: shu talabaning bloklash bosqichlari holati. */
 export const freezeBannerText = (user, now = Date.now()) => {
   const list = freezesOf(user);
@@ -330,10 +334,10 @@ export const freezeBannerText = (user, now = Date.now()) => {
   const upcoming = list.filter((f) => now < new Date(f.at).getTime());
   const parts = [];
   const subj = list[0]?.subject || "";
-  const note = subj === "Mikroiqtisodiyot" ? " (20 ballik topshiriq bunga kirmaydi.)" : subj === "Tadbirkorlik asoslari" ? " (Biznes-reja topshirig'i va oraliq nazorat testlari bunga kirmaydi.)" : "";
-  if (started.length) parts.push(`🔒 ${subj} ${started.map((f) => `${topicsText(f)} (${f.label} dan)`).join(", ")} faqat o'qish uchun: mavzu testi va nazorat savollarini${subj === "Mikroiqtisodiyot" ? ", amaliy topshiriqlarni" : ""} bajarish yopilgan.`);
-  if (upcoming.length) parts.push(`⚠️ Diqqat: ${upcoming.map((f) => `${f.label} dan boshlab ${topicsText(f)}`).join("; ")} faqat o'qish uchun ochiq bo'ladi — mavzu testi va nazorat savollarini${subj === "Mikroiqtisodiyot" ? ", amaliy topshiriqlarni" : ""} bajarish yopiladi. Bajarmagan ishlaringizni shu vaqtgacha topshiring.`);
-  return `${parts.join(" ")}${note}`;
+  const works = list[0]?.works || "";
+  if (started.length) parts.push(`🔒 ${subj} ${started.map((f) => `${topicsText(f)} (${f.label} dan)`).join(", ")} faqat o'qish uchun: ${works} bajarish yopilgan.`);
+  if (upcoming.length) parts.push(`⚠️ Diqqat: ${upcoming.map((f) => `${f.label} dan boshlab ${topicsText(f)}`).join("; ")} faqat o'qish uchun ochiq bo'ladi — ${works} bajarish yopiladi. Bajarmagan ishlaringizni shu vaqtgacha topshiring.`);
+  return `${parts.join(" ")} ${list[0]?.note || ""}`.trim();
 };
 
 /** Nazorat testi (oraliq) belgilangan guruhlar: server/exams.mjs bilan bir xil bo'lishi kerak. */
