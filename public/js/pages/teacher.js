@@ -1462,7 +1462,7 @@ async function aiQueueView(el) {
     try { d = await api.get("admin/ai-queue"); } catch (e) { return box.replaceChildren(h("div", { class: "alert alert-error" }, e.message)); }
     const log = h("div", { class: "small muted" });
     box.replaceChildren(
-      h("div", { class: "alert alert-info small" }, "Talabalar ishni yuklaganda AI tekshiruvi avtomatik o'tkazilmaydi: ishlar shu navbatga tushadi. «Tekshirish» ni bosing — ishlar bittalab AI tekshiruvidan o'tadi (sahifani yopmang). AI javob bermagan ish navbatda qoladi. Tekshiruv sayt (sizning) AI kalitingiz orqali bajariladi."),
+      h("div", { class: "alert alert-info small" }, "Talabalar ishni yuklaganda AI tekshiruvi avtomatik o'tkazilmaydi: ishlar shu navbatga tushadi. Avval «AI kaliti ulanmagan» rejimida taxminiy baholangan ishlar ham shu yerda — qayta tekshirilgach, taxminiy baho haqiqiy AI bahosi bilan almashtiriladi (o'qituvchi qo'ygan baho o'zgarmaydi). «Tekshirish» ni bosing — ishlar bittalab AI tekshiruvidan o'tadi (sahifani yopmang). AI javob bermagan ish navbatda qoladi. Tekshiruv sayt (sizning) AI kalitingiz orqali bajariladi."),
       !d.aiEnabled && h("div", { class: "alert alert-warn" }, "⚠️ AI kaliti ulanmagan: avval Cloudflare'da GEMINI_API_KEY yoki ANTHROPIC_API_KEY ni kiriting."),
       ...KINDS.map(([k, title]) => {
         const n = d.counts[k];
@@ -1486,7 +1486,7 @@ async function aiQueueView(el) {
         } }, n ? `▶ Tekshirish (${n} ta)` : "Navbat bo'sh");
         const sample = d.sample[k] || [];
         return h("div", { class: "card stack" }, h("div", { class: "row between wrap" }, h("h3", {}, `${title}: ${n} ta`), btn),
-          sample.length > 0 && h("details", {}, h("summary", { class: "small" }, "Navbatdagi ishlar"), h("ul", { class: "small" }, sample.map((x) => h("li", {}, [x.name, x.group, x.task || (x.no ? `${x.no}-bosqich` : ""), x.topicId ? `mavzu ${x.topicId}` : "", x.docx ? "Word" : "", x.at ? fmtDate(x.at) : ""].filter(Boolean).join(" · "))))));
+          sample.length > 0 && h("details", {}, h("summary", { class: "small" }, "Navbatdagi ishlar"), h("ul", { class: "small" }, sample.map((x) => h("li", {}, [x.name, x.group, x.task || (x.no ? `${x.no}-bosqich` : ""), x.topicId ? `mavzu ${x.topicId}` : "", x.docx ? "Word" : "", x.at ? fmtDate(x.at) : "", x.est ? "⚠️ avval taxminiy baholangan (AI kaliti ulanmagan) — qayta tekshiriladi" : ""].filter(Boolean).join(" · "))))));
       }),
       log);
   };

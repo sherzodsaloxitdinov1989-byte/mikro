@@ -2474,7 +2474,9 @@ async function practiceReview(req, topicId) {
 /** O'qituvchi navbati: kutilayotgan amaliy mashg'ulot javoblarini AI bilan baholaydi. */
 async function reviewPendingPractice(rec) {
   const owner = await db().get(userKey(rec.userId));
-  const sub = normalizeSubmission(rec.topicId, rec.payload || {});
+  // Eski (taxminiy baholangan) yozuvlarda payload yo'q — saqlangan javoblardan tiklanadi
+  const payload = rec.payload || { tasks: Object.fromEntries((rec.answers?.tasks || []).map((t) => [t.id, { values: t.values || [], work: t.work || "" }])), open: rec.answers?.open || [], conclusion: rec.answers?.conclusion || "" };
+  const sub = normalizeSubmission(rec.topicId, payload);
   if (!owner || !sub) return false;
   const pick = pickPractice(owner.id, sub.topic);
   sub.tasks = sub.tasks.filter((t) => pick.some((p) => p.kind === "task" && p.id === t.id));
@@ -2493,6 +2495,7 @@ async function reviewPendingPractice(rec) {
   const totalRaw = totalOf(review.scores);
   Object.assign(rec, { total: Math.round(reduceBy(totalRaw, integrity?.percent) * 10) / 10, integrity: integrity && { ...integrity, before: totalRaw }, review, pending: false, ai: true, model: modelName(), reviewedAt: new Date().toISOString() });
   delete rec.payload;
+  delete rec.suggestOwnKey;
   await db().set(practiceReviewKey(rec.userId, rec.topicId, rec.id), rec);
   return true;
 }
@@ -3461,9 +3464,10 @@ async function reviewPendingDocx(rec) {
   const topic = findTopic(rec.topicId);
   if (!owner || !topic) return false;
   const tasks = (rec.docx?.mixed || hasProblemPart(owner) ? assignedMixed : assignedTasks)(owner.id, topic);
-  const text = (await db().get(`practicedoc/${rec.topicId}/${owner.id}`))?.text || "";
+  const text = (await db().get(`practicedoc/${rec.topicId}/${owner.id}`))?.text || rec.answers?.docText || "";
+  if (!text) return false;
   let review = null;
-  if (looksInjected(text)) review = { ...demoDocxReview(tasks, ""), scores: { formulas: 0, accuracy: 0, analysis: 0, case: 0, independence: 0 }, summary: "Fayl matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball.", estimated: false };
+  if (looksInjected(text)) review = { ...demoDocxReview(tasks, ""), scores: { formulas: 0, accuracy: 0, analysis: 0, case: 0, independence: 0 }, summary: "Fayl matnida baholovchiga ko'rsatma berishga urinish aniqlandi — 0 ball.", estimated: false, injected: true };
   else if (aiEnabled()) {
     // Bitta AI baholash (AI so'rovlarini tejash uchun)
     const one = async () => { for (let a = 0; a < 2; a++) { try { const r = parseReview(await completeText({ system: `Sen OTM o'qituvchisi va ${COURSE.domain} bo'yicha ekspertsan. Javobni faqat berilgan JSON sxemasiga mos holda qaytar.`, messages: [{ role: "user", content: docxPrompt(topic, tasks, text) + (a ? `\n\nMUHIM: FAQAT JSON obyekt qaytar. "scores" kalitlari: ${REVIEW_CRITERIA.map((c) => `${c.key} (0–${c.max})`).join(", ")}.` : "") }], maxTokens: 4000, effort: "low", format: { type: "json_schema", schema: REVIEW_SCHEMA } })); if (r) return r; } catch (e) { console.error("AI Word amaliy tekshiruv xatosi:", e); } } return null; };
@@ -3488,18 +3492,22 @@ async function reviewPendingQuestion(key, rec) {
   if (!question) return false;
   const { g, estimated } = await gradeQuestion(topic, question, rec.answer || "");
   if (estimated) return false; // AI javob bermadi — navbatda qoladi
-  Object.assign(rec, { score: g.score, best: Math.max(rec.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], ai: true, pending: false, reviewedAt: new Date().toISOString() });
+  Object.assign(rec, { score: g.score, best: rec.ai === false || rec.pending ? g.score : Math.max(rec.best ?? 0, g.score), feedback: g.feedback, missing: g.missing || [], ai: true, pending: false, reviewedAt: new Date().toISOString() });
+  delete rec.suggestOwnKey;
   await db().set(key, rec);
   return true;
 }
 
-const staleAi = (r) => !r.ai || r.ai.forSubmittedAt !== r.submittedAt;
+// Navbatga: AI tekshirmagan, eskirgan yoki avval «AI kaliti ulanmagan» rejimida taxminiy baholangan ishlar
+const staleAi = (r) => !r.ai || r.ai.forSubmittedAt !== r.submittedAt || Boolean(r.ai.estimated);
+const estimatedQ = (v) => v.ai === false && !v.pending && !v.late && (v.answer || "").trim().length >= 20; // taxminiy baholangan nazorat savoli javobi
+const estimatedP = (r) => !r.pending && (r.ai === false || r.review?.estimated) && !r.review?.injected; // taxminiy baholangan amaliy ish
 async function aiQueueItems() {
   const [qs, prs, asg, tsubs, tasks] = await Promise.all([getEntries("qgrade/"), getMany("practicereview/"), getMany("assign/"), getMany("tasksub/"), getMany("task/")]);
   const taskBy = new Map(tasks.map((t) => [t.id, t]));
   return {
-    questions: qs.filter(([, v]) => v.pending),
-    practice: prs.filter((r) => r.pending),
+    questions: qs.filter(([, v]) => v.pending || estimatedQ(v)),
+    practice: prs.filter((r) => r.pending || estimatedP(r)),
     assignment: asg.filter((r) => staleAi(r) && (r.text || "").trim().length >= 60),
     tasks: tsubs.filter((r) => taskBy.get(r.taskId)?.aiEnabled && staleAi(r) && taskLib.submissionText(r).trim().length >= 60).map((r) => ({ r, task: taskBy.get(r.taskId) })),
   };
@@ -3513,10 +3521,10 @@ async function adminAiQueue(req) {
     aiEnabled: aiEnabled(),
     counts: { questions: q.questions.length, practice: q.practice.length, assignment: q.assignment.length, tasks: q.tasks.length },
     sample: {
-      questions: q.questions.slice(0, 30).map(([k, v]) => ({ key: k, topicId: k.split("/")[2], at: v.at })),
-      practice: q.practice.slice(0, 30).map((r) => ({ name: name(r.user), group: r.user?.group, topicId: r.topicId, docx: Boolean(r.docx), at: r.createdAt })),
-      assignment: q.assignment.slice(0, 30).map((r) => ({ name: name(r.user), group: r.user?.group, no: r.no, at: r.submittedAt })),
-      tasks: q.tasks.slice(0, 30).map(({ r, task }) => ({ name: r.user?.name || "", task: task.title, at: r.submittedAt })),
+      questions: q.questions.slice(0, 30).map(([k, v]) => ({ key: k, topicId: k.split("/")[2], at: v.at, est: !v.pending })),
+      practice: q.practice.slice(0, 30).map((r) => ({ name: name(r.user), group: r.user?.group, topicId: r.topicId, docx: Boolean(r.docx), at: r.createdAt, est: !r.pending })),
+      assignment: q.assignment.slice(0, 30).map((r) => ({ name: name(r.user), group: r.user?.group, no: r.no, at: r.submittedAt, est: Boolean(r.ai?.estimated) })),
+      tasks: q.tasks.slice(0, 30).map(({ r, task }) => ({ name: r.user?.name || "", task: task.title, at: r.submittedAt, est: Boolean(r.ai?.estimated) })),
     },
   });
 }
